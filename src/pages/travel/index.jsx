@@ -197,7 +197,7 @@ function TravelPage() {
           </div>
         </div>
         <p className="font-serif text-justify text-lg  tracking-wider  ">
-          Here are some office and self built projects
+         Here we come.....  stopped duw to financial crisis :(
         </p>
       </div>
 

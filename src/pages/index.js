@@ -3,7 +3,7 @@ import Intro from "@/components/Home/Intro";
 import Banner from "@/components/Home/Banner";
 import Navbar from "@/components/base/Navbar";
 import MainPage from "@/components/Home/MainPage";
-import Layout from "@/components/base/layout";
+// import Layout from "@/components/base/layout";
 
 export default function Home() {
   return (
