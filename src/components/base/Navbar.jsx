@@ -5,10 +5,10 @@ import { SiWakatime } from "react-icons/si";
 function Navbar() {
   return (
     <>
-      <div className=" h-[40px] flex items-center px-10 bg-gray-600  ">
+      <div className=" h-[40px] flex items-center px-10 bg-gray-900  ">
         <div className="flex justify-between gap-24 w-full items-center">
           {/* logo */}
-          <h3 className="text-3xl text-white font-serif">Ashutosh</h3>
+          <h3 className="text-3xl text-white font-serif">Namaste :)</h3>
           {/* routes */}
           {/* <div className="flex gap-8">
             <a href="" className="text-xl ">
