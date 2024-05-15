@@ -1,0 +1,73 @@
+import { HighLightedSpan } from "@/components/base/HighlightedSpan";
+import Image from "next/image";
+import { useParams } from "next/navigation";
+import React from "react";
+
+function PlaceDetails() {
+  const params = useParams();
+  console.log("params", params);
+  const { place } = params;
+  const placeName = place.split("-")[place.split("-").length - 1];
+  const path = "/images/travelpfp/" + placeName + ".jpeg";
+
+  return (
+    <div>
+      <div className="grid md:grid-cols-2  mx-auto grid-cols-1 m-auto justify-between  ">
+        <div className="flex flex-col gap-2">
+          <h1 className="font-semibold "> The story when, </h1>
+          <h1 className="text-5xl font-extrabold text-center md:text-left font-serif mb-4 md:mb-0">
+            Ashutosh visited {placeName.toUpperCase()}
+          </h1>
+          {/* <div className="ml-auto  ">
+            <span className="font-thin"> at Codemonk</span>
+          </div> */}
+
+          <p className="font-serif  text-justify text-lg mt-10 tracking-wider mb-4 hidden lg:grid">
+            My traveling journey began in 2013 when I started my diploma in
+            Shravasti, UP, near the India-Nepal border. Later, I moved to Noida
+            for my graduation, close to the Delhi border. Currently, I'm on my
+            professional journey in Bangalore, known as the southern hub. Though
+            there are many places left on my list to visit, I've already
+            explored several destinations. Let's connect and plan a trip
+            together!
+          </p>
+        </div>
+
+        <div className="flex flex-col gap-4 items-center justify-center">
+          <Image
+            className="hover:shadow-lg  border-4 border-gray-600 rounded-lg ml-auto ease-in-out duration-100  cursor-pointer"
+            width={"400"}
+            height="400"
+            src={path}
+          />
+        </div>
+
+        <p className="font-serif text-justify text-lg mt-10 tracking-wider mb-4 lg:hidden grid">
+          My traveling journey began in 2013 when I started my diploma in
+          Shravasti, UP, near the India-Nepal border. Later, I moved to Noida
+          for my graduation, close to the Delhi border. Currently, I'm on my
+          professional journey in Bangalore, known as the southern hub. Though
+          there are many places left on my list to visit, I've already explored
+          several destinations. Let's connect and plan a trip together!
+        </p>
+      </div>
+
+      <div className="flex-end flex justify-start items-center mx-auto py-4">
+        <h1 className=" text-4xl  font-extrabold text-gray-600 flex items-center gap-4  ">
+          The Story of{" "}
+          <HighLightedSpan>{placeName.toUpperCase()}</HighLightedSpan>
+        </h1>
+      </div>
+
+
+      <div className="flex-end flex justify-start items-center mx-auto py-4">
+        <h1 className=" text-4xl  font-extrabold text-gray-600 flex items-center gap-4  ">
+         Lets visit the
+          <HighLightedSpan>Gallery</HighLightedSpan>
+        </h1>
+      </div>
+    </div>
+  );
+}
+
+export default PlaceDetails;

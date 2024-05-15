@@ -103,14 +103,7 @@ function TechPage() {
             endeavors. I've had the opportunity to work with multiple startups,
             and currently, I'm employed at Codemonk.
           </p>
-          <div className="flex gap-2">
-            <Button>
-              <IoMdDownload /> View Resume
-            </Button>
-            <Button>
-              <GrFormSchedule /> Schedule an Interview
-            </Button>
-          </div>
+         
         </div>
 
         <div className="flex flex-col gap-4 items-center justify-center">
@@ -133,6 +126,15 @@ function TechPage() {
           development work for your website, feel free to contact me.
         </p>
       </div>
+
+      <div className="flex gap-2 flex-wrap justify-center md:justify-start">
+            <Button>
+              <IoMdDownload /> View Resume
+            </Button>
+            <Button>
+              <GrFormSchedule /> Schedule an Interview
+            </Button>
+          </div>
 
       {/* ------------------------------------------k */}
       <div className="text-left mt-10">
