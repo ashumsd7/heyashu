@@ -190,11 +190,11 @@ function TechPage() {
             </h2>
 
             <div className="flex">
-              <Link href={"/tech/projects"} className="flex gap-2 items-center">
+              {/* <Link href={"/tech/projects"} className="flex gap-2 items-center">
                 {" "}
                 view all projects{" "}
                 <FaLongArrowAltRight className="text-xl hover:scale-105" />
-              </Link>
+              </Link> */}
             </div>
           </div>
           <p className="font-serif text-justify text-lg  tracking-wider  ">
@@ -218,11 +218,11 @@ function TechPage() {
             </h2>
 
             <div className="flex">
-              <Link href={"/tech/blogs"} className="flex gap-2 items-center">
+              {/* <Link href={"/tech/blogs"} className="flex gap-2 items-center">
                 {" "}
                 read all blogs{" "}
                 <FaLongArrowAltRight className="text-xl hover:scale-105" />
-              </Link>
+              </Link> */}
             </div>
           </div>
           <p className="font-serif text-justify text-lg  tracking-wider  md:w-2/3 w-full">
