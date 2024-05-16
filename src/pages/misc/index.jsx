@@ -14,14 +14,14 @@ function MiscPage() {
   return (
     <div>
       <Head>
-        <title>More Info: Ashutosh Anand Tiwari </title>
+        <title>Beyond Your Imagination : Ashutosh Anand Tiwari </title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon_misc.ico" />
         <meta
           name="description"
-          content="Let's Explore more about Ashutosh Anand Tiwari"
+          content="Let's Explore more versions of  Ashutosh Anand Tiwari, He says,  I am not only limited to tech and travel; there are multiple activities I engage in and contribute to in my village and elsewhere. Here are some of them:  "
         />
       </Head>
 

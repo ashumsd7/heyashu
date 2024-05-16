@@ -16,7 +16,7 @@ function TownPage() {
         <link rel="icon" href="/favicon.ico" />
         <meta
           name="description"
-          content="Ashutosh Anand Tiwari lives in Charawan Ayodhya UP"
+          content="Meet Ashutosh Anand Tiwari who lives in Charawan Ayodhya UP, Explore more about him"
         />
       </Head>
       <div className="flex flex-col">

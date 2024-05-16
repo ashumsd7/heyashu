@@ -17,8 +17,8 @@ function TravelPage() {
         <title>Traveler : Ashutosh Anand Tiwari </title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-       
-        <link rel="icon" href="/favicon.ico" />
+
+        <link rel="icon" href="/favicon_travel.ico" />
         <meta
           name="description"
           content="My name is Ashutosh Anand Tiwari.  My traveling journey began in 2013 when I started my diploma in
@@ -38,7 +38,6 @@ function TravelPage() {
             <h1 className="text-5xl font-extrabold text-center text-orange-600 md:text-left font-serif mb-4 md:mb-0">
               Ashutosh the Traveler
             </h1>
-          
 
             <p className="font-serif  text-justify text-lg mt-10 tracking-wider mb-4 hidden lg:grid">
               My traveling journey began in 2013 when I started my diploma in
@@ -170,7 +169,3 @@ function TravelPage() {
 }
 
 export default TravelPage;
-
-
-
-

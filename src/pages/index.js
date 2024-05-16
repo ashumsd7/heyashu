@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Home Page: Ashutosh Anand Tiwari </title>
+        <title> Ashutosh Anand Tiwari </title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 

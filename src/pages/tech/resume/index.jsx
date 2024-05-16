@@ -7,6 +7,7 @@ import Button from "@/components/base/Button";
 import { GrFormSchedule } from "react-icons/gr";
 import Image from "next/image";
 import { INTERVIEW_CALL_SIXTY_MIN } from "@/utils/constant";
+import Head from "next/head";
 
 function Resume() {
   function onClickDirectDownload() {
@@ -30,6 +31,17 @@ function Resume() {
   }
   return (
     <>
+     <Head>
+        <title>Resume : Ashutosh Anand Tiwari </title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="icon" href="/favicon_resume.ico" />
+        <meta
+          name="description"
+          content="Download Resume of Ashutosh anand tiwari, He has more than 4 years of exp. in web development."
+        />
+      </Head>
       <div className="md:mt-20 mt-2 w-full flex flex-col gap-6 relative ">
         <div className="grid md:grid-cols-2  mx-auto grid-cols-1 m-auto justify-between  ">
           <div className="flex flex-col gap-2">
