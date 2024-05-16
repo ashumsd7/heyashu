@@ -61,7 +61,7 @@ function MainPage() {
         <Category icon={<FaHome />} text="Town" />
         </Link>
         <Link href="/misc">
-        <Category icon={<TbCurlyLoop className="" />} text="..." />
+        <Category icon={<TbCurlyLoop className="" />} text="more" />
         </Link>
       </div>
 

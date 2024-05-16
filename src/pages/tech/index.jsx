@@ -1,16 +1,14 @@
 import Image from "next/image";
 import React from "react";
 // import ProfilePicture from "./ProfilePicture";
-import { FaLaptop, FaUmbrellaBeach, FaHome, FaQuestion } from "react-icons/fa";
-import { TbCurlyLoop } from "react-icons/tb";
+import { FaUmbrellaBeach, FaHome } from "react-icons/fa";
+
 import Link from "next/link";
 import { FaHtml5 } from "react-icons/fa";
 import { FaCss3Alt, FaReact } from "react-icons/fa";
 import { IoLogoJavascript } from "react-icons/io";
-import { RiTailwindCssFill } from "react-icons/ri";
 import { SiTypescript } from "react-icons/si";
 import { SiRedux } from "react-icons/si";
-import { RiNextjsLine } from "react-icons/ri";
 import { FaVuejs } from "react-icons/fa6";
 import ProjectCard from "@/components/tech/ProjectCard";
 import { FaLongArrowAltRight } from "react-icons/fa";
@@ -129,9 +127,11 @@ function TechPage() {
       </div>
 
       <div className="flex gap-2 flex-wrap justify-center md:justify-start">
-        <Button>
-          <IoMdDownload /> View Resume
-        </Button>
+        <Link href="/tech/resume">
+          <Button>
+            <IoMdDownload /> View Resume
+          </Button>
+        </Link>
         <Button
           onClick={() => {
             window.open(INTERVIEW_CALL_SIXTY_MIN, "_blank");
@@ -164,7 +164,7 @@ function TechPage() {
           <div className="flex">
             <Link href={"/tech/projects"} className="flex gap-2 items-center">
               {" "}
-              View all projects{" "}
+              view all projects{" "}
               <FaLongArrowAltRight className="text-xl hover:scale-105" />
             </Link>
           </div>
@@ -192,7 +192,7 @@ function TechPage() {
           <div className="flex">
             <Link href={"/tech/blogs"} className="flex gap-2 items-center">
               {" "}
-              View all blogs{" "}
+              read all blogs{" "}
               <FaLongArrowAltRight className="text-xl hover:scale-105" />
             </Link>
           </div>

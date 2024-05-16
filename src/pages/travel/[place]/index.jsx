@@ -1,7 +1,7 @@
 import ComingSoon from "@/components/base/CommingSoon";
 import { HighLightedSpan } from "@/components/base/HighlightedSpan";
 import Image from "next/image";
-import { useParams } from "next/navigation";
+import { FaLongArrowAltRight } from "react-icons/fa";
 import React from "react";
 import { traveledPlaces } from "@/utils/data";
 function PlaceDetails(props) {
@@ -15,13 +15,13 @@ function PlaceDetails(props) {
         <div className="flex flex-col gap-2">
           <h1 className="font-semibold "> The story when, </h1>
           <h1 className="text-5xl font-extrabold text-center md:text-left font-serif mb-4 md:mb-0">
-            Ashutosh visited {placeName.toUpperCase()}
+            <span className="text-gray-600 ">  Ashutosh visited </span>{placeName.toUpperCase()}
           </h1>
           {/* <div className="ml-auto  ">
             <span className="font-thin"> at Codemonk</span>
           </div> */}
 
-          <p className="font-serif  text-justify text-lg mt-10 tracking-wider mb-4 hidden lg:grid">
+          <p className="font-serif  text-justify text-lg mt-6 tracking-wider mb-4 hidden lg:grid">
             My traveling journey began in 2013 when I started my diploma in
             Shravasti, UP, near the India-Nepal border. Later, I moved to Noida
             for my graduation, close to the Delhi border. Currently, I'm on my
@@ -32,11 +32,11 @@ function PlaceDetails(props) {
           </p>
         </div>
 
-        <div className="flex flex-col gap-4 items-center justify-center m-auto md:m-0">
+        <div className="flex flex-col gap-4 items-center justify-center m-auto md:m-0 relative overflow-hidden ">
           <Image
-            className="hover:shadow-lg  border-4 border-gray-600 rounded-lg ml-auto ease-in-out duration-100  cursor-pointer"
+            className="hover:shadow-lg h-auto border-4 border-gray-400 rounded-lg ml-auto ease-in-out duration-100  cursor-pointer"
             width={"400"}
-            height="400"
+            height="500"
             src={path}
           />
         </div>
@@ -75,10 +75,18 @@ function PlaceDetails(props) {
         <div className="flex-end flex justify-start items-center mx-auto py-4">
           <h1 className=" text-4xl  font-extrabold text-gray-600 flex items-center gap-4  ">
             Planning?
-            <HighLightedSpan>Ask Something?</HighLightedSpan>
           </h1>
         </div>
-        <ComingSoon />
+        <div
+          className="flex text-gray-800 font-serif cursor-pointer"
+          onClick={() => {
+            window.open(PHONE_CALL_THIRTY_MIN, "_blank");
+          }}
+        >
+          {" "}
+          Click to Connect !! if you have any questions?
+          <FaLongArrowAltRight className="text-xl hover:scale-105" />
+        </div>
       </div>
     </div>
   );

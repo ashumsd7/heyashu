@@ -1,5 +1,6 @@
 import Button from "@/components/base/Button";
 import { HighLightedSpan } from "@/components/base/HighlightedSpan";
+import { PHONE_CALL_THIRTY_MIN } from "@/utils/constant";
 import { pendingTravelPlaces } from "@/utils/data";
 import Image from "next/image";
 import React from "react";
@@ -62,7 +63,7 @@ function PlaceDetails(props) {
         <div className="flex-end flex flex-wrap justify-center items-center mx-auto py-4 md:mt-10 mt-5">
           <h1 className=" md:text-4xl text-2xl  font-extrabold text-gray-600 flex flex-wrap items-center gap-4  ">
             BTW, <HighLightedSpan>{placeName.toUpperCase()}</HighLightedSpan>{" "}
-            abhi dooooor hai :(
+            ab jyada door nahin :(
           </h1>
         </div>
       </div>

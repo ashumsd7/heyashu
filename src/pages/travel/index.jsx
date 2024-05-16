@@ -1,13 +1,7 @@
 import Image from "next/image";
 import React from "react";
-// import ProfilePicture from "./ProfilePicture";
-import { FaLaptop, FaUmbrellaBeach } from "react-icons/fa";
-
-import Link from "next/link";
-
+import { FaUmbrellaBeach } from "react-icons/fa";
 import { FaLongArrowAltRight } from "react-icons/fa";
-import BlogCard from "@/components/tech/BlogCard";
-
 import { GrFormSchedule } from "react-icons/gr";
 import Button from "@/components/base/Button";
 import TripCard from "@/components/travel/DoneTripCard";
@@ -81,12 +75,15 @@ function TravelPage() {
             <HighLightedSpan> </HighLightedSpan> &nbsp; Places I visited
           </h2>
 
-          <div className="flex">
-            <Link href={"/tech/projects"} className="flex gap-2 items-center">
-              {" "}
-              Ask something{" "}
-              <FaLongArrowAltRight className="text-xl hover:scale-105" />
-            </Link>
+          <div
+            className="flex"
+            onClick={() => {
+              window.open(PHONE_CALL_THIRTY_MIN, "_blank");
+            }}
+          >
+            {" "}
+            Ask something{" "}
+            <FaLongArrowAltRight className="text-xl hover:scale-105" />
           </div>
         </div>
       </div>
@@ -112,10 +109,8 @@ function TravelPage() {
               window.open(PHONE_CALL_THIRTY_MIN, "_blank");
             }}
           >
-            {/* <Link href={"/tech/projects"} className="flex gap-2 items-center"> */}{" "}
             Suggest a trip{" "}
             <FaLongArrowAltRight className="text-xl hover:scale-105" />
-            {/* </Link> */}
           </div>
         </div>
         <p className="font-serif text-justify text-lg  tracking-wider  ">

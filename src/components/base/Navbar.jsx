@@ -35,7 +35,7 @@ function Navbar() {
               className="text-xl  font-extrabold font-mono mr-5"
             >
               {" "}
-              /misc{" "}
+              /more{" "}
             </Link>
           </div>
 

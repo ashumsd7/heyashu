@@ -18,8 +18,9 @@ function ProfilePicture() {
 
   
   return (
-    <Image src={currPath} onMouseEnter={onEnter} onMouseLeave={onLeave} className="hover:shadow-lg  border-4 border-gray-600 rounded-lg ml-auto ease-in-out duration-100  cursor-pointer" width={'400'} height='400'/>
+    <Image src={currPath} onMouseEnter={onEnter} onMouseLeave={onLeave} className="hover:shadow-lg   rounded-lg ml-auto ease-in-out duration-100  cursor-pointer" width={'400'} height='400'/>
   )
 }
 
 export default ProfilePicture
+// border-4 border-gray-600
