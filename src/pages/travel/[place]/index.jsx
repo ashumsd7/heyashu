@@ -5,6 +5,7 @@ import { FaLongArrowAltRight } from "react-icons/fa";
 import React from "react";
 import { traveledPlaces } from "@/utils/data";
 import { PHONE_CALL_THIRTY_MIN } from "@/utils/constant";
+import Head from "next/head";
 
 function PlaceDetails(props) {
   if (!props.place) return "Loading..";
