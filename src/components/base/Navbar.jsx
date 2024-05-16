@@ -38,7 +38,7 @@ function Navbar() {
                 goBack()
               }}>
                 <IoArrowBackSharp />
-                go back
+                 back
               </div>
             )}
           </div>
