@@ -2,11 +2,18 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-function TripCard({idx, name, img}) {
+function TripCard({ idx, name, img, data }) {
+  function getRoute() {
+    if (!data.isTraveled)
+      return (
+        "/travel/pending/ashutosh-anand-tiwari-will-travel-" + name.toLowerCase()
+      );
+    return "/travel/ashutosh-anand-tiwari-travels-" + name.toLowerCase();
+  }
   return (
     <>
       {idx % 2 == 0 ? (
-        <Link href={'/travel/ashutosh-anad-tiwari-travels-'+name.toLowerCase()}>
+        <Link href={getRoute()}>
           <div className="flex gap-2 flex-wrap w-full  border rounded-md justify-start shadow-md bg-white cursor-pointer hover:shadow-2xl">
             <Image
               className="md:mx-0 mx-auto h-[220px] object-fill "
@@ -16,13 +23,13 @@ function TripCard({idx, name, img}) {
             />
             <div className="flex-end flex justify-center items-center mx-auto py-4">
               <h1 className="lg:text-9xl md:text-6xl text-4xl  font-extrabold text-gray-600  ">
-               {name}
+                {name}
               </h1>
             </div>
           </div>
         </Link>
       ) : (
-        <Link href={'/travel/ashutosh-anad-tiwari-travels-'+name.toLowerCase()}>
+        <Link href={getRoute()}>
           {" "}
           <div className="flex gap-2 flex-wrap w-full  border rounded-md justify-start shadow-md bg-white  cursor-pointer hover:shadow-2xl">
             <div className="flex justify-center items-center mx-auto py-4">

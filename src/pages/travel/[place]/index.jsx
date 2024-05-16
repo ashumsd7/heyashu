@@ -1,17 +1,16 @@
+import ComingSoon from "@/components/base/CommingSoon";
 import { HighLightedSpan } from "@/components/base/HighlightedSpan";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import React from "react";
-
-function PlaceDetails() {
-  const params = useParams();
-  console.log("params", params);
-  const { place } = params;
-  const placeName = place.split("-")[place.split("-").length - 1];
+import { traveledPlaces } from "@/utils/data";
+function PlaceDetails(props) {
+  if (!props.place) return "Loading..";
+  const placeName = props.place.split("-")[props.place.split("-").length - 1];
   const path = "/images/travelpfp/" + placeName + ".jpeg";
 
   return (
-    <div>
+    <div className="flex flex-col gap-4">
       <div className="grid md:grid-cols-2  mx-auto grid-cols-1 m-auto justify-between  ">
         <div className="flex flex-col gap-2">
           <h1 className="font-semibold "> The story when, </h1>
@@ -52,22 +51,68 @@ function PlaceDetails() {
         </p>
       </div>
 
-      <div className="flex-end flex justify-start items-center mx-auto py-4">
-        <h1 className=" text-4xl  font-extrabold text-gray-600 flex items-center gap-4  ">
-          The Story of{" "}
-          <HighLightedSpan>{placeName.toUpperCase()}</HighLightedSpan>
-        </h1>
+      <div>
+        <div className="flex-end flex justify-start items-center mx-auto py-4">
+          <h1 className=" text-4xl  font-extrabold text-gray-600 flex items-center gap-4  ">
+            The Story of{" "}
+            <HighLightedSpan>{placeName.toUpperCase()}</HighLightedSpan>
+          </h1>
+        </div>
+        <ComingSoon />
       </div>
 
+      <div>
+        <div className="flex-end flex justify-start items-center mx-auto py-4">
+          <h1 className=" text-4xl  font-extrabold text-gray-600 flex items-center gap-4  ">
+            Lets visit the
+            <HighLightedSpan>Gallery</HighLightedSpan>
+          </h1>
+        </div>
+        <ComingSoon />
+      </div>
 
-      <div className="flex-end flex justify-start items-center mx-auto py-4">
-        <h1 className=" text-4xl  font-extrabold text-gray-600 flex items-center gap-4  ">
-         Lets visit the
-          <HighLightedSpan>Gallery</HighLightedSpan>
-        </h1>
+      <div>
+        <div className="flex-end flex justify-start items-center mx-auto py-4">
+          <h1 className=" text-4xl  font-extrabold text-gray-600 flex items-center gap-4  ">
+            Planning?
+            <HighLightedSpan>Ask Something?</HighLightedSpan>
+          </h1>
+        </div>
+        <ComingSoon />
       </div>
     </div>
   );
 }
 
 export default PlaceDetails;
+
+export async function getStaticProps(context) {
+  const { params } = context;
+  const { place } = params;
+
+  return {
+    props: {
+      place: place,
+    },
+    // reValidate: 10, //10 Seconds
+    // redirect: {
+    //   destination: "/",
+    // },
+    // notFound: true, // can do if no data is there
+  };
+}
+
+export async function getStaticPaths() {
+  const allPaths = traveledPlaces?.map((place) => {
+    return {
+      params: {
+        place: `/travel/ashutosh-anand-tiwari-travels-${place?.name.toLowerCase()}`,
+      },
+    };
+  });
+
+  return {
+    paths: allPaths,
+    fallback: true,
+  };
+}
