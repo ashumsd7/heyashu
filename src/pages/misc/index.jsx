@@ -1,4 +1,5 @@
 import ComingSoon from "@/components/base/CommingSoon";
+import Head from "next/head";
 import React from "react";
 
 function MiscPage() {
