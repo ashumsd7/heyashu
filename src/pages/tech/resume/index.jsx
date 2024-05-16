@@ -6,6 +6,7 @@ import { LuExternalLink } from "react-icons/lu";
 import Button from "@/components/base/Button";
 import { GrFormSchedule } from "react-icons/gr";
 import Image from "next/image";
+import { INTERVIEW_CALL_SIXTY_MIN } from "@/utils/constant";
 
 function Resume() {
   function onClickDirectDownload() {

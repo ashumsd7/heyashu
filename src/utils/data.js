@@ -91,11 +91,11 @@ export const pendingTravelPlaces = [
     img: "/images/travelpfp/dwarka.jpeg",
     isTraveled:false
   },
-  {
-    name: "LEH",
-    img: "/images/travelpfp/leh.jpeg",
-    isTraveled:false
-  },
+  // {
+  //   name: "LEH",
+  //   img: "/images/travelpfp/leh.jpeg",
+  //   isTraveled:false
+  // },
   {
     name: "SIKKIM",
     img: "/images/travelpfp/sikkim.png",

@@ -76,18 +76,18 @@ function TravelPage() {
           </h2>
 
           <div
-            className="flex"
+            className="flex cursor-pointer"
             onClick={() => {
               window.open(PHONE_CALL_THIRTY_MIN, "_blank");
             }}
           >
             {" "}
-            Ask something{" "}
+            ask something{" "}
             <FaLongArrowAltRight className="text-xl hover:scale-105" />
           </div>
         </div>
       </div>
-      <div className="grid   grid-cols-1 gap-10">
+      <div className="grid   grid-cols-1 gap-14">
         {traveledPlaces.map((item, idx) => {
           return (
             <TripCard idx={idx} name={item.name} img={item?.img} data={item} />
@@ -97,19 +97,19 @@ function TravelPage() {
 
       {/* ------------------------------------------ */}
 
-      <div className="text-left mt-12 ">
+      <div className="text-left mt-24 ">
         <div className="flex justify-between flex-wrap">
           <h2 className="text-2xl font-serif  font-extrabold ">
             <HighLightedSpan> </HighLightedSpan> &nbsp; Next Planned trip
           </h2>
 
           <div
-            className="flex"
+          className="flex cursor-pointer"
             onClick={() => {
               window.open(PHONE_CALL_THIRTY_MIN, "_blank");
             }}
           >
-            Suggest a trip{" "}
+            suggest a trip{" "}
             <FaLongArrowAltRight className="text-xl hover:scale-105" />
           </div>
         </div>
