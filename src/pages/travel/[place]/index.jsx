@@ -4,18 +4,22 @@ import Image from "next/image";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import React from "react";
 import { traveledPlaces } from "@/utils/data";
+import { PHONE_CALL_THIRTY_MIN } from "@/utils/constant";
+
 function PlaceDetails(props) {
   if (!props.place) return "Loading..";
   const placeName = props.place.split("-")[props.place.split("-").length - 1];
   const path = "/images/travelpfp/" + placeName + ".jpeg";
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4 ">
+  
       <div className="grid md:grid-cols-2  mx-auto grid-cols-1 m-auto justify-between  ">
         <div className="flex flex-col gap-2">
-          <h1 className="font-semibold "> The story when, </h1>
-          <h1 className="text-5xl font-extrabold text-center md:text-left font-serif mb-4 md:mb-0">
-            <span className="text-gray-600 ">  Ashutosh visited </span>{placeName.toUpperCase()}
+          <h1 className="font-semibold text-orange-600 "> The story when, </h1>
+          <h1 className="text-5xl font-extrabold text-center md:text-left leading-2 font-serif mb-4 md:mb-0">
+            <span className="text-gray-600 "> Ashutosh visited </span>
+            {placeName.toUpperCase()}
           </h1>
           {/* <div className="ml-auto  ">
             <span className="font-thin"> at Codemonk</span>
@@ -30,8 +34,6 @@ function PlaceDetails(props) {
             explored several destinations. Let's connect and plan a trip
             together!
           </p>
-
-        
         </div>
 
         <div className="flex flex-col gap-4 items-center justify-center m-auto md:m-0 relative overflow-hidden ">
@@ -90,8 +92,10 @@ function PlaceDetails(props) {
           <FaLongArrowAltRight className="text-xl hover:scale-105" />
         </div>
       </div>
-      <hr/>
-      <small className="text-red-700 font-medium underline my-3">NOTE: {placeName.toUpperCase()} specific details updating soon..</small>
+      <hr />
+      <small className="text-red-700 font-medium underline my-3">
+        NOTE: {placeName.toUpperCase()} specific details updating soon..
+      </small>
     </div>
   );
 }

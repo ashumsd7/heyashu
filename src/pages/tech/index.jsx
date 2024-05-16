@@ -86,9 +86,9 @@ function TechPage() {
     <div className="md:mt-20 mt-2 w-full flex flex-col gap-6 relative ">
       <div className="grid md:grid-cols-2  mx-auto grid-cols-1 m-auto justify-between  ">
         <div className="flex flex-col gap-2">
-          <h1 className="font-semibold "> Ashutosh as </h1>
+          <h1 className="font-semibold text-orange-600 "> Meet, </h1>
           <h1 className="text-5xl font-extrabold text-center md:text-left font-serif mb-4 md:mb-0">
-            Frontend Developer
+          Ashutosh the Developer
           </h1>
           {/* <div className="ml-auto  ">
             <span className="font-thin"> at Codemonk</span>
@@ -113,7 +113,7 @@ function TechPage() {
             height="400"
           />
           <Image
-              className="absolute z-[-20] top-[-100px] left-[80px] opacity-30"
+              className="absolute z-[-20] top-[-100px] left-[80px] opacity-30 hidden md:flex"
             src="/images/tech-illustration.png"
             width={"200"}
             height={"200"}
