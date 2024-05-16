@@ -18,6 +18,8 @@ import BlogCard from "@/components/tech/BlogCard";
 import { IoMdDownload } from "react-icons/io";
 import { GrFormSchedule } from "react-icons/gr";
 import Button from "@/components/base/Button";
+import { INTERVIEW_CALL_SIXTY_MIN } from "@/utils/constant";
+import ComingSoon from "@/components/base/CommingSoon";
 
 function TechPage() {
   const technologies = [
@@ -130,7 +132,11 @@ function TechPage() {
         <Button>
           <IoMdDownload /> View Resume
         </Button>
-        <Button>
+        <Button
+          onClick={() => {
+            window.open(INTERVIEW_CALL_SIXTY_MIN, "_blank");
+          }}
+        >
           <GrFormSchedule /> Schedule an Interview
         </Button>
       </div>
@@ -169,9 +175,10 @@ function TechPage() {
       </div>
 
       <div className="grid  lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">
-        {[1, 2, 3].map((item) => {
+        {/* {[1, 2, 3].map((item) => {
           return <ProjectCard />;
-        })}
+        })} */}
+        <ComingSoon />
       </div>
 
       {/* ------------------------------ */}
@@ -183,7 +190,7 @@ function TechPage() {
           </h2>
 
           <div className="flex">
-            <Link href={"/tech/projects"} className="flex gap-2 items-center">
+            <Link href={"/tech/blogs"} className="flex gap-2 items-center">
               {" "}
               View all blogs{" "}
               <FaLongArrowAltRight className="text-xl hover:scale-105" />
@@ -200,9 +207,10 @@ function TechPage() {
       </div>
 
       <div className="grid  lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">
-        {[1, 2, 3].map((item) => {
+        {/* {[1, 2, 3].map((item) => {
           return <BlogCard />;
-        })}
+        })} */}
+        <ComingSoon />
       </div>
 
       <Image

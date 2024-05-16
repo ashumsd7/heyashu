@@ -12,6 +12,7 @@ import { GrFormSchedule } from "react-icons/gr";
 import Button from "@/components/base/Button";
 import TripCard from "@/components/travel/DoneTripCard";
 import { pendingTravelPlaces, traveledPlaces } from "@/utils/data";
+import { PHONE_CALL_THIRTY_MIN } from "@/utils/constant";
 
 function TravelPage() {
   return (
@@ -63,7 +64,11 @@ function TravelPage() {
       </div>
 
       <div className="flex gap-2 flex-wrap justify-center md:justify-start">
-        <Button>
+        <Button
+          onClick={() => {
+            window.open(PHONE_CALL_THIRTY_MIN, "_blank");
+          }}
+        >
           <GrFormSchedule />
           Plan a trip with me
         </Button>
@@ -101,12 +106,16 @@ function TravelPage() {
             <HighLightedSpan> </HighLightedSpan> &nbsp; Next Planned trip
           </h2>
 
-          <div className="flex">
-            <Link href={"/tech/projects"} className="flex gap-2 items-center">
-              {" "}
-              Suggest a trip{" "}
-              <FaLongArrowAltRight className="text-xl hover:scale-105" />
-            </Link>
+          <div
+            className="flex"
+            onClick={() => {
+              window.open(PHONE_CALL_THIRTY_MIN, "_blank");
+            }}
+          >
+            {/* <Link href={"/tech/projects"} className="flex gap-2 items-center"> */}{" "}
+            Suggest a trip{" "}
+            <FaLongArrowAltRight className="text-xl hover:scale-105" />
+            {/* </Link> */}
           </div>
         </div>
         <p className="font-serif text-justify text-lg  tracking-wider  ">

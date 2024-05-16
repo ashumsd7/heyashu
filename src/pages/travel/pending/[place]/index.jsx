@@ -40,7 +40,11 @@ function PlaceDetails(props) {
         </div>
 
         <div className="flex gap-2 flex-wrap justify-center md:justify-start mt-4">
-          <Button>
+          <Button
+            onClick={() => {
+              window.open(PHONE_CALL_THIRTY_MIN, "_blank");
+            }}
+          >
             <GrFormSchedule />
             Plan {placeName.toUpperCase()} trip with me
           </Button>
