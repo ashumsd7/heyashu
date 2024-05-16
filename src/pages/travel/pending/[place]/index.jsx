@@ -30,7 +30,7 @@ function PlaceDetails(props) {
           </p>
         </div>
 
-        <div className="flex flex-col gap-4 items-center justify-center">
+        <div className="flex flex-col gap-4 items-center justify-center m-auto md:m-0">
           <Image
             className="hover:shadow-lg  border-4 border-gray-600 rounded-lg ml-auto ease-in-out duration-100  cursor-pointer"
             width={"400"}

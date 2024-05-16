@@ -28,8 +28,11 @@ function MainPage() {
             connect and share our experiences!
           </p>
         </div>
+        <div className="m-auto md:m-0">
+
 
         <ProfilePicture />
+        </div>
 
         <p className="font-serif text-justify text-lg mt-10 tracking-wider mb-4 lg:hidden grid">
           <HighLightedSpan> A Software Engineer</HighLightedSpan> from the holy

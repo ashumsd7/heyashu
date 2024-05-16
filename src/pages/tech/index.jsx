@@ -103,10 +103,9 @@ function TechPage() {
             endeavors. I've had the opportunity to work with multiple startups,
             and currently, I'm employed at Codemonk.
           </p>
-         
         </div>
 
-        <div className="flex flex-col gap-4 items-center justify-center">
+        <div className="flex flex-col gap-4 items-center justify-center m-auto md:m-0">
           <Image
             src="/images/ashu_office.png"
             className="hover:shadow-lg  border-4 border-gray-600 rounded-lg ml-auto ease-in-out duration-100  cursor-pointer"
@@ -128,13 +127,13 @@ function TechPage() {
       </div>
 
       <div className="flex gap-2 flex-wrap justify-center md:justify-start">
-            <Button>
-              <IoMdDownload /> View Resume
-            </Button>
-            <Button>
-              <GrFormSchedule /> Schedule an Interview
-            </Button>
-          </div>
+        <Button>
+          <IoMdDownload /> View Resume
+        </Button>
+        <Button>
+          <GrFormSchedule /> Schedule an Interview
+        </Button>
+      </div>
 
       {/* ------------------------------------------k */}
       <div className="text-left mt-10">

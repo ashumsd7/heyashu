@@ -7,16 +7,19 @@ import { FaHome } from "react-icons/fa";
 function Navbar() {
   return (
     <>
-      <div className=" h-[8px] flex items-center bg-[#166534] mb-12  ">
+      <div className=" h-[8px] flex items-center bg-[#166534] md:mb-12 mb-20 ">
         <div className="flex justify-between gap-24 w-full items-center">
           {/* logo */}
           {/* <h3 className="text-3xl text-white font-serif">Namaste :)</h3> */}
           {/* routes */}
           <div></div>
           <div className="flex gap-8 mt-10">
-            <Link href="/" className="text-xl font-extrabold flex items-center font-mono ">
+            <Link
+              href="/"
+              className="text-xl font-extrabold flex items-center font-mono "
+            >
               {" "}
-             <FaHome/>{" "}
+              <FaHome />{" "}
             </Link>
 
             <Link href="/tech" className="text-xl font-extrabold font-mono ">

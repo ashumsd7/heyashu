@@ -37,7 +37,7 @@ function TravelPage() {
           </p>
         </div>
 
-        <div className="flex flex-col gap-4 items-center justify-center relative">
+        <div className="flex flex-col gap-4 items-center justify-center relative m-auto md:m-0">
           <Image
             src="/images/ashu_travel.jpeg"
             className="hover:shadow-lg  border-4 border-gray-600 rounded-lg ml-auto ease-in-out duration-100  cursor-pointer"
