@@ -1,8 +1,5 @@
 import Link from "next/link";
-import React, { act, useEffect, useState } from "react";
-import { AiFillGithub, AiOutlineTwitter, AiFillLinkedin } from "react-icons/ai";
-import { FaQuora } from "react-icons/fa";
-import { SiWakatime } from "react-icons/si";
+import React, {  useEffect, useState } from "react";
 import { IoArrowBackSharp } from "react-icons/io5";
 import { FaHome } from "react-icons/fa";
 import { useRouter } from "next/router";
@@ -23,22 +20,23 @@ function Navbar() {
     return () => {};
   }, [router]);
 
-
   const goBack = () => {
     router.back();
   };
   return (
     <>
       <div className=" h-[2px] flex items-center bg-orange-600 md:mb-12 mb-20 ">
-        <div className="flex justify-between gap-24 w-full items-center">
-       
+        <div className="flex justify-between  w-full items-center relative">
           <div>
             {router?.pathname?.split("/").length > 2 && (
-              <div className="flex cursor-pointer justify-left font-semibold items-center mt-10 ml-4" onClick={()=>{
-                goBack()
-              }}>
+              <div
+                className="flex cursor-pointer justify-left font-semibold items-center mt-10 ml-4"
+                onClick={() => {
+                  goBack();
+                }}
+              >
                 <IoArrowBackSharp />
-                 back
+                back
               </div>
             )}
           </div>
@@ -73,31 +71,16 @@ function Navbar() {
             </Link>
             <Link
               href="/misc"
-              className="text-xl  font-extrabold font-mono mr-5 relative"
+              className="text-xl  font-extrabold font-mono pr-5 relative"
             >
               {" "}
               /more{" "}
-              {activePath == "misc" && (
-                <LuMousePointerClick className="absolute top-[20px] left-[20px] text-2xl text-orange-600" />
-              )}
+              {activePath == "misc" ||
+                (activePath == "town" && (
+                  <LuMousePointerClick className="absolute top-[20px] left-[20px] text-2xl text-orange-600" />
+                ))}
             </Link>
           </div>
-          {/* links */}
-          {/* <div className="lg:flex  hidden gap-8 text-white">
-            <AiFillGithub  className="text-xl cursor-pointer" />
-            <AiOutlineTwitter onClick={()=>{
-                window.open('https://twitter.com/YourVueJS', '_blank')
-            }} className="text-xl cursor-pointer" />
-            <FaQuora onClick={()=>{
-                window.open('https://twitter.com/YourVueJS', '_blank')
-            }}  className="text-xl cursor-pointer" />
-            <AiFillLinkedin onClick={()=>{
-                window.open('https://twitter.com/YourVueJS', '_blank')
-            }}  className="text-xl cursor-pointer" />
-            <SiWakatime onClick={()=>{
-                window.open('https://twitter.com/YourVueJS', '_blank')
-            }}  className="text-xl cursor-pointer" />
-          </div> */}
         </div>
       </div>
     </>

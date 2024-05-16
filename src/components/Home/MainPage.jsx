@@ -66,7 +66,7 @@ function MainPage() {
       </div>
 
       <Image
-        className="absolute z-[-20] top-[-90px] left-[-150px]"
+        className="absolute z-[-20] top-[-14%] left-[-12%]"
         src="/images/Leaves.JPG"
         width={"200"}
         height={"200"}

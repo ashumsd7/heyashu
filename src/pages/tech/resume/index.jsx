@@ -39,7 +39,7 @@ function Resume() {
             </h1>
 
             <p className="font-serif  text-justify text-lg mt-5 tracking-wider mb-4 hidden lg:grid">
-              With over as a software developer, I've specialized in creating
+              With over 4+ years as a software developer, I've specialized in creating
               web applications from scratch, mainly focusing on the front-end
               side. Throughout my career, I've collaborated with teams to
               deliver projects of varying scales, ranging from mid-sized to

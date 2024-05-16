@@ -8,6 +8,7 @@ import TripCard from "@/components/travel/DoneTripCard";
 import { pendingTravelPlaces, traveledPlaces } from "@/utils/data";
 import { PHONE_CALL_THIRTY_MIN } from "@/utils/constant";
 import Head from "next/head";
+import { HighLightedSpan } from "@/components/base/HighlightedSpan";
 
 function TravelPage() {
   return (
@@ -37,9 +38,7 @@ function TravelPage() {
             <h1 className="text-5xl font-extrabold text-center text-orange-600 md:text-left font-serif mb-4 md:mb-0">
               Ashutosh the Traveler
             </h1>
-            {/* <div className="ml-auto  ">
-            <span className="font-thin"> at Codemonk</span>
-          </div> */}
+          
 
             <p className="font-serif  text-justify text-lg mt-10 tracking-wider mb-4 hidden lg:grid">
               My traveling journey began in 2013 when I started my diploma in
@@ -172,23 +171,6 @@ function TravelPage() {
 
 export default TravelPage;
 
-function HighLightedSpan({ children }) {
-  return (
-    <span className="text-white   italic text-2xl bg-gray-700 px-2">
-      {children}
-    </span>
-  );
-}
 
-function TechChip({ icon, text }) {
-  return (
-    <div className="flex gap-2 border shadow-lg  cursor-pointer">
-      <span className="bg-gray-300   flex items-center justify-center px-2 py-1">
-        <div className="text-gray-600 hover:rotate-[360deg] hover:ease-in-out duration-100">
-          {icon || <FaUmbrellaBeach />}
-        </div>
-      </span>
-      <span className="px-2 py-1 font-mono">{text}</span>
-    </div>
-  );
-}
+
+
