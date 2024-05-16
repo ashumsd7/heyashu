@@ -1,8 +1,9 @@
+import ComingSoon from '@/components/base/CommingSoon'
 import React from 'react'
 
 function MiscPage() {
   return (
-    <div>MiscPage</div>
+    <div><ComingSoon/></div>
   )
 }
 

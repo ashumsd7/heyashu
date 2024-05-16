@@ -105,12 +105,18 @@ function TechPage() {
           </p>
         </div>
 
-        <div className="flex flex-col gap-4 items-center justify-center m-auto md:m-0">
+        <div className="flex flex-col gap-4 items-center relative justify-center m-auto md:m-0">
           <Image
             src="/images/ashu_office.png"
             className="hover:shadow-lg  border-4 border-gray-600 rounded-lg ml-auto ease-in-out duration-100  cursor-pointer"
             width={"400"}
             height="400"
+          />
+          <Image
+              className="absolute z-[-20] top-[-100px] left-[80px] opacity-30"
+            src="/images/tech-illustration.png"
+            width={"200"}
+            height={"200"}
           />
         </div>
 
@@ -214,8 +220,8 @@ function TechPage() {
       </div>
 
       <Image
-        className="absolute z-[-20] top-[-90px] left-[-150px]"
-        src="/images/Leaves.JPG"
+        className="absolute z-[-20] top-[-10%] left-[-15%]"
+        src="/images/tech-illustration.png"
         width={"200"}
         height={"200"}
       />

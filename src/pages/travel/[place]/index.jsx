@@ -30,6 +30,8 @@ function PlaceDetails(props) {
             explored several destinations. Let's connect and plan a trip
             together!
           </p>
+
+        
         </div>
 
         <div className="flex flex-col gap-4 items-center justify-center m-auto md:m-0 relative overflow-hidden ">
@@ -88,6 +90,8 @@ function PlaceDetails(props) {
           <FaLongArrowAltRight className="text-xl hover:scale-105" />
         </div>
       </div>
+      <hr/>
+      <small className="text-red-700 font-medium underline my-3">NOTE: {placeName.toUpperCase()} specific details updating soon..</small>
     </div>
   );
 }

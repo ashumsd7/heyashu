@@ -1,8 +1,9 @@
+import ComingSoon from '@/components/base/CommingSoon'
 import React from 'react'
 
 function TownPage() {
   return (
-    <div>TownPage</div>
+    <div><ComingSoon/></div>
   )
 }
 
