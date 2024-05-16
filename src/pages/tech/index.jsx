@@ -86,8 +86,8 @@ function TechPage() {
     <div className="md:mt-20 mt-2 w-full flex flex-col gap-6 relative ">
       <div className="grid md:grid-cols-2  mx-auto grid-cols-1 m-auto justify-between  ">
         <div className="flex flex-col gap-2">
-          <h1 className="font-semibold text-orange-600 "> Meet, </h1>
-          <h1 className="text-5xl font-extrabold text-center md:text-left font-serif mb-4 md:mb-0">
+          <h1 className="font-semibold  "> Meet, </h1>
+          <h1 className="text-5xl font-extrabold text-center text-orange-600 md:text-left font-serif mb-4 md:mb-0">
           Ashutosh the Developer
           </h1>
           {/* <div className="ml-auto  ">
