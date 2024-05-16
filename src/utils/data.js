@@ -123,6 +123,12 @@ export const MORE_VERSIONS=[
     description: 'Pedal your way through adventure with Cyclist. Explore new paths and discover the joy of cycling.'
   },
   {
+    name: 'Hiking',
+    img: '/trek.jpeg',
+    link: '/misc/trek',
+    description: 'Pedal your way through adventure with Cyclist. Explore new paths and discover the joy of cycling.'
+  },
+  {
     name: 'Badminton Player',
     img: '/badminton.jpeg',
     link: '/misc/badminton',

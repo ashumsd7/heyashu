@@ -52,7 +52,7 @@ function MiscPage() {
         <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10">
           {MORE_VERSIONS?.map((item) => {
             return (
-              <div className="flex gap-2 flex-col items-center justify-center">
+              <div className="flex gap-2 flex-col items-center justify-center m-auto md:m-0"> 
                 <ImageBox  img={'/images/versions'+item.img}/>
                 <h2 className="text-3xl italic text-orange-600 font-serif  font-extrabold ">
                 {item.name}
