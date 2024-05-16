@@ -39,10 +39,10 @@ function Resume() {
             </h1>
 
             <p className="font-serif  text-justify text-lg mt-5 tracking-wider mb-4 hidden lg:grid">
-              With over 4+ years as a software developer, I've specialized in creating
-              web applications from scratch, mainly focusing on the front-end
-              side. Throughout my career, I've collaborated with teams to
-              deliver projects of varying scales, ranging from mid-sized to
+              With over 4+ years as a software developer, I've specialized in
+              creating web applications from scratch, mainly focusing on the
+              front-end side. Throughout my career, I've collaborated with teams
+              to deliver projects of varying scales, ranging from mid-sized to
               large-scale endeavors. I've had the opportunity to work with
               multiple startups, and currently, I'm employed at Codemonk.
             </p>
@@ -86,14 +86,14 @@ function Resume() {
           </div>
 
           <p className="font-serif text-justify text-lg mt-8 tracking-wider mb-4 lg:hidden grid">
-            With over as a software developer, I've specialized in creating web
-            applications from scratch, mainly focusing on the front-end side.
-            Throughout my career, I've collaborated with teams to deliver
-            projects of varying scales, ranging from mid-sized to large-scale
-            endeavors. I've had the opportunity to work with multiple startups,
-            and currently, I'm employed at Codemonk. If you need assistance with
-            writing or any web development work for your website, feel free to
-            contact me.
+            With over 4+ years as a software developer, I've specialized in
+            creating web applications from scratch, mainly focusing on the
+            front-end side. Throughout my career, I've collaborated with teams
+            to deliver projects of varying scales, ranging from mid-sized to
+            large-scale endeavors. I've had the opportunity to work with
+            multiple startups, and currently, I'm employed at Codemonk. If you
+            need assistance with writing or any web development work for your
+            website, feel free to contact me.
           </p>
         </div>
 
