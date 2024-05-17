@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React, {  useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { IoArrowBackSharp } from "react-icons/io5";
 import { FaHome } from "react-icons/fa";
 import { useRouter } from "next/router";
@@ -75,11 +75,11 @@ function Navbar() {
             >
               {" "}
               /more{" "}
-              {activePath == "misc" ||
-                (activePath == "town" && (
-                  <LuMousePointerClick className="absolute top-[20px] left-[20px] text-2xl text-orange-600" />
-                ))}
+              {["misc", "town"].includes(activePath) && (
+                <LuMousePointerClick className="absolute top-[20px] left-[20px] text-2xl text-orange-600" />
+              )}
             </Link>
+        
           </div>
         </div>
       </div>
