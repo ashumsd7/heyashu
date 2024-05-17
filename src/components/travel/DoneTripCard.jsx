@@ -17,7 +17,7 @@ function TripCard({ idx, name, img, data }) {
         <Link href={getRoute()}>
           <div className="flex gap-2 flex-wrap md:flex-nowrap w-full  border-2 border-gray-400 rounded-md justify-start shadow-md bg-white cursor-pointer hover:shadow-2xl">
             <Image
-              className="md:mx-0 mx-auto h-[220px] object-fill w-full md:max-w-[320px] "
+              className="md:mx-0 mx-auto h-[220px]  w-full md:max-w-[320px] object-cover "
               width={"320"}
               height={"200"}
               src={img}
@@ -39,7 +39,7 @@ function TripCard({ idx, name, img, data }) {
               </h1>
             </div>
             <Image
-              className="md:mx-0 mx-auto flex-end  h-[220px] object-fill w-full md:max-w-[320px]  "
+              className="md:mx-0 mx-auto flex-end  h-[220px]  w-full md:max-w-[320px] object-cover   "
               width={"320"}
               height={"200"}
               src={img}
