@@ -44,7 +44,7 @@ function SendQuickMessage() {
         },
       })
       .then((response) => {
-        console.log(response.data);
+  
         localStorage.setItem("aat_msg", message);
         setIsMessageSent(true);
         setIsLoading(false);

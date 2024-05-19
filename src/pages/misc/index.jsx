@@ -4,13 +4,13 @@ import Head from "next/head";
 import { HighLightedSpan } from "@/components/base/HighlightedSpan";
 import ImageBox from "@/components/base/ImageBox";
 import { MORE_VERSIONS } from "@/utils/data";
+import Button from "@/components/base/Button";
+import Link from "next/link";
 
 function MiscPage() {
-
- function getThumbnailPath(path){
-  return  '/images/versions'+path
-
- }
+  function getThumbnailPath(path) {
+    return "/images/versions" + path;
+  }
   return (
     <div>
       <Head>
@@ -35,7 +35,9 @@ function MiscPage() {
           </div>
 
           <p className="font-serif text-justify text-lg mt-10 tracking-wider mb-4 ">
-          I am not only limited to tech and travel; there are multiple activities I engage in and contribute to in my village and elsewhere. Here are some of them:
+            I am not only limited to tech and travel; there are multiple
+            activities I engage in and contribute to in my village and
+            elsewhere. Here are some of them:
           </p>
         </div>
 
@@ -52,14 +54,20 @@ function MiscPage() {
         <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10">
           {MORE_VERSIONS?.map((item) => {
             return (
-              <div className="flex gap-2 flex-col items-center justify-center m-auto md:m-0"> 
-                <ImageBox  img={'/images/versions'+item.img}/>
+              <div className="flex gap-2 flex-col items-center justify-center m-auto md:m-0">
+                <ImageBox img={"/images/versions" + item.img} />
                 <h2 className="text-3xl italic text-orange-600 font-serif  font-extrabold ">
-                {item.name}
+                  {item.name}
                 </h2>
               </div>
             );
           })}
+        </div>
+
+        <div className="flex justify-center items-center">
+          <Link href="/misc/best-captured">
+            <Button>Hey, Explore some picked images :)</Button>
+          </Link>
         </div>
 
         {/* ------------------------------------------ */}

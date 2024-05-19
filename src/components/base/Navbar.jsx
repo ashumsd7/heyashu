@@ -8,12 +8,10 @@ function Navbar() {
   const [activePath, setActivePath] = useState("/");
   const router = useRouter();
   useEffect(() => {
-    console.log("router", router);
     const pathName = router.pathname;
-    console.log("pathName", router.pathname);
     if (pathName) {
       const firstPath = pathName.split("/")[1];
-      console.log("firstPath", firstPath);
+
       setActivePath(firstPath);
     }
 
