@@ -22,16 +22,64 @@ function BestCapturedPage() {
       <div className="flex flex-col  items-center relative z-[10]">
         <h1 className="font-semibold mb-2  "> Hey here are</h1>
         <h1 className="text-5xl font-extrabold text-center text-orange-600 md:text-left font-serif mb-4 md:mb-0">
-          Best Photos of Me
+          More information
         </h1>
       </div>
+      <hr />
 
-      <p className="font-serif text-center text-lg mt-2 tracking-wider mb-4  relative z-[10]">
-        Click the button below to join the show
+      <div className="flex flex-col ">
+        <div className="flex flex-col  items-center mt-10">
+          <p className="font-mono "> Name- </p>
+          <p className=" font-mono"> Ashutosh Anand Tiwari </p>
+        </div>
+        <div className="flex flex-col items-center mt-10">
+          <h2 className="font-mono "> नाम- </h2>
+          <h1 className=" font-mono"> आशुतोष आनंद तिवारी </h1>
+        </div>
+        <div className="flex flex-col items-center mt-10">
+          <h2 className="font-mono "> Nick name- </h2>
+          <h1 className=" font-mono"> Ashu (आशु) </h1>
+        </div>
+        <div className="flex flex-col items-center mt-10">
+          <h2 className="font-mono "> DOB- </h2>
+          <h1 className=" font-mono"> 27.02.1997 </h1>
+        </div>
+        <div className="flex flex-col items-center mt-10">
+          <h2 className="font-mono "> Height- </h2>
+          <h1 className=" font-mono"> 5 ft 5 inch</h1>
+        </div>
+        <div className="flex flex-col items-center mt-10">
+          <h2 className="font-mono "> Color- </h2>
+          <h1 className=" font-mono"> Sawala</h1>
+        </div>
+        <div className="flex flex-col items-center mt-10">
+          <h2 className="font-mono "> Profession - </h2>
+          <h1 className=" font-mono"> Software Engineer 🤓 ( 4+Years )</h1>
+        </div>
+        <div className="flex flex-col items-center mt-10">
+          <h2 className="font-mono "> Currently working - </h2>
+          <h1 className=" font-mono"> Bengaluru ( Hybrid - WFH)</h1>
+        </div>
+        <div className="flex flex-col items-center mt-10">
+          <h2 className="font-mono "> Hobbies - </h2>
+          <h1 className=" font-mono"> Learn - Earn - Travel - Sleep- Repeat</h1>
+        </div>
+        <div className="flex flex-col items-center mt-10">
+          <h2 className="font-mono "> Education - </h2>
+          <h1 className=" font-mono"> B.Tech ( Computer Science )</h1>
+        </div>
+        <div className="flex flex-col items-center mt-10">
+          <h2 className="font-mono "> College - </h2>
+          <h1 className=" font-mono"> JSS academy Noida ( 2019 )</h1>
+        </div>
+      </div>
+
+      <p className="font-serif text-center text-lg  tracking-wider mb-4  relative z-[10] mt-10">
+        Click the button below to see latest best clicked
       </p>
-      <div className="flex gap-2 flex-wrap justify-center md:justify-start">
+      <div className="flex flex-wrap justify-center md:justify-start mb-6">
         <Button
-          className="relative "
+          className="relative mb-10 "
           onClick={() => {
             window.open(BEST_PHOTOS_LINK, "_blank");
           }}
@@ -39,6 +87,7 @@ function BestCapturedPage() {
           Join the album
         </Button>
       </div>
+      <div className="h-10">..............</div>
 
       <Image
         src="/images/profile1.jpg"

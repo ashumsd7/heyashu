@@ -66,7 +66,7 @@ function MiscPage() {
 
         <div className="flex justify-center items-center">
           <Link href="/misc/best-captured">
-            <Button>Hey, Explore some picked images :)</Button>
+            <Button>Hey, Explore more information about me:)</Button>
           </Link>
         </div>
 
