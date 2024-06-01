@@ -18,30 +18,31 @@ function MainPage() {
             <span className="font-thin text-orange-600"> aka Ashu</span>
           </div>
 
-          <p className="font-serif text-justify text-lg mt-10 tracking-wider mb-4 hidden lg:grid">
-            <HighLightedSpan> A Software Engineer</HighLightedSpan> from the
-            holy city of Ayodhya, Uttar Pradesh, the birthplace of Lord Rama.
-            I'm passionate about coding,Traveling (now exploring India and
-            Nepal), and capturing moments through photography (over 1 million
-            photos so far!). In my downtime, I enjoy arcade games, cricket (big
-            fan of Kohli and Dhoni), and spreading joy wherever I go. Let's
-            connect and share our experiences!
+          <p className="font-serif text-justify text-lg mt-10 tracking-wider mb-4 lg:grid hidden">
+            <HighLightedSpan> Ashu </HighLightedSpan> He is someone who wants to
+            experience every kind of life. He forgets things easily and trusts
+            people quickly. Many people consider him immature and careless, but
+            he is happy with who he is. He believes in living life to the
+            fullest because you only live once and you never know what might
+            happen next. Following the concept of "Zindagi Na Milegi Dobara," he
+            continues his journey through life. He earns some money by writing
+            code, but his life revolves around eating, traveling, reading, and
+            sleeping.So, what are you waiting for? Let's connect and explore the world together!
           </p>
         </div>
         <div className="m-auto md:m-0">
-
-
-        <ProfilePicture />
+          <ProfilePicture />
         </div>
 
         <p className="font-serif text-justify text-lg mt-10 tracking-wider mb-4 lg:hidden grid">
-          <HighLightedSpan> A Software Engineer</HighLightedSpan> from the holy
-          city of Ayodhya, Uttar Pradesh, the birthplace of Lord Rama. I'm
-          passionate about coding,Traveling (now exploring India and Nepal), and
-          capturing moments through photography (over 1 million photos so far!).
-          In my downtime, I enjoy arcade games, cricket (big fan of Kohli and
-          Dhoni), and spreading joy wherever I go. Let's connect and share our
-          experiences!
+          <HighLightedSpan> Ashu </HighLightedSpan> He is someone who wants to
+          experience every kind of life. He forgets things easily and trusts
+          people quickly. Many people consider him immature and careless, but he
+          is happy with who he is. He believes in living life to the fullest
+          because you only live once and you never know what might happen next.
+          Following the concept of "Zindagi Na Milegi Dobara," he continues his
+          journey through life. He earns some money by writing code, but his
+          life revolves around eating, traveling, reading, and sleeping. So, what are you waiting for? Let's connect and explore the world together!
         </p>
       </div>
 
@@ -55,13 +56,13 @@ function MainPage() {
           <Category icon={<FaLaptop />} text="Tech" />
         </Link>
         <Link href="/travel">
-        <Category icon={<FaUmbrellaBeach />} text="Travel" />
+          <Category icon={<FaUmbrellaBeach />} text="Travel" />
         </Link>
         <Link href="/town">
-        <Category icon={<FaHome />} text="Town" />
+          <Category icon={<FaHome />} text="Town" />
         </Link>
         <Link href="/misc">
-        <Category icon={<TbCurlyLoop className="" />} text="more" />
+          <Category icon={<TbCurlyLoop className="" />} text="more" />
         </Link>
       </div>
 
