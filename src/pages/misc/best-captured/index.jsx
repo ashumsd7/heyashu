@@ -50,20 +50,17 @@ function BestCapturedPage() {
         </div>
         <div className="flex flex-col items-center mt-10">
           <h2 className="font-mono "> Color- </h2>
-          <h1 className=" font-mono"> Sawala</h1>
+          <h1 className=" font-mono"> Fair</h1>
         </div>
         <div className="flex flex-col items-center mt-10">
-          <h2 className="font-mono "> Profession - </h2>
-          <h1 className=" font-mono"> Software Engineer 🤓 ( 4+Years )</h1>
+          <h2 className="font-mono "> Profession  - </h2>
+          <h1 className=" font-mono"> Software Engineer 🤓 </h1>
         </div>
         <div className="flex flex-col items-center mt-10">
           <h2 className="font-mono "> Currently working - </h2>
-          <h1 className=" font-mono"> Bengaluru ( Hybrid - WFH)</h1>
+          <h1 className=" font-mono"> in Bengaluru ( Hybrid - WFH)</h1>
         </div>
-        <div className="flex flex-col items-center mt-10">
-          <h2 className="font-mono "> Hobbies - </h2>
-          <h1 className=" font-mono"> Learn - Earn - Travel - Sleep- Repeat</h1>
-        </div>
+
         <div className="flex flex-col items-center mt-10">
           <h2 className="font-mono "> Education - </h2>
           <h1 className=" font-mono"> B.Tech ( Computer Science )</h1>
