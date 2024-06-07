@@ -50,7 +50,7 @@ function BestCapturedPage() {
         </div>
         <div className="flex flex-col items-center mt-10">
           <h2 className="font-mono "> Color- </h2>
-          <h1 className=" font-mono"> Fair</h1>
+          <h1 className=" font-mono"> Wheatish</h1>
         </div>
         <div className="flex flex-col items-center mt-10">
           <h2 className="font-mono "> Profession  - </h2>
