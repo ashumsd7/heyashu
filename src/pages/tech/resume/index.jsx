@@ -59,7 +59,7 @@ function Resume() {
               multiple startups, and currently, I'm employed at Codemonk.
             </p>
             <div className="flex gap-2 flex-wrap justify-center md:justify-start items-start">
-              <Button
+              {/* <Button
                 onClick={() => {
                   window.open(
                     "https://ashutosh-anand-tiwari.tiiny.site/",
@@ -68,7 +68,7 @@ function Resume() {
                 }}
               >
                 <LuExternalLink /> View and download
-              </Button>
+              </Button> */}
 
               <Button
                 onClick={() => {
