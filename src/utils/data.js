@@ -169,7 +169,7 @@ export const MORE_VERSIONS=[
     img: '/reader.jpeg',
     link: '/misc/reader',
     description: 'Immerse yourself in the world of literature with Reader. Discover new stories, gain knowledge, and experience the magic of books.'
-  }
+  },
   {
     name: 'Chef',
     img: '/chef.jpeg',
