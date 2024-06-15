@@ -178,3 +178,66 @@ export const MORE_VERSIONS=[
   }
 ]
 
+
+
+// https://aat.netlify.app/
+// https://aat-kanban.netlify.app/
+// https://codemonkchristmas2023.netlify.app/
+// https://aatv2.netlify.app/
+// https://freeflows.netlify.app/
+// https://aat-react-gallery.netlify.app/
+// https://aat-khana.netlify.app/
+// https://tokarona.netlify.app/
+// https://www.charawan.in/
+// https://abfayodhya.netlify.app/
+// https://224203.netlify.app/
+// https://portal3000.netlify.app/#
+// https://vue-master-project.netlify.app/
+// https://ashtech-food.netlify.app/
+// https://getsub4sub.netlify.app/
+// https://rivulet-aashu-test.netlify.app/
+// https://greenhonchos-ashutosh.netlify.app/
+// https://ashu-walkwel-test.netlify.app/
+// https://io-extended.netlify.app/
+// https://desiteashop.netlify.app/
+// https://aat-chat-app.netlify.app/
+// https://fastrack-india.netlify.app/#/
+// https://quasar-todo-app-aat.netlify.app/#/
+// https://feedback-aat.netlify.app/
+// https://ashu-speaks.netlify.app/
+// https://happysmd.netlify.app/
+// https://res-nav-bar.netlify.app/
+// https://nocovid.netlify.app/
+// https://theresource-app.netlify.app/
+// https://getleads.netlify.app/
+// http://ayodhyaupdates.online/
+// https://daakghar.netlify.app/
+// https://chinadown.netlify.app/
+// https://rgcrgc.netlify.app/  chat
+// https://aksdemo.netlify.app/
+// https://cricketcharawan.netlify.app/
+// https://wearerunners.netlify.app/
+// https://aatstocks.netlify.app/
+// https://wakeupearlydemo.netlify.app/
+// https://wakeupearlydemo.netlify.app/
+// https://ashumsd7.github.io/THRILLEASY-LANDING-PAGE/
+// https://ashumsd7.github.io/Ashi-Shop-Bootstrap-Website/
+// https://ashumsd7.github.io/
+// https://ashumsd7.github.io/SIMPLE-MUSIC-PLAYER/
+// https://ashumsd7.github.io/Progress-Steps-CSS/
+// https://ashumsd7.github.io/CARD-SLIDER-CSS/
+// https://ashumsd7.github.io/dailyLearning/
+// https://ashumsd7.github.io/weather-app-js/
+// https://ashumsd7.github.io/01JS-change-random-backgroud-color/
+// https://ashumsd7.github.io/02JS--Change-background-with-hexcode/
+// https://ashumsd7.github.io/Day03-Generate-Random-Quotes-/
+// https://ashumsd7.github.io/CALCULATOR-VANILLA_-JS/
+// https://ashumsd7.github.io/MENU-BAR_HTML_CSSS/
+// https://ashumsd7.github.io/JS-HNY_COUNTDOWN_CARD/
+// https://ashumsd7.github.io/Attack-Attack/
+// https://ashumsd7.github.io/Daily-Note/
+// https://ashumsd7.github.io/tfyl/
+// https://ashumsd7.github.io/zilx/
+// https://ashumsd7.github.io/facebookuser2019/
+// https://ashumsd7.github.io/privateresult/
+// https://ashumsd7.github.io/ashtechSports/
