@@ -240,4 +240,4 @@ export const MORE_VERSIONS=[
 // https://ashumsd7.github.io/zilx/
 // https://ashumsd7.github.io/facebookuser2019/
 // https://ashumsd7.github.io/privateresult/
-// https://ashumsd7.github.io/ashtechSports/
+// https://ashumsd7.github.io/ashtechSports
