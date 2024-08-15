@@ -83,7 +83,7 @@ function TravelPage() {
             }}
           >
             <GrFormSchedule />
-            Plan a trip with me
+            Drop a message , lets travel
           </Button>
         </div>
 

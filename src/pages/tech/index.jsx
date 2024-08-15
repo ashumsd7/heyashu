@@ -19,6 +19,8 @@ import Button from "@/components/base/Button";
 import { INTERVIEW_CALL_SIXTY_MIN } from "@/utils/constant";
 import ComingSoon from "@/components/base/CommingSoon";
 import Head from "next/head";
+import Sidebar from "@/components/tech/CourseSidebar";
+import PromotionTechDialog from "@/components/base/PromotionTechDialog";
 
 function TechPage() {
   const technologies = [
@@ -93,7 +95,7 @@ function TechPage() {
         <link rel="icon" href="/favicon_tech.ico" />
         <meta
           name="description"
-          content="My name is Ashutosh Anand Tiwari.   With over 4+ years of experience
+          content="My name is Ashutosh Anand Tiwari.   With over 5+ years of experience
             as a software developer, I've specialized in creating web
             applications from scratch, mainly focusing on the front-end side.
             Throughout my career, I've collaborated with teams to deliver
@@ -116,7 +118,7 @@ function TechPage() {
 
             <p className="font-serif  text-justify text-lg mt-10 tracking-wider mb-4 hidden lg:grid">
               With over{" "}
-              <HighLightedSpan>4+ years of experience</HighLightedSpan> as a
+              <HighLightedSpan>5+ years of experience</HighLightedSpan> as a
               software developer, I've specialized in creating web applications
               from scratch, mainly focusing on the front-end side. Throughout my
               career, I've collaborated with teams to deliver projects of
@@ -142,7 +144,7 @@ function TechPage() {
           </div>
 
           <p className="font-serif text-justify text-lg mt-10 tracking-wider mb-4 lg:hidden grid">
-            With over <HighLightedSpan>4+ years of experience</HighLightedSpan>{" "}
+            With over <HighLightedSpan>5+ years of experience</HighLightedSpan>{" "}
             as a software developer, I've specialized in creating web
             applications from scratch, mainly focusing on the front-end side.
             Throughout my career, I've collaborated with teams to deliver
@@ -153,6 +155,12 @@ function TechPage() {
             contact me.
           </p>
         </div>
+
+        <div className="flex gap-2 flex-wrap justify-center md:justify-start ">
+          <Sidebar />
+        </div>
+
+        <PromotionTechDialog/>
 
         <div className="flex gap-2 flex-wrap justify-center md:justify-start">
           <Link href="/tech/resume">
