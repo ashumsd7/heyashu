@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Button from "./Button";
+import { PHONE_CALL_THIRTY_MIN } from "@/utils/constant";
 
 const PromotionTechDialog = () => {
   const [isOpen, setIsOpen] = useState(false);
