@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-// import ReactMarkdown from 'react-markdown';
-
+import ReactMarkdown from 'react-markdown';
+import { MdFullscreen } from "react-icons/md";
+import { FaFilePdf, FaDownload } from "react-icons/fa";
+import { GoSidebarExpand, GoSidebarCollapse } from "react-icons/go";
 const mockMarkdownContent = `
 # Welcome to Season 1
 Here is some introductory content for Season 1.
@@ -15,18 +17,20 @@ Details about Section 2...
 const Sidebar = ({ onSectionClick }) => {
   return (
     <div className="w-[1/4]  lg:block hidden bg-gray-200 h-full p-4 overflow-y-auto fixed">
-      <h2 className="text-orange-600 text-xl font-bold mb-4">Season 1</h2>
-      <div className="space-y-4">
+
+
+      <div className="flex justify-between items-center mb-4">
+        <h2 className="text-orange-600 text-xl font-bold ">Season 1</h2>
+      </div>
+      <div className="space-y-4 mb-20">
         {season1Episodes?.map((item) => {
           return (
             <div
               className="cursor-pointer p-2 bg-gray-300 hover:bg-gray-400 rounded"
               onClick={() => onSectionClick("Episode 05")}
             >
-              <h3 className="font-semibold">Episode-{item.id-1}</h3>
-              <p className="text-sm truncate">
-             {item?.name}
-              </p>
+              <h3 className="font-semibold">Episode-{item.id - 1}</h3>
+              <p className="text-sm truncate">{item?.name}</p>
             </div>
           );
         })}
@@ -49,10 +53,13 @@ const EpisodeChips = () => {
           key={episode.id}
           onClick={() => handleChipClick(episode.id)}
           className={`inline-block px-4 py-2 m-1 text-sm rounded-full cursor-pointer transition-colors ${
-            selectedChip === episode.id ? 'bg-gray-800 text-white' : 'bg-gray-300 text-gray-800'
+            selectedChip === episode.id
+              ? "bg-gray-800 text-white"
+              : "bg-gray-300 text-gray-800"
           }`}
         >
-          {episode.id < 10 ? `0${episode.id}:` : `${episode.id}:`} {episode.name}
+          {episode.id < 10 ? `0${episode.id - 1}:` : `${episode.id - 1}:`}{" "}
+          {episode.name}
         </div>
       ))}
     </div>
@@ -62,6 +69,7 @@ const EpisodeChips = () => {
 const NamasteNodeJS = () => {
   const [selectedSection, setSelectedSection] = useState("Season 1");
   const [markdownContent, setMarkdownContent] = useState(mockMarkdownContent);
+  const [isSidebarVisible, setIsSidebarVisible] = useState(true);
 
   const handleSectionClick = (section) => {
     setSelectedSection(section);
@@ -77,19 +85,48 @@ const NamasteNodeJS = () => {
 
   return (
     <>
-       <EpisodeChips/>
+      <EpisodeChips />
       <div className="flex h-[93vh]">
-      
-        <Sidebar onSectionClick={handleSectionClick} />
-        <div className="lg:w-3/4 w-full justify-center fle bg-white h-screen p-6 overflow-y-auto ml-auto">
-          <div className="flex justify-center flex-col gap-2 items-center mb-2">
-            <h1 className="text-3xl font-extrabold text-center text-orange-600 md:text-left font-serif mb-4 md:mb-0 ">
-              Namaste Node JS
-            </h1>
+        {isSidebarVisible && <Sidebar onSectionClick={handleSectionClick} />}
+        <div className={`lg:w-3/4 w-full justify-center fle bg-white h-screen  overflow-y-auto ml-auto ${isSidebarVisible ? 'w-3/4' : 'w-full'}`}
+   
+        >
+          <div className="bg-orange-600 h-10 flex items-center justify-between px-4 py-1">
+            <div className="flex gap-2 items-center">
+              {isSidebarVisible ? (
+                <GoSidebarExpand  
+                onClick={()=>{
+                  setIsSidebarVisible(!isSidebarVisible)
+                }}
+                  className="text-2xl text-white cursor-pointer"
+                 title="Toggle Sidebar"
+                />
+              ) : (
+                <GoSidebarCollapse   title="Toggle Sidebar"  onClick={()=>{
+                  setIsSidebarVisible(!isSidebarVisible)
+                }} className="text-2xl text-white" />
+              )}
+              <h1 className="text-xl font-extrabold text-center text-white md:text-left font-serif mb-4 md:mb-0 ">
+                Namaste Node JS
+              </h1>
+            </div>
+
+            <div className="flex gap-6 items-center">
+              <MdFullscreen className="text-white text-2xl cursor-pointer font-extrabold" />
+              <FaDownload
+                title="Download Digital notes"
+                className="text-white cursor-pointer font-extrabold"
+              />
+              <FaFilePdf
+                title="Download Hand written notes"
+                className="text-white cursor-pointer font-extrabold"
+              />
+            </div>
           </div>
-          <h1 className="text-2xl text-orange-500 text-center font-">
-            Writing Soons
-          </h1>
+        
+        
+          <ReactMarkdown>{markdownContent}</ReactMarkdown>
+         
         </div>
       </div>
     </>

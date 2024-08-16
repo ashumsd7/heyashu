@@ -58,19 +58,24 @@ const Sidebar = () => {
           }}>
             <h3 className="font-bold text-lg">Namaste Node JS</h3>
             <span className="text-xs  font-bold animate-pulse text-green-400">Live Now</span>
+            <span className="text-xs  font-sans text-white italic  text-right absolute right-2 bottom-1 ">By Akshay Saini</span>
+
           </div>
           {/* absolute right-2 top-1 */}
-          <div className="bg-gray-400 text-white p-4 mb-4 rounded ">
+          <div className="bg-gray-400 text-white p-4 mb-4 rounded relative ">
             <h3 className="font-bold text-lg">Namaste React</h3>
             <span className="text-xs">Coming soon</span>
+            <span className="text-xs  font-sans text-white italic  text-right absolute right-2 bottom-1 ">By Akshay Saini</span>
           </div>
-          <div className="bg-gray-400 text-white p-4 mb-4 rounded ">
+          <div className="bg-gray-400 text-white p-4 mb-4 rounded relative">
             <h3 className="font-bold text-lg">Namaste JS</h3>
             <span className="text-xs ">Coming soon</span>
+            <span className="text-xs  font-sans text-white italic  text-right absolute right-2 bottom-1 ">By Akshay Saini</span>
           </div>
-          <div className="bg-gray-400 text-white p-4 mb-4 rounded ">
+          <div className="bg-gray-400 text-white p-4 mb-4 rounded relative">
             <h3 className="font-bold text-lg">Namaste FDS</h3>
             <span className="text-xs">Coming soon</span>
+            <span className="text-xs  font-sans text-white italic  text-right absolute right-2 bottom-1 ">By Akshay Saini</span>
           </div>
         </div>
       )}
