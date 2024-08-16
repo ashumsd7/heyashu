@@ -137,14 +137,21 @@ const NamasteNodeJS = () => {
   }
 
   return (
-    <div className="flex border border-red-500 h-[93vh]">
-      <Sidebar onSectionClick={handleSectionClick} />
-      <div className="w-3/4 bg-white h-screen p-6 overflow-y-auto">
-        <h1 className="text-2xl text-orange-500 text-center font-">
-          Writing Soon
+    <>
+      <div className="flex justify-center flex-col gap-2 items-center mb-4">
+        <h1 className="text-5xl font-extrabold text-center text-orange-600 md:text-left font-serif mb-4 md:mb-0 mb-2">
+          Namaste Node JS
         </h1>
       </div>
-    </div>
+      <div className="flex border border-red-500 h-[93vh]">
+        <Sidebar onSectionClick={handleSectionClick} />
+        <div className="w-3/4 bg-white h-screen p-6 overflow-y-auto">
+          <h1 className="text-2xl text-orange-500 text-center font-">
+            Writing Soon
+          </h1>
+        </div>
+      </div>
+    </>
   );
 };
 export default NamasteNodeJS;
