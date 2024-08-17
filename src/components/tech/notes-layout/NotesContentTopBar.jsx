@@ -34,7 +34,7 @@ function NotesContentTopBar({
             />
           )}
         </div>
-        <h1 className="lg:text-xl text-sm font-extrabold text-center text-white md:text-left font-serif mb-4 md:mb-0 ">
+        <h1 className="lg:text-base text-sm font-extrabold text-center lg:mt-0 mt-4 text-white md:text-left font-serif mb-4 md:mb-0 ">
           {title}
         </h1>
       </div>

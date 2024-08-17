@@ -6,7 +6,7 @@ function Chip({item,selectedChip,handleChipClick}) {
       key={item.id}
       onClick={() => handleChipClick(item)}
       className={`inline-block px-4 py-2 m-1 text-sm rounded-full cursor-pointer transition-colors ${
-        selectedChip === item.id
+        selectedChip?.id === item.id
           ? "bg-gray-800 text-white"
           : "bg-gray-300 text-gray-800"
       }`}

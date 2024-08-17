@@ -6,12 +6,13 @@ import NotesContent from "@/components/tech/notes-layout/NotesContent";
 import { season1EpisodesNodeJsAkshaySaini } from "@/components/tech/data";
 import { scrollToTop } from "@/utils/functions";
 import ls from "local-storage";
+import NotesContentFooter from "@/components/tech/notes-layout/NotesContentFooter";
 const NamasteNodeJS = () => {
   const s1Episodes = useMemo(() => season1EpisodesNodeJsAkshaySaini);
   const [selectedSection, setSelectedSection] = useState(
     season1EpisodesNodeJsAkshaySaini[0]
   );
-  const [markdownContent, setMarkdownContent] = useState("");
+  const [markdownContent, setMarkdownContent] = useState("sasda");
   const [isSidebarVisible, setIsSidebarVisible] = useState(true);
   const [isQuickReadModeOn, setIsQuickReadModeOn] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -23,7 +24,6 @@ const NamasteNodeJS = () => {
       ...storageValue,
       [section.name]: true,
     };
-    console.log("storageValue", section);
     ls.set(STORAGE_KEY, updatedStorage);
     scrollToTop();
     setSelectedSection(section);
@@ -33,7 +33,6 @@ const NamasteNodeJS = () => {
 
   function countTrueValues() {
     const storageValue = ls.get(STORAGE_KEY);
-    console.log("storageValue", storageValue);
     return storageValue
       ? Object.values(storageValue).filter((value) => value === true).length
       : 0;
@@ -44,12 +43,13 @@ const NamasteNodeJS = () => {
     const trueCount = countTrueValues();
     const percentage = Math.round((trueCount / totalCount) * 100);
     const res = percentage.toFixed(2);
+    document.body.style.overflow = "hidden";
     setProgress(res);
   }, [selectedSection]);
-
+  
   const savedStorage = ls.get(STORAGE_KEY);
   return (
-    <div className="lg:-mt-16">
+    <div className="lg:-mt-8">
       <NotesChips
         data={s1Episodes}
         handleChipClick={handleSectionClick}
@@ -63,11 +63,12 @@ const NamasteNodeJS = () => {
             data={s1Episodes}
             onSectionClick={handleSectionClick}
             progress={progress}
+            selectedSection={selectedSection}
             storedValues={ls.get(STORAGE_KEY)}
           />
         )}
         <div
-          className={`lg:w-3/4 w-full justify-center fle bg-white h-screen  overflow-y-auto ml-auto ${
+          className={`lg:w-3/4 w-full  flex flex-col bg-white lg:h-[96.5vh] h-[75vh] lg:-mt-12  ml-auto ${
             isSidebarVisible ? "w-3/4" : "w-full"
           }`}
         >
@@ -79,7 +80,11 @@ const NamasteNodeJS = () => {
             title={`Episode ${selectedSection.id} - ${selectedSection?.name}`}
           />
 
-          <NotesContent markdownContent={markdownContent} />
+          <div className="flex-1 overflow-y-auto">
+            <NotesContent markdownContent={markdownContent} />
+          </div>
+
+          {/* <NotesContentFooter data={s1Episodes} selectedSection={selectedSection} onSectionClick={handleSectionClick} /> */}
         </div>
       </div>
     </div>

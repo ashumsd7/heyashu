@@ -10,17 +10,16 @@ const NotesSidebar = ({
   progress,
   showProgress = true,
   storedValues,
+  selectedSection
 }) => {
-  //   const storedValues = ls.get(STORAGE_KEY);
-  console.log("storedValues", storedValues);
 
 
-  const matchStorageValue= ()=>{
 
-  }
+
+
 
   return (
-    <div className="w-[1/4]  lg:block hidden bg-gray-200 h-full  fixed">
+    <div className="w-[1/4]  lg:block hidden bg-gray-200 pb-[200px] h-full  fixed -mt-12">
       <div className="flex justify-center mb-4">
         {" "}
         <h1 className="text-2xl  font-extrabold text-center text-orange-600 md:text-left font-serif mb-1 md:mb-0">
@@ -36,7 +35,7 @@ const NotesSidebar = ({
         {data?.map((item) => {
           return (
             <div
-              className="cursor-pointer p-2 bg-gray-300 hover:bg-gray-400 rounded relative"
+              className={`cursor-pointer p-2 bg-gray-300 hover:bg-gray-400 rounded relative ${selectedSection?.id==item?.id && 'bg-gray-800 hover:bg-green-800  text-white'}`}
               onClick={() => onSectionClick(item)}
             >
               <h3 className="font-semibold">
@@ -44,10 +43,10 @@ const NotesSidebar = ({
                 {item.id - 1}
               </h3>
               <p className="text-sm truncate">{item?.name}</p>
-              {/* {storedValues && storedValues[item?.name] && (
+              {storedValues && storedValues[item?.name] && (
                 <IoIosCheckmarkCircle className="text-green-500 absolute top-[-8px] right-[-6px]" />
-              )} */}
-              <IoIosCheckmarkCircle className="text-green-500 absolute top-[-8px] right-[-6px]" />
+              )}
+
             </div>
           );
         })}

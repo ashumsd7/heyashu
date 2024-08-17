@@ -11,7 +11,7 @@ function Navbar() {
     const pathName = router.pathname;
     if (pathName) {
       const firstPath = pathName.split("/")[1];
-
+    document.body.style.overflow='auto'
       setActivePath(firstPath); 
     }
 
@@ -30,6 +30,7 @@ function Navbar() {
               <div
                 className="flex cursor-pointer justify-left font-semibold items-center mt-10 ml-4"
                 onClick={() => {
+                  document.body.style.overflow='auto'
                   goBack();
                 }}
               >
