@@ -16,7 +16,7 @@ const NamasteNodeJS = () => {
   const [isQuickReadModeOn, setIsQuickReadModeOn] = useState(false);
   const [progress, setProgress] = useState(0);
 
-  const STORAGE_KEY='NAMASTE-NODE_JS'
+  const STORAGE_KEY='NAMASTE-NODE_JS_S1'
   const handleSectionClick = (section) => {
     const storageValue = ls.get(STORAGE_KEY);
     const updatedStorage= {
