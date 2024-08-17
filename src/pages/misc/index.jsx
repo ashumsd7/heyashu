@@ -25,7 +25,7 @@ function MiscPage() {
         />
       </Head>
 
-      <div className="md:mt-20 mt-2 w-full flex flex-col gap-6 relative ">
+      <div className=" mt-2 w-full flex flex-col gap-6 relative ">
         <div className="   mx-auto  m-auto   ">
           <div className="flex flex-col  items-center">
             <h1 className="font-semibold mb-2 "> Meet with, </h1>

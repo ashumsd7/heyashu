@@ -105,7 +105,7 @@ function TechPage() {
         />
       </Head>
 
-      <div className="md:mt-20 mt-2 w-full flex flex-col gap-6 relative">
+      <div className=" mt-2 w-full flex flex-col gap-6 relative">
         <div className="grid md:grid-cols-2  mx-auto grid-cols-1 m-auto justify-between  ">
           <div className="flex flex-col gap-2">
             <h1 className="font-semibold  "> Meet, </h1>

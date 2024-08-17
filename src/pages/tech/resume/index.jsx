@@ -42,7 +42,7 @@ function Resume() {
           content="Download Resume of Ashutosh anand tiwari, He has more than 4 years of exp. in web development."
         />
       </Head>
-      <div className="md:mt-20 mt-2 w-full flex flex-col gap-6 relative ">
+      <div className=" mt-2 w-full flex flex-col gap-6 relative ">
         <div className="grid md:grid-cols-2  mx-auto grid-cols-1 m-auto justify-between  ">
           <div className="flex flex-col gap-2">
             <h1 className="font-semibold "> Ashutosh' </h1>

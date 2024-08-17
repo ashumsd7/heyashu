@@ -12,7 +12,7 @@ function Navbar() {
     if (pathName) {
       const firstPath = pathName.split("/")[1];
 
-      setActivePath(firstPath);
+      setActivePath(firstPath); 
     }
 
     return () => {};
@@ -23,8 +23,8 @@ function Navbar() {
   };
   return (
     <>
-      <div className=" h-[2px] flex items-center bg-orange-600 md:mb-12 mb-20 ">
-        <div className="flex justify-between  w-full items-center relative">
+      <div className=" h-[2px] flex  fixed items-center bg-orange-600 md:mb-12 mb-20 w-full ">
+        <div className="flex justify-between  w-full items-center relative bg-[#efeff1]">
           <div>
             {router?.pathname?.split("/").length > 2 && (
               <div
