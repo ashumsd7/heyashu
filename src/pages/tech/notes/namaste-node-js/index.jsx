@@ -7,10 +7,37 @@ import {  season1EpisodesNodeJsAkshaySaini } from "@/components/tech/data";
 import { scrollToTop } from "@/utils/functions";
 import ls from "local-storage";
 import NotesContentFooter from "@/components/tech/notes-layout/NotesContentFooter";
-import { e0 } from "@/data/tech/notes/markdown/namaste-_node-_js_by_as_s1/e0";
+import { e0 } from "@/data/tech/notes/markdown/namaste_node_js_by_as_s1/e0";
+import { e1 } from "@/data/tech/notes/markdown/namaste_node_js_by_as_s1/e1";
+import { e2 } from "@/data/tech/notes/markdown/namaste_node_js_by_as_s1/e2";
+import { e3 } from "@/data/tech/notes/markdown/namaste_node_js_by_as_s1/e3";
+import { e4 } from "@/data/tech/notes/markdown/namaste_node_js_by_as_s1/e4";
+import { e5 } from "@/data/tech/notes/markdown/namaste_node_js_by_as_s1/e5";
+import { e6 } from "@/data/tech/notes/markdown/namaste_node_js_by_as_s1/e6";
+import { e7 } from "@/data/tech/notes/markdown/namaste_node_js_by_as_s1/e7";
+import { e8 } from "@/data/tech/notes/markdown/namaste_node_js_by_as_s1/e8";
+import { e9 } from "@/data/tech/notes/markdown/namaste_node_js_by_as_s1/e9";
+import { e10 } from "@/data/tech/notes/markdown/namaste_node_js_by_as_s1/e10";
+import { e11 } from "@/data/tech/notes/markdown/namaste_node_js_by_as_s1/e11";
+import { e12 } from "@/data/tech/notes/markdown/namaste_node_js_by_as_s1/e12";
+import { e13 } from "@/data/tech/notes/markdown/namaste_node_js_by_as_s1/e13";
+
 
 const matchingMDX = {
   e0: e0,
+  e1: e1,
+  e2: e2,
+  e3: e3,
+  e4: e4,
+  e5: e5,
+  e6: e6,
+  e7: e7,
+  e8: e8,
+  e9: e9,
+  e10: e10,
+  e11: e11,
+  e12: e12,
+  e13: e13,
 };
 const NamasteNodeJS = () => {
   const s1Episodes = useMemo(() => season1EpisodesNodeJsAkshaySaini);
@@ -45,10 +72,13 @@ const NamasteNodeJS = () => {
   }
 
   function fetchMarkdown(fileName) {
+    console.log("fileName",fileName);
+    console.log("matchingMDX[fileName]",matchingMDX[fileName]);
     setMarkdownContent(matchingMDX[fileName]);
   }
 
   useEffect(() => {
+    console.log("selectedSection",selectedSection);
     const totalCount = season1EpisodesNodeJsAkshaySaini?.length;
     const trueCount = countTrueValues();
     const percentage = Math.round((trueCount / totalCount) * 100);

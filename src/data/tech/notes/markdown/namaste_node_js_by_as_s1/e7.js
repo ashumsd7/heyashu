@@ -1,0 +1,1 @@
+export const  e7=`# Coming Soon`
