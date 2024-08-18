@@ -6,29 +6,34 @@ import { FaExternalLinkAlt } from "react-icons/fa";
 
 const Sidebar = () => {
   const [isNotesOpen, setIsNotesOpen] = useState(false);
-  const router= useRouter()
+  const router = useRouter();
   useEffect(() => {
     document.body.style.overflow = isNotesOpen ? "hidden" : "auto";
   }, [isNotesOpen]);
   return (
     <>
       <div className="">
-        <Button  className='bg-orange-600 text-gray-200'
+        <Button
+          className="bg-orange-600 text-gray-200"
           onClick={() => {
             setIsNotesOpen(!isNotesOpen);
           }}
         >
-           <IoMdDownload/>  View Digital Notes
+          <IoMdDownload /> View Digital Notes
         </Button>
       </div>
       {isNotesOpen && (
-        <div className={`fixed right-0 top-[68px] h-screen w-64 bg-orange-600 p-4 overflow-y-auto transition-transform duration-300 ease-in-out ${
-        isNotesOpen ? 'transform translate-x-0' : 'transform translate-x-full'
-      }`}>
+        <div
+          className={`fixed right-0 top-[68px] h-screen w-64 bg-orange-600 p-4 overflow-y-auto transition-transform duration-300 ease-in-out ${
+            isNotesOpen
+              ? "transform translate-x-0"
+              : "transform translate-x-full"
+          }`}
+        >
           {/* Close Button */}
           <div className="flex  justify-between items-center">
             <h2 className="text-white text-xl font-bold   mr-14">
-            📚  Digital Notes
+              📚 Digital Notes
             </h2>
             <button
               onClick={() => {
@@ -54,30 +59,62 @@ const Sidebar = () => {
           </p>
 
           {/* Cards */}
-          <div className="bg-gray-700 text-white relative p-4 mb-4 rounded cursor-pointer hover:bg-gray-600" onClick={()=>{
-            router.push('/tech/notes/namaste-node-js')
-          }}>
+          <div
+            className="bg-gray-700 text-white relative p-4 mb-4 rounded cursor-pointer hover:bg-gray-600"
+            onClick={() => {
+              router.push("/tech/notes/namaste-node-js");
+            }}
+          >
             <h3 className="font-bold text-lg">Namaste Node JS</h3>
-            <span className="text-xs  font-bold animate-pulse text-green-400">Live Now</span>
-            <span className="text-xs  font-sans text-white italic  text-right absolute right-2 bottom-1 ">By Akshay Saini</span>
-
+            <span className="text-xs  font-bold animate-pulse text-green-400">
+              Live Now
+            </span>
+            <span className="text-xs  font-sans text-white italic  text-right absolute right-2 bottom-1 ">
+              By Akshay Saini
+            </span>
+            <span className="text-xs  font-sans text-white italic  text-right absolute right-2 top-1 ">
+            ️‍🔥
+            </span>
           </div>
           {/* absolute right-2 top-1 */}
-  
-      
-     
-          <div className="bg-green-700 text-white p-4 mb-4 rounded relative cursor-pointer" onClick={()=>{
-            router.push('/tech/notes')
-          }}>
-            <h3 className="font-bold text-lg flex items-center gap-2">Acess all Notes <FaExternalLinkAlt /></h3>
-            <span className="text-xs">Get access of 20+ topics Notes and interview questions</span>
-   
+
+          <div
+            className="bg-green-700 text-white p-4 mb-4 rounded relative cursor-pointer"
+            onClick={() => {
+              router.push("/tech/notes");
+            }}
+          >
+            <h3 className="font-bold text-lg flex items-center gap-2">
+              Acess all Notes <FaExternalLinkAlt />
+            </h3>
+            <span className="text-xs">
+              Get access of 20+ topics Notes and interview questions
+            </span>
           </div>
-          <div className="bg-gray-400 text-white p-4 mb-4 rounded relative">
+
+          <div
+            className="bg-green-700 text-white p-4 mb-4 rounded relative cursor-pointer"
+            onClick={() => {
+              router.push("/blogs");
+            }}
+          >
+            <h3 className="font-bold text-lg flex items-center gap-2">
+              Acess all Blogs <FaExternalLinkAlt />
+            </h3>
+            <span className="text-xs">
+              Get access of more tech blogs
+            </span>
+          </div>
+          {/* <div className="bg-gray-400 text-white p-4 mb-4 rounded relative">
             <h3 className="font-bold text-lg">Explore Namaste Series </h3>
-            <span className="text-xs ">Get access of Namaste JS, Namaste React and Namaste Frontend Design system Notes.</span>
-            <span className="text-xs  font-sans text-white italic  text-right absolute right-2 bottom-1 ">By Akshay Saini</span>
-          </div>
+            <span className="text-xs ">
+              Get access of Namaste JS, Namaste React and Namaste Frontend
+              Design system Notes.
+            </span>
+            <span className="text-xs  font-sans text-white italic  text-right absolute right-2 bottom-1 ">
+              By Akshay Saini
+            </span>
+          </div> */}
         </div>
       )}
     </>
