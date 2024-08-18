@@ -5,10 +5,12 @@ import { HiOutlineSpeakerWave } from "react-icons/hi2";
 import { IoMdDownload } from "react-icons/io";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { FaBookOpen } from "react-icons/fa";
+import { FaCalendar } from "react-icons/fa";
 const BlogMetaInfo = ({
   name = "Ashutosh Anand Tiwari",
   timeRead = "0 min read",
   lastUpdated = "-",
+  publishedOn="-",
   followLink = "https://github.com/ashumsd7/",
   showControls = false,
   profilePic = "https://avatars.githubusercontent.com/u/40313523?v=4",
@@ -39,7 +41,7 @@ const BlogMetaInfo = ({
           </div>
           {(timeRead || lastUpdated) && (
             <div className="text-gray-500 text-sm flex items-center gap-2">
-            <FaBookOpen /> {timeRead} min read  {lastUpdated}
+            <FaBookOpen title={`It will take ${timeRead} min to read this article.`} /> {timeRead} min read ∘ <FaCalendar title="Published on"/>   {publishedOn}
             </div>
           )}
         </div>

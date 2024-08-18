@@ -1,5 +1,5 @@
 export const season1EpisodesNodeJsAkshaySaini = [
-  { id: 100, episode: 100, name: "Buy The Course" },
+  { id: 100, episode: 100, name: "Buy The Course" , publishedOn:'18 Aug 2024'},
   { id: 0, episode: 0, name: "Welcome to NamasteNodeJS" },
   { id: 1, episode: 1, name: "Introduction to NodeJS" },
   { id: 2, episode: 2, name: "JS on Server" },

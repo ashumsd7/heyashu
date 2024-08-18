@@ -3,7 +3,6 @@ import NotesSidebar from "@/components/tech/notes-layout/NotesSidebar";
 import NotesChips from "@/components/tech/notes-layout/NotesChips";
 import NotesContentTopBar from "@/components/tech/notes-layout/NotesContentTopBar";
 import NotesContent from "@/components/tech/notes-layout/NotesContent";
-import {  season1EpisodesNodeJsAkshaySaini } from "@/components/tech/data";
 import { estimateReadingTime, scrollToTop } from "@/utils/functions";
 import ls from "local-storage";
 import NotesContentFooter from "@/components/tech/notes-layout/NotesContentFooter";
@@ -23,6 +22,7 @@ import { e12 } from "@/data/tech/notes/markdown/namaste_node_js_by_as_s1/e12";
 import { e13 } from "@/data/tech/notes/markdown/namaste_node_js_by_as_s1/e13";
 import { e100 } from "@/data/tech/notes/markdown/namaste_node_js_by_as_s1/e100";
 import BlogMetaInfo from "@/components/tech/notes-layout/BlogMetaInfo";
+import { season1EpisodesNodeJsAkshaySaini } from "@/data/tech";
 
 
 const matchingMDX = {
@@ -126,7 +126,7 @@ const NamasteNodeJS = () => {
           />
 
           <div className="flex-1 overflow-y-auto p-4">
-          <BlogMetaInfo timeRead={estimateReadingTime(markdownContent)}/>
+          <BlogMetaInfo timeRead={estimateReadingTime(markdownContent)} publishedOn={selectedSection?.publishedOn}/>
             <NotesContent markdownContent={markdownContent} />
           </div>
 
