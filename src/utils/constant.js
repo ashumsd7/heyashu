@@ -7,3 +7,5 @@ export const API_KEY_FASTSMS="KwdHTi9lhSNFtV5sUJfn4GYcqO8MD2k0buaACEm7LexQjpBrWP
 
 // ----------------------photos
 export const BEST_PHOTOS_LINK='https://photos.app.goo.gl/gtXG2yJaGU2t32h27'
+
+

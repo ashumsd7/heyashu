@@ -10,9 +10,8 @@ import { IoLogoJavascript } from "react-icons/io";
 import { SiTypescript } from "react-icons/si";
 import { SiRedux } from "react-icons/si";
 import { FaVuejs } from "react-icons/fa6";
-import ProjectCard from "@/components/tech/ProjectCard";
-import { FaLongArrowAltRight } from "react-icons/fa";
-import BlogCard from "@/components/tech/BlogCard";
+
+
 import { IoMdDownload } from "react-icons/io";
 import { GrFormSchedule } from "react-icons/gr";
 import Button from "@/components/base/Button";
@@ -243,9 +242,6 @@ function TechPage() {
         </div>
 
         <div className="grid  lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">
-          {/* {[1, 2, 3].map((item) => {
-          return <BlogCard />;
-        })} */}
           <ComingSoon />
         </div>
 
