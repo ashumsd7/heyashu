@@ -24,7 +24,6 @@ He has worked in Paytm Uber and multiple startups
   return (
     <>
       <BlogCard />
-      {/* <ReactMarkdown className="prose">{markdownContent}</ReactMarkdown> */}
     </>
   );
 }

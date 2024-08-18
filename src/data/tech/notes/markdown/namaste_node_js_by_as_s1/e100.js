@@ -1,37 +1,33 @@
 export const e100 = `
 
-# NAMASTE JI 🙏
+# 🌟 Namaste Ji 🙏
 
-![aks2](https://i.ibb.co/ChjP3s0/thumb.jpg)
+![Namaste Node JS](https://i.ibb.co/ChjP3s0/thumb.jpg)
 
+## 🌟 Course Recommendation
 
-## Recommendation
+If you're serious about mastering Node.js, I highly recommend starting with the [Namaste Node JS Course](https://namastedev.com/learn/namaste-node). It's packed with valuable insights that will take your skills to the next level!
 
-First, I recommend you to buy the course:
+## 🎬 Watch the Trailer
 
-[Namaste Node JS Course](https://namastedev.com/learn/namaste-node)
+Curious about what’s in store? [Click here to watch the trailer](https://www.youtube.com/watch?v=ufHnsVixMEs) and get a sneak peek into the course content.
 
+## 📝 Detailed Curriculum
 
-## Watch Trailer
+Before enrolling, make sure to [check out the detailed curriculum](https://www.youtube.com/watch?v=uuabMDyj4Gk&t=32s) to see exactly what you’ll learn throughout the course.
 
-[Click to watch trailer](https://www.youtube.com/watch?v=ufHnsVixMEs)
+## 📢 Follow Akshay Saini
 
-## Watch this before enrolling into Namaste Node.js
+Stay updated with the latest from Akshay Saini. Follow him on social media and subscribe to his YouTube channel for more valuable content:
 
-[Click the detailed  Curriculum](https://www.youtube.com/watch?v=uuabMDyj4Gk&t=32s)
+- [YouTube](https://www.youtube.com/@akshaymarch7)
+- [LinkedIn](https://www.linkedin.com/in/akshaymarch7)
+- [Instagram](https://www.instagram.com/akshaymarch7)
+- [Twitter](https://www.twitter.com/akshaymarch7)
+- [Facebook](https://www.facebook.com/akshaymarch7)
 
+## 📚 Explore More Namaste Courses
 
-## Follow Akshay Saini and Subscribe Youtube Channel
-
-[Youtube](https://www.youtube.com/@akshaymarch7)
-[Linkedin](https://www.linkedin.com/in/akshaymarch7)
-[Instagram](https://www.instagram.com/akshaymarch7)
-[Twitter](https://www.twitter.com/akshaymarch7)
-[Facebook](https://www.facebook.com/akshaymarch7)
-
-
-## For More Namaste Course 
-
-[Visit Website](https://namastedev.com/)
+Interested in more courses? [Visit the NamasteDev website](https://namastedev.com/) for a complete list of offerings.
 
 `

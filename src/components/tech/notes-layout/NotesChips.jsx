@@ -15,7 +15,7 @@ const NotesChips = ({
   const [selectedChip, setSelectedChip] = useState(value);
   return (
     <>
-      <h1 className="text-2xl -mt-5   block lg:hidden font-extrabold text-center text-orange-600 md:text-left font-serif mb-1 md:mb-0">
+      <h1 className="text-2xl    block lg:hidden font-extrabold text-center text-orange-600 md:text-left font-serif mb-1 md:mb-0">
         Namaste Node JS
       </h1>
       <div className="w-full block lg:hidden overflow-x-auto whitespace-nowrap py-2">
