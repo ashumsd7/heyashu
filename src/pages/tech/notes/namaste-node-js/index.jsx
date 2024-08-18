@@ -97,6 +97,7 @@ const NamasteNodeJS = () => {
         handleChipClick={handleSectionClick}
         progress={progress}
         storedValues={savedStorage}
+        value={s1Episodes[0]}
       />
 
       <div className="flex h-[93vh] gap-10">

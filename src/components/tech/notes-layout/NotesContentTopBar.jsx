@@ -1,5 +1,5 @@
 import React from "react";
-import { FaDownload, FaFilePdf } from "react-icons/fa";
+import { FaDownload, FaFilePdf, FaGithub } from "react-icons/fa";
 import { MdFullscreen } from "react-icons/md";
 import { GoSidebarExpand, GoSidebarCollapse } from "react-icons/go";
 import Switch from "@/components/base/Switch";
@@ -10,8 +10,10 @@ function NotesContentTopBar({
   setIsQuickReadModeOn,
   title,
 }) {
+  const NAMASTE_NODE_JS_CONTRIBUTION_LINK =
+    "https://github.com/ashumsd7/ashu-new-portfolio-website/tree/main/src/data";
   return (
-    <div className="bg-gradient-to-r from-yellow-400 to-white h-10 flex items-center rounded rounded-b-none justify-between px-4 py-1 ">
+    <div className="bg-gradient-to-r relative from-yellow-400 to-white h-10 flex items-center rounded rounded-b-none justify-between px-4 py-1 ">
       <div className="flex gap-2 items-center">
         <div className=" gap-2 justify-between items-center lg:flex hidden">
           {isSidebarVisible ? (
@@ -36,6 +38,14 @@ function NotesContentTopBar({
           {title}
         </h1>
       </div>
+
+      <FaGithub
+        onClick={() => {
+          window.open(NAMASTE_NODE_JS_CONTRIBUTION_LINK, "_blank");
+        }}
+        className="absolute right-4 cursor-pointer "
+        title="Contribute to the repo"
+      />
       {/* <div className="lg:flex hidden gap-6 items-center bg-[#f2f2f2] ">
         <MdFullscreen className="text-gray-800 text-2xl cursor-pointer font-extrabold" />
       

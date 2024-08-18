@@ -6,7 +6,7 @@ const ProgressBar = ({ percentage = 0 }) => {
   return (
     <>
       {Math.ceil(percentage) == 100 ? (
-        <div className="flex gap-2 justify-between w-full items-center font-bold text-green-700">
+        <div className="flex gap-2 justify-between w-full items-center font-bold px-2 text-green-700">
           <div className="flex gap-1 items-center">
             <GiPartyPopper className="font-extrabold text-red-500" />
             <IoIosCheckmarkCircle className="text-green-700 " />
