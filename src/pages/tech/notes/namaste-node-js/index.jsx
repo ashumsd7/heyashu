@@ -45,7 +45,6 @@ const NamasteNodeJS = () => {
   }
 
   function fetchMarkdown(fileName) {
-    console.log("fileName", fileName);
     setMarkdownContent(matchingMDX[fileName]);
   }
 

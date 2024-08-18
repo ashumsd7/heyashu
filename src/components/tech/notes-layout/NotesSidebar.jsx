@@ -32,9 +32,9 @@ const NotesSidebar = ({
       </div>
 
       <div className="space-y-4  overflow-y-auto mb-[200px]  h-full p-4">
-        {data?.map((item) => {
+        {data?.map((item, idx) => {
           return (
-            <div
+            <div key={idx}
               className={`cursor-pointer p-2 bg-gray-300 border hover:bg-gray-400 rounded relative ${selectedSection?.id==item?.id && 'bg-gray-800 hover:bg-green-800  text-white'}`}
               onClick={() => onSectionClick(item)}
             >

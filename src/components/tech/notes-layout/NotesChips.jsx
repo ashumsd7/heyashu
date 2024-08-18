@@ -20,8 +20,8 @@ const NotesChips = ({
       </h1>
       <div className="w-full block lg:hidden overflow-x-auto whitespace-nowrap py-2">
         <div className="flex">
-          {data?.map((item) => (
-            <span className="relative">
+          {data?.map((item, idx) => (
+            <span className="relative" key={idx}>
               <Chip
                 item={item}
                 selectedChip={selectedChip}
