@@ -24,7 +24,7 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb)); */
-    background: #efeff1;
+  background: #efeff1;
 }
 
 @layer utilities {
@@ -36,3 +36,26 @@ body {
 .markdown > * {
   all: revert !important;
 }
+/* .markdown-h1 {
+  letter-spacing: 0;
+  line-height: 52px !important;
+  margin-top: 1.2em !important;
+  font-size: 42px;
+  font-weight: 700;
+  margin: 1rem 0;
+  color: rgb(36, 36, 36);
+  overflow-wrap: break-word;
+  font-style: normal;
+}
+.markdown-h2 {
+  letter-spacing: 0;
+  line-height: 52px;
+  margin: 0px;
+  margin-top: 24px;
+  font-size: 42px;
+  font-weight: 800;
+  color: rgb(36, 36, 36);
+  overflow-wrap: break-word;
+  font-style: normal;
+  font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+} */

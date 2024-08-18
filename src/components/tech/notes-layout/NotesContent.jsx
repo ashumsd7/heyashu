@@ -1,11 +1,11 @@
+import Markdown from "@/components/base/Markdown";
+import { redirect } from "next/dist/server/api-utils";
 import React from "react";
 import ReactMarkdown from "react-markdown";
 function NotesContent({ markdownContent }) {
   return (
     <div className="p-4">
-      <ReactMarkdown className="prose xl:prose-xl lg:prose-lg md:prose-md sm:prose-sm">
-        {markdownContent}
-      </ReactMarkdown>
+      <Markdown content={markdownContent} />
     </div>
   );
 }
