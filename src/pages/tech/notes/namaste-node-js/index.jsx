@@ -4,7 +4,7 @@ import NotesChips from "@/components/tech/notes-layout/NotesChips";
 import NotesContentTopBar from "@/components/tech/notes-layout/NotesContentTopBar";
 import NotesContent from "@/components/tech/notes-layout/NotesContent";
 import {  season1EpisodesNodeJsAkshaySaini } from "@/components/tech/data";
-import { scrollToTop } from "@/utils/functions";
+import { estimateReadingTime, scrollToTop } from "@/utils/functions";
 import ls from "local-storage";
 import NotesContentFooter from "@/components/tech/notes-layout/NotesContentFooter";
 import { e0 } from "@/data/tech/notes/markdown/namaste_node_js_by_as_s1/e0";
@@ -123,7 +123,7 @@ const NamasteNodeJS = () => {
           />
 
           <div className="flex-1 overflow-y-auto p-4">
-          <BlogMetaInfo/>
+          <BlogMetaInfo timeRead={estimateReadingTime(markdownContent)}/>
             <NotesContent markdownContent={markdownContent} />
           </div>
 

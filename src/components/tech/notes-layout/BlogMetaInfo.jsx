@@ -7,7 +7,7 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 
 const BlogMetaInfo = ({
   name = "Ashutosh Anand Tiwari",
-  timeRead = "5 min read",
+  timeRead = "0 min read",
   lastUpdated = "-",
   followLink = "https://aat.netlify.app",
   showControls = false,
@@ -21,7 +21,10 @@ const BlogMetaInfo = ({
             {name.charAt(0)}
           </div>
         ) : (
-          <img src={profilePic} className="w-12 h-12 border-4 border-gray-200  flex items-center justify-center rounded-full" />
+          <img
+            src={profilePic}
+            className="w-12 h-12 border-4 border-gray-200  flex items-center justify-center rounded-full"
+          />
         )}
         <div className="ml-3">
           <div className="flex items-center space-x-2">
@@ -33,12 +36,11 @@ const BlogMetaInfo = ({
               Follow
             </a>
           </div>
-          {timeRead ||
-            (lastUpdated && (
-              <div className="text-gray-500 text-xs">
-                {timeRead} · {lastUpdated}
-              </div>
-            ))}
+          {(timeRead || lastUpdated) && (
+            <div className="text-gray-500 text-sm">
+             ⌚ {timeRead} min read  {lastUpdated}
+            </div>
+          )}
         </div>
       </div>
       {showControls && (

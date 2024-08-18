@@ -31,9 +31,9 @@ const NotesChips = ({
                 }}
                 value={selectedChip}
               />
-              {storedValues && storedValues[item?.name] && (
+              {/* {storedValues && storedValues[item?.name] && (
                 <IoIosCheckmarkCircle className="text-green-500 absolute top-[0px]  left-[2px]" />
-              )}
+              )} */}
             </span>
           ))}
         </div>
