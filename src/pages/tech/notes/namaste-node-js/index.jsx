@@ -21,6 +21,7 @@ import { e10 } from "@/data/tech/notes/markdown/namaste_node_js_by_as_s1/e10";
 import { e11 } from "@/data/tech/notes/markdown/namaste_node_js_by_as_s1/e11";
 import { e12 } from "@/data/tech/notes/markdown/namaste_node_js_by_as_s1/e12";
 import { e13 } from "@/data/tech/notes/markdown/namaste_node_js_by_as_s1/e13";
+import BlogMetaInfo from "@/components/tech/notes-layout/BlogMetaInfo";
 
 
 const matchingMDX = {
@@ -118,10 +119,11 @@ const NamasteNodeJS = () => {
             setIsSidebarVisible={setIsSidebarVisible}
             isQuickReadModeOn={isQuickReadModeOn}
             setIsQuickReadModeOn={setIsQuickReadModeOn}
-            title={`Episode ${selectedSection.id} - ${selectedSection?.name}`}
+            title={`E${selectedSection.id} - ${selectedSection?.name}`}
           />
 
           <div className="flex-1 overflow-y-auto p-4">
+          <BlogMetaInfo/>
             <NotesContent markdownContent={markdownContent} />
           </div>
 
