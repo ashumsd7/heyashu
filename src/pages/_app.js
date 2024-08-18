@@ -2,6 +2,7 @@ import Layout from "@/components/base/Layout";
 import Navbar from "@/components/base/Navbar";
 import QuickMsgBtn from "@/components/ui/QuickMsgBtn";
 import "@/styles/globals.css";
+import '@fontsource/source-serif-pro';
 import { PHONE_CALL_THIRTY_MIN } from "@/utils/constant";
 import Link from "next/link";
 

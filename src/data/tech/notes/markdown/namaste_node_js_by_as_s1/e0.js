@@ -1,25 +1,14 @@
 export const  e0=`
-# E0: Welcome to Namaste Node JS
+#  Welcome to Namaste Node JS
 
 ![image.png](https://i.ibb.co/2hq8tjW/akshays-banner.jpg)
 
-# About the Creator (The Boss, Akshay Saini)
+## About the Creator 
+(The Boss, Akshay Saini)
 
-Akshay started building websites in the 7th or 8th grade.
+Akshay started building websites in the 7th or 8th grade and has since worked at Paytm, Uber, Lendingkart, and multiple startups, where he learned how to develop large-scale projects. He even started a startup while still in college. Throughout his career, one of the key factors that has helped him succeed is being curious. He believes that having curiosity and the desire to learn new things will help you continually improve. He encourages you to ask questions, as this will significantly benefit your career. Akshay urges you to maintain this curiosity during the course as well.
 
-He has worked at Paytm, Uber, [Lendingkart](https://www.lendingkart.com/business-loan/check-eligibility), and multiple startups, where he learned how to develop large-scale companies.
-
-He started a startup while he was still in college.
-
-Multiple things have helped him in his career; one of those is  \`Being Curious\`.
-
-Having curiosity and the desire to learn new things will help you become better and better.
-
-Ask questions! This will help you in your career.
-
-He encourages you to be curious during this course as well.
-
-# Requests from the Creator Before Starting the Course
+## Requests from the Creator Before Starting the Course
 
 1. Keep taking notes, either digitally or in a notebook, as you follow along with the videos.
 2. Practice the concepts as you watch the videos.

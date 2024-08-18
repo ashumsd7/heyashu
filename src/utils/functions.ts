@@ -5,7 +5,7 @@ export function scrollToTop() {
   });
 }
 
-export function estimateReadingTime(paragraph, wordsPerMinute = 100) {
+export function estimateReadingTime(paragraph, wordsPerMinute = 180) {
   // Split the paragraph into words
   const words = paragraph.split(' ');
 

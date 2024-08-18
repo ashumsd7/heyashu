@@ -59,3 +59,22 @@ body {
   font-style: normal;
   font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
 } */
+
+.markdown-p{
+ margin: .5rem 0px !important;
+ line-height: 32px;
+ font-size: 20px;
+ word-break: break-word;
+ color: #242424;
+ font-weight: 400;
+}
+.markdown-li{
+  margin: .5rem 0px !important;
+  font-size: 20px;
+  word-break: break-word;
+  color: #242424;
+  font-weight: 400;
+ }
+.prose{
+  font-family: source-serif-pro, Georgia, Cambria, "Times New Roman", Times, serif !important;
+}

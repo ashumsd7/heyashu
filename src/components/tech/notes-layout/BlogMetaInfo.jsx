@@ -9,7 +9,7 @@ const BlogMetaInfo = ({
   name = "Ashutosh Anand Tiwari",
   timeRead = "0 min read",
   lastUpdated = "-",
-  followLink = "https://aat.netlify.app",
+  followLink = "https://github.com/ashumsd7/",
   showControls = false,
   profilePic = "https://avatars.githubusercontent.com/u/40313523?v=4",
 }) => {
@@ -31,6 +31,7 @@ const BlogMetaInfo = ({
             <span className="font-semibold text-gray-900">{name}</span>
             <a
               href={followLink}
+              target="_blank"s
               className="text-green-600 font-semibold cursor-pointer"
             >
               Follow
