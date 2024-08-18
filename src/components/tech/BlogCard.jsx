@@ -1,32 +1,55 @@
-import Image from "next/image";
-import React from "react";
+import React from 'react';
+import { FaBookOpen } from 'react-icons/fa';
 
-function BlogCard() {
+const BlogCard = ({
+  name = "Ociel Gonzalez",
+  writtenOn = "Aug 18 (12 hours ago)",
+  title = "6 Simple (But Effective) Pieces Of Advice I’d Give Anyone Starting In 3D Web Development",
+  minRead = "3",
+  tags = ['webdev', 'javascript', 'beginners', 'programming'],
+  profilePic = "https://path-to-profile-pic.jpg",
+  thumbnail = "https://via.placeholder.com/150", // Default thumbnail image
+}) => {
   return (
-    <div className=" border rounded-md flex flex-col gap-2 bg-white max-w-[420px] hover:shadow-lg cursor-pointer">
-      <div className="px-4 py-2 ">
-        <h2 className="font-semibold text-xl font-serif">Make things float in air</h2>
-        <p className="text-base font-serif">
-          Make things float in air Make things float in airMake things float in
-          air
-        </p>
+    <div className="border rounded-lg p-4 shadow-md bg-white flex items-center">
+      <div className="flex-1">
+        <div className="flex items-center mb-4">
+          <img src={profilePic} alt={`${name}'s profile`} className="w-10 h-10 rounded-full" />
+          <div className="ml-3">
+            <div className="font-semibold text-gray-900">{name}</div>
+            <div className="text-gray-500 text-sm">{writtenOn}</div>
+          </div>
+        </div>
+        <h2 className="font-bold text-xl text-gray-900 mb-2">
+          {title}
+        </h2>
+        <div className="flex flex-wrap space-x-2 mb-4">
+          {tags.map((tag, index) => (
+            <span key={index} className="bg-gray-200 text-gray-700 text-xs px-2 py-1 rounded">
+              #{tag}
+            </span>
+          ))}
+        </div>
+        <div className="flex items-center justify-between text-gray-500 text-sm">
+          <div className="flex items-center space-x-3">
+            <span role="img" aria-label="reactions">
+              ❤️ 2 Reactions
+            </span>
+            <span>
+              💬 1 Comment
+            </span>
+            <span className='flex gap-1 items-center '>
+            <FaBookOpen/> {minRead} min read
+          </span>
+          </div>
+         
+        </div>
       </div>
-
-      <Image
-        className="mx-auto "
-        width={"420"}
-        height={"220"}
-        src="https://plus.unsplash.com/premium_photo-1714229505201-072ef1c6edcd?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8"
-      />
-
-      <div className="px-4 py-2">
-        <p>
-          Make things float in air Make things float in airMake things float in
-          air
-        </p>
+      <div className="ml-4">
+        <img src={thumbnail} alt="thumbnail" className="w-24 h-24 object-cover rounded-lg" />
       </div>
     </div>
   );
-}
+};
 
 export default BlogCard;

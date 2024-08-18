@@ -4,7 +4,7 @@ import { FaHandsClapping } from "react-icons/fa6";
 import { HiOutlineSpeakerWave } from "react-icons/hi2";
 import { IoMdDownload } from "react-icons/io";
 import { BsThreeDotsVertical } from "react-icons/bs";
-
+import { FaBookOpen } from "react-icons/fa";
 const BlogMetaInfo = ({
   name = "Ashutosh Anand Tiwari",
   timeRead = "0 min read",
@@ -38,8 +38,8 @@ const BlogMetaInfo = ({
             </a>
           </div>
           {(timeRead || lastUpdated) && (
-            <div className="text-gray-500 text-sm">
-             ⌚ {timeRead} min read  {lastUpdated}
+            <div className="text-gray-500 text-sm flex items-center gap-2">
+            <FaBookOpen /> {timeRead} min read  {lastUpdated}
             </div>
           )}
         </div>

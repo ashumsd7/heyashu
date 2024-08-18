@@ -3,7 +3,7 @@ import React from 'react'
 
 function BlogsPage() {
   return (
-    <div><ComingSoon/></div>
+    <div className='border border-red-600 h-screen'><ComingSoon/></div>
   )
 }
 

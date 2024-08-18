@@ -11,8 +11,8 @@ function Navbar() {
     const pathName = router.pathname;
     if (pathName) {
       const firstPath = pathName.split("/")[1];
-    document.body.style.overflow='auto'
-      setActivePath(firstPath); 
+      document.body.style.overflow = "auto";
+      setActivePath(firstPath);
     }
 
     return () => {};
@@ -30,7 +30,7 @@ function Navbar() {
               <div
                 className="flex cursor-pointer justify-left font-semibold items-center mt-10 ml-4"
                 onClick={() => {
-                  document.body.style.overflow='auto'
+                  document.body.style.overflow = "auto";
                   goBack();
                 }}
               >
@@ -39,7 +39,7 @@ function Navbar() {
               </div>
             )}
           </div>
-          <div className="flex gap-8 mt-10">
+          <div className="flex gap-8 mt-10 items-center">
             <Link
               href="/"
               className="text-xl font-extrabold flex items-center font-mono relative "
@@ -60,25 +60,35 @@ function Navbar() {
               )}
             </Link>
             <Link
-              href="/travel"
-              className="text-xl font-extrabold font-mono  relative"
+              href="/blogs"
+              className="text-xl font-extrabold font-mono relative"
             >
-              /travel
-              {activePath == "travel" && (
+              /blogs{" "}
+              {activePath == "blogs" && (
                 <LuMousePointerClick className="absolute  top-[20px] left-[20px] text-2xl text-orange-600" />
               )}
             </Link>
-            <Link
-              href="/misc"
-              className="text-xl  font-extrabold font-mono pr-5 relative"
-            >
-              {" "}
-              /more{" "}
-              {["misc", "town"].includes(activePath) && (
-                <LuMousePointerClick className="absolute top-[20px] left-[20px] text-2xl text-orange-600" />
-              )}
-            </Link>
-        
+            <div className="flex flex-col gap-2 mt-8">
+              <Link
+                href="/travel"
+                className="text-xl font-extrabold font-mono  relative"
+              >
+                /travel
+                {activePath == "travel" && (
+                  <LuMousePointerClick className="absolute  top-[20px] left-[20px] text-2xl text-orange-600" />
+                )}
+              </Link>
+              <Link
+                href="/misc"
+                className="text-xl  font-extrabold font-mono pr-5 relative"
+              >
+                {" "}
+                /more{" "}
+                {["misc", "town"].includes(activePath) && (
+                  <LuMousePointerClick className="absolute top-[20px] left-[20px] text-2xl text-orange-600" />
+                )}
+              </Link>
+            </div>
           </div>
         </div>
       </div>

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import ReactMarkdown from "react-markdown";
 import Markdown from "markdown-to-jsx";
+import BlogCard from "@/components/tech/BlogCard";
 function AllNotesPage() {
   const [markdownContent, setMarkdownContent] = useState(`
  # E0 :    Welcome to Namaste Node JS
@@ -22,7 +23,7 @@ He has worked in Paytm Uber and multiple startups
     `);
   return (
     <>
-      <Markdown>{markdownContent}</Markdown>
+      <BlogCard />
       {/* <ReactMarkdown className="prose">{markdownContent}</ReactMarkdown> */}
     </>
   );
