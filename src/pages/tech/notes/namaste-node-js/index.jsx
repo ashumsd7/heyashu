@@ -21,6 +21,7 @@ import { e10 } from "@/data/tech/notes/markdown/namaste_node_js_by_as_s1/e10";
 import { e11 } from "@/data/tech/notes/markdown/namaste_node_js_by_as_s1/e11";
 import { e12 } from "@/data/tech/notes/markdown/namaste_node_js_by_as_s1/e12";
 import { e13 } from "@/data/tech/notes/markdown/namaste_node_js_by_as_s1/e13";
+import { e100 } from "@/data/tech/notes/markdown/namaste_node_js_by_as_s1/e100";
 import BlogMetaInfo from "@/components/tech/notes-layout/BlogMetaInfo";
 
 
@@ -39,6 +40,7 @@ const matchingMDX = {
   e11: e11,
   e12: e12,
   e13: e13,
+  e100: e100,
 };
 const NamasteNodeJS = () => {
   const s1Episodes = useMemo(() => season1EpisodesNodeJsAkshaySaini);

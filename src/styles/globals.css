@@ -62,7 +62,7 @@ body {
 
 .markdown-p{
  margin: .5rem 0px !important;
- line-height: 32px;
+ line-height: 1.5rem;
  font-size: 20px;
  word-break: break-word;
  color: #242424;

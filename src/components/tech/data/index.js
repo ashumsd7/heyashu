@@ -1,10 +1,11 @@
 export const season1EpisodesNodeJsAkshaySaini = [
+  { id: 100, episode: 100, name: "Buy The Course" },
   { id: 0, episode: 0, name: "Welcome to NamasteNodeJS" },
   { id: 1, episode: 1, name: "Introduction to NodeJS" },
   { id: 2, episode: 2, name: "JS on Server" },
   { id: 3, episode: 3, name: "Let's write code" },
   { id: 4, episode: 4, name: "module.export & require" },
-  { id: 5, episode: 5, name: "Diving into the NodeJS github repo" },
+  { id: 5, episode: 5, name: "Diving into the NodpeJS github repo" },
   { id: 6, episode: 6, name: "libuv & async IO" },
   { id: 7, episode: 7, name: "sync, async, setTimeoutZero - code" },
   { id: 8, episode: 8, name: "Deep dive into v8 JS Engine" },

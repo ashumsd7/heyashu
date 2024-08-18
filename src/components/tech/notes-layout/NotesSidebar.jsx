@@ -24,7 +24,6 @@ const NotesSidebar = ({
         {showProgress && <ProgressBar percentage={progress} />}
       </div>
 
-
       <div className="space-y-4  overflow-y-auto mb-[200px]  h-full p-4">
         {data?.map((item, idx) => {
           return (
@@ -40,10 +39,16 @@ const NotesSidebar = ({
               }`}
               onClick={() => onSectionClick(item)}
             >
-              <h3 className="font-semibold flex items-center gap-2 pl-3">
-                {eachCardPrefix}
-                {item.episode}
-              </h3>
+              {item.episode == 100 ? (
+                <h3 className="font-semibold flex items-center gap-2 pl-3">
+                  Prerequisite
+                </h3>
+              ) : (
+                <h3 className="font-semibold flex items-center gap-2 pl-3">
+                  {eachCardPrefix}
+                  {item.episode}
+                </h3>
+              )}
               <p className="text-sm pl-3 truncate">{item?.name}</p>
             </div>
           );
