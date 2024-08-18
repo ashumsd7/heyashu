@@ -93,7 +93,7 @@ const NamasteNodeJS = () => {
 
   const savedStorage = ls.get(STORAGE_KEY);
   return (
-    <div className="lg:-mt-8">
+    <div className="lg:-mt-4">
       <NotesChips
         data={s1Episodes}
         handleChipClick={handleSectionClick}

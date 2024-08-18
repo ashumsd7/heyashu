@@ -22,7 +22,7 @@ const Sidebar = () => {
         </Button>
       </div>
       {isNotesOpen && (
-        <div className={`fixed right-0 top-[34px] h-screen w-64 bg-orange-600 p-4 overflow-y-auto transition-transform duration-300 ease-in-out ${
+        <div className={`fixed right-0 top-[68px] h-screen w-64 bg-orange-600 p-4 overflow-y-auto transition-transform duration-300 ease-in-out ${
         isNotesOpen ? 'transform translate-x-0' : 'transform translate-x-full'
       }`}>
           {/* Close Button */}
