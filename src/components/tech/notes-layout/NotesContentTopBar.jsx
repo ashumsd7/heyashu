@@ -13,7 +13,7 @@ function NotesContentTopBar({
   title,
 }) {
   return (
-    <div className="bg-orange-600 h-10 flex items-center justify-between px-4 py-1 ">
+    <div className="bg-orange-600 h-10 flex items-center rounded-lg justify-between px-4 py-1 ">
       <div className="flex gap-2 items-center">
         <div className=" gap-2 justify-between items-center lg:flex hidden">
           {isSidebarVisible ? (

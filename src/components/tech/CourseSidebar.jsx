@@ -66,7 +66,9 @@ const Sidebar = () => {
   
       
      
-          <div className="bg-green-700 text-white p-4 mb-4 rounded relative cursor-pointer">
+          <div className="bg-green-700 text-white p-4 mb-4 rounded relative cursor-pointer" onClick={()=>{
+            router.push('/tech/notes')
+          }}>
             <h3 className="font-bold text-lg flex items-center gap-2">Acess all Notes <FaExternalLinkAlt /></h3>
             <span className="text-xs">Get access of 20+ topics Notes and interview questions</span>
    

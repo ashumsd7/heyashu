@@ -11,7 +11,7 @@ function Chip({item,selectedChip,handleChipClick}) {
           : "bg-gray-300 text-gray-800"
       }`}
     >
-      {item.id < 10 ? `0${item.id - 1}:` : `${item.id - 1}:`} {item.name}
+      {item.episode < 10 ? `0${item.episode}:` : `${item.episode}:`} {item.name}
     </div>
   );
 }

@@ -1,17 +1,18 @@
-
 export const season1EpisodesNodeJsAkshaySaini = [
-  { id: 1, name: "Welcome to NamasteNodeJS" },
-  { id: 2, name: "Introduction to NodeJS" },
-  { id: 3, name: "JS on Server" },
-  { id: 4, name: "Let's write code" },
-  { id: 5, name: "module.export & require" },
-  { id: 6, name: "Diving into the NodeJS github repo" },
-  { id: 7, name: "libuv & async IO" },
-  { id: 8, name: "sync, async, setTimeoutZero - code" },
-  { id: 9, name: "Deep dive into v8 JS Engine" },
-  { id: 10, name: "libuv & Event Loop" },
-  { id: 11, name: "Thread pool in libuv" },
-  { id: 12, name: "Creating a Server" },
-  { id: 13, name: "Databases - SQL & NoSQL" },
-  { id: 14, name: "Creating a database & mongodb" },
+  { id: 0, episode: 0, name: "Welcome to NamasteNodeJS" },
+  { id: 1, episode: 1, name: "Introduction to NodeJS" },
+  { id: 2, episode: 2, name: "JS on Server" },
+  { id: 3, episode: 3, name: "Let's write code" },
+  { id: 4, episode: 4, name: "module.export & require" },
+  { id: 5, episode: 5, name: "Diving into the NodeJS github repo" },
+  { id: 6, episode: 6, name: "libuv & async IO" },
+  { id: 7, episode: 7, name: "sync, async, setTimeoutZero - code" },
+  { id: 8, episode: 8, name: "Deep dive into v8 JS Engine" },
+  { id: 9, episode: 9, name: "libuv & Event Loop" },
+  { id: 10, episode: 10, name: "Thread pool in libuv" },
+  { id: 11, episode: 11, name: "Creating a Server" },
+  { id: 12, episode: 12, name: "Databases - SQL & NoSQL" },
+  { id: 13, episode: 13, name: "Creating a database & mongodb" },
 ];
+
+

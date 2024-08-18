@@ -19,10 +19,10 @@ const NotesSidebar = ({
 
 
   return (
-    <div className="w-[1/4]  lg:block hidden bg-gray-200 pb-[200px] h-full  fixed -mt-12">
+    <div className="w-[1/4]  lg:block hidden bg-gray-200 pb-[200px] h-full  fixed -mt-12 rounded-md shadow-md">
       <div className="flex justify-center mb-4">
         {" "}
-        <h1 className="text-2xl  font-extrabold text-center text-orange-600 md:text-left font-serif mb-1 md:mb-0">
+        <h1 className="text-2xl mt-2 font-extrabold text-center text-orange-600 md:text-left font-serif mb-1 md:mb-0">
           Namaste Node JS
         </h1>
       </div>
@@ -35,12 +35,12 @@ const NotesSidebar = ({
         {data?.map((item) => {
           return (
             <div
-              className={`cursor-pointer p-2 bg-gray-300 hover:bg-gray-400 rounded relative ${selectedSection?.id==item?.id && 'bg-gray-800 hover:bg-green-800  text-white'}`}
+              className={`cursor-pointer p-2 bg-gray-300 border hover:bg-gray-400 rounded relative ${selectedSection?.id==item?.id && 'bg-gray-800 hover:bg-green-800  text-white'}`}
               onClick={() => onSectionClick(item)}
             >
               <h3 className="font-semibold">
                 {eachCardPrefix}
-                {item.id - 1}
+                {item.episode}
               </h3>
               <p className="text-sm truncate">{item?.name}</p>
               {storedValues && storedValues[item?.name] && (

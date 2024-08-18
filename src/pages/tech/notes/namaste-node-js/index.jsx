@@ -3,16 +3,22 @@ import NotesSidebar from "@/components/tech/notes-layout/NotesSidebar";
 import NotesChips from "@/components/tech/notes-layout/NotesChips";
 import NotesContentTopBar from "@/components/tech/notes-layout/NotesContentTopBar";
 import NotesContent from "@/components/tech/notes-layout/NotesContent";
-import { season1EpisodesNodeJsAkshaySaini } from "@/components/tech/data";
+import {  season1EpisodesNodeJsAkshaySaini } from "@/components/tech/data";
 import { scrollToTop } from "@/utils/functions";
 import ls from "local-storage";
 import NotesContentFooter from "@/components/tech/notes-layout/NotesContentFooter";
+import { e0 } from "@/data/tech/notes/markdown/namaste-_node-_js_by_as_s1/e0";
+
+const matchingMDX = {
+  e0: e0,
+};
 const NamasteNodeJS = () => {
   const s1Episodes = useMemo(() => season1EpisodesNodeJsAkshaySaini);
   const [selectedSection, setSelectedSection] = useState(
     season1EpisodesNodeJsAkshaySaini[0]
   );
-  const [markdownContent, setMarkdownContent] = useState("sasda");
+  3;
+  const [markdownContent, setMarkdownContent] = useState(`# hello`);
   const [isSidebarVisible, setIsSidebarVisible] = useState(true);
   const [isQuickReadModeOn, setIsQuickReadModeOn] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -38,6 +44,11 @@ const NamasteNodeJS = () => {
       : 0;
   }
 
+  function fetchMarkdown(fileName) {
+    console.log("fileName", fileName);
+    setMarkdownContent(matchingMDX[fileName]);
+  }
+
   useEffect(() => {
     const totalCount = season1EpisodesNodeJsAkshaySaini?.length;
     const trueCount = countTrueValues();
@@ -45,8 +56,9 @@ const NamasteNodeJS = () => {
     const res = percentage.toFixed(2);
     document.body.style.overflow = "hidden";
     setProgress(res);
+    fetchMarkdown("e" + selectedSection?.episode);
   }, [selectedSection]);
-  
+
   const savedStorage = ls.get(STORAGE_KEY);
   return (
     <div className="lg:-mt-8">
@@ -68,7 +80,7 @@ const NamasteNodeJS = () => {
           />
         )}
         <div
-          className={`lg:w-3/4 w-full  flex flex-col bg-white lg:h-[96.5vh] h-[75vh] lg:-mt-12  ml-auto ${
+          className={`lg:w-3/4 w-full lg:ml-[340px] ml-0   flex flex-col bg-white lg:h-[96.5vh] h-[75vh] lg:-mt-12   rounded-lg border ${
             isSidebarVisible ? "w-3/4" : "w-full"
           }`}
         >
@@ -80,7 +92,7 @@ const NamasteNodeJS = () => {
             title={`Episode ${selectedSection.id} - ${selectedSection?.name}`}
           />
 
-          <div className="flex-1 overflow-y-auto">
+          <div className="flex-1 overflow-y-auto p-4">
             <NotesContent markdownContent={markdownContent} />
           </div>
 
