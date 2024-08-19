@@ -24,7 +24,6 @@ import { e100 } from "@/data/tech/notes/markdown/namaste_node_js_by_as_s1/e100";
 import BlogMetaInfo from "@/components/tech/notes-layout/BlogMetaInfo";
 import { season1EpisodesNodeJsAkshaySaini } from "@/data/tech";
 
-
 const matchingMDX = {
   e0: e0,
   e1: e1,
@@ -75,13 +74,13 @@ const NamasteNodeJS = () => {
   }
 
   function fetchMarkdown(fileName) {
-    console.log("fileName",fileName);
-    console.log("matchingMDX[fileName]",matchingMDX[fileName]);
+    console.log("fileName", fileName);
+    console.log("matchingMDX[fileName]", matchingMDX[fileName]);
     setMarkdownContent(matchingMDX[fileName]);
   }
 
   useEffect(() => {
-    console.log("selectedSection",selectedSection);
+    console.log("selectedSection", selectedSection);
     const totalCount = season1EpisodesNodeJsAkshaySaini?.length;
     const trueCount = countTrueValues();
     const percentage = Math.round((trueCount / totalCount) * 100);
@@ -126,7 +125,13 @@ const NamasteNodeJS = () => {
           />
 
           <div className="flex-1 overflow-y-auto p-4">
-          <BlogMetaInfo timeRead={estimateReadingTime(markdownContent)} publishedOn={selectedSection?.publishedOn}/>
+            <BlogMetaInfo
+              data={{
+                timeRead: estimateReadingTime(markdownContent),
+                publishedOn: selectedSection?.publishedOn,
+                name:'Ashutosh Anand Tiwari'
+              }}
+            />
             <NotesContent markdownContent={markdownContent} />
           </div>
 

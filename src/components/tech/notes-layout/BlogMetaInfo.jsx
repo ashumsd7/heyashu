@@ -6,15 +6,16 @@ import { IoMdDownload } from "react-icons/io";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { FaBookOpen } from "react-icons/fa";
 import { FaCalendar } from "react-icons/fa";
-const BlogMetaInfo = ({
-  name = "Ashutosh Anand Tiwari",
-  timeRead = "0 min read",
-  lastUpdated = "-",
-  publishedOn="-",
-  followLink = "https://github.com/ashumsd7/",
-  showControls = false,
-  profilePic = "https://avatars.githubusercontent.com/u/40313523?v=4",
-}) => {
+const BlogMetaInfo = ({data}) => {
+  const {
+    name = "Ashutosh Anand Tiwari",
+    timeRead = "0",
+    lastUpdated = "-",
+    publishedOn="-",
+    followLink = "https://github.com/ashumsd7/",
+    showControls = false,
+    profilePic = "https://avatars.githubusercontent.com/u/40313523?v=4",
+  }= data
   return (
     <div className="flex items-center justify-between border-b border-gray-300 py-4">
       <div className="flex items-center">

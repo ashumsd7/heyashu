@@ -32,7 +32,16 @@ function NotesFilter() {
         }}
       >
         {" "}
-        Recent Blogs <FaExternalLinkAlt />{" "}
+         Blogs <FaExternalLinkAlt />{" "}
+      </Button>
+
+      <Button
+        onClick={() => {
+        window.open('https://topmate.io/aat/1148709/pay', '_blank')
+        }}
+        className="bg-transparent text-gray-800 text-base border border-orange-400"
+      >
+        + Write Notes
       </Button>
     </div>
   );

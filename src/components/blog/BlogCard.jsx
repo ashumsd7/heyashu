@@ -1,7 +1,8 @@
+import { useRouter } from "next/router";
 import React from "react";
-import { FaBookOpen } from "react-icons/fa";
 
 const BlogCard = ({ data }) => {
+  const router = useRouter();
   const {
     name = "Ashutosh Anand Tiwari",
     writtenOn = "Aug 18 (12 hours ago)",
@@ -11,9 +12,15 @@ const BlogCard = ({ data }) => {
     profilePic = "https://avatars.githubusercontent.com/u/40313523?v=4",
     thumbnail = "https://via.placeholder.com/150", // Default thumbnail image
     followLink = "https://github.com/ashumsd7/",
+    route = "/blogs",
   } = data;
   return (
-    <div className="border rounded-lg p-4 shadow-md   hover:shadow-xl relative cursor-pointer bg-white flex flex-col md:flex-row max-w-6xl items-center">
+    <div
+      onClick={() => {
+        router.push(route);
+      }}
+      className="border rounded-lg p-4 shadow-md    hover:shadow-xl relative cursor-pointer bg-white flex flex-col md:flex-row max-w-6xl items-center"
+    >
       <div className="flex-1 w-full md:w-auto">
         <div className="flex items-center mb-4">
           <img

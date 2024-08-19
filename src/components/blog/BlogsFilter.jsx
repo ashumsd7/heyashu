@@ -32,8 +32,12 @@ function BlogsFilter() {
         }}
       >
         {" "}
-        Digital Notes <FaExternalLinkAlt />{" "}
+         Notes <FaExternalLinkAlt />{" "}
       </Button>
+     
+      <Button   onClick={() => {
+          router.push("/blogs/how-to-write-blog");
+        }} className='bg-transparent text-gray-800 text-base border border-orange-400'>+ Write blog</Button>
     </div>
   );
 }

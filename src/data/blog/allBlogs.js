@@ -10,6 +10,7 @@ export const ALL_BLOGS_DATA=[
     profilePic: "https://avatars.githubusercontent.com/u/40313523?v=4",
     thumbnail: "https://www.joshwcomeau.com/images/og-statements-vs-expressions.png", // Default thumbnail image
     followLink: "https://github.com/ashumsd7/",
+    route:'/blogs/what-are-syntax-and-expressions-in-js'
   }
 
 ]
