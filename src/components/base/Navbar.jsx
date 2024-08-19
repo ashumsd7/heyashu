@@ -13,6 +13,7 @@ function Navbar() {
   const router = useRouter();
   useEffect(() => {
     setIsOpen(false);
+  
     const pathName = router.pathname;
     if (pathName) {
       const firstPath = pathName.split("/")[1];
@@ -22,6 +23,15 @@ function Navbar() {
 
     return () => {};
   }, [router]);
+
+  useEffect(() => {
+    
+    if(isOpen){
+      document.body.style.overflow='hidden';
+    }else{
+      document.body.style.overflow='auto';
+    }
+  }, [open]);
 
   const goBack = () => {
     router.back();
@@ -107,7 +117,7 @@ function Navbar() {
           </div>
         </div>
 
-        <div className="flex md:hidden text-black text-2xl w-full justify-end mt-8 mr-4 px-1">
+        <div className="flex md:hidden bg-[#efeff1] text-black text-2xl w-full justify-end mt-8 mr-4 px-1">
           <GiHamburgerMenu
             onClick={() => {
               setIsOpen(!isOpen);
