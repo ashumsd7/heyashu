@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Button from "./Button";
 import { PHONE_CALL_THIRTY_MIN } from "@/utils/constant";
-import ls from 'local-storage'
+import ls from "local-storage";
 
 const PromotionTechDialog = () => {
-
-  const PROMOTION_DIALOG_KEY='is-tech-page-promotion-dialog-showed'
+  const PROMOTION_DIALOG_KEY = "is-tech-page-promotion-dialog-showed";
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDialog = () => {
@@ -14,8 +13,9 @@ const PromotionTechDialog = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      toggleDialog();
-      ls.set('is-tech-page-promotion-dialog-showed', true);
+      let isShowedOnce = ls.get(PROMOTION_DIALOG_KEY);
+      if (isShowedOnce <= 2) toggleDialog();
+      ls.set(PROMOTION_DIALOG_KEY, !isShowedOnce ? 1 : ++isShowedOnce);
     }, 2000);
 
     return () => {};
