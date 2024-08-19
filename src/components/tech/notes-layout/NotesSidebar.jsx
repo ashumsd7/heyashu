@@ -13,8 +13,8 @@ const NotesSidebar = ({
   noEpisodes = false,
 }) => {
   return (
-    <div className="w-[1/4]  lg:block hidden  pb-[200px] h-full shadow-2xl  fixed -mt-12 rounded-3xl ">
-      <div className="flex justify-center mb-4">
+    <div className="w-[1/4]  lg:block hidden  pb-[200px] h-full shadow-2xl  fixed -mt-12 ">
+      <div className="flex justify-center bg-gradient-to-b from-yellow-100 to-[#efeff1] mb-4  rounded-3xl">
         {" "}
         <h1 className="text-xl font-sans mt-2 font-extrabold text-center text-gray-800 md:text-left  mb-1 md:mb-0">
           {SidebarTitle}

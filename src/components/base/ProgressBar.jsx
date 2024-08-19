@@ -6,15 +6,15 @@ const ProgressBar = ({ percentage = 0 }) => {
   return (
     <>
       {Math.ceil(percentage) == 100 ? (
-        <div className="flex gap-2 justify-between w-full items-center font-bold px-2 text-green-700">
+        <div className="flex gap-2 justify-between w-full bg-green-700 py-1 items-center font-bold px-2 text-white">
           <div className="flex gap-1 items-center">
-            <GiPartyPopper className="font-extrabold text-red-500" />
-            <IoIosCheckmarkCircle className="text-green-700 " />
+            <GiPartyPopper className="font-extrabold text-white" />
+            <IoIosCheckmarkCircle className="" />
             <span>All Read </span>
           </div>
       
           <span
-            className="flex justify-center cursor-pointer text-xs underline text-red-400 items-center gap-2"
+            className="flex justify-center cursor-pointer text-xs underline text-white items-center gap-2"
             onClick={() => {
               ls.clear();
               if(confirm(' ✔️ Storage Reset , Re-load to see changes. Do you want to reload ?')){
