@@ -26,6 +26,22 @@ export const  NOTES_CARD_DATA=[
 
 
 
+},{ 
+  title: 'JavaScript Quick Snippets',
+  by: 'Ashutosh Anand Tiwari',
+  sourceName:'Google..etc.. ',
+  sourceLink:'https://google.com/',
+  lastUpdated:'',
+  publishedOn:'',
+  thumbnailUrl:'https://i.ibb.co/x7kYDW1/snippets.jpg',
+  isProgress:false,
+  isComingSoon:false,
+  hashTags:[FRONTEND, 'ashutosh', NEWBIE, JAVASCRIPT],
+  githubLink:'#',
+  route:'/tech/notes/javascript-code-snippets-by-ashutosh-anand-tiwari',
+
+
+
 },
 { 
   title: 'Namaste JavaScript',
@@ -47,7 +63,7 @@ export const  NOTES_CARD_DATA=[
 { 
   title: 'Namaste React',
   by: 'Akshay Saini',
-  sourceName:'Namaste Dev ',
+  sourceName:'Namaste  ',
   sourceLink:'https://namastedev.com/',
   lastUpdated:'',
   publishedOn:'',

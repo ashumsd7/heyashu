@@ -20,13 +20,15 @@ const NoteCard = ({ data }) => {
   return (
     <div
       onClick={() => {
+        if(isComingSoon)
+        return
         router.push(route);
       }}
       className={`border rounded-lg p-4 shadow-md cursor-pointer relative  bg-white flex flex-col md:flex-row items-start ${
         inProgress
-          ? "border   border-t-4 border-orange-500"
+          ? "border   border-t-4 border-orange-500 "
           : isComingSoon
-          ? "border  border-t-4 border-yellow-500"
+          ? "border  border-t-4 border-yellow-500 opacity-55"
           : "border   border-t-4 border-green-500"
       }`}
     >
