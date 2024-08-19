@@ -4,10 +4,15 @@ import { IoArrowBackSharp } from "react-icons/io5";
 import { FaHome } from "react-icons/fa";
 import { useRouter } from "next/router";
 import { LuMousePointerClick } from "react-icons/lu";
+import { IoMdClose } from "react-icons/io";
+import { RxHamburgerMenu } from "react-icons/rx";
+import { GiHamburgerMenu } from "react-icons/gi";
 function Navbar() {
   const [activePath, setActivePath] = useState("/");
+  const [isOpen, setIsOpen] = useState(true);
   const router = useRouter();
   useEffect(() => {
+    setIsOpen(false);
     const pathName = router.pathname;
     if (pathName) {
       const firstPath = pathName.split("/")[1];
@@ -23,8 +28,9 @@ function Navbar() {
   };
   return (
     <>
-      <div className=" h-[2px] flex  fixed items-center bg-orange-600 md:mb-12 mb-20 w-full ">
-        <div className="flex justify-between  w-full items-center relative bg-[#efeff1]">
+      {/* bg-[#efeff1] */}
+      <div className=" h-[2px] flex  fixed items-center bg-orange-600 md:mb-12 mb-20 w-full b ">
+        <div className="md:flex justify-between  hidden   w-full items-center relative  bg-[#efeff1] ">
           <div>
             {router?.pathname?.split("/").length > 2 && (
               <div
@@ -68,32 +74,138 @@ function Navbar() {
                 <LuMousePointerClick className="absolute  top-[20px] left-[20px] text-2xl text-orange-600" />
               )}
             </Link>
-            <div className="flex flex-col gap-2 mt-8">
-              <Link
-                href="/travel"
-                className="md:text-xl text-base font-extrabold font-mono  relative"
-              >
-                /travel
-                {activePath == "travel" && (
-                  <LuMousePointerClick className="absolute  top-[20px] left-[20px] text-2xl text-orange-600" />
-                )}
-              </Link>
-              <Link
-                href="/misc"
-                className="md:text-xl text-base  font-extrabold font-mono pr-5 relative"
-              >
-                {" "}
-                /more{" "}
-                {["misc", "town"].includes(activePath) && (
-                  <LuMousePointerClick className="absolute top-[20px] left-[20px] text-2xl text-orange-600" />
-                )}
-              </Link>
-            </div>
+
+            <Link
+              href="/tech/notes"
+              className="md:text-xl text-base font-extrabold font-mono relative"
+            >
+              /tech/notes{" "}
+              {activePath == "notes" && (
+                <LuMousePointerClick className="absolute  top-[20px] left-[20px] text-2xl text-orange-600" />
+              )}
+            </Link>
+
+            <Link
+              href="/travel"
+              className="md:text-xl text-base font-extrabold font-mono  relative"
+            >
+              /travel
+              {activePath == "travel" && (
+                <LuMousePointerClick className="absolute  top-[20px] left-[20px] text-2xl text-orange-600" />
+              )}
+            </Link>
+            <Link
+              href="/misc"
+              className="md:text-xl text-base  font-extrabold font-mono pr-5 relative"
+            >
+              {" "}
+              /more{" "}
+              {["misc", "town"].includes(activePath) && (
+                <LuMousePointerClick className="absolute top-[20px] left-[20px] text-2xl text-orange-600" />
+              )}
+            </Link>
           </div>
         </div>
+
+        <div className="flex md:hidden text-black text-2xl w-full justify-end mt-8 mr-4 px-1">
+          <GiHamburgerMenu
+            onClick={() => {
+              setIsOpen(!isOpen);
+            }}
+          />
+        </div>
+
+        <MobileNaveBar
+          setIsOpen={setIsOpen}
+          isOpen={isOpen}
+          activePath={activePath}
+        />
       </div>
     </>
   );
 }
 
 export default Navbar;
+
+const MobileNaveBar = ({ isOpen, setIsOpen, activePath }) => {
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+  return (
+    <div
+      className={`fixed top-0 left-0 w-[55%] h-full bg-[#efeff1] z-40 transform  ${
+        isOpen ? "translate-x-0" : "-translate-x-full"
+      } transition-transform duration-300 ease-in-out md:hidden`}
+    >
+      <div className="flex justify-end text-black">
+        <IoMdClose
+          onClick={toggleMenu}
+          className=" text-black absolute top-2 right-5"
+        />
+      </div>
+      <div className="flex flex-col p-4">
+        <Link
+          href="/"
+          onClick={toggleMenu}
+          className="text-lg py-2 font-semibold"
+        >
+          Home
+          {activePath == "" && (
+            <LuMousePointerClick className="inline text-orange-600 ml-2" />
+          )}
+        </Link>
+        <Link
+          href="/tech"
+          onClick={toggleMenu}
+          className="text-lg py-2 font-semibold"
+        >
+          Tech
+          {activePath == "tech" && (
+            <LuMousePointerClick className="inline text-orange-600 ml-2" />
+          )}
+        </Link>
+        <Link
+          href="/blogs"
+          onClick={toggleMenu}
+          className="text-lg py-2 font-semibold"
+        >
+          Blogs
+          {activePath == "blogs" && (
+            <LuMousePointerClick className="inline text-orange-600 ml-2" />
+          )}
+        </Link>
+
+        <Link
+          href="/tech/notes"
+           className="text-lg py-2 font-semibold"
+        >
+          /tech/notes{" "}
+          {activePath == "notes" && (
+            <LuMousePointerClick className="absolute  top-[20px] left-[20px] text-2xl text-orange-600" />
+          )}
+        </Link>
+
+        <Link
+          href="/travel"
+          onClick={toggleMenu}
+          className="text-lg py-2 font-semibold"
+        >
+          Travel
+          {activePath == "travel" && (
+            <LuMousePointerClick className="inline text-orange-600 ml-2" />
+          )}
+        </Link>
+        <Link
+          href="/misc"
+          onClick={toggleMenu}
+          className="text-lg py-2 font-semibold"
+        >
+          More
+          {["misc", "town"].includes(activePath) && (
+            <LuMousePointerClick className="inline text-orange-600 ml-2" />
+          )}
+        </Link>
+      </div>
+    </div>
+  );
+};
