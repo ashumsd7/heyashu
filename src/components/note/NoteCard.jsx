@@ -22,7 +22,7 @@ const NoteCard = ({ data }) => {
       onClick={() => {
         router.push(route);
       }}
-      className={`border rounded-lg p-4 shadow-md cursor-pointer  bg-white flex flex-col md:flex-row items-start ${
+      className={`border rounded-lg p-4 shadow-md cursor-pointer relative  bg-white flex flex-col md:flex-row items-start ${
         inProgress
           ? "border   border-t-4 border-orange-500"
           : isComingSoon
@@ -66,6 +66,7 @@ const NoteCard = ({ data }) => {
           className="lg:w-32 h-32 w-full object-cover rounded-lg"
         />
       </div>
+       {/* <span className="absolute top-0 left-0 text-xs bg-orange-600 rounded-lg text-white font-serif p-1 rounded-l-0 opacity-25">{inProgress ? 'In progress': isComingSoon ? 'Coming soon': 'Ready to read'}</span> */}
     </div>
   );
 };

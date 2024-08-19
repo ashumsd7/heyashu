@@ -31,7 +31,7 @@ const NotesSidebar = ({
               key={idx}
               className={`cursor-pointer p-2 bg-gray-300 border  hover:bg-gray-400 rounded-sm relative ${
                 selectedSection?.id == item?.id &&
-                "bg-gradient-to-r from-yellow-400 to-white text-black"
+                "bg-gradient-to-r from-yellow-300 to-[#efeff1] text-black"
               } ${
                 storedValues && storedValues[item?.name]
                   ? "border-0 border-l-8 border-green-500 "

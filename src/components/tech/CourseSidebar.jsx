@@ -32,7 +32,7 @@ const Sidebar = () => {
         >
           {/* Close Button */}
           <div className="flex  justify-between items-center">
-            <h2 className="text-white text-xl font-bold   mr-14">
+            <h2 className="text-white text-xl font-bold  mb-10   mr-14">
               📚 Digital Notes
             </h2>
             <button
