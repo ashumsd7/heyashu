@@ -1,5 +1,6 @@
 import BlogCard from "@/components/blog/BlogCard";
 import BlogsFilter from "@/components/blog/BlogsFilter";
+import { ALL_BLOGS_DATA } from "@/data/blog/allBlogs";
 import React from "react";
 
 function BlogsPage() {
@@ -9,8 +10,10 @@ function BlogsPage() {
         ✍️ Your Blogs Feed
       </h1>
       <BlogsFilter />
-      <div className="border  h-screen">
-        <BlogCard />
+      <div className="border  h-screen flex flex-col gap-2">
+        {ALL_BLOGS_DATA?.map((item) => {
+          return <BlogCard data={item} />;
+        })}
       </div>
     </div>
   );
