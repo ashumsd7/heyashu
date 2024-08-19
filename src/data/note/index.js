@@ -43,6 +43,67 @@ export const  NOTES_CARD_DATA=[
 
 
 },
+
+{ 
+  title: 'You Don`t know JS: Up & Going',
+  by: 'Kyle Simpson',
+  sourceName:'Book ',
+  sourceLink:'https://me.getify.com/',
+  lastUpdated:'',
+  publishedOn:'',
+  thumbnailUrl:'https://image.ebooks.com/cover/1993212.jpg?width=166&height=250&quality=85',
+  isProgress:false,
+  isComingSoon:true,
+  hashTags:[FRONTEND, 'kyle-simpson', 'book', 'js-basics'],
+  githubLink:'#',
+  route:'/tech/notes/namaste-frontend',
+
+},
+{ 
+  title: 'You Don`t know JS: Scope & Closures',
+  by: 'Kyle Simpson',
+  sourceName:'Book ',
+  sourceLink:'https://me.getify.com/',
+  lastUpdated:'',
+  publishedOn:'',
+  thumbnailUrl:'https://image.ebooks.com/cover/1647631.jpg?width=166&height=250&quality=85',
+  isProgress:false,
+  isComingSoon:true,
+  hashTags:[FRONTEND, 'kyle-simpson', 'book', 'js-basics'],
+  githubLink:'#',
+  route:'/tech/notes/namaste-frontend',
+
+},
+{ 
+  title: 'You Don`t know JS: this & Object',
+  by: 'Kyle Simpson',
+  sourceName:'Book ',
+  sourceLink:'https://me.getify.com/',
+  lastUpdated:'',
+  publishedOn:'',
+  thumbnailUrl:'https://image.ebooks.com/cover/1734321.jpg?width=166&height=250&quality=85',
+  isProgress:false,
+  isComingSoon:true,
+  hashTags:[FRONTEND, 'kyle-simpson', 'book', 'js-basics'],
+  githubLink:'#',
+  route:'/tech/notes/namaste-frontend',
+
+},
+{ 
+  title: 'You Don`t know JS: Types & Grammar',
+  by: 'Kyle Simpson',
+  sourceName:'Book ',
+  sourceLink:'https://me.getify.com/',
+  lastUpdated:'',
+  publishedOn:'',
+  thumbnailUrl:'https://image.ebooks.com/cover/1935541.jpg?width=166&height=250&quality=85',
+  isProgress:false,
+  isComingSoon:true,
+  hashTags:[FRONTEND, 'kyle-simpson', 'book', 'js-basics'],
+  githubLink:'#',
+  route:'/tech/notes/namaste-frontend',
+
+},
 { 
   title: 'Namaste JavaScript',
   by: 'Akshay Saini',
@@ -78,7 +139,7 @@ export const  NOTES_CARD_DATA=[
 
 },
 { 
-  title: 'Namaste Frotnend Design System',
+  title: 'Namaste Frontend Design System',
   by: 'Akshay Saini',
   sourceName:'Namaste Dev ',
   sourceLink:'https://namastedev.com/',
@@ -93,6 +154,6 @@ export const  NOTES_CARD_DATA=[
 
 
 
-}
+},
 
 ]
