@@ -1,0 +1,16 @@
+export const JS_SNIPPETS_BY_ASHUTOSH = [
+  { id: 0, episode: 1, name: "Destructuring", publishedOn: '18 Aug 2024' },
+  { id: 1, episode: 2, name: "Spread Operator" },
+  { id: 2, episode: 3, name: "Rest Operator" },
+  { id: 3, episode: 4, name: "Stringify and Parse" },
+  { id: 4, episode: 5, name: "Polyfills" },
+  { id: 5, episode: 6, name: "Debouncing" },
+  { id: 6, episode: 7, name: "Throttling" },
+  { id: 7, episode: 8, name: "Currying" },
+  { id: 8, episode: 9, name: "Callback" },
+  { id: 9, episode: 10, name: "Promise" },
+  { id: 10, episode: 11, name: "Async Await" },
+  { id: 11, episode: 12, name: "Promise Chaining" },
+  { id: 12, episode: 13, name: "Try Catch" },
+  { id: 13, episode: 14, name: "Iterator" },
+];
