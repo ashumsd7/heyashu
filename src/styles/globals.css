@@ -79,3 +79,9 @@ body {
 .prose{
   font-family: source-serif-pro, Georgia, Cambria, "Times New Roman", Times, serif !important;
 }
+.markdown-a{
+  color: #0b9ff5;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-weight: bolder;
+}

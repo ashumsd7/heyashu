@@ -94,7 +94,7 @@ const blogInfo = {
 };
 
 
-console.log("markdown",markdown);
+
 function HowToWrite() {
   return (
     <div className="flex flex-col gap-5 px-2">

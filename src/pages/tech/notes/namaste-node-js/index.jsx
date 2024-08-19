@@ -74,13 +74,10 @@ const NamasteNodeJS = () => {
   }
 
   function fetchMarkdown(fileName) {
-    console.log("fileName", fileName);
-    console.log("matchingMDX[fileName]", matchingMDX[fileName]);
     setMarkdownContent(matchingMDX[fileName]);
   }
 
   useEffect(() => {
-    console.log("selectedSection", selectedSection);
     const totalCount = season1EpisodesNodeJsAkshaySaini?.length;
     const trueCount = countTrueValues();
     const percentage = Math.round((trueCount / totalCount) * 100);
