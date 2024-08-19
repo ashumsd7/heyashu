@@ -39,10 +39,10 @@ function Navbar() {
               </div>
             )}
           </div>
-          <div className="flex gap-8 mt-10 items-center">
+          <div className="flex lg:gap-8 gap-3 mt-10 items-center">
             <Link
               href="/"
-              className="text-xl font-extrabold flex items-center font-mono relative "
+              className="md:text-xl text-base font-extrabold flex items-center font-mono relative "
             >
               <FaHome />
               {activePath == "" && (
@@ -52,7 +52,7 @@ function Navbar() {
 
             <Link
               href="/tech"
-              className="text-xl font-extrabold font-mono relative"
+              className="md:text-xl text-base font-extrabold font-mono relative"
             >
               /tech{" "}
               {activePath == "tech" && (
@@ -61,7 +61,7 @@ function Navbar() {
             </Link>
             <Link
               href="/blogs"
-              className="text-xl font-extrabold font-mono relative"
+              className="md:text-xl text-base font-extrabold font-mono relative"
             >
               /blogs{" "}
               {activePath == "blogs" && (
@@ -71,7 +71,7 @@ function Navbar() {
             <div className="flex flex-col gap-2 mt-8">
               <Link
                 href="/travel"
-                className="text-xl font-extrabold font-mono  relative"
+                className="md:text-xl text-base font-extrabold font-mono  relative"
               >
                 /travel
                 {activePath == "travel" && (
@@ -80,7 +80,7 @@ function Navbar() {
               </Link>
               <Link
                 href="/misc"
-                className="text-xl  font-extrabold font-mono pr-5 relative"
+                className="md:text-xl text-base  font-extrabold font-mono pr-5 relative"
               >
                 {" "}
                 /more{" "}
