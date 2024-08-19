@@ -86,14 +86,12 @@ const blogInfo = {
   timeRead: "0",
   lastUpdated: "-",
   publishedOn: "19 Aug 2024",
-  timeRead:'2',
+  timeRead: "2",
   title: "How to Write a blog?",
   followLink: "https://github.com/ashumsd7/",
   heroImage: "",
   profilePic: "https://avatars.githubusercontent.com/u/40313523?v=4", // copy this from github or your favrt photo
 };
-
-
 
 function HowToWrite() {
   return (
@@ -109,7 +107,18 @@ function HowToWrite() {
         <Image alt={blogInfo?.title} src={blogInfo?.heroImage} fill />
       )}
       {/* Blog Meta Info */}
-      <BlogMetaInfo data={blogInfo}  />
+      <BlogMetaInfo data={blogInfo} />
+
+      <div className="w-full h-[500px] min-w-[300px]">
+        <iframe
+        className="w-full h-[500px] min-w-[300px]"
+          src="https://www.loom.com/embed/d59d0395d2c04d79a3dce99ae03c1559"
+          frameborder="0"
+          allowFullScreen
+       
+        ></iframe>
+      </div>
+
       {/* Main Blog Content */}
       <Markdown content={markdown} />
     </div>
