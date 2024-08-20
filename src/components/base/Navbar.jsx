@@ -9,7 +9,7 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { GiHamburgerMenu } from "react-icons/gi";
 function Navbar() {
   const [activePath, setActivePath] = useState("/");
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
   useEffect(() => {
     setIsOpen(false);
@@ -31,7 +31,7 @@ function Navbar() {
     }else{
       document.body.style.overflow='auto';
     }
-  }, [open]);
+  }, [isOpen]);
 
   const goBack = () => {
     router.back();

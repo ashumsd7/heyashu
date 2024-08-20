@@ -31,8 +31,8 @@ function BlogsFilter() {
           router.push("/tech/notes");
         }}
       >
-        {" "}
-         Notes <FaExternalLinkAlt />{" "}
+     
+         Notes     {" "}<FaExternalLinkAlt />{" "}
       </Button>
      
       <Button   onClick={() => {
