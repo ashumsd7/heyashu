@@ -96,6 +96,7 @@ const JSSnippets = () => {
         progress={progress}
         storedValues={savedStorage}
         value={episodes[0]}
+        SidebarTitle="JS Quick Snippets"
       />
 
       <div className="flex h-[93vh] gap-10">
