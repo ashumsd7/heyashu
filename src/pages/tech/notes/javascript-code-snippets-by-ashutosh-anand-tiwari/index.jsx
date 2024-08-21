@@ -23,6 +23,7 @@ import BlogMetaInfo from "@/components/tech/notes-layout/BlogMetaInfo";
 import { JS_SNIPPETS_BY_ASHUTOSH } from "@/data/tech/notes/markdown/js-snippets-by-ashutotsh/sidebarContent";
 import { e1 } from "@/data/tech/notes/markdown/js-snippets-by-ashutotsh/e1";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 const matchingMDX = {
   e1: e1,
@@ -92,64 +93,105 @@ const JSSnippets = () => {
     if (window.location.hash) {
       const hash = decodeURIComponent(window.location.hash);
       const section = JS_SNIPPETS_BY_ASHUTOSH.find(
-        (item) => item.name === hash.split('#')[1]
+        (item) => item.name === hash.split("#")[1]
       );
-      setSelectedSection(section || JS_SNIPPETS_BY_ASHUTOSH[0] );
+      setSelectedSection(section || JS_SNIPPETS_BY_ASHUTOSH[0]);
     }
   }, []);
 
   const savedStorage = ls.get(STORAGE_KEY);
   return (
-    <div className="lg:-mt-4">
-      <NotesChips
-        data={episodes}
-        handleChipClick={handleSectionClick}
-        progress={progress}
-        storedValues={savedStorage}
-        value={episodes[0]}
-        SidebarTitle="JS Quick Snippets"
-      />
+    <>
+      <Head>
+        <title>JS Quick Snippets: By Ashutosh Anand Tiwari</title>
+        <meta charSet="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="/favicon.ico" />
+        <meta
+          name="description"
+          content="Explore quick and practical JavaScript code snippets curated by Ashutosh Anand Tiwari. Enhance your coding skills with these essential JavaScript tips and tricks."
+        />
+        <meta
+          name="keywords"
+          content="JavaScript, code snippets, Ashutosh Anand Tiwari, web development, programming tips"
+        />
+        <meta name="author" content="Ashutosh Anand Tiwari" />
+        <meta
+          property="og:title"
+          content="JS Quick Snippets: By Ashutosh Anand Tiwari"
+        />
+        <meta
+          property="og:description"
+          content="Discover essential JavaScript snippets to boost your web development skills, curated by Ashutosh Anand Tiwari."
+        />
+        <meta property="og:image" content="/path_to_image.jpg" />
+        <meta
+          property="og:url"
+          content="https://heyashu.in/tech/notes/javascript-code-snippets-by-ashutosh-anand-tiwari"
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="JS Quick Snippets: By Ashutosh Anand Tiwari"
+        />
+        <meta
+          name="twitter:description"
+          content="Quick JavaScript snippets curated by Ashutosh Anand Tiwari to enhance your coding skills."
+        />
+        <meta name="twitter:image" content="/path_to_image.jpg" />
+      </Head>
 
-      <div className="flex h-[93vh] gap-10">
-        {isSidebarVisible && (
-          <NotesSidebar
-            data={episodes}
-            onSectionClick={handleSectionClick}
-            progress={progress}
-            selectedSection={selectedSection}
-            storedValues={ls.get(STORAGE_KEY)}
-            noEpisodes={true}
-            SidebarTitle="JS Quick Snippets"
-          />
-        )}
-        <div
-          className={`lg:w-3/4 w-full lg:ml-[340px] ml-0   flex flex-col bg-white lg:h-[96.5vh] h-[75vh] lg:-mt-12   rounded-lg border ${
-            isSidebarVisible ? "w-3/4" : "w-full"
-          }`}
-        >
-          <NotesContentTopBar
-            isSidebarVisible={isSidebarVisible}
-            setIsSidebarVisible={setIsSidebarVisible}
-            isQuickReadModeOn={isQuickReadModeOn}
-            setIsQuickReadModeOn={setIsQuickReadModeOn}
-            title={`${selectedSection?.name}`}
-          />
+      <div className="lg:-mt-4">
+        <NotesChips
+          data={episodes}
+          handleChipClick={handleSectionClick}
+          progress={progress}
+          storedValues={savedStorage}
+          value={episodes[0]}
+          SidebarTitle="JS Quick Snippets"
+        />
 
-          <div className="flex-1 overflow-y-auto p-4">
-            <BlogMetaInfo
-              data={{
-                timeRead: estimateReadingTime(markdownContent),
-                publishedOn: selectedSection?.publishedOn,
-                name: "Ashutosh Anand Tiwari",
-              }}
+        <div className="flex h-[93vh] gap-10">
+          {isSidebarVisible && (
+            <NotesSidebar
+              data={episodes}
+              onSectionClick={handleSectionClick}
+              progress={progress}
+              selectedSection={selectedSection}
+              storedValues={ls.get(STORAGE_KEY)}
+              noEpisodes={true}
+              SidebarTitle="JS Quick Snippets"
             />
-            <NotesContent markdownContent={markdownContent} />
-          </div>
+          )}
+          <div
+            className={`lg:w-3/4 w-full lg:ml-[340px] ml-0   flex flex-col bg-white lg:h-[96.5vh] h-[75vh] lg:-mt-12   rounded-lg border ${
+              isSidebarVisible ? "w-3/4" : "w-full"
+            }`}
+          >
+            <NotesContentTopBar
+              isSidebarVisible={isSidebarVisible}
+              setIsSidebarVisible={setIsSidebarVisible}
+              isQuickReadModeOn={isQuickReadModeOn}
+              setIsQuickReadModeOn={setIsQuickReadModeOn}
+              title={`${selectedSection?.name}`}
+            />
 
-          {/* <NotesContentFooter data={episodes} selectedSection={selectedSection} onSectionClick={handleSectionClick} /> */}
+            <div className="flex-1 overflow-y-auto p-4">
+              <BlogMetaInfo
+                data={{
+                  timeRead: estimateReadingTime(markdownContent),
+                  publishedOn: selectedSection?.publishedOn,
+                  name: "Ashutosh Anand Tiwari",
+                }}
+              />
+              <NotesContent markdownContent={markdownContent} />
+            </div>
+
+            {/* <NotesContentFooter data={episodes} selectedSection={selectedSection} onSectionClick={handleSectionClick} /> */}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 export default JSSnippets;
