@@ -1,42 +1,44 @@
 export const e1 = `
 
-# Heading 1
+# Data Types
 
-## Heading 2
 
-### Heading 3
+There are total **8 built** in data types in JavaScript.
 
-#### Heading 4
+1. string
+2. number
+3. boolean
+4. null
+5. undefined
+6. object
+7. symbol ( ES6 feature)
 
-##### Heading 5
+### typeof Operator
 
-This is a paragraph with some **bold** text, some *italic* text, and some \`inline code\`.
+JavaScripts Provides typeof operator to check the value and its type
 
-Here is a [link to Google](https://www.google.com).
+\`\`\`jsx
+var a;
 
-Here is a list of items:
+typeof a; // undefined ( because there is no value in it)
 
-- Item 1
-- Item 2
-- Item 3
+a ='JS Snippets'
+typeof a; // string
 
-Here is an ordered list:
+a=23;
+typeof a; // number
 
-1. First item
-2. Second item
-3. Third item
+a= undefined;
+typeof a; // undefiend
 
-Here is a blockquote:
+a= true;
+typeof a; // boolean
 
-> This is a blockquote. It can span multiple lines and include other markdown elements like **bold** or *italic* text.
+a= null;
+typeof a; // object ( this is bug in JS, Google it to learn more about it)
 
-Here is a code block:
-
-\`\`\`javascript
-// This is a JavaScript code block
-function sayHello() {
-    console.log("Hello, world!");
-}
+a= {name:'Ashutosh'}
+typeof a; // object
 \`\`\`
 
 `;

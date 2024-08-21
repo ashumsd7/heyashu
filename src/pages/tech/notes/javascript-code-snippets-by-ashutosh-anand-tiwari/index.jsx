@@ -6,8 +6,6 @@ import NotesContent from "@/components/tech/notes-layout/NotesContent";
 import { estimateReadingTime, scrollToTop } from "@/utils/functions";
 import ls from "local-storage";
 import NotesContentFooter from "@/components/tech/notes-layout/NotesContentFooter";
-import { e0 } from "@/data/tech/notes/markdown/namaste_node_js_by_as_s1/e0";
-import { e1 } from "@/data/tech/notes/markdown/namaste_node_js_by_as_s1/e1";
 import { e2 } from "@/data/tech/notes/markdown/namaste_node_js_by_as_s1/e2";
 import { e3 } from "@/data/tech/notes/markdown/namaste_node_js_by_as_s1/e3";
 import { e4 } from "@/data/tech/notes/markdown/namaste_node_js_by_as_s1/e4";
@@ -23,9 +21,9 @@ import { e13 } from "@/data/tech/notes/markdown/namaste_node_js_by_as_s1/e13";
 import { e100 } from "@/data/tech/notes/markdown/namaste_node_js_by_as_s1/e100";
 import BlogMetaInfo from "@/components/tech/notes-layout/BlogMetaInfo";
 import { JS_SNIPPETS_BY_ASHUTOSH } from "@/data/tech/notes/markdown/js-snippets-by-ashutotsh/sidebarContent";
+import { e1 } from "@/data/tech/notes/markdown/js-snippets-by-ashutotsh/e1";
 
 const matchingMDX = {
-  e0: e0,
   e1: e1,
   e2: e2,
   e3: e3,

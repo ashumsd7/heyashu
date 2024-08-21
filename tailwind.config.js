@@ -57,22 +57,22 @@ module.exports = {
               },
             },
             h3: {
-              fontSize: theme("fontSize.2xl"), // 24px
+              fontSize: "22px", // 24px
               marginBottom: theme("spacing.3"),
-              marginTop: theme("spacing.6"),
-              fontWeight: theme("fontWeight.medium"),
+              marginTop: theme("spacing.10"),
+              fontWeight: theme("fontWeight.bold"),
               lineHeight: theme("lineHeight.tight"),
               "@screen sm": {
-                fontSize: theme("fontSize.xl"), // 20px
+                fontSize: "22px", // 20px
               },
               "@screen md": {
-                fontSize: theme("fontSize.xl"), // 20px
+                fontSize: "22px",// 20px
               },
               "@screen lg": {
-                fontSize: theme("fontSize.2xl"), // 24px
+                fontSize: "22px", // 24px
               },
               "@screen xl": {
-                fontSize: "30px",
+                fontSize: "22px",
               },
             },
             p: {
@@ -111,11 +111,11 @@ module.exports = {
             ol: {
               listStyleType: "decimal",
               paddingLeft: theme("spacing.6"),
-              marginBottom: theme("spacing.5"),
+              // marginBottom: theme("spacing.5"),
               fontSize: "20px",
             },
             li: {
-              marginBottom: theme("spacing.1"),
+              // marginBottom: theme("spacing.1"),
               lineHeight: theme("lineHeight.relaxed"),
               fontSize: "20px",
             },
