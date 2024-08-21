@@ -3,7 +3,7 @@ import NoteCard from "@/components/note/NoteCard";
 import BlogsFilter from "@/components/blog/BlogsFilter";
 import NotesFilter from "@/components/note/NotesFilter";
 import { GrNotes } from "react-icons/gr";
-import { NOTES_CARD_DATA } from "@/data/note";
+import { NOTES_CARD_DATA } from "@/data/note/allNotes";
 function AllNotesPage() {
   return (
     <>

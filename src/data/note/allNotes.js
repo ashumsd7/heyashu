@@ -1,13 +1,5 @@
 import { AKSHAY_SAINI, BACKEND, CLOSURES, DESIGN_PATTERNS, FRONTEND, HOISTING, JAVASCRIPT, NEWBIE, NODEJS, REACT, WEB_COMPONENTS } from "../blog";
 
-export const NOTES_FILTERS= [
-  { label: 'All', value: 'all' },
-  // { label: 'NodeJS', value: 'node' },
-  // { label: 'JavaScript', value: 'javascript' },
-  // { label: 'HTML', value: 'html' },
-  // { label: 'CSS', value: 'css' },
-  // { label: 'react', value: 'react' },
-]
 
 export const  NOTES_CARD_DATA=[
 { 

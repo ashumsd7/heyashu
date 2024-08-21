@@ -10,13 +10,13 @@ const NotesChips = ({
   showProgress = true,
   progress = "20",
   storedValues,
-  SidebarTitle = "Namaste Noe JS",
+  contentListTitle = "Namaste Noe JS",
 }) => {
   const [selectedChip, setSelectedChip] = useState(value);
   return (
     <>
       <h1 className="text-2xl    block lg:hidden font-extrabold text-center text-orange-600 md:text-left font-serif mb-1 md:mb-0">
-        {SidebarTitle}
+        {contentListTitle}
       </h1>
       <div className="w-full block lg:hidden overflow-x-auto whitespace-nowrap py-2">
         <div className="flex">

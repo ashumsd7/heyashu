@@ -1,9 +1,8 @@
 import ProgressBar from "@/components/base/ProgressBar";
-// import { IoIosCheckmarkCircle } from "react-icons/io";
 import ls from "local-storage";
 const NotesSidebar = ({
   onSectionClick,
-  SidebarTitle = "Namaste Node JS (S1)",
+  contentListTitle = "Namaste Node JS (S1)",
   data,
   eachCardPrefix = "Episode-",
   progress,
@@ -14,14 +13,14 @@ const NotesSidebar = ({
 }) => {
   return (
     <div className="w-[1/4]  lg:block hidden  pb-[200px] h-full shadow-2xl  fixed -mt-12 ">
-      <div className="flex justify-center bg-gradient-to-b from-yellow-100 to-[#efeff1] mb-4  rounded-3xl">
+      <div className="flex justify-center bg-gradient-to-b from-yellow-100 to-[#efeff1] mb-4  rounded-3xl px-4">
         {" "}
-        <h1 className="text-2xl font-sans mt-2 font-extrabold text-center text-gray-800 md:text-left  mb-1 md:mb-0">
-          {SidebarTitle}
+        <h1 className="text-2xl font-sans mt-2 font-extrabold truncate max-w-[300px] text-center text-gray-800 md:text-left  mb-1 md:mb-0">
+          {contentListTitle}
         </h1>
       </div>
       <div className="flex  px-4 flex-col gap-2 justify-between items-center ">
-        {/* <p className="text-sm font-mono text-gray-600 ">{SidebarTitle}</p> */}
+        {/* <p className="text-sm font-mono text-gray-600 ">{contentListTitle}</p> */}
         {showProgress && <ProgressBar percentage={progress} />}
       </div>
 

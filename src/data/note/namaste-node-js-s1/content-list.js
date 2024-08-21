@@ -1,4 +1,4 @@
-export const s1NodeJSByAS = [
+export const contentListForNamasteNodeJsS1 = [
   { id: 100, episode: 100, name: "Buy The Course" , publishedOn:'17 Aug 2024'},
   { id: 0, episode: 0, name: "Welcome to NamasteNodeJS",publishedOn:'18 Aug 2024' },
   { id: 1, episode: 1, name: "Introduction to NodeJS" },
