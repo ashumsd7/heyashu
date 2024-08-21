@@ -1,5 +1,5 @@
 import { e2 } from "@/data/mardown/notes/namaste-node-js-s1-by-as/e2";
-import { e0 } from "@/data/mardown/notes/namaste-node-js-s1-by-as/e2";
+import { e0 } from "@/data/mardown/notes/namaste-node-js-s1-by-as/e0";
 import { e3 } from "@/data/mardown/notes/namaste-node-js-s1-by-as/e3";
 import { e4 } from "@/data/mardown/notes/namaste-node-js-s1-by-as/e4";
 import { e5 } from "@/data/mardown/notes/namaste-node-js-s1-by-as/e5";
@@ -17,6 +17,7 @@ import { e1 } from "@/data/mardown/notes/js-snippets-by-ashutosh/e1";
 
 export const matchingMDXForNamasteNodeJsS1 = {
   e1: e1,
+  e0: e0,
   e2: e2,
   e3: e3,
   e4: e4,

@@ -17,7 +17,7 @@ const BlogMetaInfo = ({data}) => {
     profilePic = "https://avatars.githubusercontent.com/u/40313523?v=4",
   }= data
   return (
-    <div className="flex items-center justify-between border-b border-gray-300 p-4">
+    <div className="flex items-center justify-between  px-8 border-b border-gray-300 p-4">
       <div className="flex items-center">
         {!profilePic ? (
           <div className="w-10 h-10 bg-purple-600  text-white flex items-center justify-center rounded-full">
