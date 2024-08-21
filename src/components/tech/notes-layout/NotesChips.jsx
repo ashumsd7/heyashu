@@ -1,6 +1,5 @@
 import ProgressBar from "@/components/base/ProgressBar";
 import { useState } from "react";
-import { IoIosCheckmarkCircle } from "react-icons/io";
 
 const { default: Chip } = require("@/components/base/Chip");
 
@@ -23,13 +22,22 @@ const NotesChips = ({
         <div className="flex">
           {data?.map((item, idx) => (
             <span
-              className={`relative ${
+              className={`relative  ${
                 !item?.publishedOn &&
                 "cursor-none pointer-events-none  opacity-40"
               }`}
               key={idx}
             >
               <Chip
+                className={`${
+                  storedValues &&
+                  storedValues[item?.name] &&
+                  "border border-b-2 border-t-0 border-l-0 border-r-0 border-green-500 "
+                }  ${
+                  selectedChip?.id === item.id
+                    ? "bg-gray-800 text-white"
+                    : "bg-gray-300 text-gray-800"
+                }`}
                 item={item}
                 selectedChip={selectedChip}
                 handleChipClick={(data) => {
@@ -38,9 +46,6 @@ const NotesChips = ({
                 }}
                 value={selectedChip}
               />
-              {storedValues && storedValues[item?.name] && (
-                <IoIosCheckmarkCircle className="text-green-500 absolute top-[0px]  left-[2px]" />
-              )}
             </span>
           ))}
         </div>
