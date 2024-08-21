@@ -8,7 +8,7 @@ function BlogsFilter() {
   const router = useRouter();
   const [selected, setSelected] = useState(BLOG_FILTERS[0]);
   return (
-    <div className="flex gap-2">
+    <div className="flex lg:gap-6 gap-2">
       {BLOG_FILTERS?.map((item) => {
         return (
           <Button

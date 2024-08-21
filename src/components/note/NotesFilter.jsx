@@ -8,7 +8,7 @@ function NotesFilter() {
   const router = useRouter();
   const [selected, setSelected] = useState(NOTES_FILTERS[0]);
   return (
-    <div className="flex gap-2 flex-wrap px-4">
+    <div className="flex lg:gap-6 gap-2 flex-wrap px-4">
       {NOTES_FILTERS?.map((item) => {
         return (
           <Button
