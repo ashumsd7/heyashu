@@ -22,6 +22,7 @@ import { e100 } from "@/data/tech/notes/markdown/namaste_node_js_by_as_s1/e100";
 import BlogMetaInfo from "@/components/tech/notes-layout/BlogMetaInfo";
 import { JS_SNIPPETS_BY_ASHUTOSH } from "@/data/tech/notes/markdown/js-snippets-by-ashutotsh/sidebarContent";
 import { e1 } from "@/data/tech/notes/markdown/js-snippets-by-ashutotsh/e1";
+import { useRouter } from "next/router";
 
 const matchingMDX = {
   e1: e1,
@@ -40,6 +41,7 @@ const matchingMDX = {
   e100: e100,
 };
 const JSSnippets = () => {
+  const router = useRouter();
   const episodes = useMemo(() => JS_SNIPPETS_BY_ASHUTOSH);
   const [selectedSection, setSelectedSection] = useState(
     JS_SNIPPETS_BY_ASHUTOSH[0]
@@ -52,6 +54,7 @@ const JSSnippets = () => {
 
   const STORAGE_KEY = "JsSnippetsByAshutosh";
   const handleSectionClick = (section) => {
+    router.push("#" + section?.name);
     const storageValue = ls.get(STORAGE_KEY);
     const updatedStorage = {
       ...storageValue,
@@ -84,6 +87,16 @@ const JSSnippets = () => {
     setProgress(res);
     fetchMarkdown("e" + selectedSection?.episode);
   }, [selectedSection]);
+
+  useEffect(() => {
+    if (window.location.hash) {
+      const hash = decodeURIComponent(window.location.hash);
+      const section = JS_SNIPPETS_BY_ASHUTOSH.find(
+        (item) => item.name === hash.split('#')[1]
+      );
+      setSelectedSection(section || JS_SNIPPETS_BY_ASHUTOSH[0] );
+    }
+  }, []);
 
   const savedStorage = ls.get(STORAGE_KEY);
   return (
