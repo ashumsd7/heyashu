@@ -34,9 +34,8 @@ const NotesSidebar = ({
                 storedValues && storedValues[item?.name]
                   ? "border-0 border-l-8 border-green-500 bg-gradient-to-r from-yellow-300 to-[#efeff1] "
                   : "border-0 border-l-8 border-gray-500"
-              } ${
-                selectedSection?.id == item?.id &&
-                " bg-black font-bold"
+              } ${selectedSection?.id == item?.id && " bg-black font-bold"} ${
+                !item?.publishedOn && "cursor-none pointer-events-none  opacity-40"
               }`}
               onClick={() => onSectionClick(item)}
             >
@@ -58,7 +57,9 @@ const NotesSidebar = ({
                   )}
                 </h3>
               )}
-              {!noEpisodes && <p className="text-sm pl-3 truncate">{item?.name}</p>}
+              {!noEpisodes && (
+                <p className="text-sm pl-3 truncate">{item?.name}</p>
+              )}
             </div>
           );
         })}

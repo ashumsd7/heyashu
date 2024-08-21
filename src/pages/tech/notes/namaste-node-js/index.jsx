@@ -22,7 +22,7 @@ import { e12 } from "@/data/tech/notes/markdown/namaste_node_js_by_as_s1/e12";
 import { e13 } from "@/data/tech/notes/markdown/namaste_node_js_by_as_s1/e13";
 import { e100 } from "@/data/tech/notes/markdown/namaste_node_js_by_as_s1/e100";
 import BlogMetaInfo from "@/components/tech/notes-layout/BlogMetaInfo";
-import { season1EpisodesNodeJsAkshaySaini } from "@/data/tech";
+import { s1NodeJSByAS } from "@/data/tech/notes/markdown/namaste_node_js_by_as_s1/episodeConfig";
 import { useRouter } from "next/router";
 
 const matchingMDX = {
@@ -44,9 +44,9 @@ const matchingMDX = {
 };
 const NamasteNodeJS = () => {
   const router = useRouter();
-  const s1Episodes = useMemo(() => season1EpisodesNodeJsAkshaySaini);
+  const s1Episodes = useMemo(() => s1NodeJSByAS);
   const [selectedSection, setSelectedSection] = useState(
-    season1EpisodesNodeJsAkshaySaini[0]
+    s1NodeJSByAS[0]
   );
   3;
   const [markdownContent, setMarkdownContent] = useState(`# hello`);
@@ -81,7 +81,7 @@ const NamasteNodeJS = () => {
   }
 
   useEffect(() => {
-    const totalCount = season1EpisodesNodeJsAkshaySaini?.length;
+    const totalCount = s1NodeJSByAS?.length;
     const trueCount = countTrueValues();
     const percentage = Math.round((trueCount / totalCount) * 100);
     const res = percentage.toFixed(2);
@@ -93,10 +93,10 @@ const NamasteNodeJS = () => {
   useEffect(() => {
     if (window.location.hash) {
       const hash = decodeURIComponent(window.location.hash);
-      const section = season1EpisodesNodeJsAkshaySaini.find(
+      const section = s1NodeJSByAS.find(
         (item) => item.name === hash.split('#')[1]
       );
-      setSelectedSection(section || season1EpisodesNodeJsAkshaySaini[0] );
+      setSelectedSection(section || s1NodeJSByAS[0] );
     }
   }, []);
 
