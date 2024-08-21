@@ -13,7 +13,7 @@ function Navbar() {
   const router = useRouter();
   useEffect(() => {
     setIsOpen(false);
-  
+
     const pathName = router.pathname;
     if (pathName) {
       const firstPath = pathName.split("/")[1];
@@ -25,11 +25,10 @@ function Navbar() {
   }, [router]);
 
   useEffect(() => {
-    
-    if(isOpen){
-      document.body.style.overflow='hidden';
-    }else{
-      document.body.style.overflow='auto';
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
     }
   }, [isOpen]);
 
@@ -39,9 +38,9 @@ function Navbar() {
   return (
     <>
       {/* bg-[#efeff1] */}
-      <div className=" h-[2px] flex  fixed items-center bg-orange-600 md:mb-12 mb-20 w-full b ">
-        <div className="md:flex justify-between  hidden   w-full items-center relative  bg-[#efeff1] ">
-          <div>
+      <div className=" h-[2px] flex  fixed items-center bg-orange-600 md:mb-12 mb-20 w-full  ">
+        <div className="md:flex justify-between  hidden   w-full items-center relative  bg-[#efeff1] py-4 px-10  border-b border-gray-300  font-mono ">
+          {/* <div>
             {router?.pathname?.split("/").length > 2 && (
               <div
                 className="flex cursor-pointer justify-left font-semibold items-center mt-10 ml-4"
@@ -51,10 +50,13 @@ function Navbar() {
                 }}
               >
                 <IoArrowBackSharp />
-                back
+            Ashutosh
               </div>
             )}
-          </div>
+          </div> */}
+          <h2 className="font-extrabold   font-mono flex cursor-pointer justify-left text-2xl items-center mt-12 ml-4">
+            Ashutosh Anand Tiwari
+          </h2>
           <div className="flex lg:gap-8 gap-3 mt-10 items-center">
             <Link
               href="/"
@@ -68,7 +70,7 @@ function Navbar() {
 
             <Link
               href="/tech"
-              className="md:text-xl text-base font-extrabold font-mono relative"
+              className="md:text-xl text-base font-extrabold font-mono relative "
             >
               /tech{" "}
               {activePath == "tech" && (
@@ -116,8 +118,9 @@ function Navbar() {
             </Link>
           </div>
         </div>
+        <hr />
 
-        <div className="flex md:hidden bg-[#efeff1] text-black text-2xl w-full justify-end mt-8 mr-4 px-1">
+        <div className="flex md:hidden bg-[#efeff1] text-black text-2xl w-full justify-end mt-10 mr-4 px-1">
           <GiHamburgerMenu
             onClick={() => {
               setIsOpen(!isOpen);
@@ -185,10 +188,7 @@ const MobileNaveBar = ({ isOpen, setIsOpen, activePath }) => {
           )}
         </Link>
 
-        <Link
-          href="/tech/notes"
-           className="text-lg py-2 font-semibold"
-        >
+        <Link href="/tech/notes" className="text-lg py-2 font-semibold">
           /tech/notes{" "}
           {activePath == "notes" && (
             <LuMousePointerClick className="absolute  top-[20px] left-[20px] text-2xl text-orange-600" />

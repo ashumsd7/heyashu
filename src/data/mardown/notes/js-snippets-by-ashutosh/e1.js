@@ -1,6 +1,6 @@
 export const e1 = `
 
-# Data Types
+# Data Types in JavaScript
 
 ![Data Types](https://i.ibb.co/DQf1k4k/data-types.jpg)
 

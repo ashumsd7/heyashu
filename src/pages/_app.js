@@ -14,7 +14,7 @@ export default function App({ Component, pageProps }) {
         <Component {...pageProps} />
       </Layout>
       <div
-        className="fixed right-0 bottom-0"
+        className="fixed right-0 bottom-2"
         onClick={() => {
           window.open(PHONE_CALL_THIRTY_MIN, "_blank");
         }}

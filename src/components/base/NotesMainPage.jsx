@@ -53,16 +53,17 @@ const NotesMainPage = ({
   }
 
   useEffect(() => {
+
     const totalCount = contentList?.length;
     const trueCount = countTrueValues();
     const percentage = Math.round((trueCount / totalCount) * 100);
     const res = percentage.toFixed(2);
-    document.body.style.overflow = "hidden";
     setProgress(res);
     fetchMarkdown("e" + selectedSection?.episode);
   }, [selectedSection]);
 
   useEffect(() => {
+  
     if (window.location.hash) {
       const hash = decodeURIComponent(window.location.hash);
       const section = contentList.find(
@@ -85,7 +86,7 @@ const NotesMainPage = ({
         })}
       </Head>
 
-      <div className="lg:-mt-4">
+      <div className="max-w-screen-xl">
         <NotesChips
           data={episodes}
           handleChipClick={handleSectionClick}
@@ -108,7 +109,7 @@ const NotesMainPage = ({
             />
           )}
           <div
-            className={`lg:w-3/4 w-full lg:ml-[340px] ml-0   flex flex-col bg-white lg:h-[96.5vh] h-[75vh] lg:-mt-6   rounded-lg border ${
+            className={`lg:w-3/4 w-full lg:ml-[340px] ml-0   flex flex-col bg-white  h-full     rounded-lg  border ${
               isSidebarVisible ? "w-3/4" : "w-full"
             }`}
           >
@@ -120,7 +121,7 @@ const NotesMainPage = ({
               title={`${selectedSection?.name}`}
             />
 
-            <div className="flex-1 overflow-y-auto ">
+            <div className="flex-1 bg-[#efeff1]  ">
               <BlogMetaInfo
                 data={{
                   timeRead: estimateReadingTime(markdownContent),

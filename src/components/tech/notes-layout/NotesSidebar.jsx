@@ -12,10 +12,10 @@ const NotesSidebar = ({
   noEpisodes = false,
 }) => {
   return (
-    <div className="w-[1/4]  lg:block hidden  pb-[200px] h-full shadow-2xl  fixed -mt-6 ">
-      <div className="flex justify-center bg-gradient-to-b from-yellow-100 to-[#efeff1] mb-4  rounded-3xl px-4">
+    <div className="w-[1/4]  lg:block hidden  pb-[200px] h-full shadow-2xl  fixed ">
+      <div className="flex justify-center bg-gradient-to-b from-gray-300 to-[#efeff1] mb-4  rounded-xl px-4">
         {" "}
-        <h1 className="text-2xl font-sans mt-2 font-extrabold truncate max-w-[300px] text-center text-gray-800 md:text-left  mb-1 md:mb-0">
+        <h1 className="text-2xl font-sans mt-4  font-extrabold truncate max-w-[300px] text-center text-gray-800 md:text-left ">
           {contentListTitle}
         </h1>
       </div>
@@ -31,7 +31,7 @@ const NotesSidebar = ({
               key={idx}
               className={`cursor-pointer p-2 w-[270px] bg-gray-300 border  hover:bg-gray-400 rounded-sm relative  ${
                 storedValues && storedValues[item?.name]
-                  ? "border-0 border-l-8 border-green-500 bg-gradient-to-r from-yellow-300 to-[#efeff1] "
+                  ? "border-0 border-l-8 border-green-500 bg-gradient-to-r from-gray-300 to-[#efeff1] "
                   : "border-0 border-l-8 border-gray-500"
               } ${selectedSection?.id == item?.id && " bg-black font-bold"} ${
                 !item?.publishedOn && "cursor-none pointer-events-none  opacity-40"

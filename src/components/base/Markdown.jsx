@@ -34,7 +34,7 @@ function Markdown({ content }) {
       }}
       remarkPlugins={[remarkGfm]}
       style={styles}
-      className="prose "
+      className="prose container mx-auto p-0 max-w-screen-lg "
     >
       {content}
     </ReactMarkdown>
