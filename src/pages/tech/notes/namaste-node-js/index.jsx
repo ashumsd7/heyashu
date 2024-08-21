@@ -23,6 +23,7 @@ import { e13 } from "@/data/tech/notes/markdown/namaste_node_js_by_as_s1/e13";
 import { e100 } from "@/data/tech/notes/markdown/namaste_node_js_by_as_s1/e100";
 import BlogMetaInfo from "@/components/tech/notes-layout/BlogMetaInfo";
 import { season1EpisodesNodeJsAkshaySaini } from "@/data/tech";
+import { useRouter } from "next/router";
 
 const matchingMDX = {
   e0: e0,
@@ -42,6 +43,7 @@ const matchingMDX = {
   e100: e100,
 };
 const NamasteNodeJS = () => {
+  const router = useRouter();
   const s1Episodes = useMemo(() => season1EpisodesNodeJsAkshaySaini);
   const [selectedSection, setSelectedSection] = useState(
     season1EpisodesNodeJsAkshaySaini[0]
@@ -54,6 +56,7 @@ const NamasteNodeJS = () => {
 
   const STORAGE_KEY = "NAMASTE-NODE_JS_S1";
   const handleSectionClick = (section) => {
+    router.push("#" + section?.name);
     const storageValue = ls.get(STORAGE_KEY);
     const updatedStorage = {
       ...storageValue,
@@ -86,6 +89,16 @@ const NamasteNodeJS = () => {
     setProgress(res);
     fetchMarkdown("e" + selectedSection?.episode);
   }, [selectedSection]);
+
+  useEffect(() => {
+    if (window.location.hash) {
+      const hash = decodeURIComponent(window.location.hash);
+      const section = season1EpisodesNodeJsAkshaySaini.find(
+        (item) => item.name === hash.split('#')[1]
+      );
+      setSelectedSection(section || season1EpisodesNodeJsAkshaySaini[0] );
+    }
+  }, []);
 
   const savedStorage = ls.get(STORAGE_KEY);
   return (
