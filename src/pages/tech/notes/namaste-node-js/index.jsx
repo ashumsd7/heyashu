@@ -49,7 +49,7 @@ const NamasteNodeJS = () => {
     s1NodeJSByAS[0]
   );
   3;
-  const [markdownContent, setMarkdownContent] = useState(`# hello`);
+  const [markdownContent, setMarkdownContent] = useState(`# Please wait....`);
   const [isSidebarVisible, setIsSidebarVisible] = useState(true);
   const [isQuickReadModeOn, setIsQuickReadModeOn] = useState(false);
   const [progress, setProgress] = useState(0);
