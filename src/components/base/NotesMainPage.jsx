@@ -81,7 +81,7 @@ const NotesMainPage = ({
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/favicon.ico" />
         {metaInfo?.map((info) => {
-          return <meta name={info.name} content={info.content} />;
+          return <meta key={info.name} name={info.name} content={info.content} />;
         })}
       </Head>
 
