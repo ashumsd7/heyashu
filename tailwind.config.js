@@ -1,5 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 
+const { color } = require("framer-motion");
+
 module.exports = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx, md}",
@@ -11,159 +13,144 @@ module.exports = {
       typography: (theme) => ({
         DEFAULT: {
           css: {
-            p: {
-              margin: 0,
-              padding: 0,
-              fontSize: 16,
-              lineHeight: '24px',
-              fontWeight: 400,
-            },
-            img: {
-              padding: 0,
-              margin: 0,
-            },
-            video: {
-              padding: 0,
-              margin: 0,
-            },
+            color: theme("colors.gray.800"),
             h1: {
-              fontSize: 36,
-              lineHeight: '48px',
-              margin: 0,
-              fontWeight: 700,
-              color: '#110F15',
+              fontSize: "24px",
+              marginBottom: "1.2rem", // 19.2px
+              marginTop: "32px",
+              fontWeight: theme("fontWeight.bold"),
+              lineHeight: theme("lineHeight.tight"),
+              "@screen sm": {
+                fontSize: theme("fontSize.2xl"), // 24px
+                marginBottom: "1rem", // 16px
+                marginTop: "24px",
+              },
+              "@screen md": {
+                fontSize: theme("fontSize.3xl"), // 30px
+              },
+              "@screen lg": {
+                fontSize: theme("fontSize.4xl"), // 36px
+              },
+              "@screen xl": {
+                fontSize: "32px",
+                marginBottom: "1.2rem", // 19.2px
+                marginTop: "32px",
+              },
             },
             h2: {
-              fontSize: 24,
-              lineHeight: '32px',
-              margin: 0,
-              padding:0,
-              fontWeight: 700,
-              color: '#110F15',
+              fontSize: "24px", // 30px
+              marginBottom: theme("spacing.4"),
+              marginTop: theme("spacing.8"),
+              fontWeight: theme("fontWeight.semibold"),
+              lineHeight: theme("lineHeight.tight"),
+              "@screen sm": {
+                fontSize: "24px", // 24px
+              },
+              "@screen md": {
+                fontSize: "24px", // 24px
+              },
+              "@screen lg": {
+                fontSize: "24px", // 30px
+              },
+              "@screen xl": {
+                fontSize: "24px",
+              },
             },
             h3: {
-              fontSize: 18,
-              lineHeight: '24px',
-              margin: 0,
-              color: '#110F15',
-              fontWeight: 700,
+              fontSize: theme("fontSize.2xl"), // 24px
+              marginBottom: theme("spacing.3"),
+              marginTop: theme("spacing.6"),
+              fontWeight: theme("fontWeight.medium"),
+              lineHeight: theme("lineHeight.tight"),
+              "@screen sm": {
+                fontSize: theme("fontSize.xl"), // 20px
+              },
+              "@screen md": {
+                fontSize: theme("fontSize.xl"), // 20px
+              },
+              "@screen lg": {
+                fontSize: theme("fontSize.2xl"), // 24px
+              },
+              "@screen xl": {
+                fontSize: "30px",
+              },
             },
-            '[class~="body-large"]': {
-              fontSize: 18,
-              lineHeight: '28px',
-              fontWeight: 400,
-              margin: 0,
-              color: '#181818',
+            p: {
+              fontSize: "20px",
+              marginBottom: theme("spacing.5"),
+              marginTop: theme("spacing.2"),
+              lineHeight: theme("lineHeight.relaxed"),
+              "@screen sm": {
+                fontSize: "18px",
+              },
+              "@screen md": {
+                fontSize: "20px",
+              },
             },
-            '[class~="body"]': {
-              fontSize: 16,
-              lineHeight: '24px',
-              fontWeight: 400,
-              margin: 0,
+            a: {
+              color: theme("colors.blue.600"),
+              textDecoration: "underline",
+              "&:hover": {
+                color: theme("colors.blue.800"),
+              },
             },
-            '[class~="body-small"]': {
-              fontSize: '14px',
-              lineHeight: '20px',
-              fontWeight: 400,
-              margin: 0,
+            img: {
+              marginBottom: "56px",
+              borderRadius: theme("borderRadius.md"),
+              maxWidth: "100%",
+              "@screen sm": {
+                marginBottom: "40px",
+              },
             },
-            '[class~="link"]': {
-              fontSize: '16px',
-              lineHeight: '24px',
-              fontWeight: 500,
-              margin: 0,
-              textDecoration:'underline',
-              cursor:'pointer'
+            ul: {
+              listStyleType: "disc",
+              paddingLeft: theme("spacing.6"),
+              marginBottom: theme("spacing.5"),
+              fontSize: "20px",
             },
-            '[class~="caps"]': {
-              fontSize: 14,
-              lineHeight: '20px',
-              fontWeight: 700,
-              margin: 0,
-              textTransform: 'uppercase',
+            ol: {
+              listStyleType: "decimal",
+              paddingLeft: theme("spacing.6"),
+              marginBottom: theme("spacing.5"),
+              fontSize: "20px",
             },
-            '[class~="caps-small"]': {
-              fontSize: 12,
-              lineHeight: '20px',
-              fontWeight: 500,
-              margin: 0,
-              textTransform: 'uppercase',
+            li: {
+              marginBottom: theme("spacing.1"),
+              lineHeight: theme("lineHeight.relaxed"),
+              fontSize: "20px",
             },
-
-            '[class~="button"]': {
-              fontSize: 16,
-              lineHeight: '24px',
-              fontWeight: 500,
-              margin: 0,
+            blockquote: {
+              paddingLeft: theme("spacing.6"),
+              fontStyle: "italic",
+              color: theme("colors.gray.600"),
+              borderLeft: `4px solid ${theme("colors.gray.300")}`,
+              marginBottom: theme("spacing.5"),
+               fontSize: "20px",
             },
-
-            // NOT USED
-         
-            '[class~="body-faded"]': {
-              fontSize: 16,
-              lineHeight: '24px',
-              fontWeight: 400,
-              margin: 0,
-              color: '#110F15',
+            code: {
+              backgroundColor: theme("colors.gray.200"),
+              borderRadius: theme("borderRadius.sm"),
+              padding: theme("spacing.1"),
+              color: theme("colors.pink.600"),
             },
-            '[class~="body-faded-3"]': {
-              fontSize: 16,
-              lineHeight: '24px',
-              fontWeight: 400,
-              margin: 0,
-              color: '#3C4858',
+            pre: {
+              backgroundColor: theme("colors.gray.100"),
+              padding: theme("spacing.4"),
+              borderRadius: theme("borderRadius.md"),
+              overflowX: "auto",
             },
-            '[class~="body-faded-4"]': {
-              fontSize: 16,
-              lineHeight: '24px',
-              fontWeight: 400,
-              margin: 0,
-              color: '#5A6679',
+            small: {
+              fontSize: theme("fontSize.sm"),
+              color: theme("colors.gray.600"),
             },
-           
-
-            '[class~="link-large"]': {
-              fontSize: 18,
-              lineHeight: '28px',
-              fontWeight: 500,
-            },
-           
-            
-          
-           
-           
-            '[class~="caps-chip"]': {
-              fontSize: 14,
-              lineHeight: '20px',
-              fontWeight: 700,
-              margin: 0,
-
-              textTransform: 'uppercase',
-            },
-            '[class~="caption"]': {
-              fontSize: 12,
-              lineHeight: '20px',
-              fontWeight: 400,
-              margin: 0,
-            },
-            button: {
-              fontSize: 16,
-              lineHeight: '24px',
-              fontWeight: 500,
-              margin: 0,
-            },
-           
-            '[class~="button-faded-3"]': {
-              fontSize: 16,
-              lineHeight: '24px',
-              fontWeight: 500,
-              margin: 0,
-              color: '#3C4858',
+            span: {
+              display: "inline-block",
+              margin: theme("spacing.1"),
             },
           },
         },
       }),
-    }
+    },
   },
-  plugins: [require("@tailwindcss/typography")]
+  plugins: [require("@tailwindcss/typography")],
 };

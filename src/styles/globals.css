@@ -60,22 +60,22 @@ body {
   font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
 } */
 
-.markdown-p{
+/* .markdown-p{
  margin: .5rem 0px !important;
  line-height: 2rem;
  font-size: 20px;
  word-break: break-word;
  color: #242424;
  font-weight: 400;
-}
-.markdown-li{
+} */
+/* .markdown-li{
   margin: .5rem 0px !important;
   font-size: 20px;
   word-break: break-word;
   color: #242424;
   line-height: 2rem;
   font-weight: 400;
- }
+ } */
 .prose{
   font-family: source-serif-pro, Georgia, Cambria, "Times New Roman", Times, serif !important;
 }
@@ -84,4 +84,12 @@ body {
   text-decoration: none;
   transition: color 0.3s ease;
   font-weight: bolder;
+}
+.markdown-pre{
+  color: #cdd9e0;
+  padding: 2rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-weight: bolder;
+  background-color: black;
 }

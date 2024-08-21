@@ -30,13 +30,13 @@ const NotesSidebar = ({
           return (
             <div
               key={idx}
-              className={`cursor-pointer p-2 w-[270px] bg-gray-300 border  hover:bg-gray-400 rounded-sm relative ${
-                selectedSection?.id == item?.id &&
-                "bg-gradient-to-r from-yellow-300 to-[#efeff1] text-black"
-              } ${
+              className={`cursor-pointer p-2 w-[270px] bg-gray-300 border  hover:bg-gray-400 rounded-sm relative  ${
                 storedValues && storedValues[item?.name]
                   ? "border-0 border-l-8 border-green-500 bg-gradient-to-r from-yellow-300 to-[#efeff1] "
                   : "border-0 border-l-8 border-gray-500"
+              } ${
+                selectedSection?.id == item?.id &&
+                " bg-black font-bold"
               }`}
               onClick={() => onSectionClick(item)}
             >
@@ -45,7 +45,7 @@ const NotesSidebar = ({
                   Prerequisite
                 </h3>
               ) : (
-                <h3 className="font-semibold flex items-center gap-2 pl-3">
+                <h3 className=" flex items-center gap-2 pl-3">
                   {noEpisodes ? (
                     <>
                       <p className="text-sm pl-3 truncate">{item?.name}</p>
