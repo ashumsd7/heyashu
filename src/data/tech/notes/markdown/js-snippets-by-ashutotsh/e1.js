@@ -2,6 +2,7 @@ export const e1 = `
 
 # Data Types
 
+![Data Types](https://i.ibb.co/DQf1k4k/data-types.jpg)
 
 There are total **8 built** in data types in JavaScript.
 
