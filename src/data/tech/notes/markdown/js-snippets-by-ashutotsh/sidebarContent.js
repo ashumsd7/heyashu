@@ -1,5 +1,5 @@
 export const JS_SNIPPETS_BY_ASHUTOSH = [
-  { id: 1, episode: 1, name: "Data Types" },
+  { id: 1, episode: 1, name: "Data Types", publishedOn: '21 Aug 2024' },
   { id: 2, episode: 2, name: "Function Declaration & Expressions" },
   { id: 3, episode: 3, name: "Destructuring", publishedOn: '18 Aug 2024' },
   { id: 4, episode: 4, name: "Spread Operator" },
