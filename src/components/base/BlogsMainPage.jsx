@@ -23,7 +23,7 @@ function BlogsMainPage({ blogInfo, large }) {
       </Head>
 
       <div
-        className={`flex flex-col gap-2 px-4 max-w-screen-lg m-auto ${
+        className={`flex flex-col gap-2 px-4 max-w-screen-[1000px] m-auto ${
           large ? "max-w-screen-lg" : "max-w-screen-md"
         }`}
       >
@@ -37,7 +37,7 @@ function BlogsMainPage({ blogInfo, large }) {
 
         {/* Blog Title */}
         {blogInfo?.title && (
-          <h2 className="text-black lg:text-6xl text-3xl font-bold  md:text-center text-justify  mb-2 mt-10 md:mt-0   mr-14   ">
+          <h2 className="text-black lg:text-[42px] text-2xl font-bold  md:text-center text-justify  mb-2 mt-10 md:mt-0    ">
             {blogInfo?.title}
           </h2>
         )}

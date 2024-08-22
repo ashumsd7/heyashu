@@ -4,8 +4,8 @@ import React from "react";
 // PASTE YOUR MARKDOWN HERE BELOW UNDER BACK TICKS
 const markdown = `
 
-Syntax, Expression, and Statement in JavaScript
-=================================
+## Syntax, Expression, and Statement in JavaScript
+
 ![image.png](https://i.ibb.co/SB3Ts52/ex1.jpg)
 ### How do we communicate?
 

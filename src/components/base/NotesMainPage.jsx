@@ -121,7 +121,7 @@ const NotesMainPage = ({
               title={`${selectedSection?.name}`}
             />
 
-            <div className="flex-1 bg-[#efeff1]  ">
+            <div className="flex-1 bg-white  ">
               <div className="px-2">
               <BlogMetaInfo
               large
