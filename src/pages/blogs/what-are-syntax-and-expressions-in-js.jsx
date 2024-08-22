@@ -6,7 +6,7 @@ import React from "react";
 // PASTE YOUR MARKDOWN HERE BELOW UNDER BACK TICKS
 const markdown = `
 
-Syntax, Expression, and Statement
+Syntax, Expression, and Statement in JavaScript
 =================================
 ![image.png](https://i.ibb.co/SB3Ts52/ex1.jpg)
 ### How do we communicate?
@@ -93,10 +93,10 @@ const blogInfo = {
 
 function DemoBlog() {
   return (
-    <div className="flex flex-col gap-5">
+    <div className="flex flex-col gap-2 px-4">
       {/* Blog Title */}
       {blogInfo?.title && (
-        <h2 className="text-black lg:text-6xl text-2xl font-bold  mb-6   mr-14">
+        <h2 className="text-black lg:text-6xl text-2xl font-bold  mb-2   mr-14">
           {blogInfo?.title}
         </h2>
       )}
