@@ -58,7 +58,7 @@ const BlogMetaInfo = ({ data }) => {
         </div>
       </div>
 
-      <div className="pr-4">
+      <div className="pr-2">
         <Share title={title} />
       </div>
       {showControls && (
