@@ -86,7 +86,7 @@ const blogInfo = {
   title: "Syntax, Expression, and Statements",
   followLink: "https://github.com/ashumsd7/",
   markdown: markdown,
-  metaInfo: [{ name: title + "by " + name, content: title }],
+  metaInfo: [{ name: "Syntax, Expression, and Statements by Ashutosh Anand Tiwari" , content:'Syntax, Expression, and Statements"' }],
   profilePic: "https://avatars.githubusercontent.com/u/40313523?v=4", // copy this from github or your favrt photo
 };
 
