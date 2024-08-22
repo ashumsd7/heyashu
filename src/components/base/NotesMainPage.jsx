@@ -53,7 +53,6 @@ const NotesMainPage = ({
   }
 
   useEffect(() => {
-
     const totalCount = contentList?.length;
     const trueCount = countTrueValues();
     const percentage = Math.round((trueCount / totalCount) * 100);
@@ -63,7 +62,6 @@ const NotesMainPage = ({
   }, [selectedSection]);
 
   useEffect(() => {
-  
     if (window.location.hash) {
       const hash = decodeURIComponent(window.location.hash);
       const section = contentList.find(
@@ -82,7 +80,9 @@ const NotesMainPage = ({
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/favicon.ico" />
         {metaInfo?.map((info) => {
-          return <meta key={info.name} name={info.name} content={info.content} />;
+          return (
+            <meta key={info.name} name={info.name} content={info.content} />
+          );
         })}
       </Head>
 
@@ -127,6 +127,7 @@ const NotesMainPage = ({
                   timeRead: estimateReadingTime(markdownContent),
                   publishedOn: selectedSection?.publishedOn,
                   name: "Ashutosh Anand Tiwari",
+                  title: selectedSection?.name,
                 }}
               />
               <NotesContent markdownContent={markdownContent} />

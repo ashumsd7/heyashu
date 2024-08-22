@@ -6,16 +6,19 @@ import { IoMdDownload } from "react-icons/io";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { FaBookOpen } from "react-icons/fa";
 import { FaCalendar } from "react-icons/fa";
-const BlogMetaInfo = ({data}) => {
+import { RWebShare } from "react-web-share";
+import { FiShare2 } from "react-icons/fi";
+const BlogMetaInfo = ({ data }) => {
   const {
     name = "Ashutosh Anand Tiwari",
     timeRead = "0",
     lastUpdated = "-",
-    publishedOn="-",
+    publishedOn = "-",
     followLink = "https://github.com/ashumsd7/",
     showControls = false,
     profilePic = "https://avatars.githubusercontent.com/u/40313523?v=4",
-  }= data
+    title = "",
+  } = data;
   return (
     <div className="flex items-center justify-between   border-b border-gray-300 py-4">
       <div className="flex items-center">
@@ -34,7 +37,8 @@ const BlogMetaInfo = ({data}) => {
             <span className="font-semibold text-gray-900">{name}</span>
             <a
               href={followLink}
-              target="_blank"s
+              target="_blank"
+              s
               className="text-green-600 font-semibold cursor-pointer"
             >
               Follow
@@ -42,10 +46,30 @@ const BlogMetaInfo = ({data}) => {
           </div>
           {(timeRead || lastUpdated) && (
             <div className="text-gray-500 text-sm flex items-center gap-2">
-            <FaBookOpen title={`It will take ${timeRead} min to read this article.`} /> {timeRead} min read ∘ <FaCalendar title="Published on"/>   {publishedOn}
+              <FaBookOpen
+                title={`It will take ${timeRead} min to read this article.`}
+              />{" "}
+              {timeRead} min read ∘ <FaCalendar title="Published on" />{" "}
+              {publishedOn}
             </div>
           )}
         </div>
+      </div>
+
+      <div className="pr-4">
+        <RWebShare
+          data={{
+            text: `Read ${title}`,
+            url: window?.location?.href,
+            title: title,
+          }}
+          onClick={() => console.log("shared successfully!")}
+        >
+          <FiShare2
+            className="text-xl text-gray-600 font-extrabold cursor-pointer"
+            title="Share this document"
+          />
+        </RWebShare>
       </div>
       {showControls && (
         <div className="flex items-center space-x-6">
