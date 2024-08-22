@@ -96,7 +96,7 @@ function DemoBlog() {
     <div className="flex flex-col gap-5">
       {/* Blog Title */}
       {blogInfo?.title && (
-        <h2 className="text-black text-6xl font-bold  mb-6   mr-14">
+        <h2 className="text-black lg:text-6xl text-2xl font-bold  mb-6   mr-14">
           {blogInfo?.title}
         </h2>
       )}
