@@ -82,7 +82,7 @@ Be healthy and keep smiling. Bye-bye 👋!
 // change your name
 const blogInfo = {
   name: "Ashutosh Anand Tiwari",
-  timeRead:estimateReadingTime(markdown) ,
+  timeRead: estimateReadingTime(markdown),
   lastUpdated: "-",
   publishedOn: "22 Aug 2024",
   title: "Syntax, Expression, and Statements",
@@ -95,17 +95,21 @@ function DemoBlog() {
   return (
     <div className="flex flex-col gap-2 px-4">
       {/* Blog Title */}
+
       {blogInfo?.title && (
-        <h2 className="text-black lg:text-6xl text-2xl font-bold  mb-2   mr-14">
+        <h2 className="text-black lg:text-6xl text-3xl font-bold  mb-2   mr-14   ">
           {blogInfo?.title}
         </h2>
       )}
+
       {/* Blog Hero Image */}
       {blogInfo?.heroImage && (
         <Image alt={blogInfo?.title} src={blogInfo?.heroImage} fill />
       )}
       {/* Blog Meta Info */}
-      <BlogMetaInfo data={blogInfo} />
+      <div className="mb-4">
+        <BlogMetaInfo data={blogInfo} />
+      </div>
       {/* Main Blog Content */}
       <Markdown content={markdown} />
     </div>

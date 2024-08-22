@@ -120,7 +120,7 @@ function Navbar() {
         </div>
         <hr />
 
-        <div className="flex md:hidden bg-[#efeff1] text-black text-2xl w-full justify-end mt-10 mr-4 px-1">
+        <div className="flex md:hidden bg-[#efeff1] text-black text-2xl w-full justify-end  h-12 items-center mt-10 mr-4 px-1">
           <GiHamburgerMenu
             onClick={() => {
               setIsOpen(!isOpen);
