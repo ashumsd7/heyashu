@@ -4,12 +4,12 @@ import { RWebShare } from "react-web-share";
 import { FiShare2 } from "react-icons/fi";
 import React from "react";
 
-function Share({title,url}) {
+function Share({title}) {
   return (
     <RWebShare
       data={{
         text: `Read ${title}`,
-        url: url,
+        url: window?.location.href,
         title: title,
       }}
       onClick={() => console.log("shared successfully!")}

@@ -7,7 +7,9 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import { FaBookOpen } from "react-icons/fa";
 import { FaCalendar } from "react-icons/fa";
 
-import Share from "@/components/ui/Share";
+// import Share from "@/components/ui/Share";
+import dynamic from "next/dynamic";
+const Share = dynamic(() => import("@/components/ui/Share"), {ssr: false});
 const BlogMetaInfo = ({ data }) => {
   const {
     name = "Ashutosh Anand Tiwari",
@@ -18,7 +20,6 @@ const BlogMetaInfo = ({ data }) => {
     showControls = false,
     profilePic = "https://avatars.githubusercontent.com/u/40313523?v=4",
     title = "",
-    url = window?.location.href,
   } = data;
   return (
     <div className="flex items-center justify-between   border-b border-gray-300 py-4">
@@ -58,7 +59,7 @@ const BlogMetaInfo = ({ data }) => {
       </div>
 
       <div className="pr-4">
-        <Share title={title} url={url} />
+        <Share title={title} />
       </div>
       {showControls && (
         <div className="flex items-center space-x-6">
