@@ -1,7 +1,5 @@
-import Markdown from "@/components/base/Markdown";
-import BlogMetaInfo from "@/components/tech/notes-layout/BlogMetaInfo";
+import BlogsMainPage from "@/components/base/BlogsMainPage";
 import { estimateReadingTime } from "@/utils/functions";
-import Image from "next/image";
 import React from "react";
 // PASTE YOUR MARKDOWN HERE BELOW UNDER BACK TICKS
 const markdown = `
@@ -87,33 +85,13 @@ const blogInfo = {
   publishedOn: "22 Aug 2024",
   title: "Syntax, Expression, and Statements",
   followLink: "https://github.com/ashumsd7/",
-  // heroImage: "https://i.ibb.co/6J0L7vT/statement.jpg",
+  markdown: markdown,
+  metaInfo: [{ name: title + "by " + name, content: title }],
   profilePic: "https://avatars.githubusercontent.com/u/40313523?v=4", // copy this from github or your favrt photo
 };
 
 function DemoBlog() {
-  return (
-    <div className="flex flex-col gap-2 px-4">
-      {/* Blog Title */}
-
-      {blogInfo?.title && (
-        <h2 className="text-black lg:text-6xl text-3xl font-bold  mb-2   mr-14   ">
-          {blogInfo?.title}
-        </h2>
-      )}
-
-      {/* Blog Hero Image */}
-      {blogInfo?.heroImage && (
-        <Image alt={blogInfo?.title} src={blogInfo?.heroImage} fill />
-      )}
-      {/* Blog Meta Info */}
-      <div className="mb-4">
-        <BlogMetaInfo data={blogInfo} />
-      </div>
-      {/* Main Blog Content */}
-      <Markdown content={markdown} />
-    </div>
-  );
+  return <BlogsMainPage blogInfo={blogInfo} />;
 }
 
 export default DemoBlog;

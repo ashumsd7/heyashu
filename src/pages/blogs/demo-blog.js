@@ -1,47 +1,35 @@
-import Markdown from "@/components/base/Markdown";
-import BlogMetaInfo from "@/components/tech/notes-layout/BlogMetaInfo";
-import Image from "next/image";
+import BlogsMainPage from "@/components/base/BlogsMainPage";
+import { estimateReadingTime } from "@/utils/functions";
 import React from "react";
 // PASTE YOUR MARKDOWN HERE BELOW UNDER BACK TICKS
-const markdown = `
+const MARKDOWN = `
+# What is Lorem Ipsum?
 
-## You blog content starts from here
+### What is Lorem Ipsum?
 
+Lorem Ipsum is simply dummy text of the
+ printing and typesetting industry. Lorem Ipsum 
+ has been the industry's standard dummy text ever since
+the 1500s.
 
 
 `;
 
 // change your name
-const blogInfo = {
+const BLOG_INFO = {
   name: "Ashutosh Anand Tiwari",
-  timeRead: "0",
+  timeRead: estimateReadingTime(MARKDOWN),
   lastUpdated: "-",
-  publishedOn: "-",
-  title: "My Blog Title?",
+  publishedOn: "22 Aug 2024",
+  title: "Just a Demo",
   followLink: "https://github.com/ashumsd7/",
-  heroImage: "",
+  markdown: MARKDOWN,
+  metaInfo: [{ name: "meta title", content: "meta content" }],
   profilePic: "https://avatars.githubusercontent.com/u/40313523?v=4", // copy this from github or your favrt photo
 };
 
 function DemoBlog() {
-  return (
-    <div className="flex flex-col gap-5">
-      {/* Blog Title */}
-      {blogInfo?.title && (
-        <h2 className="text-black text-6xl font-bold  mb-6   mr-14">
-          {blogInfo?.title}
-        </h2>
-      )}
-      {/* Blog Hero Image */}
-      {blogInfo?.heroImage && (
-        <Image alt={blogInfo?.title} src={blogInfo?.heroImage} fill />
-      )}
-      {/* Blog Meta Info */}
-      <BlogMetaInfo data={blogInfo} />
-      {/* Main Blog Content */}
-      <Markdown content={markdown} />
-    </div>
-  );
+  return <BlogsMainPage blogInfo={BLOG_INFO} />;
 }
 
 export default DemoBlog;
