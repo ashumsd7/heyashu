@@ -6,8 +6,8 @@ import { IoMdDownload } from "react-icons/io";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { FaBookOpen } from "react-icons/fa";
 import { FaCalendar } from "react-icons/fa";
-import { RWebShare } from "react-web-share";
-import { FiShare2 } from "react-icons/fi";
+
+import Share from "@/components/ui/Share";
 const BlogMetaInfo = ({ data }) => {
   const {
     name = "Ashutosh Anand Tiwari",
@@ -18,6 +18,7 @@ const BlogMetaInfo = ({ data }) => {
     showControls = false,
     profilePic = "https://avatars.githubusercontent.com/u/40313523?v=4",
     title = "",
+    url = window?.location.href,
   } = data;
   return (
     <div className="flex items-center justify-between   border-b border-gray-300 py-4">
@@ -57,19 +58,7 @@ const BlogMetaInfo = ({ data }) => {
       </div>
 
       <div className="pr-4">
-        <RWebShare
-          data={{
-            text: `Read ${title}`,
-            url: window?.location?.href,
-            title: title,
-          }}
-          onClick={() => console.log("shared successfully!")}
-        >
-          <FiShare2
-            className="text-xl text-gray-600 font-extrabold cursor-pointer"
-            title="Share this document"
-          />
-        </RWebShare>
+        <Share title={title} url={url} />
       </div>
       {showControls && (
         <div className="flex items-center space-x-6">
