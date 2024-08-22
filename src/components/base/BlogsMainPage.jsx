@@ -4,7 +4,7 @@ import BlogMetaInfo from "../tech/notes-layout/BlogMetaInfo";
 import Image from "next/image";
 import Head from "next/head";
 
-function BlogsMainPage({ blogInfo }) {
+function BlogsMainPage({ blogInfo, large }) {
   return (
     <>
       <Head>
@@ -22,7 +22,11 @@ function BlogsMainPage({ blogInfo }) {
         })}
       </Head>
 
-      <div className="flex flex-col gap-2 px-4 max-w-screen-lg m-auto">
+      <div
+        className={`flex flex-col gap-2 px-4 max-w-screen-lg m-auto ${
+          large ? "max-w-screen-lg" : "max-w-screen-md"
+        }`}
+      >
         {/* Blog Title */}
         {blogInfo?.title && (
           <h2 className="text-black lg:text-6xl text-3xl font-bold  mb-2   mr-14   ">

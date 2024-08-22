@@ -94,3 +94,6 @@ body {
   font-weight: bolder;
   background-color: black;
 }
+.markdown-p img{
+  margin: auto;
+}

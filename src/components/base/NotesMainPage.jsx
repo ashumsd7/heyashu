@@ -122,7 +122,9 @@ const NotesMainPage = ({
             />
 
             <div className="flex-1 bg-[#efeff1]  ">
+              <div className="px-2">
               <BlogMetaInfo
+              large
                 data={{
                   timeRead: estimateReadingTime(markdownContent),
                   publishedOn: selectedSection?.publishedOn,
@@ -130,7 +132,8 @@ const NotesMainPage = ({
                   title: selectedSection?.name,
                 }}
               />
-              <NotesContent markdownContent={markdownContent} />
+              </div>
+              <NotesContent markdownContent={markdownContent} large />
             </div>
 
             {/* <NotesContentFooter data={episodes} selectedSection={selectedSection} onSectionClick={handleSectionClick} /> */}

@@ -13,7 +13,7 @@ function NotesContentTopBar({
   const NAMASTE_NODE_JS_CONTRIBUTION_LINK =
     "https://github.com/ashumsd7/ashu-new-portfolio-website/tree/main/src/data";
   return (
-    <div className="bg-gradient-to-r relative from-gray-300 to-[#efeff1] px-8   flex items-center rounded rounded-b-none justify-between  py-1 ">
+    <div className="bg-gradient-to-r relative from-gray-300 to-[#efeff1] px-4 lg:px-4   flex items-center rounded rounded-b-none justify-between  py-1 ">
       <div className="flex gap-2 items-center">
         <div className=" gap-2 justify-between items-center lg:flex hidden">
           {isSidebarVisible ? (

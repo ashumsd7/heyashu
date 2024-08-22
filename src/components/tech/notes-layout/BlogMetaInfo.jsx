@@ -22,7 +22,7 @@ const BlogMetaInfo = ({ data }) => {
     title = "",
   } = data;
   return (
-    <div className="flex items-center justify-between   border-b border-gray-300 py-4">
+    <div className="flex items-center justify-between    border-b border-gray-300 py-4 ">
       <div className="flex items-center">
         {!profilePic ? (
           <div className="w-10 h-10 bg-purple-600  text-white flex items-center justify-center rounded-full">

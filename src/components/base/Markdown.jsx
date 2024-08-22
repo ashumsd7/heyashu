@@ -5,7 +5,7 @@ import remarkGfm from "remark-gfm";
 const styles = {
   backgroundColor: "red",
 };
-function Markdown({ content }) {
+function Markdown({ content, large }) {
   return (
     <ReactMarkdown
       components={{
@@ -31,10 +31,17 @@ function Markdown({ content }) {
             {children}
           </pre>
         ),
+        p: ({ children, ...props }) => (
+          <p className="markdown-p" {...props}>
+            {children}
+          </p>
+        ),
       }}
       remarkPlugins={[remarkGfm]}
       style={styles}
-      className="prose container mx-auto p-0 max-w-screen-lg "
+      className={`prose container mx-auto p-0  ${
+        large ? "max-w-screen-lg" : "max-w-screen-md"
+      }`}
     >
       {content}
     </ReactMarkdown>
