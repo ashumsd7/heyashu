@@ -19,7 +19,7 @@ function Markdown({ content }) {
         ),
         code: ({ children, ...props }) => (
           <code
-            className="bg-gray-200 rounded px-2 py-1 text-red-600 markdown-code"
+            className=" bg-black rounded px-2 py-1 text-white markdown-code"
             {...props}
           >
             {children}
