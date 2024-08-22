@@ -161,7 +161,7 @@ const MobileNaveBar = ({ isOpen, setIsOpen, activePath }) => {
         <Link
           href="/"
           onClick={toggleMenu}
-          className="text-lg py-2 font-semibold"
+          className="text-2xl py-2 font-semibold"
         >
           Home
           {activePath == "" && (
@@ -171,7 +171,7 @@ const MobileNaveBar = ({ isOpen, setIsOpen, activePath }) => {
         <Link
           href="/tech"
           onClick={toggleMenu}
-          className="text-lg py-2 font-semibold"
+          className="text-2xl py-2 font-semibold"
         >
           Tech
           {activePath == "tech" && (
@@ -181,7 +181,7 @@ const MobileNaveBar = ({ isOpen, setIsOpen, activePath }) => {
         <Link
           href="/blogs"
           onClick={toggleMenu}
-          className="text-lg py-2 font-semibold"
+          className="text-2xl py-2 font-semibold"
         >
           Blogs
           {activePath == "blogs" && (
@@ -189,7 +189,7 @@ const MobileNaveBar = ({ isOpen, setIsOpen, activePath }) => {
           )}
         </Link>
 
-        <Link href="/tech/notes" className="text-lg py-2 font-semibold">
+        <Link href="/tech/notes" className="text-2xl py-2 font-semibold">
           /tech/notes{" "}
           {activePath == "notes" && (
             <LuMousePointerClick className="absolute  top-[20px] left-[20px] text-2xl text-orange-600" />
@@ -199,7 +199,7 @@ const MobileNaveBar = ({ isOpen, setIsOpen, activePath }) => {
         <Link
           href="/travel"
           onClick={toggleMenu}
-          className="text-lg py-2 font-semibold"
+          className="text-2xl py-2 font-semibold"
         >
           Travel
           {activePath == "travel" && (
@@ -209,7 +209,7 @@ const MobileNaveBar = ({ isOpen, setIsOpen, activePath }) => {
         <Link
           href="/misc"
           onClick={toggleMenu}
-          className="text-lg py-2 font-semibold"
+          className="text-2xl py-2 font-semibold"
         >
           More
           {["misc", "town"].includes(activePath) && (
