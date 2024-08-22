@@ -27,17 +27,22 @@ function BlogsMainPage({ blogInfo, large }) {
           large ? "max-w-screen-lg" : "max-w-screen-md"
         }`}
       >
+
+       {/* Blog Hero Image */}
+        {/* {blogInfo?.heroImage && (
+          <Image alt={blogInfo?.title} src={blogInfo?.heroImage} width='300' height={'300'} />
+        )} */}
+
+
+
         {/* Blog Title */}
         {blogInfo?.title && (
-          <h2 className="text-black lg:text-6xl text-3xl font-bold  mb-2   mr-14   ">
+          <h2 className="text-black lg:text-6xl text-3xl font-bold  md:text-center text-justify  mb-2 mt-10 md:mt-0   mr-14   ">
             {blogInfo?.title}
           </h2>
         )}
 
-        {/* Blog Hero Image */}
-        {/* {blogInfo?.heroImage && (
-          <Image alt={blogInfo?.title} src={blogInfo?.heroImage} width='300' height={'300'} />
-        )} */}
+       
         {/* Blog Meta Info */}
         <div className="mb-4">
           <BlogMetaInfo data={blogInfo} />
