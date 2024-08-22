@@ -13,7 +13,7 @@ function BlogsPage() {
         
       </h1>
       <BlogsFilter />
-      <div className="  h-screen flex flex-col gap-2">
+      <div className="  h-screen flex flex-col gap-4">
         {ALL_BLOGS_DATA?.map((item) => {
           return <BlogCard data={item} />;
         })}
