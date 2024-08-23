@@ -28,7 +28,7 @@ function MiscPage() {
       <div className=" mt-2 w-full flex flex-col gap-6 relative ">
         <div className="   mx-auto  m-auto   ">
           <div className="flex flex-col  items-center">
-            <h1 className="font-semibold mb-2 "> Meet with, </h1>
+            <h2 className="font-semibold mb-2 "> Meet with, </h2>
             <h1 className="text-5xl font-extrabold text-center text-orange-600 md:text-left font-serif mb-4 md:mb-0">
               More Versions of Ashutosh
             </h1>

@@ -28,6 +28,7 @@ function ProfilePicture() {
         className="hover:shadow-lg   rounded-lg ml-auto ease-in-out duration-100  cursor-pointer"
         width={"400"}
         height="400"
+        alt="profile-image"
       />
 
       <div className="  text-white flex  gap-8  bg-orange-600 md:px-2 px-1 py-2 absolute rounded-md bottom-[-15px] right-[40px] z-40">

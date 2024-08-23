@@ -37,6 +37,7 @@ function PlaceDetails(props) {
             width={"400"}
             height="400"
             src={path}
+            alt="profile-image"
           />
         </div>
 
@@ -62,8 +63,8 @@ function PlaceDetails(props) {
       <div>
         <div className="flex-end flex flex-wrap justify-center items-center mx-auto py-4 md:mt-10 mt-5">
           <h1 className=" md:text-4xl text-2xl  font-extrabold text-gray-600 flex flex-wrap items-center gap-4  ">
-            BTW, <HighLightedSpan>{placeName.toUpperCase()}</HighLightedSpan>{" "}
-            ab jyada door nahin :(
+            BTW, <HighLightedSpan>{placeName.toUpperCase()}</HighLightedSpan> ab
+            jyada door nahin :(
           </h1>
         </div>
       </div>

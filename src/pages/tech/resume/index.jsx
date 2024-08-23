@@ -125,6 +125,7 @@ function Resume() {
               className="hover:shadow-lg  rounded-lg ml-auto ease-in-out duration-100  cursor-pointer"
               width={"400"}
               height="400"
+              alt="profile-image"
             />
           </div>
 

@@ -63,6 +63,7 @@ function PlaceDetails(props) {
               className="hover:shadow-lg h-auto border-4 border-gray-400 rounded-lg ml-auto ease-in-out duration-100  cursor-pointer"
               width={"400"}
               height="500"
+              alt="profile-image"
               src={path}
             />
           </div>
