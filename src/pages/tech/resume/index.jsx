@@ -76,7 +76,7 @@ function Resume() {
       <div className=" mt-2 w-full flex flex-col gap-6 relative ">
         <div className="grid md:grid-cols-2  mx-auto grid-cols-1 m-auto justify-between  ">
           <div className="flex flex-col gap-2">
-            <h1 className="font-semibold "> Ashutosh' </h1>
+            <h2 className="font-semibold "> Ashutosh' </h2>
             <h1 className="text-5xl font-extrabold text-orange-600 text-center md:text-left font-serif mb-4 md:mb-0">
               Resume
             </h1>

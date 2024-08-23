@@ -20,7 +20,7 @@ function BestCapturedPage() {
       </Head>
 
       <div className="flex flex-col  items-center relative z-[10]">
-        <h1 className="font-semibold mb-2  "> Hey here are</h1>
+        <h2 className="font-semibold mb-2  "> Hey here are</h2>
         <h1 className="text-5xl font-extrabold text-center text-orange-600 md:text-left font-serif mb-4 md:mb-0">
           More information
         </h1>

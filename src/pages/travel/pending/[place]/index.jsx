@@ -14,7 +14,7 @@ function PlaceDetails(props) {
     <div className="flex flex-col gap-4">
       <div className="grid md:grid-cols-2  mx-auto grid-cols-1 m-auto justify-between  ">
         <div className="flex flex-col gap-2">
-          <h1 className="font-semibold "> Yet to visit, </h1>
+          <h2 className="font-semibold "> Yet to visit, </h2>
           <h1 className="md:text-5xl text-3xl text-orange-600 font-extrabold text-center md:text-left font-serif mb-4 md:mb-0">
             ...{placeName.toUpperCase()} ????
           </h1>

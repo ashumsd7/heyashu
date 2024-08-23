@@ -21,7 +21,7 @@ function TownPage() {
       </Head>
       <div className="flex flex-col">
         <div className="flex flex-col  items-center">
-          <h1 className="font-semibold mb-2 "> Meet my hometown, </h1>
+          <h2 className="font-semibold mb-2 "> Meet my hometown, </h2>
           <h1 className="text-5xl font-extrabold text-center text-orange-600 md:text-left font-serif mb-4 md:mb-0">
             CHARAWAN, AYODHYA
           </h1>
