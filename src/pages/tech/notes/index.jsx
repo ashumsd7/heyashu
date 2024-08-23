@@ -25,7 +25,10 @@ function AllNotesPage() {
           property="og:description"
           content="Explore a rich collection of digital notes covering JavaScript, Node.js, React, and more."
         />
-        <meta property="og:image" content="/path-to-your-image.png" />
+        <meta
+          property="og:image"
+          content="https://heyashu.in/_next/image?url=%2Fimages%2Fprofile.jpg&w=640&q=75"
+        />
         <meta property="og:url" content="https://www.heyashu.com/tech/notes" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
@@ -36,7 +39,10 @@ function AllNotesPage() {
           name="twitter:description"
           content="Explore a rich collection of digital notes covering JavaScript, Node.js, React, and more."
         />
-        <meta name="twitter:image" content="/path-to-your-image.png" />
+        <meta
+          name="twitter:image"
+          content="https://heyashu.in/_next/image?url=%2Fimages%2Fprofile.jpg&w=640&q=75"
+        />
       </Head>
       <div className=" flex flex-col gap-4 flex-wrap">
         <h1 className="lg:text-5xl bg-gradient-to-r relative from-yellow-100 py-2 rounded-lg to-[#EFEFF1]  text-3xl font-extrabold text-center px-4 text-gray-800 md:text-left my-2 font-serif  flex gap-2">
