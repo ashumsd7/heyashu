@@ -5,20 +5,20 @@ export const e1 = `
 
 Watch Namaste JavaScript its Free
 
-## Whats is Node JS
+## What is Node JS
 
 https://nodejs.org/en
 Its a JS runtime  built on top of chrome v8 JS Engine
 
-Node JS is Cross Platoform ( Can run on different type of systems)
+Node JS is Cross Platform ( Can run on different type of systems)
 
 Open Source: Code is Open and Managed by Open JS Foundation ( Organization)
 
 and it **executes JavaScript outside the web browsers**
 
-Node JS has an **event driven architeture ( will discuss later)**
+Node JS has an **event driven architecture ( will discuss later)**
 
-and capable of **Asnchronours / non blockign I/O**
+and capable of **Asynchronous / non blocking I/O**
 
 ## History of NodeJS
 
@@ -47,13 +47,13 @@ node js support for windows
 
 ### 2012: NPM NodeJS friendship
 Joyent said they will not be managing Node JS now
-Isaac Z. Schlueter  took over it and he was the creaator of the NPM
+Isaac Z. Schlueter  took over it and he was the creator of the NPM
 [https://izs.me/](https://izs.me/)
 ![image.png](https://i.ibb.co/HnWLn7b/5.jpg)
 
 ### 2014:  Fedor Indutny forked and made IO.js
-Beaucse When development was slow now a dayhs because Joyent  has left
-so pople was started contributing it
+Because When development was slow nowadays because Joyent  has left
+so people was started contributing it
  [Fedor Indutny](https://github.com/indutny) was one of those
 ![image.png](https://i.ibb.co/wRGRzGK/6.jpg)
 
@@ -61,9 +61,9 @@ Now everything was scattered because two versions of Node Js was running
 
 ![image.png](https://i.ibb.co/QJpyyK1/7.jpg)
 
-### 2015 ( Sep) : Node JS Foundation Came
+### 2015 ( Sep) : Node.js Foundation Came
 
-Node js foundation came and resolved all conflicts between io.js and others
+Node.js Foundation came and resolved all conflicts between io.js and others
 a legal foundation started managing this
 
 [https://github.com/nodejs/node/issues/1416](https://github.com/nodejs/node/issues/1416)
@@ -78,12 +78,12 @@ Now Open JS foundation is managing Node JS
 
 ## Feedback
 
-Hey your feedback si required for me , please give this repo a star of you liked the blog
+Hey your feedback si required for me , please give this repo a star if you liked the blog
 if you want to contribute in it please feel free to fork , You can see github link on top right corner
 
 of top bar or  [click here](https://github.com/ashumsd7/ashu-new-portfolio-website/blob/main/src/data/mardown/notes/namaste-node-js-s1-by-as/e1.js)
 
-I waiting for your feedback, 
+I am waiting for your feedback, 
 See you in next episode,
 
 Thanks 👋🏻
