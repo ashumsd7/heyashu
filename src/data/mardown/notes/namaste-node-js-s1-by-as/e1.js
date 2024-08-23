@@ -82,7 +82,7 @@ Now Open JS foundation is managing Node JS
 
 ## Feedback
 
-Hey your feedback si required for me , please give this repo a star if you liked the blog
+Hey your feedback si required for me , please give  [this repo](https://github.com/ashumsd7/ashu-new-portfolio-website/blob/main/src/data/mardown/notes/namaste-node-js-s1-by-as/e1.js) a star 🌟 if you liked the blog
 if you want to contribute in it please feel free to fork , You can see github link on top right corner
 
 of top bar or  [click here](https://github.com/ashumsd7/ashu-new-portfolio-website/blob/main/src/data/mardown/notes/namaste-node-js-s1-by-as/e1.js)
