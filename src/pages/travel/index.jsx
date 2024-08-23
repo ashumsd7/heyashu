@@ -15,19 +15,44 @@ function TravelPage() {
     <>
       <Head>
         <title>Traveler : Ashutosh Anand Tiwari </title>
+
+        <link rel="icon" href="/favicon_tech.ico" />
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-        <link rel="icon" href="/favicon_travel.ico" />
+        <link rel="icon" href="/favicon.ico" />
         <meta
           name="description"
-          content="My name is Ashutosh Anand Tiwari.  My traveling journey began in 2013 when I started my diploma in
-              Shravasti, UP, near the India-Nepal border. Later, I moved to
-              Noida for my graduation, close to the Delhi border. Currently, I'm
-              on my professional journey in Bangalore, known as the southern
-              hub. Though there are many places left on my list to visit, I've
-              already explored several destinations. Let's connect and plan a
-              trip together!"
+          content="My travel journey began in 2013 in Shravasti, UP, near the India-Nepal border. I then moved to Noida for graduation and now work in Bangalore. I've explored many destinations and am eager to visit more. Let's connect and plan a trip together!"
+        />
+        <meta
+          name="keywords"
+          content="Ashutosh Anand Tiwari, Tech Blogs, Travel Blogs, Personal Blog, Web Development, Programming, JavaScript"
+        />
+        <meta
+          property="og:title"
+          content="Ashutosh Anand Tiwari - Personal Blog and Portfolio"
+        />
+        <meta
+          property="og:description"
+          content="Join Ashutosh Anand Tiwari as he shares insights on tech, travel, and his life journey. Explore engaging blogs and personal stories."
+        />
+        <meta
+          property="og:image"
+          content="https://heyashu.in/_next/image?url=%2Fimages%2Fprofile.jpg&w=640&q=75"
+        />
+        <meta property="og:url" content="https://www.heyashu.in" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Ashutosh Anand Tiwari - Personal Blog and Portfolio"
+        />
+        <meta
+          name="twitter:description"
+          content="Explore the world of Ashutosh Anand Tiwari through his tech and travel blogs."
+        />
+        <meta
+          name="twitter:image"
+          content="https://heyashu.in/_next/image?url=%2Fimages%2Fprofile.jpg&w=640&q=75"
         />
       </Head>
 

@@ -11,7 +11,6 @@ import { SiTypescript } from "react-icons/si";
 import { SiRedux } from "react-icons/si";
 import { FaVuejs } from "react-icons/fa6";
 
-
 import { IoMdDownload } from "react-icons/io";
 import { GrFormSchedule } from "react-icons/gr";
 import Button from "@/components/base/Button";
@@ -88,19 +87,44 @@ function TechPage() {
     <>
       <Head>
         <title>Developer : Ashutosh Anand Tiwari </title>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
         <link rel="icon" href="/favicon_tech.ico" />
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="/favicon.ico" />
         <meta
           name="description"
-          content="My name is Ashutosh Anand Tiwari.   With over 5+ years of experience
-            as a software developer, I've specialized in creating web
-            applications from scratch, mainly focusing on the front-end side.
-            Throughout my career, I've collaborated with teams to deliver
-            projects of varying scales, ranging from mid-sized to large-scale
-            endeavors. I've had the opportunity to work with multiple startups,
-            and currently, I'm employed at Codemonk."
+          content="With 5+ years of software development experience, I specialize in front-end web applications. I've collaborated on projects of various scales and currently work at Codemonk, contributing to multiple startups along the way.."
+        />
+        <meta
+          name="keywords"
+          content="Ashutosh Anand Tiwari, Tech Blogs, Travel Blogs, Personal Blog, Web Development, Programming, JavaScript"
+        />
+        <meta
+          property="og:title"
+          content="Ashutosh Anand Tiwari - Personal Blog and Portfolio"
+        />
+        <meta
+          property="og:description"
+          content="Join Ashutosh Anand Tiwari as he shares insights on tech, travel, and his life journey. Explore engaging blogs and personal stories."
+        />
+        <meta
+          property="og:image"
+          content="https://heyashu.in/_next/image?url=%2Fimages%2Fprofile.jpg&w=640&q=75"
+        />
+        <meta property="og:url" content="https://www.heyashu.in" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Ashutosh Anand Tiwari - Personal Blog and Portfolio"
+        />
+        <meta
+          name="twitter:description"
+          content="Explore the world of Ashutosh Anand Tiwari through his tech and travel blogs."
+        />
+        <meta
+          name="twitter:image"
+          content="https://heyashu.in/_next/image?url=%2Fimages%2Fprofile.jpg&w=640&q=75"
         />
       </Head>
 
@@ -159,7 +183,7 @@ function TechPage() {
           <Sidebar />
         </div>
 
-        <PromotionTechDialog/>
+        <PromotionTechDialog />
 
         <div className="flex gap-2 flex-wrap justify-center md:justify-start">
           <Link href="/tech/resume">

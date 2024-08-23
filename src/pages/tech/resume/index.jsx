@@ -31,15 +31,46 @@ function Resume() {
   }
   return (
     <>
-     <Head>
+      <Head>
         <title>Resume : Ashutosh Anand Tiwari </title>
+
+        <link rel="icon" href="/favicon_tech.ico" />
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-        <link rel="icon" href="/favicon_resume.ico" />
+        <link rel="icon" href="/favicon.ico" />
         <meta
           name="description"
           content="Download Resume of Ashutosh anand tiwari, He has more than 4 years of exp. in web development."
+        />
+        <meta
+          name="keywords"
+          content="Ashutosh Anand Tiwari, Tech Blogs, Travel Blogs, Personal Blog, Web Development, Programming, JavaScript"
+        />
+        <meta
+          property="og:title"
+          content="Ashutosh Anand Tiwari - Personal Blog and Portfolio"
+        />
+        <meta
+          property="og:description"
+          content="Join Ashutosh Anand Tiwari as he shares insights on tech, travel, and his life journey. Explore engaging blogs and personal stories."
+        />
+        <meta
+          property="og:image"
+          content="https://heyashu.in/_next/image?url=%2Fimages%2Fprofile.jpg&w=640&q=75"
+        />
+        <meta property="og:url" content="https://www.heyashu.in" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Ashutosh Anand Tiwari - Personal Blog and Portfolio"
+        />
+        <meta
+          name="twitter:description"
+          content="Explore the world of Ashutosh Anand Tiwari through his tech and travel blogs."
+        />
+        <meta
+          name="twitter:image"
+          content="https://heyashu.in/_next/image?url=%2Fimages%2Fprofile.jpg&w=640&q=75"
         />
       </Head>
       <div className=" mt-2 w-full flex flex-col gap-6 relative ">
