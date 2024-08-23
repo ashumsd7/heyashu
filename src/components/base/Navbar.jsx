@@ -91,7 +91,7 @@ function Navbar() {
               href="/tech/notes"
               className="md:text-xl text-base font-extrabold font-mono relative"
             >
-              /tech/notes{" "}
+              tech/notes{" "}
               {activePath == "notes" && (
                 <LuMousePointerClick className="absolute  top-[20px] left-[20px] text-2xl text-orange-600" />
               )}
@@ -151,17 +151,17 @@ const MobileNaveBar = ({ isOpen, setIsOpen, activePath }) => {
         isOpen ? "translate-x-0" : "-translate-x-full"
       } transition-transform duration-300 ease-in-out md:hidden`}
     >
-      <div className="flex justify-end text-black">
+      <div className="flex justify-end text-black border">
         <IoMdClose
           onClick={toggleMenu}
           className=" text-black absolute top-2 right-5"
         />
       </div>
-      <div className="flex flex-col p-4">
+      <div className="flex flex-col p-4 gap-6 ">
         <Link
           href="/"
           onClick={toggleMenu}
-          className="text-2xl py-2 font-semibold"
+          className="text-2xl py-2 font-semibold border-b-2"
         >
           Home
           {activePath == "" && (
@@ -171,7 +171,7 @@ const MobileNaveBar = ({ isOpen, setIsOpen, activePath }) => {
         <Link
           href="/tech"
           onClick={toggleMenu}
-          className="text-2xl py-2 font-semibold"
+          className="text-2xl py-2 font-semibold border-b-2"
         >
           Tech
           {activePath == "tech" && (
@@ -181,7 +181,7 @@ const MobileNaveBar = ({ isOpen, setIsOpen, activePath }) => {
         <Link
           href="/blogs"
           onClick={toggleMenu}
-          className="text-2xl py-2 font-semibold"
+          className="text-2xl py-2 font-semibold border-b-2"
         >
           Blogs
           {activePath == "blogs" && (
@@ -189,8 +189,8 @@ const MobileNaveBar = ({ isOpen, setIsOpen, activePath }) => {
           )}
         </Link>
 
-        <Link href="/tech/notes" className="text-2xl py-2 font-semibold">
-          /tech/notes{" "}
+        <Link href="/tech/notes" className="text-2xl py-2 font-semibold border-b-2">
+          tech/notes{" "}
           {activePath == "notes" && (
             <LuMousePointerClick className="absolute  top-[20px] left-[20px] text-2xl text-orange-600" />
           )}
@@ -199,7 +199,7 @@ const MobileNaveBar = ({ isOpen, setIsOpen, activePath }) => {
         <Link
           href="/travel"
           onClick={toggleMenu}
-          className="text-2xl py-2 font-semibold"
+          className="text-2xl py-2 font-semibold border-b-2"
         >
           Travel
           {activePath == "travel" && (
@@ -209,7 +209,7 @@ const MobileNaveBar = ({ isOpen, setIsOpen, activePath }) => {
         <Link
           href="/misc"
           onClick={toggleMenu}
-          className="text-2xl py-2 font-semibold"
+          className="text-2xl py-2 font-semibold border-b-2"
         >
           More
           {["misc", "town"].includes(activePath) && (
