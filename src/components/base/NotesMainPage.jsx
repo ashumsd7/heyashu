@@ -21,7 +21,7 @@ const NotesMainPage = ({
   const episodes = useMemo(() => contentList);
   const [selectedSection, setSelectedSection] = useState(contentList[0]);
   3;
-  const [markdownContent, setMarkdownContent] = useState(`# hello`);
+  const [markdownContent, setMarkdownContent] = useState(`### Please Wait...`);
   const [isSidebarVisible, setIsSidebarVisible] = useState(true);
   const [isQuickReadModeOn, setIsQuickReadModeOn] = useState(false);
   const [progress, setProgress] = useState(0);

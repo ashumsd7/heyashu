@@ -34,9 +34,9 @@ function NotesContentTopBar({
             />
           )}
         </div>
-        <h1 className="md:text-xl  text-sm font-extrabold text-center lg:mt-0 mt-4 text-gray-800 md:text-left font-serif mb-4 md:mb-0 ">
+        <h2 className="md:text-xl  text-sm font-extrabold text-center lg:mt-0 mt-4 text-gray-800 md:text-left font-serif mb-4 md:mb-0 ">
           {title}
-        </h1>
+        </h2>
       </div>
 
       <FaGithub

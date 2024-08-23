@@ -20,7 +20,23 @@ export const metaTagsForNamasteNodeJsS1 = [
   },
   {
     name: "og:title",
-    content: "Introduction to Node.js - Namaste JavaScript Series",
+    content: "Introduction to Node.js - Digital Notes By Ashutosh Anand Tiwari",
+  },
+  {
+    name: "og:type",
+    content: "Personal Website and Blogs",
+  },
+  {
+    name: "og:image",
+    content: "https://heyashu.in/_next/image?url=%2Fimages%2Fprofile.jpg&w=640&q=75",
+  },
+  {
+    name: "og:site_name",
+    content: "Ashutosh Anand Tiwari : Personal website and blogs",
+  },
+  {
+    name: "og:locale",
+    content: "en_US",
   },
   {
     name: "og:description",
@@ -30,7 +46,7 @@ export const metaTagsForNamasteNodeJsS1 = [
   {
     name: "og:url",
     content:
-      "https://heyashu.in/tech/notes/namaste-node-js#Introduction%20to%20NodeJS",
+      "https://heyashu.in/tech/notes/namaste-node-js",
   },
   {
     name: "twitter:card",
@@ -39,5 +55,5 @@ export const metaTagsForNamasteNodeJsS1 = [
   {
     name: "twitter:title",
     content: "Introduction to Node.js - Namaste JavaScript Series",
-  },
+  }
 ];

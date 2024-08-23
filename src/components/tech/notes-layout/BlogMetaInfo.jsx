@@ -30,6 +30,7 @@ const BlogMetaInfo = ({ data }) => {
           </div>
         ) : (
           <img
+          alt="blogger-profile-picture"
             src={profilePic}
             className="w-12 h-12 border-4 border-gray-200  flex items-center justify-center rounded-full"
           />
