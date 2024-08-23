@@ -12,7 +12,8 @@ import { e11 } from "@/data/mardown/notes/namaste-node-js-s1-by-as/e11";
 import { e12 } from "@/data/mardown/notes/namaste-node-js-s1-by-as/e12";
 import { e13 } from "@/data/mardown/notes/namaste-node-js-s1-by-as/e13";
 import { e100 } from "@/data/mardown/notes/namaste-node-js-s1-by-as/e100";
-import { e1 } from "@/data/mardown/notes/js-snippets-by-ashutosh/e1";
+import { e1 } from "@/data/mardown/notes/namaste-node-js-s1-by-as/e1";
+
 
 
 export const matchingMDXForNamasteNodeJsS1 = {

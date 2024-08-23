@@ -1,42 +1,90 @@
 export const e1 = `
+# 1. Introduction to NodeJS
 
-# Heading 1
+![image.png](https://i.ibb.co/2MJPG76/1.jpg)
 
-## Heading 2
+Watch Namaste JavaScript its Free
 
-### Heading 3
+## Whats is Node JS
 
-#### Heading 4
+https://nodejs.org/en
+Its a JS runtime  built on top of chrome v8 JS Engine
 
-##### Heading 5
+Node JS is Cross Platoform ( Can run on different type of systems)
 
-This is a paragraph with some **bold** text, some *italic* text, and some \`inline code\`.
+Open Source: Code is Open and Managed by Open JS Foundation ( Organization)
 
-Here is a [link to Google](https://www.google.com).
+and it **executes JavaScript outside the web browsers**
 
-Here is a list of items:
+Node JS has an **event driven architeture ( will discuss later)**
 
-- Item 1
-- Item 2
-- Item 3
+and capable of **Asnchronours / non blockign I/O**
 
-Here is an ordered list:
+## History of NodeJS
 
-1. First item
-2. Second item
-3. Third item
+---
 
-Here is a blockquote:
+### 2009:  Node JS born
 
-> This is a blockquote. It can span multiple lines and include other markdown elements like **bold** or *italic* text.
+First version came in 2009
 
-Here is a code block:
+developed by : [Ryan Dahl](https://en.wikipedia.org/wiki/Ryan_Dahl)
 
-\`\`\`javascript
-// This is a JavaScript code block
-function sayHello() {
-    console.log("Hello, world!");
-}
-\`\`\`
+![image.png](https://i.ibb.co/fqBxHrG/2.jpg)
 
+![image.png](https://i.ibb.co/CmLDDGx/3.jpg)
+
+![image.png](https://i.ibb.co/5nLd5nV/4.jpg)
+
+### 2010 :  NPM born
+NPM came in the picture ( package manager )
+Anyone can do a work and post in NPM for public use
+
+### 2011: windows came
+initially Node JS was developed it was just for Mac OS and Linux
+in 2011 windows support came and ( Joyent + Microsoft ) they given
+node js support for windows
+
+### 2012: NPM NodeJS friendship
+Joyent said they will not be managing Node JS now
+Isaac Z. Schlueter  took over it and he was the creaator of the NPM
+[https://izs.me/](https://izs.me/)
+![image.png](https://i.ibb.co/HnWLn7b/5.jpg)
+
+### 2014:  Fedor Indutny forked and made IO.js
+Beaucse When development was slow now a dayhs because Joyent  has left
+so pople was started contributing it
+ [Fedor Indutny](https://github.com/indutny) was one of those
+![image.png](https://i.ibb.co/wRGRzGK/6.jpg)
+
+Now everything was scattered because two versions of Node Js was running
+
+![image.png](https://i.ibb.co/QJpyyK1/7.jpg)
+
+### 2015 ( Sep) : Node JS Foundation Came
+
+Node js foundation came and resolved all conflicts between io.js and others
+a legal foundation started managing this
+
+[https://github.com/nodejs/node/issues/1416](https://github.com/nodejs/node/issues/1416)
+
+### 2019 : git merge two-foundations
+
+There was two foundations and both are merged
+
+![image.png](https://i.ibb.co/Thr37cH/8.jpg)
+
+Now Open JS foundation is managing Node JS
+
+## Feedback
+
+Hey your feedback si required for me , please give this repo a star of you liked the blog
+if you want to contribute in it please feel free to fork , You can see github link on top right corner
+
+of top bar or  [click here](https://github.com/ashumsd7/ashu-new-portfolio-website/blob/main/src/data/mardown/notes/namaste-node-js-s1-by-as/e1.js)
+
+I waiting for your feedback, 
+See you in next episode,
+
+Thanks 👋🏻
 `;

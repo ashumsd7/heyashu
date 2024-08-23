@@ -2,12 +2,17 @@ export const metaTagsForNamasteNodeJsS1 = [
   {
     name: "description",
     content:
-      "Explore quick and practical JavaScript code snippets curated by Ashutosh Anand Tiwari. Enhance your coding skills with these essential JavaScript tips and tricks.",
+      "Read the Namaste Node JS Notes taught by Akshay Saini, and Written by Ashutosh Anand Tiwari ",
+  },
+  {
+    name: "description",
+    content:
+      "Introduction to Node.js: Learn about its history, features, and evolution, including key milestones like the creation of NPM, Windows support, and the Node.js Foundation.",
   },
   {
     name: "keywords",
     content:
-      "JavaScript, code snippets, Ashutosh Anand Tiwari, web development, programming tips",
+      "Node.js, JavaScript, NPM, Ryan Dahl, Joyent, OpenJS Foundation, IO.js, Node.js history",
   },
   {
     name: "author",
@@ -15,21 +20,17 @@ export const metaTagsForNamasteNodeJsS1 = [
   },
   {
     name: "og:title",
-    content: "JS Quick Snippets: By Ashutosh Anand Tiwari",
+    content: "Introduction to Node.js - Namaste JavaScript Series",
   },
   {
     name: "og:description",
     content:
-      "Discover essential JavaScript snippets to boost your web development skills, curated by Ashutosh Anand Tiwari.",
-  },
-  {
-    name: "og:image",
-    content: "/path_to_image.jpg",
+      "Explore the journey of Node.js from its inception in 2009 to becoming a key technology in modern web development, managed by the OpenJS Foundation.",
   },
   {
     name: "og:url",
     content:
-      "https://heyashu.in/tech/notes/javascript-code-snippets-by-ashutosh-anand-tiwari",
+      "https://heyashu.in/tech/notes/namaste-node-js#Introduction%20to%20NodeJS",
   },
   {
     name: "twitter:card",
@@ -37,6 +38,6 @@ export const metaTagsForNamasteNodeJsS1 = [
   },
   {
     name: "twitter:title",
-    content: "JS Quick Snippets: By Ashutosh Anand Tiwari",
+    content: "Introduction to Node.js - Namaste JavaScript Series",
   },
 ];

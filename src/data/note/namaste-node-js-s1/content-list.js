@@ -1,7 +1,7 @@
 export const contentListForNamasteNodeJsS1 = [
   { id: 100, episode: 100, name: "Buy The Course" , publishedOn:'17 Aug 2024'},
   { id: 0, episode: 0, name: "Welcome to NamasteNodeJS",publishedOn:'18 Aug 2024' },
-  { id: 1, episode: 1, name: "Introduction to NodeJS" },
+  { id: 1, episode: 1, name: "Introduction to NodeJS",publishedOn:'23 Aug 2024' },
   { id: 2, episode: 2, name: "JS on Server" },
   { id: 3, episode: 3, name: "Let's write code" },
   { id: 4, episode: 4, name: "module.export & require" },
