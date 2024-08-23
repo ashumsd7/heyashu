@@ -71,6 +71,7 @@ function MainPage() {
         src="/images/Leaves.JPG"
         width={"200"}
         height={"200"}
+        alt="leaves-image"
       />
     </div>
   );
