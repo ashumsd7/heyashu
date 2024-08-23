@@ -3,7 +3,11 @@ export const e1 = `
 
 ![image.png](https://i.ibb.co/2MJPG76/1.jpg)
 
-Watch Namaste JavaScript its Free
+Watch [Namaste JavaScript](https://namastedev.com/learn/namaste-javascript) its Free
+
+
+
+---
 
 ## What is Node JS
 
