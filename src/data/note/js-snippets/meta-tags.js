@@ -2,7 +2,7 @@ export const metaTagsForJsSnippets = [
   {
     name: "description",
     content:
-      "Explore quick and practical JavaScript code snippets curated by Ashutosh Anand Tiwari. Enhance your coding skills with these essential JavaScript tips and tricks.",
+      "Explore practical JavaScript code snippets curated by Ashutosh Anand Tiwari. Enhance your coding skills with these essential tips and tricks for efficient JavaScript development.",
   },
   {
     name: "keywords",
