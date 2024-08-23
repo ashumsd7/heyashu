@@ -7,7 +7,7 @@ export const metaTagsForNamasteNodeJsS1 = [
   {
     name: "description",
     content:
-      "Introduction to Node.js: Learn about its history, features, and evolution, including key milestones like the creation of NPM, Windows support, and the Node.js Foundation.",
+      "Introduction to Node.js: Explore its history, features, and key milestones, including NPM creation, Windows support, and the formation of the Node.js Foundation.",
   },
   {
     name: "keywords",
