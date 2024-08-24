@@ -2,6 +2,9 @@
 
 Hello everyone! I'm **Ashutosh Anand Tiwari**, an experienced front-end developer currently exploring the world of Node.js backend development. This repository is my digital space where I share all aspects of my life—tech notes, blogs on technology, personal journeys, and much more.
 
+
+![Portfolio Overview](https://api.pikwy.com/web/66ca2d87292e681c71393466.jpg)
+
 ## About This Repository
 
 This repo is an open-source blogging platform where anyone is welcome to:
@@ -26,7 +29,7 @@ Feel free to explore the website [heyashu.in](https://heyashu.in) for more insig
 
 ## Screenshots from My Portfolio
 
-![Portfolio Overview](https://api.pikwy.com/web/66ca2d87292e681c71393466.jpg)
+
 ![notes Journey](https://i.ibb.co/4gJp88P/4.jpg)
 ![Blog Page](https://i.ibb.co/G5TRnzZ/2.jpg)
 ![Notes Section](https://i.ibb.co/qx4yB9m/3.jpg)
