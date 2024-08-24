@@ -82,12 +82,7 @@ function Resume() {
             </h1>
 
             <p className="font-serif  text-justify text-lg mt-5 tracking-wider mb-4 hidden lg:grid">
-              With over 5+ years as a software developer, I've specialized in
-              creating web applications from scratch, mainly focusing on the
-              front-end side. Throughout my career, I've collaborated with teams
-              to deliver projects of varying scales, ranging from mid-sized to
-              large-scale endeavors. I've had the opportunity to work with
-              multiple startups, and currently, I'm employed at Codemonk.
+            With a strong foundation in software development, I focus on building front-end web applications that deliver great user experiences. My journey has included working on a diverse range of projects, collaborating with talented teams, and contributing to innovative startups. Currently, I am a part of Codemonk, where I continue to learn and grow, applying my skills to create meaningful solutions. I’m passionate about technology and eager to keep expanding my knowledge while working on exciting challenges.
             </p>
             <div className="flex gap-2 flex-wrap justify-center md:justify-start items-start">
               {/* <Button
@@ -130,14 +125,7 @@ function Resume() {
           </div>
 
           <p className="font-serif text-justify text-lg mt-8 tracking-wider mb-4 lg:hidden grid">
-            With over 5+ years as a software developer, I've specialized in
-            creating web applications from scratch, mainly focusing on the
-            front-end side. Throughout my career, I've collaborated with teams
-            to deliver projects of varying scales, ranging from mid-sized to
-            large-scale endeavors. I've had the opportunity to work with
-            multiple startups, and currently, I'm employed at Codemonk. If you
-            need assistance with writing or any web development work for your
-            website, feel free to contact me.
+          With a strong foundation in software development, I focus on building front-end web applications that deliver great user experiences. My journey has included working on a diverse range of projects, collaborating with talented teams, and contributing to innovative startups. Currently, I am a part of Codemonk, where I continue to learn and grow, applying my skills to create meaningful solutions. I’m passionate about technology and eager to keep expanding my knowledge while working on exciting challenges.
           </p>
         </div>
 
