@@ -1,10 +1,11 @@
 export const  e2=`#  JavaScript on Servers
 
+![image.png](https://i.ibb.co/5chYnSQ/7.jpg)
 As we know now JS can also run outside of browsers on server.
 
 ### What is server ?
 
-avaScript runs on a server, but what exactly is a server? A server is simply a remote computer. When you run your React app locally, you call it a "local server" because your system is serving the page. A server is just a machine that provides a service or serves a page. If the computer providing this service is in a different location, like another country, it's called a remote or cloud server. Hope that makes sense! Now, let's move on…
+JavaScript runs on a server, but what exactly is a server? A server is simply a remote computer. When you run your React app locally, you call it a "local server" because your system is serving the page. A server is just a machine that provides a service or serves a page. If the computer providing this service is in a different location, like another country, it's called a remote or cloud server. Hope that makes sense! Now, let's move on…
 
 ### Client Server Communication
 
