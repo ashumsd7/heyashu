@@ -110,7 +110,7 @@ const NotesMainPage = ({
             />
           )}
           <div
-            className={`lg:w-3/4 w-full lg:ml-[340px] ml-0   flex flex-col bg-white  h-full     rounded-lg  border ${
+            className={`lg:w-3/4 w-full lg:ml-[340px] ml-0   flex flex-col bg-white  h-full     rounded-lg   ${
               isSidebarVisible ? "w-3/4" : "w-full"
             }`}
           >
