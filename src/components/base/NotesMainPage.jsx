@@ -16,6 +16,7 @@ const NotesMainPage = ({
   metaInfo,
   contentListTitle,
   pageTitle,
+  noEpisodes=true
 }) => {
   const router = useRouter();
   const episodes = useMemo(() => contentList);
@@ -104,7 +105,7 @@ const NotesMainPage = ({
               progress={progress}
               selectedSection={selectedSection}
               storedValues={ls.get(STORAGE_KEY)}
-              noEpisodes={true}
+              noEpisodes={noEpisodes}
               contentListTitle={contentListTitle}
             />
           )}
