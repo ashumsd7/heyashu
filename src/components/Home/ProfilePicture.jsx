@@ -31,7 +31,7 @@ function ProfilePicture() {
         alt="profile-image"
       />
 
-      <div className="  text-white flex  gap-8  bg-orange-600 md:px-2 px-1 py-2 absolute rounded-md bottom-[-15px] right-[40px] z-40">
+      <div id='social-links' className="  text-white flex  gap-8  bg-orange-600 md:px-2 px-1 py-2 absolute rounded-md bottom-[-15px] right-[40px] z-40">
         <AiFillGithub
           className="text-xl cursor-pointer"
           onClick={() => {

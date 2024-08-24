@@ -38,7 +38,7 @@ function Navbar() {
   return (
     <>
       {/* bg-[#efeff1] */}
-      <div className=" h-[2px] flex  fixed items-center bg-orange-600 md:mb-12 mb-20 w-full  ">
+      <nav className=" h-[2px] flex  fixed items-center bg-orange-600 md:mb-12 mb-20 w-full  ">
         <div className="md:flex justify-between  hidden   w-full items-center relative  bg-[#efeff1] py-4 px-10  border-b border-gray-300  font-mono ">
           {/* <div>
             {router?.pathname?.split("/").length > 2 && (
@@ -60,7 +60,7 @@ function Navbar() {
           <div className="flex lg:gap-8 gap-3 mt-10 items-center">
             <Link
               href="/"
-              className="md:text-xl text-base font-extrabold flex items-center font-mono relative "
+              className="md:text-xl  text-base font-extrabold flex items-center font-mono relative "
             >
               <FaHome />
               {activePath == "" && (
@@ -70,6 +70,7 @@ function Navbar() {
 
             <Link
               href="/tech"
+              id="tech-link"
               className="md:text-xl text-base font-extrabold font-mono relative "
             >
               /tech{" "}
@@ -79,6 +80,7 @@ function Navbar() {
             </Link>
             <Link
               href="/blogs"
+              id="blogs-link"
               className="md:text-xl text-base font-extrabold font-mono relative"
             >
               /blogs{" "}
@@ -88,6 +90,7 @@ function Navbar() {
             </Link>
 
             <Link
+              id="notes-link"
               href="/tech/notes"
               className="md:text-xl text-base font-extrabold font-mono relative"
             >
@@ -98,6 +101,7 @@ function Navbar() {
             </Link>
 
             <Link
+              id="travel-link"
               href="/travel"
               className="md:text-xl text-base font-extrabold font-mono  relative"
             >
@@ -108,6 +112,7 @@ function Navbar() {
             </Link>
             <Link
               href="/misc"
+              id="misc-link"
               className="md:text-xl text-base  font-extrabold font-mono pr-5 relative"
             >
               {" "}
@@ -134,7 +139,7 @@ function Navbar() {
           isOpen={isOpen}
           activePath={activePath}
         />
-      </div>
+      </nav>
     </>
   );
 }
@@ -146,7 +151,7 @@ const MobileNaveBar = ({ isOpen, setIsOpen, activePath }) => {
     setIsOpen(!isOpen);
   };
   return (
-    <div
+    <nav
       className={`fixed top-0 left-0 w-[55%] h-full bg-[#efeff1] z-40 transform  ${
         isOpen ? "translate-x-0" : "-translate-x-full"
       } transition-transform duration-300 ease-in-out md:hidden`}
@@ -189,7 +194,10 @@ const MobileNaveBar = ({ isOpen, setIsOpen, activePath }) => {
           )}
         </Link>
 
-        <Link href="/tech/notes" className="text-2xl py-2 font-semibold border-b-2">
+        <Link
+          href="/tech/notes"
+          className="text-2xl py-2 font-semibold border-b-2"
+        >
           tech/notes{" "}
           {activePath == "notes" && (
             <LuMousePointerClick className="absolute  top-[20px] left-[20px] text-2xl text-orange-600" />
@@ -217,6 +225,6 @@ const MobileNaveBar = ({ isOpen, setIsOpen, activePath }) => {
           )}
         </Link>
       </div>
-    </div>
+    </nav>
   );
 };

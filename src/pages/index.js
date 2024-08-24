@@ -1,6 +1,7 @@
 import Head from "next/head";
 import MainPage from "@/components/Home/MainPage";
-
+import dynamic from "next/dynamic";
+const PageTour = dynamic(() => import("@/service/PageTour"), {ssr: false});
 export default function Home() {
   return (
     <>
@@ -50,6 +51,8 @@ export default function Home() {
       <main className="">
         <MainPage />
       </main>
+
+      <PageTour/>
     </>
   );
 }
