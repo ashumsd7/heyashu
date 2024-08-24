@@ -94,7 +94,7 @@ function TechPage() {
         <link rel="icon" href="/favicon.ico" />
         <meta
           name="description"
-          content="With 5+ years of software development experience, I specialize in front-end web applications. I've collaborated on projects of various scales and currently work at Codemonk, contributing to multiple startups along the way.."
+          content="With a strong foundation in software development, I focus on building front-end web applications that deliver great user experiences. My journey has included working on a diverse range of projects, collaborating with talented teams, and contributing to innovative startups. Currently, I am a part of Codemonk, where I continue to learn and grow, applying my skills to create meaningful solutions. I’m passionate about technology and eager to keep expanding my knowledge while working on exciting challenges."
         />
         <meta
           name="keywords"
@@ -140,8 +140,8 @@ function TechPage() {
           </div> */}
 
             <p className="font-serif  text-justify text-lg mt-10 tracking-wider mb-4 hidden lg:grid">
-              With over{" "}
-              <HighLightedSpan>5+ years of experience</HighLightedSpan> as a
+              {/* With over{" "} */}
+              <HighLightedSpan>Well experienced</HighLightedSpan> as a
               software developer, I've specialized in creating web applications
               from scratch, mainly focusing on the front-end side. Throughout my
               career, I've collaborated with teams to deliver projects of
@@ -168,7 +168,7 @@ function TechPage() {
           </div>
 
           <p className="font-serif text-justify text-lg mt-10 tracking-wider mb-4 lg:hidden grid">
-            With over <HighLightedSpan>5+ years of experience</HighLightedSpan>{" "}
+            <HighLightedSpan>Well experienced</HighLightedSpan>{" "}
             as a software developer, I've specialized in creating web
             applications from scratch, mainly focusing on the front-end side.
             Throughout my career, I've collaborated with teams to deliver
