@@ -23,7 +23,7 @@ function BlogsMainPage({ blogInfo, large }) {
       </Head>
 
       <div
-        className={`flex flex-col gap-2 px-4 max-w-screen-[1000px] m-auto ${
+        className={`flex flex-col gap-2  max-w-screen-[1000px] m-auto ${
           large ? "max-w-screen-lg" : "max-w-screen-md"
         }`}
       >
