@@ -81,10 +81,14 @@ body {
   font-family: source-serif-pro, Georgia, Cambria, "Times New Roman", Times, serif !important;
 }
 .markdown-a{
-  color: #0b9ff5;
+  color: #0645ad;
   text-decoration: none;
   transition: color 0.3s ease;
   font-weight: bolder;
+  
+}
+.markdown-a:hover{
+  color: #04204d;
 }
 .markdown-pre{
   color: #cdd9e0;
@@ -98,4 +102,11 @@ body {
   margin: auto;
   margin-top: 3rem;
   width: 100%;
+}
+.stylish-underline {
+  transition: all 0.5s ease-in-out;
+  color: black;
+}
+.transition-underline {
+  transition: all 0.5s ease-in-out;
 }
