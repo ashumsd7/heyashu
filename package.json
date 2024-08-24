@@ -31,7 +31,8 @@
     "react-web-share": "^2.0.2",
     "rehype-raw": "^7.0.0",
     "remark-gfm": "^4.0.0",
-    "tailwind-merge": "^2.3.0"
+    "tailwind-merge": "^2.3.0",
+    "walktour": "^5.2.0"
   },
   "devDependencies": {
     "postcss": "^8",

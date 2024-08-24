@@ -131,13 +131,13 @@ function Resume() {
 
         {/* ------------------------------ */}
 
-        <Image
+        {/* <Image
           className="absolute z-[-20] top-[-90px] left-[-150px]"
           src="/images/Leaves.JPG"
           width={"200"}
           height={"200"}
           alt="leaves-image"
-        />
+        /> */}
       </div>
 
       {/* <Document

@@ -66,13 +66,13 @@ function MainPage() {
         </Link>
       </div>
 
-      <Image
+      {/* <Image
         className="absolute z-[-20] top-[-14%] left-[-12%]"
         src="/images/Leaves.JPG"
         width={"200"}
         height={"200"}
         alt="leaves-image"
-      />
+      /> */}
     </div>
   );
 }
