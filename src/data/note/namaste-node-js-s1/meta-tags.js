@@ -1,13 +1,9 @@
 export const metaTagsForNamasteNodeJsS1 = [
+
   {
     name: "description",
     content:
-      "Read the Namaste Node JS Notes taught by Akshay Saini, and Written by Ashutosh Anand Tiwari ",
-  },
-  {
-    name: "description",
-    content:
-      "Introduction to Node.js: Explore its history, features, and key milestones, including NPM creation, Windows support, and the formation of the Node.js Foundation.",
+      "Read Node.js notes by Ashutosh Anand Tiwari, covering basics to advanced concepts, inspired by the Namaste Node.js course.",
   },
   {
     name: "keywords",

@@ -1,6 +1,7 @@
 export const  e2=`#  JavaScript on Servers
 
 ![image.png](https://i.ibb.co/5chYnSQ/7.jpg)
+
 As we know now JS can also run outside of browsers on server.
 
 ### What is server ?
@@ -19,10 +20,7 @@ Running JavaScript on a server is a big advantage because it allows a single dev
 
 ### Story about JS Engine and Node.js
 
-You know how JavaScript runs in browsers? Guess, guess! It’s the JavaScript engine! 🧠 Every browser has its own JS engine. It takes the JS code and converts it. But wait, isn’t the JS engine also software? Yep, it’s a program! And what language is it written in? Hmm, what comes after C? D? Nope, it’s C++! 🤓
-
-Most JS engines, like the V8 engine in Chrome, are written in C++. Check out the [GitHub repo of V8 JS engine](https://github.com/v8/v8). Over 70% of the code is in C++! 🚀
-
+You know how JavaScript runs in browsers? Guess, guess! It’s the JavaScript engine! 🧠 Every browser has its own JS engine. It takes the JS code and converts it. But wait, isn’t the JS engine also software? Yep, it’s a program! And what language is it written in? Hmm, what comes after C? D? Nope, it’s C++! 🤓. Most JS engines, like the V8 engine in Chrome, are written in C++. Check out the [GitHub repo of V8 JS engine](https://github.com/v8/v8). Over 70% of the code is in C++! 🚀
 ![image.png](https://i.ibb.co/w7kyPnm/2.jpg)
 
 ![image.png](https://i.ibb.co/BLNRTmS/3.jpg)
@@ -35,9 +33,7 @@ V8 is written in C++ and helps run JavaScript and WebAssembly. It executes JavaS
 
 Imagine this: **Your JS code** ➡️ **V8 Engine (C++)** ➡️ **Machine Code**.
 
-And guess what? V8 can be embedded in any C++ application. So, if your system runs C++, you can run JavaScript through V8! 🖥️
-
-But wait, if V8 is the hero, what’s Node.js? 🤷‍♂️ Isn’t V8 enough? Well, V8 is just for JavaScript (ECMAScript) and is designed for the web. Node.js wraps around V8, giving it superpowers! Node.js adds the ability to handle HTTP requests, access databases, and more. It makes JavaScript capable of doing things beyond just running code.
+And guess what? V8 can be embedded in any C++ application. So, if your system runs C++, you can run JavaScript through V8! 🖥️ But wait, if V8 is the hero, what’s Node.js? 🤷‍♂️ Isn’t V8 enough? Well, V8 is just for JavaScript (ECMAScript) and is designed for the web. Node.js wraps around V8, giving it superpowers! Node.js adds the ability to handle HTTP requests, access databases, and more. It makes JavaScript capable of doing things beyond just running code.
 
 And remember, Node.js is also written in... what comes after C? Yep, C++! Not D, haha! So, Node.js is built in C++, with V8 as a dependency, making it all powerful! 💥
 

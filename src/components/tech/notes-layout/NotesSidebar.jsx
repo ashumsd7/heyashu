@@ -39,7 +39,7 @@ const NotesSidebar = ({
               onClick={() => onSectionClick(item)}
             >
               {item.episode == 100 ? (
-                <h3 className="font-medium ml-2 flex items-center gap-2 pl-3">
+                <h3 className="font-medium -ml-0 flex items-center gap-2 pl-3">
                   Prerequisite
                 </h3>
               ) : (

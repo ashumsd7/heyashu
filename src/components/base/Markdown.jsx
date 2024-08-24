@@ -11,7 +11,7 @@ function Markdown({ content, large }) {
       components={{
         a: ({ children, ...props }) => (
           <a
-            className="text-[#1a0dab ] hover:[#0645ad] text-base underline markdown-a"
+            className="text-[#1a0dab ] hover:[#0645ad] font-bolder underline markdown-a"
             {...props}
           >
             {children}
@@ -19,14 +19,14 @@ function Markdown({ content, large }) {
         ),
         strong: ({ children, ...props }) => (
           <strong
-            className="text-orange-600 hover:text-orange-800   text-base "
+            className="text-orange-600   text-base "
             {...props}
           >
             {children}
           </strong>
         ),
         h3: ({ children, ...props }) => (
-          <h3 className=" mt-16" {...props}>
+          <h3 className=" mt-16 markdown-h3" {...props}>
             {children}
           </h3>
         ),

@@ -32,9 +32,9 @@ module.exports = {
                 fontSize: theme("fontSize.4xl"), // 36px
               },
               "@screen xl": {
-                fontSize: "32px",
+                fontSize: "24px",
                 marginBottom: "1.2rem", // 19.2px
-                marginTop: "32px",
+                marginTop: "24px",
               },
             },
             h2: {
@@ -78,7 +78,7 @@ module.exports = {
             p: {
               fontSize: "20px",
               marginBottom: theme("spacing.5"),
-              marginTop: theme("spacing.2"),
+              marginTop: '18px',
               lineHeight: theme("lineHeight.relaxed"),
               "@screen sm": {
                 fontSize: "18px",

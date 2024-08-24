@@ -1,5 +1,5 @@
 export const e1 = `
-# 1. Introduction to NodeJS
+# Introduction to NodeJS
 
 ![image.png](https://i.ibb.co/2MJPG76/1.jpg)
 
@@ -7,37 +7,19 @@ Watch [Namaste JavaScript](https://namastedev.com/learn/namaste-javascript) its 
 
 
 
----
+
 
 ## What is Node JS
-
 https://nodejs.org/en
-Its a JS runtime  built on top of chrome v8 JS Engine
-
-Node JS is Cross Platform ( Can run on different type of systems)
-
-Open Source: Code is Open and Managed by Open JS Foundation ( Organization)
-
-and it **executes JavaScript outside the web browsers**
-
-Node JS has an **event driven architecture ( will discuss later)**
-
-and capable of **Asynchronous / non blocking I/O**
+Its a JS runtime  built on top of chrome v8 JS Engine. Node JS is Cross Platform ( Can run on different type of systems) , Open Source: Code is Open and Managed by Open JS Foundation ( Organization)
+ and it **executes JavaScript outside the web browsers**. Node JS has an **event driven architecture ( will discuss later)** and capable of **Asynchronous / non blocking I/O**
 
 ## History of NodeJS
-
----
-
 ### 2009:  Node JS born
-
 First version came in 2009
-
 developed by : [Ryan Dahl](https://en.wikipedia.org/wiki/Ryan_Dahl)
-
 ![image.png](https://i.ibb.co/fqBxHrG/2.jpg)
-
 ![image.png](https://i.ibb.co/CmLDDGx/3.jpg)
-
 ![image.png](https://i.ibb.co/5nLd5nV/4.jpg)
 
 ### 2010 :  NPM born
@@ -83,12 +65,9 @@ Now Open JS foundation is managing Node JS
 ## Feedback
 
 Hey your feedback si required for me , please give  [this repo](https://github.com/ashumsd7/ashu-new-portfolio-website/blob/main/src/data/mardown/notes/namaste-node-js-s1-by-as/e1.js) a star 🌟 if you liked the blog
-if you want to contribute in it please feel free to fork , You can see github link on top right corner
+if you want to contribute in it please feel free to fork , You can see github link on top right corner of top bar or  [click here](https://github.com/ashumsd7/ashu-new-portfolio-website/blob/main/src/data/mardown/notes/namaste-node-js-s1-by-as/e1.js)
 
-of top bar or  [click here](https://github.com/ashumsd7/ashu-new-portfolio-website/blob/main/src/data/mardown/notes/namaste-node-js-s1-by-as/e1.js)
-
-I am waiting for your feedback, 
-See you in next episode,
+I am waiting for your feedback, See you in next episode,
 
 Thanks 👋🏻
 `;
