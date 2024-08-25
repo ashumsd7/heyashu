@@ -11,6 +11,7 @@ import Image from "next/image";
 function Navbar() {
   const [activePath, setActivePath] = useState("/");
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolledUp, setIsScrolledUp] = useState(false);
   const router = useRouter();
   useEffect(() => {
     setIsOpen(false);
@@ -33,14 +34,29 @@ function Navbar() {
     }
   }, [isOpen]);
 
-  const goBack = () => {
-    router.back();
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 500) {
+        setIsScrolledUp(true)
+      } else {
+        setIsScrolledUp(false)
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
     <>
       {/* bg-[#efeff1] */}
-      <nav className=" h-[2px] flex  fixed items-center bg-orange-600 md:mb-12 mb-20 w-full  ">
-        <div className="md:flex justify-between  hidden   w-full items-center relative  bg-[#efeff1] py-4 px-10  border-b border-gray-300  font-mono ">
+      <nav
+     
+        className=" h-[2px] flex  fixed items-center bg-orange-600 md:mb-12 mb-20 w-full  "
+      >
+        <div    style={{ backgroundColor: isScrolledUp ? '#ea580c' :'#efeff1', color:  isScrolledUp ? 'white' :'black' }} className="md:flex justify-center  hidden  gap-6  w-full items-center relative  bg-[#efeff1] py-1 px-10  border-b border-gray-300  font-mono ">
           {/* <div>
             {router?.pathname?.split("/").length > 2 && (
               <div
@@ -55,73 +71,74 @@ function Navbar() {
               </div>
             )}
           </div> */}
-    
-          <h2 className="font-extrabold   font-mono flex cursor-pointer justify-left text-2xl items-center mt-12 ml-4">
-            Ashutosh Anand Tiwari
-          </h2>
 
-          <div className="flex lg:gap-8 gap-3 mt-10 items-center">
+          {/* <h2 className="font-extrabold   font-mono flex cursor-pointer justify-left text-2xl items-center mt-12 ml-4">
+            Ashutosh Anand Tiwari
+          </h2> */}
+
+          <div className="flex lg:gap-8 gap-10 space-x-6 mt-10 items-center ">
             <Link
               href="/"
               className="md:text-xl  text-base font-extrabold flex items-center font-mono relative "
             >
               <FaHome />
               {activePath == "" && (
-                <LuMousePointerClick className="absolute   top-[20px] left-[20px] text-2xl text-orange-600" />
+                <LuMousePointerClick className="absolute   top-[20px] left-[20px] text-2xl text-gray-600" />
               )}
             </Link>
 
             <Link
               href="/tech"
               id="tech-link"
-              className="md:text-xl text-base font-extrabold font-mono relative "
+              className="md:text-xl text-base font-light font-mono relative "
             >
-              /tech{" "}
+              tech{" "}
               {activePath == "tech" && (
-                <LuMousePointerClick className="absolute  top-[20px] left-[20px] text-2xl text-orange-600" />
+                <LuMousePointerClick className="absolute  top-[20px] left-[20px] text-2xl text-gray-600" />
+              )}
+            </Link>
+            
+            <Link
+              id="notes-link"
+              href="/tech/notes"
+              className="md:text-xl text-base font-light font-mono relative"
+            >
+              tech/notes{" "}
+              {activePath == "notes" && (
+                <LuMousePointerClick className="absolute  top-[20px] left-[20px] text-2xl text-gray-600" />
               )}
             </Link>
             <Link
               href="/blogs"
               id="blogs-link"
-              className="md:text-xl text-base font-extrabold font-mono relative"
+              className="md:text-xl text-base font-light font-mono relative"
             >
-              /blogs{" "}
+              blogs{" "}
               {activePath == "blogs" && (
-                <LuMousePointerClick className="absolute  top-[20px] left-[20px] text-2xl text-orange-600" />
+                <LuMousePointerClick className="absolute  top-[20px] left-[20px] text-2xl text-gray-600" />
               )}
             </Link>
 
-            <Link
-              id="notes-link"
-              href="/tech/notes"
-              className="md:text-xl text-base font-extrabold font-mono relative"
-            >
-              tech/notes{" "}
-              {activePath == "notes" && (
-                <LuMousePointerClick className="absolute  top-[20px] left-[20px] text-2xl text-orange-600" />
-              )}
-            </Link>
 
             <Link
               id="travel-link"
               href="/travel"
-              className="md:text-xl text-base font-extrabold font-mono  relative"
+              className="md:text-xl text-base font-light font-mono  relative"
             >
-              /travel
+              travel
               {activePath == "travel" && (
-                <LuMousePointerClick className="absolute  top-[20px] left-[20px] text-2xl text-orange-600" />
+                <LuMousePointerClick className="absolute  top-[20px] left-[20px] text-2xl text-gray-600" />
               )}
             </Link>
             <Link
               href="/misc"
               id="misc-link"
-              className="md:text-xl text-base  font-extrabold font-mono pr-5 relative"
+              className="md:text-xl text-base  font-light font-mono pr-5 relative"
             >
               {" "}
-              /more{" "}
+              more{" "}
               {["misc", "town"].includes(activePath) && (
-                <LuMousePointerClick className="absolute top-[20px] left-[20px] text-2xl text-orange-600" />
+                <LuMousePointerClick className="absolute top-[20px] left-[20px] text-2xl text-gray-600" />
               )}
             </Link>
           </div>
@@ -231,7 +248,6 @@ const MobileNaveBar = ({ isOpen, setIsOpen, activePath }) => {
     </nav>
   );
 };
-
 
 // <Image
 //             className="font-extrabold   font-mono flex cursor-pointer justify-left text-2xl items-center h-17 mt-10 ml-4 top-6 s"

@@ -19,7 +19,7 @@ const BlogCard = ({ data }) => {
       onClick={() => {
         router.push(route);
       }}
-      className="border rounded-lg p-4 shadow-md    hover:shadow-xl relative cursor-pointer bg-white flex flex-col md:flex-row max-w-6xl items-center"
+      className="border rounded-lg p-4 shadow-md w-full    hover:shadow-xl relative cursor-pointer bg-white flex flex-col md:flex-row max-w-6xl items-center"
     >
       <div className="flex-1 w-full md:w-auto">
         <div className="flex items-center mb-4">

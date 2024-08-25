@@ -15,10 +15,10 @@ function BlogsFilter() {
             onClick={() => {
               setSelected(item);
             }}
-            className={`${
+            className={` py-1 px-2 ${
               item.value == selected.value
                 ? ""
-                : "bg-transparent border border-gray-600 text-gray-900"
+                : "bg-transparent border border-gray-600  text-gray-900"
             }`}
           >
             {item.label}

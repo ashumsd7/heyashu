@@ -4,7 +4,11 @@ import NotesFilter from "@/components/note/NotesFilter";
 import { GrNotes } from "react-icons/gr";
 import { NOTES_CARD_DATA } from "@/data/note/allNotes";
 import Head from "next/head";
+import { NOTES_FILTERS } from "@/data/note/notesFilter";
+import { FaExternalLinkAlt } from "react-icons/fa";
+import { useRouter } from "next/router";
 function AllNotesPage() {
+  const router= useRouter()
   return (
     <>
       <Head>
@@ -44,13 +48,38 @@ function AllNotesPage() {
           content="https://heyashu.in/_next/image?url=%2Fimages%2Fprofile.jpg&w=640&q=75"
         />
       </Head>
-      <div className=" flex flex-col gap-4 flex-wrap">
-        <h1 className="lg:text-5xl bg-gradient-to-r relative from-yellow-100 py-2 rounded-lg to-[#EFEFF1]  text-3xl font-extrabold text-center px-4 text-gray-800 md:text-left my-2 font-serif  flex gap-2">
-          <GrNotes /> Digital Notes
+      <div className=" flex flex-col gap-2 flex-wrap text-center items-center flex-wrap">
+        <h1 className="lg:text-4xl relative py-2 rounded-lg  text-3xl font-extrabold text-center px-4 text-gray-800 md:text-left my-2 font-serif  flex gap-2">
+          Digital Notes
         </h1>
-        <NotesFilter />
+        {/* <NotesFilter /> */}
+        <div className=" flex gap-2 justify-start mr-auto ">
+          {NOTES_FILTERS?.map((item) => {
+            return (
+              <div className="flex items-center text-lg px-2 font-bold py-1 border-b-4 border-black ">
+                <span> {item.label}</span>
+              </div>
+            );
+          })}
+          <div
+            onClick={() => {
+              router.push("/blogs");
+            }}
+            className="flex items-center px-2 text-lg cursor-pointer py-1 gap-1 border-b-2 "
+          >
+            blogs <FaExternalLinkAlt className="text-sm" />
+          </div>
+          <div
+            onClick={() => {
+              window.open("https://topmate.io/aat/1148709/pay", "_blank");
+            }}
+            className="flex items-center px-2 text-lg cursor-pointer py-1 gap-1 border-b-2 "
+          >
+            + write notes
+          </div>
+        </div>
       </div>
-      <div className="max-w-screen-2xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-4 p-4">
+      <div className="max-w-screen-2xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-4 py-4">
         {NOTES_CARD_DATA?.map((item) => {
           return <NoteCard data={item} />;
         })}
