@@ -16,7 +16,7 @@ export const metaTagsForNamasteNodeJsS1 = [
   },
   {
     name: "og:title",
-    content: "Introduction to Node.js - Digital Notes By Ashutosh Anand Tiwari",
+    content: "All about Node JS- Digital Notes By Ashutosh Anand Tiwari",
   },
   {
     name: "og:type",
