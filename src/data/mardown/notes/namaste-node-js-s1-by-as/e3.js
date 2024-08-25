@@ -30,7 +30,7 @@ if you just write node into your terminal and enter you get entered some environ
 
 ### Open you Code Editor
 
-Here i am using vs code and its also recommended by Akshay Saini and most of tge frontend developers use it. so lets continue with it, there is something new in the market, [neovim](https://neovim.io/) a new editor , google it. ok now open you vs code create a folder and create a file \`app.js\` and start writing JavaScript in it. After wriitng you can open termianal, there is short cut ( CTRL + \` ) \` this is character present around Esc key ~ \` and it will open vs code terminal, if terminal is open , just write , I am also giving screen shot of the terminal
+Here i am using vs code and its also recommended by Akshay Saini and most of the frontend developers use it. so lets continue with it, there is something new in the market, [neovim](https://neovim.io/) a new editor , google it. ok now open you vs code create a folder and create a file \`app.js\` and start writing JavaScript in it. After wriitng you can open termianal, there is short cut ( CTRL + \` ) \` this is character present around Esc key ~ \` and it will open vs code terminal, if terminal is open , just write , I am also giving screen shot of the terminal
 
 \`\`\`jsx
 node app.js
