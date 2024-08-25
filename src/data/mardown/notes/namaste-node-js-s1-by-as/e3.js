@@ -12,7 +12,7 @@ If you are struggling in installing feel free to contact me , we can [schedule a
 
 ### Verify your installation
 
-If you have already installed or just installed check version of node into your system, open you command line or terminal of vs code or your favorite editor, One more thing if you have downloaded node.js NPM will get installed automatically into your system. What is NPM, it is a node package manager, to manage repository and host it, NPM took care of node in initial days you remember right ? Check out [Episode 2 Notes](http://localhost:3000/tech/notes/namaste-node-js#Introduction%20to%20NodeJS) , lets celebrate
+If you have already installed or just installed check version of node into your system, open you command line or terminal of vs code or your favorite editor, One more thing if you have downloaded node.js NPM will get installed automatically into your system. What is NPM, it is a node package manager, to manage repository and host it, NPM took care of node in initial days you remember right ? Check out [Episode 2 Notes](https://heyashu.in/tech/notes/namaste-node-js#Introduction%20to%20NodeJS) , lets celebrate
 
 \`\`\`jsx
 node -v                //v18.12.0
