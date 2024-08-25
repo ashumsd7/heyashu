@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
-import createMDX from '@next/mdx'
+import createMDX from '@next/mdx';
+import withPWA from 'next-pwa';
+
 const nextConfig = {
   reactStrictMode: true,
   images: {
@@ -18,7 +20,7 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "https://ui.aceternity.com",
+        hostname: "ui.aceternity.com",
       },
       {
         protocol: "https",
@@ -30,6 +32,14 @@ const nextConfig = {
 
 const withMDX = createMDX({
   // Add markdown plugins here, as desired
-})
+});
 
-export default withMDX(nextConfig);
+const pwaConfig = withPWA({
+  dest: 'public',
+  register: true,
+  skipWaiting: true,
+  disable: process.env.NODE_ENV === 'development'
+});
+
+// Combine PWA and MDX configuration
+export default pwaConfig(withMDX(nextConfig));
