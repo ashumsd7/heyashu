@@ -86,12 +86,14 @@ export default function App({ Component, pageProps }) {
         <div className="fixed right-5 bottom-5 flex flex-col gap-6">
           <StartTour
             onClick={() => {
-         
-              router.push("/");
-              setTimeout(()=>{
-                localStorage.setItem(HOME_PAGE_TOUR_KEY, "false");
-                window.location.reload()
-              },1000)
+              router.push({
+                pathname:'/',
+                query: { ...router.query, showTourAgain: 'true' },
+              });
+              // setTimeout(()=>{
+              //   localStorage.setItem(HOME_PAGE_TOUR_KEY, "false");
+              //   window.location.reload()
+              // },1000)
             }}
           />
           <QuickMsgBtn

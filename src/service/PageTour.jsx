@@ -1,15 +1,24 @@
 import useScreenSize from "@/hooks/useScreenSize";
 import { HOME_PAGE_TOUR_KEY } from "@/utils/constant";
+import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { MdOutlineClose } from "react-icons/md";
 import { CardinalOrientation, Walktour } from "walktour";
 function PageTour() {
   const screenSize = useScreenSize();
+  const router = useRouter();
   useEffect(() => {
     setTimeout(() => {
       if (screenSize?.width < 999) {
         return;
       }
+
+      const { showTourAgain } = router.query;
+
+      if (showTourAgain) {
+        localStorage.setItem(HOME_PAGE_TOUR_KEY, "false");
+      }
+
       const isShowedOnce = localStorage.getItem(HOME_PAGE_TOUR_KEY);
       if (isShowedOnce !== "true") {
         document.body.style.overflow = "hidden";
@@ -27,7 +36,7 @@ function PageTour() {
         setIsTourOn(false);
       }
     }, 1000);
-  }, []);
+  }, [router]);
   const [isTourOn, setIsTourOn] = useState(false);
   const mySteps = [
     {
@@ -117,7 +126,7 @@ function PageTour() {
         customTooltipRenderer={({ stepContent, next, prev, close }) => {
           return (
             <div
-            id='spotlight-card'
+              id="spotlight-card"
               className="bg-white p-4 rounded-lg shadow-lg "
               style={{
                 width: stepContent?.isFirst ? "520px" : "470px",
@@ -167,7 +176,7 @@ function PageTour() {
                     className="text-xl font-bold mt-8 text-center"
                     style={{
                       color: "#ea580c",
-                      textAlign:'center'
+                      textAlign: "center",
                     }}
                   >
                     {stepContent?.title}
