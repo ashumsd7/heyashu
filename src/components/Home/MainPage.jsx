@@ -27,7 +27,8 @@ function MainPage() {
             happen next. Following the concept of "Zindagi Na Milegi Dobara," he
             continues his journey through life. He earns some money by writing
             code, but his life revolves around eating, traveling, reading, and
-            sleeping.So, what are you waiting for? Let's connect and explore the world together!
+            sleeping.So, what are you waiting for? Let's connect and explore the
+            world together!
           </p>
         </div>
         <div className="m-auto md:m-0">
@@ -42,7 +43,9 @@ function MainPage() {
           because you only live once and you never know what might happen next.
           Following the concept of "Zindagi Na Milegi Dobara," he continues his
           journey through life. He earns some money by writing code, but his
-          life revolves around eating, traveling, reading, and sleeping. So, what are you waiting for? Let's connect and explore the world together!
+          life revolves around eating, traveling, reading, and sleeping. So,
+          what are you waiting for? Let's connect and explore the world
+          together!
         </p>
       </div>
 
@@ -89,9 +92,9 @@ function HighLightedSpan({ children }) {
 
 function Category({ icon, text }) {
   return (
-    <div className="bg-gray-300 text-2xl border hover:shadow-2xl hover:text-white hover:bg-gray-700 ease-in-out cursor-pointer  border-black w-20 h-20 flex flex-col gap-2 justify-center items-center  rounded-full">
+    <div className="bg-gray-100 text-2xl border shadow-xl hover:shadow-2xl hover:text-white hover:bg-gray-700 ease-in-out cursor-pointer text-[#ea580c] border-black w-20 h-20 flex flex-col gap-2 justify-center items-center  rounded-full">
       <div className="flex items-center justify-center">{icon}</div>
-      <span className="text-base font-mono">{text}</span>
+      <span className="text-base font-mono text-[#ea580c]">{text}</span>
     </div>
   );
 }
