@@ -6,6 +6,7 @@ import { MdOutlineClose } from "react-icons/md";
 import { CardinalOrientation, Walktour } from "walktour";
 function PageTour() {
   const screenSize = useScreenSize();
+  const [startsWith, setStartsWith] = useState(0);
   const router = useRouter();
   useEffect(() => {
     setTimeout(() => {
@@ -21,6 +22,7 @@ function PageTour() {
 
       const isShowedOnce = localStorage.getItem(HOME_PAGE_TOUR_KEY);
       if (isShowedOnce !== "true") {
+        setStartsWith(showTourAgain ? 1 : 0);
         document.body.style.overflow = "hidden";
         document.addEventListener("keydown", function (event) {
           if (
@@ -97,6 +99,7 @@ function PageTour() {
   ];
 
   const handleNextStep = (tourLogic) => {
+    localStorage.setItem(HOME_PAGE_TOUR_KEY, "true");
     const selector = document.querySelector(tourLogic?.stepContent?.selector);
     selector?.classList.add("no-click");
     if (tourLogic?.stepIndex == 7) {
@@ -115,123 +118,126 @@ function PageTour() {
   };
   return (
     <div className="lg:block hidden">
-      <Walktour
-        className="lg:block hidden"
-        isOpen={isTourOn}
-        steps={mySteps}
-        identifier="ASHUTOSH_ANAND_TIWARI_WEBSITE_TOUR"
-        disableCloseOnClick
-        customNextFunc={handleNextStep}
-        disableMaskInteraction={true}
-        customTooltipRenderer={({ stepContent, next, prev, close }) => {
-          return (
-            <div
-              id="spotlight-card"
-              className="bg-white p-4 rounded-lg shadow-lg "
-              style={{
-                width: stepContent?.isFirst ? "520px" : "470px",
-                display: "flex",
-                gap: "20px",
-                alignItems: "center",
-              }}
-            >
+      {isTourOn && (
+        <Walktour
+          className="lg:block hidden"
+          isOpen={isTourOn}
+          steps={mySteps}
+          initialStepIndex={startsWith}
+          identifier="ASHUTOSH_ANAND_TIWARI_WEBSITE_TOUR"
+          disableCloseOnClick
+          customNextFunc={handleNextStep}
+          disableMaskInteraction={true}
+          customTooltipRenderer={({ stepContent, next, prev, close }) => {
+            return (
               <div
-                className=""
+                id="spotlight-card"
+                className="bg-white p-4 rounded-lg shadow-lg "
                 style={{
-                  height: "100%",
-                }}
-              >
-                <div className="w-1/3  rounded-md">
-                  <div className=" text-white text-center rounded">
-                    {/* <p className="text-sm">Some</p>
-            <p className="text-sm">Illustration</p> */}
-                    <img
-                      style={{
-                        background: "white",
-                      }}
-                      width={"200"}
-                      height={"200"}
-                      src={stepContent?.img}
-                      alt="Illustration"
-                      className=""
-                    />
-                  </div>
-                </div>
-              </div>
-              <div
-                style={{
-                  width: "100%",
+                  width: stepContent?.isFirst ? "520px" : "470px",
                   display: "flex",
-                  flexDirection: "column",
-                  marginTop: "-15px",
+                  gap: "20px",
+                  alignItems: "center",
                 }}
               >
                 <div
+                  className=""
                   style={{
-                    display: "flex",
+                    height: "100%",
                   }}
                 >
-                  {" "}
-                  <h2
-                    className="text-xl font-bold mt-8 text-center"
+                  <div className="w-1/3  rounded-md">
+                    <div className=" text-white text-center rounded">
+                      {/* <p className="text-sm">Some</p>
+            <p className="text-sm">Illustration</p> */}
+                      <img
+                        style={{
+                          background: "white",
+                        }}
+                        width={"200"}
+                        height={"200"}
+                        src={stepContent?.img}
+                        alt="Illustration"
+                        className=""
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  style={{
+                    width: "100%",
+                    display: "flex",
+                    flexDirection: "column",
+                    marginTop: "-15px",
+                  }}
+                >
+                  <div
                     style={{
-                      color: "#ea580c",
-                      textAlign: "center",
+                      display: "flex",
                     }}
                   >
-                    {stepContent?.title}
-                  </h2>
-                  {/* <MdOutlineClose
+                    {" "}
+                    <h2
+                      className="text-xl font-bold mt-8 text-center"
+                      style={{
+                        color: "#ea580c",
+                        textAlign: "center",
+                      }}
+                    >
+                      {stepContent?.title}
+                    </h2>
+                    {/* <MdOutlineClose
             style={{
               fontWeight: "bolder",
             }}
             className="text-gray-800 cursor-pointer font-extrabold absolute right-2 top-2  text-xl "
           /> */}
-                </div>
-                <div>
-                  <p className="text-gray-800 font-semibold  leading-relaxed mt-2">
-                    {stepContent?.description}
-                  </p>
-                </div>
-                <div className="flex justify-end gap-2 mt-4">
-                  <button
-                    onClick={() => {
-                      if (stepContent?.isFirst) {
-                        localStorage.setItem(HOME_PAGE_TOUR_KEY, "true");
-                        close();
-                        setIsTourOn(false);
-                      }
-                      prev();
-                    }}
-                    className="text-gray-800 border px-4 py-1 rounded-md font-semibold"
-                  >
-                    {stepContent?.isFirst ? "Not now" : "Prev"}
-                  </button>
+                  </div>
+                  <div>
+                    <p className="text-gray-800 font-semibold  leading-relaxed mt-2">
+                      {stepContent?.description}
+                    </p>
+                  </div>
+                  <div className="flex justify-end gap-2 mt-4">
+                    <button
+                      onClick={() => {
+                        if (stepContent?.isFirst) {
+                          localStorage.setItem(HOME_PAGE_TOUR_KEY, "true");
+                          close();
+                          setIsTourOn(false);
+                        }
+                        prev();
+                      }}
+                      className="text-gray-800 border px-4 py-1 rounded-md font-semibold"
+                    >
+                      {stepContent?.isFirst ? "Not now" : "Prev"}
+                    </button>
 
-                  <button
-                    onClick={() => {
-                      next();
-                    }}
-                    style={{
-                      background: "#ff725e",
-                      padding: "4px 15px",
-                      fontWeight: "bold",
-                      borderRadius: "4px",
-                      color: "white",
-                    }}
-                  >
-                    {stepContent?.isFirst
-                      ? "Start the tour"
-                      : stepContent?.isLast
-                      ? "Got it"
-                      : "Okay, Next"}
-                  </button>
+                    <button
+                      onClick={() => {
+                        next();
+                      }}
+                      style={{
+                        background: "#ff725e",
+                        padding: "4px 15px",
+                        fontWeight: "bold",
+                        borderRadius: "4px",
+                        color: "white",
+                      }}
+                    >
+                      {stepContent?.isFirst
+                        ? "Start the tour"
+                        : stepContent?.isLast
+                        ? "Got it"
+                        : "Okay, Next"}
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
-          );
-        }}
-      />
+            );
+          }}
+        />
+      )}
     </div>
   );
 }
