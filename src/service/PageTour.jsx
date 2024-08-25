@@ -13,6 +13,14 @@ function PageTour() {
       const isShowedOnce = localStorage.getItem(HOME_PAGE_TOUR_KEY);
       if (isShowedOnce !== "true") {
         document.body.style.overflow = "hidden";
+        document.addEventListener("keydown", function (event) {
+          if (
+            event.ctrlKey &&
+            (event.key === "+" || event.key === "-" || event.key === "=")
+          ) {
+            event.preventDefault();
+          }
+        });
         setIsTourOn(true);
       } else {
         document.body.style.overflow = "auto";
@@ -80,9 +88,17 @@ function PageTour() {
   ];
 
   const handleNextStep = (tourLogic) => {
+    const selector = document.querySelector(tourLogic?.stepContent?.selector);
+    selector?.classList.add("no-click");
     if (tourLogic?.stepIndex == 7) {
       setIsTourOn(false);
       document.body.style.overflow = "auto";
+      const elements = document.querySelectorAll(".no-click");
+
+      // Loop through each element and remove the class 'no-click'
+      elements.forEach((element) => {
+        element?.classList.remove("no-click");
+      });
       localStorage.setItem(HOME_PAGE_TOUR_KEY, "true");
       return;
     }
@@ -97,9 +113,11 @@ function PageTour() {
         identifier="ASHUTOSH_ANAND_TIWARI_WEBSITE_TOUR"
         disableCloseOnClick
         customNextFunc={handleNextStep}
+        disableMaskInteraction={true}
         customTooltipRenderer={({ stepContent, next, prev, close }) => {
           return (
             <div
+            id='spotlight-card'
               className="bg-white p-4 rounded-lg shadow-lg "
               style={{
                 width: stepContent?.isFirst ? "520px" : "470px",
@@ -142,14 +160,14 @@ function PageTour() {
                 <div
                   style={{
                     display: "flex",
-                    justifyContent: "space-between relative",
                   }}
                 >
                   {" "}
                   <h2
-                    className="text-xl font-bold mt-8"
+                    className="text-xl font-bold mt-8 text-center"
                     style={{
                       color: "#ea580c",
+                      textAlign:'center'
                     }}
                   >
                     {stepContent?.title}
@@ -162,7 +180,7 @@ function PageTour() {
           /> */}
                 </div>
                 <div>
-                  <p className="text-gray-800  leading-relaxed mt-2">
+                  <p className="text-gray-800 font-semibold  leading-relaxed mt-2">
                     {stepContent?.description}
                   </p>
                 </div>

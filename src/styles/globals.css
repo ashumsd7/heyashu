@@ -119,3 +119,35 @@ body {
 .transition-underline {
   transition: all 0.5s ease-in-out;
 }
+.no-click {
+  pointer-events: none;
+  opacity: .2;
+}
+#spotlight-card{
+  
+  background-image: url('https://image.slidesdocs.com/responsive-images/background/green-environmental-chic-agency-simple-powerpoint-background_8faa31abfc__960_540.jpg');
+  background-size: cover; /* Ensures the image covers the entire div */
+  background-position: center; /* Centers the background image */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  opacity: 1; /* Dull opacity */
+  /* background-color: red; */
+  position: relative; /* Allows for absolute positioning of content */
+}
+
+#spotlight-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: multiply;
+  background-color: rgba(255, 255, 255, 0.3); /* Adjust background overlay for content readability */
+  z-index: 1; /* Ensures overlay is above background image */
+}
+
+#spotlight-card > * {
+  position: relative; /* Ensures content is above the background */
+  z-index: 2; /* Keeps content above the overlay */
+}
