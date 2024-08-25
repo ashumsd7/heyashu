@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 /* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -61,12 +61,13 @@ body {
   font-style: normal;
   font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
 } */
- .markdown-h3{
+.markdown-h3 {
   font-family: "Poppins", sans-serif;
- }
- h2, h1{
+}
+h2,
+h1 {
   font-family: "Poppins", sans-serif;
- }
+}
 
 /* .markdown-p{
  margin: .5rem 0px !important;
@@ -84,22 +85,21 @@ body {
   line-height: 2rem;
   font-weight: 400;
  } */
-.prose{
-  font-family: source-serif-pro, Georgia, Cambria, "Times New Roman", Times, serif !important;
+.prose {
+  font-family: source-serif-pro, Georgia, Cambria, "Times New Roman", Times,
+    serif !important;
 }
-.markdown-a{
+.markdown-a {
   color: #000000;
   text-decoration: underline;
   transition: color 0.3s ease;
   font-weight: 600;
   font-size: large;
-
-  
 }
-.markdown-a:hover{
+.markdown-a:hover {
   color: #0f61e6;
 }
-.markdown-pre{
+.markdown-pre {
   color: #cdd9e0;
   padding: 2rem;
   text-decoration: none;
@@ -107,7 +107,7 @@ body {
   font-weight: bolder;
   background-color: black;
 }
-.markdown-p img{
+.markdown-p img {
   margin: auto;
   margin-top: 3rem;
   width: 100%;
@@ -121,11 +121,10 @@ body {
 }
 .no-click {
   pointer-events: none;
-  opacity: .2;
+  opacity: 0.2;
 }
-#spotlight-card{
-  
-  background-image: url('https://image.slidesdocs.com/responsive-images/background/green-environmental-chic-agency-simple-powerpoint-background_8faa31abfc__960_540.jpg');
+#spotlight-card {
+  background-image: url("https://image.slidesdocs.com/responsive-images/background/green-environmental-chic-agency-simple-powerpoint-background_8faa31abfc__960_540.jpg");
   background-size: cover; /* Ensures the image covers the entire div */
   background-position: center; /* Centers the background image */
   width: 100%; /* Full width */
@@ -133,6 +132,7 @@ body {
   opacity: 1; /* Dull opacity */
   /* background-color: red; */
   position: relative; /* Allows for absolute positioning of content */
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
 }
 
 #spotlight-card::before {
@@ -143,7 +143,12 @@ body {
   width: 100%;
   height: 100%;
   mix-blend-mode: multiply;
-  background-color: rgba(255, 255, 255, 0.3); /* Adjust background overlay for content readability */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.3
+  ); /* Adjust background overlay for content readability */
   z-index: 1; /* Ensures overlay is above background image */
 }
 
