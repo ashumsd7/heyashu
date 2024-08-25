@@ -7,6 +7,7 @@ import { LuMousePointerClick } from "react-icons/lu";
 import { IoMdClose } from "react-icons/io";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { GiHamburgerMenu } from "react-icons/gi";
+import Image from "next/image";
 function Navbar() {
   const [activePath, setActivePath] = useState("/");
   const [isOpen, setIsOpen] = useState(false);
@@ -54,9 +55,11 @@ function Navbar() {
               </div>
             )}
           </div> */}
+    
           <h2 className="font-extrabold   font-mono flex cursor-pointer justify-left text-2xl items-center mt-12 ml-4">
             Ashutosh Anand Tiwari
           </h2>
+
           <div className="flex lg:gap-8 gap-3 mt-10 items-center">
             <Link
               href="/"
@@ -228,3 +231,12 @@ const MobileNaveBar = ({ isOpen, setIsOpen, activePath }) => {
     </nav>
   );
 };
+
+
+// <Image
+//             className="font-extrabold   font-mono flex cursor-pointer justify-left text-2xl items-center h-17 mt-10 ml-4 top-6 s"
+//             src={"https://i.ibb.co/59hJ4PV/logo2.jpg"}
+//             height={"50"}
+//             width={"200"}
+//             alt="Ashutosh-logo"
+//           />
