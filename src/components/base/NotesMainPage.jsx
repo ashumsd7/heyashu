@@ -16,8 +16,10 @@ const NotesMainPage = ({
   metaInfo,
   contentListTitle,
   pageTitle,
-  noEpisodes=true
+  eachCardPrefix
+  
 }) => {
+  console.log("eachCardPrefix",eachCardPrefix);
   const router = useRouter();
   const episodes = useMemo(() => contentList);
   const [selectedSection, setSelectedSection] = useState(contentList[0]);
@@ -105,7 +107,7 @@ const NotesMainPage = ({
               progress={progress}
               selectedSection={selectedSection}
               storedValues={ls.get(STORAGE_KEY)}
-              noEpisodes={noEpisodes}
+              eachCardPrefix={eachCardPrefix}
               contentListTitle={contentListTitle}
             />
           )}

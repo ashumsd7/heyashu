@@ -35,6 +35,23 @@ export const  NOTES_CARD_DATA=[
 
 
 },
+// { 
+//   title: 'Backend with NodeJs',
+//   by: 'ProCodrr | Anurag Singh',
+//   sourceName:'ProCodrr',
+//   sourceLink:'https://app.procodrr.com/web/checkout/66c86939c0a286ccc32c0d8b',
+//   lastUpdated:'',
+//   publishedOn:'',
+//   thumbnailUrl:'https://tagmango.com/publicassets/-backend-with-nodejs-1-f59defad2193f9e9223bfa2a3ad3ac47.png',
+//   isProgress:false,
+//   isComingSoon:false,
+//   hashTags:['nodejs', 'deep', 'procdrr', NEWBIE, JAVASCRIPT, 'hindi'],
+//   githubLink:'#',
+//   route:'/tech/notes/backend-with-nodejs-by-procoderr-notes-by-ashutosh-anand-tiwari',
+
+
+
+// },
 
 { 
   title: 'You Don`t know JS: Up & Going',

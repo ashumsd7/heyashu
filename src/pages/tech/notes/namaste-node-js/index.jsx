@@ -14,7 +14,7 @@ const NamasteNodeJS = () => {
       contentList={contentListForNamasteNodeJsS1}
       contentListTitle={CONTENT_LIST_TITLE}
       storageKey={STORAGE_KEY}
-      noEpisodes={false}
+      eachCardPrefix={'Episode-'}
     />
   );
 

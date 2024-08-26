@@ -55,19 +55,20 @@ function PageTour() {
       img: "https://i.ibb.co/jh7212n/tech.png",
     },
     {
-      selector: "#blogs-link",
-      description: `Read my thoughts on tech and non-tech topics. You can also contribute by writing your own blogs and sharing insights with the community!`,
-      orientationPreferences: [CardinalOrientation.SOUTH],
-      title: "Discover Blogs 📝",
-      img: "https://i.ibb.co/9NFsjvz/blogs.png",
-    },
-    {
       selector: "#notes-link",
       description: ` Find in-depth notes on JavaScript, interview prep, and other tech subjects. A perfect resource to boost your knowledge and skills!`,
       orientationPreferences: [CardinalOrientation.SOUTH],
       title: "Digital Notes Hub 📚",
       img: "https://i.ibb.co/pwCSSc4/notes.png",
     },
+    {
+      selector: "#blogs-link",
+      description: `Read my thoughts on tech and non-tech topics. You can also contribute by writing your own blogs and sharing insights with the community!`,
+      orientationPreferences: [CardinalOrientation.SOUTH],
+      title: "Discover Blogs 📝",
+      img: "https://i.ibb.co/9NFsjvz/blogs.png",
+    },
+  
     {
       selector: "#travel-link",
       description: `Journey with me through my travel experiences! Discover exciting stories and tips from my adventures around the world.`,

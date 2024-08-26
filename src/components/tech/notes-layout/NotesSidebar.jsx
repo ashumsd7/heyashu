@@ -4,16 +4,15 @@ const NotesSidebar = ({
   onSectionClick,
   contentListTitle = "Namaste Node JS (S1)",
   data,
-  eachCardPrefix = "Episode-",
+  eachCardPrefix,
   progress,
   showProgress = true,
   storedValues,
   selectedSection,
-  noEpisodes = false,
 }) => {
   return (
     <div className="w-[1/4]  lg:block hidden  pb-[200px] h-full shadow-2xl  fixed ">
-      <div className="flex justify-center bg-gradient-to-b from-gray-300 to-[#efeff1] mb-4  rounded-xl px-4">
+      <div className="flex justify-center  mb-4  rounded-xl px-4">
         {" "}
         <h2 className="text-2xl font-sans mt-4  font-extrabold truncate max-w-[300px] text-center text-gray-800 md:text-left ">
           {contentListTitle}
@@ -44,9 +43,9 @@ const NotesSidebar = ({
                 </h3>
               ) : (
                 <h3 className=" flex items-center gap-2 pl-3">
-                  {noEpisodes ? (
+                  {!eachCardPrefix ? (
                     <>
-                      <p className="text-sm pl-3 truncate">{item?.name}</p>
+                      <p className="text-sm pl-3 truncate">{item?.name} </p>
                     </>
                   ) : (
                     <>
@@ -56,7 +55,7 @@ const NotesSidebar = ({
                   )}
                 </h3>
               )}
-              {!noEpisodes && (
+              {eachCardPrefix && (
                 <p className="text-sm pl-3 truncate">{item?.name}</p>
               )}
             </div>
