@@ -13,20 +13,18 @@ import { e13 } from "@/data/mardown/notes/namaste-node-js-s1-by-as/e13";
 import { e100 } from "@/data/mardown/notes/namaste-node-js-s1-by-as/e100";
 import { e1 } from "@/data/mardown/notes/js-snippets-by-ashutosh/e1";
 
-
 export const matchingMDXForJsSnippets = {
-  e1: e1,
-  e2: e2,
-  e3: e3,
-  e4: e4,
-  e5: e5,
-  e6: e6,
-  e7: e7,
-  e8: e8,
-  e9: e9,
-  e10: e10,
-  e11: e11,
-  e12: e12,
-  e13: e13,
-  e100: e100,
+  e1,
+  e2,
+  e3,
+  e4,
+  e5,
+  e6,
+  e7,
+  e8,
+  e9,
+  e10,
+  e11,
+  e12,
+  e100,
 };
