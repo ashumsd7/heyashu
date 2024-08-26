@@ -105,7 +105,7 @@ h1 {
   text-decoration: none;
   transition: color 0.3s ease;
   font-weight: bolder;
-  background-color: black;
+  background-color: rgb(36, 32, 32);
 }
 .markdown-p img {
   margin: auto;

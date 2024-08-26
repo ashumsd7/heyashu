@@ -32,7 +32,7 @@ function Markdown({ content, large }) {
         ),
         code: ({ children, ...props }) => (
           <code
-            className=" bg-black rounded px-2 py-1 text-white markdown-code"
+            className=" bg-gray-200  text-black markdown-code"
             {...props}
           >
             {children}
@@ -40,7 +40,7 @@ function Markdown({ content, large }) {
         ),
 
         pre: ({ children, ...props }) => (
-          <pre className="markdown-pre" {...props}>
+          <pre className="markdown-pre bg-gray-600" {...props}>
             {children}
           </pre>
         ),
