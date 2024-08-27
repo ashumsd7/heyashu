@@ -19,7 +19,7 @@ Modules protect their code by default. that one module be like:
 
 ![image.png](https://i.ibb.co/j4bYskd/Capture.jpg)
 
-Arey aise kaise nahi btayega, So to know variable and functions of that module, you have to export and import in the file ypu want to import.
+Arey aise kaise nahi btayega, So to know variable and functions of that module, you have to export and import in the file you  want to import.
 
 sum module
 
@@ -130,7 +130,7 @@ A module is essentially a collection of code that remains private unless explici
 
 - Modules are protected by default after requiring it will run bu can't be access until you export
 - These are protected to avoid conflicts from other modules
-- Common Js, EJS  / ESModule , ESM,  MJS ES^ Modules are two module patterns to access data within modules
+- Common Js, EJS  / ESModule , ESM,  MJS ES6 Modules are two module patterns to access data within modules
 - In CJS code runs in non strict mode, but in ESM pattern code runs in strict mode
 
 
