@@ -56,7 +56,7 @@ function Navbar() {
      
         className=" h-[2px] flex  fixed items-center bg-orange-600 md:mb-12 mb-20 w-full  "
       >
-        <div    style={{ backgroundColor: isScrolledUp ? '#ea580c' :'#efeff1', color:  isScrolledUp ? 'white' :'black' }} className="md:flex justify-center  hidden  gap-6  w-full items-center relative  bg-[#efeff1] py-1 px-10  border-b border-gray-300  font-mono ">
+        <div    style={{ backgroundColor: isScrolledUp ? 'black' :'#efeff1', color:  isScrolledUp ? 'white' :'black' }} className="md:flex justify-center  hidden  gap-6  w-full items-center relative  bg-[#efeff1] py-1 px-10  border-b border-gray-300  font-mono ">
           {/* <div>
             {router?.pathname?.split("/").length > 2 && (
               <div
