@@ -8,10 +8,12 @@ import { IoMdClose } from "react-icons/io";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { GiHamburgerMenu } from "react-icons/gi";
 import Image from "next/image";
+import Support from "@/service/Support.";
 function Navbar() {
   const [activePath, setActivePath] = useState("/");
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolledUp, setIsScrolledUp] = useState(false);
+  const [isSupportBtnActive, setIsSupportBtnActive] = useState(false);
   const router = useRouter();
   useEffect(() => {
     setIsOpen(false);
@@ -37,9 +39,9 @@ function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 500) {
-        setIsScrolledUp(true)
+        setIsScrolledUp(true);
       } else {
-        setIsScrolledUp(false)
+        setIsScrolledUp(false);
       }
     };
 
@@ -52,11 +54,14 @@ function Navbar() {
   return (
     <>
       {/* bg-[#efeff1] */}
-      <nav
-     
-        className=" h-[2px] flex  fixed items-center bg-orange-600 md:mb-12 mb-20 w-full  "
-      >
-        <div    style={{ backgroundColor: isScrolledUp ? 'black' :'#efeff1', color:  isScrolledUp ? 'white' :'black' }} className="md:flex justify-center  hidden  gap-6  w-full items-center relative  bg-[#efeff1] py-1 px-10  border-b border-gray-300  font-mono ">
+      <nav className=" h-[2px] flex  fixed items-center bg-orange-600 md:mb-12 mb-20 w-full  ">
+        <div
+          style={{
+            backgroundColor: isScrolledUp ? "black" : "#efeff1",
+            color: isScrolledUp ? "white" : "black",
+          }}
+          className="md:flex justify-center  hidden  gap-6  w-full items-center relative  bg-[#efeff1] py-1 px-10  border-b border-gray-300  font-mono "
+        >
           {/* <div>
             {router?.pathname?.split("/").length > 2 && (
               <div
@@ -97,7 +102,7 @@ function Navbar() {
                 <LuMousePointerClick className="absolute  top-[20px] left-[20px] text-2xl text-gray-600" />
               )}
             </Link>
-            
+
             <Link
               id="notes-link"
               href="/tech/notes"
@@ -118,7 +123,6 @@ function Navbar() {
                 <LuMousePointerClick className="absolute  top-[20px] left-[20px] text-2xl text-gray-600" />
               )}
             </Link>
-
 
             <Link
               id="travel-link"
@@ -141,6 +145,16 @@ function Navbar() {
                 <LuMousePointerClick className="absolute top-[20px] left-[20px] text-2xl text-gray-600" />
               )}
             </Link>
+
+            <div
+              onClick={() => {
+                console.log("isSupportBtnActive");
+                setIsSupportBtnActive(true);
+              }}
+              className="md:text-xl text-base   font-mono relative bg-orange-500 px-4 cursor-pointer  font-extrabold rounded-2xl text-wrap text-white"
+            >
+              SUPPORT
+            </div>
           </div>
         </div>
         <hr />
@@ -159,6 +173,7 @@ function Navbar() {
           isOpen={isOpen}
           activePath={activePath}
         />
+        {isSupportBtnActive && <Support active={isSupportBtnActive} setIsSupportBtnActive={setIsSupportBtnActive}/>}
       </nav>
     </>
   );
