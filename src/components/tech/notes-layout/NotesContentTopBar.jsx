@@ -3,15 +3,18 @@ import { FaDownload, FaFilePdf, FaGithub } from "react-icons/fa";
 import { MdFullscreen } from "react-icons/md";
 import { GoSidebarExpand, GoSidebarCollapse } from "react-icons/go";
 import Switch from "@/components/base/Switch";
+const NAMASTE_NODE_JS_CONTRIBUTION_LINK =
+"https://github.com/ashumsd7/heyashu/tree/main/src/data/mardown/notes/namaste-node-js-s1-by-as";
+
 function NotesContentTopBar({
   isSidebarVisible,
   setIsSidebarVisible,
   isQuickReadModeOn,
   setIsQuickReadModeOn,
   title,
+  githubLink=NAMASTE_NODE_JS_CONTRIBUTION_LINK
 }) {
-  const NAMASTE_NODE_JS_CONTRIBUTION_LINK =
-    "https://github.com/ashumsd7/ashu-new-portfolio-website/tree/main/src/data";
+
   return (
     <div className="bg-gradient-to-r relative from-gray-300 to-[#efeff1] px-4 lg:px-4   flex items-center rounded rounded-b-none justify-between  py-1 ">
       <div className="flex gap-2 items-center">
@@ -41,7 +44,7 @@ function NotesContentTopBar({
 
       <FaGithub
         onClick={() => {
-          window.open(NAMASTE_NODE_JS_CONTRIBUTION_LINK, "_blank");
+          window.open(githubLink, "_blank");
         }}
         className="absolute right-4 cursor-pointer "
         title="Contribute to the repo"
