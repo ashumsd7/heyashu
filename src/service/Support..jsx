@@ -13,7 +13,7 @@ function Support({ setIsSupportBtnActive, active }) {
       description: ` I'm saving up for a personal laptop by my birthday in February 2025. Any contribution would help me reach my goal. Thank you for your support!`,
       title: "But me a Laptop 💻 ",
       isFirst: true,
-      img: "./qr.png",
+      img: "https://i.ibb.co/TvnZm4K/qr.png",
     },
   ];
 
@@ -83,7 +83,7 @@ function Support({ setIsSupportBtnActive, active }) {
                         width={"200"}
                         height={"200"}
                         src={stepContent?.img}
-                        alt="Illustration"
+                        alt="ashumsd7@ybl"
                         className=""
                       />
                     </div>
