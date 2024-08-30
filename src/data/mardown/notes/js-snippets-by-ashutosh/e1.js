@@ -13,6 +13,7 @@ There are total **8 built** in data types in JavaScript.
 5. undefined
 6. object
 7. symbol ( ES6 feature)
+8. bigInt 
 
 ### typeof Operator
 
