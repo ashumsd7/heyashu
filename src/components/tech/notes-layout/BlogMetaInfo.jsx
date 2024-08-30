@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaRegHeart } from "react-icons/fa";
 import { FaHandsClapping } from "react-icons/fa6";
 import { HiOutlineSpeakerWave } from "react-icons/hi2";
@@ -6,10 +6,12 @@ import { IoMdDownload } from "react-icons/io";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { FaBookOpen } from "react-icons/fa";
 import { FaCalendar } from "react-icons/fa";
+// import { FcLike, FcLikePlaceholder } from "react-icons/fc";
 
 // import Share from "@/components/ui/Share";
 import dynamic from "next/dynamic";
-const Share = dynamic(() => import("@/components/ui/Share"), {ssr: false});
+// import axios from "axios";
+const Share = dynamic(() => import("@/components/ui/Share"), { ssr: false });
 const BlogMetaInfo = ({ data }) => {
   const {
     name = "Ashutosh Anand Tiwari",
@@ -21,6 +23,32 @@ const BlogMetaInfo = ({ data }) => {
     profilePic = "https://avatars.githubusercontent.com/u/40313523?v=4",
     title = "",
   } = data;
+
+  // const [isLiked, setIsLiked] = useState(false);
+  // const [likeCount, setLikeCount] = useState(0);
+
+  // function onHitLike() {
+  //   setIsLiked(true);
+  //   setLikeCount(likeCount + 1);
+
+    
+
+  //   axios
+  //     .post(
+  //       "https://aat-portfolio-website-default-rtdb.asia-southeast1.firebasedatabase.app/ded.json", {"name": "test"}
+  //     )
+  //     .then((res) => {
+  //       console.log("res", res);
+  //     });
+  // }
+
+  // useEffect(() => {
+  //   if (window.location.hash) {
+  //     const hash = decodeURIComponent(window.location.hash);
+  //    let  dbName= hash.split("#")[1]
+  //   }
+  // }, []);
+
   return (
     <div className="flex items-center justify-between   border-b border-gray-300 py-4 my-4 ">
       <div className="flex items-center">
@@ -30,7 +58,7 @@ const BlogMetaInfo = ({ data }) => {
           </div>
         ) : (
           <img
-          alt="blogger-profile-picture"
+            alt="blogger-profile-picture"
             src={profilePic}
             className="w-12 h-12 border-4 border-gray-200  flex items-center justify-center rounded-full"
           />
@@ -59,7 +87,18 @@ const BlogMetaInfo = ({ data }) => {
         </div>
       </div>
 
-      <div className="pr-2">
+      <div className="pr-2 flex gap-6 items-center">
+        {/* <div className="flex gap-1 items-center">
+          {isLiked ? (
+            <FcLike onClick={onHitLike} className="text-2xl cursor-pointer" />
+          ) : (
+            <FcLikePlaceholder
+              onClick={onHitLike}
+              className="text-2xl cursor-pointer"
+            />
+          )}
+          <span className="text-base font-mono">{likeCount}</span>
+        </div> */}
         <Share title={title} />
       </div>
       {showControls && (

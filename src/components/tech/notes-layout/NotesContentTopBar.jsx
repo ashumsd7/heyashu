@@ -16,7 +16,7 @@ function NotesContentTopBar({
 }) {
 
   return (
-    <div className="bg-gradient-to-r relative from-gray-300 to-[#efeff1] px-4 lg:px-4   flex items-center rounded rounded-b-none justify-between  py-1 ">
+    <div className="bg-gradient-to-r relative from-gray-200 to-white px-4 lg:px-4   flex items-center rounded rounded-b-none justify-between  py-1 ">
       <div className="flex gap-2 items-center">
         <div className=" gap-2 justify-between items-center lg:flex hidden">
           {isSidebarVisible ? (
