@@ -110,13 +110,13 @@ function Support({ setIsSupportBtnActive, active }) {
                         textAlign: "center",
                       }}
                     >
-                      {stepContent?.title}
+                      {stepContent?.title}  
                     </h2>
                   </div>
                   <span className="text-xs font-semibold ">Collected  ₹1200 / ₹45000</span> 
                   <div>
                     <p className="text-gray-800 font-semibold  leading-relaxed mt-2">
-                      {stepContent?.description}
+                      {stepContent?.description}🙏 
                     </p>
                   </div>
                   <div className="flex justify-center gap-2 mt-4 w-full">
