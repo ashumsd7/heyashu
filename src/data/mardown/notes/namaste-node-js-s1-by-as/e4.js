@@ -1,5 +1,4 @@
 export const  e4=`
-#  module.exports & require
 
 ![image.png](https://i.ibb.co/800M4Jz/image.jpg)
 

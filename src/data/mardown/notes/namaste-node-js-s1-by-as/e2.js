@@ -1,4 +1,4 @@
-export const  e2=`#  JavaScript on Servers
+export const  e2=`
 
 ![image.png](https://i.ibb.co/5chYnSQ/7.jpg)
 

@@ -60,7 +60,7 @@ function Navbar() {
             backgroundColor: isScrolledUp ? "black" : "#efeff1",
             color: isScrolledUp ? "white" : "black",
           }}
-          className="md:flex justify-center  hidden  gap-6  w-full items-center relative  bg-[#efeff1] py-1 px-10  border-b border-gray-300  font-mono "
+          className="md:flex justify-center  hidden  gap-6  w-full items-center relative  bg-white py-1 px-10     font-mono "
         >
           {/* <div>
             {router?.pathname?.split("/").length > 2 && (

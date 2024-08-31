@@ -1,5 +1,4 @@
 export const e1 = `
-# Introduction to NodeJS
 
 ![image.png](https://i.ibb.co/2MJPG76/1.jpg)
 

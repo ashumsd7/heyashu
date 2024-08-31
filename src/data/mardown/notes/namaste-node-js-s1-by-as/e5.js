@@ -2,7 +2,6 @@ export const  e5=`
 
 
 
-#  Dive Deep: How Modules and require work ? 
 
 ![image.png](https://i.ibb.co/mbk8T1t/1.png)
 

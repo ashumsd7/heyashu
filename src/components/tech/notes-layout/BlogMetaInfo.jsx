@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FaRegHeart } from "react-icons/fa";
+import { FaGithub, FaRegHeart } from "react-icons/fa";
 import { FaHandsClapping } from "react-icons/fa6";
 import { HiOutlineSpeakerWave } from "react-icons/hi2";
 import { IoMdDownload } from "react-icons/io";
@@ -7,9 +7,12 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import { FaBookOpen } from "react-icons/fa";
 import { FaCalendar } from "react-icons/fa";
 // import { FcLike, FcLikePlaceholder } from "react-icons/fc";
+const NAMASTE_NODE_JS_CONTRIBUTION_LINK =
+  "https://github.com/ashumsd7/heyashu/tree/main/src/data/mardown/notes/namaste-node-js-s1-by-as";
 
 // import Share from "@/components/ui/Share";
 import dynamic from "next/dynamic";
+import Switch from "@/components/base/Switch";
 // import axios from "axios";
 const Share = dynamic(() => import("@/components/ui/Share"), { ssr: false });
 const BlogMetaInfo = ({ data }) => {
@@ -19,9 +22,12 @@ const BlogMetaInfo = ({ data }) => {
     lastUpdated = "-",
     publishedOn = "-",
     followLink = "https://github.com/ashumsd7/",
-    showControls = false,
+    showControls = true,
     profilePic = "https://avatars.githubusercontent.com/u/40313523?v=4",
     title = "",
+    githubLink = NAMASTE_NODE_JS_CONTRIBUTION_LINK,
+    isQuickReadModeOn,
+    setIsQuickReadModeOn
   } = data;
 
   // const [isLiked, setIsLiked] = useState(false);
@@ -30,8 +36,6 @@ const BlogMetaInfo = ({ data }) => {
   // function onHitLike() {
   //   setIsLiked(true);
   //   setLikeCount(likeCount + 1);
-
-    
 
   //   axios
   //     .post(
@@ -50,81 +54,89 @@ const BlogMetaInfo = ({ data }) => {
   // }, []);
 
   return (
-    <div className="flex items-center justify-between   border-b border-gray-300 py-4 my-4 ">
-      <div className="flex items-center">
-        {!profilePic ? (
-          <div className="w-10 h-10 bg-purple-600  text-white flex items-center justify-center rounded-full">
-            {name.charAt(0)}
-          </div>
-        ) : (
-          <img
-            alt="blogger-profile-picture"
-            src={profilePic}
-            className="w-12 h-12 border-4 border-gray-200  flex items-center justify-center rounded-full"
-          />
-        )}
-        <div className="ml-3">
-          <div className="flex items-center space-x-2">
-            <span className="font-semibold text-gray-900">{name}</span>
-            <a
-              href={followLink}
-              target="_blank"
-              s
-              className="text-green-600 font-semibold cursor-pointer"
-            >
-              Follow
-            </a>
-          </div>
-          {(timeRead || lastUpdated) && (
-            <div className="text-gray-500 text-sm flex items-center gap-2">
-              <FaBookOpen
-                title={`It will take ${timeRead} min to read this article.`}
-              />{" "}
-              {timeRead} min read ∘ <FaCalendar title="Published on" />{" "}
-              {publishedOn}
+    <>
+      <div className="flex items-center justify-between    py-4 my-4 px-6 ">
+        <div className="flex items-center">
+          {!profilePic ? (
+            <div className="w-10 h-10 bg-purple-600  text-white flex items-center justify-center rounded-full">
+              {name.charAt(0)}
             </div>
+          ) : (
+            <img
+              alt="blogger-profile-picture"
+              src={profilePic}
+              className="w-12 h-12 border-4 border-gray-200  flex items-center justify-center rounded-full"
+            />
           )}
+          <div className="ml-3 flex flex-col gap-1">
+            <div className="flex items-center space-x-2">
+              <span className="font-semibold text-gray-900">{name}</span>
+              <a
+                href={followLink}
+                target="_blank"
+                s
+                className="text-green-600 font-semibold cursor-pointer"
+              >
+                Follow
+              </a>
+            </div>
+            {(timeRead || lastUpdated) && (
+              <div className="text-gray-500 text-sm flex items-center gap-2">
+                <FaBookOpen
+                  title={`It will take ${timeRead} min to read this article.`}
+                />{" "}
+                {timeRead} min read ∘ <FaCalendar title="Published on" />{" "}
+                {publishedOn}
+              </div>
+            )}
+          </div>
         </div>
       </div>
 
-      <div className="pr-2 flex gap-6 items-center">
-        {/* <div className="flex gap-1 items-center">
-          {isLiked ? (
-            <FcLike onClick={onHitLike} className="text-2xl cursor-pointer" />
-          ) : (
-            <FcLikePlaceholder
-              onClick={onHitLike}
-              className="text-2xl cursor-pointer"
-            />
-          )}
-          <span className="text-base font-mono">{likeCount}</span>
-        </div> */}
-        <Share title={title} />
+      <div className="flex justify-end h-[44px] px-4 border-b border-t mx-6 p-6">
+        {showControls && (
+          <div className="flex items-center space-x-6">
+            {/* Heart Icon */}
+            {/* <div className="flex items-center text-gray-600">
+              <FaRegHeart />
+            </div> */}
+            <div className="flex items-center text-gray-600 cursor-pointer">
+              <FaGithub
+                onClick={() => {
+                  window.open(githubLink, "_blank");
+                }}
+                className=" "
+                title="Contribute to the repo"
+              />
+            </div>
+            {/* Clap Icon */}
+            {/* <div className="flex items-center text-gray-600">
+              <FaHandsClapping />
+            </div> */}
+            {/* Share Icon */}
+            {/* <div className="flex items-center text-gray-600">
+              <HiOutlineSpeakerWave />
+            </div> */}
+            {/* Three Dots Icon */}
+            {/* <div className="flex items-center text-gray-600">
+              <IoMdDownload />
+            </div> */}
+            <div className="flex items-center text-gray-600">
+              <Switch
+                isOn={isQuickReadModeOn}
+                handleToggle={() => {
+                  setIsQuickReadModeOn(!isQuickReadModeOn);
+                }}
+              />
+            </div>
+            {/* <div className="flex items-center text-gray-600">
+              <BsThreeDotsVertical />
+            </div> */}
+            <Share title={title} />
+          </div>
+        )}
       </div>
-      {showControls && (
-        <div className="flex items-center space-x-6">
-          {/* Heart Icon */}
-          <div className="flex items-center text-gray-600">
-            <FaRegHeart />
-          </div>
-          {/* Clap Icon */}
-          <div className="flex items-center text-gray-600">
-            <FaHandsClapping />
-          </div>
-          {/* Share Icon */}
-          <div className="flex items-center text-gray-600">
-            <HiOutlineSpeakerWave />
-          </div>
-          {/* Three Dots Icon */}
-          <div className="flex items-center text-gray-600">
-            <IoMdDownload />
-          </div>
-          <div className="flex items-center text-gray-600">
-            <BsThreeDotsVertical />
-          </div>
-        </div>
-      )}
-    </div>
+    </>
   );
 };
 

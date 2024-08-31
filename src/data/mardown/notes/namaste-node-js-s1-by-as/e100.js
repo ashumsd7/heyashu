@@ -1,7 +1,5 @@
 export const e100 = `
 
-# 🌟 Namaste Ji 🙏
-
 ![Namaste Node JS](https://i.ibb.co/ChjP3s0/thumb.jpg)
 
 ## 🌟 Course Recommendation

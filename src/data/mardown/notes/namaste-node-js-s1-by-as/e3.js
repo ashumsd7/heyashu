@@ -1,8 +1,5 @@
 export const  e3=`
 
-
-# Lets Write Code
-
 ![image.png](https://i.ibb.co/vwNLtJ3/1.jpg)
 
 ### Download Node.js

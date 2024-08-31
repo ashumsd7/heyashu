@@ -1,5 +1,6 @@
 import ProgressBar from "@/components/base/ProgressBar";
 import ls from "local-storage";
+import { Scrollbars } from "react-custom-scrollbars-2";
 const NotesSidebar = ({
   onSectionClick,
   contentListTitle = "Namaste Node JS (S1)",
@@ -33,7 +34,8 @@ const NotesSidebar = ({
                   ? "border-0 border-l-8 border-green-500 bg-gradient-to-r from-gray-300 to-[#efeff1] "
                   : "border-0 border-l-8 border-gray-500"
               } ${selectedSection?.id == item?.id && " bg-black font-bold"} ${
-                !item?.publishedOn && "cursor-none pointer-events-none  opacity-40"
+                !item?.publishedOn &&
+                "cursor-none pointer-events-none  opacity-40"
               }`}
               onClick={() => onSectionClick(item)}
             >

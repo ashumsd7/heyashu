@@ -8,6 +8,7 @@ import ls from "local-storage";
 import BlogMetaInfo from "@/components/tech/notes-layout/BlogMetaInfo";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import Button from "./Button";
 
 const NotesMainPage = ({
   matchingMDXConfig,
@@ -16,10 +17,9 @@ const NotesMainPage = ({
   metaInfo,
   contentListTitle,
   pageTitle,
-  eachCardPrefix
-  
+  eachCardPrefix,
 }) => {
-  console.log("eachCardPrefix",eachCardPrefix);
+  console.log("eachCardPrefix", eachCardPrefix);
   const router = useRouter();
   const episodes = useMemo(() => contentList);
   const [selectedSection, setSelectedSection] = useState(contentList[0]);
@@ -78,7 +78,9 @@ const NotesMainPage = ({
   return (
     <>
       <Head>
-        <title>{selectedSection?.name} :  {pageTitle}  </title>
+        <title>
+          {selectedSection?.name} : {pageTitle}{" "}
+        </title>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/favicon.ico" />
@@ -121,22 +123,41 @@ const NotesMainPage = ({
               setIsSidebarVisible={setIsSidebarVisible}
               isQuickReadModeOn={isQuickReadModeOn}
               setIsQuickReadModeOn={setIsQuickReadModeOn}
-              title={`${selectedSection?.name}`}
+              title={selectedSection?.title || selectedSection?.name}
             />
 
             <div className="flex-1 bg-white  ">
               <div className="px-2">
-              <BlogMetaInfo
-              large
-                data={{
-                  timeRead: estimateReadingTime(markdownContent),
-                  publishedOn: selectedSection?.publishedOn,
-                  name: "Ashutosh Anand Tiwari",
-                  title: selectedSection?.name,
-                }}
-              />
+                <BlogMetaInfo
+                  large
+                  data={{
+                    timeRead: estimateReadingTime(markdownContent),
+                    publishedOn: selectedSection?.publishedOn,
+                    name: "Ashutosh Anand Tiwari",
+                    title: selectedSection?.title || selectedSection?.title,
+                    isQuickReadModeOn: isQuickReadModeOn,
+                    setIsQuickReadModeOn: setIsQuickReadModeOn,
+                  }}
+                />
               </div>
-              <NotesContent markdownContent={markdownContent} large />
+              {isQuickReadModeOn ? (
+                <div className="flex flex-col gap-4 justify-center items-center mt-10  font-semibold">
+                  <h2 className="text-2xl">I am writing this feature !!!</h2>
+                  <Button
+                    onClick={() => {
+                      window.open(
+                        "https://topmate.io/aat/1148709/pay",
+                        "_blank"
+                      );
+                    }}
+                    className=""
+                  >
+                    Let's write together
+                  </Button>
+                </div>
+              ) : (
+                <NotesContent markdownContent={markdownContent} large />
+              )}
             </div>
 
             {/* <NotesContentFooter data={episodes} selectedSection={selectedSection} onSectionClick={handleSectionClick} /> */}
