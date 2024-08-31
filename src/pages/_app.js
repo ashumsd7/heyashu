@@ -9,6 +9,7 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import StartTour from "@/components/ui/StartTourBtn";
 import { useEffect } from "react";
+import dynamic from "next/dynamic";
 
 const CMS = dynamic(
   () =>
