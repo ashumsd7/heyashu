@@ -14,7 +14,7 @@ export default function BlogPost({ source, frontMatter }) {
 }
 
 export async function getStaticPaths() {
-  const files = fs.readdirSync(path.join('content', 'blog'))
+  const files = fs.readdirSync(path.join('src', 'pages', 'content', 'blog'));
   const paths = files.map(filename => ({
     params: {
       slug: filename.replace('.mdx', '')
