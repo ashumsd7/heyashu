@@ -8,9 +8,28 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import StartTour from "@/components/ui/StartTourBtn";
+import { useEffect } from "react";
+
+const CMS = dynamic(
+  () =>
+    import("decap-cms-app").then((cms) => {
+      cms.init();
+      return () => null;
+    }),
+  { ssr: false, loading: () => <p>Loading...</p> }
+);
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
+
+  useEffect(() => {
+    if (window.location.href.includes("/admin")) {
+      import("decap-cms-app").then((CMS) => {
+        CMS.init();
+      });
+    }
+  }, []);
+
   const canonicalUrl = `https://www.heyashu.in${router?.asPath}`;
 
   return (
@@ -79,6 +98,7 @@ export default function App({ Component, pageProps }) {
         <link rel="canonical" href={canonicalUrl} />
       </Head>
       <main className="relative">
+        <CMS />
         <Navbar />
         <Layout>
           <Component {...pageProps} />

@@ -1,0 +1,17 @@
+backend:
+  name: github
+  repo: ashumsd7/heyashu
+  branch: feat/cms-integration
+media_folder: "public/images"
+public_folder: "/images"
+collections:
+  - name: "blog"
+    label: "Blog"
+    folder: "content/blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Body", name: "body", widget: "markdown"}
