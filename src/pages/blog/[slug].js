@@ -67,6 +67,11 @@ export default function BlogPost({ frontMatter, mdxSource, large = false }) {
           Blog on {frontMatter?.title} by {frontMatter?.author} on heyashu.in by
           Ashutosh Anand Tiwari{" "}
         </title>
+
+        <meta charSet="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="/universe.ico" />
+
         <meta
           name="description"
           content={`Explore the latest blog posts by ${frontMatter?.author}, on https://heyashu/in An open source blog writing platform by Ashutosh Anand Tiwari.`}
