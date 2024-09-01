@@ -4,10 +4,12 @@ import BlogsFilter from "@/components/blog/BlogsFilter";
 import { BLOG_FILTERS } from "@/data/blog";
 import { ALL_BLOGS_DATA } from "@/data/blog/allBlogs";
 import Head from "next/head";
+import { useRouter } from "next/router";
 import React from "react";
 import { FaExternalLinkAlt } from "react-icons/fa";
 
 function BlogsPage() {
+  const router =useRouter()
   return (
     <>
       <Head>
