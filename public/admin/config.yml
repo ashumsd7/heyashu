@@ -25,7 +25,7 @@ collections:
       - {label: "Author", name: "author", widget: "string"}
       - {label: "Profile Picture URL", name: "profilePic", widget: "string"}
       - {label: "Profile Click Redirect Link", name: "followLink", widget: "string"}
-      - {label: "Meta Info : Name", name: "metaName", required: false widget: "string"}
+      - {label: "Meta Info : Name", name: "metaName", required: false, widget: "string"}
       - {label: "Meta Content : Name", name: "metaContent", required: false, widget: "string"}
       - {label: "Body", name: "body", widget: "markdown",}
      
