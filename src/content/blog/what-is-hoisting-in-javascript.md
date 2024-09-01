@@ -1,7 +1,7 @@
 ---
 title: What is hoisting in JavaScript
 date: 01-09-2024
-author: Ashutosh Anand Tiwari
+author: Ashutosh Anand Tiwari JI
 profilePic: chrome://favicon2/?size=24&scaleFactor=1x&showFallbackMonogram=&pageUrl=https%3A%2F%2Fwww.dream11.com%2Fleagues
 followLink: chrome://favicon2/?size=24&scaleFactor=1x&showFallbackMonogram=&pageUrl=https%3A%2F%2Fwww.dream11.com%2Fleagues
 metaName: Hositing in JS
