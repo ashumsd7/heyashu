@@ -95,6 +95,7 @@ h1 {
   /* font-family: "Inter", sans-serif !important; */
 
 }
+
 .markdown-a {
   color: #000000;
   text-decoration: underline;
@@ -105,7 +106,7 @@ h1 {
 .markdown-a:hover {
   color: #0f61e6;
 }
-.markdown-pre {
+pre {
   color: #cdd9e0;
   padding: 2rem;
   text-decoration: none;
