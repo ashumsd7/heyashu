@@ -19,7 +19,7 @@ collections:
           widget: "datetime",
           time_format: false,
           date_format: "YYYY-MM-DD",
-          format: "DD-MM-YYYY",
+        format: "DD-MM-YYYY",
         }
       - {label: "Featured Image", required: false, name: "thumbnail", widget: "image"}
       - {label: "Author", name: "author", widget: "string"}

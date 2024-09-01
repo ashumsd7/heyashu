@@ -163,3 +163,7 @@ pre {
   position: relative; /* Ensures content is above the background */
   z-index: 2; /* Keeps content above the overlay */
 }
+
+span[class*="PublishButton"] {
+  display: none;
+}
