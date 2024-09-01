@@ -8,7 +8,7 @@ followLink: https://heyashu.in/blog/kankhar-a-full-stack-framework
 metaName: "Read more about Kankhar by contacting RAM "
 metaContent: I dont know much....
 ---
-\# KANKHAR: A Full Stack Framework (of Friendship)
+# KANKHAR: A Full Stack Framework (of Friendship)
 
 
 
@@ -16,11 +16,11 @@ In the silicon jungle of Bengaluru, where code monkeys swing from tree to tree, 
 
 
 
-It all began in the aftermath of the great plague (aka COVID), when a brave soul ventured into the urban wilderness of Bengaluru. His name? **Ashutosh, the Pioneer.**
+It all began in the aftermath of the great plague (aka COVID), when a brave soul ventured into the urban wilderness of Bengaluru. His name? **Ashutosh Anand Tiwari.**
 
 
 
-![Ashutosh](/public/images/ashu.png "Ashutosh Anand Tiwari")
+![Ashutosh](/images/ashu.png "Ashutosh Anand Tiwari")
 
 
 
@@ -32,9 +32,9 @@ As the calendar flipped to April 2022, Ashutosh found himself face-to-face with 
 
 
 
-![Nihal](/public/images/nihal.png "Nihal")
+![Nihal](/images/nihal.png "Nihal")
 
-![Karan](/public/images/karan.png "Kishan ")
+![Karan](/images/karan.png "Kishan ")
 
 These code-slingin' savants turned CodeMonk upside down faster than you can say "runtime error." The trio formed a bond stronger than any merge conflict, fueled by endless plates of lemon rice and idly. But as any good developer knows, variety is the spice of life (and the bane of legacy code).
 
@@ -44,7 +44,7 @@ Enter the Litti Chokha Crusader, Ram Shankar!
 
 
 
-![Ram](/public/images/ram.png "Ram")
+![Ram](/images/ram.png "Ram")
 
 
 
@@ -56,7 +56,7 @@ Lo and behold, from the land of dhokla and garba, came the backend behemoth - Ha
 
 
 
-![Harshil](/public/images/harshil.png "Harshil")
+![Harshil](/images/harshil.png "Harshil")
 
 
 
@@ -72,7 +72,7 @@ Make way for Kavish, the dropout who could out-code a senior dev with one hand t
 
 ```
 
-![Kavish](/public/images/kavish.png "Kavish")
+![Kavish](/images/kavish.png "Kavish")
 
 The team was buzzing with energy, like a server farm on Red Bull. They thought they were complete, a full stack of talent reaching from frontend to backend. But oh, how wrong they were!
 
@@ -86,7 +86,7 @@ For in the heart of India, Madhya Pradesh, a crucial element was waiting to join
 
 ```
 
-![Atul](/public/images/atul.png "Atul")
+![Atul](/images/atul.png "Atul")
 
 And thus, KANKHAR was born - a full stack framework of friendship, talent, and enough inside jokes to fill a terabyte hard drive.
 
@@ -98,7 +98,7 @@ Through thick and thin, from marathon coding sessions to food comas induced by e
 
 Now, as December approaches and wedding bells ring for Harshil in Gujarat, the KANKHAR framework prepares for a joyous reunion. It's proof that no matter the distance, no matter the job changes, no matter how many times you have to explain to your relatives what a "full stack developer" actually does, KANKHAR endures.
 
-![](/public/images/all.png)
+![](/images/all.png)
 
 So here's to KANKHAR - may your code be bug-free, your deployments smooth, and your friendships eternal. Now, if you'll excuse me, I have a train to catch at 4... and it's already 3:45! Time flies when you're compiling heartwarming stories about coding companions.
 

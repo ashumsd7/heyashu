@@ -52,11 +52,21 @@ export async function getStaticPaths() {
 
 // Component to render the blog post
 export default function BlogPost({ frontMatter, mdxSource, large = false }) {
-  const formattedDate = dayjs(frontMatter?.date, 'DD-MM-YYYY').format('DD MMM, YYYY');
+  const formattedDate = dayjs(frontMatter?.date, "DD-MM-YYYY").format(
+    "DD MMM, YYYY"
+  );
+  function changeFilePath(filePath) {
+    const newFilePath = filePath.replace("/public", "");
+    return newFilePath;
+  }
   return (
     <>
       <Head>
-        <title> Blog on {frontMatter?.title} by {frontMatter?.author} on heyashu.in by Ashutosh Anand Tiwari </title>
+        <title>
+          {" "}
+          Blog on {frontMatter?.title} by {frontMatter?.author} on heyashu.in by
+          Ashutosh Anand Tiwari{" "}
+        </title>
         <meta
           name="description"
           content={`Explore the latest blog posts by ${frontMatter?.author}, on https://heyashu/in An open source blog writing platform by Ashutosh Anand Tiwari.`}
@@ -100,17 +110,18 @@ export default function BlogPost({ frontMatter, mdxSource, large = false }) {
       >
         {/* Blog Title */}
         {frontMatter?.title && (
-          <h2 className="text-black lg:text-[42px] text-2xl font-bold   text-justify  mb-2 mt-10 md:mt-0    ">
+          <h3 className="md:text-5xl text-3xl text-[#130101] font-extrabold mb-6 font-sans">
+            {" "}
             {frontMatter?.title}
-          </h2>
+          </h3>
         )}
 
         {/* Blog Hero Image */}
         {frontMatter?.thumbnail && (
           <Image
             alt={frontMatter?.title}
-            src={frontMatter?.thumbnail}
-            width="300"
+            src={changeFilePath(frontMatter?.thumbnail)}
+            width="1024"
             height={"300"}
           />
         )}
@@ -140,7 +151,7 @@ export default function BlogPost({ frontMatter, mdxSource, large = false }) {
         </div>
         {/* Main Blog Content */}
         <div
-          className={`prose container mx-auto p-0  ${
+          className={`prose container mx-auto p-0  mb-40 ${
             large ? "max-w-screen-lg" : "max-w-screen-md"
           }`}
         >
