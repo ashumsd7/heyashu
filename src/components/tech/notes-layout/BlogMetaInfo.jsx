@@ -7,12 +7,11 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import { FaBookOpen } from "react-icons/fa";
 import { FaCalendar } from "react-icons/fa";
 // import { FcLike, FcLikePlaceholder } from "react-icons/fc";
-const NAMASTE_NODE_JS_CONTRIBUTION_LINK =
-  "https://github.com/ashumsd7/heyashu/tree/main/src/data/mardown/notes/namaste-node-js-s1-by-as";
 
 // import Share from "@/components/ui/Share";
 import dynamic from "next/dynamic";
 import Switch from "@/components/base/Switch";
+import { GITHUB_REPO_LINK } from "@/utils/constant";
 // import axios from "axios";
 const Share = dynamic(() => import("@/components/ui/Share"), { ssr: false });
 const BlogMetaInfo = ({ data }) => {
@@ -23,9 +22,10 @@ const BlogMetaInfo = ({ data }) => {
     publishedOn = "-",
     followLink = "https://github.com/ashumsd7/",
     showControls = true,
+    isQuicReadSettingOn = false,
     profilePic = "https://avatars.githubusercontent.com/u/40313523?v=4",
     title = "",
-    githubLink = NAMASTE_NODE_JS_CONTRIBUTION_LINK,
+    githubLink = GITHUB_REPO_LINK,
     isQuickReadModeOn,
     setIsQuickReadModeOn
   } = data;
@@ -55,7 +55,7 @@ const BlogMetaInfo = ({ data }) => {
 
   return (
     <>
-      <div className="flex items-center justify-between    py-4 my-4 px-6 ">
+      <div className="flex items-center justify-between    py-4 my-4  ">
         <div className="flex items-center">
           {!profilePic ? (
             <div className="w-10 h-10 bg-purple-600  text-white flex items-center justify-center rounded-full">
@@ -93,7 +93,7 @@ const BlogMetaInfo = ({ data }) => {
         </div>
       </div>
 
-      <div className="flex justify-end h-[44px] px-4 border-b border-t mx-6 p-6">
+      <div className="flex justify-end h-[44px] px-4 border-b border-t p-6">
         {showControls && (
           <div className="flex items-center space-x-6">
             {/* Heart Icon */}
@@ -121,14 +121,14 @@ const BlogMetaInfo = ({ data }) => {
             {/* <div className="flex items-center text-gray-600">
               <IoMdDownload />
             </div> */}
-            <div className="flex items-center text-gray-600">
+            {isQuicReadSettingOn && <div className="flex items-center text-gray-600">
               <Switch
                 isOn={isQuickReadModeOn}
                 handleToggle={() => {
                   setIsQuickReadModeOn(!isQuickReadModeOn);
                 }}
               />
-            </div>
+            </div>}
             {/* <div className="flex items-center text-gray-600">
               <BsThreeDotsVertical />
             </div> */}

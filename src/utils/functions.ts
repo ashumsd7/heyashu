@@ -6,7 +6,6 @@ export function scrollToTop() {
 }
 
 export function estimateReadingTime(paragraph, wordsPerMinute = 180) {
-  console.log("paragraph",paragraph);
   if(!paragraph)
     return 0
   // Split the paragraph into words
@@ -19,7 +18,7 @@ export function estimateReadingTime(paragraph, wordsPerMinute = 180) {
   const readingTime = wordCount / wordsPerMinute;
 
   // Return the reading time rounded to the nearest whole minute
-  return Math.ceil(readingTime);
+  return Math.ceil(readingTime/2);
 }
 
 // Example usage

@@ -19,7 +19,6 @@ const NotesMainPage = ({
   pageTitle,
   eachCardPrefix,
 }) => {
-  console.log("eachCardPrefix", eachCardPrefix);
   const router = useRouter();
   const episodes = useMemo(() => contentList);
   const [selectedSection, setSelectedSection] = useState(contentList[0]);

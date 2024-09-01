@@ -11,4 +11,11 @@ export const BEST_PHOTOS_LINK='https://photos.app.goo.gl/gtXG2yJaGU2t32h27'
 
 export const HOME_PAGE_TOUR_KEY='AAT-TOUR_DONE'
 
+export const GITHUB_REPO_LINK =
+  "https://github.com/ashumsd7/heyashu/";
+
+
+  export const DEFAULT_AVATAR='https://avatars.githubusercontent.com/u/40313523?v=4'
+  export const DEFAULT_FOLLOW_LINK='https://github.com/ashumsd7/'
+
 

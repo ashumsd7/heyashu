@@ -6,6 +6,8 @@ import { MDXRemote } from "next-mdx-remote";
 import Head from "next/head";
 import BlogMetaInfo from "@/components/tech/notes-layout/BlogMetaInfo";
 import { estimateReadingTime } from "@/utils/functions";
+import { DEFAULT_AVATAR, DEFAULT_FOLLOW_LINK } from "@/utils/constant";
+import dayjs from "dayjs";
 
 // Function to fetch the content of the blog post
 export async function getStaticProps({ params }) {
@@ -16,9 +18,7 @@ export async function getStaticProps({ params }) {
     "blog",
     `${params.slug}.md`
   );
-  console.log("filePath", filePath);
   const fileContents = fs.readFileSync(filePath, "utf-8");
-  console.log("fileContents", fileContents);
 
   const { data, content } = matter(fileContents);
   const mdxSource = await serialize(content);
@@ -51,16 +51,14 @@ export async function getStaticPaths() {
 
 // Component to render the blog post
 export default function BlogPost({ frontMatter, mdxSource, large = false }) {
-  console.log("mdxSource", mdxSource?.compiledSource);
-  console.log("frontMatter", frontMatter);
-
+  const formattedDate = dayjs(frontMatter?.date, 'DD-MM-YYYY').format('DD MMM, YYYY');
   return (
     <>
       <Head>
-        <title> Blogs by {frontMatter?.author}</title>
+        <title> Blog on {frontMatter?.title} by {frontMatter?.author} on heyashu.in by Ashutosh Anand Tiwari </title>
         <meta
           name="description"
-          content="Explore the latest blog posts by Ashutosh Anand Tiwari, covering topics like JavaScript, web development, and more."
+          content={`Explore the latest blog posts by ${frontMatter?.author}, on https://heyashu/in An open source blog writing platform by Ashutosh Anand Tiwari.`}
         />
         <meta
           name="keywords"
@@ -68,11 +66,11 @@ export default function BlogPost({ frontMatter, mdxSource, large = false }) {
         />
         <meta
           property="og:title"
-          content="Your Blogs Feed by Ashutosh Anand Tiwari"
+          content={`Read Blog  by ${frontMatter?.title}`}
         />
         <meta
           property="og:description"
-          content="Stay updated with the latest articles and blogs by Ashutosh Anand Tiwari on topics ranging from JavaScript to web development."
+          content={`Stay updated with the latest articles and blogs by ${frontMatter?.title} on multiple topics on https://heyashu/in An open source blog writing platform by Ashutosh Anand Tiwari.`}
         />
         <meta
           property="og:image"
@@ -82,11 +80,11 @@ export default function BlogPost({ frontMatter, mdxSource, large = false }) {
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content="Your Blogs Feed by Ashutosh Anand Tiwari"
+          content={`Read  Blog Feed by ${frontMatter?.title} on multiple topics on https://heyashu/in An open source blog writing platform by Ashutosh Anand Tiwari`}
         />
         <meta
           name="twitter:description"
-          content="Discover engaging blog posts by Ashutosh Anand Tiwari on various tech topics."
+          content={`Read  Blog Feed by ${frontMatter?.title} on multiple topics on https://heyashu/in An open source blog writing platform by Ashutosh Anand Tiwari`}
         />
         <meta
           name="twitter:image"
@@ -99,16 +97,21 @@ export default function BlogPost({ frontMatter, mdxSource, large = false }) {
           large ? "max-w-screen-lg" : "max-w-screen-md"
         }`}
       >
-        {/* Blog Hero Image */}
-        {/* {blogInfo?.heroImage && (
-          <Image alt={blogInfo?.title} src={blogInfo?.heroImage} width='300' height={'300'} />
-        )} */}
-
         {/* Blog Title */}
         {frontMatter?.title && (
-          <h2 className="text-black lg:text-[42px] text-2xl font-bold  md:text-center text-justify  mb-2 mt-10 md:mt-0    ">
+          <h2 className="text-black lg:text-[42px] text-2xl font-bold   text-justify  mb-2 mt-10 md:mt-0    ">
             {frontMatter?.title}
           </h2>
+        )}
+
+        {/* Blog Hero Image */}
+        {frontMatter?.thumbnail && (
+          <Image
+            alt={frontMatter?.title}
+            src={frontMatter?.thumbnail}
+            width="300"
+            height={"300"}
+          />
         )}
 
         {/* Blog Meta Info */}
@@ -116,14 +119,11 @@ export default function BlogPost({ frontMatter, mdxSource, large = false }) {
           <BlogMetaInfo
             data={{
               name: frontMatter?.author,
-              publishedOn: frontMatter?.date,
+              publishedOn: formattedDate,
               title: frontMatter.title,
               timeRead: estimateReadingTime(mdxSource?.compiledSource),
-              profilePic:
-                frontMatter.profilePic ||
-                "https://avatars.githubusercontent.com/u/40313523?v=4",
-              followLink:
-                frontMatter?.followLink || "https://github.com/ashumsd7/",
+              profilePic: frontMatter.profilePic || DEFAULT_AVATAR,
+              followLink: frontMatter?.followLink || DEFAULT_FOLLOW_LINK,
               metaInfo: [
                 {
                   name:
@@ -146,17 +146,6 @@ export default function BlogPost({ frontMatter, mdxSource, large = false }) {
           <MDXRemote {...mdxSource} />
         </div>
       </div>
-
-      {/* <div>
-        <h1>{frontMatter.title}</h1>
-        <div
-          className={`prose container mx-auto p-0  ${
-            large ? "max-w-screen-lg" : "max-w-screen-md"
-          }`}
-        >
-          <MDXRemote {...mdxSource} />
-        </div>
-      </div> */}
     </>
   );
 }
