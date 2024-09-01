@@ -33,7 +33,7 @@
         const intervalId = setInterval(function () {
           // Find the element with the class name 'Pane vertical Pane1'
           const targetElement = document.querySelector(".Pane.vertical.Pane1");
-          console.log("targetElement chekcing ",targetElement);
+          console.log("targetElement chekcing ", targetElement);
 
           // Check if the element is found and the warning is not already added
           if (targetElement && !document.getElementById("warning-div")) {
@@ -43,12 +43,26 @@
             // Create a new div element with warning styles
             const warningDiv = document.createElement("div");
             warningDiv.id = "warning-div"; // Set the ID to prevent duplication
-            warningDiv.style.backgroundColor = "yellow";
+            warningDiv.style.backgroundColor = "#dcf9cd";
             warningDiv.style.color = "black";
             warningDiv.style.padding = "10px";
             warningDiv.style.marginBottom = "10px";
-            warningDiv.textContent =
-              "⚠️ Warning: Ensure all content is accurate and reviewed before publishing.";
+            warningDiv.style.fontFamily = "math";
+            warningDiv.style.width = "95%";
+            warningDiv.style.borderRadius = "5px";
+            warningDiv.style.marginRight = "auto";
+            warningDiv.textContent = `Welcome to the Editor! 🌱    
+
+We're thrilled you're here to start growing your digital garden. Simply write your content below and save it. You've just planted the seed of a blog in our garden! 🌳
+
+A few tips:
+
+We'll beautifully format your name, links, and markdown. The preview on the right isn’t the final look.
+Structure your content in the markdown editor at the end and save.
+Remember the URL for future edits.
+Once you hit save, a pull request will be automatically created and merged within minutes. Your blog will go live at: https://heyashu.in/blog/your-blog-title.
+
+Thanks, and let’s get started! 🚀`;
 
             // Insert the warning div before the parent of the target element
             parentElement.parentNode.insertBefore(warningDiv, parentElement);
