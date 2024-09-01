@@ -1,4 +1,4 @@
-# 🌱 Open Source Digital Garden for develoers from developers 🌳
+# 🌱 Open Source Digital Garden  🌳
 
 Hello everyone! I'm **Ashutosh Anand Tiwari**, an experienced front-end developer currently exploring the world of Node.js backend development. This repository is my digital space where I share all aspects of my life—tech notes, blogs on technology, personal journeys, and much more.
 
