@@ -71,7 +71,7 @@ function BlogsPage() {
           </div>
           <div
             onClick={() => {
-              router.push("/blogs/how-to-write-blog");
+              router.push("/admin");
             }}
             className="flex items-center px-2 text-lg cursor-pointer py-1 gap-1 border-b-2 "
           >
