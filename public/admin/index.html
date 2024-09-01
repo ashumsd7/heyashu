@@ -33,13 +33,10 @@
         const intervalId = setInterval(function () {
           // Find the element with the class name 'Pane vertical Pane1'
           const targetElement = document.querySelector(".Pane.vertical.Pane1");
-         
 
           // Check if the element is found and the warning is not already added
           if (targetElement && !document.getElementById("warning-div")) {
-            // Get the parent of the target element
-            const parentElement = targetElement.parentElement;
-
+            console.log("Yes,",targetElement);
             // Create a new div element with warning styles
             const warningDiv = document.createElement("div");
             warningDiv.id = "warning-div"; // Set the ID to prevent duplication
@@ -64,8 +61,8 @@ Once you hit save, a pull request will be automatically created and merged withi
 
 Thanks, and let’s get started! 🚀`;
 
-            // Insert the warning div before the parent of the target element
-            parentElement.parentNode.insertBefore(warningDiv, parentElement);
+            // Insert the warning div as the first child of the target element
+            targetElement.insertBefore(warningDiv, targetElement.firstChild);
 
             // Clear the interval since the element is found and warning is added
             clearInterval(intervalId);
