@@ -8,6 +8,7 @@ import BlogMetaInfo from "@/components/tech/notes-layout/BlogMetaInfo";
 import { estimateReadingTime } from "@/utils/functions";
 import { DEFAULT_AVATAR, DEFAULT_FOLLOW_LINK } from "@/utils/constant";
 import dayjs from "dayjs";
+import Image from "next/image";
 
 // Function to fetch the content of the blog post
 export async function getStaticProps({ params }) {
