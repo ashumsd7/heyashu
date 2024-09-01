@@ -21,9 +21,13 @@ collections:
           date_format: "YYYY-MM-DD",
           format: "DD-MM-YYYY",
         }
-      - {label: "Featured Image", name: "thumbnail", widget: "image"}
+      - {label: "Featured Image", required: false, name: "thumbnail", widget: "image"}
       - {label: "Author", name: "author", widget: "string"}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Profile Picture URL", name: "profilePic", widget: "string"}
+      - {label: "Profile Click Redirect Link", name: "followLink", widget: "string"}
+      - {label: "Meta Info : Name", name: "metaName", required: false widget: "string"}
+      - {label: "Meta Content : Name", name: "metaContent", required: false, widget: "string"}
+      - {label: "Body", name: "body", widget: "markdown",}
      
           
        

@@ -6,6 +6,7 @@ export function scrollToTop() {
 }
 
 export function estimateReadingTime(paragraph, wordsPerMinute = 180) {
+  console.log("paragraph",paragraph);
   if(!paragraph)
     return 0
   // Split the paragraph into words
