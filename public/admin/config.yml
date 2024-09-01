@@ -1,0 +1,18 @@
+backend:
+  name: git-gateway
+  branch: feat/cms-v2 # or your main branch
+  repo: ashumsd7/heyashu
+
+media_folder: public/images # Where images will be stored
+public_folder: /images
+publish_mode: editorial_workflow
+
+collections:
+  - name: "blog"
+    label: "Blog"
+    folder: "content/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Body", name: "body", widget: "markdown"}
