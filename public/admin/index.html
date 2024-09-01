@@ -26,18 +26,34 @@
     <!-- Include the script that builds the page and powers Decap CMS -->
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 
-
     <script>
       // Ensure the script runs after Decap CMS loads
       window.addEventListener("DOMContentLoaded", function () {
-        console.log("DOMContentLoaded",);
+        console.log("DOMContentLoaded 12",);
         // Find the element with the class name 'cms-editor-visual'
-        const editorElement = document.querySelector('.cms-editor-visual');
-        console.log("editorElement",editorElement);
-        if (editorElement) {
+        setTimeout(function() {
+          // Find the element with the class name 'cms-editor-visual'
+          const editorElement = document.querySelector('.cms-editor-visual');
+          console.log("editorElement",editorElement);
+          if (editorElement) {
+            // Get the parent of the element
+            const parentElement = editorElement.parentElement;
+
+            // Create a new div element with warning styles
+            const warningDiv = document.createElement('div');
+            warningDiv.style.backgroundColor = 'yellow';
+            warningDiv.style.color = 'black';
+            warningDiv.style.padding = '10px';
+            warningDiv.style.marginBottom = '10px';
+            warningDiv.textContent = '⚠️ Warning: Ensure all content is accurate and reviewed before publishing.';
+
+            // Insert the warning div before the parent of the editor element
+            parentElement.parentNode.insertBefore(warningDiv, parentElement);
+          }
+        }, 10000); // 10000 milliseconds = 10 seconds
           // Get the parent of the element
           const parentElement = editorElement.parentElement;
-          
+
           // Create a new div element with warning styles
           const warningDiv = document.createElement('div');
           warningDiv.style.backgroundColor = 'yellow';
