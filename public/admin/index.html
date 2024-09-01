@@ -29,19 +29,20 @@
     <script>
       // Ensure the script runs after Decap CMS loads
       window.addEventListener("DOMContentLoaded", function () {
-        console.log("DOMContentLoaded 23");
-        // Set a timeout to delay execution by 10 seconds
-        setTimeout(function () {
-          console.log("in sto");
-          // Find the element with the class name 'cms-editor-visual'
-          const editorElement = document.querySelector(".cms-editor-visual");
-          console.log("in editorElement",editorElement);
-          if (editorElement) {
-            // Get the parent of the element
-            const parentElement = editorElement.parentElement;
+        // Set an interval to check every second (1000 milliseconds)
+        const intervalId = setInterval(function () {
+          // Find the element with the class name 'Pane vertical Pane1'
+          const targetElement = document.querySelector(".Pane.vertical.Pane1");
+          console.log("targetElement chekcing ",targetElement);
+
+          // Check if the element is found and the warning is not already added
+          if (targetElement && !document.getElementById("warning-div")) {
+            // Get the parent of the target element
+            const parentElement = targetElement.parentElement;
 
             // Create a new div element with warning styles
             const warningDiv = document.createElement("div");
+            warningDiv.id = "warning-div"; // Set the ID to prevent duplication
             warningDiv.style.backgroundColor = "yellow";
             warningDiv.style.color = "black";
             warningDiv.style.padding = "10px";
@@ -49,10 +50,13 @@
             warningDiv.textContent =
               "⚠️ Warning: Ensure all content is accurate and reviewed before publishing.";
 
-            // Insert the warning div before the parent of the editor element
+            // Insert the warning div before the parent of the target element
             parentElement.parentNode.insertBefore(warningDiv, parentElement);
+
+            // Clear the interval since the element is found and warning is added
+            clearInterval(intervalId);
           }
-        }, 10000); // 10000 milliseconds = 10 seconds
+        }, 1000); // 1000 milliseconds = 1 second
       });
     </script>
   </body>
