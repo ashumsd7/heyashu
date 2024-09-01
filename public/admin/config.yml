@@ -3,7 +3,6 @@ backend:
   branch: develop # Branch to update (optional; defaults to master)
 publish_mode: editorial_workflow
 
-  
 media_folder: public/images
 collections:
   - name: "blog" # Used in routes, e.g., /admin/collections/blog
@@ -12,22 +11,63 @@ collections:
     create: true # Allow users to create new documents in this collection
     slug: "" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter
-      - { label: "Title", name: "title", widget: "string", hint:'This will render on the top of the page as heading and will be used as slug' }
+      - {
+          label: "Title",
+          name: "title",
+          widget: "string",
+          hint:'This will render on the top of the page as heading and will be used as slug',
+        }
       - {
           label: "Publish Date",
           name: "date",
           widget: "datetime",
           time_format: false,
           date_format: "YYYY-MM-DD",
-        format: "DD-MM-YYYY",
+          format: "DD-MM-YYYY",
         }
-      - {label: "Blog Thumbnail Image", required: false, name: "thumbnail", widget: "image", hint:'This will appear on the top of the blog after title.'}
-      - {label: "Author", name: "author", widget: "string"}
-      - {label: "Profile Picture URL", name: "profilePic", widget: "string", hint:'This image will be shown in the profile picture  avatar.'}
-      - {label: "Follow Link ( When user clicks on follow button)", name: "followLink", widget: "string"}
-      - {label: "Meta Info : Name", name: "metaName", required: false, widget: "string"}
-      - {label: "Meta Content : Name", name: "metaContent", required: false, widget: "string"}
-      - {label: "Describe your content here", name: "body", widget: "markdown",}
+      - {
+          label: "Blog Thumbnail Image",
+          required: false,
+          name: "thumbnail",
+          widget: "image",
+          hint:'This will appear on the top of the blog after title.',
+        }
+      - { label: "Author", name: "author", widget: "string" }
+      - {
+          label: "Profile Picture URL",
+          name: "profilePic",
+          widget: "string",
+          hint:'This image will be shown in the profile picture  avatar.',
+        }
+      - {
+          label: "Follow Link ( When user clicks on follow button)",
+          name: "followLink",
+          widget: "string",
+        }
+      - {
+          label: "Meta Info : Name",
+          name: "metaName",
+          required: false,
+          widget: "string",
+        }
+      - {
+          label: "Meta Content : Name",
+          name: "metaContent",
+          required: false,
+          widget: "string",
+        }
+      - {
+          label: "Describe your content here",
+          name: "body",
+          widget: "markdown",
+        }
     preview_fields: ["title", "body"]
-          
-       
+    preview_template: "blog-post"
+
+preview_styles: ["https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"]
+preview_templates:
+  blog-post: |
+    <div class="max-w-3xl mx-auto p-6">
+      <h1 class="text-3xl font-bold mb-4">{{title}}</h1>
+      <div class="prose">{{body}}</div>
+    </div>
