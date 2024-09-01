@@ -19,5 +19,9 @@ collections:
           widget: "datetime",
           time_format: false,
           date_format: "YYYY-MM-DD",
-          format: "YYYY-MM-DD",
+          format: "DD-MM-YYYY",
         }
+        - {label: "Featured Image", name: "thumbnail", widget: "image"}
+        - { label: "Author", name: "author", widget: "string" }
+        - {label: "Body", name: "body", widget: "markdown"}
+        
