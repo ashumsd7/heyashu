@@ -1,6 +1,6 @@
 ---
 title: KANKHAR A FULL STACK FRAMEWORK
-date: 02-09-2024
+date: 09-02-2024
 thumbnail: /public/images/kanka.png
 author: A Nightowl of KANKHAR
 profilePic: https://cdn-icons-png.flaticon.com/512/188/188987.png
