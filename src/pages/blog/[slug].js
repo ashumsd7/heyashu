@@ -110,7 +110,7 @@ export default function BlogPost({ frontMatter, mdxSource, large = false }) {
       >
         {/* Blog Title */}
         {frontMatter?.title && (
-          <h3 className="md:text-5xl text-3xl text-[#130101] font-extrabold mb-6 font-sans">
+          <h3 className="md:text-5xl text-3xl text-[#130101] font-extrabold my-6 font-sans">
             {" "}
             {frontMatter?.title}
           </h3>
@@ -151,7 +151,7 @@ export default function BlogPost({ frontMatter, mdxSource, large = false }) {
         </div>
         {/* Main Blog Content */}
         <div
-          className={`prose container mx-auto p-0  mb-40 ${
+          className={`prose container mx-auto p-0  mb-28 ${
             large ? "max-w-screen-lg" : "max-w-screen-md"
           }`}
         >
