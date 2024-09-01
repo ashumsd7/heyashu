@@ -146,7 +146,7 @@ function Navbar() {
               )}
             </Link>
 
-            <div
+            {/* <div
               onClick={() => {
                 console.log("isSupportBtnActive");
                 setIsSupportBtnActive(true);
@@ -154,7 +154,7 @@ function Navbar() {
               className="md:text-xl text-base   font-mono relative bg-orange-500 px-4 cursor-pointer  font-extrabold rounded-2xl text-wrap text-white"
             >
               SUPPORT
-            </div>
+            </div> */}
           </div>
         </div>
         <hr />
