@@ -78,7 +78,7 @@ export default function BlogPost({ frontMatter, mdxSource, large = false }) {
         />
         <meta
           name="keywords"
-          content="Blogs, JavaScript, Web Development, Ashutosh Anand Tiwari, Programming, Writing"
+          content="Blogs, JavaScript, Web Development, Ashutosh Anand Tiwari, Programming, Writing, open source"
         />
         <meta
           property="og:title"
