@@ -9,7 +9,7 @@ media_folder: public/images/blogs
 collections:
   - name: "blog" # Used in routes, e.g., /admin/collections/blog
     label: "Blog" # Used in the UI
-    description: this is description
+    description: 🌱 Feel free to contribute! Write a new blog or edit an existing one if you spot any errors. As soon as you submit your changes, a pull request will be created. Once it’s merged, your update will go live on heyashu.in/blog/[your-blog-title] within minutes! 🚀 Let's grow this digital garden together! 🌿✨
     folder: "/src/content/blog" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     slug: "" # Filename template, e.g., YYYY-MM-DD-title.md
