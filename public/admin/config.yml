@@ -78,7 +78,6 @@ collections:
       <h1 class="text-3xl font-bold mb-4">{{title}}</h1>
       <div class="prose">{{body}}</div>
       </div>
-collections:
   - name: "namaste-node-js" # Used in routes, e.g., /admin/collections/blog
     label: "Namaste Node JS : Digital Notes" # Used in the UI
     description: Get the best-explained notes for each chapter of the Namaste Node.js course by Akshay Saini. These notes are written by Ashutosh and can be edited on GitHub.✨
