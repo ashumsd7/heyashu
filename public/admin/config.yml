@@ -34,7 +34,6 @@ collections:
           required: false,
           name: "thumbnail",
           widget: "image",
-
           hint: 'This will appear on the top of the blog after title . The right-side preview is not the final look of your uploaded content. We'll ensure it's properly formatted and displayed beautifully after deployment.',
         }
       - { label: "Author", name: "author", widget: "string" }
