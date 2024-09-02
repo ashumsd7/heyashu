@@ -2,20 +2,25 @@ backend:
   name: git-gateway
   branch: develop # Branch to update (optional; defaults to master)
 publish_mode: editorial_workflow
+site_url: https://heyashu.in
+logo_url: https://avatars.githubusercontent.com/u/40313523?v=4
 
 media_folder: public/images/blogs
 collections:
   - name: "blog" # Used in routes, e.g., /admin/collections/blog
     label: "Blog" # Used in the UI
+    description:'this is description'
     folder: "/src/content/blog" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     slug: "" # Filename template, e.g., YYYY-MM-DD-title.md
+    delete: false
     fields: # The fields for each document, usually in front matter
       - {
           label: "Title",
           name: "title",
           widget: "string",
-          hint:'This will render on the top of the page as heading and will be used as slug',
+          hint: 'This will render on the top of the page as heading and will be used as slug',
+           pattern: ['.{10,}', "Must have at least 10 characters"]
         }
       - {
           label: "Publish Date",
@@ -30,14 +35,14 @@ collections:
           required: false,
           name: "thumbnail",
           widget: "image",
-          hint:'This will appear on the top of the blog after title.',
+          hint: 'This will appear on the top of the blog after title.',
         }
       - { label: "Author", name: "author", widget: "string" }
       - {
           label: "Profile Picture URL",
           name: "profilePic",
-          widget: "string",
-          hint:'This image will be shown in the profile picture  avatar.',
+          widget: "image",
+          hint: 'This image will be shown in the profile picture  avatar.',
         }
       - {
           label: "Follow Link ( When user clicks on follow button)",
