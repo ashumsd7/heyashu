@@ -16,7 +16,7 @@ const BlogCard = ({ data }) => {
     minRead = "",
     tags = [],
     profilePic = DEFAULT_AVATAR,
-    thumbnail = DEFAULT_THUMBNAIL, // Default thumbnail image
+    thumbnail = '',
     followLink = DEFAULT_FOLLOW_LINK,
   } = data;
 

@@ -21,7 +21,7 @@ const BlogMetaInfo = ({ data }) => {
     timeRead = "0",
     lastUpdated = "-",
     publishedOn = "-",
-    followLink = "https://github.com/ashumsd7/",
+    followLink ,
     showControls = true,
     isQuicReadSettingOn = false,
     profilePic = "https://avatars.githubusercontent.com/u/40313523?v=4",
