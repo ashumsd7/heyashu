@@ -1,6 +1,13 @@
-
-## Syntax, Expression, and Statement in JavaScript
-
+---
+title: Syntax, Expression, and Statement in JavaScript
+date: 08-22-2024
+thumbnail: /public/images/blogs/Leaves.png
+author: Ashutosh Anand Tiwari
+profilePic: https://cdn-icons-png.flaticon.com/512/188/188987.png
+followLink: https://heyashu.in/blog/kankhar-a-full-stack-framework
+metaName: "Syntax, Expression, and Statement in JavaScript"
+metaContent: "Syntax, Expression, and Statement in JavaScript"
+---
 ![image.png](https://i.ibb.co/SB3Ts52/ex1.jpg)
 ### How do we communicate?
 
