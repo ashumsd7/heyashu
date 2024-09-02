@@ -22,7 +22,7 @@ collections:
           name: "date",
           widget: "datetime",
           time_format: false,
-          date_format: "YYYY-MM-DD",
+          date_format: "DD-MM-YYYY",
           format: "DD-MM-YYYY",
         }
       - {
