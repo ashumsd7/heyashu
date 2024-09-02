@@ -1,5 +1,5 @@
 ---
-title: Syntax, Expression, and Statement in JavaScript
+title: What are syntax and expressions in javascript
 date: 08-22-2024
 thumbnail: /public/images/blogs/Leaves.png
 author: Ashutosh Anand Tiwari
