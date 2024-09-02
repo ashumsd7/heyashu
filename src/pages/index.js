@@ -1,8 +1,33 @@
 import Head from "next/head";
 import MainPage from "@/components/Home/MainPage";
 import dynamic from "next/dynamic";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
+import { useState } from "react";
 const PageTour = dynamic(() => import("@/service/PageTour"), {ssr: false});
 export default function Home() {
+  const router = useRouter();
+  const [confirmationToken, setConfirmationToken] = useState(null);
+
+  useEffect(() => {
+    if (router.asPath.includes('confirmation_token')) {
+      const queryParams = new URLSearchParams(router.asPath.split('#')[1]);
+      const token = queryParams.get('confirmation_token');
+      setConfirmationToken(token);
+
+      
+
+    }
+  }, [router]);
+
+  if (confirmationToken) {
+    console.log('Confirmation Token:', confirmationToken);
+    router.push("/admin"+'#confirmation_token='+confirmationToken)
+    // Perform actions like redirecting
+  }
+  
+
+
   return (
     <>
       <Head>
@@ -46,6 +71,8 @@ export default function Home() {
           content="https://heyashu.in/_next/image?url=%2Fimages%2Fprofile.jpg&w=640&q=75"
         />
       </Head>
+
+
 
 
       <main className="">
