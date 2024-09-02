@@ -12,6 +12,7 @@ import { FaCalendar } from "react-icons/fa";
 import dynamic from "next/dynamic";
 import Switch from "@/components/base/Switch";
 import { GITHUB_REPO_LINK } from "@/utils/constant";
+import { ensureHttps } from "@/utils/functions";
 // import axios from "axios";
 const Share = dynamic(() => import("@/components/ui/Share"), { ssr: false });
 const BlogMetaInfo = ({ data }) => {
@@ -72,7 +73,7 @@ const BlogMetaInfo = ({ data }) => {
             <div className="flex items-center space-x-2">
               <span className="font-semibold text-gray-900">{name}</span>
               <a
-                href={followLink}
+                href={ensureHttps(followLink)}
                 target="_blank"
                 s
                 className="text-green-600 font-semibold cursor-pointer"

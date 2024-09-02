@@ -22,3 +22,12 @@ export function estimateReadingTime(paragraph, wordsPerMinute = 180) {
 }
 
 // Example usage
+
+
+export function ensureHttps(url) {
+  // Check if the URL starts with 'http://' or 'https://'
+  if (!/^https?:\/\//i.test(url)) {
+    return 'https://' + url;
+  }
+  return url;
+}

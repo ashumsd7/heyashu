@@ -3,6 +3,7 @@ import {
   DEFAULT_FOLLOW_LINK,
   DEFAULT_THUMBNAIL,
 } from "@/utils/constant";
+import { ensureHttps } from "@/utils/functions";
 import { useRouter } from "next/router";
 import React from "react";
 
@@ -50,13 +51,16 @@ const BlogCard = ({ data }) => {
           <div className="ml-3">
             <div className="font-semibold text-gray-900">
               {name}{" "}
-              <a
-                href={followLink}
+              <button
+                onClick={(e)=>{
+                  e.stopPropagation()
+                  window.open(ensureHttps(followLink), "_blank");
+                }}
                 target="_blank"
                 className="text-green-600 ml-2 font-semibold cursor-pointer"
               >
                 Follow
-              </a>
+              </button>
             </div>
             <div className="text-gray-500 text-xs">{writtenOn}</div>
           </div>
