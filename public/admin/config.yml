@@ -20,7 +20,6 @@ collections:
           name: "title",
           widget: "string",
           hint: 'This will render on the top of the page as heading and will be used as slug',
-           pattern: ['.{10,}', "Must have at least 10 characters"]
         }
       - {
           label: "Publish Date",
