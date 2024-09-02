@@ -6,9 +6,12 @@ site_url: https://heyashu.in
 logo_url: https://avatars.githubusercontent.com/u/40313523?v=4
 
 media_folder: public/images/blogs
+public_folder: "/images/uploads"
 collections:
   - name: "blog" # Used in routes, e.g., /admin/collections/blog
     label: "Blog" # Used in the UI
+    media_folder: "public/images/blogs"  # Specific media folder for Blog collection
+    public_folder: "/images/blogs"       # Public URL for Blog collection
     description: 🌱 Feel free to contribute! Write a new blog or edit an existing one if you spot any errors. As soon as you submit your changes, a pull request will be created. Once it’s merged, your update will go live on heyashu.in/blog/[your-blog-title] within minutes! 🚀 Let's grow this digital garden together! 🌿✨
     folder: "/src/content/blog" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
@@ -75,5 +78,83 @@ collections:
       <h1 class="text-3xl font-bold mb-4">{{title}}</h1>
       <div class="prose">{{body}}</div>
       </div>
+collections:
+  - name: "namaste-node-js" # Used in routes, e.g., /admin/collections/blog
+    label: "Namaste Node JS : Digital Notes" # Used in the UI
+    description: Get the best-explained notes for each chapter of the Namaste Node.js course by Akshay Saini. These notes are written by Ashutosh and can be edited on GitHub.✨
+    folder: "/src/content/notes-namaste-node-js" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    media_folder: "public/images/namaste-node-js"  # Specific media folder for Projects collection
+    public_folder: "/images/namaste-node-js"
+    slug: "" # Filename template, e.g., YYYY-MM-DD-title.md
+    delete: false
+    fields: # The fields for each document, usually in front matter
+      - {
+          label: "Title",
+          name: "title",
+          widget: "string",
+          hint: 'this is the sidebar episode name, will be used as slug ',
+          pattern: ['.{5,}', "Must have at least 5 characters"]
+        }
+         - {
+          label: "Page Title",
+          name: "name",
+          widget: "string",
+          hint: 'this is the name used for showing top of the page as heading different from the slug',
+          pattern: ['.{5,}', "Must have at least 5 characters"]
+        }
+      - {
+          label: "Publish Date",
+          name: "publishedOn",
+          widget: "datetime",
+          time_format: false,
+          date_format: "DD-MM-YYYY",
+          format: "DD-MM-YYYY",
+        }
+         - {
+          label: "Updated On",
+          name: "updatedOn",
+          widget: "datetime",
+          time_format: false,
+          date_format: "DD-MM-YYYY",
+          format: "DD-MM-YYYY",
+        }
+      - {
+          label: "Episode Thumbnail Image",
+          required: false,
+          name: "thumbnail",
+          widget: "image",
+          hint: 'This will appear on the top of the blog after title.',
+        }
+      - { label: "Author", name: "author", widget: "string" }
+      - {
+          label: "Profile Picture URL",
+          name: "profilePic",
+          widget: "image",
+          hint: 'This image will be shown in the profile picture  avatar.',
+        }
+      - {
+          label: "Follow Link ( When user clicks on follow button)",
+          name: "followLink",
+          widget: "string",
+        }
+      - {
+          label: "Meta Info : Name",
+          name: "metaName",
+          required: false,
+          widget: "string",
+        }
+      - {
+          label: "Meta Content : Name",
+          name: "metaContent",
+          required: false,
+          widget: "string",
+        }
+      - {
+          label: "Describe your content here",
+          name: "body",
+          widget: "markdown",
+        }
+    
 
 
