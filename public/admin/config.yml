@@ -115,14 +115,14 @@ collections:
           required: false,
           name: "thumbnail",
           widget: "image",
-          hint: 'This will appear on the top of the blog after title. The right-side preview is not the final look of your uploaded content. We'll ensure it's properly formatted and displayed beautifully after deployment.',
+          hint: 'This will appear on the top of the blog after title. The right-side preview is not the final look of your uploaded content. we will ensure its properly formatted and displayed beautifully after deployment.',
         }
       - { label: "Author", name: "author", widget: "string" }
       - {
           label: "Profile Picture URL",
           name: "profilePic",
           widget: "image",
-          hint: 'This image will be shown in the profile picture  avatar. The right-side preview is not the final look of your uploaded content. We'll ensure it's properly formatted and displayed beautifully after deployment.',
+          hint: 'This image will be shown in the profile picture  avatar. The right-side preview is not the final look of your uploaded content. we will ensure its properly formatted and displayed beautifully after deployment.',
         }
       - {
           label: "Follow Link ( When user clicks on follow button)",
