@@ -59,7 +59,19 @@ export default function BlogPost({ frontMatter, mdxSource, large = false }) {
     const newFilePath = filePath.replace("/public", "");
     return newFilePath;
   }
-  console.log("frontMatter",frontMatter);
+  function getImagePath(path) {
+    // Remove the 'public' part from the path
+    return path.replace(/^\/?public/, "");
+  }
+
+  const components = {
+    img: ({ src, alt, ...rest }) => {
+      // Adjust the path using the utility function
+      const adjustedSrc = getImagePath(src);
+      return <img src={adjustedSrc} alt={alt} layout="responsive" {...rest} />;
+    },
+  };
+
   return (
     <>
       <Head>
@@ -161,7 +173,7 @@ export default function BlogPost({ frontMatter, mdxSource, large = false }) {
             large ? "max-w-screen-lg" : "max-w-screen-md"
           }`}
         >
-          <MDXRemote {...mdxSource} />
+          <MDXRemote {...mdxSource} components={components} />
         </div>
       </div>
     </>
