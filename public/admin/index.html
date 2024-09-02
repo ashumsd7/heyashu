@@ -49,6 +49,10 @@
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 
     <script>
+      CMS.registerPreviewStyle("/example.css");
+    </script>
+
+    <script>
       // Ensure the script runs after Decap CMS loads
       window.addEventListener("DOMContentLoaded", function () {
         // Set an interval to check every second (1000 milliseconds)
