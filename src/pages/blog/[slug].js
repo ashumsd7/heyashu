@@ -59,6 +59,7 @@ export default function BlogPost({ frontMatter, mdxSource, large = false }) {
     const newFilePath = filePath.replace("/public", "");
     return newFilePath;
   }
+  console.log("frontMatter",frontMatter);
   return (
     <>
       <Head>
