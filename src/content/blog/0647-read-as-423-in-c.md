@@ -2,7 +2,7 @@
 title: 0647 read as 423 in C++
 date: 02-09-2024
 author: Yash Tiwari
-profilePic: https://drive.google.com/file/d/1m3vx6jMORlcG5KfaLj1zT_dp6PInVNqs/view?usp=drive_link
+profilePic: https://i.ibb.co/RCcW56y/yahs.png
 followLink: www.linkedin.com/in/yashArrived
 ---
 In C++, octal numbers play a crucial role in numerical representations. One intriguing aspect of octal numbers is the significance of leading zeros in their representation. While it might seem puzzling at first, the way C++ interprets these numbers carries underlying reasons that differentiate octal representations like 0467 from alternatives like 647. Let’s delve into the world of octal numbers in C++ and unravel why 0467 is considered as 423 while omitting the leading zero results in a different value.
