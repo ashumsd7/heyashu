@@ -96,7 +96,7 @@ collections:
           hint: 'this is the sidebar episode name, will be used as slug ',
           pattern: ['.{5,}', "Must have at least 5 characters"]
         }
-         - {
+      - {
           label: "Page Title",
           name: "name",
           widget: "string",
@@ -111,7 +111,7 @@ collections:
           date_format: "DD-MM-YYYY",
           format: "DD-MM-YYYY",
         }
-         - {
+      - {
           label: "Updated On",
           name: "updatedOn",
           widget: "datetime",
