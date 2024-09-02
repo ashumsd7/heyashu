@@ -37,7 +37,6 @@
           // Check if the element is found and the warning is not already added
           if (targetElement && !document.getElementById("warning-div")) {
             console.log("Yes,", targetElement);
-            
             // Create a new div element with warning styles
             const warningDiv = document.createElement("div");
             warningDiv.id = "warning-div"; // Set the ID to prevent duplication
@@ -48,24 +47,40 @@
             warningDiv.style.fontFamily = "math";
             warningDiv.style.width = "100%";
             warningDiv.style.borderRadius = "5px";
+            warningDiv.style.paddingLeft = "35px";
+            warningDiv.style.paddingRight = "16px";
+            warningDiv.style.paddingTop = "16px";
+            warningDiv.style.paddingBottom = "16px";
             warningDiv.style.marginRight = "auto";
-    
+            warningDiv.style.position = "relative";
+
             // Create the warning message content
             warningDiv.innerHTML = `
-              <p>Welcome to the Digital Garden! 🌱 You are going to be a gardener of this garden, and we are thrilled to have you here. 😊</p>
+              <button id="close-warning" style="position: absolute; top: 5px; right: 10px; background-color: transparent; border: none; font-size: 16px; cursor: pointer;">&times;</button>
+              <p style={
+              fontSize:'24px'
+              }>Welcome to the Digital Garden! 🌱 You are going to be a gardener of this garden, and we are thrilled to have you here. 😊</p>
               <p>Here are a few tips:</p>
               <ol>
                 <li>We will beautifully format your name, links, and markdown. The preview on the right isn’t the final look; it is just for your reference.</li>
                 <li>Structure your content in the markdown editor at the last field, where you can describe your content. After that, hit save.</li>
                 <li>Remember the URL for future edits. Here is your current URL: <a href="${window.location.href}" target="_blank">${window.location.href}</a>. Copy this for your reference.</li>
                 <li>Once you hit save, a pull request will be automatically created and merged within minutes. Your blog will go live at: <a href="https://heyashu.in/blog/your-blog-title" target="_blank">https://heyashu.in/blog/your-blog-title</a>.</li>
-                <li>For more information, contact us at <a href="https://topmate.io/aat/1148709/pay" target="_blank">https://topmate.io/aat/1148709/pay</a> or contribute to our repository here: <a href="https://github.com/ashumsd7/heyashu" target="_blank">https://github.com/ashumsd7/heyashu</a>.</li>
+                <li>For more information,  <a href="https://topmate.io/aat/1148709/pay" target="_blank">Click to contact for anything</a>.</li>
               </ol>
             `;
-    
+
             // Insert the warning div as the first child of the target element
             targetElement.insertBefore(warningDiv, targetElement.firstChild);
-    
+
+            // Add event listener to the close button
+            document
+              .getElementById("close-warning")
+              .addEventListener("click", function () {
+                warningDiv.style.display =
+                  warningDiv.style.display === "none" ? "block" : "none";
+              });
+
             // Clear the interval since the element is found and warning is added
             clearInterval(intervalId);
           }
