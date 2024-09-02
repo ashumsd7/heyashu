@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Content Management - Ashutosh Anand Tiwari's Blog</title>
+    <title>Content Management - heyashu Open Source Digital Garden</title>
     <meta
       name="description"
       content="Admin panel for managing Ashutosh Anand Tiwari's blog and digital notes."
@@ -33,10 +33,11 @@
         const intervalId = setInterval(function () {
           // Find the element with the class name 'Pane vertical Pane1'
           const targetElement = document.querySelector(".Pane.vertical.Pane1");
-
+    
           // Check if the element is found and the warning is not already added
           if (targetElement && !document.getElementById("warning-div")) {
-            console.log("Yes,",targetElement);
+            console.log("Yes,", targetElement);
+            
             // Create a new div element with warning styles
             const warningDiv = document.createElement("div");
             warningDiv.id = "warning-div"; // Set the ID to prevent duplication
@@ -48,27 +49,29 @@
             warningDiv.style.width = "100%";
             warningDiv.style.borderRadius = "5px";
             warningDiv.style.marginRight = "auto";
-            warningDiv.textContent = `Welcome to the Editor! 🌱    
-
-We're thrilled you're here to start growing your digital garden. Simply write your content below and save it. You've just planted the seed of a blog in our garden! 🌳
-
-A few tips:
-
-We'll beautifully format your name, links, and markdown. The preview on the right isn’t the final look.
-Structure your content in the markdown editor at the end and save.
-Remember the URL for future edits.
-Once you hit save, a pull request will be automatically created and merged within minutes. Your blog will go live at: https://heyashu.in/blog/your-blog-title.
-
-Thanks, and let’s get started! 🚀`;
-
+    
+            // Create the warning message content
+            warningDiv.innerHTML = `
+              <p>Welcome to the Digital Garden! 🌱 You are going to be a gardener of this garden, and we are thrilled to have you here. 😊</p>
+              <p>Here are a few tips:</p>
+              <ol>
+                <li>We will beautifully format your name, links, and markdown. The preview on the right isn’t the final look; it is just for your reference.</li>
+                <li>Structure your content in the markdown editor at the last field, where you can describe your content. After that, hit save.</li>
+                <li>Remember the URL for future edits. Here is your current URL: <a href="${window.location.href}" target="_blank">${window.location.href}</a>. Copy this for your reference.</li>
+                <li>Once you hit save, a pull request will be automatically created and merged within minutes. Your blog will go live at: <a href="https://heyashu.in/blog/your-blog-title" target="_blank">https://heyashu.in/blog/your-blog-title</a>.</li>
+                <li>For more information, contact us at <a href="https://topmate.io/aat/1148709/pay" target="_blank">https://topmate.io/aat/1148709/pay</a> or contribute to our repository here: <a href="https://github.com/ashumsd7/heyashu" target="_blank">https://github.com/ashumsd7/heyashu</a>.</li>
+              </ol>
+            `;
+    
             // Insert the warning div as the first child of the target element
             targetElement.insertBefore(warningDiv, targetElement.firstChild);
-
+    
             // Clear the interval since the element is found and warning is added
             clearInterval(intervalId);
           }
         }, 1000); // 1000 milliseconds = 1 second
       });
     </script>
+    
   </body>
 </html>
