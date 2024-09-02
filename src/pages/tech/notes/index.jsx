@@ -63,7 +63,7 @@ function AllNotesPage() {
           })}
           <div
             onClick={() => {
-              router.push("/blogs");
+              router.push("/blog");
             }}
             className="flex items-center px-2 text-lg cursor-pointer py-1 gap-1 border-b-2 "
           >

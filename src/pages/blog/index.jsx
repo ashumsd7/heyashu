@@ -72,7 +72,7 @@ function BlogsPage({ posts }) {
           property="og:image"
           content="https://heyashu.in/_next/image?url=%2Fimages%2Fprofile.jpg&w=640&q=75"
         />
-        <meta property="og:url" content="https://www.heyashu.com/blogs" />
+        <meta property="og:url" content="https://www.heyashu.com/blog" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
