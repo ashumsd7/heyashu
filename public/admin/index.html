@@ -44,31 +44,31 @@
             // Create a new div element with warning styles
             const warningDiv = document.createElement("div");
             warningDiv.id = "warning-div"; // Set the ID to prevent duplication
-            warningDiv.style.backgroundColor = "#dcf9cd";
-            warningDiv.style.color = "black";
-            warningDiv.style.padding = "10px";
-            warningDiv.style.marginBottom = "10px";
-            warningDiv.style.fontFamily = "math";
+            warningDiv.style.backgroundColor = "#f9f7d9";
+            warningDiv.style.color = "#2e3d49";
+            warningDiv.style.padding = "20px";
+            warningDiv.style.marginBottom = "15px";
+            warningDiv.style.fontFamily = "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif";
             warningDiv.style.width = "100%";
-            warningDiv.style.borderRadius = "5px";
-            warningDiv.style.paddingLeft = "35px";
-            warningDiv.style.paddingRight = "16px";
-            warningDiv.style.paddingTop = "16px";
-            warningDiv.style.paddingBottom = "16px";
-            warningDiv.style.marginRight = "auto";
+            warningDiv.style.borderRadius = "8px";
+            warningDiv.style.border = "1px solid #ddd";
+            warningDiv.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.1)";
             warningDiv.style.position = "relative";
+            warningDiv.style.lineHeight = "1.6";
+            warningDiv.style.fontSize = "16px";
     
             // Create the warning message content
             warningDiv.innerHTML = `
-              <button id="close-warning" style="position: absolute; top: 5px; right: 10px; background-color: transparent; border: none; font-size: 16px; cursor: pointer;">&times;</button>
-              <p id="heading" style="font-size:24px;">Welcome to the Digital Garden! 🌱 You are going to be a gardener of this garden, and we are thrilled to have you here. 😊</p>
-              <p>Here are a few tips:</p>
-              <ol>
+              <button id="close-warning" style="position: absolute; top: 10px; right: 15px; background-color: #f44336; color: white; border: none; border-radius: 50%; font-size: 16px; width: 24px; height: 24px; cursor: pointer;">&times;</button>
+              <h2 style="font-size: 24px; font-weight: bold; margin-bottom: 10px;">Welcome to the Digital Garden! 🌱</h2>
+              <p>You are going to be a gardener of this garden, and we are thrilled to have you here. 😊</p>
+              <p style="font-size: 18px; font-weight: bold; margin-top: 15px;">Here are a few tips:</p>
+              <ol style="padding-left: 20px;">
                 <li>We will beautifully format your name, links, and markdown. The preview on the right isn’t the final look; it is just for your reference.</li>
                 <li>Structure your content in the markdown editor at the last field, where you can describe your content. After that, hit save.</li>
-                <li>Remember the URL for future edits. Here is your current URL: <a href="${window.location.href}" target="_blank">${window.location.href}</a>. Copy this for your reference.</li>
-                <li>Once you hit save, a pull request will be automatically created and merged within minutes. Your blog will go live at: <a href="https://heyashu.in/blog/your-blog-title" target="_blank">https://heyashu.in/blog/your-blog-title</a>.</li>
-                <li>For more information, <a href="https://topmate.io/aat/1148709/pay" target="_blank">Click to contact for anything</a>.</li>
+                <li>Remember the URL for future edits. Here is your current URL: <a href="${window.location.href}" target="_blank" style="color: #1e88e5;">${window.location.href}</a>. Copy this for your reference.</li>
+                <li>Once you hit save, a pull request will be automatically created and merged within minutes. Your blog will go live at: <a href="https://heyashu.in/blog/your-blog-title" target="_blank" style="color: #1e88e5;">https://heyashu.in/blog/your-blog-title</a>.</li>
+                <li>For more information, <a href="https://topmate.io/aat/1148709/pay" target="_blank" style="color: #1e88e5;">Click to contact for anything</a>.</li>
               </ol>
             `;
     
@@ -79,7 +79,6 @@
             document.getElementById("close-warning").addEventListener("click", function () {
               warningDiv.style.display = warningDiv.style.display === "none" ? "block" : "none";
             });
-            document.getElementById("heading").style.fontSize='24px'
     
             // Clear the interval since the element is found and warning is added
             clearInterval(intervalId);
@@ -87,6 +86,7 @@
         }, 1000); // 1000 milliseconds = 1 second
       });
     </script>
+    
     
     
   </body>
