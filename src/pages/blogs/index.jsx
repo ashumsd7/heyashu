@@ -8,8 +8,48 @@ import { useRouter } from "next/router";
 import React from "react";
 import { FaExternalLinkAlt } from "react-icons/fa";
 
-function BlogsPage() {
-  const router =useRouter()
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
+
+export async function getStaticProps() {
+  // Define the directory containing your markdown files
+  const directory = path.join(process.cwd(), "src/content/blog");
+
+  // Get file names from the directory
+  const filenames = fs.readdirSync(directory);
+
+  // Loop through each file and read its content and metadata
+  const posts = filenames.map((filename) => {
+    // Read markdown file as string
+    const fileContent = fs.readFileSync(
+      path.join(directory, filename),
+      "utf-8"
+    );
+
+    // Parse the markdown content and extract front matter
+    const { data: frontMatter, content } = matter(fileContent);
+
+    console.log("frontMatter", frontMatter);
+
+    return {
+      frontMatter,
+      content,
+      slug: filename.replace(".md", ""),
+    };
+  });
+
+  // Return the posts as props
+  return {
+    props: {
+      posts,
+    },
+  };
+}
+
+function BlogsPage({ posts }) {
+  const router = useRouter();
+  console.log("posts",posts);
   return (
     <>
       <Head>
@@ -51,11 +91,12 @@ function BlogsPage() {
       </Head>
 
       <div className="  mt-0 flex flex-col gap-4 px-2 items-center">
-        <h1 className="lg:text-4xl flex justify-between items-center text-2xl font-extrabold    relative  py-2 rounded-lg to-[#EFEFF1]  text-gray-800 md:text-left font-serif "> Blogs Feed
+        <h1 className="lg:text-4xl flex justify-between items-center text-2xl font-extrabold    relative  py-2 rounded-lg to-[#EFEFF1]  text-gray-800 md:text-left font-serif ">
+          {" "}
+          Blogs Feed
         </h1>
-        {/* <BlogsFilter />
-         */}
-         <div className=" flex gap-2 justify-start  md:mx-32 mx-0 mr-auto ">
+      
+        <div className=" flex gap-2 justify-start  md:mx-32 mx-0 mr-auto ">
           {BLOG_FILTERS?.map((item) => {
             return (
               <div className="flex items-center text-lg px-2 font-bold py-1 border-b-4 border-black ">
@@ -81,8 +122,8 @@ function BlogsPage() {
           </div>
         </div>
         <div className="  h-screen flex flex-col gap-4 items-center w-full">
-          {ALL_BLOGS_DATA?.map((item) => {
-            return <BlogCard data={item} />;
+          {posts?.map((post) => {
+            return <BlogCard data={post?.frontMatter} />;
           })}
         </div>
       </div>

@@ -219,12 +219,12 @@ const MobileNaveBar = ({ isOpen, setIsOpen, activePath }) => {
           )}
         </Link>
         <Link
-          href="/blogs"
+          href="/blog"
           onClick={toggleMenu}
           className="text-2xl py-2 font-semibold border-b-2"
         >
           Blogs
-          {activePath == "blogs" && (
+          {activePath == "blog" && (
             <LuMousePointerClick className="inline text-orange-600 ml-2" />
           )}
         </Link>

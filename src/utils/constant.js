@@ -15,7 +15,8 @@ export const GITHUB_REPO_LINK =
   "https://github.com/ashumsd7/heyashu/";
 
 
-  export const DEFAULT_AVATAR='https://avatars.githubusercontent.com/u/40313523?v=4'
+  export const DEFAULT_AVATAR='https://i.ibb.co/Tm9qVjp/plant.png'
+  export const DEFAULT_THUMBNAIL='https://via.placeholder.com/150'
   export const DEFAULT_FOLLOW_LINK='https://github.com/ashumsd7/'
 
 
