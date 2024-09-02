@@ -16,6 +16,12 @@
       span[class*="PublishButton"] {
         display: none;
       }
+      button[class*="AppHeaderButton-button-buttonActive"] {
+        display: none;
+      }
+      button[class*="DeleteButton-button-default-disabled-button-lightRed"] {
+        display: none;
+      }
       body {
         background-color: #f0f0f0;
         font-family: Arial, sans-serif;
@@ -33,14 +39,14 @@
         const intervalId = setInterval(function () {
           // Find the element with the class name 'Pane vertical Pane1'
           const targetElement = document.querySelector(".Pane.vertical.Pane1");
-    
+
           // Check if the element is found and the warning is not already added
           if (targetElement && !document.getElementById("warning-div")) {
             console.log("Yes,", targetElement);
-    
+
             // Find the second div element within the target element
-            const secondDivElement = targetElement.querySelectorAll('div')[1];
-    
+            const secondDivElement = targetElement.querySelectorAll("div")[1];
+
             // Create a new div element with warning styles
             const warningDiv = document.createElement("div");
             warningDiv.id = "warning-div"; // Set the ID to prevent duplication
@@ -48,7 +54,8 @@
             warningDiv.style.color = "#2e3d49";
             warningDiv.style.padding = "20px";
             warningDiv.style.marginBottom = "15px";
-            warningDiv.style.fontFamily = "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif";
+            warningDiv.style.fontFamily =
+              "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif";
             warningDiv.style.width = "100%";
             warningDiv.style.borderRadius = "8px";
             warningDiv.style.border = "1px solid #ddd";
@@ -56,7 +63,7 @@
             warningDiv.style.position = "relative";
             warningDiv.style.lineHeight = "1.6";
             warningDiv.style.fontSize = "16px";
-    
+
             // Create the warning message content
             warningDiv.innerHTML = `
               <button id="close-warning" style="position: absolute; top: 10px; right: 15px; background-color: #f44336; color: white; border: none; border-radius: 50%; font-size: 16px; width: 24px; height: 24px; cursor: pointer;">&times;</button>
@@ -71,23 +78,26 @@
                 <li>For more information, <a href="https://topmate.io/aat/1148709/pay" target="_blank" style="color: #1e88e5;">Click to contact for anything</a>.</li>
               </ol>
             `;
-    
+
             // Insert the warning div as the first child of the second div element
-            secondDivElement.insertBefore(warningDiv, secondDivElement.firstChild);
-    
+            secondDivElement.insertBefore(
+              warningDiv,
+              secondDivElement.firstChild
+            );
+
             // Add event listener to the close button
-            document.getElementById("close-warning").addEventListener("click", function () {
-              warningDiv.style.display = warningDiv.style.display === "none" ? "block" : "none";
-            });
-    
+            document
+              .getElementById("close-warning")
+              .addEventListener("click", function () {
+                warningDiv.style.display =
+                  warningDiv.style.display === "none" ? "block" : "none";
+              });
+
             // Clear the interval since the element is found and warning is added
             clearInterval(intervalId);
           }
         }, 1000); // 1000 milliseconds = 1 second
       });
     </script>
-    
-    
-    
   </body>
 </html>
