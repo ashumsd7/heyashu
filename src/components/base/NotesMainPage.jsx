@@ -163,7 +163,7 @@ const NotesMainPage = ({
               </div>
 
               {currentPageFrontMatter?.thumbnail && (
-                <Image
+                <img
                   className="my-6"
                   alt={currentPageFrontMatter?.title}
                   src={
