@@ -11,6 +11,7 @@ const NotesSidebar = ({
   storedValues,
   selectedSection,
 }) => {
+  console.log("data",data);
   return (
     <div className="w-[1/4]  lg:block hidden  pb-[200px] h-full shadow-2xl  fixed ">
       <div className="flex justify-center  mb-4  rounded-xl px-4">

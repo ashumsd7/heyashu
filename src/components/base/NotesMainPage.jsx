@@ -3,25 +3,31 @@ import NotesSidebar from "@/components/tech/notes-layout/NotesSidebar";
 import NotesChips from "@/components/tech/notes-layout/NotesChips";
 import NotesContentTopBar from "@/components/tech/notes-layout/NotesContentTopBar";
 import NotesContent from "@/components/tech/notes-layout/NotesContent";
-import { estimateReadingTime, generateSlug, scrollToTop } from "@/utils/functions";
+import {
+  estimateReadingTime,
+  generateSlug,
+  scrollToTop,
+} from "@/utils/functions";
 import ls from "local-storage";
 import BlogMetaInfo from "@/components/tech/notes-layout/BlogMetaInfo";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import Button from "./Button";
+import Image from "next/image";
 
 const NotesMainPage = ({
   matchingMDXConfig,
-  contentList,
+  contentList=[],
   storageKey,
   metaInfo,
   contentListTitle,
   pageTitle,
   eachCardPrefix,
-  msxSource
+  msxSource,
 }) => {
   const router = useRouter();
-  const episodes = useMemo(() => contentList);
+console.log("contentList",contentList);
+  const [episodes, setEpisodes] = useState(contentList);
   const [selectedSection, setSelectedSection] = useState(contentList[0]);
   3;
   const [markdownContent, setMarkdownContent] = useState(`### Please Wait...`);
@@ -29,12 +35,16 @@ const NotesMainPage = ({
   const [isQuickReadModeOn, setIsQuickReadModeOn] = useState(false);
   const [progress, setProgress] = useState(0);
 
+  console.log("selectedSection",selectedSection);
+  console.log("episodes",episodes);
+
   const STORAGE_KEY = storageKey;
   const handleSectionClick = (section) => {
-   const slug= generateSlug(section?.title)
-   console.log('slug',slug);
+    console.log("section",section);
+    const slug = generateSlug(section?.title);
+    console.log("slug", slug);
     // router.push("#" + section?.name);
-      router.push("/digital-notes/namaste-node-js/" + slug);
+    router.push("/digital-notes/namaste-node-js/" + slug);
 
     const storageValue = ls.get(STORAGE_KEY);
     const updatedStorage = {
@@ -56,7 +66,13 @@ const NotesMainPage = ({
   }
 
   function fetchMarkdown() {
-    return msxSource
+    return msxSource;
+  }
+
+  
+  function changeFilePath(filePath) {
+    const newFilePath = filePath.replace("/public", "");
+    return newFilePath;
   }
 
   useEffect(() => {
@@ -97,7 +113,7 @@ const NotesMainPage = ({
 
       <div className="max-w-screen-xl">
         <NotesChips
-          data={episodes}
+          data={contentList}
           handleChipClick={handleSectionClick}
           progress={progress}
           storedValues={savedStorage}
@@ -108,7 +124,7 @@ const NotesMainPage = ({
         <div className="flex h-[93vh] gap-10">
           {isSidebarVisible && (
             <NotesSidebar
-              data={episodes}
+              data={contentList}
               onSectionClick={handleSectionClick}
               progress={progress}
               selectedSection={selectedSection}
@@ -127,8 +143,9 @@ const NotesMainPage = ({
               setIsSidebarVisible={setIsSidebarVisible}
               isQuickReadModeOn={isQuickReadModeOn}
               setIsQuickReadModeOn={setIsQuickReadModeOn}
-              title={selectedSection?.title || selectedSection?.name}
+              title={selectedSection?.name || selectedSection?.title}
             />
+
 
             <div className="flex-1 bg-white  ">
               <div className="px-2">
@@ -138,12 +155,25 @@ const NotesMainPage = ({
                     timeRead: estimateReadingTime(markdownContent),
                     publishedOn: selectedSection?.publishedOn,
                     name: "Ashutosh Anand Tiwari",
-                    title: selectedSection?.title || selectedSection?.title,
+                    title: selectedSection?.name || selectedSection?.title,
                     isQuickReadModeOn: isQuickReadModeOn,
                     setIsQuickReadModeOn: setIsQuickReadModeOn,
                   }}
                 />
               </div>
+
+
+              
+            {selectedSection?.thumbnail && (
+              <Image  className="my-6"
+                alt={selectedSection?.title}
+                src={changeFilePath(selectedSection?.thumbnail)}
+                width="1024"
+                height={"300"}
+              />
+            )}
+
+
               {isQuickReadModeOn ? (
                 <div className="flex flex-col gap-4 justify-center items-center mt-10  font-semibold">
                   <h2 className="text-2xl">I am writing this feature !!!</h2>

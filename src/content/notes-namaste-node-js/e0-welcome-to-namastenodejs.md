@@ -11,7 +11,7 @@ profilePic: /public/images/blogs/pfp2.png
 followLink: https://github.com/ashumsd7
 ---
 
-![image.png](https://i.ibb.co/2MJPG76/1.jpg)
+
 
 Watch [Namaste JavaScript](https://namastedev.com/learn/namaste-javascript) its Free
 
@@ -24,6 +24,8 @@ https://nodejs.org/en
 Its a JS runtime  built on top of chrome v8 JS Engine. Node JS is Cross Platform ( Can run on different type of systems) , Open Source: Code is Open and Managed by Open JS Foundation ( Organization)
  and it **executes JavaScript outside the web browsers**. Node JS has an **event driven architecture ( will discuss later)** and capable of **Asynchronous / non blocking I/O**
 
+
+![image.png](https://i.ibb.co/2MJPG76/1.jpg)
 ## History of NodeJS
 ### 2009:  Node JS born
 First version came in 2009

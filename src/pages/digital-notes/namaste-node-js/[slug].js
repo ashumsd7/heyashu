@@ -1,7 +1,7 @@
 import React from "react";
 import NotesMainPage from "@/components/base/NotesMainPage";
 import { matchingMDXForNamasteNodeJsS1 } from "@/data/note/namaste-node-js-s1/markdown-config";
-import { contentListForNamasteNodeJsS1 } from "@/data/note/namaste-node-js-s1/content-list";
+// import { contentListForNamasteNodeJsS1 } from "@/data/note/namaste-node-js-s1/content-list";
 import { metaTagsForNamasteNodeJsS1 } from "@/data/note/namaste-node-js-s1/meta-tags";
 import {
   CONTENT_LIST_TITLE,
@@ -15,7 +15,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { serialize } from "next-mdx-remote/serialize";
 
-const NotesDetailPage = ({ notes, currentPageFrontMatter,currentPageMDX }) => {
+const NotesDetailPage = ({ notes, currentPageFrontMatter, currentPageMDX }) => {
   const [contentList, setContentList] = useState([]);
 
   console.log("notes", notes);
@@ -27,7 +27,13 @@ const NotesDetailPage = ({ notes, currentPageFrontMatter,currentPageMDX }) => {
       id: item.frontMatter.episode || index, // Use episode number or fallback to index
       episode: item.frontMatter.episode,
       title: item.frontMatter.title || item.frontMatter.name, // Use title if available, otherwise use name
+      profilePic: item.frontMatter.profilePic,
+      followLink: item.frontMatter.followLink,
+      author: item.frontMatter.author,
+      tags: item.frontMatter.tags,
       name: item.frontMatter.name,
+      updatedOn: item.frontMatter.updatedOn,
+      thumbnail: item.frontMatter.thumbnail,
       publishedOn: item.frontMatter.publishedOn || "Coming Soon", // Default to 'Coming Soon' if not available
     }));
     console.log("arr", list);

@@ -125,8 +125,8 @@ const wrapper = [
 
 ### Tips
 
-1. Open any GitHub repository and press the `.` (full stop) key on your keyboard to open it in a VS Code-like editor directly in your browser.
-2. Alternatively, add `1s` before the URL in the repository link to open it in a browser-based editor. For example, <https://github1s.com/>.
+1. Open any GitHub repository and press the . (full stop) key on your keyboard to open it in a VS Code-like editor directly in your browser.
+2. Alternatively, add 1s before the URL in the repository link to open it in a browser-based editor. For example, https://github1s.com/.
 
 - - -
 
