@@ -59,6 +59,8 @@ const NotesMainPage = ({
     return storageValue
       ? Object.values(storageValue).filter((value) => value === true).length
       : 0;
+
+    
   }
 
   // for changing file path just removing public , because its not required
