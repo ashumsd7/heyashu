@@ -37,6 +37,7 @@ collections:
           hint: 'This will appear on the top of the blog after title.',
         }
       - { label: "Author", name: "author", widget: "string" }
+      - { label: "Tags", name: "tags", widget: "string", hint: 'Add tags comma separated example : JavaScript, Web, Web Development, that can be used seo purpose also in the ui for category.' }
       - {
           label: "Profile Picture URL",
           name: "profilePic",
@@ -116,6 +117,7 @@ collections:
           hint: 'This will appear on the top of the blog after title. The right-side preview is not the final look of your uploaded content. we will ensure its properly formatted and displayed beautifully after deployment.',
         }
       - { label: "Author", name: "author", widget: "string" }
+      - { label: "Tags", name: "tags", widget: "string", hint: 'Add tags comma separated For example : JavaScript, Web, Web Development , that can be used seo purpose also in the ui for category.' }
       - {
           label: "Profile Picture URL",
           name: "profilePic",
