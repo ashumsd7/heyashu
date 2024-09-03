@@ -21,7 +21,6 @@ export default function Home() {
   }, [router]);
 
   if (confirmationToken) {
-    console.log('Confirmation Token:', confirmationToken);
     router.push("/admin"+'#confirmation_token='+confirmationToken)
     // Perform actions like redirecting
   }

@@ -3,34 +3,48 @@ import NotesSidebar from "@/components/tech/notes-layout/NotesSidebar";
 import NotesChips from "@/components/tech/notes-layout/NotesChips";
 import NotesContentTopBar from "@/components/tech/notes-layout/NotesContentTopBar";
 import NotesContent from "@/components/tech/notes-layout/NotesContent";
-import { estimateReadingTime, scrollToTop } from "@/utils/functions";
+import {
+  estimateReadingTime,
+  generateSlug,
+  reverseSlug,
+  scrollToTop,
+} from "@/utils/functions";
 import ls from "local-storage";
 import BlogMetaInfo from "@/components/tech/notes-layout/BlogMetaInfo";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import Button from "./Button";
+import Image from "next/image";
+import { CONNECT_LINK_TOPMATE } from "@/utils/constant";
+import dayjs from "dayjs";
+import customParseFormat from "dayjs/plugin/customParseFormat";
+dayjs.extend(customParseFormat);
 
 const NotesMainPage = ({
-  matchingMDXConfig,
-  contentList,
+  contentList = [],
   storageKey,
   metaInfo,
   contentListTitle,
   pageTitle,
   eachCardPrefix,
+  msxSource,
+  currentPageFrontMatter,
+  contentListLength
 }) => {
   const router = useRouter();
-  const episodes = useMemo(() => contentList);
-  const [selectedSection, setSelectedSection] = useState(contentList[0]);
-  3;
-  const [markdownContent, setMarkdownContent] = useState(`### Please Wait...`);
+  const [episodes, _setEpisodes] = useState(contentList);
+  const [selectedSection, setSelectedSection] = useState(
+    currentPageFrontMatter
+  );
+  const [markdownContent, _setMarkdownContent] = useState(`### Please Wait...`);
   const [isSidebarVisible, setIsSidebarVisible] = useState(true);
   const [isQuickReadModeOn, setIsQuickReadModeOn] = useState(false);
   const [progress, setProgress] = useState(0);
 
   const STORAGE_KEY = storageKey;
   const handleSectionClick = (section) => {
-    router.push("#" + section?.name);
+    const slug = generateSlug(section?.title);
+    router.push("/digital-notes/namaste-node-js/" + slug);
     const storageValue = ls.get(STORAGE_KEY);
     const updatedStorage = {
       ...storageValue,
@@ -38,9 +52,6 @@ const NotesMainPage = ({
     };
     ls.set(STORAGE_KEY, updatedStorage);
     scrollToTop();
-    setSelectedSection(section);
-
-    // Replace with actual content based on section
   };
 
   function countTrueValues() {
@@ -48,37 +59,46 @@ const NotesMainPage = ({
     return storageValue
       ? Object.values(storageValue).filter((value) => value === true).length
       : 0;
+
+    
   }
 
-  function fetchMarkdown(fileName) {
-    setMarkdownContent(matchingMDXConfig[fileName]);
+  // for changing file path just removing public , because its not required
+  function changeFilePath(filePath) {
+    const newFilePath = filePath.replace("/public", "");
+    return newFilePath;
   }
 
   useEffect(() => {
-    const totalCount = contentList?.length;
+    const totalCount = contentListLength;
     const trueCount = countTrueValues();
     const percentage = Math.round((trueCount / totalCount) * 100);
-    const res = percentage.toFixed(2);
+    const res = percentage == 100 ? 100 : percentage.toFixed(2);
     setProgress(res);
-    fetchMarkdown("e" + selectedSection?.episode);
-  }, [selectedSection]);
+  }, [currentPageFrontMatter]);
 
+  // Todo: Not working needs to be fixed
   useEffect(() => {
-    if (window.location.hash) {
-      const hash = decodeURIComponent(window.location.hash);
-      const section = contentList.find(
-        (item) => item.name === hash.split("#")[1]
-      );
-      setSelectedSection(section || contentList[0]);
-    }
+    const { slug } = router.query;
+    const matchedEpisode = contentList?.findIndex((episode) => {
+      return episode?.title?.toLowerCase() == reverseSlug(slug);
+    });
+    setSelectedSection(matchedEpisode || contentList[1]);
   }, []);
 
   const savedStorage = ls.get(STORAGE_KEY);
+
+  // format publish date
+  const formattedDate = dayjs(
+    currentPageFrontMatter?.publishedOn,
+    "DD-MM-YYYY"
+  ).format("DD MMM, YYYY");
+
   return (
     <>
       <Head>
         <title>
-          {selectedSection?.name} : {pageTitle}{" "}
+          {currentPageFrontMatter?.name} : {pageTitle}{" "}
         </title>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -92,7 +112,7 @@ const NotesMainPage = ({
 
       <div className="max-w-screen-xl">
         <NotesChips
-          data={episodes}
+          data={contentList}
           handleChipClick={handleSectionClick}
           progress={progress}
           storedValues={savedStorage}
@@ -103,10 +123,10 @@ const NotesMainPage = ({
         <div className="flex h-[93vh] gap-10">
           {isSidebarVisible && (
             <NotesSidebar
-              data={episodes}
+              data={contentList}
               onSectionClick={handleSectionClick}
               progress={progress}
-              selectedSection={selectedSection}
+              selectedSection={currentPageFrontMatter}
               storedValues={ls.get(STORAGE_KEY)}
               eachCardPrefix={eachCardPrefix}
               contentListTitle={contentListTitle}
@@ -122,32 +142,44 @@ const NotesMainPage = ({
               setIsSidebarVisible={setIsSidebarVisible}
               isQuickReadModeOn={isQuickReadModeOn}
               setIsQuickReadModeOn={setIsQuickReadModeOn}
-              title={selectedSection?.title || selectedSection?.name}
+              title={
+                currentPageFrontMatter?.name || currentPageFrontMatter?.title
+              }
             />
 
             <div className="flex-1 bg-white  ">
-              <div className="px-2">
+              <div className="">
                 <BlogMetaInfo
                   large
                   data={{
                     timeRead: estimateReadingTime(markdownContent),
-                    publishedOn: selectedSection?.publishedOn,
-                    name: "Ashutosh Anand Tiwari",
-                    title: selectedSection?.title || selectedSection?.title,
+                    publishedOn: formattedDate,
+                    name: currentPageFrontMatter?.author || "Anonymous user",
+                    title:
+                      currentPageFrontMatter?.name ||
+                      currentPageFrontMatter?.title,
                     isQuickReadModeOn: isQuickReadModeOn,
                     setIsQuickReadModeOn: setIsQuickReadModeOn,
                   }}
                 />
               </div>
+
+              {currentPageFrontMatter?.thumbnail && (
+                <Image
+                  className="my-6"
+                  alt={currentPageFrontMatter?.title}
+                  src={changeFilePath(currentPageFrontMatter?.thumbnail)}
+                  width="1024"
+                  height={"300"}
+                />
+              )}
+
               {isQuickReadModeOn ? (
                 <div className="flex flex-col gap-4 justify-center items-center mt-10  font-semibold">
                   <h2 className="text-2xl">I am writing this feature !!!</h2>
                   <Button
                     onClick={() => {
-                      window.open(
-                        "https://topmate.io/aat/1148709/pay",
-                        "_blank"
-                      );
+                      window.open(CONNECT_LINK_TOPMATE, "_blank");
                     }}
                     className=""
                   >
@@ -155,7 +187,7 @@ const NotesMainPage = ({
                   </Button>
                 </div>
               ) : (
-                <NotesContent markdownContent={markdownContent} large />
+                <NotesContent markdownContent={msxSource} large />
               )}
             </div>
 

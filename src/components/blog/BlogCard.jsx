@@ -3,7 +3,7 @@ import {
   DEFAULT_FOLLOW_LINK,
   DEFAULT_THUMBNAIL,
 } from "@/utils/constant";
-import { ensureHttps } from "@/utils/functions";
+import { ensureHttps, generateSlug } from "@/utils/functions";
 import { useRouter } from "next/router";
 import React from "react";
 
@@ -24,14 +24,7 @@ const BlogCard = ({ data }) => {
     const newFilePath = filePath.replace("/public", "");
     return newFilePath;
   }
-  function generateSlug(str) {
-    return str
-      .toLowerCase() // Convert the string to lowercase
-      .trim() // Remove whitespace from both ends
-      .replace(/[^a-z0-9\s-]/g, "") // Remove all non-word characters
-      .replace(/\s+/g, "-") // Replace spaces with hyphens
-      .replace(/-+/g, "-"); // Replace multiple hyphens with a single hyphen
-  }
+
 
   return (
     <div

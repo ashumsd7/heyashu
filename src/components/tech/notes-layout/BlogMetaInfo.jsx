@@ -75,7 +75,6 @@ const BlogMetaInfo = ({ data }) => {
               <a
                 href={ensureHttps(followLink)}
                 target="_blank"
-                s
                 className="text-green-600 font-semibold cursor-pointer"
               >
                 Follow

@@ -14,7 +14,7 @@ function BlogsMainPage({ blogInfo, large }) {
         </title>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/digigarden.ico" />
         {blogInfo?.metaInfo?.map((info) => {
           return (
             <meta key={info.name} name={info.name} content={info.content} />

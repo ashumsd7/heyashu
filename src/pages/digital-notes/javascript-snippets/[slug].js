@@ -13,7 +13,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { serialize } from "next-mdx-remote/serialize";
 
-const NotesDetailPage = ({ notes, currentPageMDX, currentPageFrontMatter }) => {
+const NotesDetailPageForSnippets = ({ notes, currentPageMDX, currentPageFrontMatter }) => {
   const [contentList, setContentList] = useState([]);
 
 
@@ -60,7 +60,7 @@ const NotesDetailPage = ({ notes, currentPageMDX, currentPageFrontMatter }) => {
     />
   );
 };
-export default NotesDetailPage;
+export default NotesDetailPageForSnippets;
 
 
 // generating static props

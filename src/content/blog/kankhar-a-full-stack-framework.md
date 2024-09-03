@@ -1,5 +1,5 @@
 ---
-title: KANKHAR A FULL STACK FRAMEWORK
+title: KANKHAR a full stack friendwork
 date: 09-02-2024
 thumbnail: /public/images/kanka.png
 author: A Nightowl of KANKHAR
@@ -8,7 +8,8 @@ followLink: https://heyashu.in/blog/kankhar-a-full-stack-framework
 metaName: "Read more about Kankhar by contacting RAM "
 metaContent: I dont know much....
 ---
-# KANKHAR: A Full Stack Framework (of Friendship)
+
+# KANKHAR: A Full Stack Friendwork (of Friendship)
 
 In the silicon jungle of Bengaluru, where code monkeys swing from tree to tree, a legend was born. Not just any legend, mind you, but a full-stack legend - KANKHAR! 🐒💻
 
@@ -18,7 +19,7 @@ It all began in the aftermath of the great plague (aka COVID), when a brave soul
 
 In November 2021, Ashutosh planted his flag at CodeMonk, becoming the first to join this fledgling banana republic of developers. Little did he know, he was about to become the nucleus of something far greater than himself.
 
-As the calendar flipped to April 2022, Ashutosh found himself face-to-face with two "interns." But calling Nihal and Karan mere interns would be like calling a smartphone a fancy calculator. 
+As the calendar flipped to April 2022, Ashutosh found himself face-to-face with two "interns." But calling Nihal and Karan mere interns would be like calling a smartphone a fancy calculator.
 
 ![Nihal](/images/nihal.png "Nihal")
 
@@ -30,7 +31,7 @@ Enter the Litti Chokha Crusader, Ram Shankar!
 
 ![Ram](/images/ram.png "Ram")
 
-With his arrival, the team's flavor profile expanded faster than an unoptimized for-loop. But something was still missing in this masala mix of talent. 
+With his arrival, the team's flavor profile expanded faster than an unoptimized for-loop. But something was still missing in this masala mix of talent.
 
 Lo and behold, from the land of dhokla and garba, came the backend behemoth - Harshil!
 
@@ -40,15 +41,11 @@ Now they had it all - North, South, and Gujarat. A pan-Indian papad of programmi
 
 Make way for Kavish, the dropout who could out-code a senior dev with one hand tied behind his back!
 
-
-
 ![Kavish](/images/kavish.png "Kavish")
 
 The team was buzzing with energy, like a server farm on Red Bull. They thought they were complete, a full stack of talent reaching from frontend to backend. But oh, how wrong they were!
 
 For in the heart of India, Madhya Pradesh, a crucial element was waiting to join the mix. Enter Atul, the nucleus that would bind this atom of awesomeness together!
-
-
 
 ![Atul](/images/atul.png "Atul")
 

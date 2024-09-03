@@ -18,5 +18,6 @@ export const GITHUB_REPO_LINK =
   export const DEFAULT_AVATAR='https://i.ibb.co/Tm9qVjp/plant.png'
   export const DEFAULT_THUMBNAIL='https://via.placeholder.com/150'
   export const DEFAULT_FOLLOW_LINK='https://github.com/ashumsd7/'
+  export const CONNECT_LINK_TOPMATE='https://github.com/ashumsd7/'
 
 

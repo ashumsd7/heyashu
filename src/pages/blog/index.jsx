@@ -52,6 +52,7 @@ function BlogsPage({ posts }) {
     <>
       <Head>
         <title>🌱 Blogs by heyashu.in : A Digital Garden by Ashutosh Anand Tiwari</title>
+        <link rel="icon" href="/digigarden.ico" />
         <meta
           name="description"
           content="Explore the latest blog posts by Ashutosh Anand Tiwari, covering topics like JavaScript, web development, and more."

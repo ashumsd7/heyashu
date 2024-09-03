@@ -105,21 +105,21 @@ function Navbar() {
 
             <Link
               id="notes-link"
-              href="/tech/notes"
+              href="/digital-notes"
               className="md:text-xl text-base font-light font-mono relative"
             >
-              tech/notes{" "}
-              {activePath == "notes" && (
+              digital-notes{" "}
+              {activePath == "digital-notes" && (
                 <LuMousePointerClick className="absolute  top-[20px] left-[20px] text-2xl text-gray-600" />
               )}
             </Link>
             <Link
-              href="/blogs"
+              href="/blog"
               id="blogs-link"
               className="md:text-xl text-base font-light font-mono relative"
             >
               blogs{" "}
-              {activePath == "blogs" && (
+              {activePath == "blog" && (
                 <LuMousePointerClick className="absolute  top-[20px] left-[20px] text-2xl text-gray-600" />
               )}
             </Link>
@@ -230,11 +230,11 @@ const MobileNaveBar = ({ isOpen, setIsOpen, activePath }) => {
         </Link>
 
         <Link
-          href="/tech/notes"
+          href="/digital-notes"
           className="text-2xl py-2 font-semibold border-b-2"
         >
-          tech/notes{" "}
-          {activePath == "notes" && (
+          /digital notes{" "}
+          {activePath == "digital-notes" && (
             <LuMousePointerClick className="absolute  top-[20px] left-[20px] text-2xl text-orange-600" />
           )}
         </Link>
@@ -265,7 +265,7 @@ const MobileNaveBar = ({ isOpen, setIsOpen, activePath }) => {
 };
 
 // <Image
-//             className="font-extrabold   font-mono flex cursor-pointer justify-left text-2xl items-center h-17 mt-10 ml-4 top-6 s"
+//             className="font-extrabold   font-mono flex cursor-pointer justify-left text-2xl items-center h-17 mt-10 ml-4 top-6"
 //             src={"https://i.ibb.co/59hJ4PV/logo2.jpg"}
 //             height={"50"}
 //             width={"200"}

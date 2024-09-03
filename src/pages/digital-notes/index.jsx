@@ -8,11 +8,11 @@ import { NOTES_FILTERS } from "@/data/note/notesFilter";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { useRouter } from "next/router";
 function AllNotesPage() {
-  const router= useRouter()
+  const router = useRouter();
   return (
     <>
       <Head>
-        <title>Digital Notes by Ashutosh Anand Tiwari</title>
+        <title>Digital Garden : Ashutosh Anand Tiwari</title>
         <meta
           name="description"
           content="Explore a collection of digital notes on various topics, including JavaScript, React, and more. Learn from curated content and insights by Ashutosh Anand Tiwari."
@@ -47,6 +47,7 @@ function AllNotesPage() {
           name="twitter:image"
           content="https://heyashu.in/_next/image?url=%2Fimages%2Fprofile.jpg&w=640&q=75"
         />
+        <link rel="icon" href="/digigarden.ico" />
       </Head>
       <div className=" flex flex-col gap-2 flex-wrap   0">
         <h1 className="lg:text-3xl font-Inter relative py-2 rounded-lg  text-2xl font-extrabold text-center px-4 lg:px-0 text-[#1A1A1A] font-serif  flex gap-2">
@@ -79,9 +80,9 @@ function AllNotesPage() {
           </div>
         </div>
       </div>
-      <div className="max-w-screen-2xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12 py-4 " >
+      <div className="max-w-screen-2xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12 py-4 ">
         {NOTES_CARD_DATA?.map((item) => {
-          return <NoteCard v2={true} data={item} />;
+          return <NoteCard  data={item} />;
         })}
       </div>
     </>

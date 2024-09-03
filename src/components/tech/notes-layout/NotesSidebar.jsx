@@ -11,6 +11,7 @@ const NotesSidebar = ({
   storedValues,
   selectedSection,
 }) => {
+ 
   return (
     <div className="w-[1/4]  lg:block hidden  pb-[200px] h-full shadow-2xl  fixed ">
       <div className="flex justify-center  mb-4  rounded-xl px-4">
@@ -33,13 +34,13 @@ const NotesSidebar = ({
                 storedValues && storedValues[item?.name]
                   ? "border-0 border-l-8 border-green-500 bg-gradient-to-r from-gray-300 to-[#efeff1] "
                   : "border-0 border-l-8 border-gray-500"
-              } ${selectedSection?.id == item?.id && " bg-black font-bold"} ${
+              } ${selectedSection?.title == item?.title && " bg-black font-bold"} ${
                 !item?.publishedOn &&
                 "cursor-none pointer-events-none  opacity-40"
               }`}
               onClick={() => onSectionClick(item)}
             >
-              {item.episode == 100 ? (
+              {item.episode == -1 ? (
                 <h3 className="font-medium -ml-0 flex items-center gap-2 pl-3">
                   Prerequisite
                 </h3>
