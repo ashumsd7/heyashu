@@ -148,7 +148,7 @@ const LandingPage = () => {
               ⭐ Give a star to the repo if you love it!
             </a>
             <a
-              href="https://heyahsu.in/admin"
+              href="https://heyashu.in/admin"
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-600 hover:text-blue-800 font-medium"
