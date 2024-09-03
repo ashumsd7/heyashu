@@ -1,11 +1,11 @@
 import React from "react";
 import NotesMainPage from "@/components/base/NotesMainPage";
-import { metaTagsForNamasteNodeJsS1 } from "@/data/note/namaste-node-js-s1/meta-tags";
+import { metaTagsForJsSnippets } from "@/data/note/js-snippets/meta-tags";
 import {
   CONTENT_LIST_TITLE,
   PAGE_TITLE,
   STORAGE_KEY,
-} from "@/data/note/namaste-node-js-s1/constant";
+} from "@/data/note/js-snippets/constant";
 import matter from "gray-matter";
 import fs from "fs";
 import path from "path";
@@ -13,9 +13,12 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { serialize } from "next-mdx-remote/serialize";
 
-const NotesDetailPageForSnippets = ({ notes, currentPageMDX, currentPageFrontMatter }) => {
+const NotesDetailPageForSnippets = ({
+  notes,
+  currentPageMDX,
+  currentPageFrontMatter,
+}) => {
   const [contentList, setContentList] = useState([]);
-
 
   // for sorting content episode wise
   function sortByEpisode(array) {
@@ -48,28 +51,24 @@ const NotesDetailPageForSnippets = ({ notes, currentPageMDX, currentPageFrontMat
 
   return (
     <NotesMainPage
-      metaInfo={metaTagsForNamasteNodeJsS1}
+      metaInfo={metaTagsForJsSnippets}
       pageTitle={PAGE_TITLE}
       contentList={contentList}
       contentListLength={notes?.length}
       contentListTitle={CONTENT_LIST_TITLE}
       storageKey={STORAGE_KEY}
       msxSource={currentPageMDX}
-      eachCardPrefix={"Episode-"}
+      subDomain="javascript-snippets"
       currentPageFrontMatter={currentPageFrontMatter}
     />
   );
 };
 export default NotesDetailPageForSnippets;
 
-
 // generating static props
 export async function getStaticProps({ params }) {
   // Define the directory containing your markdown files
-  const directory = path.join(
-    process.cwd(),
-    "src/content/notes-namaste-node-js"
-  );
+  const directory = path.join(process.cwd(), "src/content/js-snippets");
 
   // Get file names from the directory
   const filenames = fs.readdirSync(directory);
@@ -79,7 +78,7 @@ export async function getStaticProps({ params }) {
     process.cwd(),
     "src",
     "content",
-    "notes-namaste-node-js",
+    "js-snippets",
     `${params.slug}.md`
   );
   const fileContents = fs.readFileSync(filePath, "utf-8");
@@ -114,7 +113,7 @@ export async function getStaticProps({ params }) {
 // generating static paths
 export async function getStaticPaths() {
   const files = fs.readdirSync(
-    path.join(process.cwd(), "src", "content", "notes-namaste-node-js")
+    path.join(process.cwd(), "src", "content", "js-snippets")
   );
 
   const paths = files.map((fileName) => ({

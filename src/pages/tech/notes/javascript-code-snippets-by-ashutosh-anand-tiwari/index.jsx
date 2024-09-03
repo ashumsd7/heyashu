@@ -17,6 +17,7 @@ const JSSnippets = () => {
       contentList={contentListForJsSnippets}
       contentListTitle={CONTENT_LIST_TITLE}
       storageKey={STORAGE_KEY}
+      subDomain='javascript-snippets'
     />
   );
 };

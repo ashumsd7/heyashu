@@ -119,7 +119,15 @@ const LandingPage = () => {
           </div>
 
           {/* CTA Button */}
-          <div className="text-center flex justify-center">
+          <div className="text-center gap-4 flex justify-center">
+          <Button
+            onClick={ ()=>{
+              window.open('https://heyashu.in/admin', "_blank");
+            }}
+            className="mt-4 px-6 py-3 bg-transparent  text-gray-900 border-b text-lg font-medium rounded-md hover:bg-green-700 hover:text-white transition duration-200"
+          >
+           + Add notes
+          </Button>
             <Button
               onClick={handleReadNotesClick}
               className="mt-4 px-6 py-3  text-white text-lg font-medium rounded-md hover:bg-green-700 transition duration-200"
