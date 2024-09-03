@@ -168,7 +168,7 @@ collections:
           label: "Title",
           name: "title",
           widget: "string",
-          hint: 'This  will be used as slug , Instructions: After filling out this form and adding your markdown, click the "Save" button at the top. This action will create a Pull Request (PR) on GitHub. Within a few minutes, your PR will be merged, and your blog will go live at https://heyashu.in/digital-notes/javascript-snipptets. To track the PR status, visit this repo link https://github.com/ashumsd7/heyashu/pulls. Look for a PR with your name and blog title. Then, just wait a few minutes. Thank you!' ,
+          hint: 'This  will be used as slug , Instructions: After filling out this form and adding your markdown, click the "Save" button at the top. This action will create a Pull Request (PR) on GitHub. Within a few minutes, your PR will be merged, and your blog will go live at https://heyashu.in/digital-notes/javascript-snippets. To track the PR status, visit this repo link https://github.com/ashumsd7/heyashu/pulls. Look for a PR with your name and blog title. Then, just wait a few minutes. Thank you!' ,
         }
       - {
           label: "Page Title",
