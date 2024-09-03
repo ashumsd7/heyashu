@@ -29,7 +29,7 @@ const NotesMainPage = ({
   eachCardPrefix,
   msxSource,
   currentPageFrontMatter,
-  contentListLength
+  contentListLength,
 }) => {
   const router = useRouter();
   const [episodes, _setEpisodes] = useState(contentList);
@@ -165,10 +165,14 @@ const NotesMainPage = ({
               </div>
 
               {currentPageFrontMatter?.thumbnail && (
-                <Image
-                  className="my-6"
+                <img
+                  className="my-6 rounded-md shadow-md"
                   alt={currentPageFrontMatter?.title}
-                  src={changeFilePath(currentPageFrontMatter?.thumbnail)}
+                  src={
+                    currentPageFrontMatter?.thumbnail?.includes("https")
+                      ? currentPageFrontMatter?.thumbnail
+                      : changeFilePath(currentPageFrontMatter?.thumbnail)
+                  }
                   width="1024"
                   height={"300"}
                 />

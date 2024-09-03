@@ -14,12 +14,20 @@ collections:
     create: true # Allow users to create new documents in this collection
     slug: "" # Filename template, e.g., YYYY-MM-DD-title.md
     delete: false
+    editor:
+     preview: false
     fields: # The fields for each document, usually in front matter
       - {
-          label: "Title",
+          label: "Slug",
           name: "title",
           widget: "string",
-          hint: 'This will render on the top of the page as heading and will be used as slug Instructions: After filling out this form and adding your markdown, click the "Save" button at the top. This action will create a Pull Request (PR) on GitHub. Within a few minutes, your PR will be merged, and your blog will go live at https://heyashu.in/blog/[your-blog-title]. To track the PR status, visit this repo link https://github.com/ashumsd7/heyashu/pulls. Look for a PR with your name and blog title. Then, just wait a few minutes. Thank you!',
+          hint: 'This will be used as slug Instructions: After filling out this form and adding your markdown, click the "Save" button at the top. This action will create a Pull Request (PR) on GitHub. Within a few minutes, your PR will be merged, and your blog will go live at https://heyashu.in/blog/your-blog-slug. To track the PR status, visit this repo link https://github.com/ashumsd7/heyashu/pulls. Look for a PR with your name and blog title. Then, just wait a few minutes. Thank you!',
+        }
+      - {
+          label: "Blog Title",
+          name: "name",
+          widget: "string",
+          hint: 'This is the heading on your blog , will be rendered on top of the webpage and then thumbnail',
         }
       - {
           label: "Publish Date",
@@ -66,7 +74,6 @@ collections:
           name: "body",
           widget: "markdown",
         }
-
   - name: "namaste-node-js" # Used in routes, e.g., /admin/collections/blog
     label: "Namaste Node.JS Notes" # Used in the UI
     description: Get the best-explained notes for each chapter of the Namaste Node.js course by Akshay Saini. These notes are written by Open source community and can be edited on GitHub.✨
@@ -79,7 +86,7 @@ collections:
           label: "Title",
           name: "title",
           widget: "string",
-          hint: 'this is the sidebar episode name, will be used as slug ' ,
+          hint: 'This will be used as slug, Instructions: After filling out this form and adding your markdown, click the "Save" button at the top. This action will create a Pull Request (PR) on GitHub. Within a few minutes, your PR will be merged, and your content will go live at https://heyashu.in/digital-notes/namaste-node-js. To track the PR status, visit this repo link https://github.com/ashumsd7/heyashu/pulls. Look for a PR with your name and blog title. Then, just wait a few minutes. Thank you! ' ,
         }
       - {
           label: "Page Title",
@@ -115,6 +122,88 @@ collections:
           name: "thumbnail",
           widget: "image",
           hint: 'This will appear on the top of the blog after title. The right-side preview is not the final look of your uploaded content. we will ensure its properly formatted and displayed beautifully after deployment.',
+        }
+      - { label: "Author", name: "author", widget: "string" }
+      - { label: "Tags", name: "tags", widget: "string", hint: 'Add tags comma separated For example : JavaScript, Web, Web Development , that can be used seo purpose also in the ui for category.' }
+      - {
+          label: "Profile Picture URL",
+          name: "profilePic",
+          widget: "image",
+          hint: 'This image will be shown in the profile picture  avatar. The right-side preview is not the final look of your uploaded content. we will ensure its properly formatted and displayed beautifully after deployment.',
+        }
+      - {
+          label: "Follow Link ( When user clicks on follow button)",
+          name: "followLink",
+          widget: "string",
+        }
+      - {
+          label: "Meta Info : Name",
+          name: "metaName",
+          required: false,
+          widget: "string",
+        }
+      - {
+          label: "Meta Content : Name",
+          name: "metaContent",
+          required: false,
+          widget: "string",
+        }
+      - {
+          label: "Describe your content here",
+          name: "body",
+          widget: "markdown",
+        }
+  - name: "ja-quick-snippets" # Used in routes, e.g., /admin/collections/blog
+    label: "Javascript Snippets" # Used in the UI
+    description: Dive into our digital garden for 100+ JavaScript code snippets—perfect for interview prep or brushing up on your skills! ✨
+    folder: "/src/content/js-snippets" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "" # Filename template, e.g., YYYY-MM-DD-title.md
+    delete: false
+    editor:
+     preview: false
+    
+    fields: # The fields for each document, usually in front matter
+      - {
+          label: "Title",
+          name: "title",
+          widget: "string",
+          hint: 'This  will be used as slug , Instructions: After filling out this form and adding your markdown, click the "Save" button at the top. This action will create a Pull Request (PR) on GitHub. Within a few minutes, your PR will be merged, and your blog will go live at https://heyashu.in/digital-notes/javascript-snippets. To track the PR status, visit this repo link https://github.com/ashumsd7/heyashu/pulls. Look for a PR with your name and blog title. Then, just wait a few minutes. Thank you!' ,
+        }
+      - {
+          label: "Page Title",
+          name: "name",
+          widget: "string",
+          hint: 'This is the name used for showing top of the page as heading and this is different from the slug',
+        }
+      - {
+          label: "Snippet Number",
+          name: "episode",
+          widget: "number",
+          hint: 'This is snippets number used to maintain the order, please do not change it just keep it same as before or for new one just add 1 ',
+        }
+      - {
+          label: "Publish Date",
+          name: "publishedOn",
+          widget: "datetime",
+          time_format: false,
+          date_format: "DD-MM-YYYY",
+          format: "DD-MM-YYYY",
+        }
+      - {
+          label: "Updated On",
+          name: "updatedOn",
+          widget: "datetime",
+          time_format: false,
+          date_format: "DD-MM-YYYY",
+          format: "DD-MM-YYYY",
+        }
+      - {
+          label: "Snippet Thumbnail Image",
+          required: false,
+          name: "thumbnail",
+          widget: "image",
+          hint: 'This will appear on the top of the page after the user info. The right-side preview is not the final look of your uploaded content. we will ensure its properly formatted and displayed beautifully after deployment.',
         }
       - { label: "Author", name: "author", widget: "string" }
       - { label: "Tags", name: "tags", widget: "string", hint: 'Add tags comma separated For example : JavaScript, Web, Web Development , that can be used seo purpose also in the ui for category.' }

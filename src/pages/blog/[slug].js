@@ -60,7 +60,6 @@ export default function BlogPost({ frontMatter, mdxSource, large = false }) {
     const newFilePath = filePath.replace("/public", "");
     return newFilePath;
   }
- 
 
   const components = {
     img: ({ src, alt, ...rest }) => {
@@ -136,7 +135,11 @@ export default function BlogPost({ frontMatter, mdxSource, large = false }) {
         {frontMatter?.thumbnail && (
           <Image
             alt={frontMatter?.title}
-            src={changeFilePath(frontMatter?.thumbnail)}
+            src={
+              frontMatter?.thumbnail?.includes("https")
+                ? frontMatter?.thumbnail
+                : changeFilePath(frontMatter?.thumbnail)
+            }
             width="1024"
             height={"300"}
             className="rounded-md shadow-lg"
