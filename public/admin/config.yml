@@ -18,10 +18,16 @@ collections:
      preview: false
     fields: # The fields for each document, usually in front matter
       - {
-          label: "Title",
+          label: "Slug",
           name: "title",
           widget: "string",
-          hint: 'This will render on the top of the page as heading and will be used as slug Instructions: After filling out this form and adding your markdown, click the "Save" button at the top. This action will create a Pull Request (PR) on GitHub. Within a few minutes, your PR will be merged, and your blog will go live at https://heyashu.in/blog/[your-blog-title]. To track the PR status, visit this repo link https://github.com/ashumsd7/heyashu/pulls. Look for a PR with your name and blog title. Then, just wait a few minutes. Thank you!',
+          hint: 'This will be used as slug Instructions: After filling out this form and adding your markdown, click the "Save" button at the top. This action will create a Pull Request (PR) on GitHub. Within a few minutes, your PR will be merged, and your blog will go live at https://heyashu.in/blog/[your-blog-title]. To track the PR status, visit this repo link https://github.com/ashumsd7/heyashu/pulls. Look for a PR with your name and blog title. Then, just wait a few minutes. Thank you!',
+        }
+      - {
+          label: "Blog Title",
+          name: "name",
+          widget: "string",
+          hint: 'This is the heading og your blog , will be rendered on top of the webpage and then thumbnail',
         }
       - {
           label: "Publish Date",
@@ -154,6 +160,9 @@ collections:
     create: true # Allow users to create new documents in this collection
     slug: "" # Filename template, e.g., YYYY-MM-DD-title.md
     delete: false
+    editor:
+     preview: false
+    
     fields: # The fields for each document, usually in front matter
       - {
           label: "Title",

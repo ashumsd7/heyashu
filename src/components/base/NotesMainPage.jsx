@@ -29,7 +29,7 @@ const NotesMainPage = ({
   eachCardPrefix,
   msxSource,
   currentPageFrontMatter,
-  contentListLength
+  contentListLength,
 }) => {
   const router = useRouter();
   const [episodes, _setEpisodes] = useState(contentList);
@@ -59,8 +59,6 @@ const NotesMainPage = ({
     return storageValue
       ? Object.values(storageValue).filter((value) => value === true).length
       : 0;
-
-    
   }
 
   // for changing file path just removing public , because its not required
@@ -168,7 +166,11 @@ const NotesMainPage = ({
                 <Image
                   className="my-6"
                   alt={currentPageFrontMatter?.title}
-                  src={changeFilePath(currentPageFrontMatter?.thumbnail)}
+                  src={
+                    currentPageFrontMatter?.thumbnail?.includes("https")
+                      ? currentPageFrontMatter?.thumbnail
+                      : changeFilePath(currentPageFrontMatter?.thumbnail)
+                  }
                   width="1024"
                   height={"300"}
                 />
