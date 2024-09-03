@@ -30,6 +30,7 @@ const NotesMainPage = ({
   msxSource,
   currentPageFrontMatter,
   contentListLength,
+  subDomain='namaste-node-js'
 }) => {
   const router = useRouter();
   const [episodes, _setEpisodes] = useState(contentList);
@@ -44,7 +45,7 @@ const NotesMainPage = ({
   const STORAGE_KEY = storageKey;
   const handleSectionClick = (section) => {
     const slug = generateSlug(section?.title);
-    router.push("/digital-notes/namaste-node-js/" + slug);
+    router.push(`/digital-notes/${subDomain}/` + slug);
     const storageValue = ls.get(STORAGE_KEY);
     const updatedStorage = {
       ...storageValue,
