@@ -12,9 +12,10 @@ export const  NOTES_CARD_DATA=[
   thumbnailUrl:'https://i.ibb.co/2hq8tjW/akshays-banner.jpg',
   isProgress:true,
   isComingSoon:false,
-  hashTags:[BACKEND,NODEJS, AKSHAY_SAINI],
+  tags:[BACKEND,NODEJS, AKSHAY_SAINI],
   githubLink:'#',
   route:'/tech/notes/namaste-node-js',
+  route2:'/digital-notes/namaste-node-js',
 
 
 
@@ -28,7 +29,7 @@ export const  NOTES_CARD_DATA=[
   thumbnailUrl:'https://i.ibb.co/x7kYDW1/snippets.jpg',
   isProgress:false,
   isComingSoon:false,
-  hashTags:[FRONTEND, NEWBIE, JAVASCRIPT],
+  tags:[FRONTEND, NEWBIE, JAVASCRIPT],
   githubLink:'#',
   route:'/tech/notes/javascript-code-snippets-by-ashutosh-anand-tiwari',
 
@@ -45,7 +46,7 @@ export const  NOTES_CARD_DATA=[
 //   thumbnailUrl:'https://tagmango.com/publicassets/-backend-with-nodejs-1-f59defad2193f9e9223bfa2a3ad3ac47.png',
 //   isProgress:false,
 //   isComingSoon:false,
-//   hashTags:['nodejs', 'deep', 'procdrr', NEWBIE, JAVASCRIPT, 'hindi'],
+//   tags:['nodejs', 'deep', 'procdrr', NEWBIE, JAVASCRIPT, 'hindi'],
 //   githubLink:'#',
 //   route:'/tech/notes/backend-with-nodejs-by-procoderr-notes-by-ashutosh-anand-tiwari',
 
@@ -63,7 +64,7 @@ export const  NOTES_CARD_DATA=[
   thumbnailUrl:'https://image.ebooks.com/cover/1993212.jpg?width=166&height=250&quality=85',
   isProgress:false,
   isComingSoon:true,
-  hashTags:[FRONTEND, 'book', 'js-basics'],
+  tags:[FRONTEND, 'book', 'js-basics'],
   githubLink:'#',
   route:'/tech/notes/namaste-frontend',
 
@@ -78,7 +79,7 @@ export const  NOTES_CARD_DATA=[
   thumbnailUrl:'https://image.ebooks.com/cover/1647631.jpg?width=166&height=250&quality=85',
   isProgress:false,
   isComingSoon:true,
-  hashTags:[FRONTEND, 'book', 'js-basics'],
+  tags:[FRONTEND, 'book', 'js-basics'],
   githubLink:'#',
   route:'/tech/notes/namaste-frontend',
 
@@ -93,7 +94,7 @@ export const  NOTES_CARD_DATA=[
 //   thumbnailUrl:'https://image.ebooks.com/cover/1734321.jpg?width=166&height=250&quality=85',
 //   isProgress:false,
 //   isComingSoon:true,
-//   hashTags:[FRONTEND, 'book', 'js-basics'],
+//   tags:[FRONTEND, 'book', 'js-basics'],
 //   githubLink:'#',
 //   route:'/tech/notes/namaste-frontend',
 
@@ -108,7 +109,7 @@ export const  NOTES_CARD_DATA=[
 //   thumbnailUrl:'https://image.ebooks.com/cover/1935541.jpg?width=166&height=250&quality=85',
 //   isProgress:false,
 //   isComingSoon:true,
-//   hashTags:[FRONTEND, 'kyle-simpson', 'book', 'js-basics'],
+//   tags:[FRONTEND, 'kyle-simpson', 'book', 'js-basics'],
 //   githubLink:'#',
 //   route:'/tech/notes/namaste-frontend',
 
@@ -124,7 +125,7 @@ export const  NOTES_CARD_DATA=[
 
   isProgress:false,
   isComingSoon:true,
-  hashTags:[FRONTEND, NEWBIE, REACT],
+  tags:[FRONTEND, NEWBIE, REACT],
   githubLink:'#', 
   route:'/tech/notes/namaste-js',
 
@@ -141,7 +142,7 @@ export const  NOTES_CARD_DATA=[
   thumbnailUrl:'https://i.ibb.co/68Mvg2V/react.jpg',
   isProgress:false,
   isComingSoon:true,
-  hashTags:[FRONTEND,  NEWBIE, REACT],
+  tags:[FRONTEND,  NEWBIE, REACT],
   githubLink:'#',
   route:'/tech/notes/namaste-react',
 
@@ -158,7 +159,7 @@ export const  NOTES_CARD_DATA=[
 //   thumbnailUrl:'https://i.ibb.co/4JDMt9d/fds.jpg',
 //   isProgress:false,
 //   isComingSoon:true,
-//   hashTags:[FRONTEND, AKSHAY_SAINI, NEWBIE, DESIGN_PATTERNS, WEB_COMPONENTS],
+//   tags:[FRONTEND, AKSHAY_SAINI, NEWBIE, DESIGN_PATTERNS, WEB_COMPONENTS],
 //   githubLink:'#',
 //   route:'/tech/notes/namaste-frontend',
 

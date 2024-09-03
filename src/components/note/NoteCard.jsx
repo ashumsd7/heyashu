@@ -10,7 +10,7 @@ const colorStyles = [
   { textColor: "text-[#363F72]", bgColor: "bg-[#DDE5FF]" },
 ];
 
-const NoteCard = ({ data }) => {
+const NoteCard = ({ data,v2 }) => {
   const router = useRouter();
 
   const {
@@ -21,17 +21,19 @@ const NoteCard = ({ data }) => {
     lastUpdated = "Last updated: Aug 20, 2024",
     publishedOn = "Published on: Aug 18, 2024",
     thumbnailUrl = "https://via.placeholder.com/150",
-    hashTags = ["tag1", "tag2", "tag3"],
+    tags = ["tag1", "tag2", "tag3"],
     githubLink = "",
     isComingSoon,
     inProgress,
     route,
+    route2 
+    
   } = data;
   return (
     <div
       onClick={() => {
         if (isComingSoon) return;
-        router.push(route);
+        router.push(v2 ? route2 : route);
       }}
       className={`  cursor-pointer relative mb-10  bg-white flex flex-col md:flex-row items-start ${
         inProgress ? "   " : isComingSoon ? "  opacity-55" : ""
@@ -67,7 +69,7 @@ const NoteCard = ({ data }) => {
           </p>
         </div>
         <div className="flex flex-wrap gap-2 mt-4">
-          {hashTags.map((tag, index) => {
+          {tags.map((tag, index) => {
             const { textColor, bgColor } =
               colorStyles[index % colorStyles.length]; // Rotate colors if hashtags exceed color options
             return (
