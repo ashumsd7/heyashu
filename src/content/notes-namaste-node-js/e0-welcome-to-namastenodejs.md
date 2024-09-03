@@ -1,5 +1,5 @@
 ---
-title: E1 Welcome to NamasteNodeJS
+title: E0 Welcome to NamasteNodeJS
 name: Welcome to the course
 episode: 0
 publishedOn: 18-09-2024

@@ -3,7 +3,7 @@ import NotesSidebar from "@/components/tech/notes-layout/NotesSidebar";
 import NotesChips from "@/components/tech/notes-layout/NotesChips";
 import NotesContentTopBar from "@/components/tech/notes-layout/NotesContentTopBar";
 import NotesContent from "@/components/tech/notes-layout/NotesContent";
-import { estimateReadingTime, scrollToTop } from "@/utils/functions";
+import { estimateReadingTime, generateSlug, scrollToTop } from "@/utils/functions";
 import ls from "local-storage";
 import BlogMetaInfo from "@/components/tech/notes-layout/BlogMetaInfo";
 import { useRouter } from "next/router";
@@ -18,6 +18,7 @@ const NotesMainPage = ({
   contentListTitle,
   pageTitle,
   eachCardPrefix,
+  msxSource
 }) => {
   const router = useRouter();
   const episodes = useMemo(() => contentList);
@@ -30,7 +31,11 @@ const NotesMainPage = ({
 
   const STORAGE_KEY = storageKey;
   const handleSectionClick = (section) => {
-    router.push("#" + section?.name);
+   const slug= generateSlug(section?.title)
+   console.log('slug',slug);
+    // router.push("#" + section?.name);
+      router.push("/digital-notes/namaste-node-js/" + slug);
+
     const storageValue = ls.get(STORAGE_KEY);
     const updatedStorage = {
       ...storageValue,
@@ -50,8 +55,8 @@ const NotesMainPage = ({
       : 0;
   }
 
-  function fetchMarkdown(fileName) {
-    setMarkdownContent(matchingMDXConfig[fileName]);
+  function fetchMarkdown() {
+    return msxSource
   }
 
   useEffect(() => {
@@ -60,7 +65,7 @@ const NotesMainPage = ({
     const percentage = Math.round((trueCount / totalCount) * 100);
     const res = percentage.toFixed(2);
     setProgress(res);
-    fetchMarkdown("e" + selectedSection?.episode);
+    fetchMarkdown();
   }, [selectedSection]);
 
   useEffect(() => {
@@ -155,7 +160,7 @@ const NotesMainPage = ({
                   </Button>
                 </div>
               ) : (
-                <NotesContent markdownContent={markdownContent} large />
+                <NotesContent markdownContent={msxSource} large />
               )}
             </div>
 
