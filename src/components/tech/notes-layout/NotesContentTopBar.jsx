@@ -11,7 +11,7 @@ function NotesContentTopBar({
 }) {
   return (
     <>
-      <div className="  px-4 lg:px-6   flex items-center rounded rounded-b-none justify-between  py-1 relative  ">
+      <div className="  px-2    flex items-center rounded rounded-b-none justify-between  py-1 relative  ">
         <div className="flex gap-2 items-center">
           <div className=" gap-2 justify-between items-center lg:flex hidden absolute top-0 -left-10">
             {!isSidebarVisible ? (

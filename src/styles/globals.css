@@ -3,33 +3,13 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-
-
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-/* :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-} */
 
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-} */
 
 body {
   color: rgb(var(--foreground-rgb));
 
-  /* background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb)); */
-  /* background: #efeff1; */
+
 }
 
 @layer utilities {
@@ -41,29 +21,7 @@ body {
 .markdown > * {
   all: revert !important;
 }
-/* .markdown-h1 {
-  letter-spacing: 0;
-  line-height: 52px !important;
-  margin-top: 1.2em !important;
-  font-size: 42px;
-  font-weight: 700;
-  margin: 1rem 0;
-  color: rgb(36, 36, 36);
-  overflow-wrap: break-word;
-  font-style: normal;
-}
-.markdown-h2 {
-  letter-spacing: 0;
-  line-height: 52px;
-  margin: 0px;
-  margin-top: 24px;
-  font-size: 42px;
-  font-weight: 800;
-  color: rgb(36, 36, 36);
-  overflow-wrap: break-word;
-  font-style: normal;
-  font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
-} */
+
 .markdown-h3 {
   font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
@@ -74,38 +32,14 @@ h3 {
   font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-/* .markdown-p{
- margin: .5rem 0px !important;
- line-height: 2rem;
- font-size: 20px;
- word-break: break-word;
- color: #242424;
- font-weight: 400;
-} */
-/* .markdown-li{
-  margin: .5rem 0px !important;
-  font-size: 20px;
-  word-break: break-word;
-  color: #242424;
-  line-height: 2rem;
-  font-weight: 400;
- } */
+
 .prose {
   font-family: source-serif-pro, Georgia, Cambria, "Times New Roman", Times,serif !important;
   /* font-family: "Inter", sans-serif !important; */
 
 }
 
-.markdown-a {
-  color: #000000;
-  text-decoration: underline;
-  transition: color 0.3s ease;
-  font-weight: 600;
-  font-size: large;
-}
-.markdown-a:hover {
-  color: #0f61e6;
-}
+
 pre {
   color: #cdd9e0;
   padding: 2rem;

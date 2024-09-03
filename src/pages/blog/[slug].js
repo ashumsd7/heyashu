@@ -5,10 +5,11 @@ import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote } from "next-mdx-remote";
 import Head from "next/head";
 import BlogMetaInfo from "@/components/tech/notes-layout/BlogMetaInfo";
-import { estimateReadingTime } from "@/utils/functions";
+import { estimateReadingTime, removePublicFromPath } from "@/utils/functions";
 import { DEFAULT_AVATAR, DEFAULT_FOLLOW_LINK } from "@/utils/constant";
 import dayjs from "dayjs";
 import Image from "next/image";
+import MDXRenderer from "@/components/base/MDXRenderer";
 
 // Function to fetch the content of the blog post
 export async function getStaticProps({ params }) {
@@ -59,15 +60,12 @@ export default function BlogPost({ frontMatter, mdxSource, large = false }) {
     const newFilePath = filePath.replace("/public", "");
     return newFilePath;
   }
-  function getImagePath(path) {
-    // Remove the 'public' part from the path
-    return path.replace(/^\/?public/, "");
-  }
+ 
 
   const components = {
     img: ({ src, alt, ...rest }) => {
       // Adjust the path using the utility function
-      const adjustedSrc = getImagePath(src);
+      const adjustedSrc = removePublicFromPath(src);
       return <img src={adjustedSrc} alt={alt} layout="responsive" {...rest} />;
     },
   };
@@ -141,6 +139,7 @@ export default function BlogPost({ frontMatter, mdxSource, large = false }) {
             src={changeFilePath(frontMatter?.thumbnail)}
             width="1024"
             height={"300"}
+            className="rounded-md shadow-lg"
           />
         )}
 
@@ -173,7 +172,7 @@ export default function BlogPost({ frontMatter, mdxSource, large = false }) {
             large ? "max-w-screen-lg" : "max-w-screen-md"
           }`}
         >
-          <MDXRemote {...mdxSource} components={components} />
+          <MDXRenderer markdownContent={mdxSource} />
         </div>
       </div>
     </>

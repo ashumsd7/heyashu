@@ -26,14 +26,15 @@ const NoteCard = ({ data,v2 }) => {
     isComingSoon,
     inProgress,
     route,
-    route2 
+    shortDesc
+ 
     
   } = data;
   return (
     <div
       onClick={() => {
         if (isComingSoon) return;
-        router.push(v2 ? route2 : route);
+        router.push(  route);
       }}
       className={`  cursor-pointer relative mb-10  bg-white flex flex-col md:flex-row items-start ${
         inProgress ? "   " : isComingSoon ? "  opacity-55" : ""
@@ -63,9 +64,7 @@ const NoteCard = ({ data,v2 }) => {
             <MdArrowOutward className="text-2xl cursor-pointer " />
           </div>
           <p className="text-[#667085] flex gap-2 text-base leading-6">
-            Get the best-explained notes for each chapter of the Namaste Node.js
-            course by Akshay Saini. These notes are written by Ashutosh and can
-            be edited on GitHub.
+           {shortDesc}
           </p>
         </div>
         <div className="flex flex-wrap gap-2 mt-4">

@@ -37,7 +37,7 @@ function Resume() {
         <link rel="icon" href="/favicon_tech.ico" />
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" href="/favicon.ico" />
+        {/* <link rel="icon" href="/favicon.ico" /> */}
         <meta
           name="description"
           content="Download Resume of Ashutosh anand tiwari, He has more than 4 years of exp. in web development."

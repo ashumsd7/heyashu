@@ -1,7 +1,7 @@
 ---
 title: Prerequisite
 name: Buy The Course
-episode: 100
+episode: -1
 publishedOn: 17-08-2024
 updatedOn: 03-09-2024
 thumbnail: https://i.ibb.co/ChjP3s0/thumb.jpg
