@@ -11,6 +11,15 @@ body {
 
 
 }
+pre, .markdown-pre {
+  color: #cdd9e0;
+  padding: 2rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-weight: bolder;
+  font-size: 1rem;
+  background-color: rgb(41, 39, 39);
+}
 
 @layer utilities {
   .text-balance {
