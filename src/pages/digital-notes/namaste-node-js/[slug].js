@@ -30,7 +30,7 @@ export default NotesDetailPage;
 
 export async function getStaticProps() {
   // Define the directory containing your markdown files
-  const directory = path.join(process.cwd(), "src/content/blog");
+  const directory = path.join(process.cwd(), "src/content/notes-namaste-node-js");
 
   // Get file names from the directory
   const filenames = fs.readdirSync(directory);
@@ -65,7 +65,7 @@ export async function getStaticProps() {
 
 export async function getStaticPaths() {
   const files = fs.readdirSync(
-    path.join(process.cwd(), "src", "content", "blog")
+    path.join(process.cwd(), "src", "content", "notes-namaste-node-js")
   );
 
   const paths = files.map((fileName) => ({

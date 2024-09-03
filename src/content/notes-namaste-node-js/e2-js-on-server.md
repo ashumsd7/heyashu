@@ -2,7 +2,7 @@
 title: "E2: JS on Server"
 name: JavaScript on Server
 episode: 2
-publishedOn: 24-09-2024
+publishedOn: 24-08-2024
 updatedOn: 03-09-2024
 thumbnail: https://i.ibb.co/5chYnSQ/7.jpg
 author: Ashutosh Anand Tiwari
