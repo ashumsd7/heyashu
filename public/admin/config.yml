@@ -87,6 +87,12 @@ collections:
           hint: 'this is the name used for showing top of the page as heading different from the slug',
         }
       - {
+          label: "Episode Number",
+          name: "episode",
+          widget: "number",
+          hint: 'Episode number',
+        }
+      - {
           label: "Publish Date",
           name: "publishedOn",
           widget: "datetime",
