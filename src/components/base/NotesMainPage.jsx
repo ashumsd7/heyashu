@@ -164,7 +164,7 @@ const NotesMainPage = ({
 
               {currentPageFrontMatter?.thumbnail && (
                 <img
-                  className="my-6"
+                  className="my-6 rounded-md shadow-md"
                   alt={currentPageFrontMatter?.title}
                   src={
                     currentPageFrontMatter?.thumbnail?.includes("https")
