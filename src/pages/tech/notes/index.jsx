@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import NoteCard from "@/components/note/NoteCard";
 import NotesFilter from "@/components/note/NotesFilter";
 import { GrNotes } from "react-icons/gr";
-import { NOTES_CARD_DATA } from "@/pages/digital-notes/notes/allNotes";
+// import { NOTES_CARD_DATA } from "@/pages/digital-notes/notes/allNotes";
 import Head from "next/head";
 import { NOTES_FILTERS } from "@/data/note/notesFilter";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { useRouter } from "next/router";
 function AllNotesPage() {
+  const NOTES_CARD_DATA=[]
   const router = useRouter();
   return (
     <>
