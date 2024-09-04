@@ -105,11 +105,11 @@ function Navbar() {
 
             <Link
               id="notes-link"
-              href="/digital-notes"
+              href="/digital-garden"
               className="md:text-xl text-base font-light font-mono relative"
             >
              🌱 digital garden{" "}
-              {activePath == "digital-notes" && (
+              {activePath == "digital-garden" && (
                 <LuMousePointerClick className="absolute  top-[20px] left-[20px] text-2xl text-gray-600" />
               )}
             </Link>
@@ -230,11 +230,11 @@ const MobileNaveBar = ({ isOpen, setIsOpen, activePath }) => {
         </Link> */}
 
         <Link
-          href="/digital-notes"
+          href="/digital-garden"
           className="text-2xl py-2 font-semibold border-b-2"
         >
           /🌱 digital garden{" "}
-          {activePath == "digital-notes" && (
+          {activePath == "digital-garden" && (
             <LuMousePointerClick className="absolute  top-[20px] left-[20px] text-2xl text-orange-600" />
           )}
         </Link>

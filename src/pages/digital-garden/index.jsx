@@ -10,13 +10,13 @@ function index() {
     {
       name: "NOTES",
       desc: " Get detailed digital notes on various tech topics curated by multiple open-source enthusiasts.",
-      route: "/digital-notes/notes",
+      route: "/digital-garden/notes",
       count: 2,
     },
     {
       name: "BLOGS",
       desc: "Read and write blogs on diverse topics, learn, share knowledge, and contribute here. ",
-      route: "/digital-notes/blog",
+      route: "/digital-garden/blog",
       count: 3,
     },
   ];

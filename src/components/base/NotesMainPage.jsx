@@ -45,7 +45,7 @@ const NotesMainPage = ({
   const STORAGE_KEY = storageKey;
   const handleSectionClick = (section) => {
     const slug = generateSlug(section?.title);
-    router.push(`/digital-notes/notes/${subDomain}/` + slug);
+    router.push(`/digital-garden/notes/${subDomain}/` + slug);
     const storageValue = ls.get(STORAGE_KEY);
     const updatedStorage = {
       ...storageValue,

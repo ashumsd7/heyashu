@@ -29,7 +29,7 @@ const BlogCard = ({ data }) => {
   return (
     <div
       onClick={() => {
-        router.push("/blog/" + generateSlug(title));
+        router.push("/digital-garden/blog/" + generateSlug(title));
       }}
       className=" rounded-lg p-4 shadow-md w-full border    hover:shadow-xl relative cursor-pointer  flex flex-col md:flex-row max-w-6xl items-center"
     >

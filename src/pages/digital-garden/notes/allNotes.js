@@ -25,7 +25,7 @@ export const NOTES_CARD_DATA = [
     isComingSoon: false,
     tags: [BACKEND, NODEJS, AKSHAY_SAINI],
     githubLink: "#",
-    route: "/digital-notes/notes/namaste-node-js",
+    route: "/digital-garden/notes/namaste-node-js",
     shortDesc: ` Get the best-explained notes for each chapter of the Namaste Node.js
             course by Akshay Saini. These notes are written by Ashutosh and can
             be edited on GitHub.`,
@@ -42,7 +42,7 @@ export const NOTES_CARD_DATA = [
     isComingSoon: false,
     tags: [FRONTEND, NEWBIE, JAVASCRIPT],
     githubLink: "#",
-    route: "/digital-notes/notes/javascript-snippets",
+    route: "/digital-garden/notes/javascript-snippets",
     shortDesc: ` Dive into our digital garden for 100+ JavaScript code snippets—perfect for interview prep or brushing up on your skills!  🚀`,
   },
   // {
