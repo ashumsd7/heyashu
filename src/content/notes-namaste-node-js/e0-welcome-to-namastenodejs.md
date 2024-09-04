@@ -11,74 +11,27 @@ profilePic: /public/images/blogs/pfp2.png
 followLink: https://github.com/ashumsd7
 ---
 
+![image.png](https://i.ibb.co/2hq8tjW/akshays-banner.jpg)
 
+## About the Creator 
+(The Boss, Akshay Saini)
 
-Watch [Namaste JavaScript](https://namastedev.com/learn/namaste-javascript) its Free
+Akshay started building websites in the 7th or 8th grade and has since worked at Paytm, Uber, Lendingkart, and multiple startups, where he learned how to develop large-scale projects. He even started a startup while still in college. Throughout his career, one of the key factors that has helped him succeed is being curious. He believes that having curiosity and the desire to learn new things will help you continually improve. He encourages you to ask questions, as this will significantly benefit your career. Akshay urges you to maintain this curiosity during the course as well.
 
+## Requests from the Creator Before Starting the Course
 
+1. Keep taking notes, either digitally or in a notebook, as you follow along with the videos.
+2. Practice the concepts as you watch the videos.
+3. You can write notes in Notion, Evernote, or on your personal website (this suggestion is from me, not the creator).
+4. Focus during the videos. Silence your phones.
+5. Plan and schedule your course, and stick to it.
+6. Watch one episode, then take a break. Try to explore the concepts on the internet, implement them on your system, and then move on to the next one.
+7. Join the Discord community (the link is available within the course).
+8. Ask questions and help each other out.
+9. Make friends.
+10. Refer each other in your respective careers.
+11. Give your full attention, focus, and practice to this course.
 
+Okay… Let’s get started…
 
-
-## What is Node JS
-https://nodejs.org/en
-Its a JS runtime  built on top of chrome v8 JS Engine. Node JS is Cross Platform ( Can run on different type of systems) , Open Source: Code is Open and Managed by Open JS Foundation ( Organization)
- and it **executes JavaScript outside the web browsers**. Node JS has an **event driven architecture ( will discuss later)** and capable of **Asynchronous / non blocking I/O**
-
-
-![image.png](https://i.ibb.co/2MJPG76/1.jpg)
-## History of NodeJS
-### 2009:  Node JS born
-First version came in 2009
-developed by : [Ryan Dahl](https://en.wikipedia.org/wiki/Ryan_Dahl)
-![image.png](https://i.ibb.co/fqBxHrG/2.jpg)
-![image.png](https://i.ibb.co/CmLDDGx/3.jpg)
-![image.png](https://i.ibb.co/5nLd5nV/4.jpg)
-
-### 2010 :  NPM born
-NPM came in the picture ( package manager )
-Anyone can do a work and post in NPM for public use
-
-### 2011: windows came
-initially Node JS was developed it was just for Mac OS and Linux
-in 2011 windows support came and ( Joyent + Microsoft ) they given
-node js support for windows
-
-### 2012: NPM NodeJS friendship
-Joyent said they will not be managing Node JS now
-Isaac Z. Schlueter  took over it and he was the creator of the NPM
-[https://izs.me/](https://izs.me/)
-![image.png](https://i.ibb.co/HnWLn7b/5.jpg)
-
-### 2014:  Fedor Indutny forked and made IO.js
-Because When development was slow nowadays because Joyent  has left
-so people was started contributing it
- [Fedor Indutny](https://github.com/indutny) was one of those
-![image.png](https://i.ibb.co/wRGRzGK/6.jpg)
-
-Now everything was scattered because two versions of Node Js was running
-
-![image.png](https://i.ibb.co/QJpyyK1/7.jpg)
-
-### 2015 ( Sep) : Node.js Foundation Came
-
-Node.js Foundation came and resolved all conflicts between io.js and others
-a legal foundation started managing this
-
-[https://github.com/nodejs/node/issues/1416](https://github.com/nodejs/node/issues/1416)
-
-### 2019 : git merge two-foundations
-
-There was two foundations and both are merged
-
-![image.png](https://i.ibb.co/Thr37cH/8.jpg)
-
-Now Open JS foundation is managing Node JS
-
-## Feedback
-
-Hey your feedback si required for me , please give  [this repo](https://github.com/ashumsd7/ashu-new-portfolio-website/blob/main/src/data/mardown/notes/namaste-node-js-s1-by-as/e1.js) a star 🌟 if you liked the blog
-if you want to contribute in it please feel free to fork , You can see github link on top right corner of top bar or  [click here](https://github.com/ashumsd7/ashu-new-portfolio-website/blob/main/src/data/mardown/notes/namaste-node-js-s1-by-as/e1.js)
-
-I am waiting for your feedback, See you in next episode,
-
-Thanks 👋🏻
+Here we go 😄
