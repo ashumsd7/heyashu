@@ -11,8 +11,9 @@ import { FaCalendar } from "react-icons/fa";
 // import Share from "@/components/ui/Share";
 import dynamic from "next/dynamic";
 import Switch from "@/components/base/Switch";
-import { GITHUB_REPO_LINK } from "@/utils/constant";
+import { ADMIN_LINK, GITHUB_REPO_LINK } from "@/utils/constant";
 import { ensureHttps } from "@/utils/functions";
+import { MdEdit } from "react-icons/md";
 // import axios from "axios";
 const Share = dynamic(() => import("@/components/ui/Share"), { ssr: false });
 const BlogMetaInfo = ({ data }) => {
@@ -21,14 +22,14 @@ const BlogMetaInfo = ({ data }) => {
     timeRead = "0",
     lastUpdated = "-",
     publishedOn = "-",
-    followLink ,
+    followLink,
     showControls = true,
     isQuicReadSettingOn = false,
     profilePic = "https://avatars.githubusercontent.com/u/40313523?v=4",
     title = "",
     githubLink = GITHUB_REPO_LINK,
     isQuickReadModeOn,
-    setIsQuickReadModeOn
+    setIsQuickReadModeOn,
   } = data;
 
   // const [isLiked, setIsLiked] = useState(false);
@@ -100,7 +101,16 @@ const BlogMetaInfo = ({ data }) => {
             {/* <div className="flex items-center text-gray-600">
               <FaRegHeart />
             </div> */}
-            <div className="flex items-center text-gray-600 cursor-pointer">
+            <div
+              onClick={() => {
+                window.open(ADMIN_LINK, "_blank");
+              }}
+              className="flex items-center justify-center text-gray-600 cursor-pointer gap-[2px] "
+            >
+              <MdEdit className=" " title="Contribute to the repo" />
+              <span className="text-xs cursor-pointer">Edit this page</span>
+            </div>
+            <div className="flex items-center text-gray-600 cursor-pointer gap-[2px] flex-col">
               <FaGithub
                 onClick={() => {
                   window.open(githubLink, "_blank");
@@ -121,14 +131,16 @@ const BlogMetaInfo = ({ data }) => {
             {/* <div className="flex items-center text-gray-600">
               <IoMdDownload />
             </div> */}
-            {isQuicReadSettingOn && <div className="flex items-center text-gray-600">
-              <Switch
-                isOn={isQuickReadModeOn}
-                handleToggle={() => {
-                  setIsQuickReadModeOn(!isQuickReadModeOn);
-                }}
-              />
-            </div>}
+            {isQuicReadSettingOn && (
+              <div className="flex items-center text-gray-600">
+                <Switch
+                  isOn={isQuickReadModeOn}
+                  handleToggle={() => {
+                    setIsQuickReadModeOn(!isQuickReadModeOn);
+                  }}
+                />
+              </div>
+            )}
             {/* <div className="flex items-center text-gray-600">
               <BsThreeDotsVertical />
             </div> */}
