@@ -10,7 +10,7 @@ import {
   NODEJS,
   REACT,
   WEB_COMPONENTS,
-} from "../../../data/blog";
+} from "../blog";
 
 export const NOTES_CARD_DATA = [
   {
