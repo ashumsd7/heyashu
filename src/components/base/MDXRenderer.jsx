@@ -11,7 +11,7 @@ function MDXRenderer({ markdownContent }) {
       const adjustedSrc = removePublicFromPath(src);
       return (
         <img
-          className="rounded-md"
+          className="rounded-md w-full h-full"
           src={adjustedSrc}
           alt={alt}
           layout="responsive"
