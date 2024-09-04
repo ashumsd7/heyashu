@@ -60,7 +60,7 @@ function Navbar() {
             backgroundColor: isScrolledUp ? "black" : "#efeff1",
             color: isScrolledUp ? "white" : "black",
           }}
-          className="md:flex justify-center  hidden  gap-6  w-full items-center relative  bg-white py-1 px-10     font-mono "
+          className="md:flex justify-center  hidden  gap-6  w-full items-center relative   py-1 px-10     font-mono "
         >
           {/* <div>
             {router?.pathname?.split("/").length > 2 && (
@@ -108,12 +108,12 @@ function Navbar() {
               href="/digital-notes"
               className="md:text-xl text-base font-light font-mono relative"
             >
-              digital-notes{" "}
+             🌱 digital garden{" "}
               {activePath == "digital-notes" && (
                 <LuMousePointerClick className="absolute  top-[20px] left-[20px] text-2xl text-gray-600" />
               )}
             </Link>
-            <Link
+            {/* <Link
               href="/blog"
               id="blogs-link"
               className="md:text-xl text-base font-light font-mono relative"
@@ -122,7 +122,7 @@ function Navbar() {
               {activePath == "blog" && (
                 <LuMousePointerClick className="absolute  top-[20px] left-[20px] text-2xl text-gray-600" />
               )}
-            </Link>
+            </Link> */}
 
             <Link
               id="travel-link"
@@ -218,7 +218,7 @@ const MobileNaveBar = ({ isOpen, setIsOpen, activePath }) => {
             <LuMousePointerClick className="inline text-orange-600 ml-2" />
           )}
         </Link>
-        <Link
+        {/* <Link
           href="/blog"
           onClick={toggleMenu}
           className="text-2xl py-2 font-semibold border-b-2"
@@ -227,13 +227,13 @@ const MobileNaveBar = ({ isOpen, setIsOpen, activePath }) => {
           {activePath == "blog" && (
             <LuMousePointerClick className="inline text-orange-600 ml-2" />
           )}
-        </Link>
+        </Link> */}
 
         <Link
           href="/digital-notes"
           className="text-2xl py-2 font-semibold border-b-2"
         >
-          /digital notes{" "}
+          /🌱 digital garden{" "}
           {activePath == "digital-notes" && (
             <LuMousePointerClick className="absolute  top-[20px] left-[20px] text-2xl text-orange-600" />
           )}

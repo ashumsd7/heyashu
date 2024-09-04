@@ -10,7 +10,7 @@ import {
   NODEJS,
   REACT,
   WEB_COMPONENTS,
-} from "../blog";
+} from "../../../data/blog";
 
 export const NOTES_CARD_DATA = [
   {
@@ -25,13 +25,13 @@ export const NOTES_CARD_DATA = [
     isComingSoon: false,
     tags: [BACKEND, NODEJS, AKSHAY_SAINI],
     githubLink: "#",
-    route: "/digital-notes/namaste-node-js",
+    route: "/digital-notes/notes/namaste-node-js",
     shortDesc: ` Get the best-explained notes for each chapter of the Namaste Node.js
             course by Akshay Saini. These notes are written by Ashutosh and can
             be edited on GitHub.`,
   },
   {
-    title: "JavaScript Quick Snippets",
+    title: "JS Quick Snippets",
     by: "Ashutosh Anand Tiwari",
     sourceName: "Google..etc.. ",
     sourceLink: "https://google.com/",
@@ -42,7 +42,7 @@ export const NOTES_CARD_DATA = [
     isComingSoon: false,
     tags: [FRONTEND, NEWBIE, JAVASCRIPT],
     githubLink: "#",
-    route: "/digital-notes/javascript-snippets",
+    route: "/digital-notes/notes/javascript-snippets",
     shortDesc: ` Dive into our digital garden for 100+ JavaScript code snippets—perfect for interview prep or brushing up on your skills!  🚀`,
   },
   // {
@@ -62,7 +62,7 @@ export const NOTES_CARD_DATA = [
   // },
 
   {
-    title: "You Don`t know JS: Up & Going",
+    title: "YDKJS: Up & Going",
     by: "Kyle Simpson",
     sourceName: "Book ",
     sourceLink: "https://me.getify.com/",
@@ -77,7 +77,7 @@ export const NOTES_CARD_DATA = [
     route: "/tech/notes/namaste-frontend",
   },
   {
-    title: "You Don`t know JS: Scope & Closures",
+    title: "YDKJS: Scope & Closures",
     by: "Kyle Simpson",
     sourceName: "Book ",
     sourceLink: "https://me.getify.com/",

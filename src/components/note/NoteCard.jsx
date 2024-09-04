@@ -10,7 +10,7 @@ const colorStyles = [
   { textColor: "text-[#363F72]", bgColor: "bg-[#DDE5FF]" },
 ];
 
-const NoteCard = ({ data,v2 }) => {
+const NoteCard = ({ data, v2 }) => {
   const router = useRouter();
 
   const {
@@ -26,30 +26,36 @@ const NoteCard = ({ data,v2 }) => {
     isComingSoon,
     inProgress,
     route,
-    shortDesc
- 
-    
+    shortDesc,
   } = data;
   return (
     <div
       onClick={() => {
         if (isComingSoon) return;
-        router.push(  route);
+        router.push(route);
       }}
-      className={`  cursor-pointer relative mb-10  bg-white flex flex-col md:flex-row items-start ${
-        inProgress ? "   " : isComingSoon ? "  opacity-55" : ""
+      className={`  cursor-pointer border-white border relative mb-10   flex flex-col md:flex-row items-start  p-4 lg:border-none  transform transition-all duration-200 ease-in hover:scale-105 hover-bg-white hover:shadow-xl  ${
+        inProgress ? "   " : isComingSoon ? "  opacity-30" : ""
       }`}
     >
       <div className="flex-1 w-full md:w-auto">
-        <div className="">
+        {/* <div className="">
           <img
             src={thumbnailUrl}
             alt="thumbnail"
             className=" h-[240px] w-full object-cover "
           />
-        </div>
+        </div> */}
 
         <div className="flex flex-col gap-3 mt-6">
+          <div className="flex justify-between">
+            <h2 className=" font-light text-[32px] max-w-80 truncate ">
+              {title.toUpperCase()}
+            </h2>
+            {!inProgress && !isComingSoon && (
+              <MdArrowOutward className="text-2xl cursor-pointer " />
+            )}
+          </div>
           <div className="flex gap-2 items-center">
             {/* <p className="text-gray-500 text-sm">{lastUpdated}</p> */}
             <p className="text-[#6941C6] text-sm font-semibold">{by}</p> ●
@@ -57,14 +63,8 @@ const NoteCard = ({ data,v2 }) => {
               {publishedOn || "Coming Soon"}
             </p>
           </div>
-          <div className="flex justify-between">
-            <h2 className="font-bold text-2xl text-gray-900 truncate ">
-              {title}
-            </h2>
-            <MdArrowOutward className="text-2xl cursor-pointer " />
-          </div>
-          <p className="text-[#667085] flex gap-2 text-base leading-6">
-           {shortDesc}
+          <p className="text-[#667085] flex gap-2 text-base font-light leading-6">
+            {shortDesc}
           </p>
         </div>
         <div className="flex flex-wrap gap-2 mt-4">
@@ -74,7 +74,7 @@ const NoteCard = ({ data,v2 }) => {
             return (
               <span
                 key={index}
-                className={`${bgColor} ${textColor}  px-2 font-semibold text-base py-1 rounded`}
+                className={`${bgColor} ${textColor}  px-2 font-light text-sm py-1 rounded`}
               >
                 #{tag}
               </span>

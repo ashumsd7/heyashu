@@ -11,7 +11,7 @@ const JsSnippetsLandingPage = () => {
   const router = useRouter();
 
   const handleReadNotesClick = () => {
-    router.push("/digital-notes/javascript-snippets/data-types-in-javascript"); // Redirect to the notes page
+    router.push("/digital-garden/notes/javascript-snippets/data-types-in-javascript"); // Redirect to the notes page
   };
 
   return (

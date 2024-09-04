@@ -53,7 +53,7 @@ function Support({ setIsSupportBtnActive, active }) {
             return (
               <div
                 id="spotlight-card"
-                className="bg-white p-4 rounded-lg shadow-lg "
+                className=" p-4 rounded-lg shadow-lg "
                 style={{
                   width: stepContent?.isFirst ? "520px" : "470px",
                   display: "flex",

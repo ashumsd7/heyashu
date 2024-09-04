@@ -12,7 +12,7 @@ const LandingPage = () => {
   const router = useRouter();
 
   const handleReadNotesClick = () => {
-    router.push("/digital-notes/namaste-node-js/prerequisite"); // Redirect to the notes page
+    router.push("/digital-garden/notes/namaste-node-js/prerequisite"); // Redirect to the notes page
   };
 
   return (

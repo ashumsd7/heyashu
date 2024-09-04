@@ -15,8 +15,7 @@ function Share({ title }) {
         }}
         onClick={() => console.log("shared successfully!")}
       >
-        <div className="flex gap-[2px]  justify-center items-center">
-        <span className="text-xs cursor-pointer">Share</span>
+        <div className="flex gap-2 justify-center items-center">
         <FiShare2
           className="text-xl text-gray-600 font-extrabold cursor-pointer"
           title="Share this document"

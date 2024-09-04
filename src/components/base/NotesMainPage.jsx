@@ -45,7 +45,7 @@ const NotesMainPage = ({
   const STORAGE_KEY = storageKey;
   const handleSectionClick = (section) => {
     const slug = generateSlug(section?.title);
-    router.push(`/digital-notes/${subDomain}/` + slug);
+    router.push(`/digital-notes/notes/${subDomain}/` + slug);
     const storageValue = ls.get(STORAGE_KEY);
     const updatedStorage = {
       ...storageValue,
@@ -134,7 +134,7 @@ const NotesMainPage = ({
             />
           )}
           <div
-            className={`lg:w-3/4 w-full lg:ml-[340px] ml-0   flex flex-col bg-white  h-full     rounded-lg   ${
+            className={`lg:w-3/4 w-full lg:ml-[340px] ml-0   flex flex-col   h-full     rounded-lg   ${
               isSidebarVisible ? "w-3/4" : "w-full"
             }`}
           >
@@ -148,7 +148,7 @@ const NotesMainPage = ({
               }
             />
 
-            <div className="flex-1 bg-white  ">
+            <div className="flex-1   ">
               <div className="">
                 <BlogMetaInfo
                   large
