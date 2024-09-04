@@ -131,21 +131,6 @@ export default function BlogPost({ frontMatter, mdxSource, large = false }) {
           </h3>
         )}
 
-        {/* Blog Hero Image */}
-        {frontMatter?.thumbnail && (
-          <Image
-            alt={frontMatter?.title}
-            src={
-              frontMatter?.thumbnail?.includes("https")
-                ? frontMatter?.thumbnail
-                : changeFilePath(frontMatter?.thumbnail)
-            }
-            width="1024"
-            height={"300"}
-            className="rounded-md shadow-lg"
-          />
-        )}
-
         {/* Blog Meta Info */}
         <div className="mb-4">
           <BlogMetaInfo
@@ -169,6 +154,20 @@ export default function BlogPost({ frontMatter, mdxSource, large = false }) {
             }}
           />
         </div>
+        {/* Blog Hero Image */}
+        {frontMatter?.thumbnail && (
+          <Image
+            alt={frontMatter?.title}
+            src={
+              frontMatter?.thumbnail?.includes("https")
+                ? frontMatter?.thumbnail
+                : changeFilePath(frontMatter?.thumbnail)
+            }
+            width="1024"
+            height={"300"}
+            className="rounded-md shadow-lg"
+          />
+        )}
         {/* Main Blog Content */}
         <div
           className={`prose container mx-auto p-0  mb-28 ${

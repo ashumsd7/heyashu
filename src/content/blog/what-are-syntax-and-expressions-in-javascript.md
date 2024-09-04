@@ -8,7 +8,6 @@ followLink: https://heyashu.in/blog/kankhar-a-full-stack-framework
 metaName: "Syntax, Expression, and Statement in JavaScript"
 metaContent: "Syntax, Expression, and Statement in JavaScript"
 ---
-![image.png](https://i.ibb.co/SB3Ts52/ex1.jpg)
 ### How do we communicate?
 
 
