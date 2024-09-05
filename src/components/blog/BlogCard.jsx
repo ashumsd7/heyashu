@@ -9,6 +9,7 @@ import { useRouter } from "next/router";
 import React from "react";
 
 const BlogCard = ({ data }) => {
+  console.log("data",data);
   const router = useRouter();
   const {
     author: name = "Anonyms User",
@@ -28,7 +29,7 @@ const BlogCard = ({ data }) => {
   const formattedDate = dayjs(writtenOn, "DD-MM-YYYY").format(
     "DD MMM, YYYY"
   );
-
+console.log("tags",tags);
   return (
     <div
       onClick={() => {
@@ -64,8 +65,8 @@ const BlogCard = ({ data }) => {
         <h2 className="font-light text-lg md:text-xl lg:text-3xl text-gray-900  ">
           {title}
         </h2>
-        <div className="flex flex-wrap gap-2 mb-4">
-          {tags.map((tag, index) => (
+       {/* {tags.length &&  <div className="flex flex-wrap gap-2 mb-4">
+          {tags?.map((tag, index) => (
             <span
               key={index}
               className=" text-gray-700 text-xs px-2 py-1 rounded"
@@ -73,7 +74,7 @@ const BlogCard = ({ data }) => {
               #{tag}
             </span>
           ))}
-        </div>
+        </div>} */}
         <div className="flex flex-col md:flex-row md:items-center justify-between text-gray-500 text-sm">
           <div className="flex items-center space-x-3">
             {/* <span role="img" aria-label="reactions">
