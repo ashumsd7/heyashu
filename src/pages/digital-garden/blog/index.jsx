@@ -7,7 +7,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import React from "react";
 import { FaExternalLinkAlt } from "react-icons/fa";
-
+import { MdEdit } from "react-icons/md";
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
@@ -31,7 +31,6 @@ export async function getStaticProps() {
     // Parse the markdown content and extract front matter
     const { data: frontMatter, content } = matter(fileContent);
 
-
     return {
       frontMatter,
       content,
@@ -52,7 +51,9 @@ function BlogsPage({ posts }) {
   return (
     <>
       <Head>
-        <title>🌱 Blogs by heyashu.in : A Digital Garden by Ashutosh Anand Tiwari</title>
+        <title>
+          🌱 Blogs by heyashu.in : A Digital Garden by Ashutosh Anand Tiwari
+        </title>
         <link rel="icon" href="/digigarden.ico" />
         <meta
           name="description"
@@ -90,18 +91,25 @@ function BlogsPage({ posts }) {
         />
       </Head>
 
-
       <ClassicPageLayout
+        rightCTA={
+          <Button
+            onClick={() => {
+              window.open("https://heyashu.in/admin", "_blank");
+            }}
+            className="mt-4 px-6 py-3 bg-transparent   text-gray-900 border-b md:text-xl text-base border-black  font-medium rounded-md   transition duration-200"
+          >
+           <MdEdit/>
+           <span className="hidden md:flex">Write blog</span>
+          </Button>
+        }
         heading="🌱Blogs"
         desc="   Read blogs on various topics and feel free to add your blogs."
       >
-      
-      {posts?.map((post) => {
-            return <BlogCard data={post?.frontMatter} />;
-          })}
+        {posts?.map((post) => {
+          return <BlogCard data={post?.frontMatter} />;
+        })}
       </ClassicPageLayout>
-
-   
     </>
   );
 }
