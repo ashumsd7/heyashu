@@ -1,7 +1,7 @@
 ---
 title: Ashutosh Anand Tiwari Daily Updates
 name: Ashu updates daily
-date: 09-06-2024
+date: 06-09-2024
 thumbnail: /public/images/blogs/1000129708.jpg
 author: Ashutosh
 tags: Daily updates

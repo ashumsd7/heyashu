@@ -1,6 +1,6 @@
 ---
 title: What are syntax and expressions in javascript
-date: 08-22-2024
+date: 22-08-2024
 thumbnail: /public/images/blogs/Leaves.png
 author: Ashutosh Anand Tiwari
 profilePic: https://cdn-icons-png.flaticon.com/512/188/188987.png

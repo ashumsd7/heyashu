@@ -1,3 +1,5 @@
+import dayjs from "dayjs";
+
 export function scrollToTop() {
   window.scrollTo({
     top: 0,
@@ -53,4 +55,13 @@ export function reverseSlug(slug) {
 export function removePublicFromPath(path) {
   // Remove the 'public' part from the path
   return path.replace(/^\/?public/, "");
+}
+
+
+export const formateDate=(date)=>{
+  const formattedDate = dayjs(date, "DD-MM-YYYY").format(
+    "DD MMM, YYYY"
+  );
+
+  return formattedDate
 }

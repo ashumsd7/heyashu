@@ -3,13 +3,13 @@ import {
   DEFAULT_FOLLOW_LINK,
   DEFAULT_THUMBNAIL,
 } from "@/utils/constant";
-import { ensureHttps, generateSlug } from "@/utils/functions";
+import { ensureHttps, formateDate, generateSlug } from "@/utils/functions";
 import dayjs from "dayjs";
 import { useRouter } from "next/router";
 import React from "react";
 
 const BlogCard = ({ data }) => {
-  console.log("data",data);
+  console.log("data", data);
   const router = useRouter();
   const {
     author: name = "Anonyms User",
@@ -18,7 +18,7 @@ const BlogCard = ({ data }) => {
     minRead = "",
     tags = [],
     profilePic = DEFAULT_AVATAR,
-    thumbnail = '',
+    thumbnail = "",
     followLink = DEFAULT_FOLLOW_LINK,
   } = data;
 
@@ -26,10 +26,7 @@ const BlogCard = ({ data }) => {
     const newFilePath = filePath.replace("/public", "");
     return newFilePath;
   }
-  const formattedDate = dayjs(writtenOn, "DD-MM-YYYY").format(
-    "DD MMM, YYYY"
-  );
-console.log("tags",tags);
+  const formattedDate = formateDate(writtenOn);
   return (
     <div
       onClick={() => {
@@ -46,20 +43,21 @@ console.log("tags",tags);
           />
 
           <div className="ml-3">
-            <div  onClick={(e)=>{
-                  e.stopPropagation()
-                  window.open(ensureHttps(followLink), "_blank");
-                }} className=" text-wrap text-gray-800 text-base   cursor-pointer">
+            <div
+              onClick={(e) => {
+                e.stopPropagation();
+                window.open(ensureHttps(followLink), "_blank");
+              }}
+              className=" text-wrap text-gray-800 text-base   cursor-pointer"
+            >
               {name}{" "}
-             
             </div>
-        
           </div>
         </div>
         <h2 className="font-light text-2xl md:text-xl lg:text-3xl text-gray-900  ">
           {title}
         </h2>
-       {/* {tags.length &&  <div className="flex flex-wrap gap-2 mb-4">
+        {/* {tags.length &&  <div className="flex flex-wrap gap-2 mb-4">
           {tags?.map((tag, index) => (
             <span
               key={index}

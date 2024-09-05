@@ -5,6 +5,7 @@ import NotesContentTopBar from "@/components/tech/notes-layout/NotesContentTopBa
 import NotesContent from "@/components/tech/notes-layout/NotesContent";
 import {
   estimateReadingTime,
+  formateDate,
   generateSlug,
   reverseSlug,
   scrollToTop,
@@ -30,7 +31,7 @@ const NotesMainPage = ({
   msxSource,
   currentPageFrontMatter,
   contentListLength,
-  subDomain='namaste-node-js'
+  subDomain = "namaste-node-js",
 }) => {
   const router = useRouter();
   const [episodes, _setEpisodes] = useState(contentList);
@@ -60,8 +61,6 @@ const NotesMainPage = ({
     return storageValue
       ? Object.values(storageValue).filter((value) => value === true).length
       : 0;
-
-    
   }
 
   // for changing file path just removing public , because its not required
@@ -90,10 +89,7 @@ const NotesMainPage = ({
   const savedStorage = ls.get(STORAGE_KEY);
 
   // format publish date
-  const formattedDate = dayjs(
-    currentPageFrontMatter?.publishedOn,
-    "DD-MM-YYYY"
-  ).format("DD MMM, YYYY");
+  const formattedDate = formateDate(currentPageFrontMatter?.publishedOn);
 
   return (
     <>

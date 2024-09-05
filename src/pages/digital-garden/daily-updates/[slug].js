@@ -5,7 +5,7 @@ import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote } from "next-mdx-remote";
 import Head from "next/head";
 import BlogMetaInfo from "@/components/tech/notes-layout/BlogMetaInfo";
-import { estimateReadingTime, removePublicFromPath } from "@/utils/functions";
+import { estimateReadingTime, formateDate, removePublicFromPath } from "@/utils/functions";
 import { DEFAULT_AVATAR, DEFAULT_FOLLOW_LINK } from "@/utils/constant";
 import dayjs from "dayjs";
 import Image from "next/image";
@@ -53,9 +53,7 @@ export async function getStaticPaths() {
 
 // Component to render the blog post
 export default function BlogPost({ frontMatter, mdxSource, large = false }) {
-  const formattedDate = dayjs(frontMatter?.date, "DD-MM-YYYY").format(
-    "DD MMM, YYYY"
-  );
+  const formattedDate = formateDate(frontMatter?.date)
   function changeFilePath(filePath) {
     const newFilePath = filePath.replace("/public", "");
     return newFilePath;
