@@ -1,7 +1,8 @@
 ---
-title: Tushar's python journey
+title: Tushar python journey
 name: "Learn Python By Tushar  "
 date: 06-09-2024
+updateDate: 06-09-2024
 thumbnail: /public/images/blogs/python.png
 author: TUSHAR TIWARI
 tags: Python
