@@ -8,6 +8,7 @@ import Button from "@/components/base/Button";
 import { FaEarthAsia, FaXTwitter, FaYoutube } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa";
 import Head from "next/head";
+import ClassicPageLayout from "@/components/base/ClassicNotesLayout";
 const LandingPage = () => {
   const router = useRouter();
 
@@ -56,34 +57,21 @@ const LandingPage = () => {
         />
         <link rel="icon" href="/digigarden.ico" />
       </Head>
-      <div className="  flex flex-col items-center py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl w-full space-y-6">
-          {/* Course Image Placeholder */}
-          <div className="flex justify-center">
-            <img
-              className="h-48 w-48 object-cover rounded-full"
-              src="https://i.ibb.co/ChjP3s0/thumb.jpg" // Replace with the actual image path
-              alt="Namaste Node JS"
-            />
-          </div>
 
-          {/* Course Title and Description */}
-          <div className="text-center">
-            <h1 className="text-3xl font-extrabold text-gray-900">
-              Namaste Node JS{" "}
-            </h1>
-            <p className="mt-2 text-lg md:text-xl leading-[42px] text-gray-800 font-serif ">
-              Welcome to the digital garden! 🌱 This section is dedicated to
+      <ClassicPageLayout
+        noGrid
+        heading=" 🌿 Namaste Node JS"
+        desc="   Welcome to the Namaste Node JS Open sourced digital notes!"
+        longDesc="   Welcome to the digital garden! 🌱 This section is dedicated to
               reading notes about Node JS taught by our Front-end Boss, Akshay
               Saini. 🌍 These notes are open source, allowing anyone to
               contribute and update. 🌟 Started by Ashutosh Anand Tiwari as part
               of his web development learning journey, this is a space for
-              growth and collaboration. Let's start learning together!
-            </p>
-          </div>
-
-          {/* Social Media Icons */}
-          <div className="flex justify-center space-x-4">
+              growth and collaboration. Let's start learning together!"
+        customBottomContent={<RepoComponent />}
+      >
+        <div className="flex flex-col gap-2">
+          <div className="flex  space-x-4 ">
             <a
               href="https://www.youtube.com/c/akshaymarch7"
               target="_blank"
@@ -117,56 +105,61 @@ const LandingPage = () => {
               <FaEarthAsia />
             </a>
           </div>
-
-          {/* CTA Button */}
-          <div className="text-center gap-4 flex justify-center">
-          <Button
-            onClick={ ()=>{
-              window.open('https://heyashu.in/admin', "_blank");
-            }}
-            className="mt-4 px-6 py-3 bg-transparent  text-gray-900 border-b text-lg font-medium rounded-md hover:bg-green-700 hover:text-white transition duration-200"
-          >
-           + Add notes
-          </Button>
+          <div className="text-center gap-2 flex flex-wrap  ">
             <Button
               onClick={handleReadNotesClick}
-              className="mt-4 px-6 py-3  text-white text-lg font-medium rounded-md hover:bg-green-700 transition duration-200"
+              className="mt-4 px-6 py-3  text-white text-lg font-medium rounded-md  transition duration-200"
             >
               Read Notes
             </Button>
-          </div>
-
-          {/* Open Source Info */}
-          <div className="text-center mt-8">
-            <p className="text-md text-gray-600">
-              This is an open-source digital notes manager. Managed by a Git
-              repository, anyone can edit and add new notes or make
-              improvements.
-            </p>
-          </div>
-
-          {/* Repository Links */}
-          <div className="text-center mt-4 flex flex-col gap-2">
-            <a
-              href="https://github.com/ashumsd7/heyashu/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-600 hover:text-blue-800 font-medium"
+            <Button
+              onClick={() => {
+                window.open("https://heyashu.in/admin", "_blank");
+              }}
+              className="mt-4 px-6 py-3 bg-transparent   text-gray-900 border-b text-lg font-medium rounded-md   transition duration-200"
             >
-              ⭐ Give a star to the repo if you love it!
-            </a>
-            <a
-              href="https://heyashu.in/admin"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-600 hover:text-blue-800 font-medium"
-            >
-              🌱 Contribute to the notes
-            </a>
+              + Add notes
+            </Button>
           </div>
         </div>
-      </div>
+      </ClassicPageLayout>
     </>
+  );
+};
+
+const RepoComponent = () => {
+  return (
+    <div className=" mt-4 flex flex-col gap-2">
+      <a
+        href="https://github.com/ashumsd7/heyashu/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-blue-600 hover:text-blue-800 font-medium"
+      >
+        ⭐ Give a star to the repo if you love it!
+      </a>
+      <a
+        href="https://heyashu.in/admin"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-blue-600 hover:text-blue-800 font-medium"
+      >
+        🌱 Contribute to the notes
+      </a>
+
+      <BottomBar />
+    </div>
+  );
+};
+
+const BottomBar = () => {
+  return (
+    <div className=" mt-2">
+      <p className="font-light">
+        This is an open-source digital notes manager. Managed by a Git
+        repository, anyone can edit and add new notes or make improvements.
+      </p>
+    </div>
   );
 };
 

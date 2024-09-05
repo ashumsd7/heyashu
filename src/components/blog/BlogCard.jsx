@@ -4,6 +4,7 @@ import {
   DEFAULT_THUMBNAIL,
 } from "@/utils/constant";
 import { ensureHttps, generateSlug } from "@/utils/functions";
+import dayjs from "dayjs";
 import { useRouter } from "next/router";
 import React from "react";
 
@@ -24,7 +25,9 @@ const BlogCard = ({ data }) => {
     const newFilePath = filePath.replace("/public", "");
     return newFilePath;
   }
-
+  const formattedDate = dayjs(writtenOn, "DD-MM-YYYY").format(
+    "DD MMM, YYYY"
+  );
 
   return (
     <div
@@ -55,10 +58,10 @@ const BlogCard = ({ data }) => {
                 Follow
               </button>
             </div>
-            <div className="text-gray-500 text-xs">{writtenOn}</div>
+            <div className="text-gray-500 text-xs">{formattedDate}</div>
           </div>
         </div>
-        <h2 className="font-light text-lg md:text-xl lg:text-3xl text-gray-900 mb-4 ">
+        <h2 className="font-light text-lg md:text-xl lg:text-3xl text-gray-900  ">
           {title}
         </h2>
         <div className="flex flex-wrap gap-2 mb-4">

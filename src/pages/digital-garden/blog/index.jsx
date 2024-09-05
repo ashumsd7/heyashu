@@ -93,7 +93,7 @@ function BlogsPage({ posts }) {
 
       <ClassicPageLayout
         heading="🌱Blogs"
-        desc="   Read blogs on various topics and feel free to add you blogs."
+        desc="   Read blogs on various topics and feel free to add your blogs."
       >
       
       {posts?.map((post) => {

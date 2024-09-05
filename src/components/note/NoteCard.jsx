@@ -34,36 +34,47 @@ const NoteCard = ({ data, v2 }) => {
         if (isComingSoon) return;
         router.push(route);
       }}
-      className={`  cursor-pointer border-white border relative mb-2   flex flex-col md:flex-row items-start  p-4 lg:border-none  transform transition-all duration-200 ease-in hover:scale-105 hover-bg-white hover:shadow-xl  ${
-        inProgress ? "   " : isComingSoon ? "  opacity-30" : ""
+      className={`  cursor-pointer border rounded-lg relative mb-2   flex flex-col md:flex-row items-start  p-4  transform transition-all duration-200 ease-in hover:scale-105 hover-bg-white hover:shadow-xl  ${
+        inProgress ? "   " : isComingSoon ? "  opacity-30 hover:scale-100 hover:shadow-none" : ""
       }`}
     >
       <div className="flex-1 w-full md:w-auto">
-        {/* <div className="">
-          <img
+        <div className="">
+          {/* <img
             src={thumbnailUrl}
             alt="thumbnail"
-            className=" h-[240px] w-full object-cover "
-          />
-        </div> */}
+            className=" h-[100px] rounded-full w-[100px] object-cover "
+          /> */}
+        </div>
 
-        <div className="flex flex-col gap-3 mt-6">
+        <div className="flex flex-col gap-3 ">
           <div className="flex justify-between">
-            <h2 className=" font-light text-[32px] max-w-80 truncate ">
-              {title.toUpperCase()}
-            </h2>
+            <div className="flex gap-3 items-center ">
+              <img
+                src={thumbnailUrl}
+                alt="thumbnail"
+                className=" h-[50px] rounded-full w-[50px] object-cover border-4 border-gray-700 "
+              />
+              <div className="flex  flex-col">
+                <h2 className=" font-light text-[32px] max-w-80 truncate ">
+                  {title.toUpperCase()}
+                </h2>
+                <div className="flex gap-2 -mt-1 items-center">
+                  {/* <p className="text-gray-500 text-sm">{lastUpdated}</p> */}
+                  <p className=" text-sm font-light">{by}</p> ●
+                  <p className=" text-sm font-light ">
+                    {publishedOn || "Coming Soon"}
+                  </p>
+                </div>
+              </div>
+            </div>
+
             {!inProgress && !isComingSoon && (
               <MdArrowOutward className="text-2xl cursor-pointer " />
             )}
           </div>
-          <div className="flex gap-2 items-center">
-            {/* <p className="text-gray-500 text-sm">{lastUpdated}</p> */}
-            <p className="text-[#6941C6] text-sm font-semibold">{by}</p> ●
-            <p className="text-[#6941C6] text-sm font-semibold ">
-              {publishedOn || "Coming Soon"}
-            </p>
-          </div>
-          <p className="text-[#667085] flex gap-2 text-base font-light leading-6">
+
+          <p className="flex gap-2 text-base font-light leading-6 ">
             {shortDesc}
           </p>
         </div>
@@ -89,3 +100,4 @@ const NoteCard = ({ data, v2 }) => {
 };
 
 export default NoteCard;
+// text-[#6941C6]

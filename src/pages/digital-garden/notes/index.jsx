@@ -60,51 +60,7 @@ function AllNotesPage() {
         })}
       </ClassicPageLayout>
 
-      <div className=" flex flex-col  flex-wrap   ">
-        {/* <h1 className="lg:text-3xl font-Inter relative py-2 rounded-lg  text-2xl font-extrabold text-center px-4 lg:px-0 text-[#1A1A1A] font-serif  flex gap-2">
-          Digital Notes
-        </h1> */}
 
-        {/* <div className="bg-[#f6f5f1] text-[#353534] flex flex-col  ">
-          <h1 className="md:text-[80px] text-[32px] font-bold mb-2 ">
-          🌿 Notes
-          </h1>
-        </div> */}
-
-        {/* <div>
-          <p className="md:text-[36px]  text-[22px]  text-[#353534] font-light md:pl-[120px] pl-[40px] ">
-            Get tech notes, interview tips, experiences, snippets, blogs and
-            more.
-          </p>
-        </div> */}
-
-        {/* <NotesFilter /> */}
-        {/* <div className=" flex gap-2 justify-start mr-auto ">
-          {NOTES_FILTERS?.map((item) => {
-            return (
-              <div className="flex items-center text-lg px-2 font-bold py-1 border-b-4 border-black ">
-                <span> {item.label}</span>
-              </div>
-            );
-          })}
-          <div
-            onClick={() => {
-              router.push("/blog");
-            }}
-            className="flex items-center px-2 text-lg cursor-pointer py-1 gap-1 border-b-2 "
-          >
-            blogs <FaExternalLinkAlt className="text-sm" />
-          </div>
-          <div
-            onClick={() => {
-              window.open("https://topmate.io/aat/1148709/pay", "_blank");
-            }}
-            className="flex items-center px-2 text-lg cursor-pointer py-1 gap-1 border-b-2 "
-          >
-            + write notes
-          </div>
-        </div> */}
-      </div>
     </>
   );
 }
