@@ -57,7 +57,7 @@ function Navbar() {
       <nav className=" h-[2px] flex  fixed items-center bg-orange-600 md:mb-12 mb-20 w-full  ">
         <div
           style={{
-            backgroundColor: isScrolledUp ? "black" : "#efeff1",
+            backgroundColor: isScrolledUp ? "black" : "#f6f5f1",
             color: isScrolledUp ? "white" : "black",
           }}
           className="md:flex justify-center  hidden  gap-6  w-full items-center relative   py-1 px-10     font-mono "
@@ -187,7 +187,7 @@ const MobileNaveBar = ({ isOpen, setIsOpen, activePath }) => {
   };
   return (
     <nav
-      className={`fixed top-0 left-0 w-[55%] h-full bg-[#efeff1] z-40 transform  ${
+      className={`fixed top-0 left-0 w-[55%] h-full  z-40 transform  ${
         isOpen ? "translate-x-0" : "-translate-x-full"
       } transition-transform duration-300 ease-in-out md:hidden`}
     >
