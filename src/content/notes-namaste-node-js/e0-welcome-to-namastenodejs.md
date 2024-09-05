@@ -11,7 +11,7 @@ profilePic: /public/images/blogs/pfp2.png
 followLink: https://github.com/ashumsd7
 ---
 
-
+![image.png](https://i.ibb.co/2hq8tjW/akshays-banner.jpg)
 
 ## About the Creator 
 (The Boss, Akshay Saini)
