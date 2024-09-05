@@ -34,16 +34,16 @@ collections:
           name: "date",
           widget: "datetime",
           time_format: false,
-          date_format: "DD-MM-YYYY",
-          format: "DD-MM-YYYY",
+          date_format: "MM-DD-YYYY",
+          format: "MM-DD-YYYY",
         }
       - {
           label: "Update  Date",
           name: "updateDate",
           widget: "datetime",
           time_format: false,
-          date_format: "DD-MM-YYYY",
-          format: "DD-MM-YYYY",
+          date_format: "MM-DD-YYYY",
+          format: "MM-DD-YYYY",
         }
       - {
           label: "Blog Thumbnail Image",
@@ -117,16 +117,16 @@ collections:
           name: "date",
           widget: "datetime",
           time_format: false,
-          date_format: "DD-MM-YYYY",
-          format: "DD-MM-YYYY",
+          date_format: "MM-DD-YYYY",
+          format: "MM-DD-YYYY",
         }
       - {
           label: "Update  Date",
           name: "updateDate",
           widget: "datetime",
           time_format: false,
-          date_format: "DD-MM-YYYY",
-          format: "DD-MM-YYYY",
+          date_format: "MM-DD-YYYY",
+          format: "MM-DD-YYYY",
         }
       - {
           label: "Blog Thumbnail Image",
@@ -204,16 +204,16 @@ collections:
           name: "publishedOn",
           widget: "datetime",
           time_format: false,
-          date_format: "DD-MM-YYYY",
-          format: "DD-MM-YYYY",
+          date_format: "MM-DD-YYYY",
+          format: "MM-DD-YYYY",
         }
       - {
           label: "Updated On",
           name: "updatedOn",
           widget: "datetime",
           time_format: false,
-          date_format: "DD-MM-YYYY",
-          format: "DD-MM-YYYY",
+          date_format: "MM-DD-YYYY",
+          format: "MM-DD-YYYY",
         }
       - {
           label: "Episode Thumbnail Image",
@@ -291,16 +291,16 @@ collections:
           name: "publishedOn",
           widget: "datetime",
           time_format: false,
-          date_format: "DD-MM-YYYY",
-          format: "DD-MM-YYYY",
+          date_format: "MM-DD-YYYY",
+          format: "MM-DD-YYYY",
         }
       - {
           label: "Updated On",
           name: "updatedOn",
           widget: "datetime",
           time_format: false,
-          date_format: "DD-MM-YYYY",
-          format: "DD-MM-YYYY",
+          date_format: "MM-DD-YYYY",
+          format: "MM-DD-YYYY",
         }
       - {
           label: "Snippet Thumbnail Image",
