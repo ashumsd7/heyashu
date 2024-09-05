@@ -34,8 +34,12 @@ const NoteCard = ({ data, v2 }) => {
         if (isComingSoon) return;
         router.push(route);
       }}
-      className={`  cursor-pointer border rounded-lg relative mb-2   flex flex-col md:flex-row items-start  p-4  transform transition-all duration-200 ease-in hover:scale-105 hover-bg-white hover:shadow-xl  ${
-        inProgress ? "   " : isComingSoon ? "  opacity-30 hover:scale-100 hover:shadow-none" : ""
+      className={`  cursor-pointer border rounded-lg relative mb-2  hover:bg-[#e5f6e5]   flex flex-col md:flex-row items-start  p-4  transform transition-all duration-200 ease-in hover:scale-105 hover-bg-white hover:shadow-xl  ${
+        inProgress
+          ? "   "
+          : isComingSoon
+          ? "  opacity-30 hover:scale-100 hover:shadow-none"
+          : ""
       }`}
     >
       <div className="flex-1 w-full md:w-auto">

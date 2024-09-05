@@ -12,7 +12,7 @@ import { FaCalendar } from "react-icons/fa";
 import dynamic from "next/dynamic";
 import Switch from "@/components/base/Switch";
 import { ADMIN_LINK, GITHUB_REPO_LINK } from "@/utils/constant";
-import { ensureHttps } from "@/utils/functions";
+import { ensureHttps, removePublicFromPath } from "@/utils/functions";
 import { MdEdit } from "react-icons/md";
 // import axios from "axios";
 const Share = dynamic(() => import("@/components/ui/Share"), { ssr: false });
@@ -66,7 +66,7 @@ const BlogMetaInfo = ({ data }) => {
           ) : (
             <img
               alt="blogger-profile-picture"
-              src={profilePic}
+              src={removePublicFromPath(profilePic)}
               className="w-12 h-12 border-4 border-gray-300  flex items-center justify-center rounded-full"
             />
           )}

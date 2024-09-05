@@ -35,7 +35,7 @@ console.log("tags",tags);
       onClick={() => {
         router.push("/digital-garden/blog/" + generateSlug(title));
       }}
-      className=" rounded-lg p-4   lg:border-none  transform transition-all cursor-pointer duration-200 ease-in hover:scale-105 hover:shadow-xl "
+      className=" rounded-lg p-4   lg:border-none hover:bg-[#f6f2e5]   transform transition-all cursor-pointer duration-200 ease-in hover:scale-105 hover:shadow-xl "
     >
       <div className="flex-1 w-full md:w-auto">
         <div className="flex items-center mb-1">
