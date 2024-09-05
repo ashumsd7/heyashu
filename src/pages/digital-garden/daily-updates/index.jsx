@@ -102,7 +102,7 @@ function BlogsPage({ posts }) {
             className="mt-4 px-6 py-3 bg-transparent   text-gray-900  md:text-xl text-base border-black  font-medium rounded-md   transition duration-200"
           >
     <FaPlus/>
-            <span className="hidden md:flex">Add update</span>
+            <span className="hidden md:flex"> new plant</span>
           </Button>
         }
         heading="☘️ Daily Updates"

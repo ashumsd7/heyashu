@@ -1,8 +1,9 @@
 import { Router, useRouter } from "next/router";
 import React from "react";
 import { FaExternalLinkAlt } from "react-icons/fa";
+import { LiaSeedlingSolid } from "react-icons/lia";
 import { MdArrowOutward } from "react-icons/md";
-
+import { GiHumanPyramid } from "react-icons/gi";
 const colorStyles = [
   { textColor: "text-[#026AA2]", bgColor: "bg-[#F0F9FF]" },
   { textColor: "text-[#3538CD]", bgColor: "bg-[#EEF4FF]" },
@@ -65,9 +66,9 @@ const NoteCard = ({ data, v2 }) => {
                 </h2>
                 <div className="flex gap-2 -mt-1 items-center">
                   {/* <p className="text-gray-500 text-sm">{lastUpdated}</p> */}
-                  <p className=" text-sm font-light">{by}</p> ●
-                  <p className=" text-sm font-light ">
-                    {publishedOn || "Coming Soon"}
+                  <p className=" text-sm font-light flex gap-2 items-center"><GiHumanPyramid title="Seeded by "/>{by}</p> 
+                  <p className=" text-sm font-light flex items-center gap-2 ">
+                  <LiaSeedlingSolid title="Seeded on"/>  {publishedOn || "Coming Soon"}
                   </p>
                 </div>
               </div>

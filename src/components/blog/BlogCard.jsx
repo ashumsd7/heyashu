@@ -7,7 +7,7 @@ import { ensureHttps, formateDate, generateSlug } from "@/utils/functions";
 import dayjs from "dayjs";
 import { useRouter } from "next/router";
 import React from "react";
-
+import { LiaSeedlingSolid } from "react-icons/lia";
 const BlogCard = ({ data }) => {
   console.log("data", data);
   const router = useRouter();
@@ -79,7 +79,7 @@ const BlogCard = ({ data }) => {
           </div>
         </div>
       </div>
-      <div className="text-gray-500 text-xs mt-2">🌱 {formattedDate}</div>
+      <div className="text-gray-500 text-xs mt-2 flex items-center gap-2">  <LiaSeedlingSolid className="text-lg text-gray-500 " /> Seeded on: {formattedDate}</div>
       {/* {thumbnail && (
         <div className="mt-4 md:mt-0 md:ml-4 w-full md:w-auto">
           <img

@@ -127,7 +127,7 @@ export default function BlogPost({ frontMatter, mdxSource, large = false }) {
         {frontMatter?.title && (
           <h3 className="md:text-5xl text-3xl text-[#130101] font-extrabold my-6 font-sans">
             {" "}
-            {frontMatter?.title}
+            {frontMatter?.name || frontMatter?.title}
           </h3>
         )}
 

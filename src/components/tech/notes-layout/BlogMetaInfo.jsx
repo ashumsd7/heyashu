@@ -14,6 +14,7 @@ import Switch from "@/components/base/Switch";
 import { ADMIN_LINK, GITHUB_REPO_LINK } from "@/utils/constant";
 import { ensureHttps, removePublicFromPath } from "@/utils/functions";
 import { MdEdit } from "react-icons/md";
+import { LiaSeedlingSolid } from "react-icons/lia";
 // import axios from "axios";
 const Share = dynamic(() => import("@/components/ui/Share"), { ssr: false });
 const BlogMetaInfo = ({ data }) => {
@@ -86,8 +87,8 @@ const BlogMetaInfo = ({ data }) => {
                 <FaBookOpen
                   title={`It will take ${timeRead} min to read this article.`}
                 />{" "}
-                {timeRead} min read ∘ <FaCalendar title="Published on" />{" "}
-                {publishedOn}
+                {timeRead} min read {" "}
+                <LiaSeedlingSolid title="Seeded on"/>  {publishedOn}
               </div>
             )}
           </div>

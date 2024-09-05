@@ -32,7 +32,7 @@ function MDXRenderer({ markdownContent }) {
     pre: (props) => <pre className="markdown-pre text-black" {...props} />,
     p: (props) => (
       <p
-        className="mb-4  text-[22px] leading-[40px] text-justify  "
+        className="mb-4  text-[22px] leading-[40px]   "
         {...props}
       />
     ),

@@ -1,6 +1,6 @@
 ---
 title: My experience of NDA exam..
-name: My nda experience.
+name: My NDA experience.
 date: 05-09-2024
 thumbnail: /public/images/blogs/images.jpeg
 author: "Prince Tiwari "
