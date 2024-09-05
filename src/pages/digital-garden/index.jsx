@@ -20,6 +20,12 @@ function index() {
       route: "/digital-garden/blog",
       count: 3,
     },
+    {
+      name: "DAILY-UPDATE",
+      desc: "Let’s update daily, staying focused and consistent and together, we’ll achieve our goals. ",
+      route: "/digital-garden/daily-updates",
+      count: 3,
+    },
   ];
 
   return (

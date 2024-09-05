@@ -67,7 +67,7 @@ const BlogMetaInfo = ({ data }) => {
             <img
               alt="blogger-profile-picture"
               src={removePublicFromPath(profilePic)}
-              className="w-12 h-12 border-4 border-gray-300  flex items-center justify-center rounded-full"
+              className="w-12 h-12 border-4 border-gray-300  object-cover flex items-center justify-center rounded-full"
             />
           )}
           <div className="ml-3 flex flex-col gap-1">

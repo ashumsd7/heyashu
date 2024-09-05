@@ -8,14 +8,15 @@ logo_url: https://avatars.githubusercontent.com/u/40313523?v=4
 media_folder: public/images/blogs
 collections:
   - name: "blog" # Used in routes, e.g., /admin/collections/blog
-    label: "Blog" # Used in the UI
-    description: 🌱 Feel free to contribute! Write a new blog or edit an existing one if you spot any errors. As soon as you submit your changes, a pull request will be created. Once it’s merged, your update will go live on heyashu.in/blog/your-blog-title within minutes! 🚀 Let's grow this digital garden together! 🌿✨
-    folder: "/src/content/blog" # The path to the folder where the documents are stored
+  - name: "daily-updates" # Used in routes, e.g., /admin/collections/blog
+    label: "Daily Update: Stand Up" # Used in the UI
+    description: 🌱 Consistency is key to success. Stay committed, update your progress, and make a meaningful impact. Together, we’ll achieve success! 🌿✨
+    folder: "/src/content/daily-updates" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     slug: "" # Filename template, e.g., YYYY-MM-DD-title.md
     delete: false
     editor:
-     preview: false
+      preview: false
     fields: # The fields for each document, usually in front matter
       - {
           label: "Slug",
@@ -27,7 +28,7 @@ collections:
           label: "Blog Title",
           name: "name",
           widget: "string",
-          hint: 'This is the heading on your blog , will be rendered on top of the webpage and then thumbnail',
+          hint: "This is the heading on your blog , will be rendered on top of the webpage and then thumbnail",
         }
       - {
           label: "Publish Date",
@@ -38,24 +39,40 @@ collections:
           format: "DD-MM-YYYY",
         }
       - {
+          label: "Update  Date",
+          name: "updateDate",
+          widget: "datetime",
+          time_format: false,
+          date_format: "DD-MM-YYYY",
+          format: "DD-MM-YYYY",
+        }
+      - {
           label: "Blog Thumbnail Image",
           required: false,
           name: "thumbnail",
           widget: "image",
-          hint: 'This will appear on the top of the blog after title.',
+          hint: "This will appear on the top of the blog after title.",
         }
-      - { label: "Author", name: "author", widget: "string" }
-      - { label: "Tags", name: "tags", widget: "string", hint: 'Add tags comma separated example : JavaScript, Web, Web Development, that can be used seo purpose also in the ui for category.' }
+      - { label: "Author", name: "author", required: false, widget: "string" }
+      - {
+          label: "Tags",
+          name: "tags",
+          required: false,
+          widget: "string",
+          hint: "Add tags comma separated example : JavaScript, Web, Web Development, that can be used seo purpose also in the ui for category.",
+        }
       - {
           label: "Profile Picture URL",
           name: "profilePic",
           widget: "image",
-          hint: 'This image will be shown in the profile picture  avatar.',
+          required: false,
+          hint: "This image will be shown in the profile picture  avatar.",
         }
       - {
           label: "Follow Link ( When user clicks on follow button)",
           name: "followLink",
           widget: "string",
+          required: false,
         }
       - {
           label: "Meta Info : Name",
@@ -86,19 +103,19 @@ collections:
           label: "Title",
           name: "title",
           widget: "string",
-          hint: 'This will be used as slug, Instructions: After filling out this form and adding your markdown, click the "Save" button at the top. This action will create a Pull Request (PR) on GitHub. Within a few minutes, your PR will be merged, and your content will go live at https://heyashu.in/digital-garden/namaste-node-js. To track the PR status, visit this repo link https://github.com/ashumsd7/heyashu/pulls. Look for a PR with your name and blog title. Then, just wait a few minutes. Thank you! ' ,
+          hint: 'This will be used as slug, Instructions: After filling out this form and adding your markdown, click the "Save" button at the top. This action will create a Pull Request (PR) on GitHub. Within a few minutes, your PR will be merged, and your content will go live at https://heyashu.in/digital-garden/namaste-node-js. To track the PR status, visit this repo link https://github.com/ashumsd7/heyashu/pulls. Look for a PR with your name and blog title. Then, just wait a few minutes. Thank you! ',
         }
       - {
           label: "Page Title",
           name: "name",
           widget: "string",
-          hint: 'this is the name used for showing top of the page as heading different from the slug',
+          hint: "this is the name used for showing top of the page as heading different from the slug",
         }
       - {
           label: "Episode Number",
           name: "episode",
           widget: "number",
-          hint: 'Episode number',
+          hint: "Episode number",
         }
       - {
           label: "Publish Date",
@@ -121,15 +138,20 @@ collections:
           required: false,
           name: "thumbnail",
           widget: "image",
-          hint: 'This will appear on the top of the blog after title. The right-side preview is not the final look of your uploaded content. we will ensure its properly formatted and displayed beautifully after deployment.',
+          hint: "This will appear on the top of the blog after title. The right-side preview is not the final look of your uploaded content. we will ensure its properly formatted and displayed beautifully after deployment.",
         }
       - { label: "Author", name: "author", widget: "string" }
-      - { label: "Tags", name: "tags", widget: "string", hint: 'Add tags comma separated For example : JavaScript, Web, Web Development , that can be used seo purpose also in the ui for category.' }
+      - {
+          label: "Tags",
+          name: "tags",
+          widget: "string",
+          hint: "Add tags comma separated For example : JavaScript, Web, Web Development , that can be used seo purpose also in the ui for category.",
+        }
       - {
           label: "Profile Picture URL",
           name: "profilePic",
           widget: "image",
-          hint: 'This image will be shown in the profile picture  avatar. The right-side preview is not the final look of your uploaded content. we will ensure its properly formatted and displayed beautifully after deployment.',
+          hint: "This image will be shown in the profile picture  avatar. The right-side preview is not the final look of your uploaded content. we will ensure its properly formatted and displayed beautifully after deployment.",
         }
       - {
           label: "Follow Link ( When user clicks on follow button)",
@@ -161,26 +183,26 @@ collections:
     slug: "" # Filename template, e.g., YYYY-MM-DD-title.md
     delete: false
     editor:
-     preview: false
-    
+      preview: false
+
     fields: # The fields for each document, usually in front matter
       - {
           label: "Title",
           name: "title",
           widget: "string",
-          hint: 'This  will be used as slug , Instructions: After filling out this form and adding your markdown, click the "Save" button at the top. This action will create a Pull Request (PR) on GitHub. Within a few minutes, your PR will be merged, and your blog will go live at https://heyashu.in/digital-garden/javascript-snippets. To track the PR status, visit this repo link https://github.com/ashumsd7/heyashu/pulls. Look for a PR with your name and blog title. Then, just wait a few minutes. Thank you!' ,
+          hint: 'This  will be used as slug , Instructions: After filling out this form and adding your markdown, click the "Save" button at the top. This action will create a Pull Request (PR) on GitHub. Within a few minutes, your PR will be merged, and your blog will go live at https://heyashu.in/digital-garden/javascript-snippets. To track the PR status, visit this repo link https://github.com/ashumsd7/heyashu/pulls. Look for a PR with your name and blog title. Then, just wait a few minutes. Thank you!',
         }
       - {
           label: "Page Title",
           name: "name",
           widget: "string",
-          hint: 'This is the name used for showing top of the page as heading and this is different from the slug',
+          hint: "This is the name used for showing top of the page as heading and this is different from the slug",
         }
       - {
           label: "Snippet Number",
           name: "episode",
           widget: "number",
-          hint: 'This is snippets number used to maintain the order, please do not change it just keep it same as before or for new one just add 1 ',
+          hint: "This is snippets number used to maintain the order, please do not change it just keep it same as before or for new one just add 1 ",
         }
       - {
           label: "Publish Date",
@@ -203,15 +225,20 @@ collections:
           required: false,
           name: "thumbnail",
           widget: "image",
-          hint: 'This will appear on the top of the page after the user info. The right-side preview is not the final look of your uploaded content. we will ensure its properly formatted and displayed beautifully after deployment.',
+          hint: "This will appear on the top of the page after the user info. The right-side preview is not the final look of your uploaded content. we will ensure its properly formatted and displayed beautifully after deployment.",
         }
       - { label: "Author", name: "author", widget: "string" }
-      - { label: "Tags", name: "tags", widget: "string", hint: 'Add tags comma separated For example : JavaScript, Web, Web Development , that can be used seo purpose also in the ui for category.' }
+      - {
+          label: "Tags",
+          name: "tags",
+          widget: "string",
+          hint: "Add tags comma separated For example : JavaScript, Web, Web Development , that can be used seo purpose also in the ui for category.",
+        }
       - {
           label: "Profile Picture URL",
           name: "profilePic",
           widget: "image",
-          hint: 'This image will be shown in the profile picture  avatar. The right-side preview is not the final look of your uploaded content. we will ensure its properly formatted and displayed beautifully after deployment.',
+          hint: "This image will be shown in the profile picture  avatar. The right-side preview is not the final look of your uploaded content. we will ensure its properly formatted and displayed beautifully after deployment.",
         }
       - {
           label: "Follow Link ( When user clicks on follow button)",
@@ -235,8 +262,3 @@ collections:
           name: "body",
           widget: "markdown",
         }
-    
-
-
-
-

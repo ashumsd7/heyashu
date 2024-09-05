@@ -57,7 +57,7 @@ const NoteCard = ({ data, v2 }) => {
               <img
                 src={thumbnailUrl}
                 alt="thumbnail"
-                className=" h-[50px] rounded-full w-[50px] object-cover border-4 border-gray-700 "
+                className=" h-[50px] rounded-full w-[50px] object-cover border-2 border-gray-700 "
               />
               <div className="flex  flex-col">
                 <h2 className=" font-light text-[32px] max-w-80 truncate ">

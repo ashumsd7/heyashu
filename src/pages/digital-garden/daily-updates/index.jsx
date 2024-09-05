@@ -6,16 +6,17 @@ import { ALL_BLOGS_DATA } from "@/data/blog/allBlogs";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import React from "react";
-import { FaExternalLinkAlt, FaPlus } from "react-icons/fa";
+import { FaExternalLinkAlt } from "react-icons/fa";
 import { MdEdit } from "react-icons/md";
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import ClassicPageLayout from "@/components/base/ClassicNotesLayout";
-
+import DailyUpdateCard from "@/components/daily-updates/DailyUpdateCard";
+import { FaPlus } from "react-icons/fa";
 export async function getStaticProps() {
   // Define the directory containing your markdown files
-  const directory = path.join(process.cwd(), "src/content/blog");
+  const directory = path.join(process.cwd(), "src/content/daily-updates");
 
   // Get file names from the directory
   const filenames = fs.readdirSync(directory);
@@ -47,6 +48,7 @@ export async function getStaticProps() {
 }
 
 function BlogsPage({ posts }) {
+  console.log("posts",posts);
   const router = useRouter();
   return (
     <>
@@ -97,17 +99,17 @@ function BlogsPage({ posts }) {
             onClick={() => {
               window.open("https://heyashu.in/admin", "_blank");
             }}
-            className="mt-4 px-6 py-3 bg-transparent   text-gray-900 border-b md:text-xl text-base border-black  font-medium rounded-md   transition duration-200"
+            className="mt-4 px-6 py-3 bg-transparent   text-gray-900  md:text-xl text-base border-black  font-medium rounded-md   transition duration-200"
           >
-           <FaPlus/>
-           <span className="hidden md:flex">Write blog</span>
+    <FaPlus/>
+            <span className="hidden md:flex">Add update</span>
           </Button>
         }
-        heading="🌱Blogs"
-        desc="   Read blogs on various topics and feel free to add your blogs."
+        heading="☘️ Daily Updates"
+        desc="   Consistency is key to success. Stay committed, update your progress, and make a meaningful impact. Together, we’ll achieve success!"
       >
         {posts?.map((post) => {
-          return <BlogCard data={post?.frontMatter} />;
+          return <DailyUpdateCard data={post?.frontMatter} />;
         })}
       </ClassicPageLayout>
     </>

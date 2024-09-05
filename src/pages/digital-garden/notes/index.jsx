@@ -5,9 +5,10 @@ import { GrNotes } from "react-icons/gr";
 import { NOTES_CARD_DATA } from "@/data/note/allNotes";
 import Head from "next/head";
 import { NOTES_FILTERS } from "@/data/note/notesFilter";
-import { FaExternalLinkAlt } from "react-icons/fa";
+import { FaExternalLinkAlt, FaPlus } from "react-icons/fa";
 import { useRouter } from "next/router";
 import ClassicPageLayout from "@/components/base/ClassicNotesLayout";
+import Button from "@/components/base/Button";
 function AllNotesPage() {
   const router = useRouter();
   return (
@@ -54,13 +55,22 @@ function AllNotesPage() {
       <ClassicPageLayout
         heading=" 🌿 Notes"
         desc="   Get tech notes, interview tips, experiences, snippets, blogs and more."
+        rightCTA={
+          <Button
+            onClick={() => {
+              window.open("https://heyashu.in/admin", "_blank");
+            }}
+            className="mt-4 px-6 py-3 bg-transparent   text-gray-900  md:text-xl text-base border-black  font-medium rounded-md   transition duration-200"
+          >
+            <FaPlus />
+            <span className="hidden md:flex">Add Notes</span>
+          </Button>
+        }
       >
         {NOTES_CARD_DATA?.map((item) => {
           return <NoteCard data={item} />;
         })}
       </ClassicPageLayout>
-
-
     </>
   );
 }

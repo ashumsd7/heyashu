@@ -1,5 +1,5 @@
 ---
-title: tushar python journey
+title: Tushar's python journey
 name: "Learn Python By Tushar  "
 date: 06-09-2024
 thumbnail: /public/images/blogs/python.png
