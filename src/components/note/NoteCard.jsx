@@ -34,7 +34,7 @@ const NoteCard = ({ data, v2 }) => {
         if (isComingSoon) return;
         router.push(route);
       }}
-      className={`  cursor-pointer border-white border relative mb-10   flex flex-col md:flex-row items-start  p-4 lg:border-none  transform transition-all duration-200 ease-in hover:scale-105 hover-bg-white hover:shadow-xl  ${
+      className={`  cursor-pointer border-white border relative mb-2   flex flex-col md:flex-row items-start  p-4 lg:border-none  transform transition-all duration-200 ease-in hover:scale-105 hover-bg-white hover:shadow-xl  ${
         inProgress ? "   " : isComingSoon ? "  opacity-30" : ""
       }`}
     >

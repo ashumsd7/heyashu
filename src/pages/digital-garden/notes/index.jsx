@@ -7,6 +7,7 @@ import Head from "next/head";
 import { NOTES_FILTERS } from "@/data/note/notesFilter";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { useRouter } from "next/router";
+import ClassicPageLayout from "@/components/base/ClassicNotesLayout";
 function AllNotesPage() {
   const router = useRouter();
   return (
@@ -49,24 +50,33 @@ function AllNotesPage() {
         />
         <link rel="icon" href="/digigarden.ico" />
       </Head>
+
+      <ClassicPageLayout
+        heading=" 🌿 Notes"
+        desc="   Get tech notes, interview tips, experiences, snippets, blogs and more."
+      >
+        {NOTES_CARD_DATA?.map((item) => {
+          return <NoteCard data={item} />;
+        })}
+      </ClassicPageLayout>
+
       <div className=" flex flex-col  flex-wrap   ">
         {/* <h1 className="lg:text-3xl font-Inter relative py-2 rounded-lg  text-2xl font-extrabold text-center px-4 lg:px-0 text-[#1A1A1A] font-serif  flex gap-2">
           Digital Notes
         </h1> */}
 
-        <div className="bg-[#f6f5f1] text-[#353534] flex flex-col  ">
+        {/* <div className="bg-[#f6f5f1] text-[#353534] flex flex-col  ">
           <h1 className="md:text-[80px] text-[32px] font-bold mb-2 ">
           🌿 Notes
           </h1>
-        </div>
+        </div> */}
 
-        <div>
+        {/* <div>
           <p className="md:text-[36px]  text-[22px]  text-[#353534] font-light md:pl-[120px] pl-[40px] ">
             Get tech notes, interview tips, experiences, snippets, blogs and
             more.
           </p>
-        </div>
-
+        </div> */}
 
         {/* <NotesFilter /> */}
         {/* <div className=" flex gap-2 justify-start mr-auto ">
@@ -94,11 +104,6 @@ function AllNotesPage() {
             + write notes
           </div>
         </div> */}
-      </div>
-      <div className="max-w-screen-2xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12 py-4 md:pl-[120px]  ">
-        {NOTES_CARD_DATA?.map((item) => {
-          return <NoteCard  data={item} />;
-        })}
       </div>
     </>
   );

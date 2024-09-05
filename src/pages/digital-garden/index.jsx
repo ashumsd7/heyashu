@@ -4,6 +4,7 @@ import { GiPlantSeed } from "react-icons/gi";
 import { FaSeedling } from "react-icons/fa6";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { useRouter } from "next/router";
+import ClassicPageLayout from "@/components/base/ClassicNotesLayout";
 function index() {
   const router = useRouter();
   const GARDEN_CATEGORIES = [
@@ -22,20 +23,11 @@ function index() {
   ];
 
   return (
-    <div className="mt-10 md:mt-20 mb-10">
-      <div className="bg-[#f6f5f1] text-[#353534] flex flex-col  ">
-        <h1 className="md:text-[80px] text-[32px] font-bold mb-2 ">
-          🌱Digital Garden
-        </h1>
-      </div>
-
-      <div>
-        <p className="md:text-[36px]  text-[22px]  text-[#353534] font-light md:pl-[120px] pl-[40px] ">
-          Get tech notes, interview tips, experiences, snippets, blogs and more.
-        </p>
-      </div>
-
-      <div className=" grid grid-cols-1  md:grid-cols-3 gap-6 my-10 md:pl-[120px]  justify-center">
+    <>
+      <ClassicPageLayout
+        heading="🌱Digital Garden"
+        desc="   Get tech notes, interview tips, experiences, snippets, blogs and more."
+      >
         {GARDEN_CATEGORIES?.map((item) => {
           return (
             <div
@@ -72,8 +64,8 @@ function index() {
             </div>
           );
         })}
-      </div>
-    </div>
+      </ClassicPageLayout>
+    </>
   );
 }
 
