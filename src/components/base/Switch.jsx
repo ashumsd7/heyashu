@@ -9,7 +9,7 @@ const Switch = ({ isOn, handleToggle , onColor='bg-green-700' }) => {
       }}
     >
       <div
-        className={`bg-white w-4 h-4 rounded-full shadow-md transform duration-300 ease-in-out ${
+        className={` w-4 h-4 rounded-full shadow-md transform duration-300 ease-in-out ${
           isOn ? 'translate-x-6' : ''
         }`}
       ></div>

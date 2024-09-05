@@ -11,8 +11,9 @@ import { FaCalendar } from "react-icons/fa";
 // import Share from "@/components/ui/Share";
 import dynamic from "next/dynamic";
 import Switch from "@/components/base/Switch";
-import { GITHUB_REPO_LINK } from "@/utils/constant";
+import { ADMIN_LINK, GITHUB_REPO_LINK } from "@/utils/constant";
 import { ensureHttps } from "@/utils/functions";
+import { MdEdit } from "react-icons/md";
 // import axios from "axios";
 const Share = dynamic(() => import("@/components/ui/Share"), { ssr: false });
 const BlogMetaInfo = ({ data }) => {
@@ -21,14 +22,14 @@ const BlogMetaInfo = ({ data }) => {
     timeRead = "0",
     lastUpdated = "-",
     publishedOn = "-",
-    followLink ,
+    followLink,
     showControls = true,
     isQuicReadSettingOn = false,
     profilePic = "https://avatars.githubusercontent.com/u/40313523?v=4",
     title = "",
     githubLink = GITHUB_REPO_LINK,
     isQuickReadModeOn,
-    setIsQuickReadModeOn
+    setIsQuickReadModeOn,
   } = data;
 
   // const [isLiked, setIsLiked] = useState(false);
@@ -57,7 +58,7 @@ const BlogMetaInfo = ({ data }) => {
   return (
     <>
       <div className="flex items-center justify-between    py-4 my-4  ">
-        <div className="flex items-center">
+        <div className="flex items-center gap-1">
           {!profilePic ? (
             <div className="w-10 h-10 bg-purple-600  text-white flex items-center justify-center rounded-full">
               {name.charAt(0)}
@@ -66,12 +67,12 @@ const BlogMetaInfo = ({ data }) => {
             <img
               alt="blogger-profile-picture"
               src={profilePic}
-              className="w-12 h-12 border-4 border-gray-200  flex items-center justify-center rounded-full"
+              className="w-12 h-12 border-4 border-gray-300  flex items-center justify-center rounded-full"
             />
           )}
           <div className="ml-3 flex flex-col gap-1">
             <div className="flex items-center space-x-2">
-              <span className="font-semibold text-gray-900">{name}</span>
+              <span className="font-semibold text-lg mr-2">{name}</span>
               <a
                 href={ensureHttps(followLink)}
                 target="_blank"
@@ -100,7 +101,16 @@ const BlogMetaInfo = ({ data }) => {
             {/* <div className="flex items-center text-gray-600">
               <FaRegHeart />
             </div> */}
-            <div className="flex items-center text-gray-600 cursor-pointer">
+            <div
+              onClick={() => {
+                window.open(ADMIN_LINK, "_blank");
+              }}
+              className="flex items-center justify-center text-gray-600 cursor-pointer gap-[2px] "
+            >
+              <MdEdit className="text-xl " title="Edit this page" />
+              {/* <span className=" cursor-pointer">Edit this page</span> */}
+            </div>
+            <div className="flex items-center text-gray-600 cursor-pointer gap-[2px] flex-col">
               <FaGithub
                 onClick={() => {
                   window.open(githubLink, "_blank");
@@ -121,14 +131,16 @@ const BlogMetaInfo = ({ data }) => {
             {/* <div className="flex items-center text-gray-600">
               <IoMdDownload />
             </div> */}
-            {isQuicReadSettingOn && <div className="flex items-center text-gray-600">
-              <Switch
-                isOn={isQuickReadModeOn}
-                handleToggle={() => {
-                  setIsQuickReadModeOn(!isQuickReadModeOn);
-                }}
-              />
-            </div>}
+            {isQuicReadSettingOn && (
+              <div className="flex items-center text-gray-600">
+                <Switch
+                  isOn={isQuickReadModeOn}
+                  handleToggle={() => {
+                    setIsQuickReadModeOn(!isQuickReadModeOn);
+                  }}
+                />
+              </div>
+            )}
             {/* <div className="flex items-center text-gray-600">
               <BsThreeDotsVertical />
             </div> */}

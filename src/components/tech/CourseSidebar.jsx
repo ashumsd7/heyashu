@@ -62,7 +62,7 @@ const Sidebar = () => {
           <div
             className="bg-gray-700 text-white relative p-4 mb-4 rounded cursor-pointer hover:bg-gray-600"
             onClick={() => {
-              router.push("/tech/notes/namaste-node-js");
+              router.push("/digital-garden/notes/namaste-node-js");
             }}
           >
             <h3 className="font-bold text-lg">Namaste Node JS</h3>
@@ -81,7 +81,7 @@ const Sidebar = () => {
           <div
             className="bg-green-700 text-white p-4 mb-4 rounded relative cursor-pointer"
             onClick={() => {
-              router.push("/tech/notes");
+              router.push("/digital-garden/notes");
             }}
           >
             <h3 className="font-bold text-lg flex items-center gap-2">
@@ -95,7 +95,7 @@ const Sidebar = () => {
           <div
             className="bg-green-700 text-white p-4 mb-4 rounded relative cursor-pointer"
             onClick={() => {
-              router.push("/blogs");
+              router.push("/digital-garden/blog");
             }}
           >
             <h3 className="font-bold text-lg flex items-center gap-2">

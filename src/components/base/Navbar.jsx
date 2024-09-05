@@ -57,10 +57,10 @@ function Navbar() {
       <nav className=" h-[2px] flex  fixed items-center bg-orange-600 md:mb-12 mb-20 w-full  ">
         <div
           style={{
-            backgroundColor: isScrolledUp ? "black" : "#efeff1",
+            backgroundColor: isScrolledUp ? "black" : "#f6f5f1",
             color: isScrolledUp ? "white" : "black",
           }}
-          className="md:flex justify-center  hidden  gap-6  w-full items-center relative  bg-white py-1 px-10     font-mono "
+          className="md:flex justify-center  hidden  gap-6  w-full items-center relative   py-1 px-10     font-mono "
         >
           {/* <div>
             {router?.pathname?.split("/").length > 2 && (
@@ -105,15 +105,15 @@ function Navbar() {
 
             <Link
               id="notes-link"
-              href="/digital-notes"
+              href="/digital-garden"
               className="md:text-xl text-base font-light font-mono relative"
             >
-              digital-notes{" "}
-              {activePath == "digital-notes" && (
+             🌱 digital garden{" "}
+              {activePath == "digital-garden" && (
                 <LuMousePointerClick className="absolute  top-[20px] left-[20px] text-2xl text-gray-600" />
               )}
             </Link>
-            <Link
+            {/* <Link
               href="/blog"
               id="blogs-link"
               className="md:text-xl text-base font-light font-mono relative"
@@ -122,7 +122,7 @@ function Navbar() {
               {activePath == "blog" && (
                 <LuMousePointerClick className="absolute  top-[20px] left-[20px] text-2xl text-gray-600" />
               )}
-            </Link>
+            </Link> */}
 
             <Link
               id="travel-link"
@@ -187,7 +187,7 @@ const MobileNaveBar = ({ isOpen, setIsOpen, activePath }) => {
   };
   return (
     <nav
-      className={`fixed top-0 left-0 w-[55%] h-full bg-[#efeff1] z-40 transform  ${
+      className={`fixed top-0 left-0 w-[55%] h-full  z-40 transform  ${
         isOpen ? "translate-x-0" : "-translate-x-full"
       } transition-transform duration-300 ease-in-out md:hidden`}
     >
@@ -218,7 +218,7 @@ const MobileNaveBar = ({ isOpen, setIsOpen, activePath }) => {
             <LuMousePointerClick className="inline text-orange-600 ml-2" />
           )}
         </Link>
-        <Link
+        {/* <Link
           href="/blog"
           onClick={toggleMenu}
           className="text-2xl py-2 font-semibold border-b-2"
@@ -227,14 +227,14 @@ const MobileNaveBar = ({ isOpen, setIsOpen, activePath }) => {
           {activePath == "blog" && (
             <LuMousePointerClick className="inline text-orange-600 ml-2" />
           )}
-        </Link>
+        </Link> */}
 
         <Link
-          href="/digital-notes"
+          href="/digital-garden"
           className="text-2xl py-2 font-semibold border-b-2"
         >
-          /digital notes{" "}
-          {activePath == "digital-notes" && (
+          /🌱 digital garden{" "}
+          {activePath == "digital-garden" && (
             <LuMousePointerClick className="absolute  top-[20px] left-[20px] text-2xl text-orange-600" />
           )}
         </Link>

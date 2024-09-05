@@ -11,6 +11,8 @@ metaContent: I dont know much....
 
 # KANKHAR: A Full Stack Friendwork (of Friendship)
 
+
+
 In the silicon jungle of Bengaluru, where code monkeys swing from tree to tree, a legend was born. Not just any legend, mind you, but a full-stack legend - KANKHAR! 🐒💻
 
 It all began in the aftermath of the great plague (aka COVID), when a brave soul ventured into the urban wilderness of Bengaluru. His name? **Ashutosh Anand Tiwari.**

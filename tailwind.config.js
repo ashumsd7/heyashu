@@ -18,6 +18,8 @@ module.exports = {
               fontSize: "24px",
               marginBottom: "1.2rem", // 19.2px
               marginTop: "32px",
+              color:"#353534",
+              fontWeight:'400',
               fontWeight: theme("fontWeight.bold"),
               lineHeight: theme("lineHeight.tight"),
               "@screen sm": {
@@ -43,6 +45,7 @@ module.exports = {
               marginTop: theme("spacing.8"),
               fontWeight: theme("fontWeight.semibold"),
               lineHeight: theme("lineHeight.tight"),
+              color:"#353534",
               "@screen sm": {
                 fontSize: "24px", // 24px
               },
@@ -60,6 +63,7 @@ module.exports = {
               fontSize: "22px", // 24px
               marginBottom: theme("spacing.3"),
               marginTop: theme("spacing.10"),
+              color:"#353534",
               fontWeight: theme("fontWeight.bold"),
               lineHeight: theme("lineHeight.tight"),
               "@screen sm": {
@@ -80,6 +84,7 @@ module.exports = {
               marginBottom: theme("spacing.5"),
               marginTop: '18px',
               lineHeight: theme("lineHeight.relaxed"),
+              color:"#353534",
               "@screen sm": {
                 fontSize: "18px",
               },
@@ -88,10 +93,11 @@ module.exports = {
               },
             },
             a: {
-              color: theme("colors.blue.600"),
+              color: theme("colors.blue.400"),
               textDecoration: "underline",
               "&:hover": {
                 color: theme("colors.blue.800"),
+                
               },
             },
             img: {

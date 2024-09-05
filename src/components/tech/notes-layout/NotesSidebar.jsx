@@ -13,15 +13,15 @@ const NotesSidebar = ({
 }) => {
  
   return (
-    <div className="w-[1/4]  lg:block hidden  pb-[200px] h-full shadow-2xl  fixed ">
+    <div className="w-[1/4]  lg:block hidden  pb-[200px] h-full shadow-xl  fixed ">
       <div className="flex justify-center  mb-4  rounded-xl px-4">
         {" "}
-        <h2 className="text-2xl font-sans mt-4  font-extrabold truncate max-w-[300px] text-center text-gray-800 md:text-left ">
+        <h2 className="text-2xl font-sans mt-4  font-extrabold truncate max-w-[300px] text-center  md:text-left ">
           {contentListTitle}
         </h2>
       </div>
       <div className="flex  px-4 flex-col gap-2 justify-between items-center ">
-        {/* <p className="text-sm font-mono text-gray-600 ">{contentListTitle}</p> */}
+        {/* <p className=" font-mono text-gray-600 ">{contentListTitle}</p> */}
         {showProgress && <ProgressBar percentage={progress} />}
       </div>
 
@@ -30,25 +30,25 @@ const NotesSidebar = ({
           return (
             <div
               key={idx}
-              className={`cursor-pointer p-2 w-[270px] bg-gray-300 border  hover:bg-gray-400 rounded-sm relative  ${
+              className={`cursor-pointer border-b hover:bg-[#f1b565] border-b-gray-300 p-2 w-[270px] bg-[#f6f5f1] border   rounded-sm relative  ${
                 storedValues && storedValues[item?.name]
-                  ? "border-0 border-l-8 border-green-500 bg-gradient-to-r from-gray-300 to-[#efeff1] "
-                  : "border-0 border-l-8 border-gray-500"
-              } ${selectedSection?.title == item?.title && " bg-black font-bold"} ${
+                  ? "border-0 border-l-8 border-green-500 bg-gradient-to-r from-gray-100 to-[#f6f5f1] "
+                  : "border-0 border-l-8 border-gray-500 "
+              } ${selectedSection?.title == item?.title && "  font-bold from-gray-300 to-[#f6f5f1] "} ${
                 !item?.publishedOn &&
                 "cursor-none pointer-events-none  opacity-40"
               }`}
               onClick={() => onSectionClick(item)}
             >
               {item.episode == -1 ? (
-                <h3 className="font-medium -ml-0 flex items-center gap-2 pl-3">
+                <h3 className=" -ml-0 flex items-center  gap-2 pl-3">
                   Prerequisite
                 </h3>
               ) : (
                 <h3 className=" flex items-center gap-2 pl-3">
                   {!eachCardPrefix ? (
                     <>
-                      <p className="text-sm pl-3 truncate">{item?.name} </p>
+                      <p className=" pl-3 truncate font-medium">{item?.name} </p>
                     </>
                   ) : (
                     <>
@@ -59,7 +59,7 @@ const NotesSidebar = ({
                 </h3>
               )}
               {eachCardPrefix && (
-                <p className="text-sm pl-3 truncate">{item?.name}</p>
+                <p className=" pl-3 truncate  font-medium">{item?.name}</p>
               )}
             </div>
           );

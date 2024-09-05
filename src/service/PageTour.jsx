@@ -61,13 +61,13 @@ function PageTour() {
       title: "Digital Notes Hub 📚",
       img: "https://i.ibb.co/pwCSSc4/notes.png",
     },
-    {
-      selector: "#blogs-link",
-      description: `Read my thoughts on tech and non-tech topics. You can also contribute by writing your own blogs and sharing insights with the community!`,
-      orientationPreferences: [CardinalOrientation.SOUTH],
-      title: "Discover Blogs 📝",
-      img: "https://i.ibb.co/9NFsjvz/blogs.png",
-    },
+    // {
+    //   selector: "#blogs-link",
+    //   description: `Read my thoughts on tech and non-tech topics. You can also contribute by writing your own blogs and sharing insights with the community!`,
+    //   orientationPreferences: [CardinalOrientation.SOUTH],
+    //   title: "Discover Blogs 📝",
+    //   img: "https://i.ibb.co/9NFsjvz/blogs.png",
+    // },
   
     {
       selector: "#travel-link",
@@ -133,7 +133,7 @@ function PageTour() {
             return (
               <div
                 id="spotlight-card"
-                className="bg-white p-4 rounded-lg shadow-lg "
+                className=" p-4 rounded-lg shadow-lg "
                 style={{
                   width: stepContent?.isFirst ? "520px" : "470px",
                   display: "flex",

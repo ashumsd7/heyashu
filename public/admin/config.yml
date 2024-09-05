@@ -9,7 +9,7 @@ media_folder: public/images/blogs
 collections:
   - name: "blog" # Used in routes, e.g., /admin/collections/blog
     label: "Blog" # Used in the UI
-    description: 🌱 Feel free to contribute! Write a new blog or edit an existing one if you spot any errors. As soon as you submit your changes, a pull request will be created. Once it’s merged, your update will go live on heyashu.in/blog/[your-blog-title] within minutes! 🚀 Let's grow this digital garden together! 🌿✨
+    description: 🌱 Feel free to contribute! Write a new blog or edit an existing one if you spot any errors. As soon as you submit your changes, a pull request will be created. Once it’s merged, your update will go live on heyashu.in/blog/your-blog-title within minutes! 🚀 Let's grow this digital garden together! 🌿✨
     folder: "/src/content/blog" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     slug: "" # Filename template, e.g., YYYY-MM-DD-title.md
@@ -86,7 +86,7 @@ collections:
           label: "Title",
           name: "title",
           widget: "string",
-          hint: 'This will be used as slug, Instructions: After filling out this form and adding your markdown, click the "Save" button at the top. This action will create a Pull Request (PR) on GitHub. Within a few minutes, your PR will be merged, and your content will go live at https://heyashu.in/digital-notes/namaste-node-js. To track the PR status, visit this repo link https://github.com/ashumsd7/heyashu/pulls. Look for a PR with your name and blog title. Then, just wait a few minutes. Thank you! ' ,
+          hint: 'This will be used as slug, Instructions: After filling out this form and adding your markdown, click the "Save" button at the top. This action will create a Pull Request (PR) on GitHub. Within a few minutes, your PR will be merged, and your content will go live at https://heyashu.in/digital-garden/namaste-node-js. To track the PR status, visit this repo link https://github.com/ashumsd7/heyashu/pulls. Look for a PR with your name and blog title. Then, just wait a few minutes. Thank you! ' ,
         }
       - {
           label: "Page Title",
@@ -168,7 +168,7 @@ collections:
           label: "Title",
           name: "title",
           widget: "string",
-          hint: 'This  will be used as slug , Instructions: After filling out this form and adding your markdown, click the "Save" button at the top. This action will create a Pull Request (PR) on GitHub. Within a few minutes, your PR will be merged, and your blog will go live at https://heyashu.in/digital-notes/javascript-snippets. To track the PR status, visit this repo link https://github.com/ashumsd7/heyashu/pulls. Look for a PR with your name and blog title. Then, just wait a few minutes. Thank you!' ,
+          hint: 'This  will be used as slug , Instructions: After filling out this form and adding your markdown, click the "Save" button at the top. This action will create a Pull Request (PR) on GitHub. Within a few minutes, your PR will be merged, and your blog will go live at https://heyashu.in/digital-garden/javascript-snippets. To track the PR status, visit this repo link https://github.com/ashumsd7/heyashu/pulls. Look for a PR with your name and blog title. Then, just wait a few minutes. Thank you!' ,
         }
       - {
           label: "Page Title",
