@@ -48,7 +48,7 @@ export async function getStaticProps() {
 }
 
 function BlogsPage({ posts }) {
-  console.log("posts",posts);
+
   const router = useRouter();
   return (
     <>

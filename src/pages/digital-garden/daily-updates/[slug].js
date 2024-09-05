@@ -13,6 +13,7 @@ import MDXRenderer from "@/components/base/MDXRenderer";
 
 // Function to fetch the content of the blog post
 export async function getStaticProps({ params }) {
+  console.log("params",params);
   const filePath = path.join(
     process.cwd(),
     "src",

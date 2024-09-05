@@ -9,7 +9,6 @@ import { useRouter } from "next/router";
 import React from "react";
 
 const DailyUpdateCard = ({ data }) => {
-  console.log("data",data);
   const router = useRouter();
   const {
     author: name = "Anonyms User",
