@@ -12,6 +12,7 @@ import {
 import { DEFAULT_AVATAR, DEFAULT_FOLLOW_LINK } from "@/utils/constant";
 import Image from "next/image";
 import MDXRenderer from "@/components/base/MDXRenderer";
+import CommonSlugHeadTags from "@/components/seo/CommonSlugHeadTags";
 
 // Function to fetch the content of the blog post
 export async function getStaticProps({ params }) {
