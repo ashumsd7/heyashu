@@ -3,7 +3,7 @@ title: "Neha's Updates "
 name: "My daily routine "
 date: 09-07-2024
 updateDate: 09-07-2024
-author: Something 🆕
+author: "Neha Tiwari "
 tags: "Special "
 followLink: Task
 metaName: "Study eat study "
