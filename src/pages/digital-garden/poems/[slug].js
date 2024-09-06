@@ -39,7 +39,7 @@ export async function getStaticProps({ params }) {
 // Function to fetch all blog slugs
 export async function getStaticPaths() {
   const files = fs.readdirSync(
-    path.join(process.cwd(), "src", "content", "testimonials")
+    path.join(process.cwd(), "src", "content", "poems")
   );
 
   const paths = files.map((fileName) => ({
