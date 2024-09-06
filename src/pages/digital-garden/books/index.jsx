@@ -71,7 +71,7 @@ function BlogsPage({ posts }) {
       >
         {posts.length > 0 ? (
           posts?.map((post) => {
-            return <CommonGardenCard subRoute={'experience'}  data={post?.frontMatter} />;
+            return <CommonGardenCard subRoute={'books'}  data={post?.frontMatter} />;
           })
         ) : (
           <PlantingSoon />

@@ -28,7 +28,7 @@ const NotesDetailPage = ({ notes, currentPageMDX, currentPageFrontMatter }) => {
       id: item.frontMatter.episode || index, // Use episode number or fallback to index
       episode: item.frontMatter.episode,
       title: item.frontMatter.title || item.frontMatter.name, // Use title if available, otherwise use name
-      profilePic: item.frontMatter.profilePic,
+      profilePic: item.frontMatter?.profilePic,
       followLink: item.frontMatter.followLink,
       author: item.frontMatter.author,
       tags: item.frontMatter.tags,

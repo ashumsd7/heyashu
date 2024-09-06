@@ -82,9 +82,9 @@ export default function BlogPost({ frontMatter, mdxSource, large = false }) {
             data={{
               name: frontMatter?.author,
               publishedOn: formattedDate,
-              title: frontMatter.title,
+              title: frontMatter?.title,
               timeRead: estimateReadingTime(mdxSource?.compiledSource),
-              profilePic: frontMatter.profilePic || DEFAULT_AVATAR,
+              profilePic: frontMatter?.profilePic || DEFAULT_AVATAR,
               followLink: frontMatter?.followLink || DEFAULT_FOLLOW_LINK,
              
             }}
