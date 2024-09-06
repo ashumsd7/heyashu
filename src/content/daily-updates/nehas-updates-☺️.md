@@ -1,5 +1,5 @@
 ---
-title: Neha's Updates ☺️
+title: Neha's Updates
 name: "Neha Tiwari "
 date: 09-07-2024
 updateDate: 09-07-2024
