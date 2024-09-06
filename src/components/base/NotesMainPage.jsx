@@ -35,7 +35,7 @@ const NotesMainPage = ({
 }) => {
   const router = useRouter();
   const [episodes, _setEpisodes] = useState(contentList);
-  const [selectedSection, setSelectedSection] = useState(
+  const [_selectedSection, setSelectedSection] = useState(
     currentPageFrontMatter
   );
   const [markdownContent, _setMarkdownContent] = useState(`### Please Wait...`);

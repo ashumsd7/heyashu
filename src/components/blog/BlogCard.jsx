@@ -9,7 +9,6 @@ import { useRouter } from "next/router";
 import React from "react";
 import { LiaSeedlingSolid } from "react-icons/lia";
 const BlogCard = ({ data }) => {
-  console.log("data", data);
   const router = useRouter();
   const {
     author: name = "Anonyms User",

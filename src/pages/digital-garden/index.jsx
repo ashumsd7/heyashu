@@ -10,70 +10,87 @@ function index() {
   const GARDEN_CATEGORIES = [
     {
       name: "NOTES",
-      desc: " Get detailed digital notes on various tech topics curated by multiple open-source enthusiasts.",
+      desc: "Get detailed digital notes on various tech topics curated by multiple open-source enthusiasts.",
       route: "/digital-garden/notes",
       count: 2,
+      isHidden: false,
     },
     {
       name: "BLOGS",
-      desc: "Read and write blogs on diverse topics, learn, share knowledge, and contribute here. ",
+      desc: "Read and write blogs on diverse topics, learn, share knowledge, and contribute here.",
       route: "/digital-garden/blog",
       count: 4,
+      isHidden: false,
     },
     {
       name: "DAILY-UPDATE",
-      desc: "Let’s update daily, staying focused and consistent and together, we’ll achieve our goals. ",
+      desc: "Let’s update daily, staying focused and consistent and together, we’ll achieve our goals.",
       route: "/digital-garden/daily-updates",
       count: 2,
+      isHidden: false,
     },
     {
       name: "Books",
       desc: "Discuss and share insights on the books that have inspired or educated you.",
       route: "/digital-garden/books",
       count: 0,
+      isHidden: false,
     },
     {
       name: "Journey",
       desc: "Document your personal journey, growth, and learning experiences along the way.",
       route: "/digital-garden/journey",
       count: 0,
+      isHidden: true,
     },
     {
       name: "Experience",
       desc: "Share your valuable experiences that shaped your personal and professional growth.",
       route: "/digital-garden/experience",
       count: 0,
+      isHidden: false,
     },
-   
     {
       name: "Poems",
       desc: "Express your thoughts, feelings, and creativity through poetry in this collection.",
       route: "/digital-garden/poems",
       count: 0,
+      isHidden: false,
     },
     {
       name: "Ideas",
       desc: "Brainstorm and share innovative ideas to inspire others and spark creativity.",
       route: "/digital-garden/ideas",
       count: 0,
+      isHidden: true,
     },
     {
       name: "Films/Series",
-      desc: "Discuss your favorite films ,tv series or web series, share reviews that resonate with you.",
+      desc: "Discuss your favorite films, TV series, or web series, and share reviews that resonate with you.",
       route: "/digital-garden/films",
       count: 0,
+      isHidden: false,
     },
     {
       name: "Stories",
       desc: "Share captivating stories that inspire, entertain, or teach valuable lessons.",
       route: "/digital-garden/stories",
       count: 0,
+      isHidden: false,
+    },
+    {
+      name: "Showcase",
+      desc: "Highlight something special—projects, ideas, or creations—worth sharing and exploring.",
+      route: "/digital-garden/showcase",
+      count: 0,
+      isHidden: true,
     },
     {
       name: "Testimonials",
       desc: "Leave your feedback or share your experience of using this platform with others.",
       route: "/digital-garden/testimonials",
-      count: 0,
+      count: 1,
+      isHidden: false,
     },
   ];
 
@@ -84,6 +101,7 @@ function index() {
         desc="   Get tech notes, interview tips, experiences, snippets, blogs and more."
       >
         {GARDEN_CATEGORIES?.map((item) => {
+          if (item?.isHidden) return;
           return (
             <div
               onClick={() => {
@@ -101,7 +119,7 @@ function index() {
                 {/* .. Heading */}
                 <div className="flex justify-between items-start">
                   <h2 className="font-light text-[32px] text-balance relative">
-                    {item?.name}
+                    {item?.name.toUpperCase()}
                     <span className="text-[#ea580c] font-light -right-1 -top-2 text-lg absolute">
                       {item?.count}
                     </span>

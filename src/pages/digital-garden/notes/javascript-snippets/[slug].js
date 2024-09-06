@@ -67,13 +67,8 @@ export default NotesDetailPageForSnippets;
 
 // generating static props
 export async function getStaticProps({ params }) {
-  // Define the directory containing your markdown files
   const directory = path.join(process.cwd(), "src/content/js-snippets");
-
-  // Get file names from the directory
   const filenames = fs.readdirSync(directory);
-
-  // for selected slug : specific page
   const filePath = path.join(
     process.cwd(),
     "src",
@@ -84,8 +79,6 @@ export async function getStaticProps({ params }) {
   const fileContents = fs.readFileSync(filePath, "utf-8");
   const { data, content } = matter(fileContents);
   const mdxSource = await serialize(content);
-
-  // Loop through each file and read its content and metadata :
   const notes = filenames.map((filename) => {
     // Read markdown file as string
     const fileContent = fs.readFileSync(

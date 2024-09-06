@@ -8,9 +8,9 @@ import dayjs from "dayjs";
 import { useRouter } from "next/router";
 import React from "react";
 import { RiPlantFill } from "react-icons/ri";
-import { PiPottedPlantBold  } from "react-icons/pi";
+import { PiPottedPlantBold } from "react-icons/pi";
 import { GiPlantWatering } from "react-icons/gi";
-const DailyUpdateCard = ({ data }) => {
+const CommonGardenCard = ({ data, prefixIcon, subRoute, simple }) => {
   const router = useRouter();
   const {
     author: name = "Anonyms User",
@@ -24,6 +24,7 @@ const DailyUpdateCard = ({ data }) => {
     followLink = DEFAULT_FOLLOW_LINK,
   } = data;
 
+
   function changeFilePath(filePath) {
     const newFilePath = filePath.replace("/public", "");
     return newFilePath;
@@ -32,15 +33,13 @@ const DailyUpdateCard = ({ data }) => {
   return (
     <div
       onClick={() => {
-        router.push(
-          "/digital-garden/daily-updates/" + generateSlug(title)
-        );
+        router.push("/digital-garden/" + subRoute + "/" + generateSlug(title));
       }}
-      className=" rounded-lg p-4 flex gap-2  lg:border-none hover:bg-[#f6f2e5]   transform transition-all cursor-pointer duration-200 ease-in hover:scale-105 hover:shadow-xl "
+      className=" rounded-lg p-4 flex gap-2   lg:border-none hover:bg-[#f6f2e5]   transform transition-all cursor-pointer duration-200 ease-in hover:scale-105 hover:shadow-xl "
     >
-      <h2 className="font-light text-2xl md:text-xl lg:text-3xl text-green-700 ">
+      <h2 className="font-light text-2xl md:text-xl lg:text-3xl mt-1  ">
         {" "}
-        <PiPottedPlantBold className="text-green-700"  />
+        {prefixIcon || <PiPottedPlantBold className="text-green-700" />}
       </h2>
       <div className="flex flex-col gap-2 ">
         <div className=" w-full md:w-auto">
@@ -48,13 +47,15 @@ const DailyUpdateCard = ({ data }) => {
             {title}
           </h2>
         </div>
-        <div className="text-gray-500 text-xs  text-left flex items-center gap-2 ">
-          <GiPlantWatering className="text-xl text-green-500 " /> Watered last on:{" "}
-          {formattedDate}
-        </div>
+        {!simple && (
+          <div className="text-gray-500 text-xs  text-left flex items-center gap-2 ">
+            <GiPlantWatering className="text-xl text-green-500 " /> Watered last
+            on: {formattedDate}
+          </div>
+        )}
       </div>
     </div>
   );
 };
 
-export default DailyUpdateCard;
+export default CommonGardenCard;

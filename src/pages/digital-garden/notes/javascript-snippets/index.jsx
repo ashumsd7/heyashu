@@ -1,13 +1,11 @@
-// import fs from "fs";
-// import path from "path";
-// import matter from "gray-matter";
-
 import React from "react";
 import { useRouter } from "next/router";
 import Button from "@/components/base/Button";
 import { FaEarthAsia, FaXTwitter, FaYoutube } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa";
 import ClassicPageLayout from "@/components/base/ClassicNotesLayout";
+import CommonHeadTags from "@/components/seo/CommonHeadTags";
+import { ADMIN_LINK } from "@/utils/constant";
 const JsSnippetsLandingPage = () => {
   const router = useRouter();
 
@@ -19,6 +17,7 @@ const JsSnippetsLandingPage = () => {
 
   return (
     <>
+      <CommonHeadTags />
       <ClassicPageLayout
         noGrid
         heading=" 🌿  JavaScript Snippets"
@@ -31,7 +30,6 @@ const JsSnippetsLandingPage = () => {
             Started with the idea of sharing and collaboration, this is a place
             where developers like you can learn, contribute, and excel together!
             🚀 Happy Coding! 🌿"
-
       >
         <div className="flex flex-col gap-2">
           <div className="flex  space-x-4">
@@ -61,7 +59,6 @@ const JsSnippetsLandingPage = () => {
             </a>
           </div>
           <div className=" gap-4 flex ">
-            
             <Button
               onClick={handleReadNotesClick}
               className="mt-4 px-6 py-3  text-white text-lg font-medium rounded-md hover:bg-green-700 transition duration-200"
@@ -70,7 +67,7 @@ const JsSnippetsLandingPage = () => {
             </Button>
             <Button
               onClick={() => {
-                window.open("https://heyashu.in/admin", "_blank");
+                window.open(ADMIN_LINK ,"_blank");
               }}
               className="mt-4 px-6 py-3 bg-transparent  text-gray-900 border-b text-lg font-medium rounded-md hover:bg-green-700 hover:text-white transition duration-200"
             >
@@ -87,7 +84,7 @@ const JsSnippetsLandingPage = () => {
               ⭐ Give a star to the repo if you love it!
             </a>
             <a
-              href="https://heyashu.in/admin"
+              href={ADMIN_LINK}
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-600 hover:text-blue-800 font-medium"
@@ -104,7 +101,6 @@ const JsSnippetsLandingPage = () => {
           </div>
         </div>
       </ClassicPageLayout>
-
     </>
   );
 };

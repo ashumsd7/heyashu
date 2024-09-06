@@ -11,6 +11,8 @@ import {
 import { DEFAULT_AVATAR, DEFAULT_FOLLOW_LINK } from "@/utils/constant";
 import Image from "next/image";
 import MDXRenderer from "@/components/base/MDXRenderer";
+import CommonHeadTags from "@/components/seo/CommonHeadTags";
+import CommonSlugHeadTags from "@/components/seo/CommonSlugHeadTags";
 
 // Function to fetch the content of the blog post
 export async function getStaticProps({ params }) {
@@ -18,7 +20,7 @@ export async function getStaticProps({ params }) {
     process.cwd(),
     "src",
     "content",
-    "daily-updates",
+    "films",
     `${params.slug}.md`
   );
   const fileContents = fs.readFileSync(filePath, "utf-8");
@@ -37,7 +39,7 @@ export async function getStaticProps({ params }) {
 // Function to fetch all blog slugs
 export async function getStaticPaths() {
   const files = fs.readdirSync(
-    path.join(process.cwd(), "src", "content", "daily-updates")
+    path.join(process.cwd(), "src", "content", "films")
   );
 
   const paths = files.map((fileName) => ({
@@ -60,13 +62,6 @@ export default function BlogPost({ frontMatter, mdxSource, large = false }) {
     return newFilePath;
   }
 
-  const components = {
-    img: ({ src, alt, ...rest }) => {
-      // Adjust the path using the utility function
-      const adjustedSrc = removePublicFromPath(src);
-      return <img src={adjustedSrc} alt={alt} layout="responsive" {...rest} />;
-    },
-  };
 
   return (
     <>

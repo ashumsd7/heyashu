@@ -1,7 +1,3 @@
-// import fs from "fs";
-// import path from "path";
-// import matter from "gray-matter";
-
 import React from "react";
 import { useRouter } from "next/router";
 import Button from "@/components/base/Button";
@@ -9,6 +5,8 @@ import { FaEarthAsia, FaXTwitter, FaYoutube } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa";
 import Head from "next/head";
 import ClassicPageLayout from "@/components/base/ClassicNotesLayout";
+import CommonHeadTags from "@/components/seo/CommonHeadTags";
+import { ADMIN_LINK } from "@/utils/constant";
 const LandingPage = () => {
   const router = useRouter();
 
@@ -18,45 +16,7 @@ const LandingPage = () => {
 
   return (
     <>
-      <Head>
-        <link rel="icon" href="/digigarden.ico" />
-        <title>Digital Garden : Namaste Node Js Notes</title>
-        <meta
-          name="description"
-          content="Explore a collection of digital notes on various topics, including JavaScript, React, and more. Learn from curated content and insights by Ashutosh Anand Tiwari."
-        />
-        <meta
-          name="keywords"
-          content="JavaScript, Node.js, React, Digital Notes, Ashutosh Anand Tiwari, Programming, Web Development"
-        />
-        <meta
-          property="og:title"
-          content="Digital Notes by Ashutosh Anand Tiwari"
-        />
-        <meta
-          property="og:description"
-          content="Explore a rich collection of digital notes covering JavaScript, Node.js, React, and more."
-        />
-        <meta
-          property="og:image"
-          content="https://heyashu.in/_next/image?url=%2Fimages%2Fprofile.jpg&w=640&q=75"
-        />
-        <meta property="og:url" content="https://www.heyashu.com/tech/notes" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="Digital Notes by Ashutosh Anand Tiwari"
-        />
-        <meta
-          name="twitter:description"
-          content="Explore a rich collection of digital notes covering JavaScript, Node.js, React, and more."
-        />
-        <meta
-          name="twitter:image"
-          content="https://heyashu.in/_next/image?url=%2Fimages%2Fprofile.jpg&w=640&q=75"
-        />
-        <link rel="icon" href="/digigarden.ico" />
-      </Head>
+      <CommonHeadTags />
 
       <ClassicPageLayout
         noGrid
@@ -114,7 +74,7 @@ const LandingPage = () => {
             </Button>
             <Button
               onClick={() => {
-                window.open("https://heyashu.in/admin", "_blank");
+                window.open(ADMIN_LINK, "_blank");
               }}
               className="mt-4 px-6 py-3 bg-transparent   text-gray-900 border-b text-lg font-medium rounded-md   transition duration-200"
             >
@@ -139,7 +99,7 @@ const RepoComponent = () => {
         ⭐ Give a star to the repo if you love it!
       </a>
       <a
-        href="https://heyashu.in/admin"
+        href={ADMIN_LINK}
         target="_blank"
         rel="noopener noreferrer"
         className="text-blue-600 hover:text-blue-800 font-medium"

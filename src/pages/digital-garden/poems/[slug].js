@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import { serialize } from "next-mdx-remote/serialize";
+import Head from "next/head";
 import BlogMetaInfo from "@/components/tech/notes-layout/BlogMetaInfo";
 import {
   estimateReadingTime,
@@ -14,11 +15,12 @@ import MDXRenderer from "@/components/base/MDXRenderer";
 
 // Function to fetch the content of the blog post
 export async function getStaticProps({ params }) {
+
   const filePath = path.join(
     process.cwd(),
     "src",
     "content",
-    "daily-updates",
+    "poems",
     `${params.slug}.md`
   );
   const fileContents = fs.readFileSync(filePath, "utf-8");
@@ -37,7 +39,7 @@ export async function getStaticProps({ params }) {
 // Function to fetch all blog slugs
 export async function getStaticPaths() {
   const files = fs.readdirSync(
-    path.join(process.cwd(), "src", "content", "daily-updates")
+    path.join(process.cwd(), "src", "content", "testimonials")
   );
 
   const paths = files.map((fileName) => ({
@@ -59,14 +61,6 @@ export default function BlogPost({ frontMatter, mdxSource, large = false }) {
     const newFilePath = filePath.replace("/public", "");
     return newFilePath;
   }
-
-  const components = {
-    img: ({ src, alt, ...rest }) => {
-      // Adjust the path using the utility function
-      const adjustedSrc = removePublicFromPath(src);
-      return <img src={adjustedSrc} alt={alt} layout="responsive" {...rest} />;
-    },
-  };
 
   return (
     <>

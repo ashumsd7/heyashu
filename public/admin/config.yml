@@ -52,7 +52,7 @@ collections:
           widget: "image",
           hint: "This will appear on the top of the blog after title.",
         }
-      - { label: "Author", name: "author",   required: false, widget: "string" }
+      - { label: "Author", name: "author", required: false, widget: "string" }
       - {
           label: "Tags",
           name: "tags",
@@ -61,33 +61,22 @@ collections:
           hint: "Add tags comma separated example : JavaScript, Web, Web Development, that can be used seo purpose also in the ui for category.",
         }
       - {
-          label: "Profile Picture URL",
+          label: "Your profile picture",
           name: "profilePic",
           widget: "image",
           required: false,
           hint: "This image will be shown in the profile picture  avatar.",
         }
       - {
-          label: "Follow Link ( When user clicks on follow button)",
+          label: "Social Link( When user clicks on follow button : we will contact you once your content will be live in next  few minutes after saving it)",
           name: "followLink",
           widget: "string",
           required: false,
         }
       - {
-          label: "Meta Info : Name",
-          name: "metaName",
-          required: false,
-          widget: "string",
-        }
-      - {
-          label: "Meta Content : Name",
-          name: "metaContent",
-          required: false,
-          widget: "string",
-        }
-      - {
           label: "Describe your content here",
           name: "body",
+          hint: "Here also you can beautify your content below H denotes Heading and click on + icon to add images and you can use any of the option in below control bar.",
           widget: "markdown",
         }
   - name: "daily-updates" # Used in routes, e.g., /admin/collections/blog
@@ -107,10 +96,10 @@ collections:
           hint: 'This will be used as slug Instructions: After filling out this form and adding your markdown, click the "Save" button at the top. This action will create a Pull Request (PR) on GitHub. Within a few minutes, your PR will be merged, and your blog will go live at https://heyashu.in/blog/your-blog-slug. To track the PR status, visit this repo link https://github.com/ashumsd7/heyashu/pulls. Look for a PR with your name and blog title. Then, just wait a few minutes. Thank you!',
         }
       - {
-          label: "Blog Title",
+          label: "Your Page Title",
           name: "name",
           widget: "string",
-          hint: "This is the heading on your blog , will be rendered on top of the webpage and then thumbnail",
+          hint: "This is the heading on your page , will be shown  on top of the page and then image",
         }
       - {
           label: "Publish Date",
@@ -135,7 +124,12 @@ collections:
           widget: "image",
           hint: "This will appear on the top of the blog after title.",
         }
-      - { label: "Author", name: "author", required: false, widget: "string" }
+      - {
+          label: "Author ( Your Name)",
+          name: "author",
+          required: false,
+          widget: "string",
+        }
       - {
           label: "Tags",
           name: "tags",
@@ -144,33 +138,22 @@ collections:
           hint: "Add tags comma separated example : JavaScript, Web, Web Development, that can be used seo purpose also in the ui for category.",
         }
       - {
-          label: "Profile Picture URL",
+          label: "Your profile picture",
           name: "profilePic",
           widget: "image",
           required: false,
           hint: "This image will be shown in the profile picture  avatar.",
         }
       - {
-          label: "Follow Link ( When user clicks on follow button)",
+          label: "Social Link( When user clicks on follow button : we will contact you once your content will be live in next  few minutes after saving it)",
           name: "followLink",
           widget: "string",
           required: false,
         }
       - {
-          label: "Meta Info : Name",
-          name: "metaName",
-          required: false,
-          widget: "string",
-        }
-      - {
-          label: "Meta Content : Name",
-          name: "metaContent",
-          required: false,
-          widget: "string",
-        }
-      - {
-          label: "Describe your content here",
+          label: "Write / Update whatever you want to",
           name: "body",
+          hint: "Here also you can beautify your content below H denotes Heading and click on + icon to add images and you can use any of the option in below control bar.",
           widget: "markdown",
         }
   - name: "namaste-node-js" # Used in routes, e.g., /admin/collections/blog
@@ -182,13 +165,13 @@ collections:
     delete: false
     fields: # The fields for each document, usually in front matter
       - {
-          label: "Title",
+          label: "SLug of the page ",
           name: "title",
           widget: "string",
           hint: 'This will be used as slug, Instructions: After filling out this form and adding your markdown, click the "Save" button at the top. This action will create a Pull Request (PR) on GitHub. Within a few minutes, your PR will be merged, and your content will go live at https://heyashu.in/digital-garden/namaste-node-js. To track the PR status, visit this repo link https://github.com/ashumsd7/heyashu/pulls. Look for a PR with your name and blog title. Then, just wait a few minutes. Thank you! ',
         }
       - {
-          label: "Page Title",
+          label: "Note Title",
           name: "name",
           widget: "string",
           hint: "this is the name used for showing top of the page as heading different from the slug",
@@ -226,31 +209,22 @@ collections:
       - {
           label: "Tags",
           name: "tags",
+          required: false,
           widget: "string",
           hint: "Add tags comma separated For example : JavaScript, Web, Web Development , that can be used seo purpose also in the ui for category.",
         }
       - {
-          label: "Profile Picture URL",
+          label: "Your profile picture",
           name: "profilePic",
           widget: "image",
+          required: false,
           hint: "This image will be shown in the profile picture  avatar. The right-side preview is not the final look of your uploaded content. we will ensure its properly formatted and displayed beautifully after deployment.",
         }
       - {
-          label: "Follow Link ( When user clicks on follow button)",
+          label: "Social Link( When user clicks on follow button : we will contact you once your content will be live in next  few minutes after saving it)",
           name: "followLink",
           widget: "string",
-        }
-      - {
-          label: "Meta Info : Name",
-          name: "metaName",
           required: false,
-          widget: "string",
-        }
-      - {
-          label: "Meta Content : Name",
-          name: "metaContent",
-          required: false,
-          widget: "string",
         }
       - {
           label: "Describe your content here",
@@ -269,7 +243,7 @@ collections:
 
     fields: # The fields for each document, usually in front matter
       - {
-          label: "Title",
+          label: "Slug of your page",
           name: "title",
           widget: "string",
           hint: 'This  will be used as slug , Instructions: After filling out this form and adding your markdown, click the "Save" button at the top. This action will create a Pull Request (PR) on GitHub. Within a few minutes, your PR will be merged, and your blog will go live at https://heyashu.in/digital-garden/javascript-snippets. To track the PR status, visit this repo link https://github.com/ashumsd7/heyashu/pulls. Look for a PR with your name and blog title. Then, just wait a few minutes. Thank you!',
@@ -309,38 +283,472 @@ collections:
           widget: "image",
           hint: "This will appear on the top of the page after the user info. The right-side preview is not the final look of your uploaded content. we will ensure its properly formatted and displayed beautifully after deployment.",
         }
-      - { label: "Author", name: "author", widget: "string" }
+      - { label: "Author ( Your Name)", name: "author", widget: "string" }
       - {
           label: "Tags",
           name: "tags",
           widget: "string",
+          required: false,
           hint: "Add tags comma separated For example : JavaScript, Web, Web Development , that can be used seo purpose also in the ui for category.",
         }
       - {
-          label: "Profile Picture URL",
+          label: "Your profile picture",
           name: "profilePic",
           widget: "image",
+          required: false,
           hint: "This image will be shown in the profile picture  avatar. The right-side preview is not the final look of your uploaded content. we will ensure its properly formatted and displayed beautifully after deployment.",
         }
       - {
-          label: "Follow Link ( When user clicks on follow button)",
+          label: "Social Link( When user clicks on follow button : we will contact you once your content will be live in next  few minutes after saving it)",
           name: "followLink",
           widget: "string",
-        }
-      - {
-          label: "Meta Info : Name",
-          name: "metaName",
           required: false,
-          widget: "string",
-        }
-      - {
-          label: "Meta Content : Name",
-          name: "metaContent",
-          required: false,
-          widget: "string",
         }
       - {
           label: "Describe your content here",
           name: "body",
           widget: "markdown",
         }
+  - name: "poems" # Used in routes, e.g., /admin/collections/blog
+    label: "Poems" # Used in the UI
+    description: 🌱 Express your thoughts, feelings, and creativity through poetry in this collection.
+    folder: "/src/content/poems" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "" # Filename template, e.g., YYYY-MM-DD-title.md
+    delete: false
+    editor:
+      preview: false
+    fields: # The fields for each document, usually in front matter
+      - {
+          label: "Slug of your poem",
+          name: "title",
+          widget: "string",
+          hint: 'This will be used as slug Instructions: After filling out this form and adding your markdown, click the "Save" button at the top. This action will create a Pull Request (PR) on GitHub. Within a few minutes, your PR will be merged, and your blog will go live at https://heyashu.in/blog/your-blog-slug. To track the PR status, visit this repo link https://github.com/ashumsd7/heyashu/pulls. Look for a PR with your name and blog title. Then, just wait a few minutes. Thank you!',
+        }
+      - {
+          label: "Your Poem title",
+          name: "name",
+          widget: "string",
+          hint: "This is the heading on your poem , will be shown  on top of the page and then image",
+        }
+      - {
+          label: "Publish Date",
+          name: "date",
+          widget: "datetime",
+          time_format: false,
+          date_format: "MM-DD-YYYY",
+          format: "MM-DD-YYYY",
+        }
+      - {
+          label: "Update  Date",
+          name: "updateDate",
+          widget: "datetime",
+          time_format: false,
+          date_format: "MM-DD-YYYY",
+          format: "MM-DD-YYYY",
+        }
+      - {
+          label: "Poem  Image",
+          required: false,
+          name: "thumbnail",
+          widget: "image",
+          hint: "This will appear on the top of the page after title.",
+        }
+      - {
+          label: "Poet ( Your Name)",
+          name: "author",
+          required: false,
+          widget: "string",
+        }
+      - {
+          label: "Tags",
+          name: "tags",
+          required: false,
+          widget: "string",
+          hint: "Add tags comma separated example : Sky, Moon, that can be used experience purpose also in the ui for category.",
+        }
+      - {
+          label: "Your profile picture",
+          name: "profilePic",
+          widget: "image",
+          required: false,
+          hint: "This image will be shown in the profile picture  avatar.",
+        }
+      - {
+          label: "Social Link( When user clicks on follow button : we will contact you once your content will be live in next  few minutes after saving it)",
+          name: "followLink",
+          widget: "string",
+          required: false,
+        }
+      - {
+          label: "Write / Update whatever you want to",
+          name: "body",
+          hint: "Here also you can beautify your content below H denotes Heading and click on + icon to add images and you can use any of the option in below control bar.",
+          widget: "markdown",
+        }
+  - name: "experience" # Used in routes, e.g., /admin/collections/blog
+    label: "Experience" # Used in the UI
+    description: Share your valuable experiences that shaped your personal and professional growth.
+    folder: "/src/content/experience" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "" # Filename template, e.g., YYYY-MM-DD-title.md
+    delete: false
+    editor:
+      preview: false
+    fields: # The fields for each document, usually in front matter
+      - {
+          label: "Slug of your page",
+          name: "title",
+          widget: "string",
+          hint: 'This will be used as slug Instructions: After filling out this form and adding your markdown, click the "Save" button at the top. This action will create a Pull Request (PR) on GitHub. Within a few minutes, your PR will be merged, and your blog will go live at https://heyashu.in/blog/your-blog-slug. To track the PR status, visit this repo link https://github.com/ashumsd7/heyashu/pulls. Look for a PR with your name and blog title. Then, just wait a few minutes. Thank you!',
+        }
+      - {
+          label: "Your page title",
+          name: "name",
+          widget: "string",
+          hint: "This is the heading on your page , will be shown  on top of the page and then image",
+        }
+      - {
+          label: "Publish Date",
+          name: "date",
+          widget: "datetime",
+          time_format: false,
+          date_format: "MM-DD-YYYY",
+          format: "MM-DD-YYYY",
+        }
+      - {
+          label: "Update  Date",
+          name: "updateDate",
+          widget: "datetime",
+          time_format: false,
+          date_format: "MM-DD-YYYY",
+          format: "MM-DD-YYYY",
+        }
+      - {
+          label: "Thumbnail of page",
+          required: false,
+          name: "thumbnail",
+          widget: "image",
+          hint: "This will appear on the top of the page after title.",
+        }
+      - {
+          label: "Author ( Your Name)",
+          name: "author",
+          required: false,
+          widget: "string",
+        }
+      - {
+          label: "Tags",
+          name: "tags",
+          required: false,
+          widget: "string",
+          hint: "Add tags comma separated example : Sky, Moon, that can be used experience purpose also in the ui for category.",
+        }
+      - {
+          label: "Your profile picture",
+          name: "profilePic",
+          widget: "image",
+          required: false,
+          hint: "This image will be shown in the profile picture  avatar.",
+        }
+      - {
+          label: "Social Link( When user clicks on follow button : we will contact you once your content will be live in next  few minutes after saving it)",
+          name: "followLink",
+          widget: "string",
+          required: false,
+        }
+      - {
+          label: "Write / Update whatever you want to",
+          name: "body",
+          widget: "markdown",
+          hint: "Here also you can beautify your content below H denotes Heading and click on + icon to add images and you can use any of the option in below control bar.",
+        }
+  - name: "films" # Used in routes, e.g., /admin/collections/blog
+    label: "Films / Series" # Used in the UI
+    description: Discuss your favorite films, TV series, or web series, and share reviews that resonate with you..
+    folder: "/src/content/films" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "" # Filename template, e.g., YYYY-MM-DD-title.md
+    delete: false
+    editor:
+      preview: false
+    fields: # The fields for each document, usually in front matter
+      - {
+          label: "Slug of your page",
+          name: "title",
+          widget: "string",
+          hint: 'This will be used as slug Instructions: After filling out this form and adding your markdown, click the "Save" button at the top. This action will create a Pull Request (PR) on GitHub. Within a few minutes, your PR will be merged, and your blog will go live at https://heyashu.in/blog/your-blog-slug. To track the PR status, visit this repo link https://github.com/ashumsd7/heyashu/pulls. Look for a PR with your name and blog title. Then, just wait a few minutes. Thank you!',
+        }
+      - {
+          label: "Your page title",
+          name: "name",
+          widget: "string",
+          hint: "This is the heading on your page , will be shown  on top of the page and then image",
+        }
+      - {
+          label: "Publish Date",
+          name: "date",
+          widget: "datetime",
+          time_format: false,
+          date_format: "MM-DD-YYYY",
+          format: "MM-DD-YYYY",
+        }
+      - {
+          label: "Update  Date",
+          name: "updateDate",
+          widget: "datetime",
+          time_format: false,
+          date_format: "MM-DD-YYYY",
+          format: "MM-DD-YYYY",
+        }
+      - {
+          label: "Thumbnail of page",
+          required: false,
+          name: "thumbnail",
+          widget: "image",
+          hint: "This will appear on the top of the page after title.",
+        }
+      - {
+          label: "Author ( Your Name)",
+          name: "author",
+          required: false,
+          widget: "string",
+        }
+      - {
+          label: "Tags",
+          name: "tags",
+          required: false,
+          widget: "string",
+          hint: "Add tags comma separated example : Sky, Moon, that can be used experience purpose also in the ui for category.",
+        }
+      - {
+          label: "Your profile picture",
+          name: "profilePic",
+          widget: "image",
+          required: false,
+          hint: "This image will be shown in the profile picture  avatar.",
+        }
+      - {
+          label: "Social Link( When user clicks on follow button : we will contact you once your content will be live in next  few minutes after saving it)",
+          name: "followLink",
+          widget: "string",
+          required: false,
+        }
+      - {
+          label: "Write / Update whatever you want to",
+          name: "body",
+          widget: "markdown",
+          hint: "Here also you can beautify your content below H denotes Heading and click on + icon to add images and you can use any of the option in below control bar.",
+        }
+  - name: "stories" # Used in routes, e.g., /admin/collections/blog
+    label: "Stories" # Used in the UI
+    description: Share captivating stories that inspire, entertain, or teach valuable lessons...
+    folder: "/src/content/stories" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "" # Filename template, e.g., YYYY-MM-DD-title.md
+    delete: false
+    editor:
+      preview: false
+    fields: # The fields for each document, usually in front matter
+      - {
+          label: "Slug of your page",
+          name: "title",
+          widget: "string",
+          hint: 'This will be used as slug Instructions: After filling out this form and adding your markdown, click the "Save" button at the top. This action will create a Pull Request (PR) on GitHub. Within a few minutes, your PR will be merged, and your blog will go live at https://heyashu.in/blog/your-blog-slug. To track the PR status, visit this repo link https://github.com/ashumsd7/heyashu/pulls. Look for a PR with your name and blog title. Then, just wait a few minutes. Thank you!',
+        }
+      - {
+          label: "Your page title",
+          name: "name",
+          widget: "string",
+          hint: "This is the heading on your page , will be shown  on top of the page and then image",
+        }
+      - {
+          label: "Publish Date",
+          name: "date",
+          widget: "datetime",
+          time_format: false,
+          date_format: "MM-DD-YYYY",
+          format: "MM-DD-YYYY",
+        }
+      - {
+          label: "Update  Date",
+          name: "updateDate",
+          widget: "datetime",
+          time_format: false,
+          date_format: "MM-DD-YYYY",
+          format: "MM-DD-YYYY",
+        }
+      - {
+          label: "Thumbnail of page",
+          required: false,
+          name: "thumbnail",
+          widget: "image",
+          hint: "This will appear on the top of the page after title.",
+        }
+      - {
+          label: "Author ( Your Name)",
+          name: "author",
+          required: false,
+          widget: "string",
+        }
+      - {
+          label: "Tags",
+          name: "tags",
+          required: false,
+          widget: "string",
+          hint: "Add tags comma separated example : Sky, Moon, that can be used experience purpose also in the ui for category.",
+        }
+      - {
+          label: "Your profile picture",
+          name: "profilePic",
+          widget: "image",
+          required: false,
+          hint: "This image will be shown in the profile picture  avatar.",
+        }
+      - {
+          label: "Social Link( When user clicks on follow button : we will contact you once your content will be live in next  few minutes after saving it)",
+          name: "followLink",
+          widget: "string",
+          required: false,
+        }
+      - {
+          label: "Write / Update whatever you want to",
+          name: "body",
+          widget: "markdown",
+          hint: "Here also you can beautify your content below H denotes Heading and click on + icon to add images and you can use any of the option in below control bar.",
+        }            
+  - name: "testimonials" # Used in routes, e.g., /admin/collections/blog
+    label: "Testimonials" # Used in the UI
+    description: Leave your feedback or share your experience of using this garden with others.
+    folder: "/src/content/testimonials" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "" # Filename template, e.g., YYYY-MM-DD-title.md
+    delete: false
+    editor:
+      preview: false
+    fields: # The fields for each document, usually in front matter
+      - {
+          label: "Your good name",
+          name: "title",
+          widget: "string",
+          hint: ' Instructions: After filling out this form and adding your markdown, click the "Save" button at the top. This action will create a Pull Request (PR) on GitHub. Within a few minutes, your PR will be merged, and your content will go live at https://heyashu.in/testimonials/. To track the PR status, visit this repo link https://github.com/ashumsd7/heyashu/pulls. Look for a PR with your name and content title. Then, just wait a few minutes. Thank you!',
+        }
+      - {
+          label: "Date",
+          name: "date",
+          widget: "datetime",
+          time_format: false,
+          date_format: "MM-DD-YYYY",
+          format: "MM-DD-YYYY",
+        }
+      - {
+          label: "Any Image you want to add",
+          required: false,
+          name: "thumbnail",
+          widget: "image",
+          hint: "This will appear on the top of the detailed  page after title.",
+        }
+      - {
+          label: "Author ( Your Name)",
+          name: "author",
+          required: false,
+          widget: "string",
+        }
+      - {
+          label: "Your profile picture",
+          name: "profilePic",
+          widget: "image",
+          required: false,
+          hint: "This image will be shown in the profile picture  avatar.",
+        }
+      - {
+          label: "Social Link( When user clicks on follow button : we will contact you once your content will be live in next  few minutes after saving it)",
+          name: "followLink",
+          widget: "string",
+          required: false,
+        }
+      - {
+          label: "Write / Update whatever you want to",
+          name: "body",
+          widget: "markdown",
+          hint: "Here also you can beautify your content below H denotes Heading and click on + icon to add images and you can use any of the option in below control bar.",
+        }            
+  - name: "books" # Used in routes, e.g., /admin/collections/blog
+    label: "Books" # Used in the UI
+    description: Discuss and share insights on the books that have inspired or educated you.
+    folder: "/src/content/books" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "" # Filename template, e.g., YYYY-MM-DD-title.md
+    delete: false
+    editor:
+      preview: false
+    fields: # The fields for each document, usually in front matter
+      - {
+          label: "Book name",
+          name: "title",
+          widget: "string",
+          hint: 'This will be used as slug Instructions: After filling out this form and adding your markdown, click the "Save" button at the top. This action will create a Pull Request (PR) on GitHub. Within a few minutes, your PR will be merged, and your content will go live at https://heyashu.in/digital-garden/books. To track the PR status, visit this repo link https://github.com/ashumsd7/heyashu/pulls. Look for a PR with your name and content title. Then, just wait a few minutes. Thank you!',
+        }
+      - {
+          label: "Your page title",
+          name: "name",
+          widget: "string",
+          hint: "This is the heading on your page , will be shown  on top of the page and then image",
+        }
+      - {
+          label: "Publish Date",
+          name: "date",
+          widget: "datetime",
+          time_format: false,
+          date_format: "MM-DD-YYYY",
+          format: "MM-DD-YYYY",
+        }
+      - {
+          label: "Update  Date",
+          name: "updateDate",
+          widget: "datetime",
+          time_format: false,
+          date_format: "MM-DD-YYYY",
+          format: "MM-DD-YYYY",
+        }
+      - {
+          label: "Thumbnail of page",
+          required: false,
+          name: "thumbnail",
+          widget: "image",
+          hint: "This will appear on the top of the page after title.",
+        }
+      - {
+          label: "Author ( Your Name)",
+          name: "author",
+          required: false,
+          widget: "string",
+        }
+      - {
+          label: "Tags",
+          name: "tags",
+          required: false,
+          widget: "string",
+          hint: "Add tags comma separated example : Sky, Moon, that can be used experience purpose also in the ui for category.",
+        }
+      - {
+          label: "Your profile picture",
+          name: "profilePic",
+          widget: "image",
+          required: false,
+          hint: "This image will be shown in the profile picture  avatar.",
+        }
+      - {
+          label: "Social Link( When user clicks on follow button : we will contact you once your content will be live in next  few minutes after saving it)",
+          name: "followLink",
+          widget: "string",
+          required: false,
+        }
+      - {
+          label: "Write / Update whatever you want to",
+          name: "body",
+          widget: "markdown",
+          hint: "Here also you can beautify your content below H denotes Heading and click on + icon to add images and you can use any of the option in below control bar.",
+        } 
+              
+              

@@ -1,14 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { FaGithub, FaRegHeart } from "react-icons/fa";
-import { FaHandsClapping } from "react-icons/fa6";
-import { HiOutlineSpeakerWave } from "react-icons/hi2";
-import { IoMdDownload } from "react-icons/io";
-import { BsThreeDotsVertical } from "react-icons/bs";
 import { FaBookOpen } from "react-icons/fa";
-import { FaCalendar } from "react-icons/fa";
-// import { FcLike, FcLikePlaceholder } from "react-icons/fc";
-
-// import Share from "@/components/ui/Share";
 import dynamic from "next/dynamic";
 import Switch from "@/components/base/Switch";
 import { ADMIN_LINK, GITHUB_REPO_LINK } from "@/utils/constant";
@@ -33,28 +25,7 @@ const BlogMetaInfo = ({ data }) => {
     setIsQuickReadModeOn,
   } = data;
 
-  // const [isLiked, setIsLiked] = useState(false);
-  // const [likeCount, setLikeCount] = useState(0);
-
-  // function onHitLike() {
-  //   setIsLiked(true);
-  //   setLikeCount(likeCount + 1);
-
-  //   axios
-  //     .post(
-  //       "https://aat-portfolio-website-default-rtdb.asia-southeast1.firebasedatabase.app/ded.json", {"name": "test"}
-  //     )
-  //     .then((res) => {
-  //       console.log("res", res);
-  //     });
-  // }
-
-  // useEffect(() => {
-  //   if (window.location.hash) {
-  //     const hash = decodeURIComponent(window.location.hash);
-  //    let  dbName= hash.split("#")[1]
-  //   }
-  // }, []);
+  
 
   return (
     <>
