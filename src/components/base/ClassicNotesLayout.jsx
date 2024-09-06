@@ -11,7 +11,7 @@ function ClassicPageLayout({
   rightCTA
 }) {
   return (
-    <div className="mt-10 md:mt-20 mb-10">
+    <div className="mt-5 md:mt-10 ">
       <div className="bg-[#f6f5f1] text-[#353534] flex justify-between  items-center flex-wrap ">
         <h1 className="md:text-[80px] text-[40px]  font-bold  ">{heading}</h1>
         {rightCTA}

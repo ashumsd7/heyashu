@@ -18,13 +18,62 @@ function index() {
       name: "BLOGS",
       desc: "Read and write blogs on diverse topics, learn, share knowledge, and contribute here. ",
       route: "/digital-garden/blog",
-      count: 3,
+      count: 4,
     },
     {
       name: "DAILY-UPDATE",
       desc: "Let’s update daily, staying focused and consistent and together, we’ll achieve our goals. ",
       route: "/digital-garden/daily-updates",
-      count: 3,
+      count: 2,
+    },
+    {
+      name: "Books",
+      desc: "Discuss and share insights on the books that have inspired or educated you.",
+      route: "/digital-garden/books",
+      count: 0,
+    },
+    {
+      name: "Journey",
+      desc: "Document your personal journey, growth, and learning experiences along the way.",
+      route: "/digital-garden/journey",
+      count: 0,
+    },
+    {
+      name: "Experience",
+      desc: "Share your valuable experiences that shaped your personal and professional growth.",
+      route: "/digital-garden/experience",
+      count: 0,
+    },
+   
+    {
+      name: "Poems",
+      desc: "Express your thoughts, feelings, and creativity through poetry in this collection.",
+      route: "/digital-garden/poems",
+      count: 0,
+    },
+    {
+      name: "Ideas",
+      desc: "Brainstorm and share innovative ideas to inspire others and spark creativity.",
+      route: "/digital-garden/ideas",
+      count: 0,
+    },
+    {
+      name: "Films/Series",
+      desc: "Discuss your favorite films ,tv series or web series, share reviews that resonate with you.",
+      route: "/digital-garden/films",
+      count: 0,
+    },
+    {
+      name: "Stories",
+      desc: "Share captivating stories that inspire, entertain, or teach valuable lessons.",
+      route: "/digital-garden/stories",
+      count: 0,
+    },
+    {
+      name: "Testimonials",
+      desc: "Leave your feedback or share your experience of using this platform with others.",
+      route: "/digital-garden/testimonials",
+      count: 0,
     },
   ];
 
