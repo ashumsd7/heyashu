@@ -13,7 +13,7 @@ const BlogCard = ({ data }) => {
   const {
     author: name = "Anonyms User",
     date: writtenOn = "Today",
-    title = "Blog Title",
+    title = "Dummy Plant",
     minRead = "",
     tags = [],
     profilePic = DEFAULT_AVATAR,
