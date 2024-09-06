@@ -3,7 +3,7 @@ import { FaGithub, FaRegHeart } from "react-icons/fa";
 import { FaBookOpen } from "react-icons/fa";
 import dynamic from "next/dynamic";
 import Switch from "@/components/base/Switch";
-import { ADMIN_LINK, GITHUB_REPO_LINK } from "@/utils/constant";
+import { ADMIN_LINK, DEFAULT_FOLLOW_LINK, GITHUB_REPO_LINK } from "@/utils/constant";
 import { ensureHttps, removePublicFromPath } from "@/utils/functions";
 import { MdEdit } from "react-icons/md";
 import { LiaSeedlingSolid } from "react-icons/lia";
@@ -11,11 +11,11 @@ import { LiaSeedlingSolid } from "react-icons/lia";
 const Share = dynamic(() => import("@/components/ui/Share"), { ssr: false });
 const BlogMetaInfo = ({ data }) => {
   const {
-    name = "Ashutosh Anand Tiwari",
+    name = "Anonymous Gardener",
     timeRead = "0",
     lastUpdated = "-",
     publishedOn = "-",
-    followLink,
+    followLink = DEFAULT_FOLLOW_LINK,
     showControls = true,
     isQuicReadSettingOn = false,
     profilePic = "https://avatars.githubusercontent.com/u/40313523?v=4",

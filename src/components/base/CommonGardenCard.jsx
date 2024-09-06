@@ -16,7 +16,7 @@ const CommonGardenCard = ({ data, prefixIcon, subRoute, simple }) => {
     author: name = "Anonyms User",
     updateDate: updatedOn = "Today",
     date: publishDate = "Today",
-    title = "Blog Title",
+    title = "Demo  Plant",
     minRead = "",
     tags = [],
     profilePic = DEFAULT_AVATAR,
