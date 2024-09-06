@@ -6,7 +6,7 @@ import path from "path";
 import matter from "gray-matter";
 import ClassicPageLayout from "@/components/base/ClassicNotesLayout";
 import { FaPlus } from "react-icons/fa";
-import CommonHeadTags from "@/components/seo/CommonHeadtags";
+import CommonHeadTags from "@/components/seo/CommonHeadTags";
 import { ADMIN_LINK } from "@/utils/constant";
 import CommonGardenCard from "@/components/base/CommonGardenCard";
 import PlantingSoon from "@/components/base/PlantingSoon";

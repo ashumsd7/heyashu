@@ -6,7 +6,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import ClassicPageLayout from "@/components/base/ClassicNotesLayout";
-import CommonHeadTags from "@/components/seo/CommonHeadtags";
+import CommonHeadTags from "@/components/seo/CommonHeadTags";
 import { ADMIN_LINK } from "@/utils/constant";
 import { LiaBlogSolid } from "react-icons/lia";
 export async function getStaticProps() {
