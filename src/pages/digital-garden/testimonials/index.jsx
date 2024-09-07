@@ -87,7 +87,7 @@ function BlogsPage({ posts }) {
                         <BsFillBalloonHeartFill className=" -top-10 relative -right-4 -rotate-[70deg]" />
                         <BsFillBalloonHeartFill className=" -top-16 relative -right-10 -rotate-45" />
                       </div>{" "}
-                      {post?.frontMatter?.name} said ....
+                      {post?.frontMatter?.name ||  post?.frontMatter?.author} said ....
                     </h2>
                   </div>
                 </div>
