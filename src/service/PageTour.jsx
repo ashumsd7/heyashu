@@ -58,7 +58,7 @@ function PageTour() {
       selector: "#notes-link",
       description: ` Find in-depth notes on JavaScript, interview prep, and other tech subjects. A perfect resource to boost your knowledge and skills!`,
       orientationPreferences: [CardinalOrientation.SOUTH],
-      title: "Digital Notes Hub 📚",
+      title: "Digital Garden 📚",
       img: "https://i.ibb.co/pwCSSc4/notes.png",
     },
     // {
@@ -103,7 +103,7 @@ function PageTour() {
     localStorage.setItem(HOME_PAGE_TOUR_KEY, "true");
     const selector = document.querySelector(tourLogic?.stepContent?.selector);
     selector?.classList.add("no-click");
-    if (tourLogic?.stepIndex == 7) {
+    if (tourLogic?.stepIndex == 5) {
       setIsTourOn(false);
       document.body.style.overflow = "auto";
       const elements = document.querySelectorAll(".no-click");

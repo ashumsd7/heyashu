@@ -54,13 +54,13 @@ function Navbar() {
   return (
     <>
       {/* bg-[#efeff1] */}
-      <nav className="   ">
+      <nav className="   border-none  ">
         <nav
           style={{
             backgroundColor: isScrolledUp ? "black" : "#f6f5f1",
             color: isScrolledUp ? "white" : "black",
           }}
-          className="md:flex justify-between  hidden  gap-6  w-full items-center relative   py-1 px-10      font-mono "
+          className="md:flex justify-between  border-none  hidden  gap-6  w-full items-center relative   py-1 px-10      font-mono "
         >
           <Link href="/">
             {" "}
@@ -68,7 +68,7 @@ function Navbar() {
               className="font-extrabold   font-mono flex cursor-pointer justify-left text-2xl items-center  ml-4 "
               src={"https://i.ibb.co/59hJ4PV/logo2.jpg"}
               height={"36"}
-              width={"200"}
+              width={"130"}
             />
           </Link>
           <div className="flex lg:gap-8 gap-10 space-x-6  items-center ">
@@ -85,9 +85,14 @@ function Navbar() {
             <Link
               href="/tech"
               id="tech-link"
-              className="md:text-xl text-base font-light font-mono relative "
+              className="md:text-xl text-base font-light items-center flex font-mono relative "
             >
-              Tech{" "}
+              <img
+                width="40"
+                height="40"
+                className="-mt-2"
+                src="https://clasherbros.github.io/images/giphy.gif"
+              /> Tech{" "}
               {activePath == "tech" && (
                 <LuMousePointerClick className="absolute  top-[20px] left-[20px] text-2xl text-gray-600" />
               )}
@@ -105,27 +110,21 @@ function Navbar() {
                 src="https://media3.giphy.com/media/fkoLF0dzaiNL6a1f2s/giphy.gif?cid=6c09b9529bocknrq68ifba6hwawfagtyld7j518t8lqfp7g4&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=s"
               />
               Digital Garden{" "}
-              {/* {activePath == "digital-garden" && (
-                <LuMousePointerClick className="absolute  top-[20px] left-[20px] text-2xl text-gray-600" />
-              )} */}
+           
             </Link>
-            {/* <Link
-              href="/blog"
-              id="blogs-link"
-              className="md:text-xl text-base font-light font-mono relative"
-            >
-              blogs{" "}
-              {activePath == "blog" && (
-                <LuMousePointerClick className="absolute  top-[20px] left-[20px] text-2xl text-gray-600" />
-              )}
-            </Link> */}
+           
 
             <Link
               id="travel-link"
               href="/travel"
-              className="md:text-xl text-base font-light font-mono  relative"
+              className="md:text-xl flex items-center text-base font-light font-mono  relative"
             >
-              Travel
+           <img
+                width="80"
+                height="80"
+                className="-mt-2 absolute  -top-4"
+                src="https://www.aerocandia.com/en/photos/index/plane.gif"
+              />    Travel
               {activePath == "travel" && (
                 <LuMousePointerClick className="absolute  top-[20px] left-[20px] text-2xl text-gray-600" />
               )}
@@ -155,7 +154,7 @@ function Navbar() {
         </nav>
         <hr />
 
-        <div className="flex md:hidden justify-between  bg-gradient-to-l relative from-[#f3d581] to-[#efeff1] text-black text-2xl w-full   h-12 items-center mt-10 pr-4 px-1">
+        <div className="flex md:hidden justify-between  bg-gradient-to-l relative  text-black text-2xl w-full   h-12 items-center  pr-4 px-1">
           <h2 className="italic font-extrabold px-2"></h2>
           <GiHamburgerMenu
             onClick={() => {
