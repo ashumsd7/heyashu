@@ -1,8 +1,9 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import NotesSidebar from "@/components/tech/notes-layout/NotesSidebar";
 import NotesChips from "@/components/tech/notes-layout/NotesChips";
 import NotesContentTopBar from "@/components/tech/notes-layout/NotesContentTopBar";
 import NotesContent from "@/components/tech/notes-layout/NotesContent";
+
 import {
   estimateReadingTime,
   formateDate,
@@ -10,17 +11,21 @@ import {
   reverseSlug,
   scrollToTop,
 } from "@/utils/functions";
-import ls from "local-storage";
+import ls, { get } from "local-storage";
 import BlogMetaInfo from "@/components/tech/notes-layout/BlogMetaInfo";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import { Document, Page } from "react-pdf";
 import Button from "./Button";
-import Image from "next/image";
 import { CONNECT_LINK_TOPMATE } from "@/utils/constant";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 dayjs.extend(customParseFormat);
+import { pdfjs } from "react-pdf";
 
+
+// Load worker from an external CDN
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 const NotesMainPage = ({
   contentList = [],
   storageKey,
@@ -38,14 +43,17 @@ const NotesMainPage = ({
   const [_selectedSection, setSelectedSection] = useState(
     currentPageFrontMatter
   );
+  const [slug, setSlug] = useState(router.query.slug);
   const [markdownContent, _setMarkdownContent] = useState(`### Please Wait...`);
   const [isSidebarVisible, setIsSidebarVisible] = useState(true);
-  const [isQuickReadModeOn, setIsQuickReadModeOn] = useState(false);
+  const [isQuickReadModeOn, setIsQuickReadModeOn] = useState(true);
   const [progress, setProgress] = useState(0);
 
   const STORAGE_KEY = storageKey;
+
   const handleSectionClick = (section) => {
     const slug = generateSlug(section?.title);
+    setSlug(slug);
     router.push(`/digital-garden/notes/${subDomain}/` + slug);
     const storageValue = ls.get(STORAGE_KEY);
     const updatedStorage = {
@@ -63,7 +71,6 @@ const NotesMainPage = ({
       : 0;
   }
 
-  // for changing file path just removing public , because its not required
   function changeFilePath(filePath) {
     const newFilePath = filePath.replace("/public", "");
     return newFilePath;
@@ -77,7 +84,6 @@ const NotesMainPage = ({
     setProgress(res);
   }, [currentPageFrontMatter]);
 
-  // Todo: Not working needs to be fixed
   useEffect(() => {
     const { slug } = router.query;
     const matchedEpisode = contentList?.findIndex((episode) => {
@@ -87,9 +93,12 @@ const NotesMainPage = ({
   }, []);
 
   const savedStorage = ls.get(STORAGE_KEY);
-
-  // format publish date
   const formattedDate = formateDate(currentPageFrontMatter?.publishedOn);
+
+  const getPdfPath = (slug) => {
+    // {console.log(`/src/content/pdf-namaste-node-js/${slug}.pdf`);}
+    return `/src/content/pdf-namaste-node-js/${slug}.pdf`;
+  };
 
   return (
     <>
@@ -144,7 +153,7 @@ const NotesMainPage = ({
               }
             />
 
-            <div className="flex-1   ">
+            <div className="flex-1">
               <div className="">
                 <BlogMetaInfo
                   large
@@ -176,27 +185,30 @@ const NotesMainPage = ({
               )}
 
               {isQuickReadModeOn ? (
-                <div className="flex flex-col gap-4 justify-center items-center mt-10  font-semibold">
-                  <h2 className="text-2xl">I am writing this feature !!!</h2>
-                  <Button
-                    onClick={() => {
-                      window.open(CONNECT_LINK_TOPMATE, "_blank");
-                    }}
-                    className=""
-                  >
-                    Let's write together
-                  </Button>
+                <div className="flex flex-col gap-4 justify-center items-center mt-10 font-semibold">
+                  <div>
+                    {console.log(slug)}
+                    <Document
+                      file={getPdfPath(slug)}
+                      onLoadError={(error) =>
+                        console.log("Error while loading document!", error)
+                      }
+                    >
+                      <Page pageNumber={1} />
+                    </Document>
+                  </div>
                 </div>
               ) : (
-                <NotesContent markdownContent={msxSource} large />
+                <div>
+                  <NotesContent markdownContent={msxSource} large />
+                </div>
               )}
             </div>
-
-            {/* <NotesContentFooter data={episodes} selectedSection={selectedSection} onSectionClick={handleSectionClick} /> */}
           </div>
         </div>
       </div>
     </>
   );
 };
+
 export default NotesMainPage;

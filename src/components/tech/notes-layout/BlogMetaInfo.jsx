@@ -17,10 +17,10 @@ const BlogMetaInfo = ({ data }) => {
     publishedOn = "-",
     followLink = DEFAULT_FOLLOW_LINK,
     showControls = true,
-    isQuicReadSettingOn = false,
+    isQuicReadSettingOn = true,
     profilePic = "https://avatars.githubusercontent.com/u/40313523?v=4",
     title = "",
-    githubLink = GITHUB_REPO_LINK,
+    githubLink  = GITHUB_REPO_LINK,
     isQuickReadModeOn,
     setIsQuickReadModeOn,
   } = data;
