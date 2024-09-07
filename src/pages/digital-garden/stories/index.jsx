@@ -3,11 +3,11 @@ import React from "react";
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import ClassicPageLayout from "@/components/base/ClassicNotesLayout";
+import ClassicPageLayout from "@/components/garden/ClassicNotesLayout";
 import { FaPlus } from "react-icons/fa";
 import CommonHeadTags from "@/components/seo/CommonHeadTags";
 import { ADMIN_LINK } from "@/utils/constant";
-import CommonGardenCard from "@/components/base/CommonGardenCard";
+import CommonGardenCard from "@/components/garden/CommonGardenCard";
 import { MdAutoStories } from "react-icons/md";
 import PlantingSoon from "@/components/base/PlantingSoon";
 export async function getStaticProps() {

@@ -32,7 +32,6 @@ function NotesContentFooter({ data = [], selectedSection, onSectionClick }) {
   }, [selectedSection?.id]);
   return (
     <div className="bg-gray-800 text-white px-2 h-10 flex justify-between ">
-      {/* {selectedSection?.name} */}
       {prevSection ? (
         <div
           className="flex gap-2 items-center text-white cursor-pointer"

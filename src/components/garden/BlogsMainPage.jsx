@@ -1,7 +1,6 @@
 import React from "react";
-import Markdown from "./Markdown";
+import Markdown from "../base/Markdown";
 import BlogMetaInfo from "../tech/notes-layout/BlogMetaInfo";
-import Image from "next/image";
 import Head from "next/head";
 
 function BlogsMainPage({ blogInfo, large }) {

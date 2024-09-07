@@ -53,7 +53,7 @@ function Navbar() {
   }, []);
   return (
     <>
-      {/* bg-[#efeff1] */}
+
       <nav className="   border-none  ">
         <nav
           style={{

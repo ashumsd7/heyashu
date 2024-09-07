@@ -1,1 +1,0 @@
-export const  e13=`# Coming Soon`

@@ -4,7 +4,7 @@ import Button from "@/components/base/Button";
 import { FaEarthAsia, FaXTwitter, FaYoutube } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa";
 import Head from "next/head";
-import ClassicPageLayout from "@/components/base/ClassicNotesLayout";
+import ClassicPageLayout from "@/components/garden/ClassicNotesLayout";
 import CommonHeadTags from "@/components/seo/CommonHeadTags";
 import { ADMIN_LINK } from "@/utils/constant";
 const LandingPage = () => {

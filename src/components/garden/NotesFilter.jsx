@@ -3,6 +3,7 @@ import Button from "../base/Button";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { useRouter } from "next/router";
 import { NOTES_FILTERS } from "@/data/note/notesFilter";
+import { PHONE_CALL_THIRTY_MIN } from "@/utils/constant";
 
 function NotesFilter() {
   const router = useRouter();
@@ -37,7 +38,7 @@ function NotesFilter() {
 
       <Button
         onClick={() => {
-        window.open('https://topmate.io/aat/1148709/pay', '_blank')
+        window.open(PHONE_CALL_THIRTY_MIN, '_blank')
         }}
         className="bg-transparent text-gray-800 text-base border border-orange-400"
       >

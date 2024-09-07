@@ -1,11 +1,11 @@
 import Button from "@/components/base/Button";
-import BlogCard from "@/components/blog/BlogCard";
+import BlogCard from "@/components/garden/BlogCard";
 import React from "react";
 import { FaPlus } from "react-icons/fa";
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import ClassicPageLayout from "@/components/base/ClassicNotesLayout";
+import ClassicPageLayout from "@/components/garden/ClassicNotesLayout";
 import CommonHeadTags from "@/components/seo/CommonHeadTags";
 import { ADMIN_LINK } from "@/utils/constant";
 import { LiaBlogSolid } from "react-icons/lia";

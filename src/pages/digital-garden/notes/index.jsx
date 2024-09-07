@@ -1,15 +1,13 @@
 import React from "react";
-import NoteCard from "@/components/note/NoteCard";
+import NoteCard from "@/components/garden/NoteCard";
 import { ImBooks } from "react-icons/im";
 import {  FaPlus } from "react-icons/fa";
-import { useRouter } from "next/router";
-import ClassicPageLayout from "@/components/base/ClassicNotesLayout";
+import ClassicPageLayout from "@/components/garden/ClassicNotesLayout";
 import Button from "@/components/base/Button";
 import CommonHeadTags from "@/components/seo/CommonHeadTags";
 import { ADMIN_LINK } from "@/utils/constant";
 import { NOTES_CARD_DATA } from "@/data/note/allNotes";
 function AllNotesPage() {
-  const router = useRouter();
   return (
     <>
       <CommonHeadTags />
