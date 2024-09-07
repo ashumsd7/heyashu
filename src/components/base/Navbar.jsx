@@ -136,7 +136,7 @@ function Navbar() {
               className="md:text-xl text-base  font-light font-mono pr-5 relative"
             >
               {" "}
-              More{" "}
+              ...{" "}
               {["misc", "town"].includes(activePath) && (
                 <LuMousePointerClick className="absolute top-[20px] left-[20px] text-2xl text-gray-600" />
               )}
@@ -245,7 +245,7 @@ const MobileNaveBar = ({ isOpen, setIsOpen, activePath }) => {
           onClick={toggleMenu}
           className="text-2xl py-2 font-semibold border-b-2"
         >
-          More
+          ...
           {["misc", "town"].includes(activePath) && (
             <LuMousePointerClick className="inline text-orange-600 ml-2" />
           )}
