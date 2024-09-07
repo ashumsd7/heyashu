@@ -70,10 +70,6 @@ Outout of above code
 
 ### readFileSync
 
-Here’s a version with simpler words:
-
-- - -
-
 We saw that `readFile` is asynchronous, meaning it doesn't block the main thread. But what if you want the next line of code to run only after the file is read? In that case, you'll need to wait for the file to be read. To do this, instead of using `readFile` (which doesn't wait), you can use `readFileSync`, which is synchronous and blocks the main thread. It will pause and wait until the file is read before moving to the next line of code.
 
 This way, the output will change, and you’ll notice the file is read first before the code continues. The order of execution will be different.
