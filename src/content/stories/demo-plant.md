@@ -1,5 +1,0 @@
----
-title: demo plant
-name: 
-
----
