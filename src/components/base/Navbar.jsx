@@ -54,35 +54,25 @@ function Navbar() {
   return (
     <>
       {/* bg-[#efeff1] */}
-      <nav className=" h-[2px] flex  fixed items-center bg-orange-600 md:mb-12 mb-20 w-full  ">
-        <div
+      <nav className="   ">
+        <nav
           style={{
             backgroundColor: isScrolledUp ? "black" : "#f6f5f1",
             color: isScrolledUp ? "white" : "black",
           }}
-          className="md:flex justify-center  hidden  gap-6  w-full items-center relative   py-1 px-10     font-mono "
+          className="md:flex justify-between  hidden  gap-6  w-full items-center relative   py-1 px-10      font-mono "
         >
-          {/* <div>
-            {router?.pathname?.split("/").length > 2 && (
-              <div
-                className="flex cursor-pointer justify-left font-semibold items-center mt-10 ml-4"
-                onClick={() => {
-                  document.body.style.overflow = "auto";
-                  goBack();
-                }}
-              >
-                <IoArrowBackSharp />
-            Ashutosh
-              </div>
-            )}
-          </div> */}
-
-          {/* <h2 className="font-extrabold   font-mono flex cursor-pointer justify-left text-2xl items-center mt-12 ml-4">
-            Ashutosh Anand Tiwari
-          </h2> */}
-
-          <div className="flex lg:gap-8 gap-10 space-x-6 mt-10 items-center ">
-            <Link
+          <Link href="/">
+            {" "}
+            <Image
+              className="font-extrabold   font-mono flex cursor-pointer justify-left text-2xl items-center  ml-4 "
+              src={"https://i.ibb.co/59hJ4PV/logo2.jpg"}
+              height={"36"}
+              width={"200"}
+            />
+          </Link>
+          <div className="flex lg:gap-8 gap-10 space-x-6  items-center ">
+            {/* <Link
               href="/"
               className="md:text-xl  text-base font-extrabold flex items-center font-mono relative "
             >
@@ -90,7 +80,7 @@ function Navbar() {
               {activePath == "" && (
                 <LuMousePointerClick className="absolute   top-[20px] left-[20px] text-2xl text-gray-600" />
               )}
-            </Link>
+            </Link> */}
 
             <Link
               href="/tech"
@@ -108,7 +98,7 @@ function Navbar() {
               href="/digital-garden"
               className="md:text-xl text-base font-light font-mono relative"
             >
-             🌱 digital garden{" "}
+              🌱 digital garden{" "}
               {activePath == "digital-garden" && (
                 <LuMousePointerClick className="absolute  top-[20px] left-[20px] text-2xl text-gray-600" />
               )}
@@ -156,7 +146,7 @@ function Navbar() {
               SUPPORT
             </div> */}
           </div>
-        </div>
+        </nav>
         <hr />
 
         <div className="flex md:hidden justify-between  bg-gradient-to-l relative from-[#f3d581] to-[#efeff1] text-black text-2xl w-full   h-12 items-center mt-10 pr-4 px-1">
@@ -173,7 +163,12 @@ function Navbar() {
           isOpen={isOpen}
           activePath={activePath}
         />
-        {isSupportBtnActive && <Support active={isSupportBtnActive} setIsSupportBtnActive={setIsSupportBtnActive}/>}
+        {isSupportBtnActive && (
+          <Support
+            active={isSupportBtnActive}
+            setIsSupportBtnActive={setIsSupportBtnActive}
+          />
+        )}
       </nav>
     </>
   );
@@ -191,7 +186,7 @@ const MobileNaveBar = ({ isOpen, setIsOpen, activePath }) => {
         isOpen ? "translate-x-0" : "-translate-x-full"
       } transition-transform duration-300 ease-in-out md:hidden`}
     >
-      <div className="flex justify-end text-black border">
+      <div className="flex justify-end text-black ">
         <IoMdClose
           onClick={toggleMenu}
           className=" text-black absolute top-2 right-5"
@@ -218,16 +213,6 @@ const MobileNaveBar = ({ isOpen, setIsOpen, activePath }) => {
             <LuMousePointerClick className="inline text-orange-600 ml-2" />
           )}
         </Link>
-        {/* <Link
-          href="/blog"
-          onClick={toggleMenu}
-          className="text-2xl py-2 font-semibold border-b-2"
-        >
-          Blogs
-          {activePath == "blog" && (
-            <LuMousePointerClick className="inline text-orange-600 ml-2" />
-          )}
-        </Link> */}
 
         <Link
           href="/digital-garden"
@@ -263,11 +248,3 @@ const MobileNaveBar = ({ isOpen, setIsOpen, activePath }) => {
     </nav>
   );
 };
-
-// <Image
-//             className="font-extrabold   font-mono flex cursor-pointer justify-left text-2xl items-center h-17 mt-10 ml-4 top-6"
-//             src={"https://i.ibb.co/59hJ4PV/logo2.jpg"}
-//             height={"50"}
-//             width={"200"}
-//             alt="Ashutosh-logo"
-//           />
