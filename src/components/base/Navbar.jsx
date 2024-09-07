@@ -87,7 +87,7 @@ function Navbar() {
               id="tech-link"
               className="md:text-xl text-base font-light font-mono relative "
             >
-              tech{" "}
+              Tech{" "}
               {activePath == "tech" && (
                 <LuMousePointerClick className="absolute  top-[20px] left-[20px] text-2xl text-gray-600" />
               )}
@@ -96,12 +96,18 @@ function Navbar() {
             <Link
               id="notes-link"
               href="/digital-garden"
-              className="md:text-xl text-base font-light font-mono relative"
+              className="md:text-xl text-base flex items-center font-light font-mono relative text-green-600"
             >
-              🌱 digital garden{" "}
-              {activePath == "digital-garden" && (
+              <img
+                width="40"
+                height="40"
+                className="-mt-2"
+                src="https://media3.giphy.com/media/fkoLF0dzaiNL6a1f2s/giphy.gif?cid=6c09b9529bocknrq68ifba6hwawfagtyld7j518t8lqfp7g4&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=s"
+              />
+              Digital Garden{" "}
+              {/* {activePath == "digital-garden" && (
                 <LuMousePointerClick className="absolute  top-[20px] left-[20px] text-2xl text-gray-600" />
-              )}
+              )} */}
             </Link>
             {/* <Link
               href="/blog"
@@ -119,7 +125,7 @@ function Navbar() {
               href="/travel"
               className="md:text-xl text-base font-light font-mono  relative"
             >
-              travel
+              Travel
               {activePath == "travel" && (
                 <LuMousePointerClick className="absolute  top-[20px] left-[20px] text-2xl text-gray-600" />
               )}
@@ -130,7 +136,7 @@ function Navbar() {
               className="md:text-xl text-base  font-light font-mono pr-5 relative"
             >
               {" "}
-              more{" "}
+              More{" "}
               {["misc", "town"].includes(activePath) && (
                 <LuMousePointerClick className="absolute top-[20px] left-[20px] text-2xl text-gray-600" />
               )}
