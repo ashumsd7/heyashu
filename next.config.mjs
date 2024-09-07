@@ -8,11 +8,23 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
+        hostname: "**", // Allows images from any HTTPS hostname
+      },
+      {
+        protocol: "http",
+        hostname: "**", // Allows images from any HTTP hostname (if needed)
+      },
+      {
+        protocol: "https",
         hostname: "i.ibb.co",
       },
       {
         protocol: "https",
         hostname: "plus.unsplash.com",
+      },
+      {
+        protocol: "https",
+        hostname: "imgs.search.brave.com",
       },
       {
         protocol: "https",

@@ -1,7 +1,7 @@
 ---
 author: Vansh kumar
 profilePic: /public/images/blogs/githubwali.png
-name: Kavish Jadon
+name: Vansh Kumar
 title: Vansh Kumar
 date: 09-07-2024
 thumbnail: https://imgs.search.brave.com/jVzkxHM41lbKMblAIUcxRQxzqdY01-vNmCiYN7opKI8/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YTAuZ2lwaHkuY29t/L21lZGlhLzNET3pZ/UUpQWW5WUGVYUUNp/Ny8yMDAuZ2lmP2Np/ZD03OTBiNzYxMXA0/M3lmM21nYmU0YTk2/a20yaG5sbm9tbGg5/bTZqbHh5eTd5eXZy/YjImZXA9djFfZ2lm/c19zZWFyY2gmcmlk/PTIwMC5naWYmY3Q9/Zw.jpeg
@@ -23,4 +23,3 @@ Your ability to strike a balance between humor and technical clarity is impressi
 
 And of course, I owe a great thanks to Akshay Saini, the creator of "NamasteNodejs," for developing such an incredible course. Your notes have added another layer of value to his teaching, making the experience truly special.
 
-## Ashutosh, you’ve done something truly remarkable with this piece. It’s not just a story about a tech team; it’s a celebration of friendship, trust, and the joy of creating something meaningful together. Thank you for sharing this with us—it's a story that will stick with me for a long time."
