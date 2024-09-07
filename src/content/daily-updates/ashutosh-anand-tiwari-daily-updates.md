@@ -5,13 +5,21 @@ date: 06-09-2024
 updateDate: 06-09-2024
 thumbnail: null
 author: Ashutosh
-tags: Daily updates
 profilePic: /public/images/blogs/1000120935.jpg
 followLink: https//heyashu.in
 metaName: Get my daily updates here
 metaContent: Whats I I am working on
+tags: Daily updates
 ---
 My Daily Updates 👇
+
+> 07 Sep 2024
+
+* Still bugs are not over
+* Demo is on monday
+* learnt sync vs async in Node js
+* some work on digital-garden
+* ...its 4am Good Night :)
 
 
 
