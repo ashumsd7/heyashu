@@ -130,7 +130,7 @@ const NotesMainPage = ({
             />
           )}
           <div
-            className={`lg:w-3/4 w-full lg:ml-[340px] ml-0   flex flex-col   h-full     rounded-lg   ${
+            className={`lg:w-3/4 w-full lg:ml-[340px] ml-0    flex flex-col   h-full     rounded-lg   ${
               isSidebarVisible ? "w-3/4" : "w-full"
             }`}
           >
@@ -176,7 +176,7 @@ const NotesMainPage = ({
               )}
 
               {isQuickReadModeOn ? (
-                <div className="flex flex-col gap-4 justify-center items-center mt-10  font-semibold">
+                <div className="flex flex-col gap-4 justify-center items-center mt-10 ml-10  font-semibold">
                   <h2 className="text-2xl">I am writing this feature !!!</h2>
                   <Button
                     onClick={() => {

@@ -32,7 +32,7 @@ Alright, let’s move on to the session now. When the V8 engine processes the co
 
 An interpreter reads and executes code line by line, while a compiler reads the entire code, compiles it, and then passes it to the engine for execution. JavaScript uses both a compiler and an interpreter to run the code, along with several optimizations like **JIT (Just-in-Time Compiler)**.
 
-I highly recommend reading **[Scope and Closures by Kyle Simpson](https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/scope-closures/README.md)** to dive deeper into these concepts. I am covering digital notes of these books seeding soon in the garden [hrere](https://heyashu.in/digital-garden/notes). The compiler used by V8 is called **Turbofan**, and its job is to optimize the code so that it runs faster, especially if the same section of code is executed multiple times.
+I highly recommend reading **[Scope and Closures by Kyle Simpson](https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/scope-closures/README.md)** to dive deeper into these concepts. I am covering digital notes of these books seeding soon in the garden [here](https://heyashu.in/digital-garden/notes). The compiler used by V8 is called **Turbofan**, and its job is to optimize the code so that it runs faster, especially if the same section of code is executed multiple times.
 
 Also, remember that **Garbage Collection** happens in parallel to free up memory. Below, I’ve listed the names of some garbage collectors used in the V8 engine—make sure to look them up and read about them.
 
