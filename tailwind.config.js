@@ -137,7 +137,7 @@ module.exports = {
               backgroundColor: theme("colors.gray.200"),
               borderRadius: theme("borderRadius.sm"),
               padding: theme("spacing.1"),
-              color: theme("colors.pink.600"),
+              color: theme("colors.gray.700"),
             },
             pre: {
               backgroundColor: theme("colors.gray.100"),

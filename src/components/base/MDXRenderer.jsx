@@ -19,39 +19,39 @@ function MDXRenderer({ markdownContent }) {
         />
       );
     },
-    h1: (props) => <h1 className="text-2xl font-bold mb-4" {...props} />,
+    h1: (props) => <h1 className="text-[28px] font-bold mb-4" {...props} />,
     h2: (props) => (
-      <h2 className="text-2xl font-bold mb-4 text-gray-900" {...props} />
+      <h2 className="text-[28px] font-bold mb-4 text-gray-900" {...props} />
     ),
     h3: (props) => (
-      <h2
-        className="text-3xl font-bold mb-6 text-gray-900 font-sans"
+      <h3
+        className="text-[28px] font-bold mb-6 text-gray-900 font-sans"
         {...props}
       />
     ),
-    pre: (props) => <pre className="markdown-pre text-black" {...props} />,
+    pre: (props) => <pre className="markdown-pre text-[20px] leading-[32px] m-0 text-[#2a354b]" {...props} />,
     p: (props) => (
       <p
-        className="mb-4  text-[22px] leading-[40px]   "
+        className="mb-2  text-[20px] leading-[32px] text-[#2a354b]   "
         {...props}
       />
     ),
     strong: (props) => (
       <strong
-        className="mb-4 text-[#242424] font-semibold italic leading-[32px] "
+        className="mb-4  font-semibold italic text-[20px] leading-[32px] text-[#2a354b] "
         {...props}
       />
     ),
     li: (props) => (
       <li
-        className="text-[20px] leading-[30px] text-justify "
+        className="text-[20px] leading-[32px] text-[#2a354b] text-justify "
         {...props}
       />
     ),
     a: (props) => (
       <a
         target="_blank"
-        className="underline  text-[#c06636]  "
+        className="underline  text-[#000000]  "
         {...props}
       />
     ),
