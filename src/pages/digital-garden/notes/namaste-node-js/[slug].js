@@ -16,7 +16,6 @@ import { serialize } from "next-mdx-remote/serialize";
 const NotesDetailPage = ({ notes, currentPageMDX, currentPageFrontMatter }) => {
   const [contentList, setContentList] = useState([]);
 
-
   // for sorting content episode wise
   function sortByEpisode(array) {
     return array.sort((a, b) => a.episode - b.episode);
@@ -39,6 +38,7 @@ const NotesDetailPage = ({ notes, currentPageMDX, currentPageFrontMatter }) => {
     }));
 
     const sortedList = sortByEpisode(list);
+    console.log(sortedList);
     setContentList(sortedList);
   }
 
@@ -61,7 +61,6 @@ const NotesDetailPage = ({ notes, currentPageMDX, currentPageFrontMatter }) => {
   );
 };
 export default NotesDetailPage;
-
 
 // generating static props
 export async function getStaticProps({ params }) {
