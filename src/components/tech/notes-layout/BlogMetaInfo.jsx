@@ -68,7 +68,22 @@ const BlogMetaInfo = ({ data }) => {
 
       <div className="flex justify-end h-[44px] px-4 border-b border-t p-6">
         {showControls && (
-          <div className="flex items-center space-x-6">
+          <div className="flex items-center space-x-4">
+
+          {isQuicReadSettingOn && (
+              <div className="flex items-center  gap-2  text-gray-600">
+              <span className="text-xs">Hand Written mode is {!isQuickReadModeOn ?  'off' : 'on'} </span>
+                <Switch
+                  isOn={isQuickReadModeOn}
+                  handleToggle={() => {
+                    setIsQuickReadModeOn(!isQuickReadModeOn);
+                  }}
+                />
+           
+              </div>
+            )}
+
+
             {/* Heart Icon */}
             {/* <div className="flex items-center text-gray-600">
               <FaRegHeart />
@@ -103,16 +118,7 @@ const BlogMetaInfo = ({ data }) => {
             {/* <div className="flex items-center text-gray-600">
               <IoMdDownload />
             </div> */}
-            {isQuicReadSettingOn && (
-              <div className="flex items-center text-gray-600">
-                <Switch
-                  isOn={isQuickReadModeOn}
-                  handleToggle={() => {
-                    setIsQuickReadModeOn(!isQuickReadModeOn);
-                  }}
-                />
-              </div>
-            )}
+           
             {/* <div className="flex items-center text-gray-600">
               <BsThreeDotsVertical />
             </div> */}

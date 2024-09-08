@@ -3,6 +3,14 @@ import NotesSidebar from "@/components/tech/notes-layout/NotesSidebar";
 import NotesChips from "@/components/tech/notes-layout/NotesChips";
 import NotesContentTopBar from "@/components/tech/notes-layout/NotesContentTopBar";
 import NotesContent from "@/components/tech/notes-layout/NotesContent";
+import dynamic from "next/dynamic";
+
+const PDFViewer = dynamic(() => import("../pdf-utilities/pdf-viewer"), {
+  ssr: false
+});
+
+
+
 import {
   estimateReadingTime,
   formateDate,
@@ -40,7 +48,7 @@ const NotesMainPage = ({
   );
   const [markdownContent, _setMarkdownContent] = useState(`### Please Wait...`);
   const [isSidebarVisible, setIsSidebarVisible] = useState(true);
-  const [isQuickReadModeOn, setIsQuickReadModeOn] = useState(false);
+  const [isQuickReadModeOn, setIsQuickReadModeOn] = useState(true);
   const [progress, setProgress] = useState(0);
 
   const STORAGE_KEY = storageKey;
@@ -157,6 +165,7 @@ const NotesMainPage = ({
                       currentPageFrontMatter?.title,
                     isQuickReadModeOn: isQuickReadModeOn,
                     setIsQuickReadModeOn: setIsQuickReadModeOn,
+                    isQuicReadSettingOn:true
                   }}
                 />
               </div>
@@ -177,15 +186,8 @@ const NotesMainPage = ({
 
               {isQuickReadModeOn ? (
                 <div className="flex flex-col gap-4 justify-center items-center mt-10  font-semibold">
-                  <h2 className="text-2xl">I am writing this feature !!!</h2>
-                  <Button
-                    onClick={() => {
-                      window.open(CONNECT_LINK_TOPMATE, "_blank");
-                    }}
-                    className=""
-                  >
-                    Let's write together
-                  </Button>
+                ................
+                <PDFViewer />
                 </div>
               ) : (
                 <NotesContent markdownContent={msxSource} large />

@@ -2,17 +2,18 @@
 import createMDX from '@next/mdx';
 import withPWA from 'next-pwa';
 
+// The base Next.js configuration
 const nextConfig = {
   reactStrictMode: true,
   images: {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "**", // Allows images from any HTTPS hostname
+        hostname: "**",
       },
       {
         protocol: "http",
-        hostname: "**", // Allows images from any HTTP hostname (if needed)
+        hostname: "**",
       },
       {
         protocol: "https",
@@ -40,12 +41,33 @@ const nextConfig = {
       },
     ],
   },
+  // Add the webpack configuration from the provided CommonJS example
+  webpack: (config, { isServer }) => {
+    // Load worker files as URLs with `file-loader`
+    config.module.rules.unshift({
+      test: /pdf\.worker\.(min\.)?js/,
+      use: [
+        {
+          loader: "file-loader",
+          options: {
+            name: "[contenthash].[ext]",
+            publicPath: "_next/static/worker",
+            outputPath: "static/worker"
+          }
+        }
+      ]
+    });
+
+    return config;
+  },
 };
 
+// MDX configuration
 const withMDX = createMDX({
-  // Add markdown plugins here, as desired
+  // Add markdown plugins here, if needed
 });
 
+// PWA configuration
 const pwaConfig = withPWA({
   dest: 'public',
   register: true,
@@ -53,5 +75,5 @@ const pwaConfig = withPWA({
   disable: process.env.NODE_ENV === 'development'
 });
 
-// Combine PWA and MDX configuration
+// Combine PWA and MDX configuration with Webpack
 export default pwaConfig(withMDX(nextConfig));
