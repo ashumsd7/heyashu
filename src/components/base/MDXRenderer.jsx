@@ -29,22 +29,22 @@ function MDXRenderer({ markdownContent }) {
         {...props}
       />
     ),
-    pre: (props) => <pre className="markdown-pre text-[20px] leading-[32px] m-0 text-[#2a354b]" {...props} />,
+    pre: (props) => <pre className="markdown-pre text-[18px] leading-[32px] m-0 text-[#2a354b]" {...props} />,
     p: (props) => (
       <p
-        className="mb-2  text-[20px] leading-[32px] text-[#2a354b]   "
+        className="mb-2  text-[18px] leading-[32px] text-[#2a354b]   "
         {...props}
       />
     ),
     strong: (props) => (
       <strong
-        className="mb-4  font-semibold italic text-[20px] leading-[32px] text-[#2a354b] "
+        className="mb-4  font-semibold italic text-[18px] leading-[32px] text-[#2a354b] "
         {...props}
       />
     ),
     li: (props) => (
       <li
-        className="text-[20px] leading-[32px] text-[#2a354b] text-justify "
+        className="text-[18px] leading-[32px] text-[#2a354b] text-justify "
         {...props}
       />
     ),

@@ -18,7 +18,7 @@
     "axios": "^1.7.6",
     "clsx": "^2.1.1",
     "dayjs": "^1.11.13",
-    "framer-motion": "^11.2.0",
+    "framer-motion": "^11.5.4",
     "gray-matter": "^4.0.3",
     "local-storage": "^2.0.0",
     "markdown-to-jsx": "^7.4.7",
