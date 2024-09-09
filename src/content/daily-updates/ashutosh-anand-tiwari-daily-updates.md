@@ -13,6 +13,16 @@ tags: Daily updates
 ---
 My Daily Updates 👇
 
+> 08 Sep 2024
+
+* 8hrs code time on sunday
+* Read about CLI vs GUI
+* Read about behind the scene of v8 engine
+* so much work till 6AM ( till monday ) no sleep
+* still working......felling sleeepyyyy
+
+
+
 > 07 Sep 2024
 
 * Still bugs are not over
@@ -20,8 +30,6 @@ My Daily Updates 👇
 * learnt sync vs async in Node js
 * some work on digital-garden
 * ...its 4am Good Night :)
-
-
 
 > 06 Sep 2024
 
