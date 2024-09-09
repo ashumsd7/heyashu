@@ -7,9 +7,9 @@ import { MdPermPhoneMsg } from "react-icons/md";
 import { SiPeerlist, SiWakatime } from "react-icons/si";
 
 const ContentFooter = ({
-  photoSrc = "https://avatars.githubusercontent.com/u/40313523?v=4", // Default photo
+  photoSrc = "https://i.ibb.co/bvdH5wm/baba.png", // Default photo
   name = "Ashutosh Anand Tiwari",
-  description = "Accidental and now experienced front-end engineer with a passion for learning and exploring the world, now diving into back-end wonders node.js.",
+  description = "Ek front-end engineer with a passion for  learning and exploring the world, now diving into back-end wonders node.js.",
   // Example: [{ href: '#', icon: 'FacebookIcon' }, { href: '#', icon: 'TwitterIcon' }]
 }) => {
   return (
