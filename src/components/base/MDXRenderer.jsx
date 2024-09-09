@@ -19,26 +19,33 @@ function MDXRenderer({ markdownContent }) {
         />
       );
     },
-    h1: (props) => <h1 className="text-[28px] font-bold mb-4" {...props} />,
+    h1: (props) => (
+      <h1 className="text-[28px] text-[#08142cd9] font-bold mb-4" {...props} />
+    ),
     h2: (props) => (
-      <h2 className="text-[28px] font-bold mb-4 text-gray-900" {...props} />
+      <h2 className="text-[28px] font-bold mb-4 text-[#08142cd9]" {...props} />
     ),
     h3: (props) => (
       <h3
-        className="text-[28px] font-bold mb-6 text-gray-900 font-sans"
+        className="text-[20px] font-bold mb-3 mt-7 text-[#08142cd9] font-sans"
         {...props}
       />
     ),
-    pre: (props) => <pre className="markdown-pre text-[18px] leading-[32px] m-0 text-[#2a354b]" {...props} />,
+    pre: (props) => (
+      <pre
+        className="markdown-pre text-[17px] leading-[22px]  text-[#2a354b]"
+        {...props}
+      />
+    ),
     p: (props) => (
       <p
-        className="mb-2  text-[18px] leading-[32px] text-[#2a354b]   "
+        className="mb-2  text-[18px] leading-[29px] text-[#28354bd9]   "
         {...props}
       />
     ),
     strong: (props) => (
       <strong
-        className="mb-4  font-semibold italic text-[18px] leading-[32px] text-[#2a354b] "
+        className="mb-4 font-medium bg-[#8f9fa926] px-1 py-[2px] rounded-md   text-[18px] leading-[29px] text-[#2a354b] "
         {...props}
       />
     ),
@@ -51,13 +58,17 @@ function MDXRenderer({ markdownContent }) {
     a: (props) => (
       <a
         target="_blank"
-        className="underline  text-[#000000]  "
+        className="underline hover:opacity-70   bg-[#8f9fa926] px-1 py-[2px] rounded-md   text-[18px] leading-[29px] text-[#2a354b]  "
         {...props}
       />
     ),
   };
 
-  return <MDXRemote {...markdownContent} components={components} />;
+  return (
+    <>
+      <MDXRemote {...markdownContent} components={components} />
+    </>
+  );
 }
 
 export default MDXRenderer;

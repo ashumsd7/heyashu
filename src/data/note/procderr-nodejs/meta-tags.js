@@ -1,9 +1,9 @@
-export const metaTagsForProcodrrNodeJS = [
+export const metaTagsForProcoderrNodejs = [
 
   {
     name: "description",
     content:
-      "Read Node.js notes by Ashutosh Anand Tiwari, covering basics to advanced concepts, inspired by the Procodrr Node.js course.",
+      "Read Node.js notes by Ashutosh Anand Tiwari, covering basics to advanced concepts, inspired by the Namaste Node.js course.",
   },
   {
     name: "keywords",
@@ -50,6 +50,6 @@ export const metaTagsForProcodrrNodeJS = [
   },
   {
     name: "twitter:title",
-    content: "Introduction to Node.js - Procodrr , Notes by Ashutosh Anand Tiwari",
+    content: "Introduction to Node.js - Namaste JavaScript Series",
   }
 ];

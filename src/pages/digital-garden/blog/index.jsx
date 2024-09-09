@@ -9,6 +9,7 @@ import ClassicPageLayout from "@/components/garden/ClassicNotesLayout";
 import CommonHeadTags from "@/components/seo/CommonHeadTags";
 import { ADMIN_LINK } from "@/utils/constant";
 import { LiaBlogSolid } from "react-icons/lia";
+import Breadcrumb from "@/components/ui/Breadcrumb";
 export async function getStaticProps() {
   const directory = path.join(process.cwd(), "src/content/blog");
   const filenames = fs.readdirSync(directory);
@@ -39,7 +40,7 @@ function BlogsPage({ posts }) {
   return (
     <>
       <CommonHeadTags />
-
+     
       <ClassicPageLayout
         rightCTA={
           <Button

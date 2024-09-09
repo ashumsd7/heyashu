@@ -35,7 +35,7 @@ const NoteCard = ({ data, v2 }) => {
         if (isComingSoon) return;
         router.push(route);
       }}
-      className={`  cursor-pointer border rounded-lg relative mb-2  hover:bg-[#e5f6e5]   flex flex-col md:flex-row items-start  p-4  transform transition-all duration-200 ease-in hover:scale-105 hover-bg-white hover:shadow-xl  ${
+      className={`  cursor-pointer border rounded-lg relative mb-2  hover:bg-[#e5f6e5]   flex flex-col md:flex-row items-start  p-4  transform transition-all duration-200 ease-in hover:scale-[103%] hover-bg-white hover:shadow-md  ${
         inProgress
           ? "   "
           : isComingSoon
@@ -60,8 +60,8 @@ const NoteCard = ({ data, v2 }) => {
                 alt="thumbnail"
                 className=" h-[50px] rounded-full w-[50px] object-cover border-2 border-gray-700 "
               />
-              <div className="flex  flex-col">
-                <h2 className=" font-light text-[32px] max-w-80 truncate ">
+              <div className="flex  flex-col gap-2">
+                <h2 className=" font-medium text-[22px] max-w-80 truncate ">
                   {title.toUpperCase()}
                 </h2>
                 <div className="flex gap-2 -mt-1 items-center">
@@ -79,8 +79,8 @@ const NoteCard = ({ data, v2 }) => {
             )}
           </div>
 
-          <p className="flex gap-2 text-base font-light leading-6 ">
-            {shortDesc}
+          <p className="flex gap-2 text-sm  leading-6 ">
+            {shortDesc?.slice(0,120)}...
           </p>
         </div>
         <div className="flex flex-wrap gap-2 mt-4">

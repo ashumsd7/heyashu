@@ -32,7 +32,7 @@ function index() {
               <div className="flex flex-col gap-1">
                 {/* .. Heading */}
                 <div className="flex justify-between items-start">
-                  <h2 className="font-light text-[32px] text-balance relative">
+                  <h2 className="font-light text-[28px] text-balance relative">
                     {item?.name.toUpperCase()}
                     <span className="text-[#ea580c] font-light -right-1 -top-2 text-lg absolute">
                       {item?.count}

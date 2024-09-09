@@ -13,10 +13,10 @@ const NotesSidebar = ({
 }) => {
  
   return (
-    <div className="w-[1/4]  lg:block hidden  pb-[200px] h-full shadow-xl  fixed ">
+    <div className="w-[1/4]  lg:block hidden  pb-[200px] h-full shadow-xl border-t-4 rounded-lg    fixed ">
       <div className="flex justify-center  mb-4  rounded-xl px-4">
         {" "}
-        <h2 className="text-2xl font-sans mt-4  font-extrabold truncate max-w-[300px] text-center  md:text-left ">
+        <h2 className="text-xl font-extrabold font-sans mt-4 text-gray-800   truncate max-w-[300px] text-center  md:text-left ">
           {contentListTitle}
         </h2>
       </div>
@@ -30,7 +30,7 @@ const NotesSidebar = ({
           return (
             <div
               key={idx}
-              className={`cursor-pointer border-b hover:bg-[#f1b565] border-b-gray-300 p-2 w-[270px] bg-[#f6f5f1] border   rounded-sm relative  ${
+              className={`cursor-pointer border-b text-[14px] hover:bg-[#f1b565] border-b-gray-300 p-1 w-[270px] bg-[#f6f5f1] border   rounded-sm relative  ${
                 storedValues && storedValues[item?.name]
                   ? "border-0 border-l-8 border-green-500 bg-gradient-to-r from-gray-100 to-[#f6f5f1] "
                   : "border-0 border-l-8 border-gray-500 "

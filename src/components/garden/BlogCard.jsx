@@ -5,6 +5,7 @@ import {
 } from "@/utils/constant";
 import { ensureHttps, formateDate, generateSlug } from "@/utils/functions";
 import dayjs from "dayjs";
+import { MdSunnySnowing } from "react-icons/md";
 import { useRouter } from "next/router";
 import React from "react";
 import { LiaSeedlingSolid } from "react-icons/lia";
@@ -31,31 +32,29 @@ const BlogCard = ({ data }) => {
       onClick={() => {
         router.push("/digital-garden/blog/" + generateSlug(title));
       }}
-      className=" rounded-lg p-4   lg:border-none hover:bg-[#f6f2e5]   transform transition-all cursor-pointer duration-200 ease-in hover:scale-105 hover:shadow-xl "
+      className=" rounded-lg px-4 py-2   lg:border-none hover:bg-[#f6f2e5]   transform transition-all cursor-pointer duration-200 ease-in hover:scale-[101%] hover:shadow-md "
     >
       <div className="flex-1 w-full md:w-auto">
         <div className="flex items-center mb-1">
-          <img
+          {/* <img
             src={changeFilePath(profilePic)}
             alt={`${name}'s profile`}
-            className="w-10 h-10 rounded-full object-cover"
-          />
+            className="w-8 h-8 rounded-full object-cover"
+          /> */}
 
-          <div className="ml-3">
+          {/* <div className="ml-3">
             <div
               onClick={(e) => {
                 e.stopPropagation();
                 window.open(ensureHttps(followLink), "_blank");
               }}
-              className=" text-wrap text-gray-800 text-base   cursor-pointer"
+              className=" text-wrap text-gray-800 text-xs   cursor-pointer"
             >
               {name}{" "}
             </div>
-          </div>
+          </div> */}
         </div>
-        <h2 className="font-light text-2xl md:text-xl lg:text-3xl text-gray-900  ">
-          {title}
-        </h2>
+        <h2 className="font-normal text-[18px]  text-gray-900  ">{title}</h2>
         {/* {tags.length &&  <div className="flex flex-wrap gap-2 mb-4">
           {tags?.map((tag, index) => (
             <span
@@ -78,7 +77,26 @@ const BlogCard = ({ data }) => {
           </div>
         </div>
       </div>
-      <div className="text-gray-500 text-xs mt-2 flex items-center gap-2">  <LiaSeedlingSolid className="text-lg text-gray-500 " /> Seeded on: {formattedDate}</div>
+      <div className="flex flex-col gap-2  mt-1  ">
+        <div className="text-gray-500 text-xs flex items-center gap-2 font-light">
+          {" "}
+          <LiaSeedlingSolid
+            title="Seeded on"
+            className="text-lg text-gray-500  "
+          />
+          {formattedDate}
+        </div>      
+        <div
+          onClick={(e) => {
+            e.stopPropagation();
+            window.open(ensureHttps(followLink), "_blank");
+          }}
+          className=" text-wrap text-gray-800 text-xs font-light  flex items-center gap-2   cursor-pointer"
+        >
+         <MdSunnySnowing/>  {name}{" "}
+        </div>
+      </div>
+
       {/* {thumbnail && (
         <div className="mt-4 md:mt-0 md:ml-4 w-full md:w-auto">
           <img

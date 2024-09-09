@@ -63,3 +63,10 @@ export const formateDate=(date)=>{
 
   return formattedDate
 }
+
+export function capitalizeWords(str) {
+  return str
+    .split(' ') // Split the string into words
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()) // Capitalize first letter and keep the rest lowercase
+    .join(' '); // Join the words back into a string
+}

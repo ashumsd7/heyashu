@@ -29,7 +29,7 @@ const BlogMetaInfo = ({ data }) => {
 
   return (
     <>
-      <div className="flex items-center justify-between    py-4 my-4  ">
+      <div className="flex items-center justify-between    py-4   ">
         <div className="flex items-center gap-1">
           {!profilePic ? (
             <div className="w-10 h-10 bg-purple-600  text-white flex items-center justify-center rounded-full">
@@ -44,7 +44,7 @@ const BlogMetaInfo = ({ data }) => {
           )}
           <div className="ml-3 flex flex-col gap-1">
             <div className="flex items-center space-x-2">
-              <span className="font-semibold text-lg mr-2">{name}</span>
+              <span className="font-semibold text-sm mr-2">{name}</span>
               <a
                 href={ensureHttps(followLink)}
                 target="_blank"
@@ -66,7 +66,7 @@ const BlogMetaInfo = ({ data }) => {
         </div>
       </div>
 
-      <div className="flex justify-end h-[44px] px-4 border-b border-t p-6">
+      <div className="flex justify-end h-[40px]  border-b border-t px-6">
         {showControls && (
           <div className="flex items-center space-x-6">
             {/* Heart Icon */}

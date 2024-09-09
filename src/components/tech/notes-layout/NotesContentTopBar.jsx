@@ -33,7 +33,7 @@ function NotesContentTopBar({
             )}
           </div>
        
-          <h3 className="md:text-5xl text-3xl text-[#130101] font-extrabold ">{title}</h3>
+          <h3 className="md:text-4xl text-2xl text-[#08142c] font-extrabold ">{title}</h3>
         </div>
 
        

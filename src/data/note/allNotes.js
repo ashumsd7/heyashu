@@ -30,6 +30,23 @@ export const NOTES_CARD_DATA = [
             course by Akshay Saini. These notes are written by Ashutosh and can
             be edited on GitHub.`,
   },
+
+  {
+    title: 'ProCodrr | NodeJs',
+    by: 'ProCodrr | Anurag Singh',
+    sourceName:'ProCodrr',
+    sourceLink:'https://app.procodrr.com/web/checkout/66c86939c0a286ccc32c0d8b',
+    lastUpdated:'',
+    publishedOn:'',
+    thumbnailUrl:'https://tagmango.com/publicassets/-backend-with-nodejs-1-f59defad2193f9e9223bfa2a3ad3ac47.png',
+    isProgress:false,
+    isComingSoon:false,
+    tags:['nodejs', 'procdrr', NEWBIE, 'hindi'],
+    githubLink:'#',
+    route:'/digital-garden/notes/backend-with-nodejs-by-procoderr-notes',
+    shortDesc: ` ( HINDI | HINGLISH) Get the best-explained notes for each chapter of the Procdrr Node.js course by Anurag Singh.`,
+
+  },
   {
     title: "JS Quick Snippets",
     by: "Ashutosh Anand Tiwari",
@@ -45,21 +62,6 @@ export const NOTES_CARD_DATA = [
     route: "/digital-garden/notes/javascript-snippets",
     shortDesc: ` Dive into our digital garden for 100+ JavaScript code snippets—perfect for interview prep or brushing up on your skills!  🚀`,
   },
-  // {
-  //   title: 'Backend with NodeJs',
-  //   by: 'ProCodrr | Anurag Singh',
-  //   sourceName:'ProCodrr',
-  //   sourceLink:'https://app.procodrr.com/web/checkout/66c86939c0a286ccc32c0d8b',
-  //   lastUpdated:'',
-  //   publishedOn:'',
-  //   thumbnailUrl:'https://tagmango.com/publicassets/-backend-with-nodejs-1-f59defad2193f9e9223bfa2a3ad3ac47.png',
-  //   isProgress:false,
-  //   isComingSoon:false,
-  //   tags:['nodejs', 'deep', 'procdrr', NEWBIE, JAVASCRIPT, 'hindi'],
-  //   githubLink:'#',
-  //   route:'/tech/notes/backend-with-nodejs-by-procoderr-notes-by-ashutosh-anand-tiwari',
-
-  // },
 
   {
     title: "YDKJS: Up & Going",

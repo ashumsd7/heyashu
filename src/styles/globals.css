@@ -22,7 +22,6 @@ body {
 }
 pre, .markdown-pre {
   color: #cdd9e0;
-  padding: 2rem;
   text-decoration: none;
   transition: color 0.3s ease;
   font-size: 16px;
@@ -114,4 +113,9 @@ pre {
 
 span[class*="PublishButton"] {
   display: none;
+}
+a{
+  font-weight: 400 !important;
+  font-size: 17px  ;
+  color: #2a354b !important;
 }

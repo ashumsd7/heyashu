@@ -19,6 +19,8 @@ import Image from "next/image";
 import { CONNECT_LINK_TOPMATE } from "@/utils/constant";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
+import Breadcrumb from "../ui/Breadcrumb";
+import ContentFooter from "../garden/ContentFooter";
 dayjs.extend(customParseFormat);
 
 const NotesMainPage = ({
@@ -117,7 +119,7 @@ const NotesMainPage = ({
           contentListTitle={contentListTitle}
         />
 
-        <div className="flex h-[93vh] gap-10">
+        <div className="flex h-[93vh] gap-20">
           {isSidebarVisible && (
             <NotesSidebar
               data={contentList}
@@ -130,7 +132,7 @@ const NotesMainPage = ({
             />
           )}
           <div
-            className={`lg:w-3/4 w-full lg:ml-[340px] ml-0    flex flex-col   h-full     rounded-lg   ${
+            className={`lg:w-[60%] w-full lg:ml-[380px] ml-0    flex flex-col   h-full     rounded-lg   ${
               isSidebarVisible ? "w-3/4" : "w-full"
             }`}
           >
@@ -163,7 +165,7 @@ const NotesMainPage = ({
 
               {currentPageFrontMatter?.thumbnail && (
                 <img
-                  className="my-6 rounded-md shadow-md"
+                  className="mb-6 mt-4 rounded-md shadow-lg"
                   alt={currentPageFrontMatter?.title}
                   src={
                     currentPageFrontMatter?.thumbnail?.includes("https")
@@ -191,6 +193,8 @@ const NotesMainPage = ({
                 <NotesContent markdownContent={msxSource} large />
               )}
             </div>
+
+            <ContentFooter/>
 
             {/* <NotesContentFooter data={episodes} selectedSection={selectedSection} onSectionClick={handleSectionClick} /> */}
           </div>

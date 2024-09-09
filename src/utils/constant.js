@@ -43,7 +43,7 @@ export const GITHUB_REPO_LINK =
       name: "DAILY-UPDATE",
       desc: "Let’s update daily, staying focused and consistent and together, we’ll achieve our goals.",
       route: "/digital-garden/daily-updates",
-      count: 2,
+      count: 3,
       isHidden: false,
     },
     {
@@ -51,7 +51,7 @@ export const GITHUB_REPO_LINK =
       desc: "Discuss and share insights on the books that have inspired or educated you.",
       route: "/digital-garden/books",
       count: 0,
-      isHidden: false,
+      isHidden: true,
     },
     {
       name: "Journey",
@@ -65,14 +65,14 @@ export const GITHUB_REPO_LINK =
       desc: "Share your valuable experiences that shaped your personal and professional growth.",
       route: "/digital-garden/experience",
       count: 0,
-      isHidden: false,
+     isHidden: true,
     },
     {
       name: "Poems",
       desc: "Express your thoughts, feelings, and creativity through poetry in this collection.",
       route: "/digital-garden/poems",
       count: 0,
-      isHidden: false,
+      isHidden: true,
     },
     {
       name: "Ideas",
@@ -92,7 +92,7 @@ export const GITHUB_REPO_LINK =
       name: "Stories",
       desc: "Share captivating stories that inspire, entertain, or teach valuable lessons.",
       route: "/digital-garden/stories",
-      count: 0,
+      count: 1,
       isHidden: false,
     },
     {
@@ -106,7 +106,7 @@ export const GITHUB_REPO_LINK =
       name: "Testimonials",
       desc: "Leave your feedback or share your experience of using this platform with others.",
       route: "/digital-garden/testimonials",
-      count: 1,
+      count: 3,
       isHidden: false,
     },
   ];

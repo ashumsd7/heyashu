@@ -11,7 +11,7 @@ function ClassicPageLayout({
   rightCTA
 }) {
   return (
-    <div className="mt-5 md:mt-10 ">
+    <div className="mt-1 md:mt-10 ">
       <div className="bg-[#f6f5f1] text-[#353534] flex justify-between  items-center flex-wrap ">
         <h1 className="md:text-[80px] text-[40px]  font-bold  ">{heading}</h1>
         {rightCTA}
@@ -20,7 +20,7 @@ function ClassicPageLayout({
       <div className="md:pl-[127px] mt-4 md:mt-0">
         {desc && (
           <div className="-mt-1">
-            <p className="md:text-[36px]  text-[22px]  text-[#353534] font-light  ">
+            <p className="md:text-[32px]  text-[22px]  text-[#353534] font-light  ">
               {desc}
             </p>
           </div>
@@ -37,7 +37,7 @@ function ClassicPageLayout({
         {customTopContent && <div>{customTopContent}</div>}
 
         {children && !noGrid && (
-          <div className=" grid grid-cols-1  md:grid-cols-3 gap-6 my-10   justify-center">
+          <div className=" grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-6 my-10   justify-center">
             {children}
           </div>
         )}

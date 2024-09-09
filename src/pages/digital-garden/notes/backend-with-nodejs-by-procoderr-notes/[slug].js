@@ -1,21 +1,23 @@
 import React from "react";
 import NotesMainPage from "@/components/base/NotesMainPage";
-import { metaTagsForNamasteNodeJsS1 } from "@/data/note/namaste-node-js-s1/meta-tags";
-import rehypeHighlight from "rehype-highlight";
+
 import {
   CONTENT_LIST_TITLE,
   PAGE_TITLE,
   STORAGE_KEY,
-} from "@/data/note/namaste-node-js-s1/constant";
+} from "@/data/note/procderr-nodejs/constant";
 import matter from "gray-matter";
 import fs from "fs";
 import path from "path";
 import { useState } from "react";
 import { useEffect } from "react";
 import { serialize } from "next-mdx-remote/serialize";
+import { metaTagsForProcoderrNodejs } from "@/data/note/procderr-nodejs/meta-tags";
 
 const NotesDetailPage = ({ notes, currentPageMDX, currentPageFrontMatter }) => {
+  console.log("notes",notes);
   const [contentList, setContentList] = useState([]);
+
 
   // for sorting content episode wise
   function sortByEpisode(array) {
@@ -48,7 +50,7 @@ const NotesDetailPage = ({ notes, currentPageMDX, currentPageFrontMatter }) => {
 
   return (
     <NotesMainPage
-      metaInfo={metaTagsForNamasteNodeJsS1}
+      metaInfo={metaTagsForProcoderrNodejs}
       pageTitle={PAGE_TITLE}
       contentList={contentList}
       contentListLength={notes?.length}
@@ -56,18 +58,21 @@ const NotesDetailPage = ({ notes, currentPageMDX, currentPageFrontMatter }) => {
       storageKey={STORAGE_KEY}
       msxSource={currentPageMDX}
       eachCardPrefix={"Episode-"}
+      subDomain="backend-with-nodejs-by-procoderr-notes"
       currentPageFrontMatter={currentPageFrontMatter}
     />
   );
 };
 export default NotesDetailPage;
 
+
 // generating static props
 export async function getStaticProps({ params }) {
+  console.log("params are...........",params);
   // Define the directory containing your markdown files
   const directory = path.join(
     process.cwd(),
-    "src/content/notes-namaste-node-js"
+    "src/content/node-js-procodrr"
   );
 
   const filenames = fs.readdirSync(directory);
@@ -76,15 +81,12 @@ export async function getStaticProps({ params }) {
     process.cwd(),
     "src",
     "content",
-    "notes-namaste-node-js",
+    "node-js-procodrr",
     `${params.slug}.md`
   );
   const fileContents = fs.readFileSync(filePath, "utf-8");
   const { data, content } = matter(fileContents);
-  // const mdxSource = await serialize(content);
-  const mdxSource = await serialize(content, {
-    mdxOptions: { rehypePlugins: [rehypeHighlight] },
-  });
+  const mdxSource = await serialize(content);
 
   // Loop through each file and read its content and metadata :
   const notes = filenames.map((filename) => {
@@ -114,7 +116,7 @@ export async function getStaticProps({ params }) {
 // generating static paths
 export async function getStaticPaths() {
   const files = fs.readdirSync(
-    path.join(process.cwd(), "src", "content", "notes-namaste-node-js")
+    path.join(process.cwd(), "src", "content", "node-js-procodrr")
   );
 
   const paths = files.map((fileName) => ({

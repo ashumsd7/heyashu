@@ -12,7 +12,7 @@ import CommonSlugHeadTags from "@/components/seo/CommonSlugHeadTags";
 
 // Function to fetch the content of the blog post
 export async function getStaticProps({ params }) {
-  const filePath = path.join(
+const filePath = path.join(
     process.cwd(),
     "src",
     "content",
