@@ -13,6 +13,10 @@ tags: Daily updates
 ---
 My Daily Updates 👇
 
+> 10 Sep 2024
+
+* Seeding Soon
+
 > 09 Sep 2024
 
 * Total code time **12hrs 6mins**
