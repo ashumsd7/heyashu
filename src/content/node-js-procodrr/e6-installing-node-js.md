@@ -14,5 +14,5 @@ metaContent: Get all digital notes here
 ---
 
 
-## 🌟 Coming Soon
+## 🌟 Seeding Soon
 

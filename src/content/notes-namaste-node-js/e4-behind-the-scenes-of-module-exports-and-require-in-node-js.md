@@ -87,7 +87,7 @@ console.log(module.export) // {}  emoty object
 
 ### Common Js and ES Modules
 
-What we've learned so far with `require` and `module.exports` is called **CommonJS Modules** or **CJS**. This is the traditional module system used in Node.js. But there's another module system called **ES Modules** (or **ESM**, **`mjs`**), which is the standard for JavaScript modules in modern web development.
+What we've learned so far with **require** and **module.exports** is called **CommonJS Modules** or **CJS**. This is the traditional module system used in Node.js. But there's another module system called **ES Modules** (or **ESM**, **`mjs`**), which is the standard for JavaScript modules in modern web development.
 
 To use ES Modules in Node.js, you need to set your project to use modules. Create a `package.json` file and include `"type": "module"` in it. This tells Node.js to use the ES Module system for your project.
 

@@ -13,7 +13,7 @@ const NotesSidebar = ({
 }) => {
  
   return (
-    <div className="w-[1/4]  lg:block hidden  pb-[200px] h-full shadow-xl border-t-4 rounded-lg    fixed ">
+    <div className="w-[1/4]  lg:block hidden  pb-[300px] h-full shadow-xl border-t-4 rounded-lg     fixed ">
       <div className="flex justify-center  mb-4  rounded-xl px-4">
         {" "}
         <h2 className="text-xl font-extrabold font-sans mt-4 text-gray-800   truncate max-w-[300px] text-center  md:text-left ">

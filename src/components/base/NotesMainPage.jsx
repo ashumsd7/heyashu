@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import NotesSidebar from "@/components/tech/notes-layout/NotesSidebar";
 import NotesChips from "@/components/tech/notes-layout/NotesChips";
 import NotesContentTopBar from "@/components/tech/notes-layout/NotesContentTopBar";
@@ -15,11 +15,9 @@ import BlogMetaInfo from "@/components/tech/notes-layout/BlogMetaInfo";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import Button from "./Button";
-import Image from "next/image";
 import { CONNECT_LINK_TOPMATE } from "@/utils/constant";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
-import Breadcrumb from "../ui/Breadcrumb";
 import ContentFooter from "../garden/ContentFooter";
 dayjs.extend(customParseFormat);
 
@@ -118,6 +116,7 @@ const NotesMainPage = ({
           value={episodes[0]}
           contentListTitle={contentListTitle}
         />
+   
 
         <div className="flex h-[93vh] gap-20">
           {isSidebarVisible && (
@@ -147,6 +146,7 @@ const NotesMainPage = ({
             />
 
             <div className="flex-1   ">
+      
               <div className="">
                 <BlogMetaInfo
                   large

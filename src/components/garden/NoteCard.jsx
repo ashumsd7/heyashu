@@ -68,7 +68,7 @@ const NoteCard = ({ data, v2 }) => {
                   {/* <p className="text-gray-500 text-sm">{lastUpdated}</p> */}
                   <p className=" text-sm font-light flex gap-2 items-center"><GiHumanPyramid title="Seeded by "/>{by}</p> 
                   <p className=" text-sm font-light flex items-center gap-2 ">
-                  <LiaSeedlingSolid title="Seeded on"/>  {publishedOn || "Coming Soon"}
+                  <LiaSeedlingSolid title="Seeded on"/>  {publishedOn || "Seeding Soon"}
                   </p>
                 </div>
               </div>

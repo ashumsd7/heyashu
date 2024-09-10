@@ -32,23 +32,23 @@ const LandingPage = () => {
         <div className="flex flex-col gap-2">
           <div className="flex  space-x-4 ">
             <a
-              href="https://www.youtube.com/c/akshaymarch7"
+              href="https://www.youtube.com/@procodrr"
               target="_blank"
               rel="noopener noreferrer"
               className="text-red-600 hover:text-red-800"
             >
               <FaYoutube />
             </a>
-            <a
+            {/* <a
               href="https://twitter.com/akshaymarch7"
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-500 hover:text-blue-700"
             >
               <FaXTwitter />
-            </a>
+            </a> */}
             <a
-              href="https://www.instagram.com/akshaymarch7"
+              href="https://www.instagram.com/procodrr.anurag/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-pink-500 hover:text-pink-700"
@@ -56,7 +56,7 @@ const LandingPage = () => {
               <FaInstagram />
             </a>
             <a
-              href="https://namastedev.com/"
+              href="https://app.procodrr.com/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-800 hover:text-gray-600"

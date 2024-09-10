@@ -7,22 +7,24 @@ import { MdPermPhoneMsg } from "react-icons/md";
 import { SiPeerlist, SiWakatime } from "react-icons/si";
 
 const ContentFooter = ({
-  photoSrc = "https://i.ibb.co/bvdH5wm/baba.png", // Default photo
+  photoSrc = "https://i.ibb.co/PNKDZ5Q/mountian.png", // Default photo
   name = "Ashutosh Anand Tiwari",
-  description = "Ek front-end engineer with a passion for  learning and exploring the world, now diving into back-end wonders node.js.",
+  description = "A front-end engineer with a passion for  learning and exploring the world, now diving into back-end wonders node.js.",
   // Example: [{ href: '#', icon: 'FacebookIcon' }, { href: '#', icon: 'TwitterIcon' }]
 }) => {
   return (
     <footer className="bg-[#f6f5f1] relative   max-w-[1000px] mx-auto mt-6">
       <div className="flex gap-6 flex-wrap md:flex-nowrap px-4 py-6  rounded-lg w-full  justify-center md:justify-start border-2 shadow-sm border-gray-200">
-        <img
+        <Image
           src={photoSrc}
           alt="Profile"
-          className="w-full rounded-full mb-2"
-          style={{ maxWidth: "100px", height: "100px" }}
+          width={100}
+          height={100}
+          className="w-full rounded-full mb-2  object-fill max-w-[100px] max-h-[100px] "
+        
         />
         <div className="flex flex-col gap-2  text-center md:text-left">
-        <h2 className="text-[#08142c] text-lg font-semibold mb-2">
+        <h2 className="text-[#08142c] text-lg font-semibold m">
               {name}
             </h2>
 
@@ -92,11 +94,11 @@ const ContentFooter = ({
 
       <div>
         <p className="italic font-semibold absolute -top-8 left-0">
-          Written and craftet by :
+        🌱 Planted and watered by :
         </p>
       </div>
       <div className="flex  justify-center items-center h-10 mt-16 pb-20 flex-col">
-        <h2 className="text-xl font-light">धन्यवाद !</h2>
+        <h2 className="text-xl font-light">🙏 धन्यवाद ! 🙏</h2>
         ---------
       </div>
       <Image

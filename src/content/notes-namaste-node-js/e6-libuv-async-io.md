@@ -99,7 +99,5 @@ I'm Ashutosh Anand Tiwari, and I'm writing digital notes on Node.js. If you enjo
 
 - - -
 
-Saying good bye with this hit bollywood song.
-[Click to fresh your mood :)](https://www.youtube.com/watch?v=rY_0SOlmrdY)
 
 ![image.png](/public/images/blogs/7.png)

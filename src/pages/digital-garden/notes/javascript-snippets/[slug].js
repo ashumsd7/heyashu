@@ -38,7 +38,7 @@ const NotesDetailPageForSnippets = ({
       name: item.frontMatter.name,
       updatedOn: item.frontMatter.updatedOn,
       thumbnail: item.frontMatter.thumbnail,
-      publishedOn: item.frontMatter.publishedOn || "Coming Soon", // Default to 'Coming Soon' if not available
+      publishedOn: item.frontMatter.publishedOn || "Seeding Soon", // Default to 'Coming Soon' if not available
     }));
 
     const sortedList = sortByEpisode(list);

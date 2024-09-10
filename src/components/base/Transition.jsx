@@ -2,7 +2,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/router";
 const pageVariants = {
-  initial: { opacity: 0.6, x: '-6%' },
+  initial: { opacity: 0.6, x: '-2%' },
   in: { opacity: 1, x: '0%' },
   out: { opacity: 0.7, x: '0%' },
 };

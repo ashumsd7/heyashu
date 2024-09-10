@@ -114,8 +114,8 @@ pre {
 span[class*="PublishButton"] {
   display: none;
 }
-a{
-  font-weight: 400 !important;
+.mdx-a{
+  font-weight: 500 !important;
   font-size: 17px  ;
-  color: #2a354b !important;
+  color: #3a8913 !important;
 }

@@ -51,14 +51,14 @@ function MDXRenderer({ markdownContent }) {
     ),
     li: (props) => (
       <li
-        className="text-[18px] leading-[32px] text-[#2a354b] text-justify "
+        className="text-[18px] leading-[28px] text-[#2a354b] text-justify "
         {...props}
       />
     ),
     a: (props) => (
       <a
         target="_blank"
-        className="underline hover:opacity-70   bg-[#8f9fa926] px-1 py-[2px] rounded-md   text-[18px] leading-[29px] text-[#2a354b]  "
+        className=" hover:opacity-50 mdx-a no-underline border-b  px-1 py-[2px] rounded-md   text-[18px] leading-[29px] text-[#4d7f35]  "
         {...props}
       />
     ),
