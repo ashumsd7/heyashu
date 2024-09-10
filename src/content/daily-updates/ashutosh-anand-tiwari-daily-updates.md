@@ -13,6 +13,16 @@ tags: Daily updates
 ---
 My Daily Updates 👇
 
+> 09 Sep 2024
+
+* Total code time **12hrs 6mins**
+* re written the flow sititng continues **10Pm to 6AM** on 9th Sep
+* Craated notion document of dependencies 
+* QA given signoff lets see what happens in UAT today
+* Worked on garden : updated breadcrubs
+* Writing Node JS hinglish Notes
+* sleepy good night....
+
 > 08 Sep 2024
 
 * 8hrs code time on sunday
@@ -20,8 +30,6 @@ My Daily Updates 👇
 * Read about behind the scene of v8 engine
 * so much work till 6AM ( till monday ) no sleep
 * still working......felling sleeepyyyy
-
-
 
 > 07 Sep 2024
 
