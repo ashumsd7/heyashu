@@ -55,7 +55,7 @@ So, abhi aapko buffer mila hai, aur yeh file se related hai, khaane-peene se nah
 
 Niche screenshot mein diye gaye steps follow kariye. Number 1 pe hover karke ek extension install kijiye, aur fir buffer ko read karte hain.
 
-![image.png](/public/images/blogs/pro-e772.png)
+![image.png](/public/images/blogs/proe77-2.png)
 
 Install aap [iss link](https://marketplace.visualstudio.com/items?itemName=ms-vscode.hexeditor) se bhi kar sakte hain, lekin view tabhi hoga jab aap debug kar rahe honge, yani red mark file ke console pe rakhiyega. Extension installation ke baad yeh result aayega (baad me dekhenge)
 
