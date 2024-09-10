@@ -13,6 +13,18 @@ tags: Daily updates
 ---
 My Daily Updates 👇
 
+> 10 Sep 2024
+
+* Total Code Time 8hrs 7mins
+* Learn few topics on node JS and made notes
+* Footer for notes detail page
+* UAT till now is goos, lets follow up tomo
+* Need to work on few analytics part on DAPs Project
+* So much code reviews.....its 1:59AM Good night see you...
+*  heyashu.in
+
+
+
 > 09 Sep 2024
 
 * Total code time **12hrs 6mins**
