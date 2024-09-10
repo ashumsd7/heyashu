@@ -13,7 +13,7 @@ const ContentFooter = ({
   // Example: [{ href: '#', icon: 'FacebookIcon' }, { href: '#', icon: 'TwitterIcon' }]
 }) => {
   return (
-    <footer className="bg-[#f6f5f1] relative   max-w-[1000px] mx-auto mt-6">
+    <footer className="bg-[#f6f5f1] relative   max-w-[1000px] mx-auto ">
       <div className="flex gap-6 flex-wrap md:flex-nowrap px-4 py-6  rounded-lg w-full  justify-center md:justify-start border-2 shadow-sm border-gray-200">
         <Image
           src={photoSrc}
@@ -39,7 +39,7 @@ const ContentFooter = ({
                 <FaXTwitter />
               </a>
               <a
-                href="https://www.instagram.com/ashumsd7"
+                href="https://www.instagram.com/javascripterr"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-pink-500 hover:text-pink-700"
@@ -93,7 +93,7 @@ const ContentFooter = ({
       </div>
 
       <div>
-        <p className="italic font-semibold absolute -top-8 left-0">
+        <p className="italic font-light absolute -top-8 left-0">
         🌱 Planted and watered by :
         </p>
       </div>

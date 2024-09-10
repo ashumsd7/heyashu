@@ -10,7 +10,6 @@ const Breadcrumb = () => {
 
   // Split the current path into parts
   const pathParts = pathname.split("/").filter((part) => part);
-  console.log("pathParts", pathParts);
   if (pathParts.length <= 1) return;
   if (["resume", "[place]", "[slug]"].includes(pathParts[1])) return;
 

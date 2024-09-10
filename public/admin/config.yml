@@ -234,7 +234,7 @@ collections:
   - name: "node-js-procodrr" # Used in routes, e.g., /admin/collections/blog
     label: "Procodrr Node.JS Notes" # Used in the UI
     description: Get the best-explained notes for each chapter of the Procodrr Node.js course by Anurag Singh. These notes are written by Open source community and can be edited on GitHub.✨
-    folder: "/src/content/notes-js-procodrr" # The path to the folder where the documents are stored
+    folder: "/src/content/node-js-procodrr" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     slug: "" # Filename template, e.g., YYYY-MM-DD-title.md
     delete: false

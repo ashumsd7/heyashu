@@ -5,7 +5,7 @@ import { IoIosCheckmarkCircle } from "react-icons/io";
 const ProgressBar = ({ percentage = 0 }) => {
   return (
     <>
-      {Math.ceil(percentage) == 100 ? (
+      {Math.ceil(percentage) >= 100 ? (
         <div className="flex gap-2 justify-between w-full bg-green-500 py-1 items-center font-bold px-2 text-white">
           <div className="flex gap-1 items-center">
             <GiPartyPopper className="font-extrabold text-white" />

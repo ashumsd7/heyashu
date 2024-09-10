@@ -15,7 +15,6 @@ import { serialize } from "next-mdx-remote/serialize";
 import { metaTagsForProcoderrNodejs } from "@/data/note/procderr-nodejs/meta-tags";
 
 const NotesDetailPage = ({ notes, currentPageMDX, currentPageFrontMatter }) => {
-  console.log("notes",notes);
   const [contentList, setContentList] = useState([]);
 
 
@@ -68,7 +67,7 @@ export default NotesDetailPage;
 
 // generating static props
 export async function getStaticProps({ params }) {
-  console.log("params are...........",params);
+
   // Define the directory containing your markdown files
   const directory = path.join(
     process.cwd(),

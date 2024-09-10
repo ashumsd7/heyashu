@@ -192,7 +192,9 @@ const NotesMainPage = ({
               ) : (
                 <NotesContent markdownContent={msxSource} large />
               )}
+              
             </div>
+        
 
             <ContentFooter/>
 
