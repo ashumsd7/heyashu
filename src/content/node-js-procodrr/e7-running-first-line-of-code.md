@@ -12,7 +12,7 @@ metaName: Buy The Course Namaste Node JS Course
 metaContent: Get all digital notes here
 tags: Prerequisite, nodejs, javascript
 ---
-![image.png](/public/images/blogs/proe77-2.png)
+
 
 "Chalo ek file `text.txt` banate hain apne VS Code mein aur waha kuch likhte hain, jaise ki 'hello.'
 

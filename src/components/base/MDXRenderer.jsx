@@ -39,26 +39,26 @@ function MDXRenderer({ markdownContent }) {
     ),
     p: (props) => (
       <p
-        className="mb-2  text-[18px] leading-[29px] text-[#28354bd9]   "
+        className="mb-2  text-[18px] leading-[25px] text-[#28354bd9]   "
         {...props}
       />
     ),
     strong: (props) => (
       <strong
-        className="mb-4 font-medium bg-[#8f9fa926] px-1 py-[2px] rounded-md   text-[18px] leading-[29px] text-[#2a354b] "
+        className="mb-4 font-medium bg-[#8f9fa926] px-1 py-[2px] rounded-md   text-[18px] leading-[25px] text-[#2a354b] "
         {...props}
       />
     ),
     li: (props) => (
       <li
-        className="text-[18px] leading-[28px] text-[#2a354b] text-justify "
+        className="text-[18px] leading-[25px] text-[#2a354b] text-justify "
         {...props}
       />
     ),
     a: (props) => (
       <a
         target="_blank"
-        className=" hover:opacity-50 mdx-a no-underline border-b  px-1 py-[2px] rounded-md   text-[18px] leading-[29px] text-[#4d7f35]  "
+        className=" hover:opacity-50 mdx-a no-underline border-b  px-1 py-[2px] rounded-md   text-[18px] leading-[25px] text-[#4d7f35]  "
         {...props}
       />
     ),

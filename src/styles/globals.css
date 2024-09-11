@@ -24,7 +24,8 @@ pre, .markdown-pre {
   color: #cdd9e0;
   text-decoration: none;
   transition: color 0.3s ease;
-  font-size: 16px;
+  font-size: 13px;
+  line-height: 20px;
   background-color: rgb(41, 39, 39);
 }
 

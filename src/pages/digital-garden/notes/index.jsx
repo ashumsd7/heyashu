@@ -1,7 +1,7 @@
 import React from "react";
 import NoteCard from "@/components/garden/NoteCard";
 import { ImBooks } from "react-icons/im";
-import {  FaPlus } from "react-icons/fa";
+import { FaPlus } from "react-icons/fa";
 import ClassicPageLayout from "@/components/garden/ClassicNotesLayout";
 import Button from "@/components/base/Button";
 import CommonHeadTags from "@/components/seo/CommonHeadTags";
@@ -13,9 +13,12 @@ function AllNotesPage() {
       <CommonHeadTags />
 
       <ClassicPageLayout
-         heading={
+        data={NOTES_CARD_DATA}
+        showSwitcher={true}
+        labelKey={'title'}
+        heading={
           <div className="flex gap-2 items-center ">
-            <ImBooks  className="text-green-800" /> Notes
+            <ImBooks className="text-green-800" /> Notes
           </div>
         }
         desc="   Get tech notes, interview tips, experiences, snippets, blogs and more."
