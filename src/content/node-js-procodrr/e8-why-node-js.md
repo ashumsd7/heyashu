@@ -4,6 +4,7 @@ name: Why we should use Node Js
 episode: 8
 publishedOn: 09-11-2024
 updatedOn: 09-11-2024
+thumbnail: /public/images/blogs/proe77-4.png
 author: Ashutosh Anand Tiwari
 profilePic: /public/images/blogs/pfp2.png
 ---
