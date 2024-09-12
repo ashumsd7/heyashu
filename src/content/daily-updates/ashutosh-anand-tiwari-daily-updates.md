@@ -13,6 +13,15 @@ tags: Daily updates
 ---
 My Daily Updates 👇
 
+> 12 Sep 2024
+
+* Total Code Time around 3hrs
+* No frontend /backend Study 
+* 6hrs + calls +Lots of meetings...
+* Slept : 9hrs 
+* this weekend targeting everyhting to complete let see....
+* building open source  : heyashu.in 
+
 > 11 Sep 2024
 
 * Total Code Time around 4hrs
