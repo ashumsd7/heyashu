@@ -13,6 +13,15 @@ tags: Daily updates
 ---
 My Daily Updates 👇
 
+> 13 Sep 2024
+
+* Total Code Time around 6hrs
+* Read Thread Pool
+* Meetings + so much work too busy day
+* Slept : 7hrs
+* One project has 15+ bugs
+* visit nd give feedback on : heyashu.in 
+
 > 12 Sep 2024
 
 * Total Code Time around 3hrs
