@@ -13,6 +13,33 @@ tags: Daily updates
 ---
 My Daily Updates 👇
 
+> 13 Sep 2024
+
+* Total Code Time around 6hrs
+* Read Thread Pool
+* Meetings + so much work too busy day
+* Slept : 7hrs
+* One project has 15+ bugs
+* visit nd give feedback on : heyashu.in 
+
+> 12 Sep 2024
+
+* Total Code Time around 3hrs
+* No frontend /backend Study 
+* 6hrs + calls +Lots of meetings...
+* Slept : 9hrs 
+* this weekend targeting everyhting to complete let see....
+* building open source  : heyashu.in 
+
+> 11 Sep 2024
+
+* Total Code Time around 4hrs
+* Created a server
+* Deep Dive in to Event loop and callback queue of NodeJS
+* Lots of meetings...
+* Less sleep, feeling sick... thats why today 11PM saying bye bye
+* visit: heyashu.in
+
 > 10 Sep 2024
 
 * Total Code Time 8hrs 7mins
@@ -21,9 +48,7 @@ My Daily Updates 👇
 * UAT till now is goos, lets follow up tomo
 * Need to work on few analytics part on DAPs Project
 * So much code reviews.....its 1:59AM Good night see you...
-*  heyashu.in
-
-
+* heyashu.in
 
 > 09 Sep 2024
 
