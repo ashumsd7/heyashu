@@ -13,6 +13,15 @@ tags: Daily updates
 ---
 My Daily Updates 👇
 
+> 14 Sep 2024
+
+* Total Code Time around 3.5hrs
+* Created Node JS Server and Databses 4hrs notes + videos
+* Went for short rapido ride , saw beautful sunset 
+* Slept : 5hrs
+* Moday will go live for one project hope for well
+* Visit and give feedback on : heyashu.in 
+
 > 13 Sep 2024
 
 * Total Code Time around 6hrs
