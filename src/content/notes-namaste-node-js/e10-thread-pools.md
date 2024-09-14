@@ -9,8 +9,6 @@ author: Ashutosh Anand Tiwari
 tags: Thread Pool
 profilePic: /public/images/blogs/pfp2.png
 ---
-# 10. Thread pool in libuv
-
 Welcome back! If you haven’t read the previous blog about the two friends, go and check that out first because things are getting more interesting. We’ve received an official FIR against Node.js, and when Node.js faced trouble, it called in its two best friends for help. One of them, V8, was already investigated in our last episode. Now, it’s time to bring in the second friend: **Libuv**.
 
 Libuv is full of secrets, and this investigation won’t be easy. There are many things we don’t know yet. So, what are we waiting for? Let’s head to the police station and question Libuv until we find the answers. It’s time to close this case for Season 1!
