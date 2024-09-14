@@ -64,7 +64,7 @@ function ClassicPageLayout({
             {children}
           </div>
         ) : (
-          <div className="mt-10"><ListView labelKey={labelKey} data={data} /></div>
+          <div className={listView && 'mt-10'}><ListView labelKey={labelKey} data={data} /></div>
         )}
         {children && noGrid && (
           <div className="  my-6  justify-center">{children}</div>

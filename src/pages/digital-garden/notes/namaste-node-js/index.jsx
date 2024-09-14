@@ -16,7 +16,7 @@ const LandingPage = () => {
 
   return (
     <>
-      <CommonHeadTags />
+      <CommonHeadTags title="Digital notes: Namaste Node JS" />
 
       <ClassicPageLayout
         noGrid

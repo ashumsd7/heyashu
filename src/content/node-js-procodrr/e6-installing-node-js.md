@@ -18,6 +18,7 @@ metaContent: Get all digital notes here
 Agar aapke system mein Node.js installed hai toh bhi is article ko skip mat kariye, kyunki yeh kaafi helpful ho sakta hai seekhne ke liye. Aapko bas apne VS Code editor mein ek `script.js` file banani hai aur usme yeh code likhna hai jo maine neeche diya hai.
 
 
+
 ```jsx
 //script.js  (included in index.html) 
  

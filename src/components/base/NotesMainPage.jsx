@@ -19,6 +19,7 @@ import { CONNECT_LINK_TOPMATE } from "@/utils/constant";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 import ContentFooter from "../garden/ContentFooter";
+import CommonSlugHeadTags from "../seo/CommonSlugHeadTags";
 dayjs.extend(customParseFormat);
 
 const NotesMainPage = ({
@@ -93,19 +94,16 @@ const NotesMainPage = ({
 
   return (
     <>
-      <Head>
+      {/* <Head>
         <title>
           {currentPageFrontMatter?.name} : {pageTitle}{" "}
         </title>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/favicon.ico" />
-        {metaInfo?.map((info) => {
-          return (
-            <meta key={info.name} name={info.name} content={info.content} />
-          );
-        })}
-      </Head>
+              <CommonSlugHeadTags />
+      </Head> */}
+      <CommonSlugHeadTags />
 
       <div className="max-w-screen-xl">
         <NotesChips

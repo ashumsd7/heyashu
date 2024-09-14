@@ -47,17 +47,20 @@ const NotesDetailPage = ({ notes, currentPageMDX, currentPageFrontMatter }) => {
   }, []);
 
   return (
-    <NotesMainPage
-      metaInfo={metaTagsForNamasteNodeJsS1}
-      pageTitle={PAGE_TITLE}
-      contentList={contentList}
-      contentListLength={notes?.length}
-      contentListTitle={CONTENT_LIST_TITLE}
-      storageKey={STORAGE_KEY}
-      msxSource={currentPageMDX}
-      eachCardPrefix={"Episode-"}
-      currentPageFrontMatter={currentPageFrontMatter}
-    />
+    <>
+
+      <NotesMainPage
+        metaInfo={metaTagsForNamasteNodeJsS1}
+        pageTitle={PAGE_TITLE}
+        contentList={contentList}
+        contentListLength={notes?.length}
+        contentListTitle={CONTENT_LIST_TITLE}
+        storageKey={STORAGE_KEY}
+        msxSource={currentPageMDX}
+        eachCardPrefix={"Episode-"}
+        currentPageFrontMatter={currentPageFrontMatter}
+      />
+    </>
   );
 };
 export default NotesDetailPage;
