@@ -9,7 +9,7 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import StartTour from "@/components/ui/StartTourBtn";
 import TransitionPage from "@/components/base/Transition";
-
+import PlausibleProvider from 'next-plausible'
 export default function App({ Component, pageProps }) {
   const router = useRouter();
   const canonicalUrl = `https://www.heyashu.in${router?.asPath}`;
@@ -83,38 +83,40 @@ export default function App({ Component, pageProps }) {
         />
         <link rel="canonical" href={canonicalUrl} />
       </Head>
-      <TransitionPage>
-        <main className="relative">
-          <Navbar />
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
-          <div className="fixed right-5 bottom-5 flex flex-col gap-6  items-end">
-            <StartTour
-              onClick={() => {
-                router.push({
-                  pathname: "/",
-                  query: { ...router.query, showTourAgain: "true" },
-                });
-                // setTimeout(()=>{
-                //   localStorage.setItem(HOME_PAGE_TOUR_KEY, "false");
-                //   window.location.reload()
-                // },1000)
-              }}
-            />
-            <QuickMsgBtn
-              onClick={() => {
-                window.open(PHONE_CALL_THIRTY_MIN, "_blank");
-              }}
-            />
-            {/* <a href="https://www.buymeacoffee.com/ashumsd7" style={{
+      <PlausibleProvider domain="heyashu.in">
+        <TransitionPage>
+          <main className="relative">
+            <Navbar />
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+            <div className="fixed right-5 bottom-5 flex flex-col gap-6  items-end">
+              <StartTour
+                onClick={() => {
+                  router.push({
+                    pathname: "/",
+                    query: { ...router.query, showTourAgain: "true" },
+                  });
+                  // setTimeout(()=>{
+                  //   localStorage.setItem(HOME_PAGE_TOUR_KEY, "false");
+                  //   window.location.reload()
+                  // },1000)
+                }}
+              />
+              <QuickMsgBtn
+                onClick={() => {
+                  window.open(PHONE_CALL_THIRTY_MIN, "_blank");
+                }}
+              />
+              {/* <a href="https://www.buymeacoffee.com/ashumsd7" style={{
             fontSize:'20px'
           }}>
             <img src="https://img.buymeacoffee.com/button-api/?text=Buy me a laptop&emoji=💻️&slug=ashumsd7&button_colour=FF5F5F&font_colour=ffffff&font_family=Poppins&outline_colour=000000&coffee_colour=FFDD00" />
           </a> */}
-          </div>
-        </main>
-      </TransitionPage>
+            </div>
+          </main>
+        </TransitionPage>
+      </PlausibleProvider>
     </>
   );
 }

@@ -11,9 +11,8 @@ const NotesSidebar = ({
   storedValues,
   selectedSection,
 }) => {
- 
   return (
-    <div className="w-[1/4]  lg:block hidden  pb-[300px] h-full shadow-xl border-t-4 rounded-lg     fixed ">
+    <>
       <div className="flex justify-center  mb-4  rounded-xl px-4">
         {" "}
         <h2 className="text-xl font-extrabold font-sans mt-4 text-gray-800   truncate max-w-[300px] text-center  md:text-left ">
@@ -34,7 +33,10 @@ const NotesSidebar = ({
                 storedValues && storedValues[item?.name]
                   ? "border-0 border-l-8 border-green-500 bg-gradient-to-r from-gray-100 to-[#f6f5f1] "
                   : "border-0 border-l-8 border-gray-500 "
-              } ${selectedSection?.title == item?.title && "  font-bold from-gray-300 to-[#f6f5f1] "} ${
+              } ${
+                selectedSection?.title == item?.title &&
+                "  font-bold from-gray-300 to-[#f6f5f1] "
+              } ${
                 !item?.publishedOn &&
                 "cursor-none pointer-events-none  opacity-40"
               }`}
@@ -48,7 +50,9 @@ const NotesSidebar = ({
                 <h3 className=" flex items-center gap-2 pl-3">
                   {!eachCardPrefix ? (
                     <>
-                      <p className=" pl-3 truncate font-medium">{item?.name} </p>
+                      <p className=" pl-3 truncate font-medium">
+                        {item?.name}{" "}
+                      </p>
                     </>
                   ) : (
                     <>
@@ -65,7 +69,7 @@ const NotesSidebar = ({
           );
         })}
       </div>
-    </div>
+    </>
   );
 };
 

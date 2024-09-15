@@ -13,7 +13,7 @@ function CommonSlugHeadTags({
   return (
     <Head>
       <title>
-        Blog on {frontMatter?.title} by {frontMatter?.author} on heyashu.in 
+        Article on {frontMatter?.title} by {frontMatter?.author || 'Ashutosh Anand Tiwari'} on heyashu.in 
       </title>
 
       <meta charSet="UTF-8" />
@@ -22,7 +22,7 @@ function CommonSlugHeadTags({
 
       <meta
         name="description"
-        content={`Explore the latest blog posts by ${frontMatter?.author}, on https://heyashu/in An open source blog writing platform by Ashutosh Anand Tiwari.`}
+        content={`Explore the latest article  posts by ${frontMatter?.author || 'Ashutosh Anand Tiwari'}, on https://heyashu/in An open source blog writing platform by Ashutosh Anand Tiwari.`}
       />
       <meta name="keywords" content={tags} />
       <meta
