@@ -88,6 +88,7 @@ function TravelPage() {
               src="/images/travel_illu.png"
               width={"300"}
               height={"300"}
+                         alt="-image"
             />
           </div>
 
@@ -187,6 +188,7 @@ function TravelPage() {
           className="absolute z-[-20] top-[-150px] left-[-250px]"
           src="/images/travel_illu.png"
           width={"300"}
+                     alt="-image"
           height={"300"}
         />
       </div>

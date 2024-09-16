@@ -21,6 +21,7 @@ function TripCard({ idx, name, img, data }) {
               width={"320"}
               height={"200"}
               src={img}
+                      alt="-image"
             />
             <div className="flex-end flex justify-center items-center mx-auto py-4 relative">
               <h1 className="lg:text-9xl md:text-6xl text-4xl  font-extrabold text-gray-600  ">
@@ -43,6 +44,7 @@ function TripCard({ idx, name, img, data }) {
               width={"320"}
               height={"200"}
               src={img}
+                         alt="-image"
             />
           </div>
         </Link>

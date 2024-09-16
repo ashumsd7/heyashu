@@ -65,6 +65,7 @@ function Navbar() {
           <Link href="/">
             {" "}
             <Image
+            alt='logo-image'
               className="font-extrabold   font-mono flex cursor-pointer justify-left text-2xl items-center  ml-4 "
               src={"https://i.ibb.co/59hJ4PV/logo2.jpg"}
               height={"36"}

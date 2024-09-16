@@ -46,7 +46,7 @@ function TownPage() {
 
     
       <div className="flex justify-center items-center flex-col gap-5">
-      <Image width={'400'} height={'600'} src="/images/charawan.jpg" className="border rounded-sm "/>
+      <Image width={'400'} height={'600'} src="/images/charawan.jpg" className="border rounded-sm "            alt="-image"/>
         <Button
           onClick={() => {
             window.open("https://charawan.netlify.app", "_blank");

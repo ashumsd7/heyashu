@@ -126,12 +126,14 @@ function SendQuickMessage() {
         src="/images/envelop.png"
         width={"340"}
         height={"320"}
+                   alt="-image"
         className="absolute top-[-80px] left-0 opacity-90 "
       />
       <Image
         src="/images/envelop.png"
         width={"340"}
         height={"320"}
+                   alt="-image"
         className="absolute top-[100px] right-0 opacity-90 rotate-3 "
       />
     </div>

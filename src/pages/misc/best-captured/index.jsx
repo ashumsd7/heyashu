@@ -90,17 +90,20 @@ function BestCapturedPage() {
         src="/images/profile1.jpg"
         width={"340"}
         height={"320"}
+                   alt="-image"
         className="absolute top-[250px] w-[200px] h-[200px] rounded-full  right-0 opacity-10 rotate-12 z-[-20]"
       />
       <Image
         src="/images/versions/trek.jpeg"
         width={"340"}
+                   alt="-image"
         height={"320"}
         className="absolute top-[-80px] w-[200px] h-[200px] rounded-full left-0 opacity-10 rotate-12 z-[-20]"
       />
       <Image
         src="/images/versions/family.jpeg"
         width={"340"}
+                   alt="-image"
         height={"320"}
         className="absolute top-[120px] w-[200px] h-[200px] rounded-full left-[30%] opacity-10 rotate-12 z-[-20]"
       />
@@ -108,6 +111,7 @@ function BestCapturedPage() {
         src="/images/versions/family.jpeg"
         width={"340"}
         height={"320"}
+                   alt="-image"
         className="absolute top-[0px] w-[200px] h-[200px] rounded-full right-[10%] opacity-10 rotate-12 z-[-20]"
       />
     </div>

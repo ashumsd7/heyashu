@@ -163,6 +163,7 @@ function TechPage() {
               className="absolute z-[-20] top-[-100px] left-[80px] opacity-30 hidden md:flex"
               src="/images/tech-illustration.png"
               width={"200"}
+                         alt="-image"
               height={"200"}
             />
           </div>
@@ -274,6 +275,7 @@ function TechPage() {
           className="absolute z-[-20] top-[-10%] left-[-15%]"
           src="/images/tech-illustration.png"
           width={"200"}
+                     alt="-image"
           height={"200"}
         />
       </div>
