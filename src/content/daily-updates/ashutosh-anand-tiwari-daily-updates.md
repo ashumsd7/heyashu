@@ -13,6 +13,14 @@ tags: Daily updates
 ---
 My Daily Updates 👇
 
+> 16 Sep 2024
+
+* Total Code 8hrs 9mins
+* Project and Bug fixes, sent for UAT P-2
+* Slept : 6hrs
+* Worked on garden, update few pages will start node js season 2
+* Visit and give feedback on : heyashu.in 
+
 > 15 Sep 2024
 
 * Total Code 1hr
