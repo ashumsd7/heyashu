@@ -1,4 +1,4 @@
-import { DEFAULT_AVATAR } from "@/utils/constant";
+import { DEFAULT_AVATAR, DEFAULT_FOLLOW_LINK_INSTA } from "@/utils/constant";
 import Image from "next/image";
 import React from "react";
 import { FaGithub, FaInstagram } from "react-icons/fa";
@@ -9,6 +9,7 @@ import { SiPeerlist, SiWakatime } from "react-icons/si";
 const ContentFooter = ({
   photoSrc = "https://i.ibb.co/PNKDZ5Q/mountian.png", // Default photo
   name = "Ashutosh Anand Tiwari",
+  link=DEFAULT_FOLLOW_LINK_INSTA,
   description = "A front-end engineer with a passion for  learning and exploring the world, now diving into back-end wonders node.js.",
   // Example: [{ href: '#', icon: 'FacebookIcon' }, { href: '#', icon: 'TwitterIcon' }]
 }) => {
@@ -21,12 +22,18 @@ const ContentFooter = ({
           width={100}
           height={100}
           className="w-full rounded-full mb-2  object-fill max-w-[100px] max-h-[100px] "
-        
         />
         <div className="flex flex-col gap-2  text-center md:text-left">
-        <h2 className="text-[#08142c] text-lg font-semibold m">
-              {name}
-            </h2>
+          <div className="flex gap-2 items-center">
+            <h2 className="text-[#08142c] text-lg font-semibold m">{name}</h2>
+            <a
+              href={link}
+              target="_blank"
+              className="text-green-600 font-semibold cursor-pointer animate-pulse animate-bounce"
+            >
+               Follow
+            </a>
+          </div>
 
           <div className="flex flex-col gap-2">
             <div className="flex  space-x-4 justify-center md:justify-start ">
@@ -94,7 +101,7 @@ const ContentFooter = ({
 
       <div>
         <p className="italic font-light absolute -top-8 left-0">
-        🌱 Planted and watered by :
+          🌱 Planted and watering by :
         </p>
       </div>
       <div className="flex  justify-center items-center h-10 mt-16 pb-20 flex-col">
@@ -102,7 +109,7 @@ const ContentFooter = ({
         ---------
       </div>
       <Image
-      className=" absolute top-2 right-2"
+        className=" absolute top-2 right-2"
         width="30"
         height="20"
         alt="tiranga"

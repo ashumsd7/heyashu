@@ -24,7 +24,7 @@ const NotesChips = ({
   }, [isSidebarVisible]);
   return (
     <>
-      <div className="lg:hidden block mb-4 ">
+      <div className="lg:hidden block  -mt-4 mb-2">
         {!isSidebarVisible ? (
           <div
             className="flex gap-1 items-center"

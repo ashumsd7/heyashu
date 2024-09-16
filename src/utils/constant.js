@@ -20,6 +20,7 @@ export const GITHUB_REPO_LINK =
   export const DEFAULT_FOLLOW_LINK='https://github.com/ashumsd7/'
   export const CONNECT_LINK_TOPMATE='https://github.com/ashumsd7/'
   export const ADMIN_LINK='https://heyashu.in/admin/'
+  export const DEFAULT_FOLLOW_LINK_INSTA='https://www.instagram.com/javascripterr/'
 
 
 

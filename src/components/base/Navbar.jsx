@@ -198,11 +198,11 @@ const MobileNaveBar = ({ isOpen, setIsOpen, activePath }) => {
           className=" text-black absolute top-2 right-5"
         />
       </div>
-      <div className="flex flex-col p-4 gap-6 ">
+      <div className="flex flex-col p-2 gap-6 ">
         <Link
           href="/"
           onClick={toggleMenu}
-          className="text-2xl py-2 font-semibold border-b-2"
+          className="text-base py-1 font-semibold border-b-2"
         >
           Home
           {activePath == "" && (
@@ -212,7 +212,7 @@ const MobileNaveBar = ({ isOpen, setIsOpen, activePath }) => {
         <Link
           href="/tech"
           onClick={toggleMenu}
-          className="text-2xl py-2 font-semibold border-b-2"
+          className="text-base py-1 font-semibold border-b-2"
         >
           Tech
           {activePath == "tech" && (
@@ -222,9 +222,9 @@ const MobileNaveBar = ({ isOpen, setIsOpen, activePath }) => {
 
         <Link
           href="/digital-garden"
-          className="text-2xl py-2 font-semibold border-b-2"
+          className="text-base py-1 font-semibold border-b-2"
         >
-          /🌱 digital garden{" "}
+          🌱 Digital Garden{" "}
           {activePath == "digital-garden" && (
             <LuMousePointerClick className="absolute  top-[20px] left-[20px] text-2xl text-orange-600" />
           )}
@@ -233,7 +233,7 @@ const MobileNaveBar = ({ isOpen, setIsOpen, activePath }) => {
         <Link
           href="/travel"
           onClick={toggleMenu}
-          className="text-2xl py-2 font-semibold border-b-2"
+          className="text-base py-2 font-semibold border-b-2"
         >
           Travel
           {activePath == "travel" && (
@@ -243,7 +243,7 @@ const MobileNaveBar = ({ isOpen, setIsOpen, activePath }) => {
         <Link
           href="/misc"
           onClick={toggleMenu}
-          className="text-2xl py-2 font-semibold border-b-2"
+          className="text-base py-2 font-semibold border-b-2"
         >
           ...
           {["misc", "town"].includes(activePath) && (

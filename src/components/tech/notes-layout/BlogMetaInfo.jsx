@@ -3,10 +3,15 @@ import { FaGithub, FaRegHeart } from "react-icons/fa";
 import { FaBookOpen } from "react-icons/fa";
 import dynamic from "next/dynamic";
 import Switch from "@/components/base/Switch";
-import { ADMIN_LINK, DEFAULT_FOLLOW_LINK, GITHUB_REPO_LINK } from "@/utils/constant";
+import {
+  ADMIN_LINK,
+  DEFAULT_FOLLOW_LINK,
+  GITHUB_REPO_LINK,
+} from "@/utils/constant";
 import { ensureHttps, removePublicFromPath } from "@/utils/functions";
 import { MdEdit } from "react-icons/md";
 import { LiaSeedlingSolid } from "react-icons/lia";
+import { FaHandsClapping } from "react-icons/fa6";
 // import axios from "axios";
 const Share = dynamic(() => import("@/components/ui/Share"), { ssr: false });
 const BlogMetaInfo = ({ data }) => {
@@ -24,8 +29,6 @@ const BlogMetaInfo = ({ data }) => {
     isQuickReadModeOn,
     setIsQuickReadModeOn,
   } = data;
-
-  
 
   return (
     <>
@@ -58,8 +61,8 @@ const BlogMetaInfo = ({ data }) => {
                 <FaBookOpen
                   title={`It will take ${timeRead} min to read this article.`}
                 />{" "}
-                {timeRead} min read {" "}
-                <LiaSeedlingSolid title="Seeded on"/>  {publishedOn}
+                {timeRead} min read <LiaSeedlingSolid title="Seeded on" />{" "}
+                {publishedOn}
               </div>
             )}
           </div>
@@ -68,7 +71,7 @@ const BlogMetaInfo = ({ data }) => {
 
       <div className="flex justify-end h-[40px]  border-b border-t px-6">
         {showControls && (
-          <div className="flex items-center space-x-6 flex-wrap">
+          <div className="flex items-center space-x-2 flex-wrap">
             {/* Heart Icon */}
             {/* <div className="flex items-center text-gray-600">
               <FaRegHeart />
@@ -77,18 +80,18 @@ const BlogMetaInfo = ({ data }) => {
               onClick={() => {
                 window.open(ADMIN_LINK, "_blank");
               }}
-              className="flex items-center justify-center text-gray-600 cursor-pointer gap-[2px] "
+              className="flex items-center justify-center  cursor-pointer gap-[2px] bg-gray-500 text-white px-2 rounded-md "
             >
-              <MdEdit className="text-xl " title="Edit this page" />
-              {/* <span className=" cursor-pointer">Edit this page</span> */}
+              <MdEdit className="text-xs " title="Edit this page" />
+              <span className=" cursor-pointer text-sm">Edit this page</span>
             </div>
-            <div className="flex items-center flex-wrap text-gray-600 cursor-pointer gap-[2px] flex-col">
-              <FaGithub
+            <div className="flex items-center  justify-center   cursor-pointer gap-[2px] flex-col   px-2 rounded-md ">
+              <FaRegHeart
                 onClick={() => {
                   window.open(githubLink, "_blank");
                 }}
                 className=" "
-                title="Contribute to the repo"
+                title="Star the repo"
               />
             </div>
             {/* Clap Icon */}
