@@ -24,9 +24,9 @@ const Breadcrumb = () => {
         pathParts.length == 4 ? "md:pl-[337px]" : ""
       }`}
     >
-      <ol className="flex items-center space-x-2 flex-wrap gap-4 md:gap-0 text-gray-600">
-        <li key="home">
-          <Link href="/" className="items-center text-[18px]">
+      <ol className="flex items-center lg:space-x-2 flex-wrap gap-1 md:gap-0 text-gray-600">
+        <li key="home" className="text-[16px]">
+          <Link href="/" className="items-center text-[16px]">
             Home
           </Link>
         </li>
@@ -40,7 +40,7 @@ const Breadcrumb = () => {
 
           return (
             <li key={index} className="flex items-center text-[16px]">
-              <FaChevronRight className="mx-2 text-gray-400" />{" "}
+              <FaChevronRight className=" text-gray-400 text-[12px]" />{" "}
               {/* Icon between links */}
               <Link
                 href={href}

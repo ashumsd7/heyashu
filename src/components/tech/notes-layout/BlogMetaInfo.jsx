@@ -30,7 +30,7 @@ const BlogMetaInfo = ({ data }) => {
   return (
     <>
       <div className="flex items-center justify-between    py-4   ">
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-1 flex-wrap">
           {!profilePic ? (
             <div className="w-10 h-10 bg-purple-600  text-white flex items-center justify-center rounded-full">
               {name.charAt(0)}
@@ -42,8 +42,8 @@ const BlogMetaInfo = ({ data }) => {
               className="w-12 h-12 border-4 border-gray-300  object-cover flex items-center justify-center rounded-full"
             />
           )}
-          <div className="ml-3 flex flex-col gap-1">
-            <div className="flex items-center space-x-2">
+          <div className="ml-3 flex flex-col gap-1 ">
+            <div className="flex items-center space-x-2 flex-wrap">
               <span className="font-semibold text-sm mr-2">{name}</span>
               <a
                 href={ensureHttps(followLink)}
@@ -54,7 +54,7 @@ const BlogMetaInfo = ({ data }) => {
               </a>
             </div>
             {(timeRead || lastUpdated) && (
-              <div className="text-gray-500 text-sm flex items-center gap-2">
+              <div className="text-gray-500 text-sm flex items-center gap-2 flex-wrap">
                 <FaBookOpen
                   title={`It will take ${timeRead} min to read this article.`}
                 />{" "}
@@ -68,7 +68,7 @@ const BlogMetaInfo = ({ data }) => {
 
       <div className="flex justify-end h-[40px]  border-b border-t px-6">
         {showControls && (
-          <div className="flex items-center space-x-6">
+          <div className="flex items-center space-x-6 flex-wrap">
             {/* Heart Icon */}
             {/* <div className="flex items-center text-gray-600">
               <FaRegHeart />
@@ -82,7 +82,7 @@ const BlogMetaInfo = ({ data }) => {
               <MdEdit className="text-xl " title="Edit this page" />
               {/* <span className=" cursor-pointer">Edit this page</span> */}
             </div>
-            <div className="flex items-center text-gray-600 cursor-pointer gap-[2px] flex-col">
+            <div className="flex items-center flex-wrap text-gray-600 cursor-pointer gap-[2px] flex-col">
               <FaGithub
                 onClick={() => {
                   window.open(githubLink, "_blank");

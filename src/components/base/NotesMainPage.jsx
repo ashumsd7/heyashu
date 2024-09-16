@@ -104,19 +104,25 @@ const NotesMainPage = ({
           storedValues={savedStorage}
           value={episodes[0]}
           contentListTitle={contentListTitle}
+          selectedSection={currentPageFrontMatter}
+          eachCardPrefix={eachCardPrefix}
         />
 
         <div className="flex h-[93vh] gap-20">
           {isSidebarVisible && (
-            <NotesSidebar
-              data={contentList}
-              onSectionClick={handleSectionClick}
-              progress={progress}
-              selectedSection={currentPageFrontMatter}
-              storedValues={ls.get(STORAGE_KEY)}
-              eachCardPrefix={eachCardPrefix}
-              contentListTitle={contentListTitle}
-            />
+            <>
+              <div className="w-[1/4]  lg:block hidden  pb-[300px] h-full shadow-xl border-t-4 rounded-lg     fixed ">
+                <NotesSidebar
+                  data={contentList}
+                  onSectionClick={handleSectionClick}
+                  progress={progress}
+                  selectedSection={currentPageFrontMatter}
+                  storedValues={ls.get(STORAGE_KEY)}
+                  eachCardPrefix={eachCardPrefix}
+                  contentListTitle={contentListTitle}
+                />
+              </div>
+            </>
           )}
           <div
             className={`lg:w-[60%] w-full lg:ml-[380px] ml-0    flex flex-col   h-full     rounded-lg   ${

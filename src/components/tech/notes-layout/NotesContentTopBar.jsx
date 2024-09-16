@@ -28,7 +28,7 @@ function NotesContentTopBar({
                 onClick={() => {
                   setIsSidebarVisible(!isSidebarVisible);
                 }}
-                className="text-2xl text-gray-800"
+                className="text-2xl text-gray-800  cursor-pointer"
               />
             )}
           </div>
