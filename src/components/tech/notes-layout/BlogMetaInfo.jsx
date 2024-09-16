@@ -69,7 +69,7 @@ const BlogMetaInfo = ({ data }) => {
         </div>
       </div>
 
-      <div className="flex justify-end h-[40px]  border-b border-t px-6">
+      <div className="flex justify-end h-[40px]  border-b border-t px-2">
         {showControls && (
           <div className="flex items-center space-x-2 flex-wrap">
             {/* Heart Icon */}
@@ -80,18 +80,18 @@ const BlogMetaInfo = ({ data }) => {
               onClick={() => {
                 window.open(ADMIN_LINK, "_blank");
               }}
-              className="flex items-center justify-center  cursor-pointer gap-[2px] bg-gray-500 text-white px-2 rounded-md "
+              className="flex items-center justify-center  cursor-pointer gap-[1px] bg-green-700 text-white px-2 rounded-md "
             >
               <MdEdit className="text-xs " title="Edit this page" />
               <span className=" cursor-pointer text-sm">Edit this page</span>
             </div>
-            <div className="flex items-center  justify-center   cursor-pointer gap-[2px] flex-col   px-2 rounded-md ">
+            <div className="flex items-center  justify-center   cursor-pointer gap-[2px] flex-col text-green-600  px-2 rounded-md ">
               <FaRegHeart
                 onClick={() => {
                   window.open(githubLink, "_blank");
                 }}
                 className=" "
-                title="Star the repo"
+                title="⭐Star the repo"
               />
             </div>
             {/* Clap Icon */}

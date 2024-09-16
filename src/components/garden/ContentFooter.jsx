@@ -9,7 +9,7 @@ import { SiPeerlist, SiWakatime } from "react-icons/si";
 const ContentFooter = ({
   photoSrc = "https://i.ibb.co/PNKDZ5Q/mountian.png", // Default photo
   name = "Ashutosh Anand Tiwari",
-  link=DEFAULT_FOLLOW_LINK_INSTA,
+  link = DEFAULT_FOLLOW_LINK_INSTA,
   description = "A front-end engineer with a passion for  learning and exploring the world, now diving into back-end wonders node.js.",
   // Example: [{ href: '#', icon: 'FacebookIcon' }, { href: '#', icon: 'TwitterIcon' }]
 }) => {
@@ -24,14 +24,14 @@ const ContentFooter = ({
           className="w-full rounded-full mb-2  object-fill max-w-[100px] max-h-[100px] "
         />
         <div className="flex flex-col gap-2  text-center md:text-left">
-          <div className="flex gap-2 items-center">
+          <div className="flex gap-2 items-center flex-wrap">
             <h2 className="text-[#08142c] text-lg font-semibold m">{name}</h2>
             <a
               href={link}
               target="_blank"
               className="text-green-600 font-semibold cursor-pointer animate-pulse animate-bounce"
             >
-               Follow
+              Follow
             </a>
           </div>
 
@@ -97,6 +97,14 @@ const ContentFooter = ({
           </div>
           <p className="text-[#08142c] font-light  mb-2">{description}</p>
         </div>
+        <img
+          onClick={() => {
+            window.open(githubLink, "_blank");
+          }}
+          src="https://i.ibb.co/6N8C9vv/github-form.png"
+          alt="fork-banner"
+          className="absolute w-[100px] h-[100px]  bottom-[90px] right-4 rotate-[45deg] cursor-pointer"
+        />
       </div>
 
       <div>

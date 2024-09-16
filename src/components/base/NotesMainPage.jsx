@@ -96,7 +96,7 @@ const NotesMainPage = ({
     <>
       <CommonSlugHeadTags frontMatter={currentPageFrontMatter} />
 
-      <div className="max-w-screen-xl">
+      <div className="max-w-screen-xl relative border">
         <NotesChips
           data={contentList}
           handleChipClick={handleSectionClick}
@@ -192,6 +192,7 @@ const NotesMainPage = ({
             {/* <NotesContentFooter data={episodes} selectedSection={selectedSection} onSectionClick={handleSectionClick} /> */}
           </div>
         </div>
+      
       </div>
     </>
   );
