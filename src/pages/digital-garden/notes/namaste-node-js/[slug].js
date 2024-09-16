@@ -48,7 +48,6 @@ const NotesDetailPage = ({ notes, currentPageMDX, currentPageFrontMatter }) => {
 
   return (
     <>
-
       <NotesMainPage
         metaInfo={metaTagsForNamasteNodeJsS1}
         pageTitle={PAGE_TITLE}
@@ -59,6 +58,7 @@ const NotesDetailPage = ({ notes, currentPageMDX, currentPageFrontMatter }) => {
         msxSource={currentPageMDX}
         eachCardPrefix={"Episode-"}
         currentPageFrontMatter={currentPageFrontMatter}
+        isAnalysisPageOn={"/digital-garden/notes/namaste-node-js/analysis"}
       />
     </>
   );

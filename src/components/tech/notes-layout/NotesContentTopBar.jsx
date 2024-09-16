@@ -47,7 +47,7 @@ function NotesContentTopBar({ isSidebarVisible, setIsSidebarVisible, title }) {
           onClick={() => {
             window.open(GITHUB_REPO_LINK, "_blank");
           }}
-          className="flex items-center justify-center animate-pulse border-b border-green-500  md:font-extrabold font-light text-green-600 cursor-pointer gap-[2px]  "
+          className="flex items-center justify-center  border-b border-green-500  md:font-extrabold font-light text-green-600 cursor-pointer gap-[2px]  "
         >
           <DiOpensource className="md:text-2xl text-sm " title="Edit this page" />
           <span className=" cursor-pointer text-lg">Opensource</span>

@@ -11,10 +11,14 @@ import {
 import { ensureHttps, removePublicFromPath } from "@/utils/functions";
 import { MdEdit } from "react-icons/md";
 import { LiaSeedlingSolid } from "react-icons/lia";
-import { FaHandsClapping } from "react-icons/fa6";
+import { FaCircleInfo, FaHandsClapping } from "react-icons/fa6";
+import Button from "@/components/base/Button";
+import { BsInfoLg } from "react-icons/bs";
+import { useRouter } from "next/router";
 // import axios from "axios";
 const Share = dynamic(() => import("@/components/ui/Share"), { ssr: false });
 const BlogMetaInfo = ({ data }) => {
+  const router= useRouter()
   const {
     name = "Anonymous Gardener",
     timeRead = "0",
@@ -28,6 +32,7 @@ const BlogMetaInfo = ({ data }) => {
     githubLink = GITHUB_REPO_LINK,
     isQuickReadModeOn,
     setIsQuickReadModeOn,
+    isAnalysisPageOn,
   } = data;
 
   return (
@@ -69,57 +74,71 @@ const BlogMetaInfo = ({ data }) => {
         </div>
       </div>
 
-      <div className="flex justify-end h-[40px]  border-b border-t px-2">
+      <div className="flex  h-[40px]  border-b border-t px-2">
         {showControls && (
-          <div className="flex items-center space-x-2 flex-wrap">
-            {/* Heart Icon */}
-            {/* <div className="flex items-center text-gray-600">
-              <FaRegHeart />
-            </div> */}
-            <div
-              onClick={() => {
-                window.open(ADMIN_LINK, "_blank");
-              }}
-              className="flex items-center justify-center  cursor-pointer gap-[1px] bg-green-700 text-white px-2 rounded-md "
-            >
-              <MdEdit className="text-xs " title="Edit this page" />
-              <span className=" cursor-pointer text-sm">Edit this page</span>
-            </div>
-            <div className="flex items-center  justify-center   cursor-pointer gap-[2px] flex-col text-green-600  px-2 rounded-md ">
-              <FaRegHeart
+          <div className="flex items-center space-x-2 flex-wrap justify-between w-full">
+            {isAnalysisPageOn && (
+              <div
                 onClick={() => {
-                  window.open(githubLink, "_blank");
+                  router.push(isAnalysisPageOn?.isAnalysisPageOn);
                 }}
-                className=" "
-                title="⭐Star the repo"
-              />
-            </div>
-            {/* Clap Icon */}
-            {/* <div className="flex items-center text-gray-600">
-              <FaHandsClapping />
-            </div> */}
-            {/* Share Icon */}
-            {/* <div className="flex items-center text-gray-600">
-              <HiOutlineSpeakerWave />
-            </div> */}
-            {/* Three Dots Icon */}
-            {/* <div className="flex items-center text-gray-600">
-              <IoMdDownload />
-            </div> */}
-            {isQuicReadSettingOn && (
-              <div className="flex items-center text-gray-600">
-                <Switch
-                  isOn={isQuickReadModeOn}
-                  handleToggle={() => {
-                    setIsQuickReadModeOn(!isQuickReadModeOn);
-                  }}
-                />
+                className="flex items-center justify-center  cursor-pointer gap-[3px] px-2 rounded-md "
+              >
+                <FaCircleInfo className="text-xs mt-1 " title="see analysis" /> <span className="text-xs">see analysis</span>
               </div>
             )}
-            {/* <div className="flex items-center text-gray-600">
+            <div className="flex gap-1">
+              {/* Heart Icon */}
+              {/* <div className="flex items-center text-gray-600">
+              <FaRegHeart />
+            </div> */}
+
+              <div
+                onClick={() => {
+                  window.open(ADMIN_LINK, "_blank");
+                }}
+                className="flex items-center justify-center  cursor-pointer gap-[1px]  text-black px-2 rounded-md "
+              >
+                <MdEdit className="text-xs " title="Edit this page" />
+                <span className=" cursor-pointer text-sm">Edit this page</span>
+              </div>
+
+              <div className="flex items-center  justify-center   cursor-pointer gap-[2px] flex-col text-green-600  px-2 rounded-md ">
+                <FaRegHeart
+                  onClick={() => {
+                    window.open(githubLink, "_blank");
+                  }}
+                  className=" "
+                  title="⭐Star the repo"
+                />
+              </div>
+              {/* Clap Icon */}
+              {/* <div className="flex items-center text-gray-600">
+              <FaHandsClapping />
+            </div> */}
+              {/* Share Icon */}
+              {/* <div className="flex items-center text-gray-600">
+              <HiOutlineSpeakerWave />
+            </div> */}
+              {/* Three Dots Icon */}
+              {/* <div className="flex items-center text-gray-600">
+              <IoMdDownload />
+            </div> */}
+              {isQuicReadSettingOn && (
+                <div className="flex items-center text-gray-600">
+                  <Switch
+                    isOn={isQuickReadModeOn}
+                    handleToggle={() => {
+                      setIsQuickReadModeOn(!isQuickReadModeOn);
+                    }}
+                  />
+                </div>
+              )}
+              {/* <div className="flex items-center text-gray-600">
               <BsThreeDotsVertical />
             </div> */}
-            <Share title={title} />
+              <Share title={title} />
+            </div>
           </div>
         )}
       </div>

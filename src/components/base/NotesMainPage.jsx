@@ -33,6 +33,7 @@ const NotesMainPage = ({
   currentPageFrontMatter,
   contentListLength,
   subDomain = "namaste-node-js",
+  isAnalysisPageOn
 }) => {
   const router = useRouter();
   const [episodes, _setEpisodes] = useState(contentList);
@@ -152,6 +153,7 @@ const NotesMainPage = ({
                       currentPageFrontMatter?.title,
                     isQuickReadModeOn: isQuickReadModeOn,
                     setIsQuickReadModeOn: setIsQuickReadModeOn,
+                    isAnalysisPageOn:{isAnalysisPageOn}
                   }}
                 />
               </div>

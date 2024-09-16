@@ -68,26 +68,36 @@ const LandingPage = () => {
           <div className="text-center gap-2 flex flex-wrap  ">
             <Button
               onClick={handleReadNotesClick}
+              className="mt-4 px-6 py-3  cursor-not-allowed  opacity-50  text-white text-lg font-medium rounded-md  transition duration-200"
+            >
+              Season 2 Notes
+            </Button>
+            <Button
+              onClick={handleReadNotesClick}
               className="mt-4 px-6 py-3  text-white text-lg font-medium rounded-md  transition duration-200"
             >
-              Read Notes
+              Season 1 Notes
             </Button>
             <Button
               onClick={() => {
                 window.open(ADMIN_LINK, "_blank");
               }}
-              className="mt-4 px-6 py-3 bg-transparent   text-gray-900 border-b text-lg font-medium rounded-md   transition duration-200"
+              className="mt-4 px-6 py-3 bg-transparent border   text-gray-900 border-b text-lg font-medium rounded-md   transition duration-200"
             >
               + Add notes
             </Button>
             <Button
               onClick={() => {
-                router.push("/digital-garden/notes/namaste-node-js/analysis");
+                window.open(ADMIN_LINK, "_blank");
               }}
-              className="mt-4 px-6 py-3 bg-transparent   text-gray-900 border-b text-lg font-medium rounded-md   transition duration-200"
+               
+              className="mt-4 px-6 py-3 bg-transparent border   text-gray-900 border-b text-lg font-medium rounded-md   transition duration-200"
             >
-               read analyses
+              + Add notes
             </Button>
+           
+          </div>
+          <div className="text-center gap-2 flex flex-wrap  ">
           </div>
         </div>
       </ClassicPageLayout>

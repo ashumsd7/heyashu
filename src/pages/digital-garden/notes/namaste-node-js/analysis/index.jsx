@@ -12,7 +12,7 @@ const NamasteNodeJsAnalysis = () => {
   return (
     <>
       <Button
-      icon={<FaCloudDownloadAlt/>}
+        icon={<FaCloudDownloadAlt />}
         onClick={() => {
           router.push("/digital-garden/notes/namaste-node-js/data");
         }}
