@@ -13,6 +13,13 @@ tags: Daily updates
 ---
 My Daily Updates 👇
 
+> 15 Sep 2024
+
+* Total Code 1hr
+* Created Mongo DB Databse using Node
+* Slept : 8hrs
+* Visit and give feedback on : heyashu.in 
+
 > 14 Sep 2024
 
 * Total Code Time around 3.5hrs
