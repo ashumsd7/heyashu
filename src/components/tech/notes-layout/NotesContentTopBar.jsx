@@ -1,15 +1,16 @@
 import React from "react";
-import { FaDownload, FaFilePdf, FaGithub } from "react-icons/fa";
+import { FaDownload, FaFilePdf, FaGithub, FaPagelines } from "react-icons/fa";
 import { MdEdit, MdFullscreen } from "react-icons/md";
 import { GoSidebarExpand, GoSidebarCollapse } from "react-icons/go";
 import Switch from "@/components/base/Switch";
 import { ADMIN_LINK, GITHUB_REPO_LINK } from "@/utils/constant";
 import { DiOpensource } from "react-icons/di";
+import { ImNewTab } from "react-icons/im";
 
 function NotesContentTopBar({ isSidebarVisible, setIsSidebarVisible, title }) {
   return (
     <>
-      <div className="  px-2    flex items-center rounded rounded-b-none md:justify-between  py-1 gap-4 relative flex-wrap-reverse  justify-center">
+      <div className="  px-2    flex items-center rounded rounded-b-none justify-between  py-1 gap-4 relative flex-wrap-reverse ">
         <div className="flex gap-2 items-center flex-wrap">
           <div className=" gap-2 justify-between items-center lg:flex hidden absolute top-0 -left-10 flex-wrap">
             {!isSidebarVisible ? (
@@ -50,6 +51,7 @@ function NotesContentTopBar({ isSidebarVisible, setIsSidebarVisible, title }) {
         >
           <DiOpensource className="md:text-2xl text-sm " title="Edit this page" />
           <span className=" cursor-pointer text-sm">Opensource</span>
+          <ImNewTab className='text-xs text-black' />
         </div>
         {/* <div className="flex gap-2 items-center">
         <Switch
