@@ -80,6 +80,14 @@ const LandingPage = () => {
             >
               + Add notes
             </Button>
+            <Button
+              onClick={() => {
+                router.push("/digital-garden/notes/namaste-node-js/analysis");
+              }}
+              className="mt-4 px-6 py-3 bg-transparent   text-gray-900 border-b text-lg font-medium rounded-md   transition duration-200"
+            >
+               read analyses
+            </Button>
           </div>
         </div>
       </ClassicPageLayout>
