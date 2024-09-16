@@ -2,7 +2,7 @@
 title: "e6: libuv & async IO"
 name: libuv & async IO in Node.js
 episode: 6
-publishedOn: 04-09-2024
+publishedOn: 09-09-2024
 updatedOn: 04-09-2024
 thumbnail: 
 author: Ashutosh Anand Tiwari

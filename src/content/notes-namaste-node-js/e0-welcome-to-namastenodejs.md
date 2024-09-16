@@ -2,7 +2,7 @@
 title: E0 Welcome to NamasteNodeJS
 name: Welcome to the course
 episode: 0
-publishedOn: 18-09-2024
+publishedOn: 09-18-2024
 updatedOn: 03-09-2024
 thumbnail: https://i.ibb.co/2hq8tjW/akshays-banner.jpg
 author: Ashutosh Anand Tiwari
@@ -13,12 +13,12 @@ followLink: https://github.com/ashumsd7
 
 
 
-## About the Creator 
+### About the Creator 
 (The Boss, Akshay Saini)
 
 Akshay started building websites in the 7th or 8th grade and has since worked at Paytm, Uber, Lendingkart, and multiple startups, where he learned how to develop large-scale projects. He even started a startup while still in college. Throughout his career, one of the key factors that has helped him succeed is being curious. He believes that having curiosity and the desire to learn new things will help you continually improve. He encourages you to ask questions, as this will significantly benefit your career. Akshay urges you to maintain this curiosity during the course as well.
 
-## Requests from the Creator Before Starting the Course
+### Requests from the Creator Before Starting the Course
 
 1. Keep taking notes, either digitally or in a notebook, as you follow along with the videos.
 2. Practice the concepts as you watch the videos.

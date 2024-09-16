@@ -2,8 +2,8 @@
 title: "E1:  History of node js in depth"
 name: Introduction to NodeJs
 episode: 1
-publishedOn: 21-08-2024
-updatedOn: 04-09-2024
+publishedOn: 08-21-2024
+updatedOn: 09-04-2024
 thumbnail: /public/images/blogs/123.png
 author: Ashutosh
 tags: "Node JS, History "

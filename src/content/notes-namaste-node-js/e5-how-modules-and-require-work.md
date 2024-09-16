@@ -2,7 +2,7 @@
 title: "E5 : How Modules and require work "
 name: Diving into the NodpeJS Github repo
 episode: 5
-publishedOn: 31-08-2024
+publishedOn: 08-31-2024
 updatedOn: 03-09-2024
 thumbnail: https://i.ibb.co/mbk8T1t/1.png
 author: Ashutosh Anand Tiwari

@@ -94,16 +94,7 @@ const NotesMainPage = ({
 
   return (
     <>
-      {/* <Head>
-        <title>
-          {currentPageFrontMatter?.name} : {pageTitle}{" "}
-        </title>
-        <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" href="/favicon.ico" />
-              <CommonSlugHeadTags />
-      </Head> */}
-      <CommonSlugHeadTags />
+      <CommonSlugHeadTags frontMatter={currentPageFrontMatter} />
 
       <div className="max-w-screen-xl">
         <NotesChips
@@ -114,7 +105,6 @@ const NotesMainPage = ({
           value={episodes[0]}
           contentListTitle={contentListTitle}
         />
-   
 
         <div className="flex h-[93vh] gap-20">
           {isSidebarVisible && (
@@ -144,7 +134,6 @@ const NotesMainPage = ({
             />
 
             <div className="flex-1   ">
-      
               <div className="">
                 <BlogMetaInfo
                   large
@@ -190,11 +179,9 @@ const NotesMainPage = ({
               ) : (
                 <NotesContent markdownContent={msxSource} large />
               )}
-              
             </div>
-        
 
-            <ContentFooter/>
+            <ContentFooter />
 
             {/* <NotesContentFooter data={episodes} selectedSection={selectedSection} onSectionClick={handleSectionClick} /> */}
           </div>

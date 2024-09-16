@@ -24,7 +24,7 @@ The answer is yes, but the question is: will you be able to provide what a serve
 
 A system can be identified by one address. For your computer, this address might change, but for servers, it does not. Servers have a dedicated IP address that never changes, which is why they are called servers. They are designed to serve, and they also have multiple hardware servers running in different locations. For example, when you create a Firebase server, it will ask where you want your server, such as Singapore. To create a real-time database server, you just click, and you’ll be asked to choose the physical location where you want to connect.
 
-### Node Serve
+### Node Server
 
 What we do now and in the future is create servers that can handle requests from the outside world. That’s what Node.js is all about. Now, let’s discuss the architecture and dive deeper into it.
 

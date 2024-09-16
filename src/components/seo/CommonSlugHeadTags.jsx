@@ -10,10 +10,11 @@ function CommonSlugHeadTags({
   mainDesc = "Explore a collection of digital notes on various topics, including JavaScript, React, and more. Learn from curated content and insights by Ashutosh Anand Tiwari.",
   tags = "JavaScript, Node.js, React, Digital Notes, Ashutosh Anand Tiwari, Programming, Web Development",
 }) {
+  console.log("frontMatter",frontMatter);
   return (
     <Head>
       <title>
-        Article on {frontMatter?.title} by {frontMatter?.author || 'Ashutosh Anand Tiwari'} on heyashu.in 
+        Article on {frontMatter?.name} by {frontMatter?.author || 'Ashutosh Anand Tiwari'} on heyashu.in 
       </title>
 
       <meta charSet="UTF-8" />

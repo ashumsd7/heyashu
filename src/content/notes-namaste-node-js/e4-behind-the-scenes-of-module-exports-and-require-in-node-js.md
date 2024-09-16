@@ -2,7 +2,7 @@
 title: "e4: Behind the scenes of Module exports and require in node js"
 name: Module.exports & require
 episode: 4
-publishedOn: 26-08-2024
+publishedOn: 08-26-2024
 updatedOn: 03-09-2024
 thumbnail: https://i.ibb.co/800M4Jz/image.jpg
 author: Ashutosh Anand Tiwari

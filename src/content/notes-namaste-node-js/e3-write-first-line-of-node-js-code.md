@@ -2,7 +2,7 @@
 title: "E3: Write first line of node js code"
 name: "Let's write code "
 episode: 3
-publishedOn: 25-09-2024
+publishedOn: 09-25-2024
 updatedOn: 03-09-2024
 thumbnail: https://i.ibb.co/vwNLtJ3/1.jpg
 author: Ashutosh Anand Tiwari

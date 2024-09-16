@@ -37,7 +37,7 @@ export const NOTES_CARD_DATA = [
     sourceName:'ProCodrr',
     sourceLink:'https://app.procodrr.com/web/checkout/66c86939c0a286ccc32c0d8b',
     lastUpdated:'',
-    publishedOn:'',
+    publishedOn:'1 Sep 2024',
     thumbnailUrl:'https://tagmango.com/publicassets/-backend-with-nodejs-1-f59defad2193f9e9223bfa2a3ad3ac47.png',
     isProgress:false,
     isComingSoon:false,
