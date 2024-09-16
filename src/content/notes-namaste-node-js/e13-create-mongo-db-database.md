@@ -164,7 +164,7 @@ main()
 ] */
 ```
 
-### Inset the data
+### Insert the data
 
 Now you read the data suppose you want to insert the data now in our Collection
 
