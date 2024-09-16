@@ -1,15 +1,19 @@
 import { useState } from "react";
 import { ImNewTab } from "react-icons/im";
-import ClassicPageLayout from "./ClassicNotesLayout";
 
-const CourseAnalysis = ({ CourseMetaData, courseName = "Course Analysis" }) => {
+const CourseAnalysis = ({
+  CourseMetaData,
+  courseName = "Course Analysis",
+  totalEpisodes,
+  textDuration,
+}) => {
   return (
     <div className="pb-20">
       <h1 className="md:text-[80px] text-[40px]  font-bold  ">Analysis</h1>
       <h1 className="md:text-[40px] text-[28px]  font-bold  ">{courseName}</h1>
       <div className="text-base font-semibold mb-4">
-        <p>Total Episodes : 14</p>
-        <p>Total Duration : 694 minutes / 11hours 34 mins</p>
+        <p>Total Episodes :{totalEpisodes}</p>
+        <p>Total Duration : {textDuration}</p>
       </div>
       <div className="space-y-4">
         {CourseMetaData.map((episode) => (
@@ -26,12 +30,6 @@ const Episode = ({ episode }) => {
   const [timestamps, setTimestamps] = useState(episode.timestamp || []);
 
   // Handler to add a timestamp
-  const addTimestamp = () => {
-    const newTimestamp = prompt("Enter a timestamp:");
-    if (newTimestamp) {
-      setTimestamps([...timestamps, newTimestamp]);
-    }
-  };
 
   return (
     <div className="bg-white  rounded-lg px-4 py-2 text-[#353534] flex-wrap ">

@@ -21,6 +21,8 @@ const NamasteNodeJsAnalysis = () => {
         Download Data
       </Button>
       <CourseAnalysis
+        totalEpisodes="13"
+        textDuration="694 minutes / 11hours 34 mins"
         CourseMetaData={NAMSTE_NODE_JS_S1_ALL_IN_ONE}
         courseName="Namaste Node JS  Season 1"
       />

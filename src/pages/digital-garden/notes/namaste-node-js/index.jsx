@@ -73,7 +73,7 @@ const LandingPage = () => {
               Season 2 Notes
             </Button>
             <Button
-              onClick={handleReadNotesClick}
+              // onClick={handleReadNotesClick}
               className="mt-4 px-6 py-3  text-white text-lg font-medium rounded-md  transition duration-200"
             >
               Season 1 Notes
