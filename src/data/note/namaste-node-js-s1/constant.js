@@ -108,7 +108,7 @@ export const NAMSTE_NODE_JS_S1_ALL_IN_ONE = [
   {
     episode_num: 11,
     episode_name: "What is a Server?",
-    noteslink: "http://localhost:3000/digital-garden/notes/namaste-node-js/e11-create-a-node-js-server",
+    noteslink: "https://heyashu.in/digital-garden/notes/namaste-node-js/e11-create-a-node-js-server",
     official_notes_link: "",
     duration: "01:21:00",
     timestamp: [
@@ -131,7 +131,7 @@ export const NAMSTE_NODE_JS_S1_ALL_IN_ONE = [
   {
     episode_num: 12,
     episode_name: "Databases and MongoDB",
-    noteslink: "http://localhost:3000/digital-garden/notes/namaste-node-js/e12-databases-and-mongodb",
+    noteslink: "https://heyashu.in/digital-garden/notes/namaste-node-js/e12-databases-and-mongodb",
     official_notes_link: "",
     duration: "01:11:00",
     timestamp: [
@@ -149,7 +149,7 @@ export const NAMSTE_NODE_JS_S1_ALL_IN_ONE = [
   {
     episode_num: 13,
     episode_name: "Working with MongoDB",
-    noteslink: "http://localhost:3000/digital-garden/notes/namaste-node-js/e13-create-mongo-db-database",
+    noteslink: "https://heyashu.in/digital-garden/notes/namaste-node-js/e13-create-mongo-db-database",
     official_notes_link: "",
     duration: "01:42:00",
     timestamp: [

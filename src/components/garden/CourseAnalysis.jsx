@@ -45,11 +45,14 @@ const Episode = ({ episode }) => {
         <div className="text-right flex flex-col gap-2 ">
           <a
             onClick={() => {
-              window.open(episode.noteslink, "_blank");
+              if (episode.noteslink) {
+                window.open(episode.noteslink, "_blank");
+              }
             }}
             className="text-green-600 cursor-pointer underline flex gap-1 items-center md:font-semibold font-bold text-xs md:text-base uppercase"
           >
-            Read fan Notes <ImNewTab className="text-xs text-black" />
+            {episode?.noteslink ? " Read fan Notes" : "Notes: Writing soon"}{" "}
+            <ImNewTab className="text-xs text-black" />
           </a>
           <p className=" text-xs md:text-sm font-bold  ">
             Episode Duration:{" "}
