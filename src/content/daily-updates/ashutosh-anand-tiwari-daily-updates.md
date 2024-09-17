@@ -13,6 +13,14 @@ tags: Daily updates
 ---
 My Daily Updates 👇
 
+> 17 Sep 2024
+
+* Total Code 10hrs 11mins
+* Only Bugs fixes and Microsoft Page Insights for DAPs
+* Slept : 7hrs
+* No work on garden, No Node JS Learning : Heavy work load
+* Visit and give feedback on : heyashu.in 
+
 > 16 Sep 2024
 
 * Total Code 8hrs 9mins
