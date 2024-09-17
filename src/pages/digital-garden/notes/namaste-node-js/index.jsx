@@ -66,14 +66,11 @@ const LandingPage = () => {
             </a>
           </div>
           <div className="text-center gap-2 flex flex-wrap  ">
-            <Button
-              onClick={handleReadNotesClick}
-              className="mt-4 px-6 py-3  cursor-not-allowed  opacity-50  text-white text-lg font-medium rounded-md  transition duration-200"
-            >
+            <Button className="mt-4 px-6 py-3  cursor-not-allowed  opacity-50  text-white text-lg font-medium rounded-md  transition duration-200">
               Season 2 Notes
             </Button>
             <Button
-              // onClick={handleReadNotesClick}
+              onClick={handleReadNotesClick}
               className="mt-4 px-6 py-3  text-white text-lg font-medium rounded-md  transition duration-200"
             >
               Season 1 Notes
@@ -86,19 +83,8 @@ const LandingPage = () => {
             >
               + Add notes
             </Button>
-            <Button
-              onClick={() => {
-                window.open(ADMIN_LINK, "_blank");
-              }}
-               
-              className="mt-4 px-6 py-3 bg-transparent border   text-gray-900 border-b text-lg font-medium rounded-md   transition duration-200"
-            >
-              + Add notes
-            </Button>
-           
           </div>
-          <div className="text-center gap-2 flex flex-wrap  ">
-          </div>
+          <div className="text-center gap-2 flex flex-wrap  "></div>
         </div>
       </ClassicPageLayout>
     </>
