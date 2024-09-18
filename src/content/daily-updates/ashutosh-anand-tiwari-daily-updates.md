@@ -13,6 +13,14 @@ tags: Daily updates
 ---
 My Daily Updates 👇
 
+> 18  Sep 2024
+
+* Total Code 6hrs 55mins
+* Bug fixes | Long calls | Dmeo Tomo
+* Slept : 6hrs
+* Learn bash shell and some commands: in Node JS learning
+* Visit and give feedback on : heyashu.in 
+
 > 17 Sep 2024
 
 * Total Code 10hrs 11mins
