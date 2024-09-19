@@ -4,8 +4,12 @@ import ProfilePicture from "./ProfilePicture";
 import { FaLaptop, FaUmbrellaBeach, FaHome, FaQuestion } from "react-icons/fa";
 import { TbCurlyLoop } from "react-icons/tb";
 import Link from "next/link";
+import FirstRouteSelection from "../base/FirstRouteSelection";
 
 function MainPage() {
+
+
+
   return (
     <div className=" mt-2 w-full flex flex-col gap-6 relative ">
       <div className="grid md:grid-cols-2  mx-auto grid-cols-1 m-auto justify-between  ">

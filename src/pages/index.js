@@ -4,28 +4,27 @@ import dynamic from "next/dynamic";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { useState } from "react";
-const PageTour = dynamic(() => import("@/service/PageTour"), {ssr: false});
+import ls from "local-storage";
+import Welcome from "@/components/Home/Welcome";
+const PageTour = dynamic(() => import("@/service/PageTour"), { ssr: false });
 export default function Home() {
   const router = useRouter();
   const [confirmationToken, setConfirmationToken] = useState(null);
 
   useEffect(() => {
-    if (router.asPath.includes('confirmation_token')) {
-      const queryParams = new URLSearchParams(router.asPath.split('#')[1]);
-      const token = queryParams.get('confirmation_token');
+    if (router.asPath.includes("confirmation_token")) {
+      const queryParams = new URLSearchParams(router.asPath.split("#")[1]);
+      const token = queryParams.get("confirmation_token");
       setConfirmationToken(token);
-
-      
-
     }
   }, [router]);
 
   if (confirmationToken) {
-    router.push("/admin"+'#confirmation_token='+confirmationToken)
+    router.push("/admin" + "#confirmation_token=" + confirmationToken);
     // Perform actions like redirecting
+    return;
   }
-  
-
+  const isVisitedOnce = ls.get("aat-visited");
 
   return (
     <>
@@ -71,14 +70,9 @@ export default function Home() {
         />
       </Head>
 
+      <main className="">{isVisitedOnce ? <MainPage /> : <Welcome />}</main>
 
-
-
-      <main className="">
-        <MainPage />
-      </main>
-
-      <PageTour/>
+      <PageTour />
     </>
   );
 }
