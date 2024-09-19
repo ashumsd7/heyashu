@@ -33,7 +33,8 @@ const NotesMainPage = ({
   currentPageFrontMatter,
   contentListLength,
   subDomain = "namaste-node-js",
-  isAnalysisPageOn
+  isAnalysisPageOn,
+  show2ndSection
 }) => {
   const router = useRouter();
   const [episodes, _setEpisodes] = useState(contentList);
@@ -97,7 +98,7 @@ const NotesMainPage = ({
     <>
       <CommonSlugHeadTags frontMatter={currentPageFrontMatter} />
 
-      <div className="max-w-screen-xl relative border">
+      <div className="max-w-screen-xl relative ">
         <NotesChips
           data={contentList}
           handleChipClick={handleSectionClick}
@@ -107,12 +108,13 @@ const NotesMainPage = ({
           contentListTitle={contentListTitle}
           selectedSection={currentPageFrontMatter}
           eachCardPrefix={eachCardPrefix}
+          show2ndSection={show2ndSection}
         />
 
         <div className="flex h-[93vh] gap-20">
           {isSidebarVisible && (
             <>
-              <div className="w-[1/4]  lg:block hidden  pb-[300px] h-full shadow-xl border-t-4 rounded-lg     fixed ">
+              <div className="w-[1/4]  lg:block hidden  pb-[300px] h-full shadow-xl border-t-4 rounded-lg   fixed ">
                 <NotesSidebar
                   data={contentList}
                   onSectionClick={handleSectionClick}
@@ -121,6 +123,7 @@ const NotesMainPage = ({
                   storedValues={ls.get(STORAGE_KEY)}
                   eachCardPrefix={eachCardPrefix}
                   contentListTitle={contentListTitle}
+                  show2ndSection={show2ndSection}
                 />
               </div>
             </>
@@ -130,6 +133,7 @@ const NotesMainPage = ({
               isSidebarVisible ? "w-3/4" : "w-full"
             }`}
           >
+       
             <NotesContentTopBar
               isSidebarVisible={isSidebarVisible}
               setIsSidebarVisible={setIsSidebarVisible}
@@ -181,7 +185,7 @@ const NotesMainPage = ({
                     }}
                     className=""
                   >
-                    Let's write together
+                    Let's write together 
                   </Button>
                 </div>
               ) : (

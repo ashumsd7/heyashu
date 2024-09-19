@@ -14,9 +14,10 @@ const NotesSidebar = ({
   showProgress = true,
   storedValues,
   selectedSection,
+  show2ndSection,
 }) => {
   const [isSec1Visible, setIsSec1Visible] = useState(true);
-  const [isSec2Visible, setIsSec2Visible] = useState(false);
+  const [isSec2Visible, setIsSec2Visible] = useState(show2ndSection);
   return (
     <>
       <SectionHeader
@@ -48,12 +49,13 @@ const NotesSidebar = ({
         </div>
       )}
       <hr />
-      <SectionHeader
+      {JSON.stringify(show2ndSection)}
+      {show2ndSection && <SectionHeader
         isSec1Visible={isSec2Visible}
         setIsSec1Visible={setIsSec2Visible}
         contentListTitle={contentListTitle2}
-      />
-      {isSec1Visible && (
+      />}
+      {isSec2Visible && (
         <div className="space-y-4  overflow-y-auto mb-[200px] min-h-[500px] h-full p-4">
           <>
             {data2?.length == 0 && <span>Coming Soon</span>}
@@ -117,9 +119,11 @@ const ListContent = ({
   eachCardPrefix,
 }) => {
   return (
-    <div
+  <>
+  {/* <div className="h-[100vh] w-[100vw] bg-gray-500 absolute top-[-200px] left- z-[19] opacity-5">ss</div> */}
+      <div
       key={idx}
-      className={`cursor-pointer border-b text-[14px] hover:bg-[#f1b565] border-b-gray-300 p-1 w-[270px] bg-[#f6f5f1] border   rounded-sm relative  ${
+      className={`cursor-pointer border-b text-[14px] hover:bg-[#f1b565] border-b-gray-300 p-1 w-[270px] z-[20] bg-[#f6f5f1]    rounded-sm relative  ${
         storedValues && storedValues[item?.name]
           ? "border-0 border-l-8 border-green-500 bg-gradient-to-r from-gray-100 to-[#f6f5f1] "
           : "border-0 border-l-8 border-gray-500 "
@@ -149,6 +153,7 @@ const ListContent = ({
         <p className=" pl-3 truncate  font-medium">{item?.name}</p>
       )}
     </div>
+  </>
   );
 };
 // Tick mark code

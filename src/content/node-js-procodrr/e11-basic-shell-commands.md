@@ -1,6 +1,6 @@
 ---
 title: E11 Basic shell commands
-name: "11"
+name: "Basic shell commands"
 episode: 11
 publishedOn: 09-19-2024
 updatedOn: 09-19-2024

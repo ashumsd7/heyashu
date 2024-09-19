@@ -4,8 +4,8 @@ name: Promt in Terminal
 episode: 16
 publishedOn: 09-19-2024
 updatedOn: 09-19-2024
-thumbnail: /public/images/blogs/pfp2.png
-author: Ashutosh AnAnd Tiwari
+thumbnail: /public/images/blogs/promt-procdre.png
+author: Ashutosh Anand Tiwari
 profilePic: /public/images/blogs/promt-procdre.png
 ---
 Ab humne **GUI**, **CLI**, aur commands ke baare mein kaafi achhe se jaan liya hai. Ab baari hai ye jaanne ki **prompt** kya hota hai.

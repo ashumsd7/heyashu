@@ -12,6 +12,7 @@ const NotesChips = ({
   currentPageFrontMatter,
   contentListTitle = "Namaste Noe JS",
   eachCardPrefix,
+  show2ndSection
 }) => {
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
 
@@ -37,7 +38,7 @@ const NotesChips = ({
               title="Toggle Sidebar"
             />
 
-            <div className="text-base ml-6">Select Episode</div>
+            <div className="text-base ml-6 bg-gray-600 text-white px-2 py-1 rounded-md shadow-md">Select Episode</div>
           </div>
         ) : (
           <div className="flex gap-1 items-center -ml-4">
@@ -64,6 +65,7 @@ const NotesChips = ({
             storedValues={ls.get(STORAGE_KEY)}
             eachCardPrefix={eachCardPrefix}
             contentListTitle={contentListTitle}
+            show2ndSection={show2ndSection}
           />
         </div>
       )}

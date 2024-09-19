@@ -58,6 +58,7 @@ const NotesDetailPage = ({ notes, currentPageMDX, currentPageFrontMatter }) => {
         msxSource={currentPageMDX}
         eachCardPrefix={"Episode-"}
         currentPageFrontMatter={currentPageFrontMatter}
+        show2ndSection={true}
         isAnalysisPageOn={"/digital-garden/notes/namaste-node-js/analysis"}
       />
     </>

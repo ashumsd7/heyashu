@@ -77,7 +77,7 @@ const BlogMetaInfo = ({ data }) => {
       <div className="flex  h-[40px]  border-b border-t px-2">
         {showControls && (
           <div className="flex items-center space-x-2 flex-wrap justify-between w-full">
-            {isAnalysisPageOn && (
+            {isAnalysisPageOn?.isAnalysisPageOn ? (
               <div
                 onClick={() => {
                   router.push(isAnalysisPageOn?.isAnalysisPageOn);
@@ -86,7 +86,7 @@ const BlogMetaInfo = ({ data }) => {
               >
                 <FaCircleInfo className="text-xs mt-1 " title="see analysis" /> <span className="text-xs">see analysis</span>
               </div>
-            )}
+            ) : <span></span>}
             <div className="flex gap-1">
               {/* Heart Icon */}
               {/* <div className="flex items-center text-gray-600">
