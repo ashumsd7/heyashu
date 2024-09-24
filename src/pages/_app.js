@@ -11,6 +11,7 @@ import StartTour from "@/components/ui/StartTourBtn";
 import TransitionPage from "@/components/base/Transition";
 import PlausibleProvider from "next-plausible";
 import Script from "next/script";
+import GoogleAnalytics from "@/components/ui/GoogleAnalytics";
 export default function App({ Component, pageProps }) {
   const router = useRouter();
   const canonicalUrl = `https://www.heyashu.in${router?.asPath}`;
@@ -92,6 +93,7 @@ export default function App({ Component, pageProps }) {
         <link rel="canonical" href={canonicalUrl} />
       </Head>
       <PlausibleProvider domain="heyashu.in">
+        <GoogleAnalytics />
         <TransitionPage>
           <main className="relative">
             <Navbar />
