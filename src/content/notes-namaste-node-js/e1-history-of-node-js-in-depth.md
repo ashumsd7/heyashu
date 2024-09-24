@@ -7,7 +7,6 @@ updatedOn: 09-04-2024
 thumbnail: /public/images/blogs/123.png
 author: Ashutosh
 tags: "Node JS, History "
-tags: history of nodejs, nodejs, javascript
 profilePic: /public/images/blogs/pfp2.png
 followLink: https://github.com/ashumsd7
 metaName: Read History of node jS

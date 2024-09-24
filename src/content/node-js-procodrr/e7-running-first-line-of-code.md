@@ -11,7 +11,6 @@ profilePic: https://avatars.githubusercontent.com/u/40313523?v=4
 followLink: https://github.com/ashumsd7
 metaName: Buy The Course Namaste Node JS Course
 metaContent: Get all digital notes here
-tags: Prerequisite, nodejs, javascript
 ---
 
 
