@@ -5,7 +5,7 @@ episode: 7
 publishedOn: 09-08-2024
 updatedOn: 09-08-2024
 author: Ashutosh Anand Tiwari
-tags: sync, async, setTimeoutZero in Node.js
+tags: sync - async, setTimeoutZero in Node.js
 profilePic: /public/images/blogs/e81.png
 followLink: https://x.com/YourVueJS
 ---

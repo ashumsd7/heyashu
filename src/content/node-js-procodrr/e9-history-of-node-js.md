@@ -4,6 +4,7 @@ name: History of Node Js
 episode: 9
 publishedOn: 09-11-2024
 updatedOn: 09-11-2024
+tags:  nodejs, javascript
 author: Ashutosh Anand Tiwari
 ---
 2008-2009 ke aas-paas ek developer Apache servers ke sath kaam karta tha, jahan har request ke liye ek naya thread create hota tha, jo blocking hota tha. Iska matlab ye tha ki jab ek request process hoti, tab tak doosri request wait karti. Is problem ko solve karne ke liye, 2009 me us developer ne JavaScript ko server pe run karne ka socha aur non-blocking approach ko adopt kiya, jisme ek hi thread multiple requests handle kar sakta tha bina block kiye. Usne **Chrome** ke JavaScript engine **V8** ka use karke JavaScript ko server-side pe run kiya.

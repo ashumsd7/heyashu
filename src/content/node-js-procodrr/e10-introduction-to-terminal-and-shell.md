@@ -4,6 +4,7 @@ name: " Introduction to Terminal and Shell"
 episode: 10
 publishedOn: 09-19-2024
 updatedOn: 09-19-2024
+tags: terminal, nodejs, javascript
 thumbnail: /public/images/blogs/cmddd_pro.png
 author: Ashutosh Anand Tiwari
 profilePic: /public/images/blogs/pfp2.png

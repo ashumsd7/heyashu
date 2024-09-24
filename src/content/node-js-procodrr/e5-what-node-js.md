@@ -6,7 +6,7 @@ publishedOn: 09-09-2024
 updatedOn: 09-09-2024
 thumbnail: https://i.ibb.co/DY0qjKz/nodejs-thumb.png
 author: Ashutosh Anand Tiwari
-tags: Prerequisite, nodejs, javascript
+tags: nodejs, nodejs, javascript
 profilePic: https://avatars.githubusercontent.com/u/40313523?v=4
 followLink: https://github.com/ashumsd7
 metaName: Buy The Course Namaste Node JS Course

@@ -60,7 +60,7 @@ function ClassicPageLayout({
         {customTopContent && <div>{customTopContent}</div>}
 
         {children && !noGrid && !listView ? (
-          <div className=" grid grid-cols-1   lg:grid-cols-2 xl:grid-cols-3 gap-6 my-10   justify-center">
+          <div className=" grid grid-cols-1   lg:grid-cols-2 xl:grid-cols-3 lg:gap-8 gap-1 my-10   justify-center">
             {children}
           </div>
         ) : (

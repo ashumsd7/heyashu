@@ -3,6 +3,7 @@ title: What are syntax and expressions in javascript
 date: 22-08-2024
 thumbnail: /public/images/blogs/Leaves.png
 author: Ashutosh Anand Tiwari
+tags:  javascript
 profilePic: https://cdn-icons-png.flaticon.com/512/188/188987.png
 followLink: https://heyashu.in/blog/kankhar-a-full-stack-framework
 metaName: "Syntax, Expression, and Statement in JavaScript"

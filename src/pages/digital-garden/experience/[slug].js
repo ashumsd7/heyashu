@@ -60,7 +60,7 @@ export default function BlogPost({ frontMatter, mdxSource, large = false }) {
 
   return (
     <>
-     <CommonSlugHeadTags frontMatter={frontMatter}/>
+     <CommonSlugHeadTags image="https://i.ibb.co/8B1Zb33/explogo.jpg"  frontMatter={frontMatter}/>
 
       <div
         className={`flex flex-col gap-2  max-w-screen-[1000px] m-auto ${

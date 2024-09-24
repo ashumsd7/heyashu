@@ -3,6 +3,7 @@ title: KANKHAR a full stack friendwork
 date: 02-09-2024
 thumbnail: /public/images/kanka.png
 author: A Nightowl of KANKHAR
+tags: friendship
 profilePic: https://cdn-icons-png.flaticon.com/512/188/188987.png
 followLink: https://heyashu.in/blog/kankhar-a-full-stack-framework
 metaName: "Read more about Kankhar by contacting RAM "

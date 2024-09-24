@@ -5,6 +5,7 @@ episode: 11
 publishedOn: 09-19-2024
 updatedOn: 09-19-2024
 author: Ashutosh Anand Tiwari
+tags: shell, nodejs, javascript
 profilePic: /public/images/blogs/bash-commands-15-pro.png
 ---
 Now let see few commands of the shell,

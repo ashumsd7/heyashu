@@ -6,7 +6,7 @@ publishedOn: 09-24-2024
 updatedOn: 09-24-2024
 thumbnail: /public/images/blogs/1thread-thumb.jpg
 author: Ashutosh Anand Tiwari
-tags: threads, Node js
+tags: threads in os, Node js
 profilePic: /public/images/blogs/pfp2.png
 followLink: https://www.instagram.com/javascripterr/
 ---

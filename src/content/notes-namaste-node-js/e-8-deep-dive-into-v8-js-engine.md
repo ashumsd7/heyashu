@@ -4,6 +4,7 @@ name: " Deep dive into v8 JS Engine"
 episode: 8
 publishedOn: 09-08-2024
 updatedOn: 09-08-2024
+tags: js-engine, nodejs, javascript
 author: Ashutosh Anand Tiwari
 profilePic: /public/images/blogs/pfp2.png
 followLink: https://x.com/YourVueJS

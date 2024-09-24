@@ -2,11 +2,11 @@ import Head from "next/head";
 import React from "react";
 
 function CommonHeadTags({
-  image = "https://i.ibb.co/h1Lv81t/digiden-notes.png",
+  image = "https://i.ibb.co/KLn1GDh/notes-logo.jpg",
   url = "https://www.heyashu.com/tech/notes",
   title = "Digital Notes by Ashutosh Anand Tiwari",
-  shortDec = "Explore a rich collection of digital notes covering JavaScript, Node.js, React, and more.",
-  mainDesc = "Explore a collection of digital notes on various topics, including JavaScript, React, and more. Learn from curated content and insights by Ashutosh Anand Tiwari.",
+  shortDec = "Explore a rich collection of  blogs ,digital notes, reviews experiences and stories covering JavaScript, Node.js, React, and more.",
+  mainDesc = "Explore a collection of blogs ,digital notes, reviews experiences and stories  on various topics, including JavaScript, React, and more. Learn from curated content and insights by Ashutosh Anand Tiwari.",
   tags = "JavaScript, Node.js, React, Digital Notes, Ashutosh Anand Tiwari, Programming, Web Development",
 }) {
   return (

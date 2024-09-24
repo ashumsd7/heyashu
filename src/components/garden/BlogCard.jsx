@@ -9,11 +9,12 @@ import { MdSunnySnowing } from "react-icons/md";
 import { useRouter } from "next/router";
 import React from "react";
 import { LiaSeedlingSolid } from "react-icons/lia";
-const BlogCard = ({ data }) => {
+const BlogCard = ({ data, subPath = "/digital-garden/blog/" }) => {
   const router = useRouter();
   const {
-    author: name = "Anonyms User",
+    author: author = "Anonyms User",
     date: writtenOn = "Today",
+    name,
     title = "Dummy Plant",
     minRead = "",
     tags = [],
@@ -30,7 +31,7 @@ const BlogCard = ({ data }) => {
   return (
     <div
       onClick={() => {
-        router.push("/digital-garden/blog/" + generateSlug(title));
+        router.push(subPath + generateSlug(title));
       }}
       className=" rounded-lg px-4 py-2   lg:border-none hover:bg-[#f6f2e5]   transform transition-all cursor-pointer duration-200 ease-in hover:scale-[101%] hover:shadow-md "
     >
@@ -54,7 +55,7 @@ const BlogCard = ({ data }) => {
             </div>
           </div> */}
         </div>
-        <h2 className="font-normal text-[18px]  text-gray-900  ">{title}</h2>
+        <h2 className="font-normal text-[18px]  text-gray-900  ">{name || title}</h2>
         {/* {tags.length &&  <div className="flex flex-wrap gap-2 mb-4">
           {tags?.map((tag, index) => (
             <span
@@ -84,8 +85,8 @@ const BlogCard = ({ data }) => {
             title="Seeded on"
             className="text-lg text-gray-500  "
           />
-          {formattedDate}
-        </div>      
+          {/* {formattedDate} */}
+        </div>
         <div
           onClick={(e) => {
             e.stopPropagation();
@@ -93,7 +94,7 @@ const BlogCard = ({ data }) => {
           }}
           className=" text-wrap text-gray-800 text-xs font-light  flex items-center gap-2   cursor-pointer"
         >
-         <MdSunnySnowing/>  {name}{" "}
+          <MdSunnySnowing /> {author}{" "}
         </div>
       </div>
 

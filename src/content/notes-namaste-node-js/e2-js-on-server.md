@@ -6,7 +6,7 @@ publishedOn: 08-24-2024
 updatedOn: 03-09-2024
 thumbnail: https://i.ibb.co/5chYnSQ/7.jpg
 author: Ashutosh Anand Tiwari
-tags: episode 2, JavaScript, Server
+tags:  JavaScript server, Server
 profilePic: /public/images/blogs/pfp2.png
 followLink: https://github.com/ashumsd7
 metaName: JavaScript on server by Ashutosh Anand Tiwari

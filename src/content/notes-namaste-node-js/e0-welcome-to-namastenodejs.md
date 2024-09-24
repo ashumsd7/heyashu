@@ -6,7 +6,7 @@ publishedOn: 09-18-2024
 updatedOn: 03-09-2024
 thumbnail: https://i.ibb.co/2hq8tjW/akshays-banner.jpg
 author: Ashutosh Anand Tiwari
-tags: welcome, Namaste noe js, episode 1
+tags:  Namaste node js, episode 1
 profilePic: /public/images/blogs/pfp2.png
 followLink: https://github.com/ashumsd7
 ---

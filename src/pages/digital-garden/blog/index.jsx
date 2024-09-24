@@ -39,8 +39,12 @@ export async function getStaticProps() {
 function BlogsPage({ posts }) {
   return (
     <>
-      <CommonHeadTags />
-     
+      <CommonHeadTags
+        image="https://i.ibb.co/vP1f18c/boooks-logo.jpg"
+        title="Read Latest Blogs on Digital Garden of Ashutosh Anand Tiwari : heyashu.in"
+        url="https://www.heyashu.com/blog"
+      />
+
       <ClassicPageLayout
         rightCTA={
           <Button

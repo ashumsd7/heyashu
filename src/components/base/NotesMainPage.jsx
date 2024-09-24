@@ -149,7 +149,8 @@ const NotesMainPage = ({
                 <BlogMetaInfo
                   large
                   data={{
-                    timeRead: estimateReadingTime(markdownContent),
+                    // timeRead: estimateReadingTime(mdxSource?.compiledSource),
+                    timeRead: estimateReadingTime(msxSource?.compiledSource),
                     publishedOn: formattedDate,
                     name: currentPageFrontMatter?.author || "Anonymous user",
                     title:

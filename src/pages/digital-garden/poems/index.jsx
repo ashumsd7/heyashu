@@ -41,7 +41,7 @@ function BlogsPage({ posts }) {
   const router = useRouter();
   return (
     <>
-      <CommonHeadTags />
+      <CommonHeadTags image="https://i.ibb.co/TM9WLYh/stories-logo.jpg" />
 
       <ClassicPageLayout
         rightCTA={

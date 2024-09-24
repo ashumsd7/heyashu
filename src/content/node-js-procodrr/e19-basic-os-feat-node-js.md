@@ -6,7 +6,7 @@ publishedOn: 09-21-2024
 updatedOn: 09-21-2024
 thumbnail: /public/images/blogs/procd_os1.png
 author: Ashutosh Anand Tiwari
-tags: nodejs operating_systems cores
+tags: os, operating_systems cores
 profilePic: /public/images/blogs/pfp2.png
 ---
 Jaise hum JavaScript ko web pe run karte hain aur browser ki capabilities jaante hain, jaise document aur aur bhi cheezen, waise hi **Node.js** bhi JavaScript hai, lekin jab run hoti hai, to usko **OS** yani hardware ka access hota hai. Matlab, Node.js ko operating system ke resources tak pohoch hoti hai.
@@ -66,4 +66,4 @@ Do processors honge to ek baar me zyada programs handle kar paayenge, lekin iska
 
 
 
-.....baki aage mai  kal likha hu, aapko likhne ka man hai aage to likhiye.... edit page par click kr dijiye upar
+.....baki aage mai  kal likhta hu, aapko likhne ka man hai aage to likhiye.... edit page par click kr dijiye upar

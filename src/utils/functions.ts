@@ -58,8 +58,10 @@ export function removePublicFromPath(path) {
 }
 
 
-export const formateDate=(date)=>{
-  const formattedDate =  dayjs(date, "MM-DD-YYYY").format("DD MMM, YYYY");
+export const formateDate = (date) => {
+  if (!date)
+    return ""
+  const formattedDate = dayjs(date, "MM-DD-YYYY").format("DD MMM, YYYY");
 
   return formattedDate
 }

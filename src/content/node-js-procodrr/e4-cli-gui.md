@@ -6,7 +6,7 @@ publishedOn: 09-09-2024
 updatedOn: 09-09-2024
 thumbnail: https://i.ibb.co/hM7hg9L/cliii.png
 author: Ashutosh Anand Tiwari
-tags: Prerequisite, nodejs, javascript
+tags: cli, nodejs, javascript
 profilePic: https://avatars.githubusercontent.com/u/40313523?v=4
 followLink: https://github.com/ashumsd7
 metaName: Buy The Course Namaste Node JS Course

@@ -37,7 +37,7 @@ export async function getStaticProps() {
 function BlogsPage({ posts }) {
   return (
     <>
-      <CommonHeadTags />
+      <CommonHeadTags image="https://i.ibb.co/TM9WLYh/stories-logo.jpg" />
 
       <ClassicPageLayout
         rightCTA={

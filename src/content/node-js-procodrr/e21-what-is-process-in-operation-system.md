@@ -5,7 +5,7 @@ episode: 21
 publishedOn: 09-23-2024
 updatedOn: 09-23-2024
 author: Ashutosh Anand Tiwari
-tags: process , os , nodejs
+tags: process in OS , os , nodejs
 profilePic: /public/images/blogs/pfp2.png
 ---
 Process ek unit of execution hota hai, matlab ek aisa program, code ka piece ya application jiska apna memory allocation hota hai aur jo processor ko use karke computation yani kuch kaam kar sakta hai. Har process apni life cycle ke dauran alag-alag states se guzarta hai, jaise ready state, waiting state, running state, terminated state, aur sleep state. Ye states process ki current condition ko define karti hain.

@@ -4,6 +4,7 @@ name: Promt in Terminal
 episode: 16
 publishedOn: 09-19-2024
 updatedOn: 09-19-2024
+tags: promt, nodejs, javascript
 thumbnail: /public/images/blogs/promt-procdre.png
 author: Ashutosh Anand Tiwari
 profilePic: /public/images/blogs/promt-procdre.png

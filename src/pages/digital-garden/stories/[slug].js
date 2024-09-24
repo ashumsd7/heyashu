@@ -61,7 +61,7 @@ export default function BlogPost({ frontMatter, mdxSource, large = false }) {
 
   return (
     <>
-   <CommonSlugHeadTags/>
+   <CommonSlugHeadTags image="https://i.ibb.co/TM9WLYh/stories-logo.jpg"/>
 
       <div
         className={`flex flex-col gap-2  max-w-screen-[1000px] m-auto ${

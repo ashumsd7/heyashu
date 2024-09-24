@@ -60,7 +60,7 @@ function Navbar() {
             backgroundColor: isScrolledUp ? "black" : "#f6f5f1",
             color: isScrolledUp ? "white" : "black",
           }}
-          className="md:flex justify-between  border-none  hidden  gap-6  w-full items-center relative   py-1 px-10      font-mono "
+          className="md:flex justify-between   border-none  hidden  gap-6  w-full items-center relative   py-1 px-10      font-mono "
         >
           <Link href="/">
             {" "}
@@ -82,18 +82,35 @@ function Navbar() {
                 <LuMousePointerClick className="absolute   top-[20px] left-[20px] text-2xl text-gray-600" />
               )}
             </Link> */}
+            <Link
+              href="/blog"
+              id="tech-link"
+              className="md:text-xl text-base font-light items-center flex font-mono relative "
+            >
+              {/* <img
+                width="40"
+                height="40"
+                className="-mt-2"
+                src="https://clasherbros.github.io/images/giphy.gif"
+              />  */}
+              Blog{" "}
+              {activePath == "tech" && (
+                <LuMousePointerClick className="absolute  top-[20px] left-[20px] text-2xl text-gray-600" />
+              )}
+            </Link>
 
             <Link
               href="/tech"
               id="tech-link"
               className="md:text-xl text-base font-light items-center flex font-mono relative "
             >
-              <img
+              {/* <img
                 width="40"
                 height="40"
                 className="-mt-2"
                 src="https://clasherbros.github.io/images/giphy.gif"
-              /> Tech{" "}
+              />  */}
+              Tech{" "}
               {activePath == "tech" && (
                 <LuMousePointerClick className="absolute  top-[20px] left-[20px] text-2xl text-gray-600" />
               )}
@@ -120,12 +137,13 @@ function Navbar() {
               href="/travel"
               className="md:text-xl flex items-center text-base font-light font-mono  relative"
             >
-           <img
+           {/* <img
                 width="80"
                 height="80"
                 className="-mt-2 absolute  -top-4"
                 src="https://www.aerocandia.com/en/photos/index/plane.gif"
-              />    Travel
+              />    */}
+               Travel
               {activePath == "travel" && (
                 <LuMousePointerClick className="absolute  top-[20px] left-[20px] text-2xl text-gray-600" />
               )}
