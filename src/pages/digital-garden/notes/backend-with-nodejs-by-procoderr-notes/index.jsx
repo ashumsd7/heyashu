@@ -16,7 +16,7 @@ const LandingPage = () => {
 
   return (
     <>
-      <CommonHeadTags />
+      <CommonHeadTags image="https://i.ibb.co/vP1f18c/boooks-logo.jpg"  />
 
       <ClassicPageLayout
         noGrid
