@@ -9,7 +9,8 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import StartTour from "@/components/ui/StartTourBtn";
 import TransitionPage from "@/components/base/Transition";
-import PlausibleProvider from 'next-plausible'
+import PlausibleProvider from "next-plausible";
+import Script from "next/script";
 export default function App({ Component, pageProps }) {
   const router = useRouter();
   const canonicalUrl = `https://www.heyashu.in${router?.asPath}`;
@@ -21,6 +22,13 @@ export default function App({ Component, pageProps }) {
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/github-dark.min.css"
         ></link>
+        {/* strategy="afterInteractive" */}
+        <Script
+          id="adsbygoogle-init"
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6990943232540646"
+          crossorigin="anonymous"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
