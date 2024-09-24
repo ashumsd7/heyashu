@@ -105,10 +105,18 @@ Haan, bilkul sahi kaha! Node.js ke version 10 ke pehle multi-threading ka suppor
 
 Dekha na, ab aap multiple threads easily create kar pa rahe ho aur system ka full utilization bhi kar sakte ho!
 
-![image.png](/public/images/blogs/6trhead.jpg)
+
 
 Haan, bilkul! Ab ek kaam karo, jo loop abhi humne create kiya tha, usse ek alag file me paste karke run karo. Phir dekho CPU usage kaise badhta hai aur single-thread ke comparison me multi-thread ke andar CPU ka usage zyada hota hai, lekin time kam lagta hai.
 
-Ye hi hai multi-threading ka faayda, thread banaiye aur efficiently kaam complete kariye. Aur dekho bhai, mera CPU to ab ghoom gaya hai, raat ke 3 baj rahe hain aur ab sone ka mann bhi kar raha hai 😅.
+### **Kya Process Bina Thread Ke Exist Kar Sakta Hai?**
+
+Jab koi process execute hota hai, to kya wo bina kisi thread ke chal sakta hai? Aisa bilkul nahi hota. Jab koi process start hota hai, to uska ek thread zaroor hota hai, jo "main thread" kehlata hai. Ye main thread hi hota hai jo baaki worker threads ko start karta hai. Mtlb, ek Node.js process me hamesha ek thread hoti hi hai, aur wo main thread hota hai. Agar aap Task Manager me dekhenge, to har process ke sath kam se kam ek thread zaroor hoti hai.
+
+Ye hi hai multi-threading ka faayda, thread banaiye aur efficiently kaam complete kariye.
+ 
+![image.png](/public/images/blogs/6trhead.jpg)
+
+Aur dekho bhai, mera CPU to ab ghoom gaya hai, raat ke 3 baj rahe hain aur ab sone ka mann bhi kar raha hai 😅.
 
 To chalo, milte hain next blog me, tab tak ke liye Dhanyawaad! Keep experimenting and exploring!
