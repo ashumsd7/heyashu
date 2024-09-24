@@ -24,7 +24,7 @@ export default function Home() {
     // Perform actions like redirecting
     return;
   }
-  const isVisitedOnce = ls.get("aat-visited");
+  // const isVisitedOnce = ls.get("aat-visited");
 
   return (
     <>
@@ -70,7 +70,7 @@ export default function Home() {
         />
       </Head>
 
-      <main className="">{isVisitedOnce ? <MainPage /> : <Welcome />}</main>
+      <main className=""><MainPage /></main>
 
       <PageTour />
     </>
