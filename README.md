@@ -32,7 +32,7 @@ Feel free to explore the website [heyashu.in](https://heyashu.in) for more insig
 
 ![notes Journey](https://i.ibb.co/4gJp88P/4.jpg)
 ![Blog Page](https://i.ibb.co/G5TRnzZ/2.jpg)
-![Travel Journey](https://i.ibb.co/CB5WJh8/6.jpg)
+
 
 *Thank you for visiting my repository. Happy coding and happy learning!*
 
