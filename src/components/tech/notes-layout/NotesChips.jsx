@@ -38,7 +38,7 @@ const NotesChips = ({
               title="Toggle Sidebar"
             />
 
-            <div className="text-base ml-6 bg-gray-600 text-white px-2 py-1 rounded-md shadow-md">Select Episode</div>
+            <div className="text-base ml-6 bg-gray-600 text-white px-2 py-1 rounded-md shadow-md">Select Topic</div>
           </div>
         ) : (
           <div className="flex gap-1 items-center -ml-4">
