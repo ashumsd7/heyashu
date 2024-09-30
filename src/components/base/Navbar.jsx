@@ -228,6 +228,16 @@ const MobileNaveBar = ({ isOpen, setIsOpen, activePath }) => {
           )}
         </Link>
         <Link
+          href="/blog"
+          onClick={toggleMenu}
+          className="text-base py-1 font-semibold border-b-2"
+        >
+          Blog
+          {activePath == "blog" && (
+            <LuMousePointerClick className="inline text-orange-600 ml-2" />
+          )}
+        </Link>
+        <Link
           href="/tech"
           onClick={toggleMenu}
           className="text-base py-1 font-semibold border-b-2"
