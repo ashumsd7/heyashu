@@ -187,6 +187,7 @@ collections:
           name: "seasonNumber",
           widget: "number",
           required: false,
+          default:1,
           hint: "Season NUmber, By Default 1",
         }
       - {
