@@ -35,7 +35,8 @@ const NotesMainPage = ({
   subDomain = "namaste-node-js",
   isAnalysisPageOn,
   show2ndSection,
-  season2Data=[]
+  season2Data=[],
+  shareImageEmbed
 }) => {
   const router = useRouter();
   const [episodes, _setEpisodes] = useState(contentList);
@@ -97,7 +98,7 @@ const NotesMainPage = ({
 
   return (
     <>
-      <CommonSlugHeadTags frontMatter={currentPageFrontMatter} />
+      <CommonSlugHeadTags frontMatter={currentPageFrontMatter} image={shareImageEmbed} />
 
       <div className="max-w-screen-xl relative ">
         <NotesChips

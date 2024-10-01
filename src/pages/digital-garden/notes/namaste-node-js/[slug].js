@@ -28,7 +28,7 @@ const NotesDetailPage = ({ notes, currentPageMDX, currentPageFrontMatter }) => {
     const s2List = [];
     const s1List = [];
     const list = notes.map((item, index) => {
-      console.log("ITEM is123", item);
+
 
       const resObj = {
         id: item.frontMatter.episode || index, // Use episode number or fallback to index
@@ -51,15 +51,12 @@ const NotesDetailPage = ({ notes, currentPageMDX, currentPageFrontMatter }) => {
       return resObj;
     });
 
-    console.log("S1", s1List);
-    console.log("S2", s2List);
-    // setSeason2contentList()
-    // setSeason2contentList()
+
 
     const sortedListS1 = sortByEpisode(s1List);
     const sortedListS2 = sortByEpisode(s2List);
     setContentList(sortedListS1);
-    setSeason2contentList(sortedListS2)
+    setSeason2contentList(sortedListS2);
   }
 
   useEffect(() => {
@@ -69,6 +66,7 @@ const NotesDetailPage = ({ notes, currentPageMDX, currentPageFrontMatter }) => {
   return (
     <>
       <NotesMainPage
+        shareImageEmbed={"https://i.ibb.co/yqVnGxt/namaste-node-logo.jpg"}
         metaInfo={metaTagsForNamasteNodeJsS1}
         pageTitle={PAGE_TITLE}
         contentList={contentList}
