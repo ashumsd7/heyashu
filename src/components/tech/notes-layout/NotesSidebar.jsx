@@ -11,7 +11,7 @@ const NotesSidebar = ({
   season2Data = [],
   eachCardPrefix,
   progress,
-  showProgress = true,
+  showProgress = false,
   storedValues,
   selectedSection,
   show2ndSection,
@@ -50,7 +50,6 @@ const NotesSidebar = ({
         </div>
       )}
       <hr />
-      {JSON.stringify(show2ndSection)}
       {show2ndSection && <SectionHeader
         isSec1Visible={isSec2Visible}
         setIsSec1Visible={setIsSec2Visible}
@@ -93,7 +92,7 @@ const SectionHeader = ({
 }) => {
   return (
     <div
-      className="flex justify-between  mb-4 items-center  rounded-xl px-4 cursor-pointer"
+      className="flex justify-between  mb-1 items-center  rounded-xl px-4 cursor-pointer"
       onClick={() => {
         setIsSec1Visible(!isSec1Visible);
       }}
