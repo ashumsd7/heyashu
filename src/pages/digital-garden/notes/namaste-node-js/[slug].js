@@ -16,6 +16,7 @@ import { serialize } from "next-mdx-remote/serialize";
 
 const NotesDetailPage = ({ notes, currentPageMDX, currentPageFrontMatter }) => {
   const [contentList, setContentList] = useState([]);
+  const [season2contentList, setSeason2contentList] = useState([]);
 
   // for sorting content episode wise
   function sortByEpisode(array) {
@@ -24,22 +25,41 @@ const NotesDetailPage = ({ notes, currentPageMDX, currentPageFrontMatter }) => {
 
   // generate sidebar and content of list
   function generateContentListFromData() {
-    const list = notes.map((item, index) => ({
-      id: item.frontMatter.episode || index, // Use episode number or fallback to index
-      episode: item.frontMatter.episode,
-      title: item.frontMatter.title || item.frontMatter.name, // Use title if available, otherwise use name
-      profilePic: item.frontMatter?.profilePic,
-      followLink: item.frontMatter.followLink,
-      author: item.frontMatter.author,
-      tags: item.frontMatter.tags,
-      name: item.frontMatter.name,
-      updatedOn: item.frontMatter.updatedOn,
-      thumbnail: item.frontMatter.thumbnail,
-      publishedOn: item.frontMatter.publishedOn || "Seeding Soon", // Default to 'Coming Soon' if not available
-    }));
+    const s2List = [];
+    const s1List = [];
+    const list = notes.map((item, index) => {
+      console.log("ITEM is123", item);
 
-    const sortedList = sortByEpisode(list);
-    setContentList(sortedList);
+      const resObj = {
+        id: item.frontMatter.episode || index, // Use episode number or fallback to index
+        episode: item.frontMatter.episode,
+        title: item.frontMatter.title || item.frontMatter.name, // Use title if available, otherwise use name
+        profilePic: item.frontMatter?.profilePic,
+        followLink: item.frontMatter.followLink,
+        author: item.frontMatter.author,
+        tags: item.frontMatter.tags,
+        name: item.frontMatter.name,
+        updatedOn: item.frontMatter.updatedOn,
+        thumbnail: item.frontMatter.thumbnail,
+        publishedOn: item.frontMatter.publishedOn || "Seeding Soon", // Default to 'Coming Soon' if not available
+      };
+      if (item?.frontMatter?.seasonNumber == 2) {
+        s2List.push(resObj);
+      } else {
+        s1List.push(resObj);
+      }
+      return resObj;
+    });
+
+    console.log("S1", s1List);
+    console.log("S2", s2List);
+    // setSeason2contentList()
+    // setSeason2contentList()
+
+    const sortedListS1 = sortByEpisode(s1List);
+    const sortedListS2 = sortByEpisode(s2List);
+    setContentList(sortedListS1);
+    setSeason2contentList(sortedListS2)
   }
 
   useEffect(() => {
@@ -52,6 +72,7 @@ const NotesDetailPage = ({ notes, currentPageMDX, currentPageFrontMatter }) => {
         metaInfo={metaTagsForNamasteNodeJsS1}
         pageTitle={PAGE_TITLE}
         contentList={contentList}
+        season2Data={season2contentList}
         contentListLength={notes?.length}
         contentListTitle={CONTENT_LIST_TITLE}
         storageKey={STORAGE_KEY}

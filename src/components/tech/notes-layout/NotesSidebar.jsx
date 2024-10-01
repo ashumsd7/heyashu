@@ -8,7 +8,7 @@ const NotesSidebar = ({
   contentListTitle = "Namaste Node JS (S1)",
   contentListTitle2 = "Namaste Node JS (S2)",
   data,
-  data2 = [],
+  season2Data = [],
   eachCardPrefix,
   progress,
   showProgress = true,
@@ -16,6 +16,7 @@ const NotesSidebar = ({
   selectedSection,
   show2ndSection,
 }) => {
+  console.log("season2Data",season2Data);
   const [isSec1Visible, setIsSec1Visible] = useState(true);
   const [isSec2Visible, setIsSec2Visible] = useState(show2ndSection);
   return (
@@ -58,13 +59,13 @@ const NotesSidebar = ({
       {isSec2Visible && (
         <div className="space-y-4  overflow-y-auto mb-[200px] min-h-[500px] h-full p-4">
           <>
-            {data2?.length == 0 && <span>Coming Soon</span>}
+            {season2Data?.length == 0 && <span>Coming Soon</span>}
             <div className="flex flex-col gap-2 justify-between items-center ">
               {/* <p className=" font-mono text-gray-600 ">{contentListTitle}</p> */}
               {showProgress && <ProgressBar percentage={progress} />}
             </div>
 
-            {data2?.map((item, idx) => {
+            {season2Data?.map((item, idx) => {
               return (
                 <ListContent
                   item={item}

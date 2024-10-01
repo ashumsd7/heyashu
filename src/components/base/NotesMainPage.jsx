@@ -34,7 +34,8 @@ const NotesMainPage = ({
   contentListLength,
   subDomain = "namaste-node-js",
   isAnalysisPageOn,
-  show2ndSection
+  show2ndSection,
+  season2Data=[]
 }) => {
   const router = useRouter();
   const [episodes, _setEpisodes] = useState(contentList);
@@ -117,6 +118,7 @@ const NotesMainPage = ({
               <div className="w-[1/4]  lg:block hidden  pb-[300px] h-full shadow-xl border-t-4 rounded-lg   fixed ">
                 <NotesSidebar
                   data={contentList}
+                  season2Data={season2Data}
                   onSectionClick={handleSectionClick}
                   progress={progress}
                   selectedSection={currentPageFrontMatter}

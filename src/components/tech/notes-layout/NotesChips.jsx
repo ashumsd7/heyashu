@@ -12,7 +12,8 @@ const NotesChips = ({
   currentPageFrontMatter,
   contentListTitle = "Namaste Noe JS",
   eachCardPrefix,
-  show2ndSection
+  show2ndSection,
+  season2Data=[]
 }) => {
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
 
@@ -60,6 +61,7 @@ const NotesChips = ({
               setIsSidebarVisible(false);
               handleChipClick(item);
             }}
+            season2Data={season2Data}
             progress={progress}
             selectedSection={currentPageFrontMatter}
             storedValues={ls.get(STORAGE_KEY)}

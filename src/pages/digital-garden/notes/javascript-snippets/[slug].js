@@ -27,19 +27,25 @@ const NotesDetailPageForSnippets = ({
 
   // generate sidebar and content of list
   function generateContentListFromData() {
-    const list = notes.map((item, index) => ({
-      id: item.frontMatter.episode || index, // Use episode number or fallback to index
-      episode: item.frontMatter.episode,
-      title: item.frontMatter.title || item.frontMatter.name, // Use title if available, otherwise use name
-      profilePic: item.frontMatter?.profilePic,
-      followLink: item.frontMatter.followLink,
-      author: item.frontMatter.author,
-      tags: item.frontMatter.tags,
-      name: item.frontMatter.name,
-      updatedOn: item.frontMatter.updatedOn,
-      thumbnail: item.frontMatter.thumbnail,
-      publishedOn: item.frontMatter.publishedOn || "Seeding Soon", // Default to 'Coming Soon' if not available
-    }));
+
+    const s2List=[]
+    const list = notes.map((item, index) => {
+
+      console.log("ITEM is", item);
+      return {
+        id: item.frontMatter.episode || index, // Use episode number or fallback to index
+        episode: item.frontMatter.episode,
+        title: item.frontMatter.title || item.frontMatter.name, // Use title if available, otherwise use name
+        profilePic: item.frontMatter?.profilePic,
+        followLink: item.frontMatter.followLink,
+        author: item.frontMatter.author,
+        tags: item.frontMatter.tags,
+        name: item.frontMatter.name,
+        updatedOn: item.frontMatter.updatedOn,
+        thumbnail: item.frontMatter.thumbnail,
+        publishedOn: item.frontMatter.publishedOn || "Seeding Soon", // Default to 'Coming Soon' if not available
+      }
+    });
 
     const sortedList = sortByEpisode(list);
     setContentList(sortedList);
