@@ -107,6 +107,7 @@ const NotesMainPage = ({
           progress={progress}
           storedValues={savedStorage}
           value={episodes[0]}
+          season2Data={season2Data}
           contentListTitle={contentListTitle}
           selectedSection={currentPageFrontMatter}
           eachCardPrefix={eachCardPrefix}
