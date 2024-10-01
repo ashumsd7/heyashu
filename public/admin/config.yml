@@ -176,6 +176,13 @@ collections:
           widget: "string",
           hint: "this is the name used for showing top of the page as heading different from the slug",
         }
+         - {
+          label: "Season Number ?",
+          name: "seasonNumber",
+          widget: "number",
+          default: 1,
+          hint: "If this Episode is related to Season 2 write 2, by default 1 ",
+        }
       - {
           label: "Episode Number",
           name: "episode",
