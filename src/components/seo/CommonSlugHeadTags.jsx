@@ -30,7 +30,7 @@ function CommonSlugHeadTags({
       <meta name="keywords" content={tags} />
       <meta
         property="og:title"
-        content={`Read Blog  by ${frontMatter?.author}`}
+        content={`Read latest article by ${frontMatter?.author}  on multiple topics on https://heyashu/in An open source blog writing platform by Ashutosh Anand Tiwari`}
       />
       <meta
         property="og:description"
@@ -41,7 +41,7 @@ function CommonSlugHeadTags({
       <meta name="twitter:card" content="summary_large_image" />
       <meta
         name="twitter:title"
-        content={`Read  Blog Feed by ${frontMatter?.author} on multiple topics on https://heyashu/in An open source blog writing platform by Ashutosh Anand Tiwari`}
+        content={`Read latest article by ${frontMatter?.author} on multiple topics on https://heyashu/in An open source blog writing platform by Ashutosh Anand Tiwari`}
       />
       <meta
         name="twitter:description"
