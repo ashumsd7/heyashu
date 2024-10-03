@@ -5,8 +5,8 @@ import { Scrollbars } from "react-custom-scrollbars-2";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 const NotesSidebar = ({
   onSectionClick,
-  contentListTitle = "Namaste Node JS (S1)",
-  contentListTitle2 = "Namaste Node JS (S2)",
+  contentListTitle = "Namaste Node JS S1",
+  contentListTitle2 = "Namaste Node JS S2",
   data,
   season2Data = [],
   eachCardPrefix,
