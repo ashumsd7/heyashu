@@ -1,5 +1,5 @@
 ---
-title: e2:Plan a project HLD LLD
+title: "e2: Plan a project HLD LLD"
 name: How to Plan a project HLD LLD
 episode: 2
 seasonNumber: 2
