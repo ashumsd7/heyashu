@@ -98,4 +98,5 @@ Here’s the list of APIs we'll implement in our project:
 
 These APIs follow the basic **CRUD** operations (Create, Read, Update, Delete), which are fundamental to web development. You can explore more about CRUD [here](https://www.traceable.ai/blog-post/what-is-a-crud-api).
 
-That's all for this topic! I hope next time, before you start your project, you'll follow this process for smoother development. Let's begin our journey—take care and goodbye for now! See you soon!
+That's all for this topic! I hope next time, before you start your project, you'll follow this process for smoother development. Let's begin our journey—take care and goodbye for now! See you soon!\
+:)
