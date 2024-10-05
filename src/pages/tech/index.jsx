@@ -39,6 +39,22 @@ function TechPage() {
       icon: <FaReact />,
     },
     {
+      name: "NodeJS (L)",
+      icon: "",
+    },
+    {
+      name: "Express JS (L)",
+      icon: "",
+    },
+    {
+      name: "Next JS (L)",
+      icon: "",
+    },
+    {
+      name: "MongoDB (L)",
+      icon: "",
+    },
+    {
       name: "Tailwind CSS",
       icon: "",
     },

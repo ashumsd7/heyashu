@@ -94,7 +94,7 @@ function Navbar() {
                 src="https://clasherbros.github.io/images/giphy.gif"
               />  */}
               Blog{" "}
-              {activePath == "tech" && (
+              {activePath == "blog" && (
                 <LuMousePointerClick className="absolute  top-[20px] left-[20px] text-2xl text-gray-600" />
               )}
             </Link>
