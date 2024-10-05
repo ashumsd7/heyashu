@@ -35,6 +35,8 @@ function AllNotesPage() {
         }
       >
         {NOTES_CARD_DATA?.map((item) => {
+          if(item.isComingSoon)
+          return
           return <NoteCard data={item} />;
         })}
       </ClassicPageLayout>

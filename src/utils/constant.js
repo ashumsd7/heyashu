@@ -30,14 +30,14 @@ export const GITHUB_REPO_LINK =
       name: "NOTES",
       desc: "Get detailed digital notes on various tech topics curated by multiple open-source enthusiasts.",
       route: "/digital-garden/notes",
-      count: 2,
+      count: 3,
       isHidden: false,
     },
     {
       name: "BLOGS",
       desc: "Read and write blogs on diverse topics, learn, share knowledge, and contribute here.",
-      route: "/digital-garden/blog",
-      count: 4,
+      route: "/blog",
+      count: "40",
       isHidden: false,
     },
     {

@@ -18,7 +18,7 @@ function ClassicPageLayout({
 }) {
   const [listView, setListView] = useState(false);
   return (
-    <div className="mt-1 md:mt-10 ">
+    <div className="mt-1 md:mt-1 ">
       <div className="bg-[#f6f5f1] text-[#353534] flex justify-between  items-center flex-wrap ">
         <h1 className="md:text-[80px] text-[40px]  font-bold  ">{heading}</h1>
         {rightCTA}
@@ -51,7 +51,7 @@ function ClassicPageLayout({
 
         {longDesc && (
           <div>
-            <p className="md:text-[22px] mt-1  text-[18px]  text-[#353534] font-light  ">
+            <p className="md:text-[22px] mt-0  text-[18px]  text-[#353534] font-light  ">
               {longDesc}
             </p>
           </div>
@@ -60,7 +60,7 @@ function ClassicPageLayout({
         {customTopContent && <div>{customTopContent}</div>}
 
         {children && !noGrid && !listView ? (
-          <div className=" grid grid-cols-1   lg:grid-cols-2 xl:grid-cols-3 lg:gap-8 gap-1 my-10   justify-center">
+          <div className=" grid grid-cols-1   lg:grid-cols-2 xl:grid-cols-3 lg:gap-8 gap-1 mb-10 mt-4   justify-center">
             {children}
           </div>
         ) : (
