@@ -20,7 +20,7 @@ const Breadcrumb = () => {
   return (
     <nav
       aria-label="breadcrumb"
-      className={`mb-8 md:pl-[100px] ${
+      className={`mb-8 md:pl-[100px] md:flex hidden ${
         pathParts.length == 4 ? "md:pl-[337px]" : ""
       }`}
     >
