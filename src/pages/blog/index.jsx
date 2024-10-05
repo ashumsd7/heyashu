@@ -11,6 +11,7 @@ import { ADMIN_LINK } from "@/utils/constant";
 import { LiaBlogSolid } from "react-icons/lia";
 import Breadcrumb from "@/components/ui/Breadcrumb";
 import BlogCardv2 from "@/components/garden/BlogCardv2";
+import BlogCardv3 from "@/components/garden/BlogCardv3";
 
 export async function getStaticProps() {
   // Define paths to all content folders
@@ -90,7 +91,7 @@ function BlogsPage({ posts }) {
         desc="   Read blogs on various topics and feel free to add your blogs."
       >
         {posts?.map((post) => {
-          return <BlogCardv2 subPath="/blog/" data={post?.frontMatter} />;
+          return <BlogCardv3 subPath="/blog/" data={post?.frontMatter} />;
         })}
       </ClassicPageLayout>
     </div>

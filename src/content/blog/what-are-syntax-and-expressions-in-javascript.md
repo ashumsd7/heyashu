@@ -1,7 +1,7 @@
 ---
 title: What are syntax and expressions in javascript
 date: 22-08-2024
-thumbnail: /public/images/blogs/Leaves.png
+thumbnail: https://i.ibb.co/8rFR7vK/ex3.jpg
 author: Ashutosh Anand Tiwari
 tags:  javascript
 profilePic: https://cdn-icons-png.flaticon.com/512/188/188987.png

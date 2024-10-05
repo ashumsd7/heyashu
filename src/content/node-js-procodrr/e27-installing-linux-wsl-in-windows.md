@@ -2,6 +2,7 @@
 title: "e27: Installing Linux WSL in windows"
 name: Installing Linux (WSL) in windows
 episode: 27
+tags: WSL
 publishedOn: 09-26-2024
 updatedOn: 09-26-2024
 thumbnail: /public/images/blogs/1wsl.jpg

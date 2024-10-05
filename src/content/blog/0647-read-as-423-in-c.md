@@ -3,6 +3,7 @@ title: 0647 read as 423 in C++
 date: 02-09-2024
 author: Yash Tiwari
 tags: c++
+thumbnail: https://i.ytimg.com/vi/ihXi5KHhZJ0/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AHqCYAC0AWKAgwIABABGBMgGih_MA8=&rs=AOn4CLBbNsp4UxqBEa0JMuzplFy0nHh7vw
 profilePic: https://i.ibb.co/RCcW56y/yahs.png
 followLink: www.linkedin.com/in/yashArrived
 ---

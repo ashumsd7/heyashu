@@ -1,7 +1,7 @@
 ---
 title: KANKHAR a full stack friendwork
 date: 02-09-2024
-thumbnail: /public/images/kanka.png
+thumbnail: /images/all.png
 author: A Nightowl of KANKHAR
 tags: friendship
 profilePic: https://cdn-icons-png.flaticon.com/512/188/188987.png

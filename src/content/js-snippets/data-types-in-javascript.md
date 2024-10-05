@@ -2,6 +2,7 @@
 title: Data Types in JavaScript
 name: Data Types in JavaScript
 episode: 1
+thumbnail: https://i.ibb.co/DQf1k4k/data-types.jpg
 publishedOn: 04-09-2024
 updatedOn: 04-09-2024
 author: Ashutosh Anand Tiwari

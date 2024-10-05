@@ -3,7 +3,7 @@ title: My experience of NDA exam..
 name: My NDA experience.
 date: 05-09-2024
 updateDate: 09-22-2024
-thumbnail: /public/images/blogs/images.jpeg
+thumbnail: https://images.indianexpress.com/2023/11/NDA.jpg?w=414
 author: "Prince Tiwari "
 tags: "NDA "
 profilePic: /public/images/blogs/img_20240905_100200.jpg
