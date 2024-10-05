@@ -283,8 +283,12 @@ function TechPage() {
           </p>
         </div>
 
-        <div className="grid  lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">
-          <ComingSoon />
+        <div className="grid  lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 mb-10">
+        <Link href="/blog">
+            <Button>
+              Click to read 40 + blogs
+            </Button>
+          </Link>
         </div>
 
         <Image
