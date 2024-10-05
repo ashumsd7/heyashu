@@ -1,5 +1,5 @@
 ---
-title: e2:Plan a project HLD LLD
+title: "e2: Plan a project HLD LLD"
 name: How to Plan a project HLD LLD
 episode: 2
 seasonNumber: 2
@@ -98,4 +98,4 @@ Here’s the list of APIs we'll implement in our project:
 
 These APIs follow the basic **CRUD** operations (Create, Read, Update, Delete), which are fundamental to web development. You can explore more about CRUD [here](https://www.traceable.ai/blog-post/what-is-a-crud-api).
 
-So now thats all for thsi topic, I hope next time before starting your project you will folow this propcess , so lets begon ouir jouney take care good bye , see you soon
+That's all for this topic! I hope next time, before you start your project, you'll follow this process for smoother development. Let's begin our journey—take care and goodbye for now! See you soon!
