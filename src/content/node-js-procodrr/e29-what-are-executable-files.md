@@ -1,7 +1,7 @@
 ---
 title: "e29: What are Executable Files"
 name: What are Executable Files ?
-episode: 26
+episode: 29
 publishedOn: 10-10-2024
 updatedOn: 10-10-2024
 thumbnail: /public/images/blogs/1_29.jpg
