@@ -243,7 +243,7 @@ collections:
           widget: "markdown",
         }  
   - name: "front-end-design-system" # Used in routes, e.g., /admin/collections/blog
-    label: "Namaste Node.JS Notes" # Used in the UI
+    label: "Frontend Design System" # Used in the UI
     description: Get the best-explained notes for each chapter of the Namaste Front end Design System course by Akshay Saini. These notes are written by Open source community and can be edited on GitHub.✨
     folder: "/src/content/front-end-design-system" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
