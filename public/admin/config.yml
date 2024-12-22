@@ -241,7 +241,93 @@ collections:
           label: "Describe your content here",
           name: "body",
           widget: "markdown",
+        }  
+  - name: "front-end-design-system" # Used in routes, e.g., /admin/collections/blog
+    label: "Namaste Node.JS Notes" # Used in the UI
+    description: Get the best-explained notes for each chapter of the Namaste Front end Design System course by Akshay Saini. These notes are written by Open source community and can be edited on GitHub.✨
+    folder: "/src/content/front-end-design-system" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "" # Filename template, e.g., YYYY-MM-DD-title.md
+    delete: false
+    fields: # The fields for each document, usually in front matter
+      - {
+          label: "Slug of the page ",
+          name: "title",
+          widget: "string",
+          hint: 'This will be used as slug, Instructions: After filling out this form and adding your markdown, click the "Save" button at the top. This action will create a Pull Request (PR) on GitHub. Within a few minutes, your PR will be merged, and your content will go live at https://heyashu.in/digital-garden/namaste-node-js. To track the PR status, visit this repo link https://github.com/ashumsd7/heyashu/pulls. Look for a PR with your name and blog title. Then, just wait a few minutes. Thank you! ',
         }
+      - {
+          label: "Note Title",
+          name: "name",
+          widget: "string",
+          hint: "this is the name used for showing top of the page as heading different from the slug",
+        }
+      - {
+          label: "Episode Number",
+          name: "episode",
+          widget: "number",
+          hint: "Episode number",
+        }
+      - {
+          label: "Season Number",
+          name: "seasonNumber",
+          widget: "number",
+          required: false,
+          default:1,
+          hint: "Season NUmber, By Default 1",
+        }
+      - {
+          label: "Publish Date",
+          name: "publishedOn",
+          widget: "datetime",
+          time_format: false,
+          date_format: "MM-DD-YYYY",
+          format: "MM-DD-YYYY",
+        }
+      - {
+          label: "Updated On",
+          name: "updatedOn",
+          widget: "datetime",
+          time_format: false,
+          date_format: "MM-DD-YYYY",
+          format: "MM-DD-YYYY",
+        }
+      - {
+          label: "Episode Thumbnail Image",
+          required: false,
+          name: "thumbnail",
+          widget: "image",
+          hint: "This will appear on the top of the blog after title. The right-side preview is not the final look of your uploaded content. we will ensure its properly formatted and displayed beautifully after deployment.",
+        }
+      - { label: "Author", name: "author", widget: "string" }
+      - {
+          label: "Tags",
+          name: "tags",
+          required: false,
+          default:'Ashutosh Anand Tiwari',
+          widget: "string",
+          hint: "Add tags comma separated For example : JavaScript, Web, Web Development , that can be used seo purpose also in the ui for category.",
+        }
+      - {
+          label: "Your profile picture",
+          name: "profilePic",
+          widget: "image",
+          default:'https://avatars.githubusercontent.com/u/40313523?v=4',
+          required: false,
+          hint: "This image will be shown in the profile picture  avatar. The right-side preview is not the final look of your uploaded content. we will ensure its properly formatted and displayed beautifully after deployment.",
+        }
+      - {
+          label: "Social Link( When user clicks on follow button : we will contact you once your content will be live in next  few minutes after saving it)",
+          name: "followLink",
+          widget: "string",
+          default:'https://www.instagram.com/javascripterr/',
+          required: false,
+        }
+      - {
+          label: "Describe your content here",
+          name: "body",
+          widget: "markdown",
+        }           
   - name: "node-js-procodrr" # Used in routes, e.g., /admin/collections/blog
     label: "Procodrr Node.JS Notes" # Used in the UI
     description: Get the best-explained notes for each chapter of the Procodrr Node.js course by Anurag Singh. These notes are written by Open source community and can be edited on GitHub.✨

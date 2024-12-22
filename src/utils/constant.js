@@ -30,7 +30,7 @@ export const GITHUB_REPO_LINK =
       name: "NOTES",
       desc: "Get detailed digital notes on various tech topics curated by multiple open-source enthusiasts.",
       route: "/digital-garden/notes",
-      count: 3,
+      count: 4,
       isHidden: false,
     },
     {
@@ -40,13 +40,13 @@ export const GITHUB_REPO_LINK =
       count: "40",
       isHidden: false,
     },
-    {
-      name: "DAILY-UPDATE",
-      desc: "Let’s update daily, staying focused and consistent and together, we’ll achieve our goals.",
-      route: "/digital-garden/daily-updates",
-      count: 3,
-      isHidden: false,
-    },
+    // {
+    //   name: "DAILY-UPDATE",
+    //   desc: "Let’s update daily, staying focused and consistent and together, we’ll achieve our goals.",
+    //   route: "/digital-garden/daily-updates",
+    //   count: 3,
+    //   isHidden: false,
+    // },
     // {
     //   name: "Books",
     //   desc: "Discuss and share insights on the books that have inspired or educated you.",
@@ -89,13 +89,13 @@ export const GITHUB_REPO_LINK =
       count: 0,
       isHidden: false,
     },
-    {
-      name: "Stories",
-      desc: "Share captivating stories that inspire, entertain, or teach valuable lessons.",
-      route: "/digital-garden/stories",
-      count: 1,
-      isHidden: false,
-    },
+    // {
+    //   name: "Stories",
+    //   desc: "Share captivating stories that inspire, entertain, or teach valuable lessons.",
+    //   route: "/digital-garden/stories",
+    //   count: 1,
+    //   isHidden: false,
+    // },
     // {
     //   name: "Showcase",
     //   desc: "Highlight something special—projects, ideas, or creations—worth sharing and exploring.",
