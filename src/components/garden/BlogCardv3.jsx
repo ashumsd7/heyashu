@@ -17,8 +17,8 @@ function BlogCardv3({ data, subPath = "/digital-garden/blog/" }) {
     followLink = DEFAULT_FOLLOW_LINK,
   } = data;
 
-
-  const DUMMY_THUMBNAIL='https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+  const DUMMY_THUMBNAIL =
+    "https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
 
   function changeFilePath(filePath) {
     const newFilePath = filePath.replace("/public", "");
@@ -29,27 +29,29 @@ function BlogCardv3({ data, subPath = "/digital-garden/blog/" }) {
 
   return (
     <div
-      className="cursor-pointer"
+      className="cursor-pointer transition-transform transform hover:scale-105"
       onClick={() => {
-        router.push(subPath + generateSlug(title));
+        router.push(`${subPath}${generateSlug(title)}`);
       }}
     >
-      <div className="max-w-xl mx-auto p-6 ">
-        <div className="relative overflow-hidden">
+      <div className="max-w-xl mx-auto bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg p-6">
+        <div className="relative">
           <img
             src={thumbnail ? changeFilePath(thumbnail) : DUMMY_THUMBNAIL}
-            alt="Flipboard Blog Image"
-            className="w-full min-h-[220px] max-h-[280px]  rounded-lg"
+            alt="Blog Image"
+            className="w-full h-60 object-cover rounded-lg"
           />
         </div>
-
         <div className="mt-4">
-          <p className="text-sm uppercase font-bold text-gray-500">
+          <p className="text-xs font-semibold text-blue-500 uppercase">
             #{firstTag}
           </p>
-          <h1 className="text-2xl font-bold text-black mt-1">
+          <h1 className="text-xl font-semibold text-gray-800 mt-2">
             {name || title}
           </h1>
+          {/* <p className="text-gray-600 text-sm mt-2">
+            {description ? `${description.substring(0, 100)}...` : "Read more"}
+          </p> */}
         </div>
       </div>
     </div>

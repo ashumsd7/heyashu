@@ -115,7 +115,7 @@ const NotesMainPage = ({
           show2ndSection={show2ndSection}
         />
 
-        <div className="flex h-[93vh] gap-20">
+        <div className="flex h-full gap-20 ">
           {isSidebarVisible && (
             <>
               <div className="w-[1/4]  lg:block hidden  pb-[300px] h-full shadow-xl border-t-4 rounded-lg   fixed ">
@@ -134,7 +134,7 @@ const NotesMainPage = ({
             </>
           )}
           <div
-            className={`lg:w-[60%] w-full lg:ml-[380px] ml-0    flex flex-col   h-full     rounded-lg   ${
+            className={`lg:w-[60%] w-full lg:ml-[380px] ml-0     flex flex-col   h-full     rounded-lg   ${
               isSidebarVisible ? "w-3/4" : "w-full"
             }`}
           >

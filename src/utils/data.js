@@ -7,7 +7,7 @@ export const  traveledPlaces = [
   },
   {
     name: "GOA",
-    img: "/images/travelpfp/goa.png",
+    img: "/images/travelpfp/goa.jpeg",
     isTraveled:true
   },
   {
@@ -27,7 +27,7 @@ export const  traveledPlaces = [
   },
   {
     name: "DELHI",
-    img: "/images/travelpfp/delhi2.jpeg",
+    img: "/images/travelpfp/delhi.jpeg",
     isTraveled:true
 
   },
@@ -39,7 +39,7 @@ export const  traveledPlaces = [
   },
   {
     name: "MADHUGIRI",
-    img: "/images/travelpfp/madhugiri.png",
+    img: "/images/travelpfp/madhugiri.jpeg",
     isTraveled:true
   },
   {
@@ -84,13 +84,14 @@ export const  traveledPlaces = [
     img: "/images/travelpfp/sangam.jpeg",
     isTraveled:true
   },
-];
-export const pendingTravelPlaces = [
   {
     name: "DWARKA",
     img: "/images/travelpfp/dwarka.jpeg",
     isTraveled:false
   },
+];
+export const pendingTravelPlaces = [
+ 
   // {
   //   name: "LEH",
   //   img: "/images/travelpfp/leh.jpeg",
@@ -98,7 +99,7 @@ export const pendingTravelPlaces = [
   // },
   {
     name: "SIKKIM",
-    img: "/images/travelpfp/sikkim.png",
+    img: "/images/travelpfp/sikkim.jpeg",
     isTraveled:false
   },
   
