@@ -406,7 +406,7 @@ collections:
   - name: "ydkjs" # Used in routes, e.g., /admin/collections/blog
     label: "You Don't Know JS Notes" # Used in the UI
     description: Get the best-explained notes for each chapter of the You Don't Know JS book series. These notes are written by Open source community and can be edited on GitHub.✨
-    folder: "/src/content/notes-ydkjs" # The path to the folder where the documents are stored
+    folder: "/src/content/ydkjs" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     slug: "" # Filename template, e.g., YYYY-MM-DD-title.md
     delete: false
