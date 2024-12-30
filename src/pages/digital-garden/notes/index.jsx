@@ -18,7 +18,7 @@ function AllNotesPage() {
         labelKey={'title'}
         heading={
           <div className="flex gap-2 items-center ">
-            <ImBooks className="text-green-800" /> Notes
+            <ImBooks className="text-green-800" />Digital Notes
           </div>
         }
         desc="   Get tech notes, interview tips, experiences, snippets, blogs and more."
