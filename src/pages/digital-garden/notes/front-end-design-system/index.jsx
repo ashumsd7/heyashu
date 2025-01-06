@@ -11,7 +11,7 @@ const JsSnippetsLandingPage = () => {
 
   const handleReadNotesClick = () => {
     router.push(
-      "/digital-garden/notes/front-end-design-system/front-end-design-system"
+      "/digital-garden/notes/front-end-design-system/how-the-web-works"
     ); // Redirect to the notes page
   };
 
