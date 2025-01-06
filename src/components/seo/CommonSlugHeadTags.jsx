@@ -36,7 +36,7 @@ function CommonSlugHeadTags({
         property="og:description"
         content={`Stay updated with the latest articles and blogs by ${frontMatter?.author} on multiple topics on https://heyashu/in An open source blog writing platform by Ashutosh Anand Tiwari.`}
       />
-      <meta property="og:image" content={image} />
+      <meta property="og:image" content={frontMatter?.thumbnail || image} />
       <meta property="og:url" content={url} />
       <meta name="twitter:card" content="summary_large_image" />
       <meta
@@ -47,7 +47,7 @@ function CommonSlugHeadTags({
         name="twitter:description"
         content={`Read  Blog Feed by ${frontMatter?.author} on multiple topics on https://heyashu/in An open source blog writing platform by Ashutosh Anand Tiwari`}
       />
-      <meta name="twitter:image" content={image} />
+      <meta name="twitter:image" content={frontMatter?.thumbnail || image} />
     </Head>
   );
 }
