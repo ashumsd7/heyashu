@@ -87,7 +87,7 @@ export const GITHUB_REPO_LINK =
       desc: "Discuss your favorite films, TV series, or web series, and share reviews that resonate with you.",
       route: "/digital-garden/films",
       count: 0,
-      isHidden: false,
+      isHidden: true,
     },
     // {
     //   name: "Stories",
