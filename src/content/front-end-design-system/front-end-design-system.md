@@ -1,6 +1,6 @@
 ---
-title: Front end design system
-name: Front end design system
+title: How the Web Works
+name: How the Web Works
 episode: 1
 publishedOn: 01-06-2025
 updatedOn: 01-06-2025
