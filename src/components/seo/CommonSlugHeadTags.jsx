@@ -3,7 +3,7 @@ import React from "react";
 
 function CommonSlugHeadTags({
   frontMatter,
-  image = frontMatter?.thumbnail || "https://i.ibb.co/KLn1GDh/notes-logo.jpg",
+  image = frontMatter?.thumbnail,
   url = "https://www.heyashu.com/tech/notes",
   title = "Digital blogs, notes, reviews experiences and stories on Digital Garden of Ashutosh Anand Tiwari on heyashu.in",
   shortDec = "Explore a rich collection of digital notes covering JavaScript, Node.js, React, and more.",
