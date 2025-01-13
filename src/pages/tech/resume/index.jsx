@@ -115,8 +115,10 @@ function Resume() {
           </div>
 
           <div className="flex flex-col gap-4 items-center justify-center m-auto md:m-0">
-            <Image
-              src="/images/resume_thumbnail.jpeg"
+            <Image    onClick={() => {
+                  onClickDirectDownload();
+                }}
+              src="/images/resume_thumbnail.JPG"
               className="hover:shadow-lg  rounded-lg ml-auto ease-in-out duration-100  cursor-pointer"
               width={"400"}
               height="400"
