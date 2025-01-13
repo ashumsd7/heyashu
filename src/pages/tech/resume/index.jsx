@@ -12,7 +12,7 @@ import Head from "next/head";
 function Resume() {
   function onClickDirectDownload() {
     // Replace 'public/pdfs/resume.pdf' with the actual path to your PDF file
-    const pdfPath = "/pdfs/resume.pdf";
+    const pdfPath = "/pdfs/Ashutosh_Resume_React.pdf";
     // Create an anchor element
     const anchor = document.createElement("a");
 
@@ -116,7 +116,7 @@ function Resume() {
 
           <div className="flex flex-col gap-4 items-center justify-center m-auto md:m-0">
             <Image
-              src="/images/resume_thumbnail.JPG"
+              src="/images/resume_thumbnail.jpeg"
               className="hover:shadow-lg  rounded-lg ml-auto ease-in-out duration-100  cursor-pointer"
               width={"400"}
               height="400"
