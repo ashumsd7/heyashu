@@ -1,32 +1,36 @@
 "use client";
-import { Document, Page } from "react-pdf";
+import { motion } from "framer-motion";
 import { IoMdDownload } from "react-icons/io";
-import React from "react";
-import { LuExternalLink } from "react-icons/lu";
-import Button from "@/components/base/Button";
 import { GrFormSchedule } from "react-icons/gr";
+import { PiPlantLight } from "react-icons/pi";
 import Image from "next/image";
+import Button from "@/components/base/Button";
 import { INTERVIEW_CALL_SIXTY_MIN } from "@/utils/constant";
 import Head from "next/head";
-
 function Resume() {
+ 
+  
+  const fadeInUp = {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.6 }
+  };
+
+  const staggerChildren = {
+    animate: {
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
   function onClickDirectDownload() {
-    // Replace 'public/pdfs/resume.pdf' with the actual path to your PDF file
     const pdfPath = "/pdfs/Ashutosh_Resume_React.pdf";
-    // Create an anchor element
     const anchor = document.createElement("a");
-
-    // Set the href attribute to the PDF file path
     anchor.href = pdfPath;
-
-    // Set the download attribute to force download
     anchor.setAttribute("download", "");
-
-    // Programmatically click the anchor element to trigger the download
     document.body.appendChild(anchor);
     anchor.click();
-
-    // Clean up after download
     document.body.removeChild(anchor);
   }
   return (
@@ -73,78 +77,93 @@ function Resume() {
           content="https://heyashu.in/_next/image?url=%2Fimages%2Fprofile.jpg&w=640&q=75"
         />
       </Head>
-      <div className=" mt-2 w-full flex flex-col gap-6 relative ">
-        <div className="grid md:grid-cols-2  mx-auto grid-cols-1 m-auto justify-between  ">
-          <div className="flex flex-col gap-2">
-            <h2 className="font-semibold "> Ashutosh' </h2>
-            <h1 className="text-5xl font-extrabold text-orange-600 text-center md:text-left font-serif mb-4 md:mb-0">
-              Resume
+      <motion.div 
+        initial="initial"
+        animate="animate"
+        variants={staggerChildren}
+        className="min-h-screen bg-gradient-to-b from-green-50 to-white py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
+      >
+    
+
+        <div className="max-w-7xl mx-auto">
+          <motion.div variants={fadeInUp} className="text-center mb-12">
+            <h1 className="text-4xl md:text-6xl font-serif font-bold text-green-800 mb-4">
+              Professional Resume
             </h1>
+            <div className="w-24 h-1 bg-green-600 mx-auto"/>
+          </motion.div>
 
-            <p className="font-serif  text-justify text-lg mt-5 tracking-wider mb-4 hidden lg:grid">
-            With a strong foundation in software development, I focus on building front-end web applications that deliver great user experiences. My journey has included working on a diverse range of projects, collaborating with talented teams, and contributing to innovative startups. Currently, I am a part of Codemonk, where I continue to learn and grow, applying my skills to create meaningful solutions. I’m passionate about technology and eager to keep expanding my knowledge while working on exciting challenges.
-            </p>
-            <div className="flex gap-2 flex-wrap justify-center md:justify-start items-start">
-              {/* <Button
-                onClick={() => {
-                  window.open(
-                    "https://ashutosh-anand-tiwari.tiiny.site/",
-                    "_blamk"
-                  );
-                }}
-              >
-                <LuExternalLink /> View and download
-              </Button> */}
+          <div className="flex flex-col items-center gap-12">
+          <motion.div variants={fadeInUp} className="space-y-6 text-center">
+              <div className="prose prose-lg">
+                <p className="text-gray-700 leading-relaxed">
+                  With a strong foundation in software development, I focus on building front-end web applications that deliver exceptional user experiences. My journey encompasses diverse projects, team collaborations, and contributions to innovative startups.
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-4 justify-center">
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="w-full md:w-auto"
+                >
+                  <Button
+                    onClick={onClickDirectDownload}
+                    className="w-full bg-green-700 hover:bg-green-800 text-white px-6 py-3 rounded-lg flex items-center gap-2"
+                  >
+                    <IoMdDownload className="text-xl" />
+                    Download Resume
+                  </Button>
+                </motion.div>
 
-              <Button
-                onClick={() => {
-                  onClickDirectDownload();
-                }}
-              >
-                <IoMdDownload /> Direct download
-              </Button>
-              <span
-                className="flex justify-center border-b-2  border-dotted mb-10  items-center cursor-pointer font-serif font-semibold"
-                onClick={() => {
-                  window.open(INTERVIEW_CALL_SIXTY_MIN, "_blank");
-                }}
-              >
-                <GrFormSchedule /> Schedule an Interview
-              </span>
-            </div>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => window.open(INTERVIEW_CALL_SIXTY_MIN, "_blank")}
+                  className="w-full md:w-auto flex items-center gap-2 px-6 py-3 border-2 border-green-700 text-green-700 rounded-lg hover:bg-green-50 transition-colors"
+                >
+                  <GrFormSchedule />
+                  Schedule Interview
+                </motion.button>
+              </div>
+            </motion.div>
+             <motion.div
+              variants={fadeInUp}
+              whileHover={{ scale: 1.02 }}
+              className="relative w-full md:w-auto"
+            >
+              <div    onClick={onClickDirectDownload} className=" cursor-pointer relative rounded-2xl overflow-hidden shadow-2xl">
+                <Image
+                  src="/images/resume_thumbnail.JPG"
+                  width={600}
+                  height={800}
+                  alt="Resume preview"
+                  className="w-full object-cover"
+                  onClick={onClickDirectDownload}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"/>
+              </div>
+            </motion.div>
+          
+
           </div>
-
-          <div className="flex flex-col gap-4 items-center justify-center m-auto md:m-0">
-            <Image    onClick={() => {
-                  onClickDirectDownload();
-                }}
-              src="/images/resume_thumbnail.JPG"
-              className="hover:shadow-lg  rounded-lg ml-auto ease-in-out duration-100  cursor-pointer"
-              width={"400"}
-              height="400"
-              alt="profile-image"
-            />
-          </div>
-
-          <p className="font-serif text-justify text-lg mt-8 tracking-wider mb-4 lg:hidden grid">
-          With a strong foundation in software development, I focus on building front-end web applications that deliver great user experiences. My journey has included working on a diverse range of projects, collaborating with talented teams, and contributing to innovative startups. Currently, I am a part of Codemonk, where I continue to learn and grow, applying my skills to create meaningful solutions. I’m passionate about technology and eager to keep expanding my knowledge while working on exciting challenges.
-          </p>
         </div>
 
-        {/* ------------------------------ */}
-
-        {/* <Image
-          className="absolute z-[-20] top-[-90px] left-[-150px]"
-          src="/images/Leaves.JPG"
-          width={"200"}
-          height={"200"}
-          alt="leaves-image"
-        /> */}
-      </div>
-
-      {/* <Document
-          file="/pdfs/resume.pdf"
-        ></Document> */}
+        {/* Floating Plant Icons */}
+        <motion.div
+          animate={{ 
+            y: [0, -10, 0],
+            rotate: [0, 5, 0]
+          }}
+          transition={{ 
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="absolute bottom-10 left-10 text-green-600 text-4xl opacity-30"
+        >
+          <PiPlantLight />
+        </motion.div>
+      </motion.div>
     </>
   );
 }
