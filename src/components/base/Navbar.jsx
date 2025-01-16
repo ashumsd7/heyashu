@@ -53,124 +53,72 @@ function Navbar() {
   }, []);
   return (
     <>
-
-      <nav className="   border-none  ">
+      <nav className="max-w-7xl mx-auto border-none">
         <nav
           style={{
-            backgroundColor: isScrolledUp ? "black" : "#f6f5f1",
+            backgroundColor: isScrolledUp
+              ? "rgba(0, 0, 0, 0.95)"
+              : "rgba(241, 253, 245, 0.98)",
             color: isScrolledUp ? "white" : "black",
           }}
-          className="md:flex justify-between   border-none  hidden  gap-6  w-full items-center relative   py-1 px-10      font-mono "
+          className="hidden md:flex max-w-7xl justify-between max-w-8xl mx-auto border-none 
+            backdrop-blur-sm transition-all duration-300 ease-in-out
+            sticky top-0 z-50 py-3 px-8 font-mono"
         >
-          <Link href="/">
-            {" "}
+          <Link href="/" className="relative group">
             <Image
-            alt='logo-image'
-              className="font-extrabold   font-mono flex cursor-pointer justify-left text-2xl items-center  ml-4 "
-              src={"https://i.ibb.co/59hJ4PV/logo2.jpg"}
-              height={"36"}
-              width={"130"}
+              alt="logo-image"
+              className="font-extrabold transition-transform duration-300 group-hover:scale-105"
+              src="https://i.ibb.co/rsdxbfD/looooooogo.jpg"
+              height={36}
+              width={130}
             />
           </Link>
-          <div className="flex lg:gap-8 gap-10 space-x-6  items-center ">
-            {/* <Link
-              href="/"
-              className="md:text-xl  text-base font-extrabold flex items-center font-mono relative "
-            >
-              <FaHome />
-              {activePath == "" && (
-                <LuMousePointerClick className="absolute   top-[20px] left-[20px] text-2xl text-gray-600" />
-              )}
-            </Link> */}
-            <Link
-              href="/blog"
-              id="tech-link"
-              className="md:text-xl text-base font-light items-center flex font-mono relative "
-            >
-              {/* <img
-                width="40"
-                height="40"
-                className="-mt-2"
-                src="https://clasherbros.github.io/images/giphy.gif"
-              />  */}
-              Blog{" "}
-              {activePath == "blog" && (
-                <LuMousePointerClick className="absolute  top-[20px] left-[20px] text-2xl text-gray-600" />
-              )}
-            </Link>
 
-            <Link
-              href="/tech"
-              id="tech-link"
-              className="md:text-xl text-base font-light items-center flex font-mono relative "
-            >
-              {/* <img
-                width="40"
-                height="40"
-                className="-mt-2"
-                src="https://clasherbros.github.io/images/giphy.gif"
-              />  */}
-              Tech{" "}
-              {activePath == "tech" && (
-                <LuMousePointerClick className="absolute  top-[20px] left-[20px] text-2xl text-gray-600" />
-              )}
-            </Link>
-
-            <Link
-              id="notes-link"
-              href="/digital-garden"
-              className="md:text-xl text-base flex items-center font-light font-mono relative text-green-600"
-            >
-              <img
-                width="40"
-                height="40"
-                className="-mt-2"
-                src="https://media3.giphy.com/media/fkoLF0dzaiNL6a1f2s/giphy.gif?cid=6c09b9529bocknrq68ifba6hwawfagtyld7j518t8lqfp7g4&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=s"
-              />
-              Digital Garden{" "}
-           
-            </Link>
-           
-
-            <Link
-              id="travel-link"
-              href="/travel"
-              className="md:text-xl flex items-center text-base font-light font-mono  relative"
-            >
-           {/* <img
-                width="80"
-                height="80"
-                className="-mt-2 absolute  -top-4"
-                src="https://www.aerocandia.com/en/photos/index/plane.gif"
-              />    */}
-               Travel
-              {activePath == "travel" && (
-                <LuMousePointerClick className="absolute  top-[20px] left-[20px] text-2xl text-gray-600" />
-              )}
-            </Link>
-            <Link
-              href="/misc"
-              id="misc-link"
-              className="md:text-xl text-base  font-light font-mono pr-5 relative"
-            >
-              {" "}
-              ...{" "}
-              {["misc", "town"].includes(activePath) && (
-                <LuMousePointerClick className="absolute top-[20px] left-[20px] text-2xl text-gray-600" />
-              )}
-            </Link>
-
-            {/* <div
-              onClick={() => {
-                console.log("isSupportBtnActive");
-                setIsSupportBtnActive(true);
-              }}
-              className="md:text-xl text-base   font-mono relative bg-orange-500 px-4 cursor-pointer  font-extrabold rounded-2xl text-wrap text-white"
-            >
-              SUPPORT
-            </div> */}
+          <div className="flex items-center gap-8">
+            {[
+              { href: "/blog", label: "Blog" },
+              { href: "/tech", label: "Tech" },
+              {
+                href: "/digital-garden",
+                label: (
+                  <span className="flex items-center text-green-600">
+                    <img
+                      width="40"
+                      height="40"
+                      className="-mt-2"
+                      src="https://media3.giphy.com/media/fkoLF0dzaiNL6a1f2s/giphy.gif?cid=6c09b9529bocknrq68ifba6hwawfagtyld7j518t8lqfp7g4&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=s"
+                    />
+                    Digital Garden
+                  </span>
+                ),
+              },
+              { href: "/travel", label: "Travel" },
+              { href: "/misc", label: "&more" },
+            ].map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`relative group text-lg font-light transition-colors duration-300
+                  hover:text-green-600 ${
+                    activePath === item.href.split("/")[1]
+                      ? "text-green-600"
+                      : ""
+                  }`}
+              >
+                {item.label}
+                {/* {activePath === item.href.split("/")[1] && (
+                  <LuMousePointerClick className="absolute top-[20px] left-[20px] text-2xl text-gray-600" />
+                )} */}
+                <span
+                  className="absolute -bottom-1 left-0 w-full h-0.5 bg-green-500 transform scale-x-0 
+                  group-hover:scale-x-100 transition-transform duration-300"
+                />
+              </Link>
+            ))}
           </div>
         </nav>
+
         <hr />
 
         <div className="flex md:hidden justify-between  bg-gradient-to-l relative  text-black text-2xl w-full   h-12 items-center  pr-4 px-1">
@@ -205,80 +153,79 @@ const MobileNaveBar = ({ isOpen, setIsOpen, activePath }) => {
     setIsOpen(!isOpen);
   };
   return (
-    <nav
-      className={`fixed top-0 left-0 w-[55%] h-full bg-white  z-40 transform  ${
-        isOpen ? "translate-x-0" : "-translate-x-full"
-      } transition-transform duration-300 ease-in-out md:hidden`}
-    >
-      <div className="flex justify-end text-black ">
-        <IoMdClose
-          onClick={toggleMenu}
-          className=" text-black absolute top-2 right-5"
-        />
-      </div>
-      <div className="flex flex-col p-2 gap-6 ">
-        <Link
-          href="/"
-          onClick={toggleMenu}
-          className="text-base py-1 font-semibold border-b-2"
-        >
-          Home
-          {activePath == "" && (
-            <LuMousePointerClick className="inline text-orange-600 ml-2" />
-          )}
-        </Link>
-        <Link
-          href="/blog"
-          onClick={toggleMenu}
-          className="text-base py-1 font-semibold border-b-2"
-        >
-          Blog
-          {activePath == "blog" && (
-            <LuMousePointerClick className="inline text-orange-600 ml-2" />
-          )}
-        </Link>
-        <Link
-          href="/tech"
-          onClick={toggleMenu}
-          className="text-base py-1 font-semibold border-b-2"
-        >
-          Tech
-          {activePath == "tech" && (
-            <LuMousePointerClick className="inline text-orange-600 ml-2" />
-          )}
-        </Link>
+    <>
+      {/* Overlay */}
+      <div
+        className={`fixed inset-0 bg-black/60 z-30 transition-opacity duration-300 ease-in-out ${
+          isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
+        onClick={toggleMenu}
+      />
 
-        <Link
-          href="/digital-garden"
-          className="text-base py-1 font-semibold border-b-2"
+      {/* Navigation Menu */}
+      <nav
+        className={`fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
+          w-[90%] max-w-[400px] rounded-2xl bg-white/95 backdrop-blur-md
+          shadow-2xl z-40 transform transition-all duration-500 ease-out
+          ${
+            isOpen
+              ? "scale-100 opacity-100"
+              : "scale-50 opacity-0 pointer-events-none"
+          }`}
+      >
+        {/* Close Button */}
+        <button
+          onClick={toggleMenu}
+          className="absolute -top-3 -right-3 w-8 h-8 bg-red-500 rounded-full 
+            flex items-center justify-center shadow-lg hover:bg-red-600 
+            transition-colors duration-300"
         >
-          🌱 Digital Garden{" "}
-          {activePath == "digital-garden" && (
-            <LuMousePointerClick className="absolute  top-[20px] left-[20px] text-2xl text-orange-600" />
-          )}
-        </Link>
+          <IoMdClose className="text-white text-xl" />
+        </button>
 
-        <Link
-          href="/travel"
-          onClick={toggleMenu}
-          className="text-base py-2 font-semibold border-b-2"
-        >
-          Travel
-          {activePath == "travel" && (
-            <LuMousePointerClick className="inline text-orange-600 ml-2" />
-          )}
-        </Link>
-        <Link
-          href="/misc"
-          onClick={toggleMenu}
-          className="text-base py-2 font-semibold border-b-2"
-        >
-          ...
-          {["misc", "town"].includes(activePath) && (
-            <LuMousePointerClick className="inline text-orange-600 ml-2" />
-          )}
-        </Link>
-      </div>
-    </nav>
+        {/* Menu Items */}
+        <div className="flex flex-col p-6 gap-4">
+          {[
+            { href: "/", label: "Home", path: "" },
+            { href: "/blog", label: "Blog", path: "blog" },
+            { href: "/tech", label: "Tech", path: "tech" },
+            {
+              href: "/digital-garden",
+              label: "🌱 Digital Garden",
+              path: "digital-garden",
+            },
+            { href: "/travel", label: "Travel", path: "travel" },
+            { href: "/misc", label: "&more", path: ["misc", "town"] },
+          ].map((item, index) => (
+            <Link
+              key={index}
+              href={item.href}
+              onClick={toggleMenu}
+              className={`relative overflow-hidden group p-3 rounded-lg
+                transition-all duration-300 ease-out
+                ${
+                  activePath === item.path
+                    ? "bg-green-50 text-green-800"
+                    : "hover:bg-gray-50"
+                }`}
+            >
+              <div className="flex items-center justify-between">
+                <span className="text-lg font-medium">{item.label}</span>
+                {(Array.isArray(item.path)
+                  ? item.path.includes(activePath)
+                  : activePath === item.path) && (
+                  <LuMousePointerClick className="text-green-600 text-xl" />
+                )}
+              </div>
+              <div
+                className="absolute bottom-0 left-0 w-full h-0.5 bg-green-500 
+                transform scale-x-0 group-hover:scale-x-100 
+                transition-transform duration-300"
+              />
+            </Link>
+          ))}
+        </div>
+      </nav>
+    </>
   );
 };

@@ -2,59 +2,68 @@ import { DEFAULT_AVATAR, DEFAULT_FOLLOW_LINK } from "@/utils/constant";
 import { formateDate, generateSlug } from "@/utils/functions";
 import { useRouter } from "next/router";
 import React from "react";
+import Image from "next/image";
 
 function BlogCardv3({ data, subPath = "/digital-garden/blog/" }) {
   const router = useRouter();
   const {
-    author: author = "Anonyms User",
+    author = "Anonymous User",
     date: writtenOn = "Today",
     name,
-    title = "Dummy Plant",
+    title = "Untitled Post",
     minRead = "",
     tags = "",
     profilePic = DEFAULT_AVATAR,
-    thumbnail = "https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    thumbnail = "https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=2070&auto=format&fit=crop",
     followLink = DEFAULT_FOLLOW_LINK,
   } = data;
 
-  const DUMMY_THUMBNAIL =
-    "https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
-
-  function changeFilePath(filePath) {
-    const newFilePath = filePath.replace("/public", "");
-    return newFilePath;
-  }
   const formattedDate = formateDate(writtenOn);
-  const firstTag = tags ? tags?.split(",")[0].trim() : "";
+  const tagList = tags ? tags.split(",").map(tag => tag.trim()) : [];
+  const changeFilePath = (filePath) => filePath.replace("/public", "");
 
   return (
-    <div
-      className="cursor-pointer transition-transform transform hover:scale-105"
-      onClick={() => {
-        router.push(`${subPath}${generateSlug(title)}`);
-      }}
+    <article 
+      className="group relative overflow-hidden    cursor-pointer
+          "
+      onClick={() => router.push(`${subPath}${generateSlug(title)}`)}
     >
-      <div className="max-w-xl mx-auto bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg p-6">
-        <div className="relative">
-          <img
-            src={thumbnail ? changeFilePath(thumbnail) : DUMMY_THUMBNAIL}
-            alt="Blog Image"
-            className="w-full h-60 object-cover rounded-lg"
-          />
-        </div>
-        <div className="mt-4">
-          <p className="text-xs font-semibold text-blue-500 uppercase">
-            #{firstTag}
-          </p>
-          <h1 className="text-xl font-semibold text-gray-800 mt-2">
-            {name || title}
-          </h1>
-          {/* <p className="text-gray-600 text-sm mt-2">
-            {description ? `${description.substring(0, 100)}...` : "Read more"}
-          </p> */}
-        </div>
+      {/* Thumbnail Section - Modified for full-bleed image */}
+      <div className="relative h-64 overflow-hidden">
+        <Image
+          src={thumbnail ? changeFilePath(thumbnail) : ""}
+          alt={title}
+          layout="fill"
+          objectFit="cover"
+          className="transition-transform duration-500 group-hover:scale-102"
+        />
       </div>
-    </div>
+
+      {/* Content Section - Simplified */}
+      <div className="relative p-4 space-y-2">
+        {/* Tags - Moved to top */}
+        <div className="flex items-center justify-between text-sm text-gray-600">
+          <span>{author}</span>
+          <span>{formattedDate}</span>
+        </div>
+        {/* Title - More minimal styling */}
+        <h2 className=" font-semibold text-lg text-gray-900 leading-snug">
+          {name || title}
+        </h2>
+
+        {/* Author and Date - Simplified */}
+ 
+
+        <div className="flex gap-2 text-xs text-gray-600">
+          {tagList.map((tag, index) => (
+            <span key={index} className="border rounded-xl border-black text-black px-2 py-1">
+              {tag}
+            </span>
+          ))}
+        </div>
+
+      </div>
+    </article>
   );
 }
 

@@ -14,7 +14,7 @@ const ContentFooter = ({
   // Example: [{ href: '#', icon: 'FacebookIcon' }, { href: '#', icon: 'TwitterIcon' }]
 }) => {
   return (
-    <footer className="bg-[#f6f5f1] relative   max-w-[1000px] mx-auto ">
+    <footer className="bg-[#f1fdf5] relative   max-w-[1000px] mx-auto ">
       <div className="flex gap-6 flex-wrap md:flex-nowrap px-4 py-6  rounded-lg w-full  justify-center md:justify-start border-2 shadow-sm border-gray-200">
         <Image
           src={photoSrc}

@@ -1,104 +1,171 @@
 import Image from "next/image";
 import React from "react";
-import ProfilePicture from "./ProfilePicture";
-import { FaLaptop, FaUmbrellaBeach, FaHome, FaQuestion } from "react-icons/fa";
-import { TbCurlyLoop } from "react-icons/tb";
+import { motion } from "framer-motion";
 import Link from "next/link";
-import FirstRouteSelection from "../base/FirstRouteSelection";
+import { FaLaptop, FaUmbrellaBeach, FaHome, FaLeaf } from "react-icons/fa";
+import { TbCurlyLoop } from "react-icons/tb";
+import ProfilePicture from "./ProfilePicture";
+import { PHONE_CALL_THIRTY_MIN } from "@/utils/constant";
+
+const animations = {
+  fadeInUp: {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.6 }
+  },
+  staggerContainer: {
+    animate: {
+      transition: {
+        staggerChildren: 0.15
+      }
+    }
+  },
+  scaleOnHover: {
+    whileHover: { scale: 1.05 },
+    whileTap: { scale: 0.95 }
+  }
+};
 
 function MainPage() {
-
-
+  const categories = [
+    { 
+      href: "/tech", 
+      icon: <FaLaptop />, 
+      text: "Tech Journey",
+      description: "My professional path"
+    },
+    { 
+      href: "/travel", 
+      icon: <FaUmbrellaBeach />, 
+      text: "Adventures",
+      description: "Exploring the world"
+    },
+    { 
+      href: "/town", 
+      icon: <FaHome />, 
+      text: "Local Life",
+      description: "Community & culture"
+    },
+    { 
+      href: "/misc", 
+      icon: <FaLeaf />, 
+      text: "More",
+      description: "Other interests"
+    }
+  ];
 
   return (
-    <div className=" mt-2 w-full flex flex-col gap-6 relative ">
-      <div className="grid md:grid-cols-2  mx-auto grid-cols-1 m-auto justify-between  ">
-        <div className="flex flex-col gap-2">
-          <h2 className="font-semibold ">Hey, I'm </h2>
-          <h1 className="text-5xl font-extrabold text-center md:text-left font-serif text-orange-600">
-            Ashutosh Anand Tiwari
-          </h1>
-          <div className="ml-auto  ">
-            <span className="font-thin text-orange-600"> aka Ashu</span>
-          </div>
+    <motion.div 
+      initial="initial"
+      animate="animate"
+      className="min-h-screen bg-gradient-to-b from-green-50 to-white"
+    >
+      <div className="container mx-auto px-4 py-12 max-w-6xl">
+        {/* Hero Section */}
+        <motion.div 
+          variants={animations.staggerContainer}
+          className="grid md:grid-cols-2 gap-12 items-center mb-20"
+        >
+          <motion.div variants={animations.fadeInUp} className="space-y-8">
+            <div className="space-y-3">
+              <motion.p 
+                variants={animations.fadeInUp}
+                className="text-lg text-green-700 font-medium"
+              >
+                Welcome! I'm
+              </motion.p>
+              <motion.h1 
+                variants={animations.fadeInUp}
+                className="text-4xl md:text-6xl font-serif font-bold text-green-800 text-center md:text-left"
+              >
+                Ashutosh Anand Tiwari
+              </motion.h1>
+              <motion.p 
+                variants={animations.fadeInUp}
+                className="text-green-600 italic text-xl"
+              >
+                aka Ashu
+              </motion.p>
+            </div>
 
-          <p className="font-serif text-justify text-lg mt-10 tracking-wider mb-4 lg:grid hidden">
-            <HighLightedSpan> Ashu </HighLightedSpan> He is someone who wants to
-            experience every kind of life. He forgets things easily and trusts
-            people quickly. Many people consider him immature and careless, but
-            he is happy with who he is. He believes in living life to the
-            fullest because you only live once and you never know what might
-            happen next. Following the concept of "Zindagi Na Milegi Dobara," he
-            continues his journey through life. He earns some money by writing
-            code, but his life revolves around eating, traveling, reading, and
-            sleeping.So, what are you waiting for? Let's connect and explore the
-            world together!
-          </p>
-        </div>
-        <div className="m-auto md:m-0">
-          <ProfilePicture />
-        </div>
+            <motion.p 
+              variants={animations.fadeInUp}
+              className="text-xl text-gray-800 leading-relaxed text-center md:text-left 
+                  rounded-lg bg-gradient-to-br from-green-50/80 to-white/60 backdrop-blur-sm
+                  transition-all duration-300"
+            >
+              I'm a simple person who earns his living through coding and development. Guided by
+              <span className="text-green-600">"Zindagi Na Milegi Dobara,"</span> I try to make each day count with a smile.
+              Through daily yoga, mindful travels, and helping others, I find joy in life's little moments while growing along the way.
+              <span className="text-xl">🙌</span> Jai Shree Ram
+            </motion.p>
 
-        <p className="font-serif text-justify text-lg mt-10 tracking-wider mb-4 lg:hidden grid">
-          <HighLightedSpan> Ashu </HighLightedSpan> He is someone who wants to
-          experience every kind of life. He forgets things easily and trusts
-          people quickly. Many people consider him immature and careless, but he
-          is happy with who he is. He believes in living life to the fullest
-          because you only live once and you never know what might happen next.
-          Following the concept of "Zindagi Na Milegi Dobara," he continues his
-          journey through life. He earns some money by writing code, but his
-          life revolves around eating, traveling, reading, and sleeping. So,
-          what are you waiting for? Let's connect and explore the world
-          together!
-        </p>
+            <motion.div 
+              variants={animations.fadeInUp}
+              className="flex gap-4 flex-wrap w-full"
+            >
+              
+                <motion.button 
+                  {...animations.scaleOnHover}
+                  onClick={()=> window.open(PHONE_CALL_THIRTY_MIN, "_blank")}
+                  className="w-full md:w-auto px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 
+                    transition-colors duration-300 shadow-lg hover:shadow-xl"
+                >
+                  Get in Touch
+                </motion.button>
+              
+              <Link href="/misc" className="w-full md:w-auto">
+                <motion.button 
+                  {...animations.scaleOnHover}
+                  className="w-full px-6 py-3 border-2 border-green-600 text-green-600 rounded-lg 
+                    hover:bg-green-50 transition-colors duration-300"
+                >
+                  Know more
+                </motion.button>
+              </Link>
+            </motion.div>
+          </motion.div>
+
+          <motion.div 
+            variants={animations.fadeInUp}
+            className="relative"
+          >
+            <ProfilePicture />
+          </motion.div>
+        </motion.div>
+
+        {/* Versions Section */}
+        <motion.div 
+          variants={animations.fadeInUp}
+          className="text-center mb-16"
+        >
+          <h2 className="text-3xl md:text-4xl font-serif font-bold mb-12">
+            Explore Different <span className="text-green-600">Facets</span> of My Journey
+          </h2>
+
+          <motion.div 
+            variants={animations.staggerContainer}
+            className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-5xl mx-auto"
+          >
+            {categories.map((category) => (
+              <Link href={category.href} key={category.href}>
+                <motion.div
+                  variants={animations.fadeInUp}
+                  {...animations.scaleOnHover}
+                  className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all 
+                    duration-300 hover:bg-green-50 border border-green-100"
+                >
+                  <div className="text-3xl text-green-600 mb-4">{category.icon}</div>
+                  <h3 className="font-medium text-green-800 text-lg mb-2">{category.text}</h3>
+                  <p className="text-sm text-gray-600">{category.description}</p>
+                </motion.div>
+              </Link>
+            ))}
+          </motion.div>
+        </motion.div>
       </div>
-
-      <div className="text-center">
-        <h2 className="text-3xl font-serif  font-extrabold ">
-          Which <HighLightedSpan>version</HighLightedSpan> you want to explore?
-        </h2>
-      </div>
-      <div className="flex flex-wrap items-center gap-4 justify-around m-auto mt-5 w-full  ">
-        <Link href="/tech">
-          <Category icon={<FaLaptop />} text="Tech" />
-        </Link>
-        <Link href="/travel">
-          <Category icon={<FaUmbrellaBeach />} text="Travel" />
-        </Link>
-        <Link href="/town">
-          <Category icon={<FaHome />} text="Town" />
-        </Link>
-        <Link href="/misc">
-          <Category icon={<TbCurlyLoop className="" />} text="more" />
-        </Link>
-      </div>
-
-      {/* <Image
-        className="absolute z-[-20] top-[-14%] left-[-12%]"
-        src="/images/Leaves.JPG"
-        width={"200"}
-        height={"200"}
-        alt="leaves-image"
-      /> */}
-    </div>
+    </motion.div>
   );
 }
 
 export default MainPage;
-
-function HighLightedSpan({ children }) {
-  return (
-    <span className="text-white   italic text-2xl bg-gray-700 px-2">
-      {children}
-    </span>
-  );
-}
-
-function Category({ icon, text }) {
-  return (
-    <div className="bg-gray-100 text-2xl border shadow-xl hover:shadow-2xl hover:text-white hover:bg-gray-700 ease-in-out cursor-pointer text-[#ea580c] border-black w-20 h-20 flex flex-col gap-2 justify-center items-center  rounded-full">
-      <div className="flex items-center justify-center">{icon}</div>
-      <span className="text-base font-mono text-[#ea580c]">{text}</span>
-    </div>
-  );
-}

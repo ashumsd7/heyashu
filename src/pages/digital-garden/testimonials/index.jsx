@@ -95,7 +95,7 @@ function BlogsPage({ posts }) {
             );
           })
         ) : (
-          <div class="bg-[#f6f5f1] p-6 rounded-lg shadow-lg max-w-md mx-auto">
+          <div class="bg-[#f1fdf5] p-6 rounded-lg shadow-lg max-w-md mx-auto">
             <h2 class="text-xl font-semibold text-[#353534] mb-2">John Doe</h2>
             <p class="text-[#353534] text-base">
               "This platform has been incredibly helpful in keeping me

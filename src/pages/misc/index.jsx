@@ -2,86 +2,201 @@ import React from "react";
 import Image from "next/image";
 import Head from "next/head";
 import { HighLightedSpan } from "@/components/base/HighlightedSpan";
-import ImageBox from "@/components/base/ImageBox";
 import { MORE_VERSIONS } from "@/utils/data";
 import Button from "@/components/base/Button";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 function MiscPage() {
-  function getThumbnailPath(path) {
-    return "/images/versions" + path;
-  }
-  return (
-    <div>
-      <Head>
-        <title>Beyond Your Imagination : Ashutosh Anand Tiwari </title>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  const pageVariants = {
+    initial: {
+      opacity: 0,
+      y: 20
+    },
+    animate: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    }
+  };
 
-        <link rel="icon" href="/favicon_misc.ico" />
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { scale: 0.95, opacity: 0 },
+    visible: {
+      scale: 1,
+      opacity: 1,
+      transition: {
+        duration: 0.5
+      }
+    },
+    hover: {
+      scale: 1.05,
+      transition: {
+        duration: 0.2
+      }
+    }
+  };
+
+  return (
+    <motion.div
+      initial="initial"
+      animate="animate"
+      variants={pageVariants}
+      className="min-h-screen bg-gradient-to-b overflow-x-hidden from-white via-orange-50/50 to-orange-100/30"
+    >
+      <Head>
+        <title>Other Versions | Ashutosh Tripathi</title>
         <meta
           name="description"
-          content="Let's Explore more versions of  Ashutosh Anand Tiwari, He says,  I am not only limited to tech and travel; there are multiple activities I engage in and contribute to in my village and elsewhere. Here are some of them:  "
+          content="Discover the different facets of Ashutosh Tripathi's life beyond technology"
         />
       </Head>
 
-      <div className=" mt-2 w-full flex flex-col gap-6 relative ">
-        <div className="   mx-auto  m-auto   ">
-          <div className="flex flex-col  items-center">
-            <h2 className="font-semibold mb-2 "> Meet with, </h2>
-            <h1 className="text-5xl font-extrabold text-center text-orange-600 md:text-left font-serif mb-4 md:mb-0">
-              More Versions of Ashutosh
+      <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 py-16">
+        {/* Hero Section */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="text-center mb-16"
+        >
+          <motion.div variants={itemVariants} className="mb-4">
+            <span className="inline-block px-4 py-1 rounded-full bg-orange-100 text-orange-600 text-sm font-medium mb-4">
+              Beyond Tech
+            </span>
+            <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 font-serif">
+              Different Versions of{" "}
+              <span className="text-orange-600">Ashutosh</span>
             </h1>
-          </div>
+          </motion.div>
 
-          <p className="font-serif text-justify text-lg mt-10 tracking-wider mb-4 ">
-            I am not only limited to tech and travel; there are multiple
-            activities I engage in and contribute to in my village and
-            elsewhere. Here are some of them:
-          </p>
-        </div>
+          <motion.p
+            variants={itemVariants}
+            className="mt-6 text-xl text-gray-600 max-w-3xl mx-auto font-serif"
+          >
+            Life is multifaceted, and so am I. Beyond the world of technology,
+            I wear many hats and explore various dimensions of life.
+          </motion.p>
+        </motion.div>
 
-        {/* ------------------------------------------k */}
-        <div className="text-left mt-10">
-          <div className="flex justify-between flex-wrap">
-            <h2 className="text-2xl font-serif  font-extrabold ">
-              <HighLightedSpan> </HighLightedSpan> &nbsp; Beyond your
-              imagination
-            </h2>
-          </div>
-        </div>
-
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10">
-          {MORE_VERSIONS?.map((item) => {
-            return (
-              <div className="flex gap-2 flex-col items-center justify-center m-auto md:m-0">
-                <ImageBox img={"/images/versions" + item.img} />
-                <h2 className="text-3xl italic text-orange-600 font-serif  font-extrabold ">
-                  {item.name}
-                </h2>
+        {/* Cards Grid */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          {MORE_VERSIONS.map((version, index) => (
+            <motion.div
+              key={index}
+              variants={cardVariants}
+              whileHover="hover"
+              className="group relative bg-white rounded-2xl shadow-xl overflow-hidden transform transition-all duration-300 hover:shadow-2xl"
+            >
+              <div className="relative h-72 overflow-hidden">
+                <Image
+                  src={`/images/versions${version.img}`}
+                  alt={version.name}
+                  fill
+                  className="object-cover transform group-hover:scale-110 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
               </div>
-            );
-          })}
-        </div>
+              
+              <div className="relative p-8">
+                <h3 className="text-2xl font-bold text-orange-600 font-serif mb-3">
+                  {version.name}
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  {version.description || "Exploring another dimension of life"}
+                </p>
+              </div>
 
-        <div className="flex justify-center items-center">
+              {/* <div className="absolute top-4 right-4">
+                <span className="inline-flex items-center px-3 py-1 rounded-full bg-orange-100 text-orange-600 text-sm font-medium">
+                  Version {index + 1}
+                </span>
+              </div> */}
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* CTA Section */}
+        <motion.div
+          variants={itemVariants}
+          className="text-center mt-16"
+        >
           <Link href="/misc/best-captured">
-            <Button>Hey, Explore more information about me:)</Button>
+            <Button className="inline-flex items-center px-8 py-4 bg-orange-600 hover:bg-orange-700 text-white font-medium rounded-xl transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+              <span>Discover More About Me</span>
+              <svg
+                className="ml-2 w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M13 7l5 5m0 0l-5 5m5-5H6"
+                />
+              </svg>
+            </Button>
           </Link>
-        </div>
+        </motion.div>
 
-        {/* ------------------------------------------ */}
-
-        {/* ------------------------------ */}
-
+        {/* Background Decorations */}
+        <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.1 }}
+        transition={{ duration: 1 }}
+        className="absolute inset-0 pointer-events-none overflow-hidden"
+      >
         <Image
-          className="absolute z-[-20] top-[-150px] left-[-250px]"
+          className="absolute top-0 left-0 -translate-x-1/3 -translate-y-1/3 opacity-30 max-w-[400px]"
           src="/images/travel_illu.png"
-          width={"300"}
-          height={"300"}
+          width={400}
+          height={400}
+          alt="Decorative illustration"
         />
+        <Image
+          className="absolute bottom-0 right-0 translate-x-1/3 translate-y-1/3 opacity-30 max-w-[400px]"
+          src="/images/travel_illu.png"
+          width={400}
+          height={400}
+          alt="Decorative illustration"
+        />
+      </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
