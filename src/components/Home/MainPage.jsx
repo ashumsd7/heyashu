@@ -76,7 +76,7 @@ function MainPage() {
               </motion.p>
               <motion.h1 
                 variants={animations.fadeInUp}
-                className="text-4xl md:text-6xl   font-bold text-green-800 text-center md:text-left"
+                className="text-5xl md:text-6xl   font-bold text-green-800 text-center md:text-left"
               >
                 Ashutosh Anand Tiwari
               </motion.h1>
