@@ -168,7 +168,7 @@ function TechPage() {
 
 function TechChip({ icon, text }) {
   return (
-    <div className="flex items-center gap-2 border rounded-lg hover:shadow-md transition-all duration-300 cursor-pointer bg-white group hover:border-orange-200">
+    <div className="flex items-center gap-2 border rounded-lg hover:shadow-md transition-all pr-2 duration-300 cursor-pointer bg-white group hover:border-orange-200">
       <span className="bg-gray-50 p-2 rounded-l-lg group-hover:bg-orange-50">
         <div className="text-gray-600 group-hover:text-orange-600 transition-all duration-300">
           {icon || <FaUmbrellaBeach />}
