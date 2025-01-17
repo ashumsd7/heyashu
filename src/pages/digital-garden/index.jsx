@@ -117,7 +117,7 @@ Gvanks`,
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="relative py-16 md:py-32 px-2 text-center"
+        className="relative pb-16 pt-8 md:py-32 px-2 text-center"
       >
         <div className="max-w-4xl mx-auto">
           <motion.div
@@ -139,13 +139,13 @@ Gvanks`,
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="text-lg md:text-xl   text-gray-600 mb-8 px-4"
+            className="text-lg md:text-xl   text-gray-600 mb-8 "
           >
             A collaborative space for open-source knowledge sharing. Learn,
             contribute, and grow together.
           </motion.p>
           <motion.div
-            className="flex flex-col sm:flex-row justify-center gap-4 px-4"
+            className="flex flex-col sm:flex-row justify-center gap-4 "
             variants={containerVariants}
             initial="hidden"
             animate="visible"
@@ -181,7 +181,7 @@ Gvanks`,
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="py-12 md:py-16 px-2 max-w-6xl mx-auto relative"
+        className="pb-12 pt-6 md:py-16   max-w-6xl mx-auto relative"
       >
         <h2 className="text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-center bg-gradient-to-r from-green-600 to-blue-600 text-transparent bg-clip-text">
           Explore, read, write, share!
@@ -234,9 +234,9 @@ Gvanks`,
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="py-12 md:py-16 bg-gradient-to-b from-green-50/50 to-blue-50/50 backdrop-blur-lg"
+        className="pb-12 pt-6 md:py-16 bg-gradient-to-b from-green-50/50 to-blue-50/50 backdrop-blur-lg"
       >
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto ">
           <h2 className="text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-center bg-gradient-to-r from-green-600 to-blue-600 text-transparent bg-clip-text">
             What Others Say
           </h2>
@@ -252,7 +252,7 @@ Gvanks`,
                 key={index}
                 variants={itemVariants}
                 whileHover={{ y: -5 }}
-                className="bg-white/80 backdrop-blur-lg p-4 md:p-6 rounded-xl shadow-lg hover:shadow-xl transition-all"
+                className="bg-white/80 backdrop-blur-lg p-4 md:p-6 rounded-xl shadow-lg hover:shadow-xl transition-all flex flex-col items-center md:items-start text-center md:text-left"
               >
                 <img
                   src={testimonial.avatar}
@@ -302,7 +302,7 @@ Gvanks`,
         viewport={{ once: true }}
         className="py-16 md:py-20 bg-gradient-to-r from-green-600 to-green-500 text-white text-center"
       >
-        <div className="max-w-4xl mx-auto px-4">
+        <div className="max-w-4xl mx-auto   ">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Become an Open Source Developer!
           </h2>
@@ -324,7 +324,7 @@ Gvanks`,
 
       {/* Footer */}
       <footer className="bg-white/80 backdrop-blur-lg border-t py-8 md:py-12">
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto  ">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <motion.div
               whileHover={{ scale: 1.05 }}

@@ -60,7 +60,7 @@ function MainPage() {
       animate="animate"
       className="min-h-screen bg-gradient-to-b from-green-50 to-white"
     >
-      <div className="container mx-auto px-4 py-12 max-w-6xl">
+      <div className="container mx-auto   pb-12 pt-6 max-w-6xl">
         {/* Hero Section */}
         <motion.div 
           variants={animations.staggerContainer}
@@ -70,23 +70,31 @@ function MainPage() {
             <div className="space-y-3">
               <motion.p 
                 variants={animations.fadeInUp}
-                className="text-lg text-green-700 font-medium"
+                className="text-lg text-green-700 font-medium text-center md:text-left"
               >
                 Welcome! I'm
               </motion.p>
               <motion.h1 
                 variants={animations.fadeInUp}
-                className="text-4xl md:text-6xl font-serif font-bold text-green-800 text-center md:text-left"
+                className="text-4xl md:text-6xl   font-bold text-green-800 text-center md:text-left"
               >
                 Ashutosh Anand Tiwari
               </motion.h1>
               <motion.p 
                 variants={animations.fadeInUp}
-                className="text-green-600 italic text-xl"
+                className="text-green-600 italic text-xl text-center md:text-left"
               >
                 aka Ashu
               </motion.p>
             </div>
+
+            {/* Profile Picture for Mobile */}
+            <motion.div 
+              variants={animations.fadeInUp}
+              className="md:hidden relative"
+            >
+              <ProfilePicture />
+            </motion.div>
 
             <motion.p 
               variants={animations.fadeInUp}
@@ -126,9 +134,10 @@ function MainPage() {
             </motion.div>
           </motion.div>
 
+          {/* Profile Picture for Desktop */}
           <motion.div 
             variants={animations.fadeInUp}
-            className="relative"
+            className="relative hidden md:block"
           >
             <ProfilePicture />
           </motion.div>
@@ -139,7 +148,7 @@ function MainPage() {
           variants={animations.fadeInUp}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-serif font-bold mb-12">
+          <h2 className="text-3xl md:text-4xl   font-bold mb-12">
             Explore Different <span className="text-green-600">Facets</span> of My Journey
           </h2>
 
@@ -155,7 +164,7 @@ function MainPage() {
                   className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all 
                     duration-300 hover:bg-green-50 border border-green-100"
                 >
-                  <div className="text-3xl text-green-600 mb-4">{category.icon}</div>
+                  <div className="text-3xl text-green-600 mb-4 mx-auto flex justify-center">{category.icon}</div>
                   <h3 className="font-medium text-green-800 text-lg mb-2">{category.text}</h3>
                   <p className="text-sm text-gray-600">{category.description}</p>
                 </motion.div>

@@ -25,13 +25,13 @@ function ProfilePicture() {
       <Image
         src={currPath}
         onClick={onEnter}
-        className="hover:shadow-lg   rounded-lg ml-auto ease-in-out duration-100  cursor-pointer"
+        className="hover:shadow-lg rounded-lg mx-auto ease-in-out duration-100 cursor-pointer"
         width={"400"}
         height="400"
         alt="profile-image"
       />
 
-      <div id='social-links' className="  text-white flex  gap-4  bg-orange-600 md:px-2 px-1 py-2 absolute rounded-md bottom-[-15px] right-[0px] z-40">
+      <div id='social-links' className="text-white flex gap-4 bg-[#16a34a] md:px-2 px-1 py-2 absolute rounded-md bottom-[-15px] left-1/2 transform -translate-x-1/2 z-40">
         <AiFillGithub
           className="text-xl cursor-pointer"
           onClick={() => {

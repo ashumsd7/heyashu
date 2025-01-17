@@ -106,7 +106,7 @@ function BlogsPage({ posts }) {
         url="https://www.heyashu.com/blog"
       />
       {/* Hero Section */}{" "}
-      <div className="container mx-auto md:px-10 px-3 w-full py-12 ">
+      <div className="container mx-auto md:px-10  w-full pb-12 pt-6 ">
         <div className="flex flex-col space-y-6 max-w-3xl mx-auto">
           <div className="flex items-center justify-between">
             <div className="space-y-4">
@@ -141,7 +141,7 @@ function BlogsPage({ posts }) {
       </div>
 
       
-      <div className="container mx-auto md:px-10 px-3 w-full py-8 flex flex-col md:flex-row gap-8">
+      <div className="container mx-auto md:px-10  w-full py-8 flex flex-col md:flex-row gap-8">
         {/* Filters Section */}
         <div className="md:w-1/4 w-full  md:sticky top-20  ">
           <div className="bg-white rounded-xl shadow-sm border border-green-100 p-4 mb-8">
@@ -150,7 +150,7 @@ function BlogsPage({ posts }) {
             {/* Filter Button - Mobile */}
             <button
               onClick={() => setShowFilters(!showFilters)}
-              className="md:hidden flex items-center justify-center w-full px-4 py-3 bg-green-50 text-green-800 rounded-lg mb-4"
+              className="md:hidden flex items-center justify-center w-full   py-3 bg-green-50 text-green-800 rounded-lg mb-4"
             >
               <IoFilterSharp className="mr-2" />
               Filters
@@ -189,7 +189,7 @@ function BlogsPage({ posts }) {
             </h2>
               <Button
                 onClick={() => window.open(ADMIN_LINK, "_blank")}
-                className="hidden md:flex items-center px-4 py-2 bg-green-600 text-white hover:bg-green-700 md:text-md font-medium rounded-md transition duration-200"
+                className="hidden md:flex items-center   py-2 bg-green-600 text-white hover:bg-green-700 md:text-md font-medium rounded-md transition duration-200"
               >
                 <FaPlus className="mr-2" />
                 New Article

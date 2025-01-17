@@ -81,7 +81,7 @@ function Resume() {
         initial="initial"
         animate="animate"
         variants={staggerChildren}
-        className="min-h-screen bg-gradient-to-b from-green-50 to-white py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
+        className="min-h-screen bg-gradient-to-b from-green-50 to-white pb-12 pt-6  sm:px-6 lg:px-8 relative overflow-hidden"
       >
     
 
@@ -108,7 +108,7 @@ function Resume() {
                 >
                   <Button
                     onClick={onClickDirectDownload}
-                    className="w-full bg-green-700 hover:bg-green-800 text-white px-6 py-3 rounded-lg flex items-center gap-2"
+                    className="w-full bg-green-700 hover:bg-green-800 text-white px-6 py-3 rounded-lg flex items-center justify-center gap-2"
                   >
                     <IoMdDownload className="text-xl" />
                     Download Resume
@@ -119,7 +119,7 @@ function Resume() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => window.open(INTERVIEW_CALL_SIXTY_MIN, "_blank")}
-                  className="w-full md:w-auto flex items-center gap-2 px-6 py-3 border-2 border-green-700 text-green-700 rounded-lg hover:bg-green-50 transition-colors"
+                  className="w-full md:w-auto flex items-center justify-center gap-2 px-6 py-3 border-2 border-green-700 text-green-700 rounded-lg hover:bg-green-50 transition-colors"
                 >
                   <GrFormSchedule />
                   Schedule Interview

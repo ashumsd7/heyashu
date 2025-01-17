@@ -59,11 +59,33 @@ function TechPage() {
 
       <div className="max-w-7xl mx-auto px-2 py-8 space-y-20">
         {/* Hero Section */}
-        <section className="grid md:grid-cols-2 gap-12 items-center justify-between">
-          <div className="space-y-6">
-            <div className="space-y-2">
+        <section className="flex flex-col md:grid md:grid-cols-2 gap-12 items-center justify-between">
+          {/* Heading for mobile */}
+          <div className="md:hidden space-y-2 text-center">
+            <h2 className="text-xl font-medium text-gray-600">Meet,</h2>
+            <h1 className="text-5xl font-bold text-orange-600">
+              Ashutosh the Developer
+            </h1>
+          </div>
+
+          {/* Profile Image */}
+          <div className="relative flex justify-end order-1 md:order-2">
+            <Image
+              src="/images/ashu_office.png"
+              width={500}
+              height={500}
+              alt="Ashutosh Tiwari"
+              className="rounded-lg shadow-xl"
+            />
+            <div className="absolute -z-10 -top-10 -right-10 w-72 h-72 bg-orange-100 rounded-full blur-3xl opacity-30" />
+          </div>
+
+          {/* Content Section */}
+          <div className="space-y-6 order-2 md:order-1">
+            {/* Heading for desktop */}
+            <div className="hidden md:block space-y-2">
               <h2 className="text-xl font-medium text-gray-600">Meet,</h2>
-              <h1 className="text-5xl font-bold text-orange-600 text-center md:text-left">
+              <h1 className="text-5xl font-bold text-orange-600 text-left">
                 Ashutosh the Developer
               </h1>
             </div>
@@ -77,39 +99,28 @@ function TechPage() {
               currently, I'm employed at Codemonk.
             </p>
 
-            <div className="flex gap-4 pt-4 flex-wrap  ">
+            <div className="flex gap-4 pt-4 flex-wrap">
               <Link href="/tech/resume" className="md:w-auto w-full flex justify-center">
-                <Button className="bg-orange-600 hover:bg-orange-700 md:w-auto w-full text-center text-white px-6 py-3">
+                <Button className="bg-orange-600 hover:bg-orange-700 md:w-auto w-full text-center text-white px-6 py-3 flex justify-center">
                   <IoMdDownload className="mr-2" /> View Resume
                 </Button>
               </Link>
               <button
                 onClick={() => window.open('https://topmate.io/aat/1148709/pay', '_blank')}
-                className="md:w-auto w-full"
+                className="md:w-auto w-full flex justify-center"
               >
-                <Button className="bg-gray-800 hover:bg-gray-900 md:w-auto w-full text-white px-6 py-3">
+                <Button className="bg-gray-800 hover:bg-gray-900 md:w-auto w-full text-white px-6 py-3 flex justify-center">
                   Let's Build Something
                 </Button>
               </button>
             </div>
           </div>
-
-          <div className="relative flex justify-end">
-            <Image
-              src="/images/ashu_office.png"
-              width={500}
-              height={500}
-              alt="Ashutosh Tiwari"
-              className="rounded-lg shadow-xl"
-            />
-            <div className="absolute -z-10 -top-10 -right-10 w-72 h-72 bg-orange-100 rounded-full blur-3xl opacity-30" />
-          </div>
         </section>
 
         {/* Skills Section */}
         <section className="space-y-8">
-          <h2 className="text-3xl font-bold">Technologies I Work With</h2>
-          <div className="flex flex-wrap gap-4">
+          <h2 className="text-3xl font-bold text-center md:text-left">Technologies I Work With</h2>
+          <div className="flex flex-wrap gap-4 justify-center md:justify-start">
             {technologies.map((tech, index) => (
               <TechChip key={index} icon={tech.icon} text={tech.name} />
             ))}
@@ -142,7 +153,7 @@ function TechPage() {
               Transform your ideas into reality with modern web development solutions.
             </p>
             <div className="flex justify-center">
-              <button  onClick={() => window.open('https://topmate.io/aat/1148709/pay', '_blank')}>
+              <button onClick={() => window.open('https://topmate.io/aat/1148709/pay', '_blank')}>
                 <Button className="bg-white text-orange-600 hover:bg-gray-50 px-8 py-3 text-lg font-medium">
                   Get Started
                 </Button>
@@ -163,7 +174,7 @@ function TechChip({ icon, text }) {
           {icon || <FaUmbrellaBeach />}
         </div>
       </span>
-      <span className="px-3 py-2 font-medium">{text}</span>
+      <span className=" py-2 font-medium">{text}</span>
     </div>
   );
 }

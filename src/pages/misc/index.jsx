@@ -87,7 +87,7 @@ function MiscPage() {
           className="text-center mb-16"
         >
           <motion.div variants={itemVariants} className="mb-4">
-            <span className="inline-block px-4 py-1 rounded-full bg-orange-100 text-orange-600 text-sm font-medium mb-4">
+            <span className="inline-block  px-4 py-1 rounded-full bg-orange-100 text-orange-600 text-sm font-medium mb-4">
               Beyond Tech
             </span>
             <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 font-serif">

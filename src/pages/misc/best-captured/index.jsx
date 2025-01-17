@@ -25,7 +25,7 @@ function BestCapturedPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-orange-50 py-20 px-4">
+    <div className="min-h-screen bg-gradient-to-b from-white to-orange-50 py-20 ">
       <Head>
         <title>About Ashutosh Anand Tiwari</title>
         <meta charset="UTF-8" />

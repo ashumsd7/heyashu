@@ -24,7 +24,7 @@ function AllNotesPage() {
       </Head>
 
       <div className="min-h-screen bg-gradient-to-b from-green-50 via-green-100/30 to-white  ">
-        <div className="container mx-auto px-4 py-8">
+        <div className="container mx-auto   py-8">
           {/* Header Section */}
           <header className="mb-8">
             <div className="flex items-center justify-between">

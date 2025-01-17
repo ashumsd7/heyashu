@@ -151,7 +151,7 @@ const Travelling = () => {
           </motion.div>
         </div>
 
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto ">
           {/* Social Links Cards */}
           <motion.div 
             variants={containerVariants}

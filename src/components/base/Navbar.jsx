@@ -63,7 +63,7 @@ function Navbar() {
           }}
           className="hidden md:flex max-w-7xl justify-between max-w-8xl mx-auto border-none 
             backdrop-blur-sm transition-all duration-300 ease-in-out
-            sticky top-0 z-50 py-3 px-8 font-mono"
+            sticky top-0 z-50 py-3 px-8  "
         >
           <Link href="/" className="relative group">
             <Image
@@ -77,8 +77,8 @@ function Navbar() {
 
           <div className="flex items-center gap-8">
             {[
-              { href: "/blog", label: "Blog" },
-              { href: "/tech", label: "Tech" },
+              { href: "/blog", label: "blog" },
+              { href: "/tech", label: "tech" },
               {
                 href: "/digital-garden",
                 label: (
@@ -93,7 +93,7 @@ function Navbar() {
                   </span>
                 ),
               },
-              { href: "/travel", label: "Travel" },
+              { href: "/travel", label: "travel" },
               { href: "/misc", label: "&more" },
             ].map((item) => (
               <Link
@@ -186,15 +186,15 @@ const MobileNaveBar = ({ isOpen, setIsOpen, activePath }) => {
         {/* Menu Items */}
         <div className="flex flex-col p-6 gap-4">
           {[
-            { href: "/", label: "Home", path: "" },
-            { href: "/blog", label: "Blog", path: "blog" },
-            { href: "/tech", label: "Tech", path: "tech" },
+            { href: "/", label: "home", path: "" },
+            { href: "/blog", label: "blog", path: "blog" },
+            { href: "/tech", label: "tech", path: "tech" },
             {
               href: "/digital-garden",
               label: "🌱 Digital Garden",
               path: "digital-garden",
             },
-            { href: "/travel", label: "Travel", path: "travel" },
+            { href: "/travel", label: "travel", path: "travel" },
             { href: "/misc", label: "&more", path: ["misc", "town"] },
           ].map((item, index) => (
             <Link

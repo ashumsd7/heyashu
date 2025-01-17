@@ -32,7 +32,7 @@ const Episode = ({ episode }) => {
   // Handler to add a timestamp
 
   return (
-    <div className="bg-white  rounded-lg px-4 py-2 text-[#353534] flex-wrap ">
+    <div className="bg-white  rounded-l  py-2 text-[#353534] flex-wrap ">
       <div className="flex justify-between items-center flex-wrap gap-2 ">
         {/* Episode number and name */}
         <div>
