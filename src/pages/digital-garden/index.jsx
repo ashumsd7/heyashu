@@ -12,6 +12,7 @@ import {
   FaLeaf,
 } from "react-icons/fa";
 import { ADMIN_LINK, DEFAULT_AVATAR } from "@/utils/constant";
+import { generateSlug, removePublicFromPath } from "@/utils/functions";
 
 // Sample categories data - move to constants file in production
 const GARDEN_CATEGORIES = [
@@ -56,21 +57,21 @@ const GARDEN_CATEGORIES = [
 
 function DigitalGarden({ posts }) {
   const router = useRouter();
- 
 
   const testimonials2 = posts.map((post) => {
-   
     const newObj = {
       name:
         post.frontMatter?.name || post?.frontMatter?.title || "Anonyms User ",
       role: post.role || "Software Engineer",
       comment: post.content,
       avatar:
-        post.frontMatter?.profilePic || post?.profilePic || DEFAULT_AVATAR,
+        removePublicFromPath(post.frontMatter?.profilePic) ||
+        removePublicFromPath(post?.profilePic) ||
+        DEFAULT_AVATAR,
       followLink: post.frontMatter?.followLink,
-      link:'https://github.com/ashumsd7/heyashu/tree/main/src/content/testimonials'
+      link: post.frontMatter?.followLink || "https://github.com/ashumsd7/heyashu/tree/main/src/content/testimonials",
     };
- 
+
     return newObj;
   });
 
@@ -81,10 +82,9 @@ function DigitalGarden({ posts }) {
 I can literally revise while on a uber ride ect 
 Gvanks`,
     avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah",
-    link:'https://github.com/ashumsd7/heyashu/tree/main/src/content/testimonials'
+    link: "https://github.com/ashumsd7/heyashu/tree/main/src/content/testimonials",
   });
   console.log("testimonials2 >>>>>>>>> 123>", testimonials2);
-   
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -261,12 +261,25 @@ Gvanks`,
                 />
                 <p className="text-sm md:text-base text-gray-600 mb-4 italic">
                   "
-                  {testimonial.comment.length > 100
+                  {testimonial.comment.length > 150
                     ? testimonial.comment.substring(0, 150) + "..."
                     : testimonial.comment}
                   "
+                  {testimonial.comment.length > 150 && (
+                    <span
+                      onClick={() => {
+                        router.push(
+                          "/digital-garden/testimonials/" +
+                            generateSlug(testimonial.name)
+                        );
+                      }}
+                      className="text-green-600 hover:underline cursor-pointer ml-1"
+                    >
+                      read more
+                    </span>
+                  )}
                 </p>
-                <h4 
+                <h4
                   onClick={() => window.open(testimonial.link, "_blank")}
                   className="font-medium text-green-700 text-sm md:text-base cursor-pointer hover:underline"
                 >
@@ -278,18 +291,17 @@ Gvanks`,
               </motion.div>
             ))}
             <motion.div
-              
-                variants={itemVariants}
-                whileHover={{ y: -5 }}
-                className="bg-white/80 backdrop-blur-lg p-4 md:p-6 rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center"
+              variants={itemVariants}
+              whileHover={{ y: -5 }}
+              className="bg-white/80 backdrop-blur-lg p-4 md:p-6 rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center"
+            >
+              <button
+                onClick={() => window.open(ADMIN_LINK, "_blank")}
+                className="text-green-600 font-medium hover:underline text-lg"
               >
-                <button
-                  onClick={() => window.open(ADMIN_LINK, "_blank")}
-                  className="text-green-600 font-medium hover:underline text-lg"
-                >
-                 +  Drop Feedback
-                </button>
-              </motion.div>
+                + Drop Feedback
+              </button>
+            </motion.div>
           </motion.div>
         </div>
       </motion.section>

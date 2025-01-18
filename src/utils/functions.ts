@@ -53,6 +53,8 @@ export function reverseSlug(slug) {
 }
 
 export function removePublicFromPath(path) {
+  if(!path)
+    return ""
   // Remove the 'public' part from the path
   return path.replace(/^\/?public/, "");
 }
