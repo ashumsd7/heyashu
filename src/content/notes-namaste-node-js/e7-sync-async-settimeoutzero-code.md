@@ -7,7 +7,7 @@ updatedOn: 09-08-2024
 author: Ashutosh Anand Tiwari
 tags: sync - async, setTimeoutZero in Node.js
 profilePic: /public/images/blogs/e81.png
-followLink: https://x.com/YourVueJS
+followLink: https://x.com/JavaScripterrr
 ---
 ![](/public/images/blogs/e81.png)
 
@@ -97,7 +97,7 @@ Now I hope you have understood how sync and async works in NodeJs
 
 ### setTimeout in Node.js
 
-Remember this: I often ask this question in interviews about the order of `setTimeout`, even if it has 0 milliseconds. Just keep in mind, no matter if it's set to 0 milliseconds or 10 seconds, it won’t run immediately. `setTimeout` will be handled by libUV and will only execute after the main thread has finished everything. It doesn’t block the main thread. I am putting one JS question here, because I think you know  JS which runs on web thats why you are here,  read below snippets and guess the output send me Yes  [here](https://x.com/YourVueJS)  if you have guessed it correct . 
+Remember this: I often ask this question in interviews about the order of `setTimeout`, even if it has 0 milliseconds. Just keep in mind, no matter if it's set to 0 milliseconds or 10 seconds, it won’t run immediately. `setTimeout` will be handled by libUV and will only execute after the main thread has finished everything. It doesn’t block the main thread. I am putting one JS question here, because I think you know  JS which runs on web thats why you are here,  read below snippets and guess the output send me Yes  [here](https://x.com/JavaScripterrr)  if you have guessed it correct . 
 
 ![image.png](/public/images/blogs/e83.png)
 

@@ -41,7 +41,7 @@ Feel free to explore the website [heyashu.in](https://heyashu.in) for more insig
 ## Connect with Me
 
 - [LinkedIn](https://www.linkedin.com/in/ashutoshanandtiwari/)
-- [Twitter](https://x.com/YourVueJS)
+- [Twitter](https://x.com/JavaScripterrr)
 - [GitHub](https://github.com/ashumsd7)
 
 Looking forward to your contributions and collaborations!

@@ -40,7 +40,7 @@ function ProfilePicture() {
         />
         <AiOutlineTwitter
           onClick={() => {
-            window.open("https://twitter.com/YourVueJS", "_blank");
+            window.open("https://twitter.com/JavaScripterrr", "_blank");
           }}
           className="text-xl cursor-pointer"
         />

@@ -7,7 +7,7 @@ updatedOn: 09-08-2024
 tags: js-engine, nodejs, javascript
 author: Ashutosh Anand Tiwari
 profilePic: /public/images/blogs/pfp2.png
-followLink: https://x.com/YourVueJS
+followLink: https://x.com/JavaScripterrr
 ---
 
 

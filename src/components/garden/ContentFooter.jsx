@@ -38,7 +38,7 @@ const ContentFooter = ({
           <div className="flex flex-col gap-2">
             <div className="flex  space-x-4 justify-center md:justify-start ">
               <a
-                href="https://twitter.com/yourvuejs"
+                href="https://twitter.com/JavaScripterrr"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-500 hover:text-blue-700"
