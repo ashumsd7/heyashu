@@ -108,7 +108,7 @@ Gvanks`,
       {/* Animated Background */}
       <div className="fixed inset-0 z-0 opacity-10 overflow-hidden">
         <div className="absolute w-64 md:w-96 h-64 md:h-96 bg-green-400 rounded-full blur-3xl -top-20 -left-20 animate-blob"></div>
-        <div className="absolute w-64 md:w-96 h-64 md:h-96 bg-blue-400 rounded-full blur-3xl top-1/2 right-20 animate-blob animation-delay-2000"></div>
+        <div className="absolute w-64 md:w-96 h-64 md:h-96 bg-blue-400 rounded-full blur-3xl top-1/2 right-20 animate-blob animation-delay-2860"></div>
         <div className="absolute w-64 md:w-96 h-64 md:h-96 bg-purple-400 rounded-full blur-3xl bottom-20 left-1/2 animate-blob animation-delay-4000"></div>
       </div>
 
@@ -236,73 +236,91 @@ Gvanks`,
         viewport={{ once: true }}
         className="pb-12 pt-6 md:py-16 bg-gradient-to-b from-green-50/50 to-blue-50/50 backdrop-blur-lg"
       >
-        <div className="max-w-6xl mx-auto ">
+        <div className="max-w-6xl mx-auto overflow-hidden">
           <h2 className="text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-center bg-gradient-to-r from-green-600 to-blue-600 text-transparent bg-clip-text">
             What Others Say
           </h2>
           <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8"
+            className="flex gap-6 md:gap-8"
+            animate={{
+              x: [0, -3000], // Increased animation distance to show more cards
+            }}
+            transition={{
+              x: {
+                duration: 120, // Increased duration to match longer distance
+                repeat: Infinity,
+                ease: "linear",
+                repeatType: "loop"
+              },
+            }}
+            style={{
+              width: "max-content", // Allow container to grow with content
+              maskImage: "linear-gradient(to right, transparent, black 5%, black 95%, transparent)",
+              WebkitMaskImage: "linear-gradient(to right, transparent, black 5%, black 95%, transparent)"
+            }}
           >
-            {testimonials2.map((testimonial, index) => (
+            {[...testimonials2, ...testimonials2, ...testimonials2].map((testimonial, index) => ( // Triple the cards for smoother loop
               <motion.div
                 key={index}
-                variants={itemVariants}
-                whileHover={{ y: -5 }}
-                className="bg-white/80 backdrop-blur-lg p-4 md:p-6 rounded-xl shadow-lg hover:shadow-xl transition-all flex flex-col items-center md:items-start text-center md:text-left"
+                className="flex-shrink-0 w-[300px] md:w-[350px] bg-white/80 backdrop-blur-lg p-4 md:p-6 rounded-xl shadow-lg transition-all"
+                whileHover={{ 
+                  scale: 1.02,
+                  transition: { duration: 0.2 }
+                }}
               >
-                <img
-                  src={testimonial.avatar}
-                  alt={testimonial.name}
-                  className="w-12 h-12 md:w-16 md:h-16 rounded-full mb-4 border-2 border-green-200"
-                />
-                <p className="text-sm md:text-base text-gray-600 mb-4 italic">
-                  "
-                  {testimonial.comment.length > 150
-                    ? testimonial.comment.substring(0, 150) + "..."
-                    : testimonial.comment}
-                  "
-                  {testimonial.comment.length > 150 && (
-                    <span
-                      onClick={() => {
-                        router.push(
-                          "/digital-garden/testimonials/" +
-                            generateSlug(testimonial.name)
-                        );
-                      }}
-                      className="text-green-600 hover:underline cursor-pointer ml-1"
+                <div className="flex items-center gap-4 mb-4">
+                  <img
+                    src={testimonial.avatar}
+                    alt={testimonial.name}
+                    className="w-12 h-12 md:w-16 md:h-16 rounded-full border-2 border-green-286"
+                  />
+                  <div>
+                    <h4
+                      onClick={() => window.open(testimonial.link, "_blank")}
+                      className="font-medium text-green-700 text-sm md:text-base cursor-pointer hover:underline"
                     >
-                      read more
-                    </span>
-                  )}
-                </p>
-                <h4
-                  onClick={() => window.open(testimonial.link, "_blank")}
-                  className="font-medium text-green-700 text-sm md:text-base cursor-pointer hover:underline"
-                >
-                  {testimonial.name}
-                </h4>
-                <p className="text-xs md:text-sm text-gray-500">
-                  {testimonial.role}
-                </p>
+                      {testimonial.name}
+                    </h4>
+                    <p className="text-xs md:text-sm text-gray-500">
+                      {testimonial.role}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="relative">
+                  <p className="text-sm md:text-base text-gray-600 italic">
+                    "{testimonial.comment.length > 286
+                      ? testimonial.comment.substring(0, 286) + "..."
+                      : testimonial.comment}"
+                    {testimonial.comment.length > 286 && (
+                      <span
+                        onClick={() => {
+                          router.push(
+                            "/digital-garden/testimonials/" +
+                              generateSlug(testimonial.name)
+                          );
+                        }}
+                        className="text-green-600 hover:underline cursor-pointer ml-1"
+                      >
+                        read more
+                      </span>
+                    )}
+                  </p>
+                </div>
               </motion.div>
             ))}
-            <motion.div
-              variants={itemVariants}
-              whileHover={{ y: -5 }}
-              className="bg-white/80 backdrop-blur-lg p-4 md:p-6 rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center"
-            >
-              <button
-                onClick={() => window.open(ADMIN_LINK, "_blank")}
-                className="text-green-600 font-medium hover:underline text-lg"
-              >
-                + Drop Feedback
-              </button>
-            </motion.div>
           </motion.div>
+
+          <div className="mt-8 text-center">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => window.open(ADMIN_LINK, "_blank")}
+              className="bg-green-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-green-700 transition-colors"
+            >
+              + Drop Your Feedback
+            </motion.button>
+          </div>
         </div>
       </motion.section>
 
