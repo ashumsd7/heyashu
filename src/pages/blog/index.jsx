@@ -21,6 +21,7 @@ export async function getStaticProps() {
     experience: path.join(process.cwd(), "src/content/experience"),
     jsSnippets: path.join(process.cwd(), "src/content/js-snippets"),
     nodejsProcodrr: path.join(process.cwd(), "src/content/node-js-procodrr"),
+    fsd: path.join(process.cwd(), "src/content/front-end-design-system"),
     nodejsS1AkshaySaini: path.join(
       process.cwd(),
       "src/content/notes-namaste-node-js"
@@ -98,6 +99,8 @@ function BlogsPage({ posts }) {
     });
   }, [posts, searchTerm, selectedCategory]);
 
+
+  console.log("filteredPosts",  filteredPosts);
   return (
     <div className="min-h-screen bg-gradient-to-b from-green-50 via-white to-white mx-auto">
       <CommonHeadTags
@@ -213,7 +216,7 @@ function BlogsPage({ posts }) {
             <div className="text-center py-16">
               <PiBookOpenTextLight className="mx-auto text-5xl text-gray-400 mb-4" />
               <p className="text-gray-600 text-lg font-medium">
-                No pants found please plant one
+                No plants found please plant one
               </p>
             </div>
           )}

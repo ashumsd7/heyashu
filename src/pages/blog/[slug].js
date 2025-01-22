@@ -18,6 +18,7 @@ const contentFolders = [
   "src/content/node-js-procodrr",
   "src/content/notes-namaste-node-js",
   "src/content/stories",
+  "src/content/front-end-design-system",
 ];
 
 export async function getStaticProps({ params }) {
@@ -92,7 +93,7 @@ export default function BlogPost({ frontMatter, mdxSource, large = false }) {
 
   return (
     <>
-      <CommonSlugHeadTags image="https://i.ibb.co/PN5TJFF/blogs-logo.jpg" frontMatter={frontMatter}  url = "https://www.heyashu.com/blog" />
+      <CommonSlugHeadTags image={frontMatter?.thumbnail} frontMatter={frontMatter}  url = "https://www.heyashu.com/blog" />
 
       <div
         className={`flex flex-col gap-2  max-w-screen-[1000px] m-auto ${

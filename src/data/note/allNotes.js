@@ -25,7 +25,7 @@ export const NOTES_CARD_DATA = [
     isComingSoon: false,
     tags: [BACKEND, NODEJS, AKSHAY_SAINI],
     githubLink: "#",
-    route: "/digital-garden/notes/namaste-node-js",
+    route: "/digital-garden/notes/namaste-node-js/prerequisite",
     shortDesc: ` Get the best-explained notes for each chapter of the Namaste Node.js
             course by Akshay Saini. These notes are written by Ashutosh and can
             be edited on GitHub.`,
@@ -42,7 +42,7 @@ export const NOTES_CARD_DATA = [
     isComingSoon: false,
     tags: [FRONTEND, NEWBIE, "WEB"],
     githubLink: "#",
-    route: "/digital-garden/notes/front-end-design-system",
+    route: "/digital-garden/notes/front-end-design-system/how-the-web-works",
     shortDesc: ` Dive into our digital garden for 100+ JavaScript code snippets—perfect for interview prep or brushing up on your skills!  🚀`,
   },
 
@@ -60,7 +60,7 @@ export const NOTES_CARD_DATA = [
     isComingSoon: false,
     tags: ["nodejs", "procdrr", NEWBIE, "hindi"],
     githubLink: "#",
-    route: "/digital-garden/notes/backend-with-nodejs-by-procoderr-notes",
+    route: "/digital-garden/notes/backend-with-nodejs-by-procoderr-notes/e1-welcome",
     shortDesc: ` ( HINDI | HINGLISH) Get the best-explained notes for each chapter of the Procdrr Node.js course by Anurag Singh.`,
   },
   {
@@ -75,7 +75,7 @@ export const NOTES_CARD_DATA = [
     isComingSoon: false,
     tags: [FRONTEND, NEWBIE, JAVASCRIPT],
     githubLink: "#",
-    route: "/digital-garden/notes/javascript-snippets",
+    route: "/digital-garden/notes/javascript-snippets/data-types-in-javascript",
     shortDesc: ` Dive into our digital garden for 100+ JavaScript code snippets—perfect for interview prep or brushing up on your skills!  🚀`,
   },
 
@@ -107,7 +107,7 @@ export const NOTES_CARD_DATA = [
     isComingSoon: false,
     tags: [FRONTEND, "book", "js-basics"],
     githubLink: "#",
-    route: "/digital-garden/notes/ydkjs",
+    route: "/digital-garden/notes/ydkjs/e1-into-programming",
   },
   // {
   //   title: 'You Don`t know JS: this & Object',

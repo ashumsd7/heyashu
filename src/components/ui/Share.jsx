@@ -17,7 +17,7 @@ function Share({ title }) {
       >
         <div className="flex gap-2 justify-center items-center">
         <FiShare2
-          className="text-xl text-gray-600 font-extrabold cursor-pointer"
+          className="text-xl text-white font-extrabold cursor-pointer"
           title="Share this article"
         />
         </div>

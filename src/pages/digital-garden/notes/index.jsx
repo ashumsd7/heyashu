@@ -30,7 +30,7 @@ function AllNotesPage() {
             <div className="flex items-center justify-between mb-6">
               <h1 className="text-3xl font-bold text-green-700 flex items-center gap-3">
                 <FaLeaf className="text-2xl" />
-                Digital Garden Notes
+                Digital Notes  <span className="animate-pulse hover:animate-none">💚</span>
               </h1>
               <button
                 onClick={() => window.open(ADMIN_LINK, "_blank")}
@@ -43,7 +43,7 @@ function AllNotesPage() {
               </button>
             </div>
             <p className="text-gray-600 text-lg">
-              Welcome to my digital garden! Here you'll find my growing collection of notes, thoughts, and learnings on various technical topics.
+              Welcome to your digital notes! I've curated learning materials from many courses by our beloved teachers. I'm continuously learning and writing daily to benefit other students and engineers. Let's read, write, share and improve together by building core knowledge. Join me on this learning journey!
             </p>
           </div>
 

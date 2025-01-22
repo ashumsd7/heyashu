@@ -95,11 +95,11 @@ const NotesMainPage = ({
 
   // format publish date
   const formattedDate = formateDate(currentPageFrontMatter?.publishedOn);
-
+ console.log('currentPageFrontMatter',currentPageFrontMatter)
   return (
     <>
   
-      <CommonSlugHeadTags frontMatter={currentPageFrontMatter} image={shareImageEmbed} />
+      <CommonSlugHeadTags frontMatter={currentPageFrontMatter} image={currentPageFrontMatter?.thumbnail} />
 
       <div className="max-w-screen-xl relative ">
         <NotesChips

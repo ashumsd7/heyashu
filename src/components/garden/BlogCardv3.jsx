@@ -16,9 +16,10 @@ function BlogCardv3({ data, subPath = "/digital-garden/blog/" }) {
     profilePic = DEFAULT_AVATAR,
     thumbnail = "https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=2070&auto=format&fit=crop",
     followLink = DEFAULT_FOLLOW_LINK,
+    updatedOn
   } = data;
 
-  const formattedDate = formateDate(writtenOn);
+  const formattedDate = formateDate(updatedOn);
   const tagList = tags ? tags.split(",").map(tag => tag.trim()) : [];
   const changeFilePath = (filePath) => filePath.replace("/public", "");
 
