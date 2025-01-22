@@ -2,7 +2,10 @@ import ProgressBar from "@/components/base/ProgressBar";
 import ls from "local-storage";
 import { useState } from "react";
 import { Scrollbars } from "react-custom-scrollbars-2";
-import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import { FaChevronDown } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
+import { IoIosCheckmarkCircle } from "react-icons/io";
+
 const NotesSidebar = ({
   onSectionClick,
   contentListTitle = "Namaste Node JS S1",
@@ -16,148 +19,184 @@ const NotesSidebar = ({
   selectedSection,
   show2ndSection,
 }) => {
-  console.log("season2Data",season2Data);
   const [isSec1Visible, setIsSec1Visible] = useState(true);
   const [isSec2Visible, setIsSec2Visible] = useState(show2ndSection);
+
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0, x: -20 }}
+      animate={{ opacity: 1, x: 0 }}
+      className="bg-[#f8f9fa] w-[300px] rounded-lg shadow-sm border border-gray-200"
+    >
       <SectionHeader
         isSec1Visible={isSec1Visible}
         setIsSec1Visible={setIsSec1Visible}
         contentListTitle={contentListTitle}
       />
-      {isSec1Visible && (
-        <div className="space-y-4  overflow-y-auto mb-[300px] min-h-[500px] h-full p-4">
-          <>
-            <div className="flex flex-col gap-2 justify-between items-center ">
-              {/* <p className=" font-mono text-gray-600 ">{contentListTitle}</p> */}
-              {showProgress && <ProgressBar percentage={progress} />}
-            </div>
+      
+      <AnimatePresence>
+        {isSec1Visible && (
+          <motion.div
+            initial={{ height: 0 }}
+            animate={{ height: "auto" }}
+            exit={{ height: 0 }}
+            transition={{ duration: 0.2 }}
+            className="overflow-hidden"
+          >
+            <Scrollbars style={{ height: "calc(100vh - 250px)" }}>
+              <div className="space-y-1 p-2">
+                {showProgress && (
+                  <div className="mb-3 px-2">
+                    <ProgressBar percentage={progress} />
+                  </div>
+                )}
 
-            {data?.map((item, idx) => {
-              return (
-                <ListContent
-                  item={item}
-                  idx={idx}
-                  storedValues={storedValues}
-                  onSectionClick={onSectionClick}
-                  selectedSection={selectedSection}
-                  eachCardPrefix={eachCardPrefix}
-                />
-              );
-            })}
-          </>
-        </div>
-      )}
-      <hr />
-      {show2ndSection && <SectionHeader
-        isSec1Visible={isSec2Visible}
-        setIsSec1Visible={setIsSec2Visible}
-        contentListTitle={contentListTitle2}
-      />}
-      {isSec2Visible && (
-        <div className="space-y-4  overflow-y-auto mb-[200px] min-h-[500px] h-full p-4">
-          <>
-            {season2Data?.length == 0 && <span>Coming Soon</span>}
-            <div className="flex flex-col gap-2 justify-between items-center ">
-              {/* <p className=" font-mono text-gray-600 ">{contentListTitle}</p> */}
-              {showProgress && <ProgressBar percentage={progress} />}
-            </div>
+                {data?.map((item, idx) => (
+                  <ListContent
+                    key={idx}
+                    item={item}
+                    storedValues={storedValues}
+                    onSectionClick={onSectionClick}
+                    selectedSection={selectedSection}
+                    eachCardPrefix={eachCardPrefix}
+                  />
+                ))}
+              </div>
+            </Scrollbars>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-            {season2Data?.map((item, idx) => {
-              return (
-                <ListContent
-                  item={item}
-                  idx={idx}
-                  storedValues={storedValues}
-                  onSectionClick={onSectionClick}
-                  selectedSection={selectedSection}
-                  eachCardPrefix={eachCardPrefix}
-                />
-              );
-            })}
-          </>
-        </div>
+      {show2ndSection && (
+        <>
+          <hr className="border-gray-200" />
+          <SectionHeader
+            isSec1Visible={isSec2Visible}
+            setIsSec1Visible={setIsSec2Visible}
+            contentListTitle={contentListTitle2}
+          />
+          
+          <AnimatePresence>
+            {isSec2Visible && (
+              <motion.div
+                initial={{ height: 0 }}
+                animate={{ height: "auto" }}
+                exit={{ height: 0 }}
+                transition={{ duration: 0.2 }}
+                className="overflow-hidden"
+              >
+                <Scrollbars style={{ height: "calc(100vh - 250px)" }}>
+                  <div className="space-y-1 p-2">
+                    {season2Data?.length === 0 ? (
+                      <div className="text-center text-gray-500 italic py-4">
+                        Coming Soon
+                      </div>
+                    ) : (
+                      <>
+                        {showProgress && (
+                          <div className="mb-3 px-2">
+                            <ProgressBar percentage={progress} />
+                          </div>
+                        )}
+                        {season2Data?.map((item, idx) => (
+                          <ListContent
+                            key={idx}
+                            item={item}
+                            storedValues={storedValues}
+                            onSectionClick={onSectionClick}
+                            selectedSection={selectedSection}
+                            eachCardPrefix={eachCardPrefix}
+                          />
+                        ))}
+                      </>
+                    )}
+                  </div>
+                </Scrollbars>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </>
       )}
-    </>
+    </motion.div>
   );
 };
 
-export default NotesSidebar;
-
-const SectionHeader = ({
-  isSec1Visible,
-  setIsSec1Visible,
-  contentListTitle,
-}) => {
-  return (
-    <div
-      className="flex justify-between  mb-1 items-center  rounded-xl px-4 cursor-pointer"
-      onClick={() => {
-        setIsSec1Visible(!isSec1Visible);
-      }}
+const SectionHeader = ({ isSec1Visible, setIsSec1Visible, contentListTitle }) => (
+  <motion.div
+    whileTap={{ scale: 0.99 }}
+    className="flex justify-between items-center p-3 cursor-pointer bg-white border-b border-gray-100"
+    onClick={() => setIsSec1Visible(!isSec1Visible)}
+  >
+    <h2 className="text-lg font-bold text-gray-700 truncate">
+      {contentListTitle}
+    </h2>
+    <motion.div
+      animate={{ rotate: isSec1Visible ? 180 : 0 }}
+      transition={{ duration: 0.2 }}
     >
-      {" "}
-      <h2 className="text-xl   w-[270px] font-extrabold font-sans mt-4 text-gray-800   truncate max-w-[300px] text-center  md:text-left ">
-        {contentListTitle}
-      </h2>
-      {!isSec1Visible ? (
-        <FaChevronDown className="mt-3 text-gray-800" />
-      ) : (
-        <FaChevronUp className="mt-3 text-gray-800" />
-      )}
-    </div>
-  );
-};
+      <FaChevronDown className="text-gray-500 text-sm" />
+    </motion.div>
+  </motion.div>
+);
 
 const ListContent = ({
   item,
-  idx,
   storedValues,
   onSectionClick,
   selectedSection,
   eachCardPrefix,
-}) => {
-  return (
-  <>
-  {/* <div className="h-[100vh] w-[100vw] bg-gray-500 absolute top-[-200px] left- z-[19] opacity-5">ss</div> */}
-      <div
-      key={idx}
-      className={`cursor-pointer border-b text-[14px] hover:bg-[#f1b565] border-b-gray-300 p-1 w-[270px] z-[20] bg-[#f6f5f1]    rounded-sm relative  ${
+}) => (
+  <motion.div
+    whileHover={{ x: 2 }}
+    whileTap={{ scale: 0.99 }}
+    className={`
+      relative cursor-pointer p-2.5 rounded-md text-sm
+      transition-all duration-150 ease-in-out
+      ${
         storedValues && storedValues[item?.name]
-          ? "border-0 border-l-8 border-green-500 bg-gradient-to-r from-gray-100 to-[#f6f5f1] "
-          : "border-0 border-l-8 border-gray-500 "
-      } ${
-        selectedSection?.title == item?.title &&
-        "  font-bold from-gray-300 to-[#f6f5f1] "
-      } ${!item?.publishedOn && "cursor-none pointer-events-none  opacity-40"}`}
-      onClick={() => onSectionClick(item)}
-    >
-      {item.episode == -1 ? (
-        <h3 className=" -ml-0 flex items-center  gap-2 pl-3">Prerequisite</h3>
+          ? "bg-white border-l-2 border-blue-400"
+          : "hover:bg-white border-l-2 border-transparent"
+      }
+      ${
+        selectedSection?.title === item?.title &&
+        "bg-blue-50 border-l-2 border-blue-500 font-medium"
+      }
+      ${!item?.publishedOn && "opacity-40 cursor-not-allowed"}
+    `}
+    onClick={() => item?.publishedOn && onSectionClick(item)}
+  >
+    <div className="flex items-center gap-2">
+      {item.episode === -1 ? (
+        <span className="font-medium">Prerequisite</span>
       ) : (
-        <h3 className=" flex items-center gap-2 pl-3">
-          {!eachCardPrefix ? (
-            <>
-              <p className=" pl-3 truncate font-medium">{item?.name} </p>
-            </>
-          ) : (
-            <>
+        <div className="flex items-center gap-2">
+          {eachCardPrefix && (
+            <span className="text-xs font-medium text-gray-600">
               {eachCardPrefix}
               {item.episode}
-            </>
+            </span>
           )}
-        </h3>
-      )}
-      {eachCardPrefix && (
-        <p className=" pl-3 truncate  font-medium">{item?.name}</p>
+          <span className="truncate font-medium text-gray-700">
+            {!eachCardPrefix && item?.name}
+          </span>
+        </div>
       )}
     </div>
-  </>
-  );
-};
-// Tick mark code
+    
+    {eachCardPrefix && (
+      <p className="pl-3 truncate text-xs mt-1 text-gray-600">{item?.name}</p>
+    )}
 
-// {storedValues && storedValues[item?.name] && (
-//   <IoIosCheckmarkCircle className="text-green-500  absolute top-[22px] right-[6px]" />
-// )}{" "}
+    {storedValues && storedValues[item?.name] && (
+      <motion.div
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        className="absolute top-2 right-2"
+      >
+        <IoIosCheckmarkCircle className="text-blue-400 text-lg" />
+      </motion.div>
+    )}
+  </motion.div>
+);
+
+export default NotesSidebar;

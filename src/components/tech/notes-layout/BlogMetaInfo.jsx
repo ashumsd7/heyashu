@@ -1,24 +1,23 @@
 import React from "react";
-import { FaGithub, FaRegHeart } from "react-icons/fa";
+import { FaGithub, FaChevronDown } from "react-icons/fa";
 import { FaBookOpen } from "react-icons/fa";
-import dynamic from "next/dynamic";
-import Switch from "@/components/base/Switch";
+import { motion } from "framer-motion";
 import {
   ADMIN_LINK,
   DEFAULT_FOLLOW_LINK,
   GITHUB_REPO_LINK,
 } from "@/utils/constant";
+import dynamic from "next/dynamic";
 import { ensureHttps, removePublicFromPath } from "@/utils/functions";
 import { MdEdit } from "react-icons/md";
 import { LiaSeedlingSolid } from "react-icons/lia";
 import { FaCircleInfo, FaHandsClapping } from "react-icons/fa6";
 import Button from "@/components/base/Button";
-import { BsInfoLg } from "react-icons/bs";
 import { useRouter } from "next/router";
-// import axios from "axios";
+import { IoIosCheckmarkCircle } from "react-icons/io";
 const Share = dynamic(() => import("@/components/ui/Share"), { ssr: false });
 const BlogMetaInfo = ({ data }) => {
-  const router= useRouter()
+  const router = useRouter();
   const {
     name = "Anonymous Gardener",
     timeRead = "0",
@@ -26,124 +25,181 @@ const BlogMetaInfo = ({ data }) => {
     publishedOn = "-",
     followLink = DEFAULT_FOLLOW_LINK,
     showControls = true,
-    isQuicReadSettingOn = false,
-    profilePic = "https://avatars.githubusercontent.com/u/40313523?v=4",
     title = "",
+    profilePic = "https://avatars.githubusercontent.com/u/40313523?v=4",
     githubLink = GITHUB_REPO_LINK,
-    isQuickReadModeOn,
-    setIsQuickReadModeOn,
     isAnalysisPageOn,
   } = data;
 
   return (
-    <>
-      <div className="flex items-center justify-between    py-4   ">
-        <div className="flex items-center gap-1 flex-wrap">
+    <div className="bg-transparent rounded-lg shadow-sm">
+      {/* Author Info Section */}
+      <div className="flex items-center justify-between p-6 border-b border-gray-100">
+        <div className="flex items-center gap-4">
           {!profilePic ? (
-            <div className="w-10 h-10 bg-purple-600  text-white flex items-center justify-center rounded-full">
+            <div className="w-12 h-12 bg-gradient-to-br from-purple-600 to-purple-700 text-white flex items-center justify-center rounded-full text-lg font-medium shadow-sm">
               {name.charAt(0)}
             </div>
           ) : (
             <img
-              alt="blogger-profile-picture"
+              alt={`${name}'s profile picture`}
               src={removePublicFromPath(profilePic)}
-              className="w-12 h-12 border-4 border-gray-300  object-cover flex items-center justify-center rounded-full"
+              className="w-12 h-12 rounded-full object-cover ring-2 ring-gray-100 shadow-sm"
             />
           )}
-          <div className="ml-3 flex flex-col gap-1 ">
-            <div className="flex items-center space-x-2 flex-wrap">
-              <span className="font-semibold text-sm mr-2">{name}</span>
+          
+          <div className="flex flex-col gap-2">
+            <div className="flex items-center gap-3">
+              <span className="font-semibold text-gray-800">{name}</span>
               <a
                 href={ensureHttps(followLink)}
                 target="_blank"
-                className="text-green-600 font-semibold cursor-pointer"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 px-3 py-1 text-sm font-medium text-green-600 hover:text-green-700 bg-green-50 hover:bg-green-100 rounded-full transition-colors duration-200"
               >
+                <FaHandsClapping className="text-xs" />
                 Follow
               </a>
             </div>
+            
             {(timeRead || lastUpdated) && (
-              <div className="text-gray-500 text-sm flex items-center gap-2 flex-wrap">
-                <FaBookOpen
-                  title={`It will take ${timeRead} min to read this article.`}
-                />{" "}
-                {timeRead} min read <LiaSeedlingSolid title="Seeded on" />{" "}
-                {publishedOn}
+              <div className="text-gray-500 text-sm flex items-center gap-4">
+                <span className="flex items-center gap-1.5">
+                  <FaBookOpen className="text-gray-400" />
+                  {timeRead} min read
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <LiaSeedlingSolid className="text-gray-400" />
+                  Published: {publishedOn}
+                </span>
               </div>
             )}
           </div>
         </div>
       </div>
-
-      <div className="flex  h-[40px]  border-b border-t px-2">
-        {showControls && (
-          <div className="flex items-center space-x-2 flex-wrap justify-between w-full">
-            {isAnalysisPageOn?.isAnalysisPageOn ? (
-              <div
-                onClick={() => {
-                  router.push(isAnalysisPageOn?.isAnalysisPageOn);
-                }}
-                className="flex items-center justify-center  cursor-pointer gap-[3px] px-2 rounded-md "
+ {/* {isAnalysisPageOn?.isAnalysisPageOn && (
+              <Button
+                onClick={() => router.push(isAnalysisPageOn?.isAnalysisPageOn)}
+                className="flex items-center gap-1.5 text-sm bg-blue-50 text-blue-600 hover:bg-blue-100 px-3 py-1.5 rounded-md transition-colors"
               >
-                <FaCircleInfo className="text-xs mt-1 " title="see analysis" /> <span className="text-xs">see analysis</span>
-              </div>
-            ) : <span></span>}
-            <div className="flex gap-1">
-              {/* Heart Icon */}
-              {/* <div className="flex items-center text-gray-600">
-              <FaRegHeart />
-            </div> */}
+                <FaCircleInfo className="text-xs" />
+                <span>Analysis</span>
+              </Button>
+            )} */}
+      {/* Controls Section */}
+      {showControls && (
+        <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50">
+          <div className="flex items-center gap-1.5 bg-gray-900/95 border border-gray-700 p-1.5 rounded-lg shadow-lg backdrop-blur">
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={() => window.open(ADMIN_LINK, "_blank")}
+              className="flex items-center gap-1 text-sm text-gray-200 hover:text-white px-2.5 py-1 rounded-md hover:bg-gray-800/80 transition-colors"
+            >
+              <MdEdit className="text-sm" />
+              <span>Edit</span>
+            </motion.button>
 
-              <div
-                onClick={() => {
-                  window.open(ADMIN_LINK, "_blank");
-                }}
-                className="flex items-center justify-center  cursor-pointer gap-[1px]  text-black px-2 rounded-md "
-              >
-                <MdEdit className="text-xs " title="Edit this page" />
-                <span className=" cursor-pointer text-sm">Edit this page</span>
-              </div>
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={() => window.open(githubLink, "_blank")}
+              className="flex items-center gap-1 text-sm text-gray-200 hover:text-white px-2.5 py-1 rounded-md hover:bg-gray-800/80 transition-colors"
+            >
+              <FaGithub className="text-sm" />
+              <span>Star</span>
+            </motion.button>
 
-              <div className="flex items-center  justify-center   cursor-pointer gap-[2px] flex-col text-green-600  px-2 rounded-md ">
-                <FaRegHeart
-                  onClick={() => {
-                    window.open(githubLink, "_blank");
-                  }}
-                  className=" "
-                  title="⭐Star the repo"
-                />
-              </div>
-              {/* Clap Icon */}
-              {/* <div className="flex items-center text-gray-600">
-              <FaHandsClapping />
-            </div> */}
-              {/* Share Icon */}
-              {/* <div className="flex items-center text-gray-600">
-              <HiOutlineSpeakerWave />
-            </div> */}
-              {/* Three Dots Icon */}
-              {/* <div className="flex items-center text-gray-600">
-              <IoMdDownload />
-            </div> */}
-              {isQuicReadSettingOn && (
-                <div className="flex items-center text-gray-600">
-                  <Switch
-                    isOn={isQuickReadModeOn}
-                    handleToggle={() => {
-                      setIsQuickReadModeOn(!isQuickReadModeOn);
-                    }}
-                  />
-                </div>
-              )}
-              {/* <div className="flex items-center text-gray-600">
-              <BsThreeDotsVertical />
-            </div> */}
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="rounded-md hover:bg-gray-800/80"
+            >
               <Share title={title} />
-            </div>
+            </motion.div>
           </div>
-        )}
-      </div>
-    </>
+        </div>
+      )}
+    </div>
   );
 };
+
+const SectionHeader = ({ isSec1Visible, setIsSec1Visible, contentListTitle }) => (
+  <motion.div
+    whileTap={{ scale: 0.99 }}
+    className="flex justify-between items-center p-3 cursor-pointer border-b border-gray-100"
+    onClick={() => setIsSec1Visible(!isSec1Visible)}
+  >
+    <h2 className="text-lg font-bold text-gray-700 truncate">
+      {contentListTitle}
+    </h2>
+    <motion.div
+      animate={{ rotate: isSec1Visible ? 180 : 0 }}
+      transition={{ duration: 0.2 }}
+    >
+      <FaChevronDown className="text-gray-500 text-sm" />
+    </motion.div>
+  </motion.div>
+);
+
+const ListContent = ({
+  item,
+  storedValues,
+  onSectionClick,
+  selectedSection,
+  eachCardPrefix,
+}) => (
+  <motion.div
+    whileHover={{ x: 2 }}
+    whileTap={{ scale: 0.99 }}
+    className={`
+      relative cursor-pointer p-2.5 rounded-md text-sm
+      transition-all duration-150 ease-in-out
+      ${
+        storedValues && storedValues[item?.name]
+          ? " border-l-2 border-blue-400"
+          : "hover:bg-white border-l-2 border-transparent"
+      }
+      ${
+        selectedSection?.title === item?.title &&
+        "  border-l-2 border-blue-500 font-medium"
+      }
+      ${!item?.publishedOn && "opacity-40 cursor-not-allowed"}
+    `}
+    onClick={() => item?.publishedOn && onSectionClick(item)}
+  >
+    <div className="flex items-center gap-2">
+      {item.episode === -1 ? (
+        <span className="font-medium">Prerequisite</span>
+      ) : (
+        <div className="flex items-center gap-2">
+          {eachCardPrefix && (
+            <span className="text-xs font-medium text-gray-600">
+              {eachCardPrefix}
+              {item.episode}
+            </span>
+          )}
+          <span className="truncate font-medium text-gray-700">
+            {!eachCardPrefix && item?.name}
+          </span>
+        </div>
+      )}
+    </div>
+    
+    {eachCardPrefix && (
+      <p className="pl-3 truncate text-xs mt-1 text-gray-600">{item?.name}</p>
+    )}
+
+    {storedValues && storedValues[item?.name] && (
+      <motion.div
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        className="absolute top-2 right-2"
+      >
+        <IoIosCheckmarkCircle className="text-blue-400 text-lg" />
+      </motion.div>
+    )}
+  </motion.div>
+);
 
 export default BlogMetaInfo;

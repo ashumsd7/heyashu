@@ -10,59 +10,36 @@ import { ImNewTab } from "react-icons/im";
 function NotesContentTopBar({ isSidebarVisible, setIsSidebarVisible, title }) {
   return (
     <>
-      <div className="  px-2    flex items-center rounded rounded-b-none justify-between  py-1 gap-4 relative flex-wrap-reverse ">
-        <div className="flex gap-2 items-center flex-wrap">
-          <div className=" gap-2 justify-between items-center lg:flex hidden absolute top-0 -left-10 flex-wrap">
-            {!isSidebarVisible ? (
-              <GoSidebarExpand
-                onClick={() => {
-                  setIsSidebarVisible(!isSidebarVisible);
-                }}
-                className="text-2xl text-gray-800 cursor-pointer"
-                title="Toggle Sidebar"
-              />
-            ) : (
-              <GoSidebarCollapse
-                title="Toggle Sidebar"
-                onClick={() => {
-                  setIsSidebarVisible(!isSidebarVisible);
-                }}
-                className="text-2xl text-gray-800  cursor-pointer"
-              />
-            )}
-          </div>
-
-          <h3 className="md:text-4xl text-2xl text-[#08142c] font-extrabold ">
-            {title}
-          </h3>
-        </div>
-
-        {/* <div className="lg:flex hidden gap-6 items-center bg-[#f2f2f2] ">
-        <MdFullscreen className="text-gray-800 text-2xl cursor-pointer font-extrabold" />
-      
-       
-        
-      </div> */}
-        <div
-          onClick={() => {
-            window.open(GITHUB_REPO_LINK, "_blank");
-          }}
-          className="flex items-center justify-center  border-b border-green-500  md:font-extrabold font-light text-green-600 cursor-pointer gap-[2px]  "
+    <div className="flex items-center justify-between px-4 py-3 border-b">
+      <div className="flex items-center gap-4">
+        <button
+          onClick={() => setIsSidebarVisible(!isSidebarVisible)}
+          className="hidden lg:block text-gray-600 hover:text-gray-800 transition-colors"
+          title="Toggle Sidebar"
         >
-          <DiOpensource className="md:text-2xl text-sm " title="Edit this page" />
-          <span className=" cursor-pointer text-lg">Opensource</span>
-          <ImNewTab className='text-xs text-black' />
-        </div>
-        {/* <div className="flex gap-2 items-center">
-        <Switch
-          isOn={isQuickReadModeOn}
-          handleToggle={() => {
-            setIsQuickReadModeOn(!isQuickReadModeOn);
-          }}
-        />
-        <h3 className="text-gray-800 font-semibold">Quick Read</h3>
-      </div> */}
+          {!isSidebarVisible ? (
+            <GoSidebarExpand className="text-xl" />
+          ) : (
+            <GoSidebarCollapse className="text-xl" />
+          )}
+        </button>
+
+        <h1 className="text-2xl md:text-3xl font-bold text-gray-900">
+          {title}
+        </h1>
       </div>
+
+      <a
+        href={GITHUB_REPO_LINK}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-1 text-green-600 hover:text-green-700 transition-colors font-medium"
+      >
+        <DiOpensource className="text-xl" />
+        <span>Open Source</span>
+        <ImNewTab className="text-xs" />
+      </a>
+    </div>
     </>
   );
 }
