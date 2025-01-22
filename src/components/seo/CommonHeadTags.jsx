@@ -2,7 +2,7 @@ import Head from "next/head";
 import React from "react";
 
 function CommonHeadTags({
-  image = "https://i.ibb.co/KLn1GDh/notes-logo.jpg",
+  image = "https://i.ibb.co/zHFrGsK/diginotes-thumb.jpg",
   url = "https://www.heyashu.com/tech/notes", 
   title = "Digital Notes by Ashutosh Anand Tiwari",
   shortDec = "Explore a rich collection of blogs, digital notes, reviews experiences and stories covering JavaScript, Node.js, React, and more.",

@@ -104,7 +104,7 @@ function BlogsPage({ posts }) {
   return (
     <div className="min-h-screen bg-gradient-to-b from-green-50 via-white to-white mx-auto">
       <CommonHeadTags
-        image="https://i.ibb.co/PN5TJFF/blogs-logo.jpg"
+        image="https://i.ibb.co/Cm127c4/blogs-thumb.jpg"
         title="Digital Garden - Blogs | Ashutosh Anand Tiwari"
         url="https://www.heyashu.com/blog"
       />
