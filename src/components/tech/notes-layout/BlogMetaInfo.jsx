@@ -33,94 +33,86 @@ const BlogMetaInfo = ({ data }) => {
 
   return (
     <div className="bg-transparent rounded-lg shadow-sm">
-      {/* Author Info Section */}
-      <div className="flex items-center justify-between p-6 border-b border-gray-100">
-        <div className="flex items-center gap-4">
-          {!profilePic ? (
-            <div className="w-12 h-12 bg-gradient-to-br from-purple-600 to-purple-700 text-white flex items-center justify-center rounded-full text-lg font-medium shadow-sm">
-              {name.charAt(0)}
-            </div>
-          ) : (
-            <img
-              alt={`${name}'s profile picture`}
-              src={removePublicFromPath(profilePic)}
-              className="w-12 h-12 rounded-full object-cover ring-2 ring-gray-100 shadow-sm"
-            />
-          )}
-          
-          <div className="flex flex-col gap-2">
-            <div className="flex items-center gap-3">
-              <span className="font-semibold text-gray-800">{name}</span>
-              <a
-                href={ensureHttps(followLink)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 px-3 py-1 text-sm font-medium text-green-600 hover:text-green-700 bg-green-50 hover:bg-green-100 rounded-full transition-colors duration-200"
-              >
-                <FaHandsClapping className="text-xs" />
-                Follow
-              </a>
-            </div>
-            
-            {(timeRead || lastUpdated) && (
-              <div className="text-gray-500 text-sm flex items-center gap-4">
-                <span className="flex items-center gap-1.5">
-                  <FaBookOpen className="text-gray-400" />
-                  {timeRead} min read
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <LiaSeedlingSolid className="text-gray-400" />
-                  Published: {publishedOn}
-                </span>
-              </div>
-            )}
+    {/* Author Info Section */}
+    <div className="flex items-center justify-between p-4 sm:p-6 border-b border-gray-100 flex-wrap">
+      <div className="flex items-center gap-3 sm:gap-4 w-full">
+        {!profilePic ? (
+          <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-purple-600 to-purple-700 text-white flex items-center justify-center rounded-full text-lg font-medium shadow-sm flex-shrink-0">
+            {name.charAt(0)}
           </div>
+        ) : (
+          <img
+            alt={`${name}'s profile picture`}
+            src={removePublicFromPath(profilePic)}
+            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover ring-2 ring-gray-100 shadow-sm flex-shrink-0"
+          />
+        )}
+        
+        <div className="flex flex-col gap-2 min-w-0">
+          <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
+            <span className="font-semibold text-gray-800 text-sm sm:text-base">{name}</span>
+            <a
+              href={ensureHttps(followLink)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 px-2 sm:px-3 py-1 text-xs sm:text-sm font-medium text-green-600 hover:text-green-700 bg-green-50 hover:bg-green-100 rounded-full transition-colors duration-200"
+            >
+              <FaHandsClapping className="text-xs" />
+              Follow
+            </a>
+          </div>
+          
+          {(timeRead || lastUpdated) && (
+            <div className="text-gray-500 text-xs sm:text-sm flex items-center gap-2 sm:gap-4 flex-wrap">
+              <span className="flex items-center gap-1.5">
+                <FaBookOpen className="text-gray-400" />
+                {timeRead} min read
+              </span>
+              <span className="flex items-center gap-1.5">
+                <LiaSeedlingSolid className="text-gray-400" />
+                Published: {publishedOn}
+              </span>
+            </div>
+          )}
         </div>
       </div>
- {/* {isAnalysisPageOn?.isAnalysisPageOn && (
-              <Button
-                onClick={() => router.push(isAnalysisPageOn?.isAnalysisPageOn)}
-                className="flex items-center gap-1.5 text-sm bg-blue-50 text-blue-600 hover:bg-blue-100 px-3 py-1.5 rounded-md transition-colors"
-              >
-                <FaCircleInfo className="text-xs" />
-                <span>Analysis</span>
-              </Button>
-            )} */}
-      {/* Controls Section */}
-      {showControls && (
-        <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50">
-          <div className="flex items-center gap-1.5 bg-gray-900/95 border border-gray-700 p-1.5 rounded-lg shadow-lg backdrop-blur">
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              onClick={() => window.open(ADMIN_LINK, "_blank")}
-              className="flex items-center gap-1 text-sm text-gray-200 hover:text-white px-2.5 py-1 rounded-md hover:bg-gray-800/80 transition-colors"
-            >
-              <MdEdit className="text-sm" />
-              <span>Edit</span>
-            </motion.button>
-
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              onClick={() => window.open(githubLink, "_blank")}
-              className="flex items-center gap-1 text-sm text-gray-200 hover:text-white px-2.5 py-1 rounded-md hover:bg-gray-800/80 transition-colors"
-            >
-              <FaGithub className="text-sm" />
-              <span>Star</span>
-            </motion.button>
-
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="rounded-md hover:bg-gray-800/80"
-            >
-              <Share title={title} />
-            </motion.div>
-          </div>
-        </div>
-      )}
     </div>
+
+    {/* Controls Section */}
+    {showControls && (
+      <div className="fixed bottom-4 sm:bottom-6 left-1/2 transform -translate-x-1/2 z-50 w-[90%] sm:w-auto">
+        <div className="flex items-center justify-center gap-1 sm:gap-1.5 bg-gray-900/95 border border-gray-700 p-1.5 rounded-lg shadow-lg backdrop-blur w-full sm:w-auto">
+          <motion.button
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            onClick={() => window.open(ADMIN_LINK, "_blank")}
+            className="flex items-center gap-1 text-xs sm:text-sm text-gray-200 hover:text-white px-2 sm:px-2.5 py-1 rounded-md hover:bg-gray-800/80 transition-colors flex-1 sm:flex-initial justify-center"
+          >
+            <MdEdit className="text-sm" />
+            <span>Edit</span>
+          </motion.button>
+
+          <motion.button
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            onClick={() => window.open(githubLink, "_blank")}
+            className="flex items-center gap-1 text-xs sm:text-sm text-gray-200 hover:text-white px-2 sm:px-2.5 py-1 rounded-md hover:bg-gray-800/80 transition-colors flex-1 sm:flex-initial justify-center"
+          >
+            <FaGithub className="text-sm" />
+            <span>Star</span>
+          </motion.button>
+
+          <motion.div
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className="rounded-md hover:bg-gray-800/80 flex-1 sm:flex-initial"
+          >
+            <Share title={title} />
+          </motion.div>
+        </div>
+      </div>
+    )}
+  </div>
   );
 };
 
