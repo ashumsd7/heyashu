@@ -66,7 +66,7 @@ const NotesDetailPage = ({ notes, currentPageMDX, currentPageFrontMatter }) => {
   return (
     <>
       <NotesMainPage
-        shareImageEmbed={"https://i.ibb.co/yqVnGxt/namaste-node-logo.jpg"}
+        shareImageEmbed={"https://i.ibb.co/YX8J4cc/ydkjs-thumnails.jpg"}
         metaInfo={metaTagsForYDKJS}
         pageTitle={PAGE_TITLE}
         contentList={contentList}

@@ -58,6 +58,7 @@ const NotesDetailPageForSnippets = ({
   return (
     <NotesMainPage
       metaInfo={metaTagsForJsSnippets}
+      shareImageEmbed={"https://i.ibb.co/CQx2hh5/JS-SNIPPETS-thumbnails.jpg"}
       pageTitle={PAGE_TITLE}
       contentList={contentList}
       contentListLength={notes?.length}

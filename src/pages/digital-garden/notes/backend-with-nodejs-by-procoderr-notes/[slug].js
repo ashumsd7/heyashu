@@ -50,6 +50,7 @@ const NotesDetailPage = ({ notes, currentPageMDX, currentPageFrontMatter }) => {
   return (
     <NotesMainPage
       metaInfo={metaTagsForProcoderrNodejs}
+      shareImageEmbed={"https://i.ibb.co/YfXTkhk/procoderr-thumbnails.jpg"}
       pageTitle={PAGE_TITLE}
       contentList={contentList}
       contentListLength={notes?.length}

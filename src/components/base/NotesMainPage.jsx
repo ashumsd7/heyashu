@@ -99,7 +99,7 @@ const NotesMainPage = ({
   return (
     <>
   
-      <CommonSlugHeadTags frontMatter={currentPageFrontMatter} image={currentPageFrontMatter?.thumbnail} />
+      <CommonSlugHeadTags frontMatter={currentPageFrontMatter} image={shareImageEmbed} />
 
       <div className="max-w-screen-xl relative ">
         <NotesChips

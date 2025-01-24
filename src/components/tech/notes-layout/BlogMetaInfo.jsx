@@ -12,7 +12,7 @@ import { ensureHttps, removePublicFromPath } from "@/utils/functions";
 import { MdEdit } from "react-icons/md";
 import { LiaSeedlingSolid } from "react-icons/lia";
 import { FaCircleInfo, FaHandsClapping } from "react-icons/fa6";
-import Button from "@/components/base/Button";
+8
 import { useRouter } from "next/router";
 import { IoIosCheckmarkCircle } from "react-icons/io";
 const Share = dynamic(() => import("@/components/ui/Share"), { ssr: false });
