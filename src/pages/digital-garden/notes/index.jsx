@@ -26,15 +26,15 @@ function AllNotesPage() {
       <div className="min-h-screen bg-gradient-to-br from-green-50/50 via-white to-green-50/30">
         <div className="container mx-auto px-4 py-12">
           {/* Minimal Top Bar */}
-          <div className="flex flex-col mb-8">
-            <div className="flex items-center justify-between mb-6">
+          <div className="flex flex-col mb-8 flex-wrap">
+            <div className="flex items-center justify-between mb-6 flex-wrap gap-6">
               <h1 className="text-3xl font-bold text-green-700 flex items-center gap-3">
                 <FaLeaf className="text-2xl" />
                 Digital Notes  <span className="animate-pulse hover:animate-none">💚</span>
               </h1>
               <button
                 onClick={() => window.open(ADMIN_LINK, "_blank")}
-                className="group flex items-center gap-2 px-4 py-2 
+                className="group flex items-center gap-2 px-4 py-2  
                 bg-green-600/10 hover:bg-green-600/20 text-green-700 rounded-full 
                 transition-all duration-300"
               >
