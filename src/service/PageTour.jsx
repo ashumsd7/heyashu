@@ -45,7 +45,7 @@ function PageTour() {
       description: ` Hi there! I’m Ashutosh Anand Tiwari. Let me guide you through my website where I share my journey, experiences, and knowledge. Let’s explore together!`,
       title: "Welcome to My Digital Space! 🎉",
       isFirst: true,
-      img: "https://i.ibb.co/ZYztpgb/welcome.png",
+      img: "https://i.ibb.co/jh7212n/tech.png",
     },
     {
       selector: "#tech-link",

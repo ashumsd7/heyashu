@@ -29,6 +29,8 @@ function ProfilePicture() {
         width={"400"}
         height="400"
         alt="profile-image"
+        priority={true} // Add priority to load image immediately
+        loading="eager" // Force eager loading for above-the-fold image
       />
 
       <div id='social-links' className="text-white flex gap-4 bg-[#16a34a] md:px-2 px-1 py-2 absolute rounded-md bottom-[-15px] left-1/2 transform -translate-x-1/2 z-40">

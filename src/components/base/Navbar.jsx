@@ -97,7 +97,7 @@ function Navbar() {
                       height="40"
                       alt="digital-garden"
                       className="-mt-2"
-                      src="https://media3.giphy.com/media/fkoLF0dzaiNL6a1f2s/giphy.gif?cid=6c09b9529bocknrq68ifba6hwawfagtyld7j518t8lqfp7g4&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=s"
+                      src="https://png.pngtree.com/png-clipart/20240808/original/pngtree-the-beauty-of-trees-png-image_15733292.png"
                     />
                     Digital Garden
                   </span>
