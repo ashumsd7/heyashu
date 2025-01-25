@@ -79,6 +79,15 @@ function Navbar() {
             {[
               { href: "/blog", label: "blog" },
               { href: "/tech", label: "tech" },
+              { 
+                href: "/tech/products",
+                label: (
+                  <span className="flex items-center text-purple-600 font-medium">
+                    <span className="animate-pulse mr-1">🚀</span>
+                    products
+                  </span>
+                )
+              },
               {
                 href: "/digital-garden",
                 label: (
@@ -86,6 +95,7 @@ function Navbar() {
                     <img
                       width="40"
                       height="40"
+                      alt="digital-garden"
                       className="-mt-2"
                       src="https://media3.giphy.com/media/fkoLF0dzaiNL6a1f2s/giphy.gif?cid=6c09b9529bocknrq68ifba6hwawfagtyld7j518t8lqfp7g4&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=s"
                     />
@@ -101,15 +111,12 @@ function Navbar() {
                 href={item.href}
                 className={`relative group text-lg font-light transition-colors duration-300
                   hover:text-green-600 ${
-                    activePath === item.href.split("/")[1]
+                    (activePath === item.href.split("/")[1] || router.asPath === item.href)
                       ? "text-green-600"
                       : ""
                   }`}
               >
                 {item.label}
-                {/* {activePath === item.href.split("/")[1] && (
-                  <LuMousePointerClick className="absolute top-[20px] left-[20px] text-2xl text-gray-600" />
-                )} */}
                 <span
                   className="absolute -bottom-1 left-0 w-full h-0.5 bg-green-500 transform scale-x-0 
                   group-hover:scale-x-100 transition-transform duration-300"
@@ -149,6 +156,7 @@ function Navbar() {
 export default Navbar;
 
 const MobileNaveBar = ({ isOpen, setIsOpen, activePath }) => {
+  const router = useRouter();
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -180,7 +188,7 @@ const MobileNaveBar = ({ isOpen, setIsOpen, activePath }) => {
             flex items-center justify-center shadow-lg hover:bg-red-600 
             transition-colors duration-300"
         >
-          <IoMdClose className="text-white text-xl" />
+          <IoMdClose className="text-white text-xl" /> X
         </button>
 
         {/* Menu Items */}
@@ -189,6 +197,12 @@ const MobileNaveBar = ({ isOpen, setIsOpen, activePath }) => {
             { href: "/", label: "home", path: "" },
             { href: "/blog", label: "blog", path: "blog" },
             { href: "/tech", label: "tech", path: "tech" },
+            { 
+              href: "/tech/products", 
+              label: "🚀 products",
+              path: "tech/products",
+              highlight: true
+            },
             {
               href: "/digital-garden",
               label: "🌱 Digital Garden",
@@ -204,23 +218,24 @@ const MobileNaveBar = ({ isOpen, setIsOpen, activePath }) => {
               className={`relative overflow-hidden group p-3 rounded-lg
                 transition-all duration-300 ease-out
                 ${
-                  activePath === item.path
+                  router.asPath === item.href
                     ? "bg-green-50 text-green-800"
+                    : item.highlight
+                    ? "bg-purple-50 text-purple-800 animate-pulse"
                     : "hover:bg-gray-50"
                 }`}
             >
               <div className="flex items-center justify-between">
                 <span className="text-lg font-medium">{item.label}</span>
-                {(Array.isArray(item.path)
-                  ? item.path.includes(activePath)
-                  : activePath === item.path) && (
+                {(router.asPath === item.href) && (
                   <LuMousePointerClick className="text-green-600 text-xl" />
                 )}
               </div>
               <div
-                className="absolute bottom-0 left-0 w-full h-0.5 bg-green-500 
+                className={`absolute bottom-0 left-0 w-full h-0.5 
+                ${item.highlight ? 'bg-purple-500' : 'bg-green-500'}
                 transform scale-x-0 group-hover:scale-x-100 
-                transition-transform duration-300"
+                transition-transform duration-300`}
               />
             </Link>
           ))}

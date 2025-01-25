@@ -325,32 +325,36 @@ Gvanks`,
       </motion.section>
 
       {/* Call to Action */}
-      <motion.section
+      {/* <motion.section
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="py-16 md:py-20 bg-gradient-to-r from-green-600 to-green-500 text-white text-center"
+        className="py-16 md:py-20 bg-gradient-to-r from-green-600 to-green-500 text-white text-center cursor-pointer"
+        onClick={() => router.push('/digital-garden/notes')}
       >
-        <div className="max-w-4xl mx-auto   ">
+        <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Become an Open Source Developer!
+            Explore 50+ Insightful Blogs
           </h2>
           <p className="mb-8 text-green-50 text-base md:text-lg">
-            What are you waiting for? Join 30+ developers who are already
-            sharing their unfinished projects and growing together. Share
-            anything you have - every contribution matters!
+            Dive into a diverse collection of articles covering technology, development,
+            career growth, and more. From beginner guides to advanced concepts,
+            there's something for everyone in our growing library of content.
           </p>
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => window.open(ADMIN_LINK, "_blank")}
-            className="bg-white text-green-600 px-6 py-3 md:px-8 md:py-4 rounded-lg shadow-lg hover:shadow-xl transition-all text-sm md:text-base cursor-pointer hover:cursor-pointer"
+            onClick={(e) => {
+              e.stopPropagation();
+              router.push('/digital-garden/notes');
+            }}
+            className="bg-white text-green-600 px-6 py-3 md:px-8 md:py-4 rounded-lg shadow-lg hover:shadow-xl transition-all text-sm md:text-base cursor-pointer"
           >
-            Start Your Open Source Journey
+            Start Reading Blogs
           </motion.button>
         </div>
-      </motion.section>
+      </motion.section> */}
 
       {/* Footer */}
       <footer className="bg-white/80 backdrop-blur-lg border-t py-8 md:py-12">
@@ -382,8 +386,11 @@ Gvanks`,
               className="flex items-center gap-2 mt-4 md:mt-0"
             >
               <FaUsers className="text-green-600" />
-              <span className="text-sm md:text-base text-gray-600 cursor-pointer">
-                Join our heyashu community
+              <span 
+                onClick={() => window.open('https://chat.whatsapp.com/L0YFv4DQRCpJAcmRFPWT6r', '_blank')}
+                className="text-sm md:text-base text-gray-600 cursor-pointer hover:text-green-600 transition-colors"
+              >
+                Be JavaScripterr  🚀
               </span>
             </motion.div>
           </div>
