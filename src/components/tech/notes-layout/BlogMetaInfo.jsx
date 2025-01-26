@@ -80,7 +80,7 @@ const BlogMetaInfo = ({ data }) => {
 
     {/* Controls Section */}
     {showControls && (
-      <div className="fixed bottom-4 sm:bottom-6 left-1/2 transform -translate-x-1/2 z-50 w-[90%] sm:w-auto">
+      <div className="fixed bottom-4 sm:bottom-6 left-1/2 transform -translate-x-1/2 z-50 w-[50%] sm:w-auto">
         <div className="flex items-center justify-center gap-1 sm:gap-1.5 bg-gray-900/95 border border-gray-700 p-1.5 rounded-lg shadow-lg backdrop-blur w-full sm:w-auto">
           <motion.button
             whileHover={{ scale: 1.02 }}
