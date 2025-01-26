@@ -10,8 +10,8 @@ import { ImNewTab } from "react-icons/im";
 function NotesContentTopBar({ isSidebarVisible, setIsSidebarVisible, title }) {
   return (
     <>
-    <div className="flex items-center justify-between px-4 py-3 border-b flex-wrap">
-      <div className="flex items-center gap-4">
+    <div className="flex items-center justify-between px-4 py-3 gap-4 border-b flex-wrap">
+      <div className="flex items-center gap-4 ml-[-45px]">
         <button
           onClick={() => setIsSidebarVisible(!isSidebarVisible)}
           className="hidden lg:block text-gray-600 hover:text-gray-800 transition-colors"
