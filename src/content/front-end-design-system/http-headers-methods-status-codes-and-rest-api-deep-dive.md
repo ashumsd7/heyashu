@@ -1,7 +1,7 @@
 ---
 title: HTTP Headers Methods Status Codes and Rest API Deep Dive
 name: HTTP Headers Methods Status Codes and Rest API Deep Dive
-episode: 1
+episode: 3
 publishedOn: 01-26-2025
 updatedOn: 01-26-2025
 author: Ashutosh Anand Tiwari
