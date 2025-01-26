@@ -24,7 +24,7 @@ function NotesContentTopBar({ isSidebarVisible, setIsSidebarVisible, title }) {
           )}
         </button>
 
-        <h1 className="text-2xl md:text-3xl font-bold text-gray-900">
+        <h1 className="text-2xl md:text-3xl font-bold text-gray-900 ml-[45px] ">
           {title}
         </h1>
       </div>
