@@ -8,7 +8,7 @@ thumbnail: /public/images/blogs/e13m1.png
 author: Ashutosh Anand Tiwari
 tags: mongoDb
 profilePic: /public/images/blogs/pfp2.png
-followLink: https://www.instagram.com/javascripterr/
+followLink: https://www.instagram.com/javascripterrr/
 ---
 Okay, it’s time to create a database. Go to the database website by clicking here. There are two ways to install the database:
 

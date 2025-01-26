@@ -8,7 +8,7 @@ thumbnail: /public/images/blogs/rest_1.jpg
 author: Ashutosh Anand Tiwari
 tags: http, javascript, nodejs, api
 profilePic: /public/images/blogs/pfp2.png
-followLink: https://www.instagram.com/javascripterrr
+followLink: https://www.instagram.com/javascripterrrr
 ---
 If you are a junior developer, a senior developer, or just a complete newbie, this is going to be a great place to learn about REST APIs—what they are, why they are used, and how they work. This is going to be a long blog, so it’s for serious readers. If you prefer short TikTok-like videos for instant information, this might not be for you. Let’s get started!
 

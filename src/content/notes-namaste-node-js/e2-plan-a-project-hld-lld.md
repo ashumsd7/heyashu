@@ -9,7 +9,7 @@ thumbnail: /public/images/blogs/1dbdes.jpg
 author: Ashutosh Anand Tiwari
 tags: LLD HLD
 profilePic: /public/images/blogs/pfp2.png
-followLink: https://www.instagram.com/javascripterr/
+followLink: https://www.instagram.com/javascripterrr/
 ---
 ### Planning and Designing a Project: Dev Tinder
 

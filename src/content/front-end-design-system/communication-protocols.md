@@ -9,7 +9,7 @@ thumbnail: /public/images/blogs/prttocols.jpg
 author: Ashutosh Anand Tiwari
 tags: Communication Protocols
 profilePic: /public/images/blogs/pfp2.png
-followLink: https://www.instagram.com/javascripterr/
+followLink: https://www.instagram.com/javascripterrr/
 ---
 ### HTTP (Hypertext Transfer Protocol)
 

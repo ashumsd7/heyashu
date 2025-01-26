@@ -234,7 +234,7 @@ collections:
           label: "Social Link( When user clicks on follow button : we will contact you once your content will be live in next  few minutes after saving it)",
           name: "followLink",
           widget: "string",
-          default:'https://www.instagram.com/javascripterr/',
+          default:'https://www.instagram.com/javascripterrr/',
           required: false,
         }
       - {
@@ -320,7 +320,7 @@ collections:
           label: "Social Link( When user clicks on follow button : we will contact you once your content will be live in next  few minutes after saving it)",
           name: "followLink",
           widget: "string",
-          default:'https://www.instagram.com/javascripterr/',
+          default:'https://www.instagram.com/javascripterrr/',
           required: false,
         }
       - {
@@ -481,7 +481,7 @@ collections:
           label: "Social Link( When user clicks on follow button : we will contact you once your content will be live in next  few minutes after saving it)",
           name: "followLink",
           widget: "string",
-          default: 'https://www.instagram.com/javascripterr/',
+          default: 'https://www.instagram.com/javascripterrr/',
           required: false,
         }
       - {

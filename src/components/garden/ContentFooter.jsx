@@ -10,11 +10,11 @@ const ContentFooter = ({
   photoSrc = "https://i.ibb.co/PNKDZ5Q/mountian.png", // Default photo
   name = "Ashutosh Anand Tiwari",
   link = DEFAULT_FOLLOW_LINK_INSTA,
-  description = "A front-end engineer with a passion for  learning and exploring the world, now diving into back-end wonders node.js.",
+  description = "A front-end engineer with a passion for  learning and exploring the world.",
   // Example: [{ href: '#', icon: 'FacebookIcon' }, { href: '#', icon: 'TwitterIcon' }]
 }) => {
   return (
-    <footer className="bg-[#f1fdf5] relative   max-w-[1000px] mx-auto ">
+    <footer className="bg-[#f1fdf5] relative   max-w-[1000px] mx-auto p-2 ">
       <div className="flex gap-6 flex-wrap md:flex-nowrap  py-6  rounded-lg w-full  justify-center md:justify-start border-2 shadow-sm border-gray-200">
         <Image
           src={photoSrc}
@@ -46,7 +46,7 @@ const ContentFooter = ({
                 <FaXTwitter />
               </a>
               <a
-                href="https://www.instagram.com/javascripterr"
+                href="https://www.instagram.com/javascripterrr"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-pink-500 hover:text-pink-700"

@@ -8,7 +8,7 @@ thumbnail: /public/images/blogs/1e12db.png
 author: Ashutosh Anand Tiwari
 tags: databses
 profilePic: /public/images/blogs/pfp2.png
-followLink: https://www.instagram.com/javascripterr/
+followLink: https://www.instagram.com/javascripterrr/
 ---
 In computer science, a **database** is an organized collection of data, a structured way of collecting and storing information. It is based on the **DBMS** (Database Management System), which means you can create, delete, edit, and retrieve data. The DBMS software manages everything, including the storage.
 

@@ -8,7 +8,7 @@ thumbnail: /public/images/blogs/1thread-thumb.jpg
 author: Ashutosh Anand Tiwari
 tags: threads in os, Node js
 profilePic: /public/images/blogs/pfp2.png
-followLink: https://www.instagram.com/javascripterr/
+followLink: https://www.instagram.com/javascripterrr/
 ---
 ### Dekh rahe ho Vinod? kaa bhaiya, kaise thread ghoom rha hai ?
 
