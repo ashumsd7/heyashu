@@ -4,6 +4,7 @@ name: HTTP Headers Methods Status Codes and Rest API Deep Dive
 episode: 3
 publishedOn: 01-26-2025
 updatedOn: 01-26-2025
+thumbnail: /public/images/blogs/rest_1.jpg
 author: Ashutosh Anand Tiwari
 tags: http, javascript, nodejs, api
 profilePic: /public/images/blogs/pfp2.png
