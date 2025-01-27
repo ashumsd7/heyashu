@@ -77,22 +77,39 @@ https://studio.apollographql.com/sandbox/explorer
 - - -
 
 ### REST vs. GraphQL Comparison
-
-| **Feature**                    | **REST API**                      | **GraphQL**                                 |
-| ------------------------------ | --------------------------------- | ------------------------------------------- |
-| **Data Fetching**              | Requires multiple endpoints       | Single endpoint for all data                |
-| **Request Structure**          | Fixed structure with HTTP methods | Flexible, using queries and mutations       |
-| **Overfetching/Underfetching** | Common issue                      | Solved with precise queries                 |
-| **Response Size**              | Fixed                             | Flexible                                    |
-| **Versioning**                 | Explicit versioning required      | No versioning needed due to flexible schema |
-| **Schema Definition**          | Not well-defined                  | Strongly defined schema                     |
-| **Real-Time Capabilities**     | Polling and WebSockets            | Built-in subscriptions                      |
-| **Tools**                      | Postman                           | GraphQL Playground                          |
-| **Caching**                    | Relies on HTTP caching            | Fine-grained caching possible               |
-| **Client Control**             | Server defines the response       | Client decides the response                 |
-| **Adoption**                   | Widely adopted                    | Rapidly growing in popularity               |
-
-- - -
+- **Data Fetching**:
+    - REST API: Requires multiple endpoints.
+    - GraphQL: Uses a single endpoint for all data.
+- **Request Structure**:
+    - REST API: Fixed structure with HTTP methods.
+    - GraphQL: Flexible, using queries and mutations.
+- **Overfetching/Underfetching**:
+    - REST API: Common issue.
+    - GraphQL: Solved with precise queries.
+- **Response Size**:
+    - REST API: Fixed.
+    - GraphQL: Flexible.
+- **Versioning**:
+    - REST API: Explicit versioning required.
+    - GraphQL: No versioning needed due to flexible schema.
+- **Schema Definition**:
+    - REST API: Not well-defined.
+    - GraphQL: Strongly defined schema.
+- **Real-Time Capabilities**:
+    - REST API: Polling and WebSockets.
+    - GraphQL: Built-in subscriptions.
+- **Tools**:
+    - REST API: Postman.
+    - GraphQL: GraphQL Playground.
+- **Caching**:
+    - REST API: Relies on HTTP caching.
+    - GraphQL: Fine-grained caching possible.
+- **Client Control**:
+    - REST API: Server defines the response.
+    - GraphQL: Client decides the response.
+- **Adoption**:
+    - REST API: Widely adopted.
+    - GraphQL: Rapidly growing in popularity.
 
 ### More About GraphQL
 
