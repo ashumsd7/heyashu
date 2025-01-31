@@ -6,12 +6,13 @@ publishedOn: 09-08-2024
 updatedOn: 09-08-2024
 tags: js-engine, nodejs, javascript
 author: Ashutosh Anand Tiwari
+thumbnail: /public/images/blogs/epi81.png
 profilePic: /public/images/blogs/pfp2.png
 followLink: https://x.com/JavaScripterrr
 ---
 
 
-![image.png](/public/images/blogs/epi81.png)
+ 
 
 Now, let's focus on one of Node.js's best friends, the V8 Engine. It takes the code and runs it. Before doing anything, I just want you to read this carefully.
 

@@ -1,6 +1,8 @@
 ---
 title: KANKHAR a full stack friendwork
-date: 02-09-2024
+name: KANKHAR a full stack friendwork
+date: 09-02-2024
+publishedOn: 09-02-2024
 thumbnail: /images/all.png
 author: A Nightowl of KANKHAR
 tags: friendship

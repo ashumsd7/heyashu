@@ -4,12 +4,13 @@ name: sync, async, setTimeoutZero in Node.js
 episode: 7
 publishedOn: 09-08-2024
 updatedOn: 09-08-2024
+thumbnail: /public/images/blogs/e81.png
 author: Ashutosh Anand Tiwari
 tags: sync - async, setTimeoutZero in Node.js
 profilePic: /public/images/blogs/e81.png
 followLink: https://x.com/JavaScripterrr
 ---
-![](/public/images/blogs/e81.png)
+ 
 
  In the last few sessions, we have seen how Node.js code runs. If something is synchronous, the V8 engine handles it, or in case of asynchronous tasks, libUV steps in. You can think of Node.js having two best friends, like Jai and Veeru. Whenever a problem (or code) comes in, they handle it accordingly.
 

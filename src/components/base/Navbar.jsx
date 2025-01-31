@@ -9,22 +9,22 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { GiHamburgerMenu } from "react-icons/gi";
 import Image from "next/image";
 import Support from "@/service/Support.";
+
 function Navbar() {
   const [activePath, setActivePath] = useState("/");
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolledUp, setIsScrolledUp] = useState(false);
   const [isSupportBtnActive, setIsSupportBtnActive] = useState(false);
   const router = useRouter();
+
   useEffect(() => {
     setIsOpen(false);
-
     const pathName = router.pathname;
     if (pathName) {
       const firstPath = pathName.split("/")[1];
       document.body.style.overflow = "auto";
       setActivePath(firstPath);
     }
-
     return () => {};
   }, [router]);
 
@@ -38,7 +38,7 @@ function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 500) {
+      if (window.scrollY > 100) {
         setIsScrolledUp(true);
       } else {
         setIsScrolledUp(false);
@@ -46,95 +46,103 @@ function Navbar() {
     };
 
     window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
   return (
     <>
-      <nav className="max-w-7xl mx-auto border-none">
-        <nav
-          style={{
-            backgroundColor: isScrolledUp
-              ? "rgba(0, 0, 0, 0.95)"
-              : "rgba(241, 253, 245, 0.98)",
-            color: isScrolledUp ? "white" : "black",
-          }}
-          className="hidden md:flex max-w-7xl justify-between max-w-8xl mx-auto border-none 
-            backdrop-blur-sm transition-all duration-300 ease-in-out
-            sticky top-0 z-50 py-3 px-8  "
-        >
+      <nav className="w-full fixed top-0 z-50">
+        {/* Desktop Navigation */}
+        <div className={`hidden md:block transition-all duration-500 ${
+          isScrolledUp ? 'bg-white/90 backdrop-blur-md shadow-lg before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_100%_100%,rgba(0,0,255,0.15),transparent_50%)] before:z-[-1] after:absolute after:inset-0 after:bg-[radial-gradient(circle_at_0%_0%,rgba(238,174,202,0.1),transparent_50%)] after:z-[-1] bg-[url("/noise.png")] bg-repeat' : 'bg-transparent'
+        }`}>
+          <div className="max-w-7xl mx-auto px-8 py-4">
+            <div className="flex items-center justify-between">
+              {/* Logo */}
+              <Link href="/" className="relative group">
+                <Image
+                  alt="logo-image"
+                  className="transition-transform duration-300 group-hover:scale-105"
+                  src="https://i.ibb.co/rsdxbfD/looooooogo.jpg"
+                  height={36}
+                  width={130}
+                />
+              </Link>
+
+              {/* Navigation Links */}
+              <div className="flex items-center space-x-8">
+                {[
+                  { href: "/blog", label: "Blog" },
+                  { href: "/tech", label: "Tech" },
+                  { 
+                    href: "/tech/products",
+                    label: (
+                      <span className="flex items-center text-indigo-600 font-medium">
+                        <span className="mr-1">🚀</span>
+                        Products
+                      </span>
+                    )
+                  },
+                  {
+                    href: "/digital-garden",
+                    label: (
+                      <span className="flex items-center text-emerald-600 font-medium">
+                        <span className="mr-1">🌱</span>
+                        Digital Garden
+                      </span>
+                    )
+                  },
+                  { href: "/travel", label: "Travel" },
+                  { href: "/misc", label: "More" }
+                ].map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={`relative group px-3 py-2 text-[15px] font-medium tracking-wide
+                      ${(activePath === item.href.split("/")[1] || router.asPath === item.href)
+                        ? 'text-indigo-600'
+                        : 'text-gray-700 hover:text-indigo-600'
+                      } transition-colors duration-200`}
+                  >
+                    {item.label}
+                    <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-500 transform origin-left scale-x-0
+                      transition-transform duration-500 ease-out shadow-[0_0_10px_rgba(99,102,241,0.5)] 
+                      ${(activePath === item.href.split("/")[1] || router.asPath === item.href)
+                        ? 'scale-x-100'
+                        : 'group-hover:scale-x-100'
+                      }`} 
+                    />
+                    <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-500 transform origin-left scale-x-0
+                      transition-transform duration-500 ease-out delay-75 opacity-50 blur-sm
+                      ${(activePath === item.href.split("/")[1] || router.asPath === item.href)
+                        ? 'scale-x-100'
+                        : 'group-hover:scale-x-100'
+                      }`} 
+                    />
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Navigation */}
+        <div className="flex md:hidden justify-between bg-white/90 backdrop-blur-md shadow-md px-4 py-3">
           <Link href="/" className="relative group">
             <Image
               alt="logo-image"
-              className="font-extrabold transition-transform duration-300 group-hover:scale-105"
+              className="transition-transform duration-300 group-hover:scale-105"
               src="https://i.ibb.co/rsdxbfD/looooooogo.jpg"
               height={36}
               width={130}
             />
           </Link>
-
-          <div className="flex items-center gap-8">
-            {[
-              { href: "/blog", label: "blog" },
-              { href: "/tech", label: "tech" },
-              { 
-                href: "/tech/products",
-                label: (
-                  <span className="flex items-center text-purple-600 font-medium">
-                    <span className="animate-pulse mr-1">🚀</span>
-                    products
-                  </span>
-                )
-              },
-              {
-                href: "/digital-garden",
-                label: (
-                  <span className="flex items-center text-green-600">
-                    <img
-                      width="40"
-                      height="40"
-                      alt="digital-garden"
-                      className="-mt-2"
-                      src="https://png.pngtree.com/png-clipart/20240808/original/pngtree-the-beauty-of-trees-png-image_15733292.png"
-                    />
-                    Digital Garden
-                  </span>
-                ),
-              },
-              { href: "/travel", label: "travel" },
-              { href: "/misc", label: "&more" },
-            ].map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`relative group text-lg font-light transition-colors duration-300
-                  hover:text-green-600 ${
-                    (activePath === item.href.split("/")[1] || router.asPath === item.href)
-                      ? "text-green-600"
-                      : ""
-                  }`}
-              >
-                {item.label}
-                <span
-                  className="absolute -bottom-1 left-0 w-full h-0.5 bg-green-500 transform scale-x-0 
-                  group-hover:scale-x-100 transition-transform duration-300"
-                />
-              </Link>
-            ))}
-          </div>
-        </nav>
-
-        <hr />
-
-        <div className="flex md:hidden justify-between  bg-gradient-to-l relative  text-black text-2xl w-full   h-12 items-center  pr-4 px-1">
-          <h2 className="italic font-extrabold px-2"></h2>
-          <GiHamburgerMenu
-            onClick={() => {
-              setIsOpen(!isOpen);
-            }}
-          />
+          <button 
+            onClick={() => setIsOpen(!isOpen)}
+            className="text-gray-600 hover:text-gray-900 transition-colors duration-200"
+          >
+            <GiHamburgerMenu className="text-2xl" />
+          </button>
         </div>
 
         <MobileNaveBar
@@ -142,6 +150,7 @@ function Navbar() {
           isOpen={isOpen}
           activePath={activePath}
         />
+        
         {isSupportBtnActive && (
           <Support
             active={isSupportBtnActive}
@@ -160,6 +169,7 @@ const MobileNaveBar = ({ isOpen, setIsOpen, activePath }) => {
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+
   return (
     <>
       {/* Overlay */}
@@ -175,31 +185,25 @@ const MobileNaveBar = ({ isOpen, setIsOpen, activePath }) => {
         className={`fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
           w-[90%] max-w-[400px] rounded-2xl bg-white/95 backdrop-blur-md
           shadow-2xl z-40 transform transition-all duration-500 ease-out
-          ${
-            isOpen
-              ? "scale-100 opacity-100"
-              : "scale-50 opacity-0 pointer-events-none"
-          }`}
+          ${isOpen ? "scale-100 opacity-100" : "scale-50 opacity-0 pointer-events-none"}`}
       >
-        {/* Close Button */}
         <button
           onClick={toggleMenu}
           className="absolute -top-3 -right-3 w-8 h-8 bg-red-500 rounded-full 
             flex items-center justify-center shadow-lg hover:bg-red-600 
             transition-colors duration-300"
         >
-          <IoMdClose className="text-white text-xl" /> X
+          <IoMdClose className="text-white text-xl" />
         </button>
 
-        {/* Menu Items */}
         <div className="flex flex-col p-6 gap-4">
           {[
-            { href: "/", label: "home", path: "" },
-            { href: "/blog", label: "blog", path: "blog" },
-            { href: "/tech", label: "tech", path: "tech" },
+            { href: "/", label: "Home", path: "" },
+            { href: "/blog", label: "Blog", path: "blog" },
+            { href: "/tech", label: "Tech", path: "tech" },
             { 
               href: "/tech/products", 
-              label: "🚀 products",
+              label: "🚀 Products",
               path: "tech/products",
               highlight: true
             },
@@ -208,8 +212,8 @@ const MobileNaveBar = ({ isOpen, setIsOpen, activePath }) => {
               label: "🌱 Digital Garden",
               path: "digital-garden",
             },
-            { href: "/travel", label: "travel", path: "travel" },
-            { href: "/misc", label: "&more", path: ["misc", "town"] },
+            { href: "/travel", label: "Travel", path: "travel" },
+            { href: "/misc", label: "More", path: ["misc", "town"] },
           ].map((item, index) => (
             <Link
               key={index}
@@ -217,23 +221,22 @@ const MobileNaveBar = ({ isOpen, setIsOpen, activePath }) => {
               onClick={toggleMenu}
               className={`relative overflow-hidden group p-3 rounded-lg
                 transition-all duration-300 ease-out
-                ${
-                  router.asPath === item.href
-                    ? "bg-green-50 text-green-800"
-                    : item.highlight
-                    ? "bg-purple-50 text-purple-800 animate-pulse"
-                    : "hover:bg-gray-50"
+                ${router.asPath === item.href
+                  ? "bg-indigo-50 text-indigo-800"
+                  : item.highlight
+                  ? "bg-purple-50 text-purple-800"
+                  : "hover:bg-gray-50"
                 }`}
             >
               <div className="flex items-center justify-between">
                 <span className="text-lg font-medium">{item.label}</span>
-                {(router.asPath === item.href) && (
-                  <LuMousePointerClick className="text-green-600 text-xl" />
+                {router.asPath === item.href && (
+                  <LuMousePointerClick className="text-indigo-600 text-xl" />
                 )}
               </div>
               <div
                 className={`absolute bottom-0 left-0 w-full h-0.5 
-                ${item.highlight ? 'bg-purple-500' : 'bg-green-500'}
+                ${item.highlight ? 'bg-purple-500' : 'bg-indigo-500'}
                 transform scale-x-0 group-hover:scale-x-100 
                 transition-transform duration-300`}
               />

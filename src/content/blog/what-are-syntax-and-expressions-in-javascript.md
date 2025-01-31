@@ -1,5 +1,6 @@
 ---
 title: What are syntax and expressions in javascript
+name: What are syntax and expressions in javascript
 date: 22-08-2024
 thumbnail: https://i.ibb.co/8rFR7vK/ex3.jpg
 author: Ashutosh Anand Tiwari

@@ -4,6 +4,7 @@ name: What is process ?
 episode: 21
 publishedOn: 09-23-2024
 updatedOn: 09-23-2024
+thumbnail: /public/images/blogs/1osprocess1.jpg
 author: Ashutosh Anand Tiwari
 tags: process in OS , os , nodejs
 profilePic: /public/images/blogs/pfp2.png

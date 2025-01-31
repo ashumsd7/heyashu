@@ -4,7 +4,7 @@ name: libuv & async IO in Node.js
 episode: 6
 publishedOn: 09-09-2024
 updatedOn: 04-09-2024
-thumbnail: 
+thumbnail: /public/images/blogs/2.png
 author: Ashutosh Anand Tiwari
 tags: libuv ,  async IO, node js
 profilePic: /public/images/blogs/pfp2.png

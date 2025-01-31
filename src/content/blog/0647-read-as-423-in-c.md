@@ -1,6 +1,8 @@
 ---
 title: 0647 read as 423 in C++
-date: 02-09-2024
+name: 0647 read as 423 in C++
+date: 09-02-2024
+publishedOn: 09-02-2024
 author: Yash Tiwari
 tags: c++
 thumbnail: https://i.ytimg.com/vi/ihXi5KHhZJ0/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AHqCYAC0AWKAgwIABABGBMgGih_MA8=&rs=AOn4CLBbNsp4UxqBEa0JMuzplFy0nHh7vw

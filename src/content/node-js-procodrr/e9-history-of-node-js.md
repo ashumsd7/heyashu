@@ -4,6 +4,7 @@ name: History of Node Js
 episode: 9
 publishedOn: 09-11-2024
 updatedOn: 09-11-2024
+thumbnail: /public/images/blogs/epi81.png
 tags:  nodejs, javascript
 author: Ashutosh Anand Tiwari
 ---

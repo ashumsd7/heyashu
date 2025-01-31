@@ -4,6 +4,7 @@ name: "Basic shell commands"
 episode: 11
 publishedOn: 09-19-2024
 updatedOn: 09-19-2024
+thumbnail: /public/images/blogs/ctrlzpro.png
 author: Ashutosh Anand Tiwari
 tags: shell, nodejs, javascript
 profilePic: /public/images/blogs/bash-commands-15-pro.png
