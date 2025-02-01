@@ -1,7 +1,7 @@
 ---
 title: What are web hooks
 name: Introduction to Web hooks
-episode: 9
+episode: 10
 publishedOn: 02-01-2025
 updatedOn: 02-01-2025
 thumbnail: /public/images/blogs/wh_1.png
