@@ -136,7 +136,7 @@ So, if you look above, you will see that you have one active connection with the
 
 ### Inspection
 
-Let's check the browser's dev tools. When you first visit [localhost:3000](http://localhost:3000/), in the screenshot below, you can see `102 Switching Protocols`, where the HTTPS connection gets upgraded to WebSocket. This connection is long-lived until either party disconnects.
+Let's check the browser's dev tools. When you first visit [localhost:3000](http://localhost:3000/), in the screenshot below, you can see `101 Switching Protocols`, where the HTTPS connection gets upgraded to WebSocket. This connection is long-lived until either party disconnects.
 
 ![image.png](/public/images/blogs/ws_4.png)
 
