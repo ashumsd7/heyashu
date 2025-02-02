@@ -7,9 +7,6 @@ import { NOTES_CARD_DATA } from "@/data/note/allNotes";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import CommonHeadTags from "@/components/seo/CommonHeadTags";
- 
-
-// Note Card Component
 
 function AllNotesPage() {
   const router = useRouter();
@@ -23,56 +20,51 @@ function AllNotesPage() {
           content="Curated technical notes, interview preparations, and coding wisdom"
         />
       </Head>
-      <div className="min-h-screen bg-gradient-to-br from-green-50/50 via-white to-green-50/30">
+      <div className="min-h-screen     dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
         <div className="container mx-auto px-4 py-12">
-          {/* Minimal Top Bar */}
-          <div className="flex flex-col mb-8 flex-wrap">
-            <div className="flex items-center justify-between mb-6 flex-wrap gap-6">
-              <h1 className="text-3xl font-bold text-green-700 flex items-center gap-3">
-                <FaLeaf className="text-2xl" />
-                Digital Notes  <span className="animate-pulse hover:animate-none">💚</span>
-              </h1>
-              <button
-                onClick={() => window.open(ADMIN_LINK, "_blank")}
-                className="group flex items-center gap-2 px-4 py-2  
-                bg-green-600/10 hover:bg-green-600/20 text-green-700 rounded-full 
-                transition-all duration-300"
-              >
-                <FaPlus className="text-sm group-hover:rotate-90 transition-transform duration-300" />
-                <span className="text-sm font-medium">New Note</span>
-              </button>
-            </div>
-            <p className="text-gray-600 text-lg">
-              Welcome to your digital notes! I've curated learning materials from many courses by our beloved teachers. I'm continuously learning and writing daily to benefit other students and engineers. Let's read, write, share and improve together by building core knowledge. Join me on this learning journey!
+          {/* Centered Header Section */}
+          <div className="flex flex-col items-center mb-12 text-center">
+             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-green-700 dark:text-green-400 flex items-center gap-3 mb-4">
+               <FaLeaf className="text-3xl md:text-4xl lg:text-5xl" />
+              Digital Notes <span className="animate-pulse hover:animate-none">💚</span>
+            </h1>
+            <p className="text-gray-600 dark:text-gray-300 text-lg max-w-2xl">
+              A curated collection of technical notes and learning resources for students and engineers. Join me in building core knowledge together!
             </p>
+            <button
+              onClick={() => window.open(ADMIN_LINK, "_blank")}
+              className="mt-6 group flex items-center gap-2 px-4 py-2 bg-green-600/10 hover:bg-green-600/20 dark:bg-green-400/10 dark:hover:bg-green-400/20 text-green-700 dark:text-green-400 rounded-full transition-all duration-300"
+            >
+              <FaPlus className="text-sm group-hover:rotate-90 transition-transform duration-300" />
+              <span className="text-sm font-medium">New Note</span>
+            </button>
           </div>
 
-          {/* Elegant Notes Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {/* Notes Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {NOTES_CARD_DATA?.filter((item) => !item.isComingSoon).map(
               (note, index) => (
                 <div
                   key={index}
-                  className="group bg-white rounded-xl cursor-pointer 
-                  transition-all duration-300 hover:-translate-y-1"
+                  className="group bg-white dark:bg-gray-800 rounded-xl cursor-pointer shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 flex flex-col h-full"
                   onClick={() => {
                     if (note.isComingSoon) return;
                     router.push(note.route);
                   }}
                 >
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10 rounded-xl"/>
+                  <div className="relative flex-1">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent z-10 rounded-xl"/>
                     <img
                       src={note.thumbnailUrl || "/images/default-note-cover.jpg"}
                       alt={note.title}
-                      className="w-full h-64 object-cover rounded-xl"
+                      className="w-full h-full object-cover rounded-t-xl"
                     />
-                    <div className="absolute bottom-0 left-0 right-0 p-4 z-20">
-                      <div className="flex items-center gap-3 mb-2">
-                        <div className="p-2 rounded-lg bg-white/10 backdrop-blur-sm text-white">
-                          {note.icon || <GiBookshelf className="text-lg" />}
+                    <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
+                      <div className="flex items-center gap-4 mb-3">
+                        <div className="p-3 rounded-lg bg-white/15 backdrop-blur-sm text-white">
+                          {note.icon || <GiBookshelf className="text-xl" />}
                         </div>
-                        <h3 className="text-lg font-medium text-white">
+                        <h3 className="text-xl font-semibold text-white">
                           {note.title}
                         </h3>
                       </div>
@@ -81,8 +73,7 @@ function AllNotesPage() {
                         {note.tags?.map((tag, index) => (
                           <span
                             key={index}
-                            className="px-2 py-1 text-xs text-white/90 bg-white/10 
-                            backdrop-blur-sm rounded-full"
+                            className="px-3 py-1.5 text-sm text-white/95 bg-white/15 backdrop-blur-sm rounded-full"
                           >
                             {tag}
                           </span>
@@ -91,18 +82,13 @@ function AllNotesPage() {
                     </div>
                   </div>
 
-                  <div className="p-4">
-                    <p className="text-sm text-gray-600 line-clamp-2 leading-relaxed">
-                      {note.description}
-                    </p>
-                  </div>
+                 
                 </div>
               )
             )}
           </div>
         </div>
       </div>
-      
     </>
   );
 }
