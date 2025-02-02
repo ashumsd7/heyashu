@@ -3,6 +3,7 @@
 const { color } = require("framer-motion");
 
 module.exports = {
+  darkMode: 'class',
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx, md}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx,md}",

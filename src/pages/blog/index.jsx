@@ -88,16 +88,13 @@ function BlogsPage({ posts }) {
 
   const recentPosts = useMemo(() => {
     return [...(posts || [])]
-      .filter(post => post.frontMatter.publishedOn) // Filter out posts without publishedOn
+      .filter(post => post.frontMatter.publishedOn)
       .sort((a, b) => {
         const dateA = a.frontMatter.publishedOn.split('-').map(Number);
         const dateB = b.frontMatter.publishedOn.split('-').map(Number);
         
-        // Compare year (index 2)
         if (dateA[2] !== dateB[2]) return dateB[2] - dateA[2];
-        // Compare month (index 0) 
         if (dateA[0] !== dateB[0]) return dateB[0] - dateA[0];
-        // Compare day (index 1)
         return dateB[1] - dateA[1];
       })
       .slice(0, 3);
@@ -106,19 +103,21 @@ function BlogsPage({ posts }) {
   const changeFilePath = (filePath) => filePath?.replace("/public", "");
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen">
       <CommonHeadTags
         image="https://i.ibb.co/Cm127c4/blogs-thumb.jpg"
         title="Digital Garden - Blogs | Ashutosh Anand Tiwari"
         url="https://www.heyashu.com/blog"
       />
+
+  
       
       {/* Hero Section */}
-      <div className="relative h-[50vh] md:h-[70vh] bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=2940')" }}>
-        <div className="absolute inset-0 bg-black/60">
-          <div className="h-full flex flex-col justify-center items-center text-white px-4">
-            <h1 className="text-4xl md:text-6xl font-bold mb-4 md:mb-6 text-center">Blogs, Musings & More...</h1>
-            <p className="text-lg md:text-xl text-gray-200 mb-6 md:mb-8 max-w-2xl text-center">
+      <div className="relative h-[30vh] md:h-[40vh]">
+        <div className="absolute inset-0">
+          <div className="h-full flex flex-col justify-center items-center px-2">
+            <h1 className="text-4xl md:text-6xl font-bold mb-3 md:mb-4 text-center text-gray-900 dark:text-white">Blogs, Musings & More...</h1>
+            <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-4 md:mb-6 max-w-2xl text-center">
               A cozy corner where I share my thoughts, discoveries, and adventures in the world of technology and beyond
             </p>
           </div>
@@ -126,18 +125,18 @@ function BlogsPage({ posts }) {
       </div>
 
       {/* Recent Posts Section */}
-      <section className="py-8 md:py-16">
-        <div className="container mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-bold mb-6 md:mb-8">Recent Articles</h2>
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 mb-8 md:mb-16">
+      <section className="py-4  ">
+        <div className="container mx-auto px-2">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-gray-900 dark:text-white">Recent Articles</h2>
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mb-6 md:mb-8">
             {recentPosts.map((post, index) => (
               <article 
                 key={index}
-                className="group bg-white rounded-xl overflow-hidden cursor-pointer h-[380px] md:h-[435px]"
+                className="group bg-white dark:bg-gray-800 rounded-xl overflow-hidden cursor-pointer h-[380px] md:min-h-[410px]"
                 style={{ boxShadow: '0 2px 18px rgba(0,0,0,.06)' }}
                 onClick={() => window.open(`/blog/${generateSlug(post.frontMatter.title)}`, '_blank')}
               >
-                <div className="relative h-[200px] md:h-[244px] overflow-hidden">
+                <div className="relative h-[200px] md:h-[220px] overflow-hidden">
                   <img 
                     src={post?.frontMatter?.thumbnail ? changeFilePath(post?.frontMatter?.thumbnail) : ""}
                     alt={post.frontMatter.title}
@@ -148,19 +147,19 @@ function BlogsPage({ posts }) {
                 <div className="p-4 md:p-6">
                   <div className="flex gap-2 mb-3 md:mb-4">
                     {post.frontMatter.tags?.split(',').slice(0, 2).map((tag, i) => (
-                      <span key={i} className="px-2 md:px-3 py-1 text-black text-xs font-medium rounded-full" style={{ backgroundColor: '#d9fec1' }}>
+                      <span key={i} className="px-2 md:px-3 py-1 text-black dark:text-gray-900 text-xs font-medium rounded-full" style={{ backgroundColor: '#d9fec1' }}>
                         {tag.trim()}
                       </span>
                     ))}
                   </div>
-                  <h3 className="text-lg md:text-[22px] font-[700] leading-[1.4] mb-2 md:mb-3 text-gray-900 line-clamp-2">
+                  <h3 className="text-lg md:text-[22px] font-[700] leading-[1.4] mb-2 md:mb-3 text-gray-900 dark:text-white line-clamp-2">
                     {post.frontMatter.name}
                   </h3>
-                  <p className="text-gray-600 text-xs md:text-sm mb-3 md:mb-4 line-clamp-2">
+                  <p className="text-gray-600 dark:text-gray-300 text-xs md:text-sm mb-3 md:mb-4 line-clamp-2">
                     {post.frontMatter.description}
                   </p>
                   <div className="flex items-center justify-between mt-auto">
-                    <span className="text-xs md:text-sm text-gray-500">
+                    <span className="text-xs md:text-sm text-gray-500 dark:text-gray-400">
                     {(() => {
                         const [month, day, year] = post.frontMatter.publishedOn ? post.frontMatter.publishedOn.split('-') :post.frontMatter.date.split('-')
                         const date = new Date(year, month - 1, day);
@@ -171,7 +170,7 @@ function BlogsPage({ posts }) {
                         });
                       })()}
                     </span>
-                    <span className="text-xs md:text-sm text-gray-500">
+                    <span className="text-xs md:text-sm text-gray-500 dark:text-gray-400">
                       {post.frontMatter.author || 'Anonymous'}
                     </span>
                   </div>
@@ -181,15 +180,15 @@ function BlogsPage({ posts }) {
           </div>
 
           {/* Search and Filter Section */}
-          <div className="bg-white py-6 md:py-8 shadow-lg mb-6 md:mb-8 rounded-xl">
-            <div className="container mx-auto px-4">
+          <div className="bg-white dark:bg-gray-800 py-4 md:py-6 shadow-lg mb-4 md:mb-6 rounded-xl">
+            <div className="container mx-auto px-2">
               <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-center justify-between">
                 <div className="relative flex-1 w-full max-w-2xl">
                   <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 text-lg md:text-xl" />
                   <input
                     type="text"
                     placeholder="Search articles..."
-                    className="w-full pl-12 md:pl-14 pr-4 py-3 md:py-4 rounded-xl border-2 border-gray-200 focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 text-base md:text-lg"
+                    className="w-full pl-12 md:pl-14 pr-4 py-3 md:py-4 rounded-xl border-2 border-gray-200 dark:border-gray-700 focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 text-base md:text-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                   />
@@ -199,10 +198,10 @@ function BlogsPage({ posts }) {
                     <button
                       key={tag}
                       onClick={() => setSelectedCategory(tag)}
-                      className={`px-4 md:px-6 py-2 md:py-3 rounded-full text-sm md:text-base font-medium transition-all ${
+                      className={`px-2 md:px-6 py-2 md:py-3 rounded-full text-sm md:text-base font-medium transition-all ${
                         selectedCategory === tag
                           ? "bg-blue-600 text-white shadow-lg"
-                          : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                          : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600"
                       }`}
                     >
                       {tag.charAt(0).toUpperCase() + tag.slice(1)}
@@ -213,9 +212,9 @@ function BlogsPage({ posts }) {
             </div>
           </div>
 
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6 md:mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold text-center md:text-left">
-              All Articles <span className="text-gray-500">({filteredPosts?.length})</span>
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-4 md:mb-6">
+            <h2 className="text-2xl md:text-3xl font-bold text-center md:text-left text-gray-900 dark:text-white">
+              All Articles <span className="text-gray-500 dark:text-gray-400">({filteredPosts?.length})</span>
             </h2>
             <Button
               onClick={() => window.open(ADMIN_LINK, "_blank")}
@@ -227,15 +226,15 @@ function BlogsPage({ posts }) {
           </div>
 
           {filteredPosts?.length > 0 ? (
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
               {filteredPosts.map((post, index) => (
                 <article 
                   key={index}
-                  className="group bg-white rounded-xl overflow-hidden cursor-pointer h-[380px] md:h-[435px]"
+                  className="group bg-white dark:bg-gray-800 rounded-xl overflow-hidden cursor-pointer h-[380px] md:min-h-[410px]"
                   style={{ boxShadow: '0 2px 18px rgba(0,0,0,.06)' }}
                   onClick={() => window.open(`/blog/${generateSlug(post.frontMatter.title)}`, '_blank')}
                 >
-                  <div className="relative h-[200px] md:h-[244px] overflow-hidden">
+                  <div className="relative h-[200px] md:h-[220px] overflow-hidden">
                     <img 
                       src={post?.frontMatter?.thumbnail ? changeFilePath(post?.frontMatter?.thumbnail) : ""}
                       alt={post.frontMatter.title}
@@ -246,19 +245,19 @@ function BlogsPage({ posts }) {
                   <div className="p-4 md:p-6">
                     <div className="flex gap-2 mb-3 md:mb-4">
                       {post.frontMatter.tags?.split(',').slice(0, 2).map((tag, i) => (
-                        <span key={i} className="px-2 md:px-3 py-1 text-black text-xs font-medium rounded-full" style={{ backgroundColor: '#d9fec1' }}>
+                        <span key={i} className="px-2 md:px-3 py-1 text-black dark:text-gray-900 text-xs font-medium rounded-full" style={{ backgroundColor: '#d9fec1' }}>
                           {tag.trim()}
                         </span>
                       ))}
                     </div>
-                    <h3 className="text-lg md:text-[22px] font-[700] leading-[1.4] mb-2 md:mb-3 text-gray-900 line-clamp-2">
+                    <h3 className="text-lg md:text-[22px] font-[700] leading-[1.4] mb-2 md:mb-3 text-gray-900 dark:text-white line-clamp-2">
                       {post.frontMatter.name}
                     </h3>
-                    <p className="text-gray-600 text-xs md:text-sm mb-3 md:mb-4 line-clamp-2">
+                    <p className="text-gray-600 dark:text-gray-300 text-xs md:text-sm mb-3 md:mb-4 line-clamp-2">
                       {post.frontMatter.description}
                     </p>
                     <div className="flex items-center justify-between mt-auto">
-                      <span className="text-xs md:text-sm text-gray-500">
+                      <span className="text-xs md:text-sm text-gray-500 dark:text-gray-400">
                       {(() => {
                         const [month, day, year] = post.frontMatter.publishedOn ? post.frontMatter.publishedOn.split('-') :post.frontMatter.date.split('-')
                         const date = new Date(year, month - 1, day);
@@ -269,7 +268,7 @@ function BlogsPage({ posts }) {
                         });
                       })()}
                       </span>
-                      <span className="text-xs md:text-sm text-gray-500">
+                      <span className="text-xs md:text-sm text-gray-500 dark:text-gray-400">
                         {post.frontMatter.author || 'Anonymous'}
                       </span>
                     </div>
@@ -278,9 +277,9 @@ function BlogsPage({ posts }) {
               ))}
             </div>
           ) : (
-            <div className="text-center py-12 md:py-16">
-              <PiBookOpenTextLight className="mx-auto text-4xl md:text-5xl text-gray-400 mb-4" />
-              <p className="text-gray-600 text-base md:text-lg">No articles found</p>
+            <div className="text-center py-8 md:py-10">
+              <PiBookOpenTextLight className="mx-auto text-4xl md:text-5xl text-gray-400 dark:text-gray-600 mb-4" />
+              <p className="text-gray-600 dark:text-gray-400 text-base md:text-lg">No articles found</p>
             </div>
           )}
         </div>

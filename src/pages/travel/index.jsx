@@ -5,11 +5,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FaInstagram, FaYoutube, FaBlog, FaMapMarkedAlt, FaPlane } from 'react-icons/fa';
 import { traveledPlaces, pendingTravelPlaces } from '@/utils/data';
 import { redirect } from 'next/dist/server/api-utils';
+import { useTheme } from 'next-themes';
 
 // Splash Screen Component
 const SplashScreen = ({ finishLoading }) => (
   <motion.div
-    className="fixed inset-0 z-50 flex items-center justify-center bg-emerald-300"
+    className="fixed inset-0 z-50 flex items-center justify-center  "
     exit={{ opacity: 0 }}
     transition={{ duration: 0.5 }}
   >
@@ -25,7 +26,7 @@ const SplashScreen = ({ finishLoading }) => (
         onComplete: finishLoading
       }}
     >
-      <FaPlane className="text-6xl text-white animate-pulse" />
+      <FaPlane className="text-6xl text-white dark:text-emerald-200 animate-pulse" />
     </motion.div>
   </motion.div>
 );
@@ -33,7 +34,7 @@ const SplashScreen = ({ finishLoading }) => (
 // Enhanced Snowflake/Particle component
 const Particle = ({ delay }) => (
   <motion.div
-    className="fixed w-2 h-2 bg-emerald-400/30 rounded-full pointer-events-none"
+    className="fixed w-2 h-2 bg-emerald-400/30 dark:bg-emerald-300/30 rounded-full pointer-events-none"
     initial={{ 
       y: -10, 
       x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1000)
@@ -53,10 +54,15 @@ const Particle = ({ delay }) => (
 
 const Travelling = () => {
   const [loading, setLoading] = useState(true);
+  const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     setTimeout(() => setLoading(false), 2500);
   }, []);
+
+  if (!mounted) return null;
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -77,29 +83,29 @@ const Travelling = () => {
       title: "Instagram",
       description: "Travel moments captured",
       link: "https://instagram.com/ashumsd7",
-      color: "bg-gradient-to-br from-purple-600 to-pink-500"
+      color: "bg-gradient-to-br from-purple-600 to-pink-500 dark:from-purple-500 dark:to-pink-400"
     },
     {
       icon: <FaYoutube className="text-3xl" />,
-      title: "YouTube",
+      title: "YouTube", 
       description: "Travel vlogs & stories",
       link: "www.youtube.com/@ashutoshanandtiwari6606",
-      color: "bg-gradient-to-br from-red-600 to-red-500",
-      redirect:true,
+      color: "bg-gradient-to-br from-red-600 to-red-500 dark:from-red-500 dark:to-red-400",
+      redirect: true,
     },
     {
       icon: <FaBlog className="text-3xl" />,
       title: "Blog",
       description: "Detailed travel guides",
       link: "https://heyashu.in/blog?search=travel",
-      color: "bg-gradient-to-br from-emerald-600 to-emerald-500"
+      color: "bg-gradient-to-br from-emerald-600 to-emerald-500 dark:from-emerald-500 dark:to-emerald-400"
     },
     {
       icon: <FaMapMarkedAlt className="text-3xl" />,
       title: "Let's Plan a trip",
-      description: "Connect to explore the world together",
+      description: "Connect to explore the world together", 
       link: "https://topmate.io/aat/1148709/pay",
-      color: "bg-gradient-to-br from-blue-600 to-blue-500"
+      color: "bg-gradient-to-br from-blue-600 to-blue-500 dark:from-blue-500 dark:to-blue-400"
     }
   ];
 
@@ -113,7 +119,7 @@ const Travelling = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
-        className="min-h-screen bg-gradient-to-b from-emerald-50 via-emerald-100 to-emerald-50 text-emerald-900 relative overflow-hidden"
+        className="min-h-screen   text-emerald-900 dark:text-emerald-100 relative overflow-hidden"
       >
         {/* Particles Effect */}
         {[...Array(30)].map((_, i) => (
@@ -122,7 +128,7 @@ const Travelling = () => {
 
         {/* Hero Section with Background Image */}
         <div className="relative h-[60vh] w-full mb-12 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-b from-emerald-50/0 via-emerald-50/30 to-emerald-100/70" />
+          <div className="absolute inset-0   " />
           <Image
             src="/images/ashu_travel.jpeg"
             alt="Travel Hero"
@@ -130,28 +136,28 @@ const Travelling = () => {
             objectFit="cover"
             className="transition-opacity duration-500 group-hover:opacity-90 grayscale opacity-90 object-center"
             style={{
-              filter: 'brightness(0.9) contrast(1.1)',
+              filter: theme === 'dark' ? 'brightness(0.7) contrast(1.2)' : 'brightness(0.9) contrast(1.1)',
               maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0.2))'
             }}
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-emerald-50/0 via-emerald-100/20 to-emerald-900/70 group-hover:from-emerald-50/0 group-hover:via-emerald-100/40 group-hover:to-emerald-900/80 transition-colors duration-500" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/20 to-white/70 dark:via-gray-900/20 dark:to-gray-900/70" />
           <motion.div 
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.5 }}
             className="absolute inset-0 flex flex-col items-center justify-center text-center p-4"
           >
-            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 drop-shadow-[0_4px_8px_rgba(0,0,0,0.6)]">
-              Explore <span className="text-emerald-200 drop-shadow-[0_4px_8px_rgba(0,0,0,0.6)]">The World</span>
+            <h1 className="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white mb-6 drop-shadow-lg">
+              Explore <span className="text-emerald-500 dark:text-emerald-400">The World</span>
             </h1>
-            <p className="text-xl text-white max-w-2xl drop-shadow-[0_4px_8px_rgba(0,0,0,0.6)]">
+            <p className="text-xl text-gray-800 dark:text-gray-200 max-w-2xl font-medium drop-shadow-lg">
               Join me on a journey across continents and cultures
             </p>
           </motion.div>
         </div>
 
-        <div className="container mx-auto ">
+        <div className="container mx-auto px-4">
           {/* Social Links Cards */}
           <motion.div 
             variants={containerVariants}
@@ -164,7 +170,7 @@ const Travelling = () => {
                 key={social.title}
                 variants={itemVariants}
                 whileHover={{ scale: 1.05 }}
-                className={`${social.color} rounded-xl p-6 text-white shadow-xl`}
+                className={`${social.color} rounded-xl p-6 text-white shadow-xl backdrop-blur-sm`}
               >
                 {social.redirect ? (
                   <a href={social.link} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center text-center">
@@ -191,7 +197,7 @@ const Travelling = () => {
             viewport={{ once: true }}
             className="mb-16"
           >
-            <h2 className="text-4xl font-bold mb-12 text-center text-emerald-600">
+            <h2 className="text-4xl font-bold mb-12 text-center text-emerald-600 dark:text-emerald-400">
               Wanderlust Chronicles
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
@@ -207,7 +213,7 @@ const Travelling = () => {
                   }}
                   className="group relative perspective"
                 >
-                  <div className="relative h-64 rounded-xl overflow-hidden transform-gpu transition-all duration-300 group-hover:shadow-2xl group-hover:shadow-emerald-500/25">
+                  <div className="relative h-64 rounded-xl overflow-hidden transform-gpu transition-all duration-300 group-hover:shadow-2xl group-hover:shadow-emerald-500/25 dark:group-hover:shadow-emerald-400/25">
                     <Image
                       src={place.img}
                       alt={place.name}
@@ -215,7 +221,7 @@ const Travelling = () => {
                       objectFit="cover"
                       className="transition-transform duration-300 group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/90 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/90 to-transparent dark:from-gray-900/90" />
                     <div className="absolute bottom-0 p-4 w-full">
                       <h3 className="text-xl font-semibold text-white">{place.name}</h3>
                     </div>
@@ -233,17 +239,17 @@ const Travelling = () => {
             viewport={{ once: true }}
             className="mb-16"
           >
-            <h2 className="text-4xl font-bold mb-12 text-center text-emerald-600">
+            <h2 className="text-4xl font-bold mb-12 text-center text-emerald-600 dark:text-emerald-400">
               Future Adventures
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
               {pendingTravelPlaces.map((place) => (
                 <motion.div
-                onClick={()=>{
-                  if(place.link){
-                    window.open(place.link, '_blank');
-                  }
-                }}
+                  onClick={() => {
+                    if(place.link) {
+                      window.open(place.link, '_blank');
+                    }
+                  }}
                   key={place.name}
                   variants={itemVariants}
                   whileHover={{ 
@@ -254,7 +260,7 @@ const Travelling = () => {
                   }}
                   className={`group relative perspective ${place.link ? 'cursor-pointer' : ''}`}
                 >
-                  <div className="relative h-64 rounded-xl overflow-hidden transform-gpu transition-all duration-300 group-hover:shadow-2xl group-hover:shadow-emerald-500/25">
+                  <div className="relative h-64 rounded-xl overflow-hidden transform-gpu transition-all duration-300 group-hover:shadow-2xl group-hover:shadow-emerald-500/25 dark:group-hover:shadow-emerald-400/25">
                     <Image
                       src={place.img}
                       alt={place.name}
@@ -262,10 +268,10 @@ const Travelling = () => {
                       objectFit="cover"
                       className="transition-transform duration-300 group-hover:scale-110 grayscale"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/90 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/90 to-transparent dark:from-gray-900/90" />
                     <div className="absolute bottom-0 p-4 w-full">
                       <h3 className="text-xl font-semibold text-white">{place.name}</h3>
-                      <p className="text-sm text-emerald-200">Coming soon...</p>
+                      <p className="text-sm text-emerald-200 dark:text-emerald-300">Coming soon...</p>
                     </div>
                   </div>
                 </motion.div>

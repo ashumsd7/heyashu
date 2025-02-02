@@ -9,11 +9,12 @@ import dayjs from "dayjs";
 import Image from "next/image";
 import MDXRenderer from "@/components/base/MDXRenderer";
 import CommonSlugHeadTags from "@/components/seo/CommonSlugHeadTags";
+import ContentFooter from "@/components/garden/ContentFooter";
 
 // Function to fetch the content of the blog post
 const contentFolders = [
   "src/content/blog",
-  "src/content/experience",
+  "src/content/experience", 
   "src/content/js-snippets",
   "src/content/node-js-procodrr",
   "src/content/notes-namaste-node-js",
@@ -93,17 +94,16 @@ export default function BlogPost({ frontMatter, mdxSource, large = false }) {
 
   return (
     <>
-      <CommonSlugHeadTags image={frontMatter?.thumbnail} frontMatter={frontMatter}  url = "https://www.heyashu.com/blog" />
+      <CommonSlugHeadTags image={frontMatter?.thumbnail} frontMatter={frontMatter} url="https://www.heyashu.com/blog" />
 
       <div
-        className={`flex flex-col gap-2  max-w-screen-[1000px] m-auto ${
+        className={`flex flex-col gap-2 max-w-screen-[1000px] m-auto ${
           large ? "max-w-screen-lg" : "max-w-screen-md"
         }`}
       >
         {/* Blog Title */}
         {frontMatter?.title && (
-          <h3 className="md:text-5xl text-3xl text-[#130101] font-extrabold my-6 font-sans">
-            {" "}
+          <h3 className="md:text-5xl text-3xl text-gray-900 dark:text-gray-100 font-extrabold my-6 font-sans">
             {frontMatter?.name || frontMatter?.title}
           </h3>
         )}
@@ -121,6 +121,7 @@ export default function BlogPost({ frontMatter, mdxSource, large = false }) {
             }}
           />
         </div>
+
         {/* Blog Hero Image */}
         {frontMatter?.thumbnail && (
           <Image
@@ -132,17 +133,19 @@ export default function BlogPost({ frontMatter, mdxSource, large = false }) {
             }
             width="1024"
             height={"300"}
-            className="rounded-md shadow-lg"
+            className="rounded-md shadow-lg dark:shadow-gray-800 mb-8"
           />
         )}
+
         {/* Main Blog Content */}
         <div
-          className={`prose container mx-auto p-0  mb-28 ${
+          className={`prose dark:prose-invert prose-emerald container mx-auto p-0 mb-28 ${
             large ? "max-w-screen-lg" : "max-w-screen-md"
           }`}
         >
           <MDXRenderer markdownContent={mdxSource} />
         </div>
+        <ContentFooter/>
       </div>
     </>
   );

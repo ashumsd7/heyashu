@@ -16,35 +16,33 @@ function TechPage() {
     { name: "Javascript", icon: <IoLogoJavascript /> },
     { name: "ReactJs", icon: <FaReact /> },
     { name: "TailwindCSS", icon: <FaSass/> },
-
     { name: "TypeScript", icon: <SiTypescript /> },
     { name: "Redux Toolkit", icon: <SiRedux /> },
     { name: "VueJS", icon: <FaVuejs /> },
-    // Keep your existing technology list
   ];
 
-  const gardenCards = [
+  const services = [
     {
       title: "Digital Garden",
-      description: "Access my collection of technical notes and learnings",
+      description: "Explore my curated collection of technical notes, learnings and insights",
       link: "/digital-garden",
-      icon: "📚"
+      icon: "🌱"
     },
     {
-      title: "Products ",
-      description: "  Launching Soon:   Help kits for freshers to gain experience",
+      title: "Developer Products", 
+      description: "Practical resources and starter kits for early-career developers",
       link: "/tech/products",
-      icon: "🛠️"
+      icon: "⚡"
     },
     {
-      title: "Tech Blogs",
-      description: "Read my thoughts and tutorials on development",
+      title: "Technical Writing",
+      description: "In-depth articles and tutorials on modern web development", 
       link: "/blog",
       icon: "✍️"
     },
     {
-      title: "Interview Prep",
-      description: "1:1 interview prep for early career devs",
+      title: "1:1 Mentoring",
+      description: "Personalized interview preparation and career guidance",
       link: "https://topmate.io/aat/1148651",
       icon: "🎯"
     }
@@ -53,114 +51,103 @@ function TechPage() {
   return (
     <>
       <Head>
-        <title>Developer : Ashutosh Anand Tiwari</title>
-        {/* Keep your existing meta tags */}
+        <title>Ashutosh Anand Tiwari - Full Stack Developer</title>
+        <meta name="description" content="Experienced full stack developer specializing in modern web applications" />
       </Head>
 
-      <div className="max-w-7xl mx-auto px-2 py-8 space-y-20">
-        {/* Hero Section */}
-        <section className="flex flex-col md:grid md:grid-cols-2 gap-12 items-center justify-between">
-          {/* Heading for mobile */}
-          <div className="md:hidden space-y-2 text-center">
-            <h2 className="text-xl font-medium text-gray-600">Meet,</h2>
-            <h1 className="text-5xl font-bold text-orange-600">
-              Ashutosh the Developer
-            </h1>
-          </div>
+      <div className="min-h-screen">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 pt-12">
+          
+          {/* Hero Section */}
+          <section className="flex flex-col-reverse md:grid md:grid-cols-2 gap-12 items-center mb-24">
+            <div className="space-y-6 text-center md:text-left">
+              <div className="space-y-2">
+                <h2 className="text-lg font-medium text-emerald-600 dark:text-emerald-400 text-center md:text-left">Hi there! 👋</h2>
+                <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-gray-100 text-center md:text-left">
+                  I'm Ashutosh,<br/>
+                  <span className="text-emerald-600 dark:text-emerald-400">Full Stack Developer</span>
+                </h1>
+              </div>
 
-          {/* Profile Image */}
-          <div className="relative flex justify-end order-1 md:order-2">
-            <Image
-              src="/images/ashu_office.png"
-              width={500}
-              height={500}
-              alt="Ashutosh Tiwari"
-              className="rounded-lg shadow-xl"
-            />
-            <div className="absolute -z-10 -top-10 -right-10 w-72 h-72 bg-orange-100 rounded-full blur-3xl opacity-30" />
-          </div>
+              <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed text-center md:text-left">
+                With extensive experience in web development, I specialize in building scalable applications 
+                from the ground up. I've collaborated with multiple startups and currently work at Codemonk, 
+                focusing on creating exceptional user experiences through clean, efficient code.
+              </p>
 
-          {/* Content Section */}
-          <div className="space-y-6 order-2 md:order-1">
-            {/* Heading for desktop */}
-            <div className="hidden md:block space-y-2">
-              <h2 className="text-xl font-medium text-gray-600">Meet,</h2>
-              <h1 className="text-5xl font-bold text-orange-600 text-left">
-                Ashutosh the Developer
-              </h1>
+              <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center md:justify-start">
+                <Link href="/tech/resume" className="w-full sm:w-auto">
+                  <Button className="w-full bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-600 dark:hover:bg-emerald-700 text-white px-8 py-3 rounded-lg flex items-center justify-center gap-2">
+                    <IoMdDownload /> View Resume
+                  </Button>
+                </Link>
+                <button
+                  onClick={() => window.open('https://topmate.io/aat/1148709/pay', '_blank')}
+                  className="w-full sm:w-auto"
+                >
+                  <Button className="w-full bg-gray-900 dark:bg-gray-800 hover:bg-gray-800 dark:hover:bg-gray-700 text-white px-8 py-3 rounded-lg flex items-center justify-center">
+                    Work with me
+                  </Button>
+                </button>
+              </div>
             </div>
-            
-            <p className="text-lg text-gray-700 leading-relaxed text-center md:text-left">
-              Well experienced as a software developer, I've specialized in creating web applications
-              from scratch, mainly focusing on the front-end side. Throughout my
-              career, I've collaborated with teams to deliver projects of
-              varying scales, ranging from mid-sized to large-scale endeavors.
-              I've had the opportunity to work with multiple startups, and
-              currently, I'm employed at Codemonk.
-            </p>
 
-            <div className="flex gap-4 pt-4 flex-wrap">
-              <Link href="/tech/resume" className="md:w-auto w-full flex justify-center">
-                <Button className="bg-orange-600 hover:bg-orange-700 md:w-auto w-full text-center text-white px-6 py-3 flex justify-center">
-                  <IoMdDownload className="mr-2" /> View Resume
-                </Button>
-              </Link>
-              <button
-                onClick={() => window.open('https://topmate.io/aat/1148709/pay', '_blank')}
-                className="md:w-auto w-full flex justify-center"
-              >
-                <Button className="bg-gray-800 hover:bg-gray-900 md:w-auto w-full text-white px-6 py-3 flex justify-center">
-                  Let's Build Something
-                </Button>
-              </button>
+            <div className="relative w-64 h-64 sm:w-full sm:h-auto sm:aspect-square max-w-md mx-auto">
+              <div className="absolute -z-10 top-0 right-0 w-80 h-80 bg-emerald-200 dark:bg-emerald-800 rounded-full blur-3xl opacity-20" />
+              <Image
+                src="/images/ashu_office.png"
+                alt="Ashutosh Tiwari"
+                fill
+                className="rounded-2xl object-cover shadow-xl"
+                priority
+              />
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* Skills Section */}
-        <section className="space-y-8">
-          <h2 className="text-3xl font-bold text-center md:text-left">Technologies I Work With</h2>
-          <div className="flex flex-wrap gap-4 justify-center md:justify-start">
-            {technologies.map((tech, index) => (
-              <TechChip key={index} icon={tech.icon} text={tech.name} />
-            ))}
-          </div>
-        </section>
+          {/* Technologies Section */}
+          <section className="mb-24">
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-8 text-center">Technical Expertise</h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {technologies.map((tech, index) => (
+                <TechChip key={index} icon={tech.icon} text={tech.name} />
+              ))}
+            </div>
+          </section>
 
-        {/* Cards Section */}
-        <section className="space-y-8">
-          <h2 className="text-3xl font-bold">Resources & Services</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {gardenCards.map((card, index) => (
-              <Link href={card.link} key={index}>
-                <div className="group p-6 border rounded-xl hover:shadow-lg transition-all duration-300 bg-white hover:border-orange-200">
-                  <div className="text-4xl mb-4 group-hover:scale-110 transition-transform">
-                    {card.icon}
+          {/* Services Section */}
+          <section className="mb-24">
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-8 text-center">Resources & Services</h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {services.map((service, index) => (
+                <Link href={service.link} key={index}>
+                  <div className="group h-full p-6 bg-white dark:bg-gray-800 rounded-xl border border-gray-100 dark:border-gray-700 hover:border-emerald-200 dark:hover:border-emerald-700 hover:shadow-lg transition-all duration-300">
+                    <div className="text-4xl mb-4 group-hover:scale-110 transition-transform text-center">
+                      {service.icon}
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2 text-center">{service.title}</h3>
+                    <p className="text-gray-600 dark:text-gray-300 text-center">{service.description}</p>
                   </div>
-                  <h3 className="text-xl font-bold mb-2">{card.title}</h3>
-                  <p className="text-gray-600">{card.description}</p>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </section>
+                </Link>
+              ))}
+            </div>
+          </section>
 
-        {/* CTA Section */}
-        <section className="bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl p-8 text-white text-center">
-          <div className="max-w-2xl mx-auto space-y-6 flex flex-col items-center justify-center">
-            <h2 className="text-3xl font-bold">Let's Build Something Amazing</h2>
-            <p className="text-lg opacity-90">
-              Transform your ideas into reality with modern web development solutions.
-            </p>
-            <div className="flex justify-center">
-              <button onClick={() => window.open('https://topmate.io/aat/1148709/pay', '_blank')}>
-                <Button className="bg-white text-orange-600 hover:bg-gray-50 px-8 py-3 text-lg font-medium">
-                  Get Started
-                </Button>
+          {/* CTA Section */}
+          <section className="bg-gradient-to-r from-emerald-600 to-emerald-500 dark:from-emerald-700 dark:to-emerald-600 rounded-2xl p-12">
+            <div className="max-w-2xl mx-auto text-center space-y-6">
+              <h2 className="text-3xl font-bold text-white text-center">Ready to Build Something Amazing?</h2>
+              <p className="text-lg text-emerald-50 text-center">
+                Let's collaborate to transform your ideas into exceptional web experiences.
+              </p>
+              <button 
+                onClick={() => window.open('https://topmate.io/aat/1148709/pay', '_blank')}
+                className="bg-white text-emerald-600 hover:bg-emerald-50 dark:bg-gray-800 dark:text-emerald-400 dark:hover:bg-gray-700 px-8 py-3 rounded-lg font-medium transition-colors"
+              >
+                Get Started
               </button>
             </div>
-          </div>
-        </section>
+          </section>
+        </div>
       </div>
     </>
   );
@@ -168,13 +155,11 @@ function TechPage() {
 
 function TechChip({ icon, text }) {
   return (
-    <div className="flex items-center gap-2 border rounded-lg hover:shadow-md transition-all pr-2 duration-300 cursor-pointer bg-white group hover:border-orange-200">
-      <span className="bg-gray-50 p-2 rounded-l-lg group-hover:bg-orange-50">
-        <div className="text-gray-600 group-hover:text-orange-600 transition-all duration-300">
-          {icon || <FaUmbrellaBeach />}
-        </div>
+    <div className="flex items-center gap-3 p-4 bg-white dark:bg-gray-800 rounded-xl border border-gray-100 dark:border-gray-700 hover:border-emerald-200 dark:hover:border-emerald-700 hover:shadow-md transition-all duration-300">
+      <span className="text-2xl text-emerald-600 dark:text-emerald-400">
+        {icon || <FaUmbrellaBeach />}
       </span>
-      <span className=" py-2 font-medium">{text}</span>
+      <span className="font-medium text-gray-900 dark:text-gray-100 text-center">{text}</span>
     </div>
   );
 }

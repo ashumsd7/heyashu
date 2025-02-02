@@ -11,7 +11,7 @@ function MDXRenderer({ markdownContent }) {
       const adjustedSrc = removePublicFromPath(src);
       return (
         <img
-          className="rounded-md w-full h-full"
+          className="rounded-md w-full h-full my-8" // Added vertical margin
           src={adjustedSrc}
           alt={alt}
           layout="responsive"
@@ -20,45 +20,45 @@ function MDXRenderer({ markdownContent }) {
       );
     },
     h1: (props) => (
-      <h1 className="text-[28px] text-[#08142cd9] font-bold mb-4" {...props} />
+      <h1 className="text-3xl text-[#08142cd9] dark:text-gray-100 font-bold mt-12 mb-6" {...props} />
     ),
     h2: (props) => (
-      <h2 className="text-[28px] font-bold mb-4 text-[#08142cd9]" {...props} />
+      <h2 className="text-2xl font-bold mt-10 mb-5 text-[#08142cd9] dark:text-gray-100" {...props} />
     ),
     h3: (props) => (
       <h3
-        className="text-[20px] font-bold mb-3 mt-7 text-[#08142cd9] font-sans"
+        className="text-xl font-bold mt-8 mb-4 text-[#08142cd9] dark:text-gray-100 font-sans"
         {...props}
       />
     ),
     pre: (props) => (
       <pre
-        className="markdown-pre text-[17px] leading-[22px]  text-[#2a354b]"
+        className="markdown-pre text-base leading-relaxed my-6 text-[#2a354b] dark:text-gray-300"
         {...props}
       />
     ),
     p: (props) => (
       <p
-        className="mb-2  text-[18px] leading-[27px] text-[#28354bd9]   "
+        className="mb-6 text-lg leading-relaxed text-[#28354bd9] dark:text-gray-300"
         {...props}
       />
     ),
     strong: (props) => (
       <strong
-        className="mb-4 font-medium bg-[#8f9fa926] px-1 py-[2px] rounded-md   text-[18px] leading-[27px] text-[#2a354b] "
+        className="font-medium bg-[#8f9fa926] dark:bg-gray-700 px-1.5 py-0.5 rounded-md text-lg text-[#2a354b] dark:text-gray-200"
         {...props}
       />
     ),
     li: (props) => (
       <li
-        className="text-[18px] leading-[27px] text-[#2a354b] text-justify "
+        className="text-lg leading-relaxed mb-2 text-[#2a354b] dark:text-gray-300 text-justify"
         {...props}
       />
     ),
     a: (props) => (
       <a
         target="_blank"
-        className=" hover:opacity-50 mdx-a no-underline border-b  px-1 py-[2px] rounded-md   text-[18px] leading-[27px] text-[#4d7f35]  "
+        className="hover:opacity-50 mdx-a no-underline border-b px-1.5 py-0.5 rounded-md text-lg text-[#4d7f35] dark:text-green-400 transition-opacity"
         {...props}
       />
     ),

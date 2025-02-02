@@ -68,7 +68,7 @@ function MiscPage() {
       initial="initial"
       animate="animate"
       variants={pageVariants}
-      className="min-h-screen bg-gradient-to-b overflow-x-hidden from-white via-orange-50/50 to-orange-100/30"
+      className="min-h-screen   0"
     >
       <Head>
         <title>Other Versions | Ashutosh Tripathi</title>
@@ -87,18 +87,18 @@ function MiscPage() {
           className="text-center mb-16"
         >
           <motion.div variants={itemVariants} className="mb-4">
-            <span className="inline-block  px-4 py-1 rounded-full bg-orange-100 text-orange-600 text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-1 rounded-full  bg-emerald-100 dark:bg-emerald-900 text-emerald-600 dark:text-emerald-400 text-sm font-medium mb-4">
               Beyond Tech
             </span>
-            <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 font-serif">
+            <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 dark:text-gray-100 font-serif">
               Different Versions of{" "}
-              <span className="text-orange-600">Ashutosh</span>
+              <span className="text-emerald-600 dark:text-emerald-400">Ashutosh</span>
             </h1>
           </motion.div>
 
           <motion.p
             variants={itemVariants}
-            className="mt-6 text-xl text-gray-600 max-w-3xl mx-auto font-serif"
+            className="mt-6 text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto font-serif"
           >
             Life is multifaceted, and so am I. Beyond the world of technology,
             I wear many hats and explore various dimensions of life.
@@ -117,7 +117,7 @@ function MiscPage() {
               key={index}
               variants={cardVariants}
               whileHover="hover"
-              className="group relative bg-white rounded-2xl shadow-xl overflow-hidden transform transition-all duration-300 hover:shadow-2xl"
+              className="group relative   rounded-2xl shadow-xl overflow-hidden transform transition-all duration-300 hover:shadow-2xl"
             >
               <div className="relative h-72 overflow-hidden">
                 <Image
@@ -130,19 +130,13 @@ function MiscPage() {
               </div>
               
               <div className="relative p-8">
-                <h3 className="text-2xl font-bold text-orange-600 font-serif mb-3">
+                <h3 className="text-2xl font-bold text-emerald-600 dark:text-emerald-400 font-serif mb-3">
                   {version.name}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
                   {version.description || "Exploring another dimension of life"}
                 </p>
               </div>
-
-              {/* <div className="absolute top-4 right-4">
-                <span className="inline-flex items-center px-3 py-1 rounded-full bg-orange-100 text-orange-600 text-sm font-medium">
-                  Version {index + 1}
-                </span>
-              </div> */}
             </motion.div>
           ))}
         </motion.div>
@@ -153,7 +147,7 @@ function MiscPage() {
           className="text-center mt-16"
         >
           <Link href="/misc/best-captured">
-            <Button className="inline-flex items-center px-8 py-4 bg-orange-600 hover:bg-orange-700 text-white font-medium rounded-xl transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+            <Button className="inline-flex items-center px-8 py-4 bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-600 dark:hover:bg-emerald-700 text-white font-medium rounded-xl transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
               <span>Discover More About Me</span>
               <svg
                 className="ml-2 w-5 h-5"
@@ -175,26 +169,26 @@ function MiscPage() {
 
         {/* Background Decorations */}
         <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.1 }}
-        transition={{ duration: 1 }}
-        className="absolute inset-0 pointer-events-none overflow-hidden"
-      >
-        <Image
-          className="absolute top-0 left-0 -translate-x-1/3 -translate-y-1/3 opacity-30 max-w-[400px]"
-          src="/images/travel_illu.png"
-          width={400}
-          height={400}
-          alt="Decorative illustration"
-        />
-        <Image
-          className="absolute bottom-0 right-0 translate-x-1/3 translate-y-1/3 opacity-30 max-w-[400px]"
-          src="/images/travel_illu.png"
-          width={400}
-          height={400}
-          alt="Decorative illustration"
-        />
-      </motion.div>
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.1 }}
+          transition={{ duration: 1 }}
+          className="absolute inset-0 pointer-events-none overflow-hidden"
+        >
+          <Image
+            className="absolute top-0 left-0 -translate-x-1/3 -translate-y-1/3 opacity-30 max-w-[400px]"
+            src="/images/travel_illu.png"
+            width={400}
+            height={400}
+            alt="Decorative illustration"
+          />
+          <Image
+            className="absolute bottom-0 right-0 translate-x-1/3 translate-y-1/3 opacity-30 max-w-[400px]"
+            src="/images/travel_illu.png"
+            width={400}
+            height={400}
+            alt="Decorative illustration"
+          />
+        </motion.div>
       </div>
     </motion.div>
   );

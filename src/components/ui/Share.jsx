@@ -6,7 +6,7 @@ import React from "react";
 
 function Share({ title }) {
   return (
-    <div className="  ">
+    <div className="">
       <RWebShare
         data={{
           text: `Read ${title}`,
@@ -16,10 +16,10 @@ function Share({ title }) {
         onClick={() => console.log("shared successfully!")}
       >
         <div className="flex gap-2 justify-center items-center">
-        <FiShare2
-          className="text-xl text-white font-extrabold cursor-pointer"
-          title="Share this article"
-        />
+          <FiShare2
+            className="text-xl text-gray-900 dark:text-gray-100 font-extrabold cursor-pointer hover:opacity-80 transition-opacity"
+            title="Share this article"
+          />
         </div>
       </RWebShare>
     </div>

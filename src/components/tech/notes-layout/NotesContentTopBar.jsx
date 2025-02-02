@@ -10,11 +10,11 @@ import { ImNewTab } from "react-icons/im";
 function NotesContentTopBar({ isSidebarVisible, setIsSidebarVisible, title }) {
   return (
     <>
-    <div className="flex items-center justify-between px-4 py-3 gap-4 border-b flex-wrap">
+    <div className="flex items-center justify-between px-4 py-3 gap-4 border-b dark:border-gray-700 flex-wrap">
       <div className="flex items-center gap-4 ml-[-45px]">
         <button
           onClick={() => setIsSidebarVisible(!isSidebarVisible)}
-          className="hidden lg:block text-gray-600 hover:text-gray-800 transition-colors"
+          className="hidden lg:block text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200 transition-colors"
           title="Toggle Sidebar"
         >
           {!isSidebarVisible ? (
@@ -24,7 +24,7 @@ function NotesContentTopBar({ isSidebarVisible, setIsSidebarVisible, title }) {
           )}
         </button>
 
-        <h1 className="text-2xl md:text-3xl font-bold text-gray-900 ml-[45px] ">
+        <h1 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-gray-100 ml-[45px]">
           {title}
         </h1>
       </div>
@@ -33,7 +33,7 @@ function NotesContentTopBar({ isSidebarVisible, setIsSidebarVisible, title }) {
         href={GITHUB_REPO_LINK}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center gap-1 text-green-600 hover:text-green-700 transition-colors font-medium"
+        className="flex items-center gap-1 text-green-600 hover:text-green-700 dark:text-green-400 dark:hover:text-green-300 transition-colors font-medium"
       >
         <DiOpensource className="text-xl" />
         <span>Open Source</span>

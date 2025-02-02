@@ -2,175 +2,223 @@ import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { FaLaptop, FaUmbrellaBeach, FaHome, FaLeaf } from "react-icons/fa";
-import { TbCurlyLoop } from "react-icons/tb";
-import ProfilePicture from "./ProfilePicture";
+import {
+  FaLaptop,
+  FaUmbrellaBeach,
+  FaGithub,
+  FaLinkedin,
+  FaInstagram,
+  FaQuora,
+} from "react-icons/fa";
+import { SiQuora, SiWakatime } from "react-icons/si";
+import { BsPencilSquare, BsBook } from "react-icons/bs";
+import { AiOutlineTwitter } from "react-icons/ai";
 import { PHONE_CALL_THIRTY_MIN } from "@/utils/constant";
+import ThemeToggle from "../base/ToogleDarkModeButton";
 
 const animations = {
   fadeInUp: {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6 }
+    transition: { duration: 0.6 },
   },
   staggerContainer: {
     animate: {
       transition: {
-        staggerChildren: 0.15
-      }
-    }
+        staggerChildren: 0.15,
+      },
+    },
   },
   scaleOnHover: {
     whileHover: { scale: 1.05 },
-    whileTap: { scale: 0.95 }
-  }
+    whileTap: { scale: 0.95 },
+  },
 };
 
 function MainPage() {
-  const categories = [
-    { 
-      href: "/tech", 
-      icon: <FaLaptop />, 
-      text: "Tech Journey",
-      description: "My professional path"
+  const socialLinks = [
+    {
+      icon: <FaGithub className="w-6 h-6" />,
+      href: "https://github.com/ashumsd7",
+      label: "GitHub",
     },
-    { 
-      href: "/travel", 
-      icon: <FaUmbrellaBeach />, 
-      text: "Adventures",
-      description: "Exploring the world"
+    {
+      icon: <AiOutlineTwitter className="w-6 h-6" />,
+      href: "https://twitter.com/JavaScripterrr",
+      label: "Twitter",
     },
-    { 
-      href: "/town", 
-      icon: <FaHome />, 
-      text: "Local Life",
-      description: "Community & culture"
+    {
+      icon: <FaQuora className="w-6 h-6" />,
+      href: "https://www.quora.com/profile/%E0%A4%86%E0%A4%B6%E0%A5%81%E0%A4%A4%E0%A5%8B%E0%A4%B7-%E0%A4%86%E0%A4%A8%E0%A4%A8%E0%A5%8D%E0%A4%A6-%E0%A4%A4%E0%A4%BF%E0%A4%B5%E0%A4%BE%E0%A4%B0%E0%A5%80-Ashutosh-Anand-Tiwari",
+      label: "Quora",
     },
-    { 
-      href: "/misc", 
-      icon: <FaLeaf />, 
-      text: "More",
-      description: "Other interests"
-    }
+    {
+      icon: <FaLinkedin className="w-6 h-6" />,
+      href: "https://www.linkedin.com/in/ashutoshanandtiwari",
+      label: "LinkedIn",
+    },
+    {
+      icon: <FaInstagram className="w-6 h-6" />,
+      href: "https://instagram.com/ashumsd7",
+      label: "Instagram",
+    },
+    {
+      icon: <SiWakatime className="w-6 h-6" />,
+      href: "https://wakatime.com/@aat",
+      label: "WakaTime",
+    },
+  ];
+
+  const sections = [
+    {
+      icon: <FaLaptop className="w-8 h-8" />,
+      title: "Tech Journey",
+      description: "Exploring software development and tech insights",
+      href: "/tech",
+    },
+    {
+      icon: <BsPencilSquare className="w-8 h-8" />,
+      title: "Digital Garden",
+      description:
+        "My personal knowledge base and blog posts on various topics",
+      href: "/digital-garden",
+    },
+    {
+      icon: <FaUmbrellaBeach className="w-8 h-8" />,
+      title: "Travel Stories",
+      description: "Adventures, experiences and travel photography",
+      href: "/travel",
+    },
+    {
+      icon: <BsBook className="w-8 h-8" />,
+      title: "Blog",
+      description: "Articles on technology, life experiences and learnings",
+      href: "/blog",
+    },
   ];
 
   return (
-    <motion.div 
+    <motion.div
       initial="initial"
       animate="animate"
-      className="min-h-screen bg-gradient-to-b from-green-50 to-white"
+      className="min-h-screen dark:from-slate-900 dark:to-slate-800"
     >
-      <div className="container mx-auto   pb-12 pt-6 max-w-6xl">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 max-w-7xl">
         {/* Hero Section */}
-        <motion.div 
+        <motion.div
           variants={animations.staggerContainer}
-          className="grid md:grid-cols-2 gap-12 items-center mb-20"
+          className="flex flex-col lg:flex-row items-center gap-12 mb-24"
         >
-          <motion.div variants={animations.fadeInUp} className="space-y-8">
-            <div className="space-y-3">
-              <motion.p 
-                variants={animations.fadeInUp}
-                className="text-lg text-green-700 font-medium text-center md:text-left"
-              >
-                Welcome! I'm
-              </motion.p>
-              <motion.h1 
-                variants={animations.fadeInUp}
-                className="text-5xl md:text-6xl   font-bold text-green-800 text-center md:text-left"
-              >
-                Ashutosh Anand Tiwari
-              </motion.h1>
-              <motion.p 
-                variants={animations.fadeInUp}
-                className="text-green-600 italic text-xl text-center md:text-left"
-              >
-                aka Ashu
-              </motion.p>
+          {/* Profile Image */}
+          <motion.div variants={animations.fadeInUp} className="lg:w-1/2 order-1 lg:order-2">
+            <div className="relative w-64 h-64 sm:w-full sm:h-auto sm:aspect-square max-w-md mx-auto">
+              <Image
+                src="/images/profile1.jpg"
+                alt="Ashutosh Anand Tiwari"
+                fill
+                className="rounded-2xl object-cover shadow-xl"
+                priority
+              />
             </div>
-
-            {/* Profile Picture for Mobile */}
-            <motion.div 
-              variants={animations.fadeInUp}
-              className="md:hidden relative"
-            >
-              <ProfilePicture />
-            </motion.div>
-
-            <motion.p 
-              variants={animations.fadeInUp}
-              className="text-xl text-gray-800 leading-relaxed text-center md:text-left 
-                  rounded-lg bg-gradient-to-br from-green-50/80 to-white/60 backdrop-blur-sm
-                  transition-all duration-300"
-            >
-              I'm a simple person who earns his living through coding and development. Guided by
-              <span className="text-green-600">"Zindagi Na Milegi Dobara,"</span> I try to make each day count with a smile.
-              Through daily yoga, mindful travels, and helping others, I find joy in life's little moments while growing along the way.
-              <span className="text-xl">🙌</span> Jai Shree Ram
-            </motion.p>
-
-            <motion.div 
-              variants={animations.fadeInUp}
-              className="flex gap-4 flex-wrap w-full"
-            >
-              
-                <motion.button 
-                  {...animations.scaleOnHover}
-                  onClick={()=> window.open(PHONE_CALL_THIRTY_MIN, "_blank")}
-                  className="w-full md:w-auto px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 
-                    transition-colors duration-300 shadow-lg hover:shadow-xl"
-                >
-                  Get in Touch
-                </motion.button>
-              
-              <Link href="/misc" className="w-full md:w-auto">
-                <motion.button 
-                  {...animations.scaleOnHover}
-                  className="w-full px-6 py-3 border-2 border-green-600 text-green-600 rounded-lg 
-                    hover:bg-green-50 transition-colors duration-300"
-                >
-                  Know more
-                </motion.button>
-              </Link>
-            </motion.div>
           </motion.div>
 
-          {/* Profile Picture for Desktop */}
-          <motion.div 
+          {/* Text Content */}
+          <motion.div
             variants={animations.fadeInUp}
-            className="relative hidden md:block"
+            className="lg:w-1/2 space-y-8 order-2 lg:order-1 text-center lg:text-left"
           >
-            <ProfilePicture />
+            <div className="space-y-4">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white">
+                Hi, I'm{" "}
+                <span className="text-emerald-600 dark:text-emerald-400">
+                  Ashutosh
+                </span>
+              </h1>
+              <p className="text-xl text-slate-600 dark:text-slate-300">
+                Software Developer | Technical Writer | Explorer
+              </p>
+            </div>
+
+            <p className="text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
+              Welcome to my digital space where I share my journey through code,
+              creativity, and exploration. Here you'll find my thoughts on
+              technology, travel experiences, and various other interests
+              cultivated through my digital garden.
+            </p>
+
+            {/* Social Links */}
+            <div className="flex gap-6 justify-center lg:justify-start">
+              {socialLinks.map((link) => (
+                <motion.a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  {...animations.scaleOnHover}
+                  className="text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400"
+                  aria-label={link.label}
+                >
+                  {link.icon}
+                </motion.a>
+              ))}
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 w-full justify-center lg:justify-start">
+              <motion.button
+                {...animations.scaleOnHover}
+                onClick={() => window.open(PHONE_CALL_THIRTY_MIN, "_blank")}
+                className="w-full sm:w-auto px-8 py-3 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 
+                  dark:bg-emerald-500 dark:hover:bg-emerald-600 transition-colors"
+              >
+                Get in Touch
+              </motion.button>
+
+              <Link href="/misc" className="w-full sm:w-auto">
+                <motion.button
+                  {...animations.scaleOnHover}
+                  className="w-full px-8 py-3 border-2 border-emerald-600 dark:border-emerald-400 
+                    text-emerald-600 dark:text-emerald-400 rounded-lg hover:bg-emerald-50 
+                    dark:hover:bg-emerald-900/30 transition-colors"
+                >
+                  More About Me
+                </motion.button>
+              </Link>
+            </div>
           </motion.div>
         </motion.div>
 
-        {/* Versions Section */}
-        <motion.div 
-          variants={animations.fadeInUp}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-4xl   font-bold mb-12">
-            Explore Different <span className="text-green-600">Facets</span> of My Journey
+        {/* Sections Grid */}
+        <motion.div variants={animations.fadeInUp} className="space-y-12">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center text-slate-900 dark:text-white">
+            Explore My{" "}
+            <span className="text-emerald-600 dark:text-emerald-400">
+              Digital World
+            </span>
           </h2>
 
-          <motion.div 
-            variants={animations.staggerContainer}
-            className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-5xl mx-auto"
-          >
-            {categories.map((category) => (
-              <Link href={category.href} key={category.href}>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {sections.map((section) => (
+              <Link key={section.href} href={section.href}>
                 <motion.div
-                  variants={animations.fadeInUp}
                   {...animations.scaleOnHover}
-                  className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all 
-                    duration-300 hover:bg-green-50 border border-green-100"
+                  className="p-6 bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl 
+                    transition-all duration-300 border border-slate-100 dark:border-slate-700 
+                    hover:border-emerald-100 dark:hover:border-emerald-900"
                 >
-                  <div className="text-3xl text-green-600 mb-4 mx-auto flex justify-center">{category.icon}</div>
-                  <h3 className="font-medium text-green-800 text-lg mb-2">{category.text}</h3>
-                  <p className="text-sm text-gray-600">{category.description}</p>
+                  <div className="text-emerald-600 dark:text-emerald-400 mb-4">
+                    {section.icon}
+                  </div>
+                  <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">
+                    {section.title}
+                  </h3>
+                  <p className="text-slate-600 dark:text-slate-300">
+                    {section.description}
+                  </p>
                 </motion.div>
               </Link>
             ))}
-          </motion.div>
+          </div>
         </motion.div>
       </div>
     </motion.div>

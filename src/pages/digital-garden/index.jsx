@@ -105,13 +105,7 @@ Gvanks`,
 
   return (
     <div className="min-h-screen  ">
-      {/* Animated Background */}
-      <div className="fixed inset-0 z-0 opacity-10 overflow-hidden">
-        <div className="absolute w-64 md:w-96 h-64 md:h-96 bg-green-400 rounded-full blur-3xl -top-20 -left-20 animate-blob"></div>
-        <div className="absolute w-64 md:w-96 h-64 md:h-96 bg-blue-400 rounded-full blur-3xl top-1/2 right-20 animate-blob animation-delay-2860"></div>
-        <div className="absolute w-64 md:w-96 h-64 md:h-96 bg-purple-400 rounded-full blur-3xl bottom-20 left-1/2 animate-blob animation-delay-4000"></div>
-      </div>
-
+  
       {/* Hero Section */}
       <motion.section
         initial={{ opacity: 0, y: 20 }}
@@ -125,13 +119,13 @@ Gvanks`,
             transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
             className="mb-6"
           >
-            <FaSeedling className="text-5xl md:text-7xl text-green-600 mx-auto" />
+            <FaSeedling className="text-5xl md:text-7xl text-green-600 dark:text-green-400 mx-auto" />
           </motion.div>
           <motion.h1
             initial={{ scale: 0.9 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.5 }}
-            className="text-4xl md:text-6xl font-bold pb-4 md:pb-6 bg-gradient-to-r from-green-600 to-blue-600 text-transparent bg-clip-text"
+            className="text-4xl md:text-6xl font-bold pb-4 md:pb-6 bg-gradient-to-r from-green-600 to-blue-600 dark:from-green-400 dark:to-blue-400 text-transparent bg-clip-text"
           >
             Open-sourced Digital Garden
           </motion.h1>
@@ -139,13 +133,13 @@ Gvanks`,
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="text-lg md:text-xl   text-gray-600 mb-8 "
+            className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8"
           >
             A collaborative space for open-source knowledge sharing. Learn,
             contribute, and grow together.
           </motion.p>
           <motion.div
-            className="flex flex-col sm:flex-row justify-center gap-4 "
+            className="flex flex-col sm:flex-row justify-center gap-4"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
@@ -155,7 +149,7 @@ Gvanks`,
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => router.push("/digital-garden/notes")}
-              className="bg-gradient-to-r from-green-600 to-green-500 text-white px-6 py-3 text-sm md:text-base md:px-8 md:py-4 rounded-lg shadow-lg hover:shadow-green-500/30 transition-all w-full sm:w-auto"
+              className="bg-gradient-to-r from-green-600 to-green-500 dark:from-green-500 dark:to-green-400 text-white px-6 py-3 text-sm md:text-base md:px-8 md:py-4 rounded-lg shadow-lg hover:shadow-green-500/30 dark:hover:shadow-green-400/30 transition-all w-full sm:w-auto"
             >
               Read Digital Notes
             </motion.button>
@@ -166,7 +160,7 @@ Gvanks`,
               onClick={() =>
                 window.open("https://github.com/ashumsd7/heyashu", "_blank")
               }
-              className="bg-white border-2 border-green-600 text-green-600 px-6 py-3 text-sm md:text-base md:px-8 md:py-4 rounded-lg shadow-lg hover:shadow-green-500/20 transition-all w-full sm:w-auto"
+              className="bg-white dark:bg-gray-800 border-2 border-green-600 dark:border-green-400 text-green-600 dark:text-green-400 px-6 py-3 text-sm md:text-base md:px-8 md:py-4 rounded-lg shadow-lg hover:shadow-green-500/20 dark:hover:shadow-green-400/20 transition-all w-full sm:w-auto"
             >
               <FaGithub className="inline mr-2" />
               30+ Star the repo
@@ -181,15 +175,15 @@ Gvanks`,
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="pb-12 pt-6 md:py-16   max-w-6xl mx-auto relative"
+        className="pb-12 pt-6 md:py-16 max-w-6xl mx-auto relative"
       >
-        <h2 className="text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-center bg-gradient-to-r from-green-600 to-blue-600 text-transparent bg-clip-text">
+        <h2 className="text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-center bg-gradient-to-r from-green-600 to-blue-600 dark:from-green-400 dark:to-blue-400 text-transparent bg-clip-text">
           Explore, read, write, share!
         </h2>
         <motion.div
           variants={containerVariants}
           initial="hidden"
-          whileInView="visible"
+          whileInView="visible" 
           viewport={{ once: true }}
           className="grid md:grid-cols-2 gap-4 md:gap-6"
         >
@@ -201,23 +195,23 @@ Gvanks`,
                 variants={itemVariants}
                 whileHover={{ scale: 1.02 }}
                 onClick={() => router.push(item?.route)}
-                className="bg-white/80 backdrop-blur-lg p-4 md:p-6 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 cursor-pointer border border-green-100"
+                className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-lg p-4 md:p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer border border-green-200 dark:border-green-700"
               >
                 <div className="flex gap-3 md:gap-4">
-                  <div className="text-2xl md:text-3xl text-green-600 animate-pulse">
+                  <div className="text-2xl md:text-3xl text-green-500 dark:text-green-400 animate-pulse">
                     <FaLeaf />
                   </div>
                   <div className="flex-1">
                     <div className="flex justify-between items-center mb-2">
-                      <h3 className="text-xl md:text-2xl font-medium">
+                      <h3 className="text-xl md:text-2xl font-medium text-gray-800 dark:text-gray-50">
                         {item?.name}
-                        <span className="ml-2 text-xs md:text-sm px-2  py-1 bg-green-100 text-green-700 rounded-full">
+                        <span className="ml-2 text-xs md:text-sm px-2 py-1 bg-green-50 dark:bg-green-900 text-green-600 dark:text-green-200 rounded-full">
                           {item?.count}+ pages
                         </span>
                       </h3>
-                      <FaExternalLinkAlt className="text-gray-400 text-sm md:text-base" />
+                      <FaExternalLinkAlt className="text-gray-500 dark:text-gray-400 text-sm md:text-base" />
                     </div>
-                    <p className="text-sm md:text-base text-gray-600">
+                    <p className="text-sm md:text-base text-gray-700 dark:text-gray-200">
                       {item?.desc}
                     </p>
                   </div>
@@ -234,35 +228,35 @@ Gvanks`,
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="pb-12 pt-6 md:py-16 bg-gradient-to-b from-green-50/50 to-blue-50/50 backdrop-blur-lg"
+        className="pb-12 pt-6 md:py-16  "
       >
         <div className="max-w-6xl mx-auto overflow-hidden">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-center bg-gradient-to-r from-green-600 to-blue-600 text-transparent bg-clip-text">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-center bg-gradient-to-r from-green-600 to-blue-600 dark:from-green-400 dark:to-blue-400 text-transparent bg-clip-text">
             What Others Say
           </h2>
           <motion.div
             className="flex gap-6 md:gap-8"
             animate={{
-              x: [0, -3000], // Increased animation distance to show more cards
+              x: [0, -3000],
             }}
             transition={{
               x: {
-                duration: 120, // Increased duration to match longer distance
+                duration: 120,
                 repeat: Infinity,
                 ease: "linear",
                 repeatType: "loop"
               },
             }}
             style={{
-              width: "max-content", // Allow container to grow with content
+              width: "max-content",
               maskImage: "linear-gradient(to right, transparent, black 5%, black 95%, transparent)",
               WebkitMaskImage: "linear-gradient(to right, transparent, black 5%, black 95%, transparent)"
             }}
           >
-            {[...testimonials2, ...testimonials2, ...testimonials2].map((testimonial, index) => ( // Triple the cards for smoother loop
+            {[...testimonials2, ...testimonials2, ...testimonials2].map((testimonial, index) => (
               <motion.div
                 key={index}
-                className="flex-shrink-0 w-[300px] md:w-[350px] bg-white/80 backdrop-blur-lg p-4 md:p-6 rounded-xl shadow-lg transition-all"
+                className="flex-shrink-0 w-[300px] md:w-[350px] bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg p-4 md:p-6 rounded-xl shadow-lg transition-all"
                 whileHover={{ 
                   scale: 1.02,
                   transition: { duration: 0.2 }
@@ -272,23 +266,23 @@ Gvanks`,
                   <img
                     src={testimonial.avatar}
                     alt={testimonial.name}
-                    className="w-12 h-12 md:w-16 md:h-16 rounded-full border-2 border-green-286"
+                    className="w-12 h-12 md:w-16 md:h-16 rounded-full border-2 border-green-600 dark:border-green-400"
                   />
                   <div>
                     <h4
                       onClick={() => window.open(testimonial.link, "_blank")}
-                      className="font-medium text-green-700 text-sm md:text-base cursor-pointer hover:underline"
+                      className="font-medium text-green-700 dark:text-green-300 text-sm md:text-base cursor-pointer hover:underline"
                     >
                       {testimonial.name}
                     </h4>
-                    <p className="text-xs md:text-sm text-gray-500">
+                    <p className="text-xs md:text-sm text-gray-500 dark:text-gray-400">
                       {testimonial.role}
                     </p>
                   </div>
                 </div>
 
                 <div className="relative">
-                  <p className="text-sm md:text-base text-gray-600 italic">
+                  <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 italic">
                     "{testimonial.comment.length > 286
                       ? testimonial.comment.substring(0, 286) + "..."
                       : testimonial.comment}"
@@ -300,7 +294,7 @@ Gvanks`,
                               generateSlug(testimonial.name)
                           );
                         }}
-                        className="text-green-600 hover:underline cursor-pointer ml-1"
+                        className="text-green-600 dark:text-green-400 hover:underline cursor-pointer ml-1"
                       >
                         read more
                       </span>
@@ -316,7 +310,7 @@ Gvanks`,
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => window.open(ADMIN_LINK, "_blank")}
-              className="bg-green-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-green-700 transition-colors"
+              className="bg-green-600 dark:bg-green-500 text-white px-6 py-3 rounded-lg shadow-md hover:bg-green-700 dark:hover:bg-green-600 transition-colors"
             >
               + Drop Your Feedback
             </motion.button>
@@ -324,77 +318,35 @@ Gvanks`,
         </div>
       </motion.section>
 
-      {/* Call to Action */}
-      {/* <motion.section
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-        className="py-16 md:py-20 bg-gradient-to-r from-green-600 to-green-500 text-white text-center cursor-pointer"
-        onClick={() => router.push('/digital-garden/notes')}
-      >
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Explore 50+ Insightful Blogs
-          </h2>
-          <p className="mb-8 text-green-50 text-base md:text-lg">
-            Dive into a diverse collection of articles covering technology, development,
-            career growth, and more. From beginner guides to advanced concepts,
-            there's something for everyone in our growing library of content.
-          </p>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={(e) => {
-              e.stopPropagation();
-              router.push('/digital-garden/notes');
-            }}
-            className="bg-white text-green-600 px-6 py-3 md:px-8 md:py-4 rounded-lg shadow-lg hover:shadow-xl transition-all text-sm md:text-base cursor-pointer"
-          >
-            Start Reading Blogs
-          </motion.button>
-        </div>
-      </motion.section> */}
-
       {/* Footer */}
-      <footer className="bg-white/80 backdrop-blur-lg border-t py-8 md:py-12">
-        <div className="max-w-6xl mx-auto  ">
+      <footer className="    py-8 md:py-12">
+        <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <motion.div
               whileHover={{ scale: 1.05 }}
               className="flex items-center gap-2 mb-4 md:mb-0"
             >
-              <FaSeedling className="text-xl md:text-2xl text-green-600" />
-              <span className="text-lg md:text-xl font-medium">
+              <FaSeedling className="text-xl md:text-2xl text-green-600 dark:text-green-400" />
+              <span className="text-lg md:text-xl font-medium text-gray-900 dark:text-gray-100">
                 Digital Garden
               </span>
             </motion.div>
             <div className="flex gap-6 md:gap-8 text-sm md:text-base">
-              {/* {["GitHub", "Contribute", "About"].map((item) => (
-                <motion.a
-                  key={item}
-                  whileHover={{ scale: 1.1 }}
-                  href={`/${item.toLowerCase()}`}
-                  className="text-gray-600 hover:text-green-600 transition-colors"
-                >
-                  {item}
-                </motion.a>
-              ))} */}
             </div>
             <motion.div
               whileHover={{ scale: 1.05 }}
               className="flex items-center gap-2 mt-4 md:mt-0"
             >
-              <FaUsers className="text-green-600" />
+              <FaUsers className="text-green-600 dark:text-green-400" />
               <span 
                 onClick={() => window.open('https://chat.whatsapp.com/L0YFv4DQRCpJAcmRFPWT6r', '_blank')}
-                className="text-sm md:text-base text-gray-600 cursor-pointer hover:text-green-600 transition-colors"
+                className="text-sm md:text-base text-gray-600 dark:text-gray-300 cursor-pointer hover:text-green-600 dark:hover:text-green-400 transition-colors"
               >
                 Be JavaScripterr  🚀
               </span>
             </motion.div>
           </div>
-          <div className="text-center mt-6 md:mt-8 text-xs md:text-sm text-gray-500">
+          <div className="text-center mt-6 md:mt-8 text-xs md:text-sm text-gray-500 dark:text-gray-400">
             © {new Date().getFullYear()} Digital Garden. All rights reserved.
           </div>
         </div>

@@ -1,10 +1,10 @@
-
 import { useEffect, useState } from "react";
 import NotesSidebar from "./NotesSidebar";
 import { STORAGE_KEY } from "@/data/note/namaste-node-js-s1/constant";
 import ls from "local-storage";
-import {  GoSidebarExpand } from "react-icons/go";
+import { GoSidebarExpand } from "react-icons/go";
 import { IoMdCloseCircleOutline } from "react-icons/io";
+
 const NotesChips = ({
   handleChipClick,
   data,
@@ -24,37 +24,30 @@ const NotesChips = ({
       document.body.style.overflow = "auto";
     }
   }, [isSidebarVisible]);
+
   return (
     <>
-      <div className="lg:hidden block  -mt-4 mb-2">
+      <div className="lg:hidden fixed bottom-1/2 left-0 z-[100] transform -translate-y-1/2">
         {!isSidebarVisible ? (
           <div
-            className="flex gap-1 items-center"
-            onClick={() => {
-              setIsSidebarVisible(!isSidebarVisible);
-            }}
+            className="flex items-center bg-gray-600 dark:bg-gray-700 text-white px-2 py-4 rounded-r-lg shadow-lg hover:bg-gray-700 dark:hover:bg-gray-800 transition-colors cursor-pointer"
+            onClick={() => setIsSidebarVisible(!isSidebarVisible)}
           >
-            <GoSidebarExpand
-              className="text-2xl text-gray-800 cursor-pointer -mx-4"
-              title="Toggle Sidebar"
-            />
-
-            <div className="text-base ml-6 bg-gray-600 text-white px-2 py-1 rounded-md shadow-md">Select Topic</div>
+            <GoSidebarExpand className="text-xl" />
           </div>
         ) : (
-          <div className="flex gap-1 items-center -ml-4">
+          <div className="flex items-center">
             <IoMdCloseCircleOutline
-              title="Toggle Sidebar"
-              onClick={() => {
-                setIsSidebarVisible(!isSidebarVisible);
-              }}
-              className="text-2xl text-gray-800"
+              title="Close Sidebar"
+              onClick={() => setIsSidebarVisible(!isSidebarVisible)}
+              className="text-2xl text-gray-800 dark:text-gray-200 cursor-pointer hover:text-gray-600 dark:hover:text-gray-400 transition-colors"
             />
           </div>
         )}
       </div>
+
       {isSidebarVisible && (
-        <div className="w-[300px]  block bg-white -mx-4  pb-[300px] h-full shadow-xl border-t-4 rounded-lg   z-[99]  fixed ">
+        <div className="w-[300px] block -mx-4 pb-[300px] h-full shadow-xl border-t-4 rounded-lg z-[99] fixed bg-white dark:bg-gray-900">
           <NotesSidebar
             data={data}
             onSectionClick={(item) => {

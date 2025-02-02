@@ -1,249 +1,148 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { IoArrowBackSharp } from "react-icons/io5";
-import { FaHome } from "react-icons/fa";
-import { useRouter } from "next/router";
-import { LuMousePointerClick } from "react-icons/lu";
 import { IoMdClose } from "react-icons/io";
-import { RxHamburgerMenu } from "react-icons/rx";
-import { GiHamburgerMenu } from "react-icons/gi";
+import { RiMoonFill, RiSunFill } from "react-icons/ri";
+import { HiMenuAlt3 } from "react-icons/hi";
 import Image from "next/image";
-import Support from "@/service/Support.";
+import { useRouter } from "next/router";
+import ThemeToggle from "./ToogleDarkModeButton";
+
 
 function Navbar() {
-  const [activePath, setActivePath] = useState("/");
+  const [isDarkMode, setIsDarkMode] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const [isScrolledUp, setIsScrolledUp] = useState(false);
-  const [isSupportBtnActive, setIsSupportBtnActive] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
-    setIsOpen(false);
-    const pathName = router.pathname;
-    if (pathName) {
-      const firstPath = pathName.split("/")[1];
-      document.body.style.overflow = "auto";
-      setActivePath(firstPath);
+    // Check system preference initially
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      setIsDarkMode(true);
+      document.documentElement.classList.add('dark');
     }
-    return () => {};
-  }, [router]);
+
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
+    // Prevent scrolling when mobile menu is open
     if (isOpen) {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = "auto";
+      document.body.style.overflow = 'unset';
     }
   }, [isOpen]);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 100) {
-        setIsScrolledUp(true);
-      } else {
-        setIsScrolledUp(false);
-      }
-    };
+  const toggleTheme = () => {
+    setIsDarkMode(!isDarkMode);
+    document.documentElement.classList.toggle('dark');
+  };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const navItems = [
+    { href: "/blog", label: "Blogs" },
+    { href: "/tech", label: "Tech" },
+    { href: "/tech/products", label: "Products" },
+    { href: "/digital-garden", label: "Digital Garden", isSpecial: true },
+    { href: "/travel", label: "Travel" },
+    { href: "/misc", label: "More" }
+  ];
 
   return (
-    <>
-      <nav className="w-full fixed top-0 z-50">
-        {/* Desktop Navigation */}
-        <div className={`hidden md:block transition-all duration-500 ${
-          isScrolledUp ? 'bg-white/90 backdrop-blur-md shadow-lg before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_100%_100%,rgba(0,0,255,0.15),transparent_50%)] before:z-[-1] after:absolute after:inset-0 after:bg-[radial-gradient(circle_at_0%_0%,rgba(238,174,202,0.1),transparent_50%)] after:z-[-1] bg-[url("/noise.png")] bg-repeat' : 'bg-transparent'
-        }`}>
-          <div className="max-w-7xl mx-auto px-8 py-4">
-            <div className="flex items-center justify-between">
-              {/* Logo */}
-              <Link href="/" className="relative group">
-                <Image
-                  alt="logo-image"
-                  className="transition-transform duration-300 group-hover:scale-105"
-                  src="https://i.ibb.co/rsdxbfD/looooooogo.jpg"
-                  height={36}
-                  width={130}
-                />
-              </Link>
-
-              {/* Navigation Links */}
-              <div className="flex items-center space-x-8">
-                {[
-                  { href: "/blog", label: "Blog" },
-                  { href: "/tech", label: "Tech" },
-                  { 
-                    href: "/tech/products",
-                    label: (
-                      <span className="flex items-center text-indigo-600 font-medium">
-                        <span className="mr-1">🚀</span>
-                        Products
-                      </span>
-                    )
-                  },
-                  {
-                    href: "/digital-garden",
-                    label: (
-                      <span className="flex items-center text-emerald-600 font-medium">
-                        <span className="mr-1">🌱</span>
-                        Digital Garden
-                      </span>
-                    )
-                  },
-                  { href: "/travel", label: "Travel" },
-                  { href: "/misc", label: "More" }
-                ].map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className={`relative group px-3 py-2 text-[15px] font-medium tracking-wide
-                      ${(activePath === item.href.split("/")[1] || router.asPath === item.href)
-                        ? 'text-indigo-600'
-                        : 'text-gray-700 hover:text-indigo-600'
-                      } transition-colors duration-200`}
-                  >
-                    {item.label}
-                    <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-500 transform origin-left scale-x-0
-                      transition-transform duration-500 ease-out shadow-[0_0_10px_rgba(99,102,241,0.5)] 
-                      ${(activePath === item.href.split("/")[1] || router.asPath === item.href)
-                        ? 'scale-x-100'
-                        : 'group-hover:scale-x-100'
-                      }`} 
-                    />
-                    <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-500 transform origin-left scale-x-0
-                      transition-transform duration-500 ease-out delay-75 opacity-50 blur-sm
-                      ${(activePath === item.href.split("/")[1] || router.asPath === item.href)
-                        ? 'scale-x-100'
-                        : 'group-hover:scale-x-100'
-                      }`} 
-                    />
-                  </Link>
-                ))}
-              </div>
+    <nav className={`fixed w-full z-50 transition-all duration-300 ${
+      isScrolled 
+        ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg shadow-lg'
+        : 'bg-transparent'
+    }`}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <Link href="/" className="flex-shrink-0">
+            <div className="text-xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent dark:from-indigo-400 dark:to-purple-400 hover:opacity-80 transition-opacity">
+              heyashu.in
             </div>
+          </Link>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-8">
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`text-base font-medium transition-colors duration-200 ${
+                  router.pathname === item.href
+                    ? 'text-indigo-600 dark:text-indigo-400'
+                    : item.isSpecial 
+                      ? 'relative text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 animate-pulse after:content-[""] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-0.5 after:bg-emerald-500 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300'
+                      : 'text-gray-700 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400'
+                }`}
+              >
+                {item.label}
+              </Link>
+            ))}
+            
+            {/* Theme Toggle */}
+            <ThemeToggle/>
+          </div>
+
+          {/* Mobile menu button */}
+          <div className="flex md:hidden items-center space-x-4">
+            <ThemeToggle/>
+            
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+            >
+              {isOpen ? (
+                <IoMdClose className="w-7 h-7" />
+              ) : (
+                <HiMenuAlt3 className="w-7 h-7" />
+              )}
+            </button>
           </div>
         </div>
+      </div>
 
-        {/* Mobile Navigation */}
-        <div className="flex md:hidden justify-between bg-white/90 backdrop-blur-md shadow-md px-4 py-3">
-          <Link href="/" className="relative group">
-            <Image
-              alt="logo-image"
-              className="transition-transform duration-300 group-hover:scale-105"
-              src="https://i.ibb.co/rsdxbfD/looooooogo.jpg"
-              height={36}
-              width={130}
-            />
-          </Link>
+      {/* Mobile Navigation */}
+      {isOpen && (
+        <div className="md:hidden fixed inset-x-0 top-0 h-[80vh] bg-white dark:bg-gray-900 z-50 transition-all duration-300 ease-in-out transform animate-slideDown">
           <button 
-            onClick={() => setIsOpen(!isOpen)}
-            className="text-gray-600 hover:text-gray-900 transition-colors duration-200"
+            onClick={() => setIsOpen(false)}
+            className="absolute top-4 right-4 p-2 text-gray-600 dark:text-gray-300"
           >
-            <GiHamburgerMenu className="text-2xl" />
+            <IoMdClose className="w-6 h-6" />
           </button>
+          
+          <div className="flex flex-col px-4 pt-20">
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`block py-4 text-2xl font-medium transition-all duration-300 transform hover:scale-105 ${
+                  router.pathname === item.href
+                    ? 'text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/30 rounded-lg px-4'
+                    : item.isSpecial
+                      ? 'text-emerald-600 dark:text-emerald-400 animate-pulse bg-emerald-50 dark:bg-emerald-900/20 rounded-lg px-4'
+                      : 'text-gray-800 dark:text-gray-200 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg px-4'
+                }`}
+                onClick={() => setIsOpen(false)}
+              >
+                <div className="flex items-center space-x-4">
+                  <span className="relative">
+                    {item.label}
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
-
-        <MobileNaveBar
-          setIsOpen={setIsOpen}
-          isOpen={isOpen}
-          activePath={activePath}
-        />
-        
-        {isSupportBtnActive && (
-          <Support
-            active={isSupportBtnActive}
-            setIsSupportBtnActive={setIsSupportBtnActive}
-          />
-        )}
-      </nav>
-    </>
+      )}
+    </nav>
   );
 }
 
 export default Navbar;
-
-const MobileNaveBar = ({ isOpen, setIsOpen, activePath }) => {
-  const router = useRouter();
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
-
-  return (
-    <>
-      {/* Overlay */}
-      <div
-        className={`fixed inset-0 bg-black/60 z-30 transition-opacity duration-300 ease-in-out ${
-          isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-        }`}
-        onClick={toggleMenu}
-      />
-
-      {/* Navigation Menu */}
-      <nav
-        className={`fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
-          w-[90%] max-w-[400px] rounded-2xl bg-white/95 backdrop-blur-md
-          shadow-2xl z-40 transform transition-all duration-500 ease-out
-          ${isOpen ? "scale-100 opacity-100" : "scale-50 opacity-0 pointer-events-none"}`}
-      >
-        <button
-          onClick={toggleMenu}
-          className="absolute -top-3 -right-3 w-8 h-8 bg-red-500 rounded-full 
-            flex items-center justify-center shadow-lg hover:bg-red-600 
-            transition-colors duration-300"
-        >
-          <IoMdClose className="text-white text-xl" />
-        </button>
-
-        <div className="flex flex-col p-6 gap-4">
-          {[
-            { href: "/", label: "Home", path: "" },
-            { href: "/blog", label: "Blog", path: "blog" },
-            { href: "/tech", label: "Tech", path: "tech" },
-            { 
-              href: "/tech/products", 
-              label: "🚀 Products",
-              path: "tech/products",
-              highlight: true
-            },
-            {
-              href: "/digital-garden",
-              label: "🌱 Digital Garden",
-              path: "digital-garden",
-            },
-            { href: "/travel", label: "Travel", path: "travel" },
-            { href: "/misc", label: "More", path: ["misc", "town"] },
-          ].map((item, index) => (
-            <Link
-              key={index}
-              href={item.href}
-              onClick={toggleMenu}
-              className={`relative overflow-hidden group p-3 rounded-lg
-                transition-all duration-300 ease-out
-                ${router.asPath === item.href
-                  ? "bg-indigo-50 text-indigo-800"
-                  : item.highlight
-                  ? "bg-purple-50 text-purple-800"
-                  : "hover:bg-gray-50"
-                }`}
-            >
-              <div className="flex items-center justify-between">
-                <span className="text-lg font-medium">{item.label}</span>
-                {router.asPath === item.href && (
-                  <LuMousePointerClick className="text-indigo-600 text-xl" />
-                )}
-              </div>
-              <div
-                className={`absolute bottom-0 left-0 w-full h-0.5 
-                ${item.highlight ? 'bg-purple-500' : 'bg-indigo-500'}
-                transform scale-x-0 group-hover:scale-x-100 
-                transition-transform duration-300`}
-              />
-            </Link>
-          ))}
-        </div>
-      </nav>
-    </>
-  );
-};

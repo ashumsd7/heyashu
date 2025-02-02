@@ -9,7 +9,7 @@ import { IoIosCheckmarkCircle } from "react-icons/io";
 const NotesSidebar = ({
   onSectionClick,
   contentListTitle = "Namaste Node JS S1",
-  contentListTitle2 = "Namaste Node JS S2",
+  contentListTitle2 = "Namaste Node JS S2", 
   data,
   season2Data = [],
   eachCardPrefix,
@@ -26,7 +26,7 @@ const NotesSidebar = ({
     <motion.div
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0 }}
-      className="bg-[#f8f9fa] w-[300px] rounded-lg shadow-sm border border-gray-200"
+      className="  dark:bg-gray-800 w-[300px] rounded-lg shadow-lg border border-gray-200 dark:border-gray-700"
     >
       <SectionHeader
         isSec1Visible={isSec1Visible}
@@ -40,13 +40,13 @@ const NotesSidebar = ({
             initial={{ height: 0 }}
             animate={{ height: "auto" }}
             exit={{ height: 0 }}
-            transition={{ duration: 0.2 }}
+            transition={{ duration: 0.3 }}
             className="overflow-hidden"
           >
             <Scrollbars style={{ height: "calc(100vh - 250px)" }}>
-              <div className="space-y-1 p-2">
+              <div className="space-y-2 p-3">
                 {showProgress && (
-                  <div className="mb-3 px-2">
+                  <div className="mb-4 px-2">
                     <ProgressBar percentage={progress} />
                   </div>
                 )}
@@ -69,7 +69,7 @@ const NotesSidebar = ({
 
       {show2ndSection && (
         <>
-          <hr className="border-gray-200" />
+          <hr className="border-gray-200 dark:border-gray-700" />
           <SectionHeader
             isSec1Visible={isSec2Visible}
             setIsSec1Visible={setIsSec2Visible}
@@ -82,19 +82,19 @@ const NotesSidebar = ({
                 initial={{ height: 0 }}
                 animate={{ height: "auto" }}
                 exit={{ height: 0 }}
-                transition={{ duration: 0.2 }}
+                transition={{ duration: 0.3 }}
                 className="overflow-hidden"
               >
                 <Scrollbars style={{ height: "calc(100vh - 250px)" }}>
-                  <div className="space-y-1 p-2">
+                  <div className="space-y-2 p-3">
                     {season2Data?.length === 0 ? (
-                      <div className="text-center text-gray-500 italic py-4">
+                      <div className="text-center text-gray-500 dark:text-gray-400 font-medium py-4">
                         Coming Soon
                       </div>
                     ) : (
                       <>
                         {showProgress && (
-                          <div className="mb-3 px-2">
+                          <div className="mb-4 px-2">
                             <ProgressBar percentage={progress} />
                           </div>
                         )}
@@ -123,18 +123,18 @@ const NotesSidebar = ({
 
 const SectionHeader = ({ isSec1Visible, setIsSec1Visible, contentListTitle }) => (
   <motion.div
-    whileTap={{ scale: 0.99 }}
-    className="flex justify-between items-center p-3 cursor-pointer bg-white border-b border-gray-100"
+    whileTap={{ scale: 0.98 }}
+    className="flex justify-between items-center p-4 cursor-pointer  dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700"
     onClick={() => setIsSec1Visible(!isSec1Visible)}
   >
-    <h2 className="text-lg font-bold text-gray-700 truncate">
+    <h2 className="text-xl font-extrabold text-gray-800 dark:text-gray-100 truncate">
       {contentListTitle}
     </h2>
     <motion.div
       animate={{ rotate: isSec1Visible ? 180 : 0 }}
-      transition={{ duration: 0.2 }}
+      transition={{ duration: 0.3 }}
     >
-      <FaChevronDown className="text-gray-500 text-sm" />
+      <FaChevronDown className="text-gray-600 dark:text-gray-300 text-sm" />
     </motion.div>
   </motion.div>
 );
@@ -147,36 +147,36 @@ const ListContent = ({
   eachCardPrefix,
 }) => (
   <motion.div
-    whileHover={{ x: 2 }}
-    whileTap={{ scale: 0.99 }}
+    whileHover={{ x: 4 }}
+    whileTap={{ scale: 0.98 }}
     className={`
-      relative cursor-pointer p-2.5 rounded-md text-sm
-      transition-all duration-150 ease-in-out
+      relative cursor-pointer p-3 rounded-lg text-sm
+      transition-all duration-200 ease-in-out
       ${
         storedValues && storedValues[item?.name]
-          ? "bg-white border-l-2 border-blue-400"
-          : "hover:bg-white border-l-2 border-transparent"
+          ? "bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-500"
+          : "hover:bg-gray-50 dark:hover:bg-gray-700 border-l-4 border-transparent"
       }
       ${
         selectedSection?.title === item?.title &&
-        "bg-blue-50 border-l-2 border-blue-500 font-medium"
+        "bg-blue-100 dark:bg-blue-900/50 border-l-4 border-blue-600 font-bold shadow-sm"
       }
-      ${!item?.publishedOn && "opacity-40 cursor-not-allowed"}
+      ${!item?.publishedOn && "opacity-50 cursor-not-allowed"}
     `}
     onClick={() => item?.publishedOn && onSectionClick(item)}
   >
-    <div className="flex items-center gap-2">
+    <div className="flex items-center gap-3">
       {item.episode === -1 ? (
-        <span className="font-medium">Prerequisite</span>
+        <span className="font-bold text-gray-900 dark:text-gray-100">Prerequisite</span>
       ) : (
         <div className="flex items-center gap-2">
           {eachCardPrefix && (
-            <span className="text-xs font-medium text-gray-600">
+            <span className="text-sm font-bold text-gray-700 dark:text-gray-300">
               {eachCardPrefix}
               {item.episode}
             </span>
           )}
-          <span className="truncate font-medium text-gray-700">
+          <span className="truncate font-bold text-gray-800 dark:text-gray-100">
             {!eachCardPrefix && item?.name}
           </span>
         </div>
@@ -184,16 +184,16 @@ const ListContent = ({
     </div>
     
     {eachCardPrefix && (
-      <p className="pl-3 truncate text-xs mt-1 text-gray-600">{item?.name}</p>
+      <p className="pl-4 truncate text-sm mt-1.5 text-gray-600 dark:text-gray-400 font-medium">{item?.name}</p>
     )}
 
     {storedValues && storedValues[item?.name] && (
       <motion.div
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
-        className="absolute top-2 right-2"
+        className="absolute top-3 right-3"
       >
-        <IoIosCheckmarkCircle className="text-blue-400 text-lg" />
+        <IoIosCheckmarkCircle className="text-blue-500 dark:text-blue-400 text-xl" />
       </motion.div>
     )}
   </motion.div>
