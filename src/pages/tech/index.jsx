@@ -86,7 +86,7 @@ function TechPage() {
                   className="w-full sm:w-auto"
                 >
                   <Button className="w-full bg-gray-900 dark:bg-gray-800 hover:bg-gray-800 dark:hover:bg-gray-700 text-white px-8 py-3 rounded-lg flex items-center justify-center">
-                    Work with me
+                  Hire me
                   </Button>
                 </button>
               </div>
