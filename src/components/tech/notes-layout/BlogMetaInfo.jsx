@@ -34,7 +34,7 @@ const BlogMetaInfo = ({ data }) => {
   return (
     <div className="bg-transparent rounded-lg shadow-sm">
       {/* Author Info Section */}
-      <div className="flex items-center justify-between p-4 sm:p-6 border-b border-gray-100 dark:border-gray-800 flex-wrap">
+      <div className="flex items-center justify-between p-4 sm:p-2 py-2 border-b border-gray-100 dark:border-gray-800 flex-wrap">
         <div className="flex items-center gap-3 sm:gap-4 w-full">
           {!profilePic ? (
             <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-purple-600 to-purple-700 text-white flex items-center justify-center rounded-full text-lg font-medium shadow-sm flex-shrink-0">

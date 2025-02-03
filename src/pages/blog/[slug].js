@@ -97,19 +97,19 @@ export default function BlogPost({ frontMatter, mdxSource, large = false }) {
       <CommonSlugHeadTags image={frontMatter?.thumbnail} frontMatter={frontMatter} url="https://www.heyashu.com/blog" />
 
       <div
-        className={`flex flex-col gap-2 max-w-screen-[1000px] m-auto ${
+        className={`flex flex-col gap-2 max-w-screen-[1000px] m-auto px-4 ${
           large ? "max-w-screen-lg" : "max-w-screen-md"
         }`}
       >
         {/* Blog Title */}
         {frontMatter?.title && (
-          <h3 className="md:text-5xl text-3xl text-gray-900 dark:text-gray-100 font-extrabold my-6 font-sans">
+          <h3 className="md:text-5xl text-3xl text-gray-900 dark:text-gray-100 font-extrabold  mb-6 md:my-8 mt-16 font-sans">
             {frontMatter?.name || frontMatter?.title}
           </h3>
         )}
 
         {/* Blog Meta Info */}
-        <div className="mb-4">
+        <div className="mb-10">
           <BlogMetaInfo
             data={{
               name: frontMatter?.author,

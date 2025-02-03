@@ -113,9 +113,9 @@ function BlogsPage({ posts }) {
   
       
       {/* Hero Section */}
-      <div className="relative h-[30vh] md:h-[40vh]">
+      <div className="relative h-[30vh] md:h-[40vh] py-8 md:py-0 mt-8 md:mt-0">
         <div className="absolute inset-0">
-          <div className="h-full flex flex-col justify-center items-center px-2">
+          <div className="h-full flex flex-col justify-center items-center px-4 md:px-2 space-y-4 md:space-y-0">
             <h1 className="text-4xl md:text-6xl font-bold mb-3 md:mb-4 text-center text-gray-900 dark:text-white">Blogs, Musings & More...</h1>
             <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-4 md:mb-6 max-w-2xl text-center">
               A cozy corner where I share my thoughts, discoveries, and adventures in the world of technology and beyond

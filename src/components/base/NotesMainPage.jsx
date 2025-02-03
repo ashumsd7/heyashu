@@ -118,7 +118,7 @@ const NotesMainPage = ({
         <div className="flex h-full gap-20 ">
           {isSidebarVisible && (
             <>
-              <div className="w-[1/4]  lg:block hidden  pb-[300px] h-full shadow-xl border-t-4 rounded-lg   fixed ">
+              <div className="w-[1/4]  lg:block hidden  pb-[300px] h-full shadow-xl border-t-4 rounded-lg  mt-9  fixed ">
                 <NotesSidebar
                   data={contentList}
                   season2Data={season2Data}
@@ -170,7 +170,7 @@ const NotesMainPage = ({
 
               {currentPageFrontMatter?.thumbnail && (
                 <img
-                  className="mb-6 mt-4 rounded-md shadow-lg"
+                  className="mb-10 mt-8 rounded-md shadow-lg"
                   alt={currentPageFrontMatter?.title}
                   src={
                     currentPageFrontMatter?.thumbnail?.includes("https")
