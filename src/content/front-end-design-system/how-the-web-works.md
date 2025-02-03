@@ -255,4 +255,5 @@ To learn more about how scripts load, check this [video](https://www.youtube.com
 
 Finally, remember that the **DOM tree** and **CSSOM** get merged, and **rendering** and **layouting** occur to paint the content on the screen.
 
-S thats all for this artical , lets meet on next ione dont thank me thnak [Chirag Goel](https://www.linkedin.com/in/engineerchirag?originalSubdomain=in)  and [\*\*Akshay Saini](https://www.linkedin.com/in/akshaymarch7/)ni\*\*  for this . take care bye bye
+So that's all for this article. Let's meet in the next one.  Take care, bye-bye!
+
