@@ -31,7 +31,7 @@ Each system on the internet has an IP address.
 Examples:
 
 * IPv4: `192.168.1.1`
-* IPv6: `2001:0db8:85a3:0000:0000:8a2e:0370:7334`
+* IPv6: `2001:0db8:85a3...
 
 ### Domain Name
 
