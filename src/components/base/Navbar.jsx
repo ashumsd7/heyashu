@@ -58,12 +58,26 @@ function Navbar() {
         ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg shadow-lg'
         : 'bg-transparent'
     }`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
-            <div className="text-xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent dark:from-indigo-400 dark:to-purple-400 hover:opacity-80 transition-opacity">
-              heyashu.in
+             <div className="flex items-center gap-2">
+              <div className="relative">
+                <img 
+                  src="https://avatars.githubusercontent.com/u/40313523?v=4"
+                  alt="Profile"
+                  className="w-10 h-10 rounded-full border-2 border-indigo-500 transition-transform duration-200 hover:scale-110"
+                />
+              </div>
+              <div 
+                onClick={() => window.open('https://topmate.io/aat/1148709/pay', '_blank')}
+                className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 max-w-full border-indigo-500 bg-transparent text-primary backdrop-blur-md transition-colors duration-150 hover:bg-accent-foreground hover:text-white cursor-pointer`}>
+                <div className="mr-1 flex aspect-square h-[14px] w-[14px] animate-pulse rounded-full bg-green-500/50 dark:bg-green-400/50 sm:m-0 md:mr-1" aria-hidden="true">
+                  <div className="m-auto h-2 w-2 rounded-full bg-green-500 dark:bg-green-400"></div>
+                </div>
+                <span className="inline whitespace-nowrap sm:hidden md:inline">Hire me for your work</span>
+              </div>
             </div>
           </Link>
 

@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from "react";
-import { FaPlus, FaSearch } from "react-icons/fa";
+import { FaCalendar, FaPlus, FaSearch } from "react-icons/fa";
 import { PiPlantFill, PiBookOpenTextLight } from "react-icons/pi";
 import { IoFilterSharp } from "react-icons/io5";
 import fs from "fs";
@@ -97,7 +97,7 @@ function BlogsPage({ posts }) {
         if (dateA[0] !== dateB[0]) return dateB[0] - dateA[0];
         return dateB[1] - dateA[1];
       })
-      .slice(0, 3);
+      .slice(0, 4);
   }, [posts]);
 
   const changeFilePath = (filePath) => filePath?.replace("/public", "");
@@ -125,83 +125,82 @@ function BlogsPage({ posts }) {
       </div>
 
       {/* Recent Posts Section */}
-      <section className="py-4  ">
+      <section className="py-4">
         <div className="container mx-auto px-2">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-gray-900 dark:text-white">Recent Articles</h2>
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mb-6 md:mb-8">
-            {recentPosts.map((post, index) => (
-              <article 
-                key={index}
-                className="group bg-white dark:bg-gray-800 rounded-xl overflow-hidden cursor-pointer h-[380px] md:min-h-[410px]"
-                style={{ boxShadow: '0 2px 18px rgba(0,0,0,.06)' }}
-                onClick={() => window.open(`/blog/${generateSlug(post.frontMatter.title)}`, '_blank')}
-              >
-                <div className="relative h-[200px] md:h-[220px] overflow-hidden">
-                  <img 
-                    src={post?.frontMatter?.thumbnail ? changeFilePath(post?.frontMatter?.thumbnail) : ""}
-                    alt={post.frontMatter.title}
-                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
-                <div className="p-4 md:p-6">
-                  <div className="flex gap-2 mb-3 md:mb-4">
-                    {post.frontMatter.tags?.split(',').slice(0, 2).map((tag, i) => (
-                      <span key={i} className="px-2 md:px-3 py-1 text-black dark:text-gray-900 text-xs font-medium rounded-full" style={{ backgroundColor: '#d9fec1' }}>
-                        {tag.trim()}
-                      </span>
-                    ))}
-                  </div>
-                  <h3 className="text-lg md:text-[22px] font-[700] leading-[1.4] mb-2 md:mb-3 text-gray-900 dark:text-white line-clamp-2">
+          {/* Latest Posts Section */}
+          <div className="mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">Latest Blogs</h2>
+            <div className="h-0.5 w-full bg-gray-200 dark:bg-gray-700 my-4"></div>
+            
+             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+              {recentPosts.map((post, index) => (
+                <article 
+                  key={index}
+                  className="group rounded-lg p-4 transition-colors duration-200 hover:bg-gray-50 dark:hover:bg-gray-800 cursor-pointer border border-gray-200 dark:border-gray-700"
+                  onClick={() => window.open(`/blog/${generateSlug(post.frontMatter.title)}`, '_blank')}
+                >
+                  <h3 className="text-lg font-bold mb-2 text-gray-900 dark:text-white line-clamp-2">
                     {post.frontMatter.name}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-300 text-xs md:text-sm mb-3 md:mb-4 line-clamp-2">
-                    {post.frontMatter.description}
-                  </p>
-                  <div className="flex items-center justify-between mt-auto">
-                    <span className="text-xs md:text-sm text-gray-500 dark:text-gray-400">
-                    {(() => {
-                        const [month, day, year] = post.frontMatter.publishedOn ? post.frontMatter.publishedOn.split('-') :post.frontMatter.date.split('-')
+                  
+                  <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mb-3">
+                    <FaCalendar className="text-gray-400"/>
+                    <span>
+                      {(() => {
+                        const [month, day, year] = post.frontMatter.publishedOn ? post.frontMatter.publishedOn.split('-') : post.frontMatter.date.split('-')
                         const date = new Date(year, month - 1, day);
                         return date.toLocaleDateString('en-US', {
                           month: 'short',
-                          day: 'numeric', 
+                          day: 'numeric',
                           year: 'numeric'
                         });
                       })()}
                     </span>
-                    <span className="text-xs md:text-sm text-gray-500 dark:text-gray-400">
-                      {post.frontMatter.author || 'Anonymous'}
-                    </span>
+                    {/* <span>•</span> */}
+                    {/* <span>{post.frontMatter.readingTime || '5 min read'}</span> */}
                   </div>
-                </div>
-              </article>
-            ))}
+
+                  <div className="flex gap-2">
+                    {post.frontMatter.tags?.split(',').slice(0, 2).map((tag, i) => (
+                      <span key={i} className="px-2 py-1 text-xs font-medium rounded-full bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-300 group-hover:bg-white dark:group-hover:bg-gray-500">
+                        {tag.trim()}
+                      </span>
+                    ))}
+                  </div>
+                </article>
+              ))}
+            </div>
           </div>
 
-          {/* Search and Filter Section */}
-          <div className="bg-white dark:bg-gray-800 py-4 md:py-6 shadow-lg mb-4 md:mb-6 rounded-xl">
-            <div className="container mx-auto px-2">
-              <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-center justify-between">
-                <div className="relative flex-1 w-full max-w-2xl">
-                  <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 text-lg md:text-xl" />
+          {/* All Blogs Section */}
+          <div>
+            <div className="flex items-center gap-4 mt-10">
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">All Blogs</h2>
+              <div className="h-0.5 flex-1 bg-gray-200 dark:bg-gray-700"></div>
+            </div>
+
+            {/* Search and Filter - Now sticky */}
+            <div className="sticky top-16 z-40 bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm mb-6 mt-4 transition-all duration-300">
+              <div className="flex flex-col md:flex-row gap-4">
+                <div className="relative flex-1">
+                  <FaSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
                   <input
                     type="text"
                     placeholder="Search articles..."
-                    className="w-full pl-12 md:pl-14 pr-4 py-3 md:py-4 rounded-xl border-2 border-gray-200 dark:border-gray-700 focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 text-base md:text-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                    className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-700"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                   />
                 </div>
-                <div className="flex gap-2 md:gap-3 flex-wrap justify-center w-full md:w-auto">
+                <div className="flex gap-2 flex-wrap">
                   {categories.map((tag) => (
                     <button
                       key={tag}
                       onClick={() => setSelectedCategory(tag)}
-                      className={`px-2 md:px-6 py-2 md:py-3 rounded-full text-sm md:text-base font-medium transition-all ${
+                      className={`px-3 py-1 rounded-full text-sm ${
                         selectedCategory === tag
-                          ? "bg-blue-600 text-white shadow-lg"
-                          : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600"
+                          ? "bg-blue-600 text-white"
+                          : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200"
                       }`}
                     >
                       {tag.charAt(0).toUpperCase() + tag.slice(1)}
@@ -210,78 +209,106 @@ function BlogsPage({ posts }) {
                 </div>
               </div>
             </div>
-          </div>
 
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-4 md:mb-6">
-            <h2 className="text-2xl md:text-3xl font-bold text-center md:text-left text-gray-900 dark:text-white">
-              All Articles <span className="text-gray-500 dark:text-gray-400">({filteredPosts?.length})</span>
-            </h2>
-            <Button
-              onClick={() => window.open(ADMIN_LINK, "_blank")}
-              className="w-full md:w-auto flex items-center justify-center px-6 py-3 bg-blue-600 text-white hover:bg-blue-700 rounded-lg shadow-lg"
-            >
-              <FaPlus className="mr-2" />
-              New Article
-            </Button>
-          </div>
+            <div className="flex flex-col lg:flex-row gap-6">
+              {/* Posts Grid */}
+              <div className="w-full lg:w-3/4">
+                {filteredPosts?.length > 0 ? (
+                  <div className="grid grid-cols-1 gap-4">
+                    {filteredPosts.map((post, index) => (
+                      <article 
+                        key={index}
+                        className="group rounded-lg p-4 transition-colors duration-200 hover:bg-gray-50 dark:hover:bg-gray-800 cursor-pointer"
+                        onClick={() => window.open(`/blog/${generateSlug(post.frontMatter.title)}`, '_blank')}
+                      >
+                        <h3 className="text-lg font-bold mb-2 text-gray-900 dark:text-white line-clamp-2">
+                          {post.frontMatter.name}
+                        </h3>
+                        
+                        <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mb-3">
+                          <FaCalendar className="text-gray-400"/>
+                          <span>
+                            {(() => {
+                              const [month, day, year] = post.frontMatter.publishedOn ? post.frontMatter.publishedOn.split('-') : post.frontMatter.date.split('-')
+                              const date = new Date(year, month - 1, day);
+                              return date.toLocaleDateString('en-US', {
+                                month: 'short',
+                                day: 'numeric',
+                                year: 'numeric'
+                              });
+                            })()}
+                          </span>
+                          {/* <span>•</span> */}
+                          {/* <span>{post.frontMatter.readingTime || '5 min read'}</span> */}
+                        </div>
 
-          {filteredPosts?.length > 0 ? (
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-              {filteredPosts.map((post, index) => (
-                <article 
-                  key={index}
-                  className="group bg-white dark:bg-gray-800 rounded-xl overflow-hidden cursor-pointer h-[380px] md:min-h-[410px]"
-                  style={{ boxShadow: '0 2px 18px rgba(0,0,0,.06)' }}
-                  onClick={() => window.open(`/blog/${generateSlug(post.frontMatter.title)}`, '_blank')}
-                >
-                  <div className="relative h-[200px] md:h-[220px] overflow-hidden">
-                    <img 
-                      src={post?.frontMatter?.thumbnail ? changeFilePath(post?.frontMatter?.thumbnail) : ""}
-                      alt={post.frontMatter.title}
-                      className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        <div className="flex gap-2">
+                          {post.frontMatter.tags?.split(',').slice(0, 2).map((tag, i) => (
+                            <span key={i} className="px-2 py-1 text-xs font-medium rounded-full bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-300 group-hover:bg-white dark:group-hover:bg-gray-500">
+                              {tag.trim()}
+                            </span>
+                          ))}
+                        </div>
+                      </article>
+                    ))}
                   </div>
-                  <div className="p-4 md:p-6">
-                    <div className="flex gap-2 mb-3 md:mb-4">
-                      {post.frontMatter.tags?.split(',').slice(0, 2).map((tag, i) => (
-                        <span key={i} className="px-2 md:px-3 py-1 text-black dark:text-gray-900 text-xs font-medium rounded-full" style={{ backgroundColor: '#d9fec1' }}>
-                          {tag.trim()}
-                        </span>
-                      ))}
-                    </div>
-                    <h3 className="text-lg md:text-[22px] font-[700] leading-[1.4] mb-2 md:mb-3 text-gray-900 dark:text-white line-clamp-2">
-                      {post.frontMatter.name}
-                    </h3>
-                    <p className="text-gray-600 dark:text-gray-300 text-xs md:text-sm mb-3 md:mb-4 line-clamp-2">
-                      {post.frontMatter.description}
-                    </p>
-                    <div className="flex items-center justify-between mt-auto">
-                      <span className="text-xs md:text-sm text-gray-500 dark:text-gray-400">
-                      {(() => {
-                        const [month, day, year] = post.frontMatter.publishedOn ? post.frontMatter.publishedOn.split('-') :post.frontMatter.date.split('-')
-                        const date = new Date(year, month - 1, day);
-                        return date.toLocaleDateString('en-US', {
-                          month: 'short',
-                          day: 'numeric', 
-                          year: 'numeric'
-                        });
-                      })()}
-                      </span>
-                      <span className="text-xs md:text-sm text-gray-500 dark:text-gray-400">
-                        {post.frontMatter.author || 'Anonymous'}
-                      </span>
-                    </div>
+                ) : (
+                  <div className="text-center py-8">
+                    <PiBookOpenTextLight className="mx-auto text-4xl text-gray-400 mb-2" />
+                    <p className="text-gray-600 dark:text-gray-400">No articles found</p>
                   </div>
-                </article>
-              ))}
+                )}
+              </div>
+
+              {/* Right Side Cards */}
+              <div className="w-full lg:w-1/4 space-y-4">
+                <div className="p-4 rounded-lg bg-white dark:bg-gray-800 shadow-lg">
+                  <h3 className="font-bold text-lg mb-2 text-gray-900 dark:text-white">Node.js Notes from NamasteJS</h3>
+                  <p className="text-gray-600 dark:text-gray-300 mb-4">Curated notes from Akshay Saini's course</p>
+                  <button onClick={() => window.open('https://heyashu.in/digital-garden', '_blank')} 
+                    className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                    Read Now
+                  </button>
+                </div>
+
+                <div className="p-4 rounded-lg bg-white dark:bg-gray-800 shadow-lg">
+                  <h3 className="font-bold text-lg mb-2 text-gray-900 dark:text-white">Frontend System Design Notes</h3>
+                  <p className="text-gray-600 dark:text-gray-300 mb-4">From NamasteDev with Chirag Goel</p>
+                  <button onClick={() => window.open('https://heyashu.in/digital-garden', '_blank')}
+                    className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                    Read Now
+                  </button>
+                </div>
+
+                <div className="p-4 rounded-lg bg-white dark:bg-gray-800 shadow-lg">
+                  <h3 className="font-bold text-lg mb-2 text-gray-900 dark:text-white">Frontend Interview Help</h3>
+                  <p className="text-gray-600 dark:text-gray-300 mb-4">Let me help you in your journey with my experience at minimal price</p>
+                  <button onClick={() => window.open('/tech/products', '_blank')}
+                    className="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition-colors">
+                    Click to Know More
+                  </button>
+                </div>
+
+                <div className="p-4 rounded-lg bg-white dark:bg-gray-800 shadow-lg">
+                  <h3 className="font-bold text-lg mb-2 text-gray-900 dark:text-white">Contribute to Open Source</h3>
+                  <p className="text-gray-600 dark:text-gray-300 mb-4">Be a superhero - write and contribute to this open source platform</p>
+                  <button onClick={() => window.open('https://github.com/ashumsd7/heyashu/', '_blank')}
+                    className="w-full bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-700 transition-colors">
+                    Contribute Now
+                  </button>
+                </div>
+
+                <div className="p-4 rounded-lg bg-white dark:bg-gray-800 shadow-lg">
+                  <h3 className="font-bold text-lg mb-2 text-gray-900 dark:text-white">Support the Project</h3>
+                  <button onClick={() => window.open('https://github.com/ashumsd7/heyashu/', '_blank')}
+                    className="w-full bg-gray-600 text-white py-2 rounded-lg hover:bg-gray-700 transition-colors">
+                    Star & Share
+                  </button>
+                </div>
+              </div>
             </div>
-          ) : (
-            <div className="text-center py-8 md:py-10">
-              <PiBookOpenTextLight className="mx-auto text-4xl md:text-5xl text-gray-400 dark:text-gray-600 mb-4" />
-              <p className="text-gray-600 dark:text-gray-400 text-base md:text-lg">No articles found</p>
-            </div>
-          )}
+
+          </div>
         </div>
       </section>
     </div>
