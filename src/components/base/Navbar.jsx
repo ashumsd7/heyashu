@@ -13,6 +13,7 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const router = useRouter();
+  const [hireText, setHireText] = useState("Hire me for your work");
 
   useEffect(() => {
     // Check system preference initially
@@ -37,6 +38,23 @@ function Navbar() {
       document.body.style.overflow = 'unset';
     }
   }, [isOpen]);
+
+  useEffect(() => {
+    const texts = [
+      "Hire me for your work",
+      "Review your resume", 
+      "Practice Interviews",
+      "Career guidance",
+    ];
+    let index = 0;
+
+    const interval = setInterval(() => {
+      index = (index + 1) % texts.length;
+      setHireText(texts[index]);
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
@@ -71,12 +89,18 @@ function Navbar() {
                 />
               </div>
               <div 
-                onClick={() => window.open('https://topmate.io/aat/1148709/pay', '_blank')}
-                className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 max-w-full border-indigo-500 bg-transparent text-primary backdrop-blur-md transition-colors duration-150 hover:bg-accent-foreground hover:text-white cursor-pointer`}>
+                onClick={() => window.open('http://localhost:3000/tech/products', '_blank')}
+                className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 w-[150px] border-indigo-500 bg-transparent backdrop-blur-md transition-colors duration-150 hover:bg-accent-foreground hover:text-white cursor-pointer`}>
                 <div className="mr-1 flex aspect-square h-[14px] w-[14px] animate-pulse rounded-full bg-green-500/50 dark:bg-green-400/50 sm:m-0 md:mr-1" aria-hidden="true">
                   <div className="m-auto h-2 w-2 rounded-full bg-green-500 dark:bg-green-400"></div>
                 </div>
-                <span className="inline whitespace-nowrap sm:hidden md:inline">Hire me for your work</span>
+                <div className="relative overflow-hidden h-[20px] flex items-center">
+                  <span 
+                    className="text-gray-800 dark:text-gray-200 whitespace-nowrap"
+                  >
+                    {hireText}
+                  </span>
+                </div>
               </div>
             </div>
           </Link>
@@ -122,8 +146,10 @@ function Navbar() {
       </div>
 
       {/* Mobile Navigation */}
-      {isOpen && (
-        <div className="md:hidden fixed inset-x-0 top-0 h-[80vh] bg-white dark:bg-gray-900 z-50 transition-all duration-300 ease-in-out transform animate-slideDown">
+      <div className={`md:hidden fixed inset-0 bg-white dark:bg-gray-900 z-50 transition-all duration-500 ease-in-out transform ${
+        isOpen ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0 pointer-events-none'
+      }`}>
+        <div className="h-full flex flex-col">
           <button 
             onClick={() => setIsOpen(false)}
             className="absolute top-4 right-4 p-2 text-gray-600 dark:text-gray-300"
@@ -131,30 +157,28 @@ function Navbar() {
             <IoMdClose className="w-6 h-6" />
           </button>
           
-          <div className="flex flex-col px-4 pt-20">
+          <div className="flex-1 flex flex-col justify-center items-center space-y-8 px-4">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`block py-4 text-2xl font-medium transition-all duration-300 transform hover:scale-105 ${
+                className={`text-center w-full py-4 text-2xl font-medium transition-all duration-300 transform hover:scale-105 ${
                   router.pathname === item.href
-                    ? 'text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/30 rounded-lg px-4'
+                    ? 'text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/30 rounded-lg'
                     : item.isSpecial
-                      ? 'text-emerald-600 dark:text-emerald-400 animate-pulse bg-emerald-50 dark:bg-emerald-900/20 rounded-lg px-4'
-                      : 'text-gray-800 dark:text-gray-200 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg px-4'
+                      ? 'text-emerald-600 dark:text-emerald-400 animate-pulse bg-emerald-50 dark:bg-emerald-900/20 rounded-lg'
+                      : 'text-gray-800 dark:text-gray-200 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg'
                 }`}
                 onClick={() => setIsOpen(false)}
               >
-                <div className="flex items-center space-x-4">
-                  <span className="relative">
-                    {item.label}
-                  </span>
-                </div>
+                <span className="relative">
+                  {item.label}
+                </span>
               </Link>
             ))}
           </div>
         </div>
-      )}
+      </div>
     </nav>
   );
 }

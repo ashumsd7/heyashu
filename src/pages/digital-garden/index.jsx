@@ -113,7 +113,7 @@ Gvanks`,
         transition={{ duration: 0.8 }}
         className="relative pb-16 pt-8 md:py-32 px-2 text-center"
       >
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl mx-auto mt-8 sm:mt-0">
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
