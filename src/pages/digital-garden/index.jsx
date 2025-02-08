@@ -13,6 +13,7 @@ import {
 } from "react-icons/fa";
 import { ADMIN_LINK, DEFAULT_AVATAR } from "@/utils/constant";
 import { generateSlug, removePublicFromPath } from "@/utils/functions";
+import DigiGardenFooter from "@/components/garden/DigiGardenFooter";
 
 // Sample categories data - move to constants file in production
 const GARDEN_CATEGORIES = [
@@ -319,38 +320,7 @@ Gvanks`,
       </motion.section>
 
       {/* Footer */}
-      <footer className="    py-8 md:py-12">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="flex items-center gap-2 mb-4 md:mb-0"
-            >
-              <FaSeedling className="text-xl md:text-2xl text-green-600 dark:text-green-400" />
-              <span className="text-lg md:text-xl font-medium text-gray-900 dark:text-gray-100">
-                Digital Garden
-              </span>
-            </motion.div>
-            <div className="flex gap-6 md:gap-8 text-sm md:text-base">
-            </div>
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="flex items-center gap-2 mt-4 md:mt-0"
-            >
-              <FaUsers className="text-green-600 dark:text-green-400" />
-              <span 
-                onClick={() => window.open('https://chat.whatsapp.com/L0YFv4DQRCpJAcmRFPWT6r', '_blank')}
-                className="text-sm md:text-base text-gray-600 dark:text-gray-300 cursor-pointer hover:text-green-600 dark:hover:text-green-400 transition-colors"
-              >
-                Be JavaScripterr  🚀
-              </span>
-            </motion.div>
-          </div>
-          <div className="text-center mt-6 md:mt-8 text-xs md:text-sm text-gray-500 dark:text-gray-400">
-            © {new Date().getFullYear()} Digital Garden. All rights reserved.
-          </div>
-        </div>
-      </footer>
+  <DigiGardenFooter/>
     </div>
   );
 }
