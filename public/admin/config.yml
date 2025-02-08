@@ -498,7 +498,6 @@ collections:
     delete: false
     editor:
       preview: false
-
     fields: # The fields for each document, usually in front matter
       - {
           label: "Slug of your page",
@@ -516,6 +515,7 @@ collections:
           label: "Snippet Number",
           name: "episode",
           widget: "number",
+          required: false,
           hint: "This is snippets number used to maintain the order, please do not change it just keep it same as before or for new one just add 1 ",
         }
       - {
@@ -541,19 +541,41 @@ collections:
           widget: "image",
           hint: "This will appear on the top of the page after the user info. The right-side preview is not the final look of your uploaded content. we will ensure its properly formatted and displayed beautifully after deployment.",
         }
-      - { label: "Author ( Your Name)", name: "author", widget: "string" }
+      - { 
+          label: "Author ( Your Name)", 
+          name: "author", 
+          widget: "string",
+          default: "Ashutosh Anand Tiwari"
+        }
       - {
           label: "Tags",
           name: "tags",
           widget: "string",
           required: false,
+          default: "javascript",
           hint: "Add tags comma separated For example : JavaScript, Web, Web Development , that can be used seo purpose also in the ui for category.",
+        }
+      - {
+          label: "Experience Level",
+          name: "experienceLevel",
+          widget: "string",
+          required: false,
+          default: "0",
+          hint: "Separate by comma if multiple levels e.g: 0,1,2,3",
+        }
+      - {
+          label: "Company Names",
+          name: "companies",
+          widget: "string",
+          required: false,
+          hint: "Add company names related to this snippet (optional)",
         }
       - {
           label: "Your profile picture",
           name: "profilePic",
           widget: "image",
           required: false,
+          default: "https://avatars.githubusercontent.com/u/40313523?v=4",
           hint: "This image will be shown in the profile picture  avatar. The right-side preview is not the final look of your uploaded content. we will ensure its properly formatted and displayed beautifully after deployment.",
         }
       - {
@@ -561,6 +583,7 @@ collections:
           name: "followLink",
           widget: "string",
           required: false,
+          default: "https://www.instagram.com/javascripterr/",
         }
       - {
           label: "Describe your content here",
