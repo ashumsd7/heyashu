@@ -552,7 +552,7 @@ collections:
           name: "tags",
           widget: "string",
           required: false,
-          default: "javascript",
+          default: "javascript, interview",
           hint: "Add tags comma separated For example : JavaScript, Web, Web Development , that can be used seo purpose also in the ui for category.",
         }
       - {
@@ -560,7 +560,7 @@ collections:
           name: "experienceLevel",
           widget: "string",
           required: false,
-          default: "0",
+          default: "0,1,2,3,4,5",
           hint: "Separate by comma if multiple levels e.g: 0,1,2,3",
         }
       - {
