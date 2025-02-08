@@ -1,5 +1,5 @@
 ---
-title: E901:Best video sources for JavaScript
+title: "E901: Best video sources for JavaScript"
 name: Best video sources for JavaScript
 episode: 900
 publishedOn: 02-08-2025
