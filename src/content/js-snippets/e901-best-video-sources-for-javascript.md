@@ -1,7 +1,7 @@
 ---
 title: "E901: Best video sources for JavaScript"
 name: Best video sources for JavaScript
-episode: 900
+episode: 901
 publishedOn: 02-08-2025
 updatedOn: 02-08-2025
 author: Ashutosh Anand Tiwari
