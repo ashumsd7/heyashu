@@ -176,7 +176,7 @@ const ListContent = ({
               {item.episode}
             </span>
           )}
-          <span className="truncate font-bold text-gray-800 dark:text-gray-100">
+          <span className="truncate max-w-[200px] font-bold text-gray-800 dark:text-gray-100">
             {!eachCardPrefix && item?.name}
           </span>
         </div>

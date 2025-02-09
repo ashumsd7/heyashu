@@ -9,7 +9,7 @@ media_folder: public/images/blogs
 collections:
   - name: "blog" # Used in routes, e.g., /admin/collections/blog
     label: "Blog" # Used in the UI
-    description: 🌱 Feel free to contribute! Write a new blog or edit an existing one if you spot any errors. As soon as you submit your changes, a pull request will be created. Once it’s merged, your update will go live on heyashu.in/blog/your-blog-title within minutes! 🚀 Let's grow this digital garden together! 🌿✨
+    description: 🌱 Feel free to contribute! Write a new blog or edit an existing one if you spot any errors. As soon as you submit your changes, a pull request will be created. Once it's merged, your update will go live on heyashu.in/blog/your-blog-title within minutes! 🚀 Let's grow this digital garden together! 🌿✨
     folder: "/src/content/blog" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     slug: "" # Filename template, e.g., YYYY-MM-DD-title.md
@@ -52,12 +52,19 @@ collections:
           widget: "image",
           hint: "This will appear on the top of the blog after title.",
         }
-      - { label: "Author", name: "author", required: false, widget: "string" }
+      - { 
+          label: "Author", 
+          name: "author", 
+          required: false, 
+          widget: "string",
+          default: "Ashutosh Anand Tiwari"
+        }
       - {
           label: "Tags",
           name: "tags",
           widget: "string",
           required: false,
+          default: "blog",
           hint: "Add tags comma separated example : JavaScript, Web, Web Development, that can be used seo purpose also in the ui for category.",
         }
       - {
@@ -65,6 +72,7 @@ collections:
           name: "profilePic",
           widget: "image",
           required: false,
+          default: "https://i.ibb.co/v71k25N/pfpppp.png",
           hint: "This image will be shown in the profile picture  avatar.",
         }
       - {
@@ -72,6 +80,7 @@ collections:
           name: "followLink",
           widget: "string",
           required: false,
+          default: "https://www.instagram.com/javascripterrr",
         }
       - {
           label: "Describe your content here",
@@ -81,7 +90,7 @@ collections:
         }
   - name: "daily-updates" # Used in routes, e.g., /admin/collections/blog
     label: "Daily Update: Stand Up" # Used in the UI
-    description: 🌱 Consistency is key to success. Stay committed, update your progress, and make a meaningful impact. Together, we’ll achieve success! 🌿✨
+    description: 🌱 Consistency is key to success. Stay committed, update your progress, and make a meaningful impact. Together, we'll achieve success! 🌿✨
     folder: "/src/content/daily-updates" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     slug: "" # Filename template, e.g., YYYY-MM-DD-title.md
@@ -129,12 +138,14 @@ collections:
           name: "author",
           required: false,
           widget: "string",
+          default: "Ashutosh Anand Tiwari"
         }
       - {
           label: "Tags",
           name: "tags",
           required: false,
           widget: "string",
+          default: "daily-updates",
           hint: "Add tags comma separated example : JavaScript, Web, Web Development, that can be used seo purpose also in the ui for category.",
         }
       - {
@@ -142,6 +153,7 @@ collections:
           name: "profilePic",
           widget: "image",
           required: false,
+          default: "https://i.ibb.co/v71k25N/pfpppp.png",
           hint: "This image will be shown in the profile picture  avatar.",
         }
       - {
@@ -149,6 +161,7 @@ collections:
           name: "followLink",
           widget: "string",
           required: false,
+          default: "https://www.instagram.com/javascripterrr",
         }
       - {
           label: "Write / Update whatever you want to",
@@ -213,12 +226,17 @@ collections:
           widget: "image",
           hint: "This will appear on the top of the blog after title. The right-side preview is not the final look of your uploaded content. we will ensure its properly formatted and displayed beautifully after deployment.",
         }
-      - { label: "Author", name: "author", widget: "string" }
+      - { 
+          label: "Author", 
+          name: "author", 
+          widget: "string",
+          default: "Ashutosh Anand Tiwari"
+        }
       - {
           label: "Tags",
           name: "tags",
           required: false,
-          default:'Ashutosh Anand Tiwari',
+          default: "namaste-node-js",
           widget: "string",
           hint: "Add tags comma separated For example : JavaScript, Web, Web Development , that can be used seo purpose also in the ui for category.",
         }
@@ -226,7 +244,7 @@ collections:
           label: "Your profile picture",
           name: "profilePic",
           widget: "image",
-          default:'https://avatars.githubusercontent.com/u/40313523?v=4',
+          default: "https://i.ibb.co/v71k25N/pfpppp.png",
           required: false,
           hint: "This image will be shown in the profile picture  avatar. The right-side preview is not the final look of your uploaded content. we will ensure its properly formatted and displayed beautifully after deployment.",
         }
@@ -234,7 +252,7 @@ collections:
           label: "Social Link( When user clicks on follow button : we will contact you once your content will be live in next  few minutes after saving it)",
           name: "followLink",
           widget: "string",
-          default:'https://www.instagram.com/javascripterrr/',
+          default: "https://www.instagram.com/javascripterrr",
           required: false,
         }
       - {
@@ -299,12 +317,17 @@ collections:
           widget: "image",
           hint: "This will appear on the top of the blog after title. The right-side preview is not the final look of your uploaded content. we will ensure its properly formatted and displayed beautifully after deployment.",
         }
-      - { label: "Author", name: "author", widget: "string" }
+      - { 
+          label: "Author", 
+          name: "author", 
+          widget: "string",
+          default: "Ashutosh Anand Tiwari"
+        }
       - {
           label: "Tags",
           name: "tags",
           required: false,
-          default:'Ashutosh Anand Tiwari',
+          default: "front-end-design-system",
           widget: "string",
           hint: "Add tags comma separated For example : JavaScript, Web, Web Development , that can be used seo purpose also in the ui for category.",
         }
@@ -312,7 +335,7 @@ collections:
           label: "Your profile picture",
           name: "profilePic",
           widget: "image",
-          default:'https://avatars.githubusercontent.com/u/40313523?v=4',
+          default: "https://i.ibb.co/v71k25N/pfpppp.png",
           required: false,
           hint: "This image will be shown in the profile picture  avatar. The right-side preview is not the final look of your uploaded content. we will ensure its properly formatted and displayed beautifully after deployment.",
         }
@@ -320,7 +343,7 @@ collections:
           label: "Social Link( When user clicks on follow button : we will contact you once your content will be live in next  few minutes after saving it)",
           name: "followLink",
           widget: "string",
-          default:'https://www.instagram.com/javascripterrr/',
+          default: "https://www.instagram.com/javascripterrr",
           required: false,
         }
       - {
@@ -377,12 +400,18 @@ collections:
           widget: "image",
           hint: "This will appear on the top of the blog after title. The right-side preview is not the final look of your uploaded content. we will ensure its properly formatted and displayed beautifully after deployment.",
         }
-      - { label: "Author", name: "author", widget: "string" }
+      - { 
+          label: "Author", 
+          name: "author", 
+          widget: "string",
+          default: "Ashutosh Anand Tiwari"
+        }
       - {
           label: "Tags",
           name: "tags",
           required: false,
           widget: "string",
+          default: "node-js-procodrr",
           hint: "Add tags comma separated For example : JavaScript, Web, Web Development , that can be used seo purpose also in the ui for category.",
         }
       - {
@@ -390,12 +419,14 @@ collections:
           name: "profilePic",
           widget: "image",
           required: false,
+          default: "https://i.ibb.co/v71k25N/pfpppp.png",
           hint: "This image will be shown in the profile picture  avatar. The right-side preview is not the final look of your uploaded content. we will ensure its properly formatted and displayed beautifully after deployment.",
         }
       - {
           label: "Social Link( When user clicks on follow button : we will contact you once your content will be live in next  few minutes after saving it)",
           name: "followLink",
           widget: "string",
+          default: "https://www.instagram.com/javascripterrr",
           required: false,
         }
       - {
@@ -460,12 +491,17 @@ collections:
           widget: "image",
           hint: "This will appear on the top of the blog after title. The right-side preview is not the final look of your uploaded content. we will ensure its properly formatted and displayed beautifully after deployment.",
         }
-      - { label: "Author", name: "author", widget: "string" }
+      - { 
+          label: "Author", 
+          name: "author", 
+          widget: "string",
+          default: "Ashutosh Anand Tiwari"
+        }
       - {
           label: "Tags",
           name: "tags",
           required: false,
-          default: 'Ashutosh Anand Tiwari',
+          default: "ydkjs",
           widget: "string",
           hint: "Add tags comma separated For example : JavaScript, Web, Web Development , that can be used seo purpose also in the ui for category.",
         }
@@ -473,7 +509,7 @@ collections:
           label: "Your profile picture",
           name: "profilePic",
           widget: "image",
-          default: 'https://avatars.githubusercontent.com/u/40313523?v=4',
+          default: "https://i.ibb.co/v71k25N/pfpppp.png",
           required: false,
           hint: "This image will be shown in the profile picture  avatar. The right-side preview is not the final look of your uploaded content. we will ensure its properly formatted and displayed beautifully after deployment.",
         }
@@ -481,7 +517,7 @@ collections:
           label: "Social Link( When user clicks on follow button : we will contact you once your content will be live in next  few minutes after saving it)",
           name: "followLink",
           widget: "string",
-          default: 'https://www.instagram.com/javascripterrr/',
+          default: "https://www.instagram.com/javascripterrr",
           required: false,
         }
       - {
@@ -583,7 +619,7 @@ collections:
           name: "followLink",
           widget: "string",
           required: false,
-          default: "https://www.instagram.com/javascripterr/",
+          default: "https://www.instagram.com/javascripterrr",
         }
       - {
           label: "Describe your content here",
