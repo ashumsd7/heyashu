@@ -103,7 +103,7 @@ export default function App({ Component, pageProps }) {
                 <Component {...pageProps} />
               </Layout>
               <div className="fixed right-5 bottom-5 flex flex-col gap-6  items-end">
-                <StartTour
+                {/* <StartTour
                   onClick={() => {
                     router.push({
                       pathname: "/",
@@ -114,7 +114,7 @@ export default function App({ Component, pageProps }) {
                     //   window.location.reload()
                     // },1000)
                   }}
-                />
+                /> */}
                 <QuickMsgBtn
                   onClick={() => {
                     window.open(PHONE_CALL_THIRTY_MIN, "_blank");
