@@ -72,7 +72,7 @@ export default function Home() {
 
       <main className=""><MainPage /></main>
 
-      <PageTour />
+      {/* <PageTour /> */}
     </>
   );
 }
