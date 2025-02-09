@@ -1,7 +1,7 @@
 ---
 title: Why is Web Performance Important?
 name: Why is Web Performance Important?
-episode: 9
+episode: 11
 publishedOn: 02-09-2025
 updatedOn: 02-09-2025
 thumbnail: /public/images/blogs/per_1.png
