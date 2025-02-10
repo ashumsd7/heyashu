@@ -9,36 +9,61 @@ experienceLevel: 0,1
 profilePic: https://avatars.githubusercontent.com/u/40313523?v=4
 followLink: https://www.instagram.com/javascripterrr
 ---
-1. **Interviewer 🎙️:** *"What is JavaScript?"*
-
-   **You 💡:** JavaScript is a scripting language used to make web pages interactive. It runs in the browser and allows dynamic content updates, animations, and event handling.
-
-
-2. **Interviewer 🎙️:** *"Who created JavaScript?"*
-
-   **You 💡:** JavaScript was created by Brendan Eich in 1995 while working at Netscape. It was originally called Mocha and later renamed JavaScript.
-
-
-3. **Interviewer 🎙️:** *"What are variables in JavaScript?"*
-
-   **You 💡:** Variables in JavaScript are used to store data. They are declared using `var`, `let`, or `const`. Example: `let name = "John";`
-
-   ``
-4. **Interviewer 🎙️:** *"What are operators in JavaScript?"*
-
-   **You 💡:** Operators perform operations on variables and values. JavaScript has arithmetic (`+`, `-`, `*`, `/`), comparison (`==`, `===`, `!=`), logical (`&&`, `||`, `!`), and assignment (`=`, `+=`, `-=`) operators.
 
 
 
-   **Interviewer 🎙️:** *"What are comments in JavaScript, and how do you write them?"*
-5. **You 💡:** Comments in JavaScript are used to add notes or explanations in the code. They are ignored during execution.
+### **Interviewer:** *"What is JavaScript?"*
 
-   * **Single-line comment:**
+**You:**
+JavaScript is a scripting language that enables interactive web pages. It's commonly used to create dynamic content, control multimedia, and handle user interactions like clicks and form submissions. JavaScript is executed on the client's browser, allowing developers to build responsive and engaging websites.
 
-      
 
-     `// This is a comment`
-   * **Multi-line comment:**
 
-/ *  This is a 
-   multi-line comment  * /
+### **Interviewer:** *"Who created JavaScript?"*
+
+**You:**
+JavaScript was created by Brendan Eich in 1995 during his work at Netscape Communications. Initially named Mocha, it was later renamed JavaScript. The language was designed to enable dynamic and interactive elements within web browsers.
+
+
+
+### **Interviewer:** *"What are variables in JavaScript?"*
+
+**You:**
+Variables in JavaScript are used to store data that can be accessed and modified throughout the program. You can declare variables using `var`, `let`, or `const`. The `let` and `const` keywords are more modern and provide better scoping compared to `var`. For example, `let name = "John";` creates a variable that holds the value `"John"`.
+
+
+
+### **Interviewer:** *"What are operators in JavaScript?"*
+
+**You:**
+Operators in JavaScript are symbols used to perform operations on values and variables. These operations include arithmetic (`+`, `-`, `*`, `/`), comparison (`==`, `===`, `!=`), logical (`&&`, `||`, `!`), and assignment (`=`, `+=`, `-=`) operators. For example, `let x = 10 + 5;` uses the `+` operator to add two values together.
+
+
+
+### **Interviewer:** *"What are comments in JavaScript, and how do you write them?"*
+
+**You:**
+Comments in JavaScript are used to leave explanatory notes in the code. They are ignored by the JavaScript engine during execution and do not affect the program.
+
+* **Single-line comment:**
+
+   Use 
+
+  `//`
+
+   for a comment on one line.
+  Example: 
+
+  `// This is a single-line comment`
+* **Multi-line comment:**
+
+   Use 
+
+  `/*`
+
+   to start and 
+
+  `*/`
+
+   to end a multi-line comment.
+  Example:
