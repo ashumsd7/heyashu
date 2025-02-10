@@ -18,7 +18,7 @@ const loadingMessages = [
   "Polishing the final touches...",
   "Almost ready..."
 ];
-const API_KEY = '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'
+ 
 
 function parseResponse(response) {
   try {
@@ -58,7 +58,7 @@ async function generateQuestions(providedText) {
     const response = await fetch(OPENROUTER_API_URL, {
       method: "POST",
       headers: {
-        "Authorization": `Bearer ${API_KEY}`,
+        "Authorization": `Bearer ${OPENROUTER_API_KEY}`,
         "HTTP-Referer": OPENROUTER_SITE_URL,
         "X-Title": OPENROUTER_SITE_NAME,
         "Content-Type": "application/json"
