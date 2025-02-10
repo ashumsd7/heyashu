@@ -40,7 +40,7 @@ const InterviewPrep = () => {
       enabled: true,
       route: '/digital-garden/notes/front-end-design-system/how-the-web-works',
       ctaText: 'Read Notes',
-      minExperience: 3 // Only show for 3+ years experience
+      minExperience: 4 // Only show for 4+ years experience
     }
   ];
 
@@ -48,7 +48,7 @@ const InterviewPrep = () => {
     if (experienceFilter === 'all') return true;
     if (topic.name === 'System Design') {
       const years = parseInt(experienceFilter.split('-')[0]);
-      return years >= 3;
+      return years >= 4;
     }
     return true;
   });
@@ -117,7 +117,7 @@ const InterviewPrep = () => {
 
           {/* Experience Filter */}
           <div className="flex flex-wrap justify-center gap-3 md:gap-4 mb-8 md:mb-12">
-            {['all', '0-1', '1-3', '3-5'].map((level) => (
+            {['all', 'fresher-1', '2-4', '4+'].map((level) => (
               <button
                 key={level}
                 onClick={() => setExperienceFilter(level)}
@@ -127,7 +127,9 @@ const InterviewPrep = () => {
                     : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300'
                 }`}
               >
-                {level === 'all' ? 'All Levels' : `${level} Years`}
+                {level === 'all' ? 'All Levels' : 
+                 level === 'fresher-1' ? 'Fresher-1 Year' :
+                 level === '2-4' ? '2-4 Years' : '4+ Years'}
               </button>
             ))}
           </div>

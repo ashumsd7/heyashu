@@ -82,7 +82,9 @@ function Navbar() {
           <Link href="/" className="flex-shrink-0">
              <div className="flex items-center gap-2">
               <div className="relative">
-                <img 
+                <Image 
+                  width={40}
+                  height={40}
                   src="https://avatars.githubusercontent.com/u/40313523?v=4"
                   alt="Profile"
                   className="w-10 h-10 rounded-full border-2 border-indigo-500 transition-transform duration-200 hover:scale-110"

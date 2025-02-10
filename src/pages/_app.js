@@ -20,10 +20,7 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/github-dark.min.css"
-        ></link>
+     
         {/* strategy="afterInteractive" */}
         <Script
           id="adsbygoogle-init"
