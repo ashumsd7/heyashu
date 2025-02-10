@@ -246,7 +246,7 @@ const AIQuestionDrawer = ({ isOpen, setIsOpen, questions: initialQuestions, text
   };
 
   const scorePercentage = Math.round((score/questions?.questions?.length) * 100);
-  const shareText = `🎓 I just completed AI Assessment on ${questions?.topic || 'Web Development'} and scored ${scorePercentage}%! 🎯\n\n📚 🌟 Attempt Quiz: ${window.location.href}  Read & Explore 100+ topics and visit Open sourced Digital Garden \n `;
+  const shareText = `🎓 I just completed AI Assessment on ${questions?.topic || 'Web Development'} and scored ${scorePercentage}%! 🎯\n\n📚 🌟 Attempt Quiz: ${window.location.href}  Read & Explore 100+ topics and visit Open sourced Digital Garden \n\n `;
   const shareUrl = 'https://heyashu.in/digital-garden';
 
   return (
