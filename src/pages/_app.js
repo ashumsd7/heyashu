@@ -91,7 +91,7 @@ export default function App({ Component, pageProps }) {
         <link rel="canonical" href={canonicalUrl} />
       </Head>
       <PlausibleProvider domain="heyashu.in">
-        <GoogleAnalytics />
+        <GoogleAnalytics/>
         <TransitionPage>
           <ThemeProvider attribute="class">
             <main className="relative">

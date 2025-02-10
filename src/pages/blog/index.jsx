@@ -7,9 +7,7 @@ import path from "path";
 import matter from "gray-matter";
 import { formateDate, generateSlug } from "@/utils/functions";
 
-import Button from "@/components/base/Button";
-import BlogCardv3 from "@/components/garden/BlogCardv3";
-import ClassicPageLayout from "@/components/garden/ClassicNotesLayout";
+ 
 import CommonHeadTags from "@/components/seo/CommonHeadTags";
 import { ADMIN_LINK } from "@/utils/constant";
 
