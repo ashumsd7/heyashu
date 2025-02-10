@@ -9,7 +9,7 @@ import {
   TwitterIcon, 
   WhatsappIcon
 } from 'react-share';
-import { OPENROUTER_API_KEY, OPENROUTER_API_URL, OPENROUTER_SITE_NAME, OPENROUTER_SITE_URL } from '@/utils/constant';
+import { OPENROUTER_API_KEY, OPENROUTER_API_URL, OPENROUTER_MODEL, OPENROUTER_SITE_NAME, OPENROUTER_SITE_URL } from '@/utils/constant';
 
 const loadingMessages = [
   "Analyzing the content...",
@@ -64,7 +64,7 @@ async function generateQuestions(providedText) {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        "model": "deepseek/deepseek-r1-distill-llama-70b:free",
+        "model": OPENROUTER_MODEL,
         "messages": [
           {
             "role": "system",
