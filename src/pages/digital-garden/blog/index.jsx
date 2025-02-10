@@ -1,5 +1,5 @@
 import Button from "@/components/base/Button";
-import BlogCard from "@/components/garden/BlogCard";
+
 import React from "react";
 import { FaPlus } from "react-icons/fa";
 import fs from "fs";
@@ -64,9 +64,7 @@ function BlogsPage({ posts }) {
         }
         desc="   Read blogs on various topics and feel free to add your blogs."
       >
-        {posts?.map((post) => {
-          return <BlogCard data={post?.frontMatter} />;
-        })}
+        
       </ClassicPageLayout>
     </>
   );
