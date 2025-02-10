@@ -23,10 +23,10 @@ export const GITHUB_REPO_LINK =
   export const DEFAULT_FOLLOW_LINK_INSTA='https://www.instagram.com/javascripterrr/'
 
   // export const OPENROUTER_API_KEY='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'
-  export const OPENROUTER_API_KEY='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'
+  export const OPENROUTER_API_KEY='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'
   export const OPENROUTER_SITE_URL='https://heyashu.in'
   export const OPENROUTER_SITE_NAME="Ashutosh Anand's Digital Garden"
-  export const OPENROUTER_MODEL='deepseek/deepseek-r1:free'
+  export const OPENROUTER_MODEL='google/gemini-2.0-flash-lite-preview-02-05:free'
   export const OPENROUTER_API_URL='https://openrouter.ai/api/v1/chat/completions'
 
 
