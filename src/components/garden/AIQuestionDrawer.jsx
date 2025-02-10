@@ -9,7 +9,7 @@ import {
   TwitterIcon, 
   WhatsappIcon
 } from 'react-share';
-import { OPENROUTER_API_KEY, OPENROUTER_API_URL, OPENROUTER_MODEL, OPENROUTER_SITE_NAME, OPENROUTER_SITE_URL } from '@/utils/constant';
+import {  OPENROUTER_API_URL, OPENROUTER_MODEL, OPENROUTER_SITE_NAME, OPENROUTER_SITE_URL } from '@/utils/constant';
 
 const loadingMessages = [
   "Analyzing the content...",
@@ -55,10 +55,11 @@ function parseResponse(response) {
 
 async function generateQuestions(providedText) {
   try {
+    console.log("process.env.VITE_OPENROUTER_API_KEY",process.env.NEXT_PUBLIC_OPENROUTER_API_KEY)
     const response = await fetch(OPENROUTER_API_URL, {
       method: "POST",
       headers: {
-        "Authorization": `Bearer ${OPENROUTER_API_KEY}`,
+        "Authorization": `Bearer ${process.env.NEXT_PUBLIC_OPENROUTER_API_KEY}`,
         "HTTP-Referer": OPENROUTER_SITE_URL,
         "X-Title": OPENROUTER_SITE_NAME,
         "Content-Type": "application/json"
