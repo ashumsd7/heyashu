@@ -2,17 +2,17 @@
 title: Data Types in JavaScript
 name: Data Types in JavaScript
 episode: 1
-thumbnail: https://i.ibb.co/DQf1k4k/data-types.jpg
 publishedOn: 04-09-2024
 updatedOn: 04-09-2024
+thumbnail: https://i.ibb.co/DQf1k4k/data-types.jpg
 author: Ashutosh Anand Tiwari
 tags: js snippets, data types, interview
 profilePic: /public/images/blogs/pfp2.png
 followLink: https://github.com/ashumsd7
 ---
-![Data Types](https://i.ibb.co/DQf1k4k/data-types.jpg)
+> **Interviewer :** Tell me all data types in JavaScript?
 
-There are total **8 built** in data types in JavaScript.
+**You:** There are total **8 built** in data types in JavaScript.
 
 1. string
 2. number
