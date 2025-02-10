@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { IoClose } from 'react-icons/io5';
-import { FaLightbulb, FaShare, FaCheck, FaTimes, FaRedo } from 'react-icons/fa';
+import { FaLightbulb, FaShare, FaCheck, FaTimes, FaRedo, FaTrophy } from 'react-icons/fa';
 import {
   TwitterShareButton,
   WhatsappShareButton,
@@ -141,7 +141,6 @@ const AIQuestionDrawer = ({ isOpen, setIsOpen, questions: initialQuestions, text
   const [error, setError] = useState(null);
   const [score, setScore] = useState(0);
   const [allAttempted, setAllAttempted] = useState(false);
-  const [showShareOptions, setShowShareOptions] = useState(false);
   const [questions, setQuestions] = useState(initialQuestions);
   const [loadingProgress, setLoadingProgress] = useState(0);
   const [loadingMessageIndex, setLoadingMessageIndex] = useState(0);
@@ -204,9 +203,14 @@ const AIQuestionDrawer = ({ isOpen, setIsOpen, questions: initialQuestions, text
     const attempted = questions?.questions?.every(q => currentAnswers[q.id] !== undefined);
     setAllAttempted(attempted);
     
+    // If all questions are attempted, scroll to score section
     if (attempted) {
-      const element = document.getElementById('score-section');
-      element?.scrollIntoView({ behavior: 'smooth' });
+      const scoreSection = document.getElementById('score-section');
+      if (scoreSection) {
+        setTimeout(() => {
+          scoreSection.scrollIntoView({ behavior: 'smooth', block: 'end' });
+        }, 500);
+      }
     }
   }, [currentAnswers, questions]);
 
@@ -221,13 +225,23 @@ const AIQuestionDrawer = ({ isOpen, setIsOpen, questions: initialQuestions, text
     if (optionIndex === questions.questions[questionId - 1].correctAnswer) {
       setScore(prev => prev + 1);
     }
+
+    // Check if this was the last question
+    const isLastQuestion = Object.keys(currentAnswers).length === questions.questions.length - 1;
+    if (isLastQuestion) {
+      setTimeout(() => {
+        const scoreSection = document.getElementById('score-section');
+        if (scoreSection) {
+          scoreSection.scrollIntoView({ behavior: 'smooth', block: 'end' });
+        }
+      }, 500);
+    }
   };
 
   const handleRetry = () => {
     setCurrentAnswers({});
     setScore(0);
     setAllAttempted(false);
-    setShowShareOptions(false);
     fetchQuestions();
   };
 
@@ -248,7 +262,7 @@ const AIQuestionDrawer = ({ isOpen, setIsOpen, questions: initialQuestions, text
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', damping: 20 }}
-            className="fixed top-[60px] right-0 h-[calc(100vh-80px)] bg-white dark:bg-gray-900 shadow-2xl overflow-y-auto z-[10000] w-[100%] md:w-[40%]"
+            className="fixed top-[65px] right-0 h-[calc(100vh-80px)] bg-white dark:bg-gray-900 shadow-2xl overflow-y-auto z-[10000] w-[100%] md:w-[40%]"
           >
             <div className="sticky top-0 bg-white dark:bg-gray-900 z-50">
               <div className="flex justify-between items-center p-2 px-4">
@@ -379,44 +393,35 @@ const AIQuestionDrawer = ({ isOpen, setIsOpen, questions: initialQuestions, text
                       animate={{ opacity: 1, y: 0 }}
                       className="mt-8 p-6 bg-gray-50 dark:bg-gray-800 rounded-lg text-center"
                     >
-                      <h3 className="text-4xl font-bold text-yellow-500 mb-4">
+                      <motion.div
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        transition={{ type: "spring", duration: 0.8 }}
+                        className="mb-4"
+                      >
+                        <FaTrophy className="text-6xl text-yellow-500 mx-auto" />
+                      </motion.div>
+                      <h3 className="text-6xl font-bold text-yellow-500 mb-4">
                         {scorePercentage}%
                       </h3>
                       <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
                         {getScoreMessage(scorePercentage)}
                       </p>
-                    </motion.div>
-                  )}
-
-                  <div className="sticky bottom-0 bg-white dark:bg-gray-900 p-4 border-t dark:border-gray-700 mt-6">
-                    {!showShareOptions ? (
-                      <button
-                        onClick={() => allAttempted && setShowShareOptions(true)}
-                        disabled={!allAttempted}
-                        className={`w-full flex items-center justify-center gap-2 py-3 rounded-lg transition-colors ${
-                          allAttempted 
-                            ? 'bg-yellow-500 hover:bg-yellow-600 text-white'
-                            : 'bg-gray-300 dark:bg-gray-700 cursor-not-allowed'
-                        }`}
-                      >
-                        <FaShare />
-                        Share on Social Media
-                      </button>
-                    ) : (
-                      <div className="flex flex-col items-center gap-4">
-                        <p className="text-sm text-gray-600 dark:text-gray-400">Share your achievement</p>
+                      
+                      <div className="mt-6">
+                        <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">Share your achievement</p>
                         <div className="flex justify-center gap-4">
                           <TwitterShareButton url={shareUrl} title={shareText}>
-                            <TwitterIcon size={32} round />
+                            <TwitterIcon size={40} round />
                           </TwitterShareButton>
                           
                           <WhatsappShareButton url={shareUrl} title={shareText}>
-                            <WhatsappIcon size={32} round />
+                            <WhatsappIcon size={40} round />
                           </WhatsappShareButton>
                         </div>
                       </div>
-                    )}
-                  </div>
+                    </motion.div>
+                  )}
                 </>
               )}
             </div>
