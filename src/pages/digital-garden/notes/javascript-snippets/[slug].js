@@ -12,6 +12,7 @@ import path from "path";
 import { useState } from "react";
 import { useEffect } from "react";
 import { serialize } from "next-mdx-remote/serialize";
+import AIQuestionWrapper from "@/components/garden/AIQuestionWrapper";
 
 const NotesDetailPageForSnippets = ({
   notes,
@@ -56,6 +57,8 @@ const NotesDetailPageForSnippets = ({
   }, []);
 
   return (
+    <>
+
     <NotesMainPage
       metaInfo={metaTagsForJsSnippets}
       shareImageEmbed={"https://i.ibb.co/CQx2hh5/JS-SNIPPETS-thumbnails.jpg"}
@@ -68,6 +71,8 @@ const NotesDetailPageForSnippets = ({
       subDomain="javascript-snippets"
       currentPageFrontMatter={currentPageFrontMatter}
     />
+    <AIQuestionWrapper/>
+    </>
   );
 };
 export default NotesDetailPageForSnippets;

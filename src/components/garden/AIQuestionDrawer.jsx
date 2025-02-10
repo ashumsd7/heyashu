@@ -2,50 +2,64 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { IoClose } from 'react-icons/io5';
-import { FaLightbulb, FaShare, FaCheck, FaTimes } from 'react-icons/fa';
+import { FaLightbulb, FaShare, FaCheck, FaTimes, FaRedo } from 'react-icons/fa';
 import {
   TwitterShareButton,
   WhatsappShareButton,
   TwitterIcon, 
   WhatsappIcon
 } from 'react-share';
-const API_KEY = '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'
-const SITE_URL = "https://heyashu.in"; // 🌐 Optional: Your website URL for OpenRouter ranking
-const SITE_NAME = "Ashutosh Anand's Digital Garden"; // 📌 Optional: Your site name for ranking
+import { OPENROUTER_API_KEY, OPENROUTER_API_URL, OPENROUTER_SITE_NAME, OPENROUTER_SITE_URL } from '@/utils/constant';
 
-function extractJSON(text) {
-  const match = text.match(/```json\n([\s\S]*?)\n```/); // Extract JSON inside ```json ```
-  if (match && match[1]) {
+const loadingMessages = [
+  "Analyzing the content...",
+  "Crafting thoughtful questions...", 
+  "Adding interesting options...",
+  "Polishing the final touches...",
+  "Almost ready..."
+];
+
+function parseResponse(response) {
+  try {
+    // First try direct JSON parse
+    return JSON.parse(response);
+  } catch (e) {
+    // If direct parse fails, try extracting JSON from markdown
+    const jsonMatch = response.match(/```json\n([\s\S]*?)\n```/);
+    if (jsonMatch && jsonMatch[1]) {
       try {
-          const jsonData = JSON.parse(match[1]); // Parse JSON
-          console.log("Extracted JSON:", jsonData);
-          return jsonData;
-      } catch (error) {
-          console.error("Invalid JSON format:", error);
-          return null;
+        return JSON.parse(jsonMatch[1]);
+      } catch (err) {
+        console.error("Failed to parse extracted JSON:", err);
+        return null;
       }
-  } else {
-      console.error("No valid JSON found!");
-      return null;
+    }
+    
+    // Try finding JSON without markdown tags
+    const jsonRegex = /\{[\s\S]*\}/;
+    const possibleJson = response.match(jsonRegex);
+    if (possibleJson) {
+      try {
+        return JSON.parse(possibleJson[0]);
+      } catch (err) {
+        console.error("Failed to parse possible JSON:", err);
+        return null;
+      }
+    }
+    
+    console.error("No valid JSON found in response");
+    return null;
   }
 }
 
-// Example usage
-const text = `Your provided text here...`; // Replace with your full input text
-const extractedJSON = extractJSON(text);
-
-console.log(extractedJSON); // Output the extracted JSON
-
-
-
 async function generateQuestions(providedText) {
   try {
-    const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+    const response = await fetch(OPENROUTER_API_URL, {
       method: "POST",
       headers: {
-        "Authorization": `Bearer ${API_KEY}`,
-        "HTTP-Referer": SITE_URL, // Optional
-        "X-Title": SITE_NAME, // Optional
+        "Authorization": `Bearer ${OPENROUTER_API_KEY}`,
+        "HTTP-Referer": OPENROUTER_SITE_URL,
+        "X-Title": OPENROUTER_SITE_NAME,
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
@@ -62,6 +76,8 @@ async function generateQuestions(providedText) {
                           2️⃣ **3 options** (ensure one is correct)
                           3️⃣ **Correct answer as an index (0-based)**
                           4️⃣ **A simple explanation of the correct answer**
+                          Keep explanation in a descriptive manner with 3 to 4 lines.
+                          keep option also some one liner some with multi words 1 to 2 lines 
                         - The response must be in **strict JSON format**, with no extra text. Example:
                           {
                             "topic": "Topic Name",
@@ -95,45 +111,75 @@ async function generateQuestions(providedText) {
     }
 
     const data = await response.json();
-    console.log("data is", data);
-    if(data.choices[0].message.content){
-      const extractedJSON = extractJSON(data.choices[0].message.content);
-      console.log("extractedJSON is", extractedJSON);
+    if (!data.choices?.[0]?.message?.content) {
+      throw new Error("Invalid API response format");
     }
 
-    return extractedJSON;
+    const parsedQuestions = parseResponse(data.choices[0].message.content);
+    if (!parsedQuestions) {
+      throw new Error("Failed to parse questions from response");
+    }
+
+    return parsedQuestions;
   } catch (error) {
     console.error("❌ Error generating questions:", error);
+    throw error;
   }
 }
 
-
-
 const AIQuestionDrawer = ({ isOpen, setIsOpen, questions: initialQuestions, text }) => {
-  console.log("text is", text);
   const [currentAnswers, setCurrentAnswers] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [score, setScore] = useState(0);
   const [allAttempted, setAllAttempted] = useState(false);
   const [showShareOptions, setShowShareOptions] = useState(false);
   const [questions, setQuestions] = useState(initialQuestions);
+  const [loadingProgress, setLoadingProgress] = useState(0);
+  const [loadingMessageIndex, setLoadingMessageIndex] = useState(0);
+
+  const fetchQuestions = async () => {
+    try {
+      setIsLoading(true);
+      setError(null);
+      setLoadingProgress(0);
+      setLoadingMessageIndex(0);
+
+      // Start progress animation
+      const progressInterval = setInterval(() => {
+        setLoadingProgress(prev => {
+          if (prev >= 100) {
+            clearInterval(progressInterval);
+            return 100;
+          }
+          return prev + 1;
+        });
+      }, 100);
+
+      // Change loading message every few seconds
+      const messageInterval = setInterval(() => {
+        setLoadingMessageIndex(prev => 
+          prev < loadingMessages.length - 1 ? prev + 1 : prev
+        );
+      }, 2000);
+
+      const text = document.body.innerText;
+      const generatedQuestions = await generateQuestions(text);
+      setQuestions(generatedQuestions);
+
+      clearInterval(progressInterval);
+      clearInterval(messageInterval);
+    } catch (err) {
+      setError(err.message || "Failed to generate questions");
+    } finally {
+      setIsLoading(false);
+      setLoadingProgress(100);
+    }
+  };
 
   useEffect(() => {
     if (isOpen) {
-      setIsLoading(true);
-      
-      const text = document.body.innerText;
-      console.log("text is:", text);
-      generateQuestions(text)
-        .then(generatedQuestions => {
-          console.log("Generated questions:", generatedQuestions);
-          setQuestions(generatedQuestions);
-          setIsLoading(false);
-        })
-        .catch(err => {
-          console.error("Error generating questions:", err);
-          setIsLoading(false);
-        });
+      fetchQuestions();
     }
   }, [isOpen]);
 
@@ -162,6 +208,14 @@ const AIQuestionDrawer = ({ isOpen, setIsOpen, questions: initialQuestions, text
     if (optionIndex === questions.questions[questionId - 1].correctAnswer) {
       setScore(prev => prev + 1);
     }
+  };
+
+  const handleRetry = () => {
+    setCurrentAnswers({});
+    setScore(0);
+    setAllAttempted(false);
+    setShowShareOptions(false);
+    fetchQuestions();
   };
 
   const shareText = `I just completed the ${questions?.topic} quiz and scored ${score}/${questions?.questions?.length}! Try it yourself at heyashu.in`;
@@ -200,8 +254,27 @@ const AIQuestionDrawer = ({ isOpen, setIsOpen, questions: initialQuestions, text
             <div className="p-6">
               {isLoading ? (
                 <div className="flex flex-col items-center justify-center h-[400px]">
-                  <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-yellow-500"></div>
-                  <p className="mt-4 text-gray-600 dark:text-gray-400">AI is analyzing content and generating relevant questions...</p>
+                  <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-yellow-500 mb-4"></div>
+                  <div className="w-64 h-2 bg-gray-200 rounded-full overflow-hidden">
+                    <div 
+                      className="h-full bg-yellow-500 transition-all duration-300"
+                      style={{ width: `${loadingProgress}%` }}
+                    ></div>
+                  </div>
+                  <p className="mt-4 text-gray-600 dark:text-gray-400">
+                    {loadingMessages[loadingMessageIndex]}
+                  </p>
+                </div>
+              ) : error ? (
+                <div className="flex flex-col items-center justify-center h-[400px]">
+                  <p className="text-red-500 mb-4">{error}</p>
+                  <button
+                    onClick={handleRetry}
+                    className="flex items-center gap-2 px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-white rounded-lg"
+                  >
+                    <FaRedo />
+                    Try Again
+                  </button>
                 </div>
               ) : (
                 <>
