@@ -85,7 +85,7 @@ Gvanks`,
     avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah",
     link: "https://github.com/ashumsd7/heyashu/tree/main/src/content/testimonials",
   });
-  console.log("testimonials2 >>>>>>>>> 123>", testimonials2);
+   
 
   const containerVariants = {
     hidden: { opacity: 0 },

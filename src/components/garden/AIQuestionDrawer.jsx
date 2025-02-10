@@ -18,7 +18,13 @@ const loadingMessages = [
   "Polishing the final touches...",
   "Almost ready..."
 ];
- 
+
+const getScoreMessage = (percentage) => {
+  if (percentage >= 90) return "Excellent! You're a master of this topic! 🏆";
+  if (percentage >= 70) return "Great job! You have a solid understanding! 👏";
+  if (percentage >= 50) return "Good effort! Keep learning to improve! 📚";
+  return "Keep practicing! You'll get better with time! 💪";
+};
 
 function parseResponse(response) {
   try {
@@ -55,7 +61,7 @@ function parseResponse(response) {
 
 async function generateQuestions(providedText) {
   try {
-    console.log("process.env.VITE_OPENROUTER_API_KEY",process.env.NEXT_PUBLIC_OPENROUTER_API_KEY)
+ 
     const response = await fetch(OPENROUTER_API_URL, {
       method: "POST",
       headers: {
@@ -197,6 +203,11 @@ const AIQuestionDrawer = ({ isOpen, setIsOpen, questions: initialQuestions, text
   useEffect(() => {
     const attempted = questions?.questions?.every(q => currentAnswers[q.id] !== undefined);
     setAllAttempted(attempted);
+    
+    if (attempted) {
+      const element = document.getElementById('score-section');
+      element?.scrollIntoView({ behavior: 'smooth' });
+    }
   }, [currentAnswers, questions]);
 
   const handleOptionSelect = (questionId, optionIndex) => {
@@ -220,8 +231,9 @@ const AIQuestionDrawer = ({ isOpen, setIsOpen, questions: initialQuestions, text
     fetchQuestions();
   };
 
-  const shareText = `I just completed the ${questions?.topic} quiz and scored ${score}/${questions?.questions?.length}! Try it yourself at heyashu.in`;
-  const shareUrl = "https://heyashu.in";
+  const scorePercentage = Math.round((score/questions?.questions?.length) * 100);
+  const shareText = `🎓 I just completed AI Assessment on ${questions?.topic || 'Web Development'} and scored ${scorePercentage}%! 🎯\n\n📚 🌟 Attempt Quiz: ${window.location.href}  Read & Explore 100+ topics and visit Open sourced Digital Garden \n `;
+  const shareUrl = 'https://heyashu.in/digital-garden';
 
   return (
     <AnimatePresence>
@@ -241,7 +253,7 @@ const AIQuestionDrawer = ({ isOpen, setIsOpen, questions: initialQuestions, text
             <div className="sticky top-0 bg-white dark:bg-gray-900 z-50">
               <div className="flex justify-between items-center p-2 px-4">
                 <h2 className="text-2xl font-bold text-gray-800 dark:text-yellow-400">
-                  AI Interviewer
+                AI Assessment
                 </h2>
                 <button
                   onClick={() => setIsOpen(false)}
@@ -360,6 +372,22 @@ const AIQuestionDrawer = ({ isOpen, setIsOpen, questions: initialQuestions, text
                     ))}
                   </div>
 
+                  {allAttempted && (
+                    <motion.div 
+                      id="score-section"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="mt-8 p-6 bg-gray-50 dark:bg-gray-800 rounded-lg text-center"
+                    >
+                      <h3 className="text-4xl font-bold text-yellow-500 mb-4">
+                        {scorePercentage}%
+                      </h3>
+                      <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
+                        {getScoreMessage(scorePercentage)}
+                      </p>
+                    </motion.div>
+                  )}
+
                   <div className="sticky bottom-0 bg-white dark:bg-gray-900 p-4 border-t dark:border-gray-700 mt-6">
                     {!showShareOptions ? (
                       <button
@@ -372,17 +400,20 @@ const AIQuestionDrawer = ({ isOpen, setIsOpen, questions: initialQuestions, text
                         }`}
                       >
                         <FaShare />
-                        {allAttempted ? 'Share Your Results' : 'Complete All Questions'}
+                        Share on Social Media
                       </button>
                     ) : (
-                      <div className="flex justify-center gap-4">
-                        <TwitterShareButton url={shareUrl} title={shareText}>
-                          <TwitterIcon size={32} round />
-                        </TwitterShareButton>
-                        
-                        <WhatsappShareButton url={shareUrl} title={shareText}>
-                          <WhatsappIcon size={32} round />
-                        </WhatsappShareButton>
+                      <div className="flex flex-col items-center gap-4">
+                        <p className="text-sm text-gray-600 dark:text-gray-400">Share your achievement</p>
+                        <div className="flex justify-center gap-4">
+                          <TwitterShareButton url={shareUrl} title={shareText}>
+                            <TwitterIcon size={32} round />
+                          </TwitterShareButton>
+                          
+                          <WhatsappShareButton url={shareUrl} title={shareText}>
+                            <WhatsappIcon size={32} round />
+                          </WhatsappShareButton>
+                        </div>
                       </div>
                     )}
                   </div>

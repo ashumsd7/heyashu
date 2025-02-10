@@ -32,7 +32,7 @@ const NotesDetailPageForSnippets = ({
     const s2List=[]
     const list = notes.map((item, index) => {
 
-      console.log("ITEM is", item);
+       
       return {
         id: item.frontMatter.episode || index, // Use episode number or fallback to index
         episode: item.frontMatter.episode,
