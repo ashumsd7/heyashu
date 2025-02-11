@@ -17,6 +17,7 @@ const loadingMessages = [
   "Adding interesting options...",
   "Polishing the final touches...",
   "Almost ready..."
+  
 ];
 
 const getScoreMessage = (percentage) => {
@@ -78,7 +79,10 @@ async function generateQuestions(providedText) {
             "content": `You are an AI that generates **interview-style multiple-choice questions (MCQs)** for web development.
                         - The user will provide a programming-related text.
                         - Your task is to generate **at least 1 and at most 10** questions.
+                        -Try to provide maximum questions as possible
                         - **Questions should match the most commonly asked interview questions in India**.
+                        -Act like as an interviewer and ask questions to the user
+                        -the candidate while selecting option should think like answering a real interviewer
                         - Each question should have:
                           1️⃣ **A clear and concise question**
                           2️⃣ **3 options** (ensure one is correct)
