@@ -13,6 +13,7 @@ import path from "path";
 import { useState } from "react";
 import { useEffect } from "react";
 import { serialize } from "next-mdx-remote/serialize";
+import AIQuestionWrapper from "@/components/garden/AIQuestionWrapper";
 
 const NotesDetailPage = ({ notes, currentPageMDX, currentPageFrontMatter }) => {
   const [contentList, setContentList] = useState([]);
@@ -78,6 +79,7 @@ const NotesDetailPage = ({ notes, currentPageMDX, currentPageFrontMatter }) => {
         eachCardPrefix={"Book-"}
         currentPageFrontMatter={currentPageFrontMatter}
       />
+       <AIQuestionWrapper/>
     </>
   );
 };
