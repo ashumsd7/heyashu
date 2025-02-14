@@ -95,7 +95,7 @@ const NotesMainPage = ({
 
   // format publish date
   const formattedDate = formateDate(currentPageFrontMatter?.publishedOn);
- console.log('currentPageFrontMatter',currentPageFrontMatter)
+ 
   return (
     <>
   

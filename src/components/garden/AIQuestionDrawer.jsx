@@ -17,8 +17,38 @@ const loadingMessages = [
   "Adding interesting options...",
   "Polishing the final touches...",
   "Almost ready..."
-  
 ];
+
+const LoadingMessages = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % loadingMessages.length);
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="relative h-8">
+      {loadingMessages.map((message, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ 
+            opacity: currentIndex === index ? 1 : 0,
+            y: currentIndex === index ? 0 : -20 
+          }}
+          transition={{ duration: 0.5 }}
+          className="absolute w-full text-center text-gray-800 dark:text-gray-200"
+        >
+          {message}
+        </motion.div>
+      ))}
+    </div>
+  );
+};
 
 const getScoreMessage = (percentage) => {
   if (percentage >= 90) return "Excellent! You're a master of this topic! 🏆";
@@ -167,19 +197,11 @@ const AIQuestionDrawer = ({ isOpen, setIsOpen, questions: initialQuestions, text
         });
       }, 100);
 
-      // Change loading message every few seconds
-      const messageInterval = setInterval(() => {
-        setLoadingMessageIndex(prev => 
-          prev < loadingMessages.length - 1 ? prev + 1 : prev
-        );
-      }, 2000);
-
       const text = document.body.innerText;
       const generatedQuestions = await generateQuestions(text);
       setQuestions(generatedQuestions);
 
       clearInterval(progressInterval);
-      clearInterval(messageInterval);
     } catch (err) {
       setError(err.message || "Failed to generate questions");
     } finally {
@@ -286,16 +308,23 @@ const AIQuestionDrawer = ({ isOpen, setIsOpen, questions: initialQuestions, text
             <div className="p-6">
               {isLoading ? (
                 <div className="flex flex-col items-center justify-center h-[400px]">
-                  <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-yellow-500 mb-4"></div>
-                  <div className="w-64 h-2 bg-gray-200 rounded-full overflow-hidden">
-                    <div 
-                      className="h-full bg-yellow-500 transition-all duration-300"
-                      style={{ width: `${loadingProgress}%` }}
-                    ></div>
+                  <div className="relative w-full max-w-md">
+                    <LoadingMessages />
+                    
+                    <div className="mt-8">
+                      <div className="p-4 rounded-lg bg-gray-50 dark:bg-gray-800">
+                        <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded animate-pulse w-3/4 mb-4"></div>
+                        <div className="space-y-3">
+                          {[1, 2, 3].map((_, optionIdx) => (
+                            <div 
+                              key={optionIdx}
+                              className="h-12 bg-gray-200 dark:bg-gray-700 rounded animate-pulse w-full"
+                            ></div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <p className="mt-4 text-gray-600 dark:text-gray-400">
-                    {loadingMessages[loadingMessageIndex]}
-                  </p>
                 </div>
               ) : error ? (
                 <div className="flex flex-col items-center justify-center h-[400px]">

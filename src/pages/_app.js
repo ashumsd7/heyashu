@@ -99,7 +99,7 @@ export default function App({ Component, pageProps }) {
               <Layout>
                 <Component {...pageProps} />
               </Layout>
-              <div className="fixed right-5 bottom-5 flex flex-col gap-6  items-end">
+              <div className="fixed right-3 bottom-[50px] flex flex-col gap-6  items-end">
                 {/* <StartTour
                   onClick={() => {
                     router.push({

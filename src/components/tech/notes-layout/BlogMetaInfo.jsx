@@ -65,7 +65,7 @@ const BlogMetaInfo = ({ data }) => {
             </div>
             
             {(timeRead || lastUpdated) && (
-              <div className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm flex items-center gap-2 sm:gap-4 flex-wrap">
+              <div className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm flex items-center gap-2 sm:gap-4 flex-wrap hidden sm:flex">
                 <span className="flex items-center gap-1.5">
                   <FaBookOpen className="text-gray-400 dark:text-gray-500" />
                   {timeRead} min read
@@ -84,7 +84,7 @@ const BlogMetaInfo = ({ data }) => {
       {showControls && (
        <>
 
-       <ReadingOptions/>
+       <ReadingOptions   />
        </>
       )}
       <QuickNotesButtons/> 

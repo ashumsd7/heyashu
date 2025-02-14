@@ -66,13 +66,13 @@ const QuickNotesButtons = () => {
       </div>
 
       {/* Mobile bottom navbar */}
-      <div className="lg:hidden flex items-center justify-around bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 px-4 py-[6px] shadow-lg h-12">
+      <div className="lg:hidden flex items-center justify-around bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 px-4 py-4 shadow-lg h-[52px]">
         <motion.button
           whileTap={{ scale: 0.95 }}
           className="flex flex-col items-center"
           title="Edit this article"
         >
-          <MdEdit className="text-2xl mb-0.5" />
+          <MdEdit className="text-xl mb-0.5" />
           <span className="text-[10px]">Edit</span>
         </motion.button>
 
@@ -81,7 +81,7 @@ const QuickNotesButtons = () => {
           className="flex flex-col items-center"
           title="View on GitHub"
         >
-          <FaGithub className="text-2xl mb-0.5" />
+          <FaGithub className="text-xl mb-0.5" />
           <span className="text-[10px]">Star</span>
         </motion.button>
 
@@ -95,7 +95,7 @@ const QuickNotesButtons = () => {
             animate={isLiked ? { scale: [1, 1.2, 1] } : {}}
             transition={{ duration: 0.3 }}
           >
-            <FaHeart className="text-2xl mb-0.5" />
+            <FaHeart className="text-xl mb-0.5" />
           </motion.div>
           <span className="text-[10px]">Like</span>
         </motion.button>
@@ -105,7 +105,7 @@ const QuickNotesButtons = () => {
           className="flex flex-col items-center"
           title="Save for later"
         >
-          <FaBookmark className="text-2xl mb-0.5" />
+          <FaBookmark className="text-xl mb-0.5" />
           <span className="text-[10px]">Save</span>
         </motion.button>
 
