@@ -75,7 +75,7 @@ To optimize performance:
 
 We wrote an **HTML code**, linked an **external CSS file**, and rendered a few cards. Images are imported from a **PNG file stored locally**.
 
-**GitHub repo link:** \[Add link here]
+**GitHub repo link:** [Github repo](https://github.com/ashumsd7/network-optimization-web)
 
 ![image.png](/public/images/blogs/nw_4.png)
 
