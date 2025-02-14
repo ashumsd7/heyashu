@@ -13,12 +13,14 @@ const AIQuestionWrapper = () => {
       <button
         onClick={() => setIsOpen(true)}
         className={`
-          flex items-center gap-2 px-4 py-2 rounded-lg
-          text-gray-800 dark:text-white
-          bg-white dark:bg-gray-900
-          hover:bg-gray-100 dark:hover:bg-gray-800
-          shadow-sm dark:shadow-gray-800
+          flex items-center gap-2 px-4 py-2
+          ${theme === 'dark' 
+            ? 'bg-yellow-400 text-gray-800' 
+            : 'bg-black text-white'
+          }
+          rounded-md
           transition-colors z-50
+          hover:opacity-90
         `}
       >
         <FaQuestionCircle className="text-xl" />

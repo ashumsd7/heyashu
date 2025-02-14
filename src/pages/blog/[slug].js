@@ -96,7 +96,7 @@ export default function BlogPost({ frontMatter, mdxSource, large = false }) {
       <CommonSlugHeadTags image={frontMatter?.thumbnail} frontMatter={frontMatter} url="https://www.heyashu.com/blog" />
 
 
-      <AIQuestionWrapper   />
+     
 
       <div
         className={`flex flex-col gap-2 max-w-screen-[1000px] m-auto px-4 ${

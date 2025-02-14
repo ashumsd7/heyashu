@@ -1,12 +1,40 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { MdEdit } from "react-icons/md";
 import { FaGithub, FaHeart, FaBookmark } from "react-icons/fa";
 import Share from "@/components/ui/Share";
-import { ADMIN_LINK } from "@/utils/constant";
+import { ADMIN_LINK, GITHUB_REPO_LINK } from "@/utils/constant";
 
 const QuickNotesButtons = () => {
   const [isLiked, setIsLiked] = useState(false);
+  const [blogTitle, setBlogTitle] = useState("");
+
+  useEffect(() => {
+    // Get blog title from first h3
+    const h3Element = document.querySelector('h3');
+    const title = h3Element ? h3Element.innerText : '';
+    setBlogTitle(title);
+
+    // Check if this blog is liked in localStorage
+    const likedBlogs = JSON.parse(localStorage.getItem('likedBlogs') || '{}');
+    if (likedBlogs[title]) {
+      setIsLiked(true);
+    }
+  }, []);
+
+  const handleLike = () => {
+    const newLikedState = !isLiked;
+    setIsLiked(newLikedState);
+
+    // Update localStorage
+    const likedBlogs = JSON.parse(localStorage.getItem('likedBlogs') || '{}');
+    if (newLikedState) {
+      likedBlogs[blogTitle] = true;
+    } else {
+      delete likedBlogs[blogTitle];
+    }
+    localStorage.setItem('likedBlogs', JSON.stringify(likedBlogs));
+  };
 
   const handleBookmark = () => {
     if (window.sidebar && window.sidebar.addPanel) { // Firefox
@@ -35,7 +63,7 @@ const QuickNotesButtons = () => {
         <motion.button
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
-          onClick={() => window.open(githubLink, "_blank")}
+          onClick={() => window.open(GITHUB_REPO_LINK, "_blank")}
           className="text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white"
           title="View on GitHub"
         >
@@ -45,9 +73,9 @@ const QuickNotesButtons = () => {
         <motion.button
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
-          onClick={() => setIsLiked(!isLiked)}
+          onClick={handleLike}
           className={isLiked ? "text-red-500" : "text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white"}
-          title="Like this article"
+          title={isLiked ? "Liked!" : "Like this article"}
         >
           <motion.div
             animate={isLiked ? { scale: [1, 1.2, 1] } : {}}
@@ -80,7 +108,8 @@ const QuickNotesButtons = () => {
       <div className="lg:hidden flex items-center justify-around bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 px-4 py-4 shadow-lg h-[52px]">
         <motion.button
           whileTap={{ scale: 0.95 }}
-          className="flex flex-col items-center"
+          onClick={() => window.open(ADMIN_LINK, "_blank")}
+          className="flex flex-col items-center text-gray-600 dark:text-gray-300"
           title="Edit this article"
         >
           <MdEdit className="text-xl mb-0.5" />
@@ -89,7 +118,8 @@ const QuickNotesButtons = () => {
 
         <motion.button
           whileTap={{ scale: 0.95 }}
-          className="flex flex-col items-center"
+          onClick={() => window.open(GITHUB_REPO_LINK, "_blank")}
+          className="flex flex-col items-center text-gray-600 dark:text-gray-300"
           title="View on GitHub"
         >
           <FaGithub className="text-xl mb-0.5" />
@@ -98,9 +128,9 @@ const QuickNotesButtons = () => {
 
         <motion.button
           whileTap={{ scale: 0.95 }}
-          onClick={() => setIsLiked(!isLiked)}
-          className={`flex flex-col items-center ${isLiked ? "text-red-500" : ""}`}
-          title="Like this article"
+          onClick={handleLike}
+          className={`flex flex-col items-center ${isLiked ? "text-red-500" : "text-gray-600 dark:text-gray-300"}`}
+          title={isLiked ? "Liked!" : "Like this article"}
         >
           <motion.div
             animate={isLiked ? { scale: [1, 1.2, 1] } : {}}
@@ -108,7 +138,7 @@ const QuickNotesButtons = () => {
           >
             <FaHeart className="text-xl mb-0.5" />
           </motion.div>
-          <span className="text-[10px]">Like</span>
+          <span className="text-[10px]">{isLiked ? "Liked" : "Like"}</span>
         </motion.button>
 
         <motion.div
