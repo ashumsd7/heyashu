@@ -2,15 +2,21 @@
 
 import { RWebShare } from "react-web-share";
 import { FiShare2 } from "react-icons/fi";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 function Share({ title }) {
+  const [currentUrl, setCurrentUrl] = useState("");
+
+  useEffect(() => {
+    setCurrentUrl(window?.location?.href);
+  }, []);
+
   return (
     <div className="">
       <RWebShare
         data={{
           text: `Read ${title}`,
-          url: window?.location.href,
+          url: currentUrl,
           title: title,
         }}
         onClick={() => console.log("shared successfully!")}

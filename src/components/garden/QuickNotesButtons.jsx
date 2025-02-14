@@ -8,8 +8,18 @@ import { ADMIN_LINK } from "@/utils/constant";
 const QuickNotesButtons = () => {
   const [isLiked, setIsLiked] = useState(false);
 
+  const handleBookmark = () => {
+    if (window.sidebar && window.sidebar.addPanel) { // Firefox
+      window.sidebar.addPanel(document.title, window.location.href, '');
+    } else if (window.external && ('AddFavorite' in window.external)) { // IE
+      window.external.AddFavorite(window.location.href, document.title);
+    } else { // Chrome, Safari, etc.
+      alert('Press ' + (navigator.userAgent.toLowerCase().indexOf('mac') != -1 ? 'Command/Cmd' : 'CTRL') + ' + D to bookmark this page.');
+    }
+  };
+
   return (
-    <div className="fixed lg:left-[calc(50%+400px)] lg:top-[55%] lg:-translate-y-1/2 lg:bottom-auto bottom-0 left-0 lg:w-auto w-full z-50">
+    <div className="fixed lg:left-[calc(50%+500px)] lg:top-[55%] lg:-translate-y-1/2 lg:bottom-auto bottom-0 left-0 lg:w-auto w-full z-50">
       {/* Desktop vertical buttons */}
       <div className="hidden lg:flex flex-col gap-10">
         <motion.button
@@ -50,6 +60,7 @@ const QuickNotesButtons = () => {
         <motion.button
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
+          onClick={handleBookmark}
           className="text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white"
           title="Save for later"
         >
@@ -98,15 +109,6 @@ const QuickNotesButtons = () => {
             <FaHeart className="text-xl mb-0.5" />
           </motion.div>
           <span className="text-[10px]">Like</span>
-        </motion.button>
-
-        <motion.button
-          whileTap={{ scale: 0.95 }}
-          className="flex flex-col items-center"
-          title="Save for later"
-        >
-          <FaBookmark className="text-xl mb-0.5" />
-          <span className="text-[10px]">Save</span>
         </motion.button>
 
         <motion.div
