@@ -14,6 +14,8 @@ import { LiaSeedlingSolid } from "react-icons/lia";
 import { FaCircleInfo, FaHandsClapping } from "react-icons/fa6";
 import { useRouter } from "next/router";
 import { IoIosCheckmarkCircle } from "react-icons/io";
+import QuickNotesButtons from "@/components/garden/QuickNotesButtons";
+import ReadingOptions from "@/components/garden/ReadingOptions";
 const Share = dynamic(() => import("@/components/ui/Share"), { ssr: false });
 
 const BlogMetaInfo = ({ data }) => {
@@ -80,38 +82,12 @@ const BlogMetaInfo = ({ data }) => {
 
       {/* Controls Section */}
       {showControls && (
-        <div className="fixed bottom-4 sm:bottom-6 left-1/2 transform -translate-x-1/2 z-50 w-[50%] sm:w-auto">
-          <div className="flex items-center justify-center gap-1 sm:gap-1.5 bg-gray-900/95 dark:bg-gray-800/95 border border-gray-700 dark:border-gray-600 p-1.5 rounded-lg shadow-lg backdrop-blur w-full sm:w-auto">
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              onClick={() => window.open(ADMIN_LINK, "_blank")}
-              className="flex items-center gap-1 text-xs sm:text-sm text-gray-200 hover:text-white px-2 sm:px-2.5 py-1 rounded-md hover:bg-gray-800/80 dark:hover:bg-gray-700/80 transition-colors flex-1 sm:flex-initial justify-center"
-            >
-              <MdEdit className="text-sm" />
-              <span>Edit</span>
-            </motion.button>
+       <>
 
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              onClick={() => window.open(githubLink, "_blank")}
-              className="flex items-center gap-1 text-xs sm:text-sm text-gray-200 hover:text-white px-2 sm:px-2.5 py-1 rounded-md hover:bg-gray-800/80 dark:hover:bg-gray-700/80 transition-colors flex-1 sm:flex-initial justify-center"
-            >
-              <FaGithub className="text-sm" />
-              <span>Star</span>
-            </motion.button>
-
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="rounded-md hover:bg-gray-800/80 dark:hover:bg-gray-700/80 flex-1 sm:flex-initial"
-            >
-              <Share title={title} />
-            </motion.div>
-          </div>
-        </div>
+       <ReadingOptions/>
+       </>
       )}
+      <QuickNotesButtons/> 
     </div>
   );
 };

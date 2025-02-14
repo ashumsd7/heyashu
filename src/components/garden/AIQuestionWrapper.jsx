@@ -30,7 +30,7 @@ const AIQuestionWrapper = ( ) => {
     <>
       <button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-24 right-5 flex items-center gap-2 px-4 py-3 bg-yellow-500 hover:bg-yellow-600 text-white rounded-lg shadow-lg transition-all hover:scale-105 z-50"
+        className="  flex items-center gap-2 px-4 py-3   text-white rounded-lg shadow-lg transition-all hover:scale-105 z-50"
       >
         <FaRobot className="text-xl" />
         <span className="font-medium">AI Quiz</span>

@@ -12,6 +12,7 @@ import CommonSlugHeadTags from "@/components/seo/CommonSlugHeadTags";
 import ContentFooter from "@/components/garden/ContentFooter";
 import AIQuestionWrapper from "@/components/garden/AIQuestionWrapper";
 
+
 // Function to fetch the content of the blog post
 const contentFolders = [
   "src/content/blog",
@@ -77,6 +78,8 @@ export async function getStaticPaths() {
 
 // Component to render the blog post
 export default function BlogPost({ frontMatter, mdxSource, large = false }) {
+
+  console.log("mdxSource",mdxSource);
  
   const formattedDate = dayjs(frontMatter?.date, "DD-MM-YYYY").format(
     "DD MMM, YYYY"
@@ -86,13 +89,7 @@ export default function BlogPost({ frontMatter, mdxSource, large = false }) {
     return newFilePath;
   }
 
-  const components = {
-    img: ({ src, alt, ...rest }) => {
-      // Adjust the path using the utility function
-      const adjustedSrc = removePublicFromPath(src);
-      return <img src={adjustedSrc} alt={alt} layout="responsive" {...rest} />;
-    },
-  };
+ 
 
   return (
     <>
@@ -100,6 +97,7 @@ export default function BlogPost({ frontMatter, mdxSource, large = false }) {
 
 
       <AIQuestionWrapper   />
+
       <div
         className={`flex flex-col gap-2 max-w-screen-[1000px] m-auto px-4 ${
           large ? "max-w-screen-lg" : "max-w-screen-md"
@@ -140,6 +138,8 @@ export default function BlogPost({ frontMatter, mdxSource, large = false }) {
             className="rounded-md shadow-lg dark:shadow-gray-800 mb-8"
           />
         )}
+
+     
 
 
 
