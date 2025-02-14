@@ -154,10 +154,10 @@ module.exports = {
                fontSize: "20px",
             },
             code: {
-              backgroundColor: theme("colors.gray.200"),
               borderRadius: theme("borderRadius.sm"),
               padding: theme("spacing.1"),
               color: theme("colors.gray.700"),
+              "@apply dark:text-gray-300": {},
             },
             pre: {
               backgroundColor: theme("colors.gray.100"),

@@ -12,18 +12,18 @@ const ReadingOptions = ({ onModeChange }) => {
     {
       id: "reading",
       label: "Reading Mode",
-      icon: <FaBook className="text-xl" />,
+      icon: <FaBook className="text-base md:text-xl" />,
     },
     {
       id: "quick",
       label: "Quick Read",
-      icon: <FaBolt className="text-xl" />,
+      icon: <FaBolt className="text-base md:text-xl" />,
       onClick: () => setIsQuickReaderOpen(true),
     },
     {
       id: "qna",
       label: "QnA Mode",
-      icon: <BsChatSquareQuote className="text-xl" />,
+      icon: <BsChatSquareQuote className="text-base md:text-xl" />,
       onClick: () => setIsQnaOpen(true),
     },
   ];
@@ -40,7 +40,7 @@ const ReadingOptions = ({ onModeChange }) => {
           <button
             key={mode.id}
             onClick={() => handleModeChange(mode.id)}
-            className={`flex items-center justify-center gap-2 py-2 md:py-3 px-2 md:px-4 transition-colors duration-200 ${
+            className={`flex items-center justify-center gap-2 py-2 md:py-3 px-1 md:px-4 transition-colors duration-200 ${
               selectedMode === mode.id
                 ? "text-blue-600 dark:text-blue-400 font-bold border-b-2 border-blue-500 dark:border-blue-400"
                 : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200"

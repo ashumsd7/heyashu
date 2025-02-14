@@ -24,7 +24,8 @@ const AIQuestionWrapper = () => {
         `}
       >
         <FaQuestionCircle className="text-xl" />
-        <span className="hidden md:inline font-medium">AI Quiz</span>
+        <span className="hidden md:inline font-medium">Quiz AI</span>
+        <span className="md:hidden text-xs font-medium">AI Quiz</span>
       </button>
 
       {isOpen && <AIQuestionDrawer isOpen={isOpen} setIsOpen={setIsOpen} />}

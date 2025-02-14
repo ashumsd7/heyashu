@@ -45,7 +45,7 @@ function MDXRenderer({ markdownContent }) {
     ),
     strong: (props) => (
       <strong
-        className="font-medium bg-[#8f9fa926] dark:bg-gray-700 px-1.5 py-0.5 rounded-md text-lg text-[#2a354b] dark:text-gray-200"
+        className="font-bold px-1 py-0.5 text-lg text-[#2a354b] dark:text-gray-100"
         {...props}
       />
     ),
@@ -58,7 +58,7 @@ function MDXRenderer({ markdownContent }) {
     a: (props) => (
       <a
         target="_blank"
-        className="hover:opacity-50 mdx-a no-underline border-b px-1.5 py-0.5 rounded-md text-lg text-[#4d7f35] dark:text-green-400 transition-opacity"
+        className="hover:opacity-50 mdx-a no-underline   px-1.5 py-0.5 rounded-md text-lg text-[#4d7f35] dark:text-green-400 transition-opacity"
         {...props}
       />
     ),
