@@ -20,45 +20,45 @@ function MDXRenderer({ markdownContent }) {
       );
     },
     h1: (props) => (
-      <h1 className="text-3xl text-[#08142cd9] dark:text-gray-100 font-bold mt-12 mb-6" {...props} />
+      <h1 className="text-2xl text-[#08142cd9] dark:text-gray-100 font-bold mt-12 mb-6" {...props} />
     ),
     h2: (props) => (
-      <h2 className="text-2xl font-bold mt-10 mb-5 text-[#08142cd9] dark:text-gray-100" {...props} />
+      <h2 className="text-xl font-bold mt-10 mb-5 text-[#08142cd9] dark:text-gray-100" {...props} />
     ),
     h3: (props) => (
       <h3
-        className="text-xl font-bold mt-8 mb-4 text-[#08142cd9] dark:text-gray-100 font-sans"
+        className="text-lg font-bold mt-8 mb-4 text-[#08142cd9] dark:text-gray-100 font-sans"
         {...props}
       />
     ),
     pre: (props) => (
       <pre
-        className="markdown-pre text-base leading-relaxed my-6 text-[#2a354b] dark:text-gray-300"
+        className="markdown-pre text-sm leading-relaxed my-6 text-[#2a354b] dark:text-gray-300"
         {...props}
       />
     ),
     p: (props) => (
       <p
-        className="mb-6 text-lg leading-relaxed text-[#28354bd9] dark:text-gray-300"
+        className="mb-6 text-base leading-relaxed text-[#28354bd9] dark:text-gray-300"
         {...props}
       />
     ),
     strong: (props) => (
       <strong
-        className="font-bold px-1 py-0.5 text-lg text-[#2a354b] dark:text-gray-100"
+        className="font-bold px-1 py-0.5 text-base text-[#2a354b] dark:text-gray-100"
         {...props}
       />
     ),
     li: (props) => (
       <li
-        className="text-lg leading-relaxed mb-2 text-[#2a354b] dark:text-gray-300 text-justify"
+        className="text-base leading-relaxed mb-2 text-[#2a354b] dark:text-gray-300 text-justify"
         {...props}
       />
     ),
     a: (props) => (
       <a
         target="_blank"
-        className="hover:opacity-50 mdx-a no-underline   px-1.5 py-0.5 rounded-md text-lg text-[#4d7f35] dark:text-green-400 transition-opacity"
+        className="hover:opacity-50 mdx-a no-underline px-1.5 py-0.5 rounded-md text-base text-[#4d7f35] dark:text-green-400 transition-opacity"
         {...props}
       />
     ),
