@@ -26,7 +26,7 @@ function MDXRenderer({ markdownContent }) {
       <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-6 mb-3 sm:mt-8 sm:mb-4 md:mt-10 md:mb-5 text-[#08142cd9] dark:text-gray-100 font-sans" {...props} />
     ),
     h3: (props) => (
-      <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mt-4 mb-2 sm:mt-6 sm:mb-3 md:mt-8 md:mb-4 text-[#08142cd9] dark:text-gray-100 font-sans" {...props} />
+      <h3 className="text-lg sm:text-2xl md:text-3xl font-bold mt-4 mb-2 sm:mt-6 sm:mb-3 md:mt-8 md:mb-4 text-[#08142cd9] dark:text-gray-100 font-sans" {...props} />
     ),
     pre: (props) => (
       <pre
