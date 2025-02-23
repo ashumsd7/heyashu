@@ -1,6 +1,6 @@
 ---
 title: LLD Accrodion Component
-name: "LLD:  Accrodion Component"
+name: "LLD:  Accordion Component"
 episode: 24
 publishedOn: 02-23-2025
 updatedOn: 02-23-2025
@@ -11,10 +11,17 @@ profilePic: https://i.ibb.co/v71k25N/pfpppp.png
 followLink: https://www.instagram.com/javascripterrr
 ---
 Accordion is a kind of controlled input used to show data.
-So, after confirming where the data comes from and knowing the requirements, we start the development.
+So, after confirming where the data comes from and knowing the requirements, we start the development.\
+
 🔗 Links
-📌 GitHub Code Link: \[https://github.com/ashumsd7/react-playground-2025/blob/main/src/pages/Accordion.jsx]
-🚀 Live Deployed Link: \[https://heyashu-react.netlify.app/accordion]
+
+
+[📌 GitHub Code Link:](https://github.com/ashumsd7/react-playground-2025/blob/main/src/pages/Accordion.jsx)
+
+[](https://github.com/ashumsd7/react-playground-2025/blob/main/src/pages/Accordion.jsx)
+[🚀 Live Deployed Link: ](https://heyashu-react.netlify.app/accordion)
+
+[](https://heyashu-react.netlify.app/accordion)
 Approach
 Here, we have accordion items and children. Since siblings are sharing data and using the same state to track which one is opened and which is not, it's better to use state lifting.
 That's why the parent component will keep all the state, and children will receive props based on which item is opened. This ensures that the accordion works properly.
