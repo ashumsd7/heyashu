@@ -8,23 +8,31 @@ export function scrollToTop() {
 }
 
 export function estimateReadingTime(paragraph, wordsPerMinute = 180) {
-  if (!paragraph)
-    return 0
-  // Split the paragraph into words
-  const words = paragraph.split(' ');
+  if (!paragraph || paragraph.trim() === '') {
+    return 0;
+  }
+  
+  if (typeof wordsPerMinute !== 'number' || wordsPerMinute <= 0) {
+    // Use default value if invalid
+    wordsPerMinute = 180;
+  }
 
-  // Count the number of words
+  // Clean the text by removing extra whitespace and handling common punctuation
+  const cleanText = paragraph
+    .trim()
+    .replace(/[\n\r]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .replace(/[.,;:!?()[\]{}""'']/g, '');
+  
+  const words = cleanText
+    .split(' ')
+    .filter(word => word.length > 0);
+  
   const wordCount = words.length;
-
-  // Estimate the reading time in minutes
   const readingTime = wordCount / wordsPerMinute;
-
-  // Return the reading time rounded to the nearest whole minute
-  return Math.ceil(readingTime / 2);
+  
+  return Math.ceil(readingTime);
 }
-
-// Example usage
-
 
 export function ensureHttps(url) {
   // Check if the URL starts with 'http://' or 'https://'
