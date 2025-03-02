@@ -1,6 +1,6 @@
 import React from "react";
 import NotesMainPage from "@/components/base/NotesMainPage";
-import { metaTagsForJsSnippets } from "@/data/note/front-end-design-system/meta-tags";
+import { metaTagsForDesignSystemNotes  } from "@/data/note/front-end-design-system/meta-tags";
 import {
   CONTENT_LIST_TITLE,
   PAGE_TITLE,
@@ -60,7 +60,7 @@ const NotesDetailPageForSnippets = ({
     <>
 
     <NotesMainPage
-      metaInfo={metaTagsForJsSnippets}
+      metaInfo={metaTagsForDesignSystemNotes}
       shareImageEmbed={"https://i.ibb.co/T29pVbs/fds-thumbnail.jpg"}
       pageTitle={PAGE_TITLE}
       contentList={contentList}
