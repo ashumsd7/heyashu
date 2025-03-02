@@ -1,6 +1,6 @@
 ---
-title: "Frontend Data Normalization"
-name: "Frontend Data Normalization"
+title: Frontend Data Normalization
+name: Frontend Data Normalization
 episode: 38
 publishedOn: 03-02-2025
 updatedOn: 03-02-2025
