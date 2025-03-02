@@ -4,7 +4,7 @@ name: "Frontend Data Normalization "
 episode: 38
 publishedOn: 03-02-2025
 updatedOn: 03-02-2025
-author: Ashutosh Anand Tiwari
+author: Ashutosh
 tags: front-end-design-system
 profilePic: https://i.ibb.co/v71k25N/pfpppp.png
 followLink: https://www.instagram.com/javascripterrr
