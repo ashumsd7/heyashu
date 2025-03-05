@@ -1,7 +1,7 @@
 ---
 title: "e2: Into JavaScript"
-name: "Into JavaScript "
-episode: 2
+name: "Chapter 2: Into JavaScript "
+episode: 21
 seasonNumber: 1
 publishedOn: 03-06-2025
 updatedOn: 03-06-2025
@@ -431,7 +431,7 @@ Other examples include:
 
 - - -
 
-### Chapter 3: YDKJS
+### Chapter 3: Into YDKJS
 
 This chapter is just an overview of what we will cover in this book.
 
