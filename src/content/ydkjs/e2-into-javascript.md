@@ -1,7 +1,7 @@
 ---
 title: "e2: Into JavaScript"
 name: "Chapter 2: Into JavaScript "
-episode: 21
+episode: 1
 seasonNumber: 1
 publishedOn: 03-06-2025
 updatedOn: 03-06-2025
