@@ -52,7 +52,7 @@ For example, if most of your users are on mobile, your app should be optimized f
 
 ![image.png](/public/images/blogs/per_3.png)
 
-Based on the internet quality of your users, you should optimize your app’s **DNS response time** and **latency**. There may be hundreds of parameters to analyze, but a few major ones should always be prioritized, and yout should consider both **your server's and the user's CPU and GPU** performance. Heavy computations on the client side can slow down the browser or even cause crashes. Understanding these factors is crucial for optimizing performance.
+Based on the internet quality of your users, you should optimize your app’s **DNS response time** and **latency**. There may be hundreds of parameters to analyze, but a few major ones should always be prioritized, and you should consider both **your server's and the user's CPU and GPU** performance. Heavy computations on the client side can slow down the browser or even cause crashes. Understanding these factors is crucial for optimizing performance.
 
 Next, in upcoming posts, we will discuss all these points in detail, including **performance metrics, tools, and various optimization techniques**.
 
