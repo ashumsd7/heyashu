@@ -1,7 +1,7 @@
 ---
 title: Chapter 3 Functions Versus Block Scope
 name: "Chapter 3: Functions Scope Versus Block Scope"
-episode: 1
+episode: 2
 seasonNumber: 1
 publishedOn: 03-08-2025
 updatedOn: 03-08-2025
