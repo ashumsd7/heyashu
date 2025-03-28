@@ -35,7 +35,7 @@ To my wonderful teammates—Chandrika, Ravi, Sparsh, and Maulik—working on pro
 
 ![](/public/images/blogs/2222222.jpg)
 
-As time passed, new faces joined, adding their magic to the team—Lokesh Suresh and Rudra, the talented duo and genius; Ritika the shining friend and Tulsi Ji,
+As time passed, new faces joined, adding their magic to the team— Praveen , Ruhdra Lokesh Suresh the talented duo and genius; Ritika the shining friend and Tulsi Ji,
 
 Thanks to my managers, Ajay and Anirban.
 
