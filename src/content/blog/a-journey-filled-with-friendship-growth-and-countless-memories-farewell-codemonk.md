@@ -52,6 +52,6 @@ Stay connected!
 * 📷[ Instagram: ashumsd7](https://www.instagram.com/ashumsd7/)
 * 📧 Email: aat8001@gmail.com
 * 🌐 Website:[ heyashu.in](<>)
-*  📝 Blog:[ Kankhar-a-full-stack-friendwork]([<>](https://heyashu.in/blog/kankhar-a-full-stack-friendwork))
+*  📝 Blog: [Kankhar - A Full Stack Friendwork](https://heyashu.in/blog/kankhar-a-full-stack-friendwork)
 
   ![](/public/images/blogs/5555555555.png)
