@@ -25,7 +25,7 @@ export const GITHUB_REPO_LINK =
 
   export const OPENROUTER_SITE_URL='https://heyashu.in'
   export const OPENROUTER_SITE_NAME="Ashutosh Anand's Digital Garden"
-  export const OPENROUTER_MODEL='google/gemini-2.0-pro-exp-02-05:free'
+  export const OPENROUTER_MODEL='deepseek/deepseek-r1:free'
   export const OPENROUTER_API_URL='https://openrouter.ai/api/v1/chat/completions'
   // sk-116f6f687cfa4efb8f461a3687b90b46
 
