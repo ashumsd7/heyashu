@@ -2,7 +2,7 @@
 title: A Journey Filled with Friendship, Growth, and Countless Memories Farewell
   Codemonk
 name: "A Journey Filled with Friendship, Growth, and Countless Memories:
-  Farewell Codemonk "
+  Farewell Codemonk 👋"
 date: 03-28-2025
 updateDate: 03-28-2025
 thumbnail: /public/images/blogs/codemonkkkkk-im.jpg
@@ -21,21 +21,20 @@ I still remember when I joined. We were just 4-5 people in the office—me, Aksh
 
 ![](/public/images/blogs/1111111.jpg)
 
-But this isn’t a final goodbye—because family doesn’t say goodbye, they just relocate. Codemonk has been my family, and I have seen it grow from just 10 members to nearly 100+ today. It all started with Mukkadir and Harshita, our Northeast adventurers, and then our beloved all-rounders my bhai log ❤️  **Karan and Nihal** joined. But something was missing—the heart of India. Then came **Kavish, the champion of all;** **Harshil,** whose wisdom is unmatched; **Ram Shankar,** the man of transformations; and **Atul, the humble chai premi**—becoming the pillars of Codemonk, bringing strength from all parts of the country.
+
+Goodbye are hardest, but life just go on . Codemonk has been a special part of my journey and I have seen it grow from just 10 members to nearly 100+ today. It all started with Mukkadir and Harshita, our Northeast Rajasthan adventurers, and then our beloved all-rounders my bhai log ❤️  **Karan and Nihal** joined. But something was missing—the heart of India. Then came **Kavish, the champion of all;** **Harshil,** whose wisdom is unmatched; **Ram Shankar,** the man of transformations; and **Atul, the humble chai premi**—becoming the pillars of Codemonk, bringing strength from all parts of the country.
 
 ![](/public/images/blogs/3333333.png)
 
-And of course, what’s a journey without some Lady Gaga energy? Enter **Shravani**! 🎉 A big round of applause for her! Alongside her, **Sayali**, our amazing manager, joined in, making this team feel even more like a family.
+And of course, what’s a journey without some Lady Gaga energy? Enter **Shravani**! 🎉 A big round of applause for her! Alongside her, **Sayali**, our first amazing manager at codemonk and , joined in, making this team feel even more like a family.
 
 Even though I have been working from home for the past two years, I never once felt far from you all. You stood by me in every challenge, celebrated every success, and made work feel like home.
-
-A special thank you to our founders—for always supporting us, trusting us, and allowing us flexibility, especially during tough times.
 
 To my wonderful teammates—Chandrika, Ravi, Sparsh, and Maulik—working on projects with you was like working with friends, not colleagues.
 
 ![](/public/images/blogs/2222222.jpg)
 
-As time passed, new faces joined, adding their magic to the team— Praveen , Ruhdra Lokesh Suresh the talented duo and genius; Ritika the shining friend and Tulsi Ji,
+As time passed, new faces joined, adding their magic to the team— Praveen , Ruhdra Lokesh Suresh the talented duo and genius; Ritika the shining friend and Tulsi Ji and Shree.
 
 Thanks to my managers, Ajay and Anirban.
 
