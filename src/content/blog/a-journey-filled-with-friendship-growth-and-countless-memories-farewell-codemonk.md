@@ -35,11 +35,11 @@ To my wonderful teammates—Chandrika, Ravi, Sparsh, and Maulik—working on pro
 
 ![](/public/images/blogs/2222222.jpg)
 
-As time passed, new faces joined, adding their magic to the team—Lokesh Suresh and Rudra, the talented duo and genius; Ritika the shining friend and Tulsi Ji,
+As time passed, new faces joined, adding their magic to the team— Praveen , Ruhdra Lokesh Suresh the talented duo and genius; Ritika the shining friend and Tulsi Ji,
 
 Thanks to my managers, Ajay and Anirban.
 
-I am also grateful to Kiranraj, Vibha,Aslam, Mukhilan, Lokesh Kaushik, Abishek Jha, Vishnu, Lavanya, Devansh, Srijan Bennie Rakshit Umang Varad and Rahil for being a part of this amazing experience.
+I am also grateful to Kiranraj, Vibha, Khushi, Raunak, Varjang, Aslam, Mukhilan, Lokesh Kaushik, Abishek Jha, Tanuja, Vishnu, Lavanya, Devansh, Srijan Bennie Rakshit Umang Varad and Rahil for being a part of this amazing experience.
 
 This is not goodbye. I’m just a call away. I will be meeting you all in Bengaluru soon, and I know you will all keep growing and shining in your careers.
 
