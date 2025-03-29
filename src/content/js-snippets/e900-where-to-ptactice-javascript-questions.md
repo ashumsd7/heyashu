@@ -1,6 +1,6 @@
 ---
 title: "E900: Where to ptactice javascript questions"
-name: Where to ptactice JavaScript Questions
+name: "Where to ptactice JavaScript Questions "
 publishedOn: 02-08-2025
 updatedOn: 02-08-2025
 author: Ashutosh Anand Tiwari
