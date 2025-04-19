@@ -127,19 +127,6 @@ export default function LivePage() {
                 <br />
                 Scan this QR code or click the button below
               </p>
-              <a 
-                href="https://www.buymeacoffee.com/ashumsd7" 
-                target="_blank" 
-                rel="noopener noreferrer"
-              >
-                <motion.button
-                  {...animations.scaleOnHover}
-                  className="py-3 px-8 bg-orange-600 hover:bg-orange-700 dark:bg-orange-500 dark:hover:bg-orange-600 text-white rounded-lg flex items-center justify-center gap-2"
-                >
-                  <FaDonate className="w-5 h-5" />
-                  दान करें | Donate Now
-                </motion.button>
-              </a>
             </div>
           </motion.div>
         </div>
