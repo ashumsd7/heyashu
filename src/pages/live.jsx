@@ -6,7 +6,7 @@ import { FaYoutube, FaDonate, FaArrowRight, FaPrayingHands, FaOm } from "react-i
 
 export default function LivePage() {
   // YouTube video ID - replace with your actual video ID
-  const youtubeVideoId = "your-youtube-video-id";
+  const youtubeVideoId = "AfvHpJLwyus";
   
   // Animation variants
   const animations = {
@@ -80,7 +80,7 @@ export default function LivePage() {
             </div>
             <div className="p-6 py-8 bg-gradient-to-r from-orange-50 to-yellow-50 dark:from-orange-900 dark:to-orange-800">
               <a 
-                href={`https://www.youtube.com/watch?v=${youtubeVideoId}`} 
+                href={`https://www.youtube.com/live/${youtubeVideoId}`} 
                 target="_blank" 
                 rel="noopener noreferrer"
               >
