@@ -15,6 +15,7 @@ import { BsPencilSquare, BsBook } from "react-icons/bs";
 import { AiOutlineTwitter } from "react-icons/ai";
 import { PHONE_CALL_THIRTY_MIN } from "@/utils/constant";
 import ThemeToggle from "../base/ToogleDarkModeButton";
+import LiveEventBanner from "../ui/LiveEventBanner";
 
 const animations = {
   fadeInUp: {
@@ -104,6 +105,9 @@ function MainPage() {
       className="min-h-screen dark:from-slate-900 dark:to-slate-800"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 max-w-7xl">
+        {/* Live Event Banner */}
+        <LiveEventBanner />
+        
         {/* Hero Section */}
         <motion.div
           variants={animations.staggerContainer}
