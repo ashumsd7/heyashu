@@ -78,7 +78,7 @@ export default function LivePage() {
                 allowFullScreen
               ></iframe>
             </div>
-            <div className="p-6 bg-gradient-to-r from-orange-50 to-yellow-50 dark:from-orange-900 dark:to-orange-800">
+            <div className="p-6 py-8 bg-gradient-to-r from-orange-50 to-yellow-50 dark:from-orange-900 dark:to-orange-800">
               <a 
                 href={`https://www.youtube.com/watch?v=${youtubeVideoId}`} 
                 target="_blank" 
@@ -86,7 +86,7 @@ export default function LivePage() {
               >
                 <motion.button
                   {...animations.scaleOnHover}
-                  className="w-full py-3 bg-red-600 hover:bg-red-700 text-white rounded-lg flex items-center justify-center gap-2"
+                  className="w-full py-4 bg-red-600 hover:bg-red-700 text-white rounded-lg flex items-center justify-center gap-2"
                 >
                   <FaYoutube className="w-5 h-5" />
                   यूट्यूब पर देखें | Watch on YouTube
