@@ -6,7 +6,7 @@ import { FaYoutube, FaDonate, FaArrowRight, FaPrayingHands, FaOm } from "react-i
 
 export default function LivePage() {
   // YouTube video ID - replace with your actual video ID
-  const youtubeVideoId = "your-youtube-video-id";
+  const youtubeVideoId = "AfvHpJLwyus";
   
   // Animation variants
   const animations = {
@@ -78,15 +78,15 @@ export default function LivePage() {
                 allowFullScreen
               ></iframe>
             </div>
-            <div className="p-6 bg-gradient-to-r from-orange-50 to-yellow-50 dark:from-orange-900 dark:to-orange-800">
+            <div className="p-6 py-8 bg-gradient-to-r from-orange-50 to-yellow-50 dark:from-orange-900 dark:to-orange-800">
               <a 
-                href={`https://www.youtube.com/watch?v=${youtubeVideoId}`} 
+                href={`https://www.youtube.com/live/${youtubeVideoId}`} 
                 target="_blank" 
                 rel="noopener noreferrer"
               >
                 <motion.button
                   {...animations.scaleOnHover}
-                  className="w-full py-3 bg-red-600 hover:bg-red-700 text-white rounded-lg flex items-center justify-center gap-2"
+                  className="w-full py-4 bg-red-600 hover:bg-red-700 text-white rounded-lg flex items-center justify-center gap-2"
                 >
                   <FaYoutube className="w-5 h-5" />
                   यूट्यूब पर देखें | Watch on YouTube
@@ -127,19 +127,6 @@ export default function LivePage() {
                 <br />
                 Scan this QR code or click the button below
               </p>
-              <a 
-                href="https://www.buymeacoffee.com/ashumsd7" 
-                target="_blank" 
-                rel="noopener noreferrer"
-              >
-                <motion.button
-                  {...animations.scaleOnHover}
-                  className="py-3 px-8 bg-orange-600 hover:bg-orange-700 dark:bg-orange-500 dark:hover:bg-orange-600 text-white rounded-lg flex items-center justify-center gap-2"
-                >
-                  <FaDonate className="w-5 h-5" />
-                  दान करें | Donate Now
-                </motion.button>
-              </a>
             </div>
           </motion.div>
         </div>
