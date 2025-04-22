@@ -7,7 +7,7 @@ import { FaYoutube, FaDonate, FaArrowRight, FaPrayingHands, FaOm } from "react-i
 export default function LivePage() {
   // YouTube video ID - replace with your actual video ID
 // Updated YouTube video ID
-const youtubeVideoId = "wqLLmpV5v5U";
+const youtubeVideoId = "LKRv-r3wYyM";
   
   // Animation variants
   const animations = {
