@@ -8,6 +8,8 @@ export default function Document() {
         <link rel="manifest" href="/manifest.json" />
         <link rel="apple-touch-icon" href="/app.png"></link>
         <meta name="theme-color" content="#000" />
+        <meta name="google-adsense-account" content="ca-pub-6990943232540646" />
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6990943232540646" crossorigin="anonymous"></script>
         <style>
           {`@import url('https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/github-dark.min.css');`}
         </style>
