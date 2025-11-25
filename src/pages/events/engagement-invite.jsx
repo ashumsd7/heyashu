@@ -113,7 +113,7 @@ export default function EngagementInvite() {
   return (
     <>
       <Head>
-        <title>Engagement Invitation - {guestName} | Heyashu</title>
+        <title>💍Engagement Invitation - {guestName} | Priya 💍 Ashu</title>
         <meta name="description" content={`You are cordially invited to our engagement ceremony, ${guestName}. Join us in celebrating this special moment!`} />
         <meta name="keywords" content="engagement, invitation, wedding, celebration" />
         
@@ -122,7 +122,7 @@ export default function EngagementInvite() {
         <link rel="apple-touch-icon" href="/engagement_cardv2.jpg" />
         
         {/* Open Graph Meta Tags */}
-        <meta property="og:title" content={`Engagement Invitation - ${guestName} | Please come`} />
+        <meta property="og:title" content={`💍Engagement Invitation - ${guestName} | Please come`} />
         <meta property="og:description" content={`You are cordially invited to our engagement ceremony, ${guestName}. Join us in celebrating this special moment!`} />
         <meta property="og:image" content={imageUrl} />
         <meta property="og:image:width" content="1200" />
@@ -133,7 +133,7 @@ export default function EngagementInvite() {
         
         {/* Twitter Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={`Engagement Invitation - ${guestName} | Heyashu`} />
+        <meta name="twitter:title" content={`💍Engagement Invitation - ${guestName} | Priya 💍 Ashu`} />
         <meta name="twitter:description" content={`You are cordially invited to our engagement ceremony, ${guestName}. Join us in celebrating this special moment!`} />
         <meta name="twitter:image" content={imageUrl} />
         
