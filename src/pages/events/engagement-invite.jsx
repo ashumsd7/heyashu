@@ -87,10 +87,10 @@ export default function EngagementInvite() {
         
         {/* Favicon */}
         <link rel="icon" href="/engagement_card.jpg" />
-        <link rel="apple-touch-icon" href="/engagement_card.jpg" />
+        <link rel="apple-touch-icon" href="/engagement_cardv2.jpg" />
         
         {/* Open Graph Meta Tags */}
-        <meta property="og:title" content={`Engagement Invitation - ${guestName} | Heyashu`} />
+        <meta property="og:title" content={`Engagement Invitation - ${guestName} | Please come`} />
         <meta property="og:description" content={`You are cordially invited to our engagement ceremony, ${guestName}. Join us in celebrating this special moment!`} />
         <meta property="og:image" content={imageUrl} />
         <meta property="og:image:width" content="1200" />
@@ -168,7 +168,7 @@ export default function EngagementInvite() {
               {/* Dear {Name} overlay on top of image - plain text */}
               <div className="absolute top-8 left-1/2 transform -translate-x-1/2 z-50">
                 <p className="text-2xl md:text-3xl font-serif font-bold text-rose-600 dark:text-rose-400">
-                  Dear <span className="text-gray-800 dark:text-gray-200">{guestName}</span>
+                  Dear <span className="text-pink-800 dark:text-pink-700">{guestName}</span>
                 </p>
               </div>
 
