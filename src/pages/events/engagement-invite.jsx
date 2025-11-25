@@ -11,7 +11,7 @@ export default function EngagementInvite() {
   const [showImage, setShowImage] = useState(false);
   const audioRef = useRef(null);
 
-  const guestName = name || 'Guest';
+  const guestName = name || '';
   const baseUrl = 'https://heyashu.in';
   const imageUrl = `${baseUrl}/engagement_card.jpg`;
   const pageUrl = `${baseUrl}/events/engagement-invite${name ? `?name=${encodeURIComponent(name)}` : ''}`;
@@ -168,7 +168,7 @@ export default function EngagementInvite() {
               {/* Dear {Name} overlay on top of image - plain text */}
               <div className="absolute top-8 left-1/2 transform -translate-x-1/2 z-50">
                 <p className="text-2xl md:text-3xl font-serif font-bold text-rose-600 dark:text-rose-400">
-                  Dear <span className="text-gray-800 dark:text-gray-800">{guestName}</span>
+                  Dear <span className="text-gray-800 dark:text-gray-200">{guestName}</span>
                 </p>
               </div>
 
