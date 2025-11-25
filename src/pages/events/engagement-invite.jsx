@@ -9,6 +9,7 @@ export default function EngagementInvite() {
   const router = useRouter();
   const { name } = router.query;
   const [showImage, setShowImage] = useState(false);
+  const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const audioRef = useRef(null);
 
   const guestName = name || '';
@@ -64,6 +65,37 @@ export default function EngagementInvite() {
         audioRef.current.pause();
       }
     };
+  }, []);
+
+  // Countdown timer - Target: 4th Dec 2025 at 10:10 AM IST
+  useEffect(() => {
+    // Create target date in IST (UTC+5:30)
+    // December 4, 2025, 10:10 AM IST
+    const targetDate = new Date('2025-12-04T10:10:00+05:30');
+
+    const updateCountdown = () => {
+      const now = new Date();
+      const difference = targetDate.getTime() - now.getTime();
+
+      if (difference > 0) {
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+        setCountdown({ days, hours, minutes, seconds });
+      } else {
+        setCountdown({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+      }
+    };
+
+    // Update immediately
+    updateCountdown();
+
+    // Update every second
+    const interval = setInterval(updateCountdown, 1000);
+
+    return () => clearInterval(interval);
   }, []);
 
   const handleSeeInvitation = () => {
@@ -147,6 +179,55 @@ export default function EngagementInvite() {
                 >
                   See Invitation
                 </button>
+
+                {/* Countdown Timer */}
+                <div className="mt-8 flex flex-col items-center space-y-4">
+                  <p className="text-lg font-serif font-semibold text-gray-700 dark:text-gray-300">
+                    Time to go
+                  </p>
+                  <div className="flex gap-4 md:gap-6">
+                    <div className="flex flex-col items-center">
+                      <div className="bg-white dark:bg-gray-700 rounded-lg px-4 py-3 min-w-[70px] md:min-w-[80px] shadow-md">
+                        <p className="text-3xl md:text-4xl font-bold text-rose-600 dark:text-rose-400">
+                          {String(countdown.days).padStart(2, '0')}
+                        </p>
+                      </div>
+                      <p className="text-sm md:text-base mt-2 text-gray-600 dark:text-gray-400 font-serif">
+                        Days
+                      </p>
+                    </div>
+                    <div className="flex flex-col items-center">
+                      <div className="bg-white dark:bg-gray-700 rounded-lg px-4 py-3 min-w-[70px] md:min-w-[80px] shadow-md">
+                        <p className="text-3xl md:text-4xl font-bold text-rose-600 dark:text-rose-400">
+                          {String(countdown.hours).padStart(2, '0')}
+                        </p>
+                      </div>
+                      <p className="text-sm md:text-base mt-2 text-gray-600 dark:text-gray-400 font-serif">
+                        Hrs
+                      </p>
+                    </div>
+                    <div className="flex flex-col items-center">
+                      <div className="bg-white dark:bg-gray-700 rounded-lg px-4 py-3 min-w-[70px] md:min-w-[80px] shadow-md">
+                        <p className="text-3xl md:text-4xl font-bold text-rose-600 dark:text-rose-400">
+                          {String(countdown.minutes).padStart(2, '0')}
+                        </p>
+                      </div>
+                      <p className="text-sm md:text-base mt-2 text-gray-600 dark:text-gray-400 font-serif">
+                        Min
+                      </p>
+                    </div>
+                    <div className="flex flex-col items-center">
+                      <div className="bg-white dark:bg-gray-700 rounded-lg px-4 py-3 min-w-[70px] md:min-w-[80px] shadow-md">
+                        <p className="text-3xl md:text-4xl font-bold text-rose-600 dark:text-rose-400">
+                          {String(countdown.seconds).padStart(2, '0')}
+                        </p>
+                      </div>
+                      <p className="text-sm md:text-base mt-2 text-gray-600 dark:text-gray-400 font-serif">
+                        Sec
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           ) : (
