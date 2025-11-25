@@ -13,7 +13,7 @@ export default function EngagementInvite() {
 
   const guestName = name || '';
   const baseUrl = 'https://heyashu.in';
-  const imageUrl = `${baseUrl}/engagement_card.jpg`;
+  const imageUrl = `${baseUrl}/engagement_cardv2.jpg`;
   const pageUrl = `${baseUrl}/events/engagement-invite${name ? `?name=${encodeURIComponent(name)}` : ''}`;
 
   // Google Maps direction link
