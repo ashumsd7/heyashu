@@ -86,7 +86,7 @@ export default function EngagementInvite() {
         <meta name="keywords" content="engagement, invitation, wedding, celebration" />
         
         {/* Favicon */}
-        <link rel="icon" href="/engagement_card.jpg" />
+        <link rel="icon" href="/engagement_cardv2.jpg" />
         <link rel="apple-touch-icon" href="/engagement_cardv2.jpg" />
         
         {/* Open Graph Meta Tags */}
