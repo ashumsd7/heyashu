@@ -137,7 +137,7 @@ export default function EngagementInvite() {
                     Your presence would make our special day even more memorable.
                   </p>
                   <p className="text-rose-600 dark:text-rose-400 font-semibold">
-                    Join us as we take this beautiful step together.
+                    Join us as we take this beautiful step together on 4th Dec at 10:10am.
                   </p>
                 </div>
 
