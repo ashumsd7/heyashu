@@ -9,6 +9,7 @@ export default function EngagementInvite() {
   const router = useRouter();
   const { name } = router.query;
   const [showImage, setShowImage] = useState(false);
+  const [showConfirmation, setShowConfirmation] = useState(false);
   const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const audioRef = useRef(null);
 
@@ -99,6 +100,11 @@ export default function EngagementInvite() {
   }, []);
 
   const handleSeeInvitation = () => {
+    setShowConfirmation(true);
+  };
+
+  const handleConfirmAttendance = () => {
+    setShowConfirmation(false);
     setShowImage(true);
   };
 
@@ -141,6 +147,27 @@ export default function EngagementInvite() {
       </Head>
 
       <div className="min-h-screen bg-gradient-to-br from-pink-50 via-rose-50 to-amber-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 flex items-center justify-center p-4 relative overflow-hidden">
+        {/* Confirmation Modal */}
+        {showConfirmation && (
+          <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-8 max-w-md w-full space-y-6 text-center">
+              <div className="text-6xl mb-4">💍</div>
+              <h2 className="text-2xl md:text-3xl font-serif font-bold text-rose-600 dark:text-rose-400 mb-4">
+                {guestName ? `Dear ${guestName}` : 'Attention!'}
+              </h2>
+              <p className="text-xl md:text-2xl font-serif text-gray-800 dark:text-gray-200 leading-relaxed">
+                आना है, कोई बहाना नहीं चलेगा...
+              </p>
+              <button
+                onClick={handleConfirmAttendance}
+                className="w-full mt-6 bg-gradient-to-r from-rose-500 to-pink-500 text-white font-serif font-semibold text-lg px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 active:scale-95"
+              >
+                ठीक है, आएंगे
+              </button>
+            </div>
+          </div>
+        )}
+
         {!showImage ? (
             <div
               key="invitation"
