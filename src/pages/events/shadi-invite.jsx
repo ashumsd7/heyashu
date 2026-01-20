@@ -22,14 +22,18 @@ export default function ShadiInvite() {
   const images = [
     '/marriagev0.png',
     '/marriagev1.png',
-    '/marriagev2.png'
+    '/marriagev2.png',
+    '/marriagev3.png'
   ];
 
   // Google Maps direction link
   const mapsLink = 'https://www.google.com/maps?s=web&lqi=ChNoZWVyYSBtYXJyaWFnZSBsYXduSMm37erytICACForEAAQARACGAAYARgCIhNoZWVyYSBtYXJyaWFnZSBsYXduKggIAhAAEAEQApIBEm1hcnJpYWdlX2NlbGVicmFudA&vet=12ahUKEwj1guvWsI2RAxWkyDgGHRcuHOkQ1YkKegQILxAB..i&cs=0&um=1&ie=UTF-8&fb=1&gl=in&sa=X&geocode=KfmEFZC3CZo5MWgniTJ0OriK&daddr=Gate+No+3,+Masodha+Motinagar,+opposite+KMSM+Sugar+Mill,+Uttar+Pradesh+224201';
   
-  // Barat destination link (using same location for now, can be updated)
+  // Barat destination link
   const baratLink = mapsLink;
+  
+  // Home direction link
+  const homeDirectionLink = 'https://maps.app.goo.gl/MTQyDfjyGXg79TGV7';
 
   // Initialize audio
   useEffect(() => {
@@ -122,7 +126,7 @@ export default function ShadiInvite() {
   };
 
   const handleViewHomeDirection = () => {
-    window.open(mapsLink, '_blank');
+    window.open(homeDirectionLink, '_blank');
   };
 
   const handleSendWish = () => {
@@ -243,9 +247,9 @@ export default function ShadiInvite() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={handleViewBaratDestination}
-              className="bg-gradient-to-r from-orange-500 to-yellow-500 hover:from-orange-600 hover:to-yellow-600 text-white font-serif font-bold text-lg px-8 py-4 rounded-full shadow-lg flex items-center justify-center gap-3"
+              className="bg-gradient-to-r from-orange-500 to-yellow-500 hover:from-orange-600 hover:to-yellow-600 text-white font-serif font-bold text-base px-6 py-3 rounded-full shadow-lg flex items-center justify-center gap-2"
             >
-              <FaMapMarkerAlt className="text-xl" />
+              <FaMapMarkerAlt className="text-lg" />
               <span>View Barat Destination</span>
             </motion.button>
 
@@ -253,9 +257,9 @@ export default function ShadiInvite() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={handleViewHomeDirection}
-              className="bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white font-serif font-bold text-lg px-8 py-4 rounded-full shadow-lg flex items-center justify-center gap-3"
+              className="bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white font-serif font-bold text-base px-6 py-3 rounded-full shadow-lg flex items-center justify-center gap-2"
             >
-              <FaHome className="text-xl" />
+              <FaHome className="text-lg" />
               <span>Home Direction</span>
             </motion.button>
 
@@ -263,9 +267,9 @@ export default function ShadiInvite() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={handleSendWish}
-              className="bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600 text-white font-serif font-bold text-lg px-8 py-4 rounded-full shadow-lg flex items-center justify-center gap-3"
+              className="bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600 text-white font-serif font-bold text-base px-6 py-3 rounded-full shadow-lg flex items-center justify-center gap-2"
             >
-              <FaHeart className="text-xl" />
+              <FaHeart className="text-lg" />
               <span>Send a Wish Online</span>
             </motion.button>
           </motion.div>
