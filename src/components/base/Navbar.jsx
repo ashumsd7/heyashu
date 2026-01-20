@@ -70,12 +70,15 @@ function Navbar() {
     { href: "/misc", label: "More" }
   ];
 
+  // Check if current route is shadi-invite
+  const isShadiInvitePage = router.pathname?.includes('shadi-invite') || router.asPath?.includes('shadi-invite');
+
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${
       isScrolled 
         ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg shadow-lg'
         : 'bg-transparent'
-    }`}>
+    } ${isShadiInvitePage ? 'opacity-0 pointer-events-none' : ''}`}>
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
