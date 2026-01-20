@@ -152,6 +152,66 @@ export const  traveledPlaces = [
     img: "https://bsmedia.business-standard.com/_media/bs/img/article/2025-01/13/full/1736747966-9879.jpg?im=FeatureCrop,size=(826,465)",
     isTraveled:true
   },
+  {
+    name: "HYDERABAD",
+    img: "https://static.toiimg.com/thumb/msid-92654212,width-748,height-499,resizemode=4,imgsize-128652/.jpg",
+    isTraveled:true
+  },
+  {
+    name: "CHARMINAR",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6phoCAaX9gAZiOQvbmcXNpeJAMpFzFgAAFA&s",
+    isTraveled:true
+  },
+  {
+    name: "GWALIOR/MP",
+    img: "/images/travelpfp/gwalior.jpeg",
+    isTraveled:true
+  },
+  {
+    name: "Aurangabad/MH",
+    img: "/images/travelpfp/aurangabad.jpeg",
+    isTraveled:true
+  },
+  {
+    name: "PUNE/MH",
+    img: "/images/travelpfp/pune.jpeg",
+    isTraveled:true
+  },
+  {
+    name: "Mumbai/MH",
+    img: "https://static.toiimg.com/thumb/msid-92654212,width-748,height-499,resizemode=4,imgsize-128652/.jpg",
+    isTraveled:true
+  },
+  {
+    name: "Coimbatore/TN",
+    img: "/images/travelpfp/coimbatore.jpeg",
+    isTraveled:true
+  },
+  {
+    name: "Madurai/CH",
+    img: "/images/travelpfp/madurai.jpeg",
+    isTraveled:true
+  },
+  {
+    name: "Ooty/TN",
+    img: "/images/travelpfp/ooty.jpeg",
+    isTraveled:true
+  },
+  {
+    name: "Rameswaram/TN",
+    img: "/images/travelpfp/rameswaram.jpeg",
+    isTraveled:true
+  },
+  {
+    name: "Wayanad/KL",
+    img: "/images/travelpfp/wayanad.jpeg",
+    isTraveled:true
+  },
+  {
+    name: "Gokarna/KA",
+    img: "/images/travelpfp/gokarna.jpeg",
+    isTraveled:true
+  },
 ];
 export const pendingTravelPlaces = [
  
@@ -161,16 +221,7 @@ export const pendingTravelPlaces = [
   //   isTraveled:false
   // },
 
-  {
-    name: "HYDERABAD",
-    img: "https://static.toiimg.com/thumb/msid-92654212,width-748,height-499,resizemode=4,imgsize-128652/.jpg",
-    isTraveled:false
-  },
-  {
-    name: "CHARMINAR",
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6phoCAaX9gAZiOQvbmcXNpeJAMpFzFgAAFA&s",
-    isTraveled:false
-  },
+  
   {
     name: "SIKKIM",
     img: "/images/travelpfp/sikkim.jpeg",
