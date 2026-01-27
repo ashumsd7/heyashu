@@ -139,8 +139,9 @@ export default function ShadiInvite() {
         <title>💒 Wedding Invitation - {guestName} | Priya 💒 Ashu</title>
         <meta name="description" content={`You are cordially invited to our wedding ceremony, ${guestName}. Join us in celebrating this special moment!`} />
         <meta name="keywords" content="wedding, invitation, marriage, celebration, shadi" />
-        <link rel="icon" href="/engagement_cardv2.jpg" />
-        <link rel="apple-touch-icon" href="/engagement_cardv2.jpg" />
+        <link rel="icon" href="/marry.png" />
+        <link rel="apple-touch-icon" href="/marry.png" />
+
         <meta property="og:title" content={`💒 Wedding Invitation - ${guestName} | Please come`} />
         <meta property="og:description" content={`You are cordially invited to our wedding ceremony, ${guestName}. Join us in celebrating this special moment!`} />
         <meta property="og:url" content={pageUrl} />
