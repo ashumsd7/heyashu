@@ -17,6 +17,13 @@ export default function App({ Component, pageProps }) {
   const router = useRouter();
   const canonicalUrl = `https://www.heyashu.in${router?.asPath}`;
 
+  const getLayout = Component.getLayout || ((page) => (
+    <>
+      <Navbar />
+      <Layout>{page}</Layout>
+    </>
+  ));
+
   return (
     <>
       <Head>
@@ -95,10 +102,7 @@ export default function App({ Component, pageProps }) {
         <TransitionPage>
           <ThemeProvider attribute="class">
             <main className="relative">
-              <Navbar />
-              <Layout>
-                <Component {...pageProps} />
-              </Layout>
+              {getLayout(<Component {...pageProps} />)}
               <div className="fixed right-3 bottom-[50px] flex flex-col gap-6  items-end">
                 {/* <StartTour
                   onClick={() => {
