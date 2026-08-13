@@ -10,31 +10,69 @@ import {
 // Tag aliases matching NOTES_CONFIG
 export { BACKEND, NODEJS, AKSHAY_SAINI, FRONTEND, NEWBIE, JAVASCRIPT };
 
+/**
+ * Single source of truth for notes collections.
+ * Used by:
+ * - /digital-garden (top featured cards, less info)
+ * - /digital-garden/notes (full index cards)
+ * - Start Reading / Read Digital Notes → startRoute (first chapter)
+ *
+ * Dynamic chapter markdown still lives under src/content/*.
+ */
 export const NOTES_CONFIG = [
   {
+    id: "namaste-node-js",
     title: "Namaste Node JS",
+    homeTitle: "Namaste Node.js",
     by: "Akshay Saini",
+    authorDisplay: "Akshay Saini",
+    authorInitials: "AS",
+    authorOrg: "NamasteDev",
     sourceName: "Namaste Dev",
     sourceLink: "https://namastedev.com/",
     publishedOn: "17 Aug 2024",
+    startedOn: "2024-08-17",
+    endedOn: null,
+    lastUpdated: "2024-12-01",
+    completedPercent: 70,
+    chapterCount: 17,
     thumbnailUrl: "https://i.ibb.co/td4c8w0/namaste-node-js.png",
+    bannerUrl: "https://i.ibb.co/2hq8tjW/akshays-banner.jpg",
     isProgress: true,
     isComingSoon: false,
     isAlmostDone: false,
     extraChipText: "Season 1 Completed",
     tags: [BACKEND, NODEJS, AKSHAY_SAINI],
     githubLink: "#",
+    /** First chapter — opens course sidebar + reader */
     route: "/digital-garden/notes/namaste-node-js/prerequisite",
+    startRoute: "/digital-garden/notes/namaste-node-js/prerequisite",
     shortDesc:
       "Get the best-explained notes for each chapter of the Namaste Node.js course by Akshay Saini. These notes are written by Ashutosh and can be edited on GitHub.",
+    homeDesc:
+      "Execution context, V8 Engine, libuv, Event Loop, Async I/O, Thread Pool & HTTP Server creation explained with clean diagrams.",
+    homeMeta: "NamasteDev · Season 01 & 02 · Akshay Saini",
+    featuredOnHome: true,
+    homeOrder: 1,
   },
   {
+    id: "front-end-design-system",
     title: "Frontend System Design",
-    by: "Akshay Sain, Chirag Goel",
+    homeTitle: "Frontend System Design",
+    by: "Akshay Saini, Chirag Goel",
+    authorDisplay: "Akshay Saini",
+    authorInitials: "AS",
+    authorOrg: "NamasteDev",
     sourceName: "NamasteDev",
     sourceLink: "https://namastedev.com/learn/namaste-frontend-system-design",
     publishedOn: "22 Dec 2024",
+    startedOn: "2024-12-22",
+    endedOn: null,
+    lastUpdated: "2025-03-01",
+    completedPercent: 90,
+    chapterCount: 12,
     thumbnailUrl: "https://i.ibb.co/td4c8w0/namaste-node-js.png",
+    bannerUrl: "https://i.ibb.co/2hq8tjW/akshays-banner.jpg",
     isProgress: false,
     isComingSoon: false,
     isAlmostDone: true,
@@ -42,52 +80,71 @@ export const NOTES_CONFIG = [
     tags: [FRONTEND, NEWBIE, "WEB"],
     githubLink: "#",
     route: "/digital-garden/notes/front-end-design-system/how-the-web-works",
+    startRoute: "/digital-garden/notes/front-end-design-system/how-the-web-works",
     shortDesc:
-      "Dive into our digital garden for 100+ JavaScript code snippets—perfect for interview prep or brushing up on your skills! 🚀",
+      "Dive into our digital garden for frontend system design notes — protocols, performance, and interview-ready HLD/LLD.",
+    homeDesc:
+      "WebSockets, Long Polling, GraphQL vs REST, HTTP headers & Config-Driven UI architectures for staff-level interviews.",
+    homeMeta: "Masterclass · System Design · 12 Chapters",
+    featuredOnHome: true,
+    homeOrder: 2,
   },
   {
-    title: "You dont know JS",
-    by: "Notes: By Ashutosh Anand Tiwari",
-    sourceName: "Book ",
-    sourceLink: "https://me.getify.com/",
-    lastUpdated: "",
-    publishedOn: "29 Dec 2024",
-    thumbnailUrl: "https://i.ibb.co/td4c8w0/namaste-node-js.png",
-    isProgress: true,
-    isComingSoon: false,
-    extraChipText: "4 Chapters Completed",
-    tags: [FRONTEND, "book", "js-basics"],
-    githubLink: "#",
-    route: "/digital-garden/notes/ydkjs/e1-into-programming",
-    shortDesc:
-      "Comprehensive notes covering JavaScript fundamentals including scope, closures, this keyword, objects, prototypes, types, and coercion from the YDKJS series.",
-  },
-  {
+    id: "procodrr-nodejs",
     title: "ProCodrr | NodeJs",
+    homeTitle: "Backend with Node.js",
     by: "ProCodrr | Anurag Singh",
+    authorDisplay: "Anurag Singh",
+    authorInitials: "PC",
+    authorOrg: "ProCodrr",
     sourceName: "ProCodrr",
     sourceLink:
       "https://app.procodrr.com/web/checkout/66c86939c0a286ccc32c0d8b",
     publishedOn: "1 Sep 2024",
+    startedOn: "2024-09-01",
+    endedOn: null,
+    lastUpdated: "2025-01-15",
+    completedPercent: 55,
+    chapterCount: 22,
     thumbnailUrl: "https://i.ibb.co/td4c8w0/namaste-node-js.png",
+    bannerUrl:
+      "https://tagmango.com/publicassets/-backend-with-nodejs-1-f59defad2193f9e9223bfa2a3ad3ac47.png",
     isProgress: true,
     isComingSoon: false,
-    extraChipText: "",
+    isAlmostDone: false,
+    extraChipText: "In Progress",
     tags: ["nodejs", "procdrr", NEWBIE, "hindi"],
     githubLink: "#",
     route:
       "/digital-garden/notes/backend-with-nodejs-by-procoderr-notes/e1-welcome",
+    startRoute:
+      "/digital-garden/notes/backend-with-nodejs-by-procoderr-notes/e1-welcome",
     shortDesc:
       "(HINDI | HINGLISH) Get the best-explained notes for each chapter of the Procdrr Node.js course by Anurag Singh.",
+    homeDesc:
+      "OS Processes, Threads, Concurrency, Parallelism, Environment Variables, CLI vs GUI & File permissions in simple Hinglish.",
+    homeMeta: "ProCodrr · Backend Node.js · Hinglish Notes",
+    featuredOnHome: true,
+    homeOrder: 3,
   },
   {
+    id: "javascript-snippets",
     title: "JS Quick Snippets",
+    homeTitle: "JavaScript Snippets ",
     by: "Ashutosh Anand Tiwari",
+    authorDisplay: "Ashutosh Anand Tiwari",
+    authorInitials: "AT",
+    authorOrg: "heyashu.in",
     sourceName: "Google..etc.. ",
     sourceLink: "https://google.com/",
-    lastUpdated: "",
     publishedOn: "21 Aug 2024",
+    startedOn: "2024-08-21",
+    endedOn: null,
+    lastUpdated: "2025-02-01",
+    completedPercent: 85,
+    chapterCount: 10,
     thumbnailUrl: "https://i.ibb.co/td4c8w0/namaste-node-js.png",
+    bannerUrl: "https://i.ibb.co/x7kYDW1/snippets.jpg",
     isProgress: false,
     isComingSoon: false,
     isAlmostDone: true,
@@ -95,10 +152,75 @@ export const NOTES_CONFIG = [
     tags: [FRONTEND, NEWBIE, JAVASCRIPT],
     githubLink: "#",
     route: "/digital-garden/notes/javascript-snippets/data-types-in-javascript",
+    startRoute:
+      "/digital-garden/notes/javascript-snippets/data-types-in-javascript",
     shortDesc:
-      " Dive into our digital garden for 100+ JavaScript code snippets—perfect for interview prep or brushing up on your skills!  🚀",
+      "Dive into our digital garden for 100+ JavaScript code snippets—perfect for interview prep or brushing up on your skills!",
+    homeDesc:
+      "100+ tricky JS interview snippets and simplified book notes on Kyle Simpson's You Don't Know JS series.",
+    homeMeta: "Curated Notes · 100+ Snippets · YDKJS",
+    featuredOnHome: true,
+    homeOrder: 4,
+  },
+  {
+    id: "ydkjs",
+    title: "You dont know JS",
+    homeTitle: "You Don't Know JS",
+    by: "Notes: By Ashutosh Anand Tiwari",
+    authorDisplay: "Ashutosh Anand Tiwari",
+    authorInitials: "AT",
+    authorOrg: "heyashu.in",
+    sourceName: "Book ",
+    sourceLink: "https://me.getify.com/",
+    publishedOn: "29 Dec 2024",
+    startedOn: "2024-12-29",
+    endedOn: null,
+    lastUpdated: "2025-04-01",
+    completedPercent: 40,
+    chapterCount: 17,
+    thumbnailUrl: "https://i.ibb.co/td4c8w0/namaste-node-js.png",
+    bannerUrl: "https://i.ibb.co/x7kYDW1/snippets.jpg",
+    isProgress: true,
+    isComingSoon: false,
+    isAlmostDone: false,
+    extraChipText: "4 Chapters Completed",
+    tags: [FRONTEND, "book", "js-basics"],
+    githubLink: "#",
+    route: "/digital-garden/notes/ydkjs/e1-into-programming",
+    startRoute: "/digital-garden/notes/ydkjs/e1-into-programming",
+    shortDesc:
+      "Comprehensive notes covering JavaScript fundamentals including scope, closures, this keyword, objects, prototypes, types, and coercion from the YDKJS series.",
+    homeDesc:
+      "Scope, closures, this, objects, prototypes, types & coercion — distilled from Kyle Simpson's YDKJS.",
+    homeMeta: "Book Notes · YDKJS · In Progress",
+    featuredOnHome: false,
+    homeOrder: 5,
   },
 ];
 
 /** @deprecated use NOTES_CONFIG — kept for existing imports */
 export const NOTES_CARD_DATA = NOTES_CONFIG;
+
+/** First chapter URL for Start Reading / home CTAs. */
+export function getNotesStartRoute(noteOrRoute) {
+  if (typeof noteOrRoute === "string") return noteOrRoute;
+  return (
+    noteOrRoute?.startRoute ||
+    noteOrRoute?.route ||
+    "/digital-garden/notes"
+  );
+}
+
+/** Featured collections for /digital-garden (top cards, less info). */
+export function getHomeFeaturedNotes(limit = 4) {
+  return [...NOTES_CONFIG]
+    .filter((n) => n.featuredOnHome && !n.isComingSoon)
+    .sort((a, b) => (a.homeOrder || 99) - (b.homeOrder || 99))
+    .slice(0, limit);
+}
+
+/** Default marketing entry into the notes reader. */
+export const DEFAULT_NOTES_START_ROUTE =
+  getNotesStartRoute(
+    NOTES_CONFIG.find((n) => !n.isComingSoon && (n.startRoute || n.route))
+  ) || "/digital-garden/notes/namaste-node-js/prerequisite";

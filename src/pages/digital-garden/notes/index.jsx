@@ -5,20 +5,11 @@ import { FaGithub } from "react-icons/fa";
 import CommonHeadTags from "@/components/seo/CommonHeadTags";
 import DigiGardenFooter from "@/components/garden/DigiGardenFooter";
 import GardenCollabCard from "@/components/garden/GardenCollabCard";
-import { NOTES_CONFIG } from "@/data/note/allNotes";
-import { getNotesStartRoute } from "@/data/note/startRoutes";
+import { NOTES_CONFIG, getNotesStartRoute } from "@/data/note/allNotes";
+import { GARDEN_KHAKI_ITEMS } from "@/data/garden";
 import { withDigitalGardenLayout } from "@/layouts";
 import { GITHUB_REPO_LINK } from "@/utils/constant";
 import Link from "next/link";
-
-const KHAKI_ITEMS = [
-  "120+ Chapters · Free of Cost",
-  "Open Source Digital Notes · aka Digital Garden",
-  "Curated from Books · Courses · Research",
-  "Interview Ready · Season by Season",
-  "Request a Topic · Collaborate with Us",
-  "100% Ad-Free Learning",
-];
 
 const fadeUp = {
   hidden: { opacity: 0, y: 18 },
@@ -186,6 +177,14 @@ function NotesCollectionPage() {
                       {note.shortDesc ||
                         "Open this collection to explore chapter-wise digital notes."}
                     </p>
+                    <p className="text-[11px] text-[#8a8276] dark:text-[#92a59a]">
+                      {note.startedOn ? `Started ${note.startedOn}` : null}
+                      {note.endedOn ? ` · Ended ${note.endedOn}` : " · Ongoing"}
+                      {note.completedPercent != null
+                        ? ` · ${note.completedPercent}% complete`
+                        : null}
+                      {note.chapterCount ? ` · ${note.chapterCount} chapters` : null}
+                    </p>
                   </div>
 
                   <div className="relative z-[1] mt-auto flex flex-wrap items-center justify-between gap-3">
@@ -256,7 +255,7 @@ function NotesCollectionPage() {
                 key={copy}
                 aria-hidden={copy === 1}
               >
-                {KHAKI_ITEMS.map((item) => (
+                {GARDEN_KHAKI_ITEMS.map((item) => (
                   <React.Fragment key={`${copy}-${item}`}>
                     <span className="inline-flex items-center gap-2.5 px-7 font-ibm-mono text-[0.82rem] font-bold uppercase tracking-[0.04em] text-[#1a1a1a]">
                       {item}
