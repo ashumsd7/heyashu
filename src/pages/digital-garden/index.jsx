@@ -29,7 +29,6 @@ import {
 import { removePublicFromPath } from "@/utils/functions";
 import { withDigitalGardenLayout } from "@/layouts";
 import {
-  DEFAULT_NOTES_START_ROUTE,
   getHomeFeaturedNotes,
   getNotesStartRoute,
 } from "@/data/note/allNotes";
@@ -39,6 +38,7 @@ import {
   GARDEN_HELP_CHAI,
   GARDEN_HELP_CHAI_IMG,
   GARDEN_HELP_CHAI_URL,
+  GARDEN_HERO_STATS,
   GARDEN_KHAKI_ITEMS,
   GARDEN_SUPPORT_QR,
   GARDEN_SUPPORT_URL,
@@ -49,6 +49,29 @@ import {
 
 /** Top N notes cards on the garden home (from NOTES_CONFIG). */
 const HOME_NOTES = getHomeFeaturedNotes(4);
+
+const HERO_STAT_UI = {
+  emerald: {
+    Icon: HiBookOpen,
+    card: "border-emerald-500/20 bg-gradient-to-br from-emerald-500/15 to-teal-500/5 dark:from-emerald-500/20",
+    icon: "bg-emerald-600/15 text-emerald-700 dark:text-emerald-400",
+  },
+  orange: {
+    Icon: HiFolderOpen,
+    card: "border-orange-500/20 bg-gradient-to-br from-orange-500/15 to-amber-500/5",
+    icon: "bg-orange-600/15 text-orange-700 dark:text-orange-400",
+  },
+  yellow: {
+    Icon: HiStar,
+    card: "border-yellow-500/20 bg-gradient-to-br from-yellow-500/15 to-amber-500/5",
+    icon: "bg-yellow-600/15 text-yellow-700 dark:text-yellow-400",
+  },
+  violet: {
+    Icon: HiUsers,
+    card: "border-violet-500/20 bg-gradient-to-br from-violet-500/15 to-fuchsia-500/5",
+    icon: "bg-violet-600/15 text-violet-700 dark:text-violet-400",
+  },
+};
 
 function DigitalGarden({ posts, blogs }) {
   const router = useRouter();
@@ -145,7 +168,7 @@ function DigitalGarden({ posts, blogs }) {
           <div className="mb-12 flex flex-wrap items-center justify-center gap-3.5">
             <a
               className="rounded-xl bg-[#143825] px-6 py-3 text-[0.95rem] font-semibold text-white no-underline transition hover:bg-[#0d281a] dark:bg-[#22c55e] dark:text-[#0b120e] dark:hover:bg-[#16a34a]"
-              href={DEFAULT_NOTES_START_ROUTE}
+              href="/digital-garden/notes"
             >
               📖 Read Digital Notes
             </a>
@@ -199,34 +222,24 @@ function DigitalGarden({ posts, blogs }) {
           </div>
 
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            <div className="flex items-center gap-3.5 rounded-2xl border border-emerald-500/20 bg-gradient-to-br from-emerald-500/15 to-teal-500/5 p-4 transition hover:-translate-y-0.5 hover:shadow-md dark:from-emerald-500/20">
-              <div className="grid h-11 w-11 place-items-center rounded-xl bg-emerald-600/15 text-xl text-emerald-700 dark:text-emerald-400"><HiBookOpen /></div>
-              <div className="text-left">
-                <div className="font-fraunces text-2xl font-bold">120+</div>
-                <div className="text-sm text-[#585858] dark:text-[#92a59a]">Free chapters</div>
-              </div>
-            </div>
-            <div className="flex items-center gap-3.5 rounded-2xl border border-orange-500/20 bg-gradient-to-br from-orange-500/15 to-amber-500/5 p-4 transition hover:-translate-y-0.5 hover:shadow-md">
-              <div className="grid h-11 w-11 place-items-center rounded-xl bg-orange-600/15 text-xl text-orange-700 dark:text-orange-400"><HiFolderOpen /></div>
-              <div className="text-left">
-                <div className="font-fraunces text-2xl font-bold">14</div>
-                <div className="text-sm text-[#585858] dark:text-[#92a59a]">Course collections</div>
-              </div>
-            </div>
-            <div className="flex items-center gap-3.5 rounded-2xl border border-yellow-500/20 bg-gradient-to-br from-yellow-500/15 to-amber-500/5 p-4 transition hover:-translate-y-0.5 hover:shadow-md">
-              <div className="grid h-11 w-11 place-items-center rounded-xl bg-yellow-600/15 text-xl text-yellow-700 dark:text-yellow-400"><HiStar /></div>
-              <div className="text-left">
-                <div className="font-fraunces text-2xl font-bold">30+</div>
-                <div className="text-sm text-[#585858] dark:text-[#92a59a]">GitHub stars</div>
-              </div>
-            </div>
-            <div className="flex items-center gap-3.5 rounded-2xl border border-violet-500/20 bg-gradient-to-br from-violet-500/15 to-fuchsia-500/5 p-4 transition hover:-translate-y-0.5 hover:shadow-md">
-              <div className="grid h-11 w-11 place-items-center rounded-xl bg-violet-600/15 text-xl text-violet-700 dark:text-violet-400"><HiUsers /></div>
-              <div className="text-left">
-                <div className="font-fraunces text-2xl font-bold">10+</div>
-                <div className="text-sm text-[#585858] dark:text-[#92a59a]">Contributors</div>
-              </div>
-            </div>
+            {GARDEN_HERO_STATS.map((stat) => {
+              const ui = HERO_STAT_UI[stat.tone] || HERO_STAT_UI.emerald;
+              const Icon = ui.Icon;
+              return (
+                <div
+                  key={stat.label}
+                  className={`flex items-center gap-3.5 rounded-2xl border p-4 transition hover:-translate-y-0.5 hover:shadow-md ${ui.card}`}
+                >
+                  <div className={`grid h-11 w-11 place-items-center rounded-xl text-xl ${ui.icon}`}>
+                    <Icon />
+                  </div>
+                  <div className="text-left">
+                    <div className="font-fraunces text-2xl font-bold">{stat.value}</div>
+                    <div className="text-sm text-[#585858] dark:text-[#92a59a]">{stat.label}</div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
