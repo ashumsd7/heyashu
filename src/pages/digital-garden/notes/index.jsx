@@ -1,96 +1,288 @@
 import React from "react";
-import { ImBooks } from "react-icons/im";
-import { FaPlus, FaLeaf, FaBookOpen } from "react-icons/fa";
-import { GiGardenFlower, GiBookshelf } from "react-icons/gi";
-import { ADMIN_LINK } from "@/utils/constant";
-import { NOTES_CARD_DATA } from "@/data/note/allNotes";
-import Head from "next/head";
 import { useRouter } from "next/router";
+import { motion } from "framer-motion";
+import { FaGithub } from "react-icons/fa";
 import CommonHeadTags from "@/components/seo/CommonHeadTags";
+import DigiGardenFooter from "@/components/garden/DigiGardenFooter";
+import GardenCollabCard from "@/components/garden/GardenCollabCard";
+import { NOTES_CONFIG } from "@/data/note/allNotes";
+import { getNotesStartRoute } from "@/data/note/startRoutes";
+import { withDigitalGardenLayout } from "@/layouts";
+import { GITHUB_REPO_LINK } from "@/utils/constant";
+import Link from "next/link";
 
-function AllNotesPage() {
-  const router = useRouter();
+const KHAKI_ITEMS = [
+  "120+ Chapters · Free of Cost",
+  "Open Source Digital Notes · aka Digital Garden",
+  "Curated from Books · Courses · Research",
+  "Interview Ready · Season by Season",
+  "Request a Topic · Collaborate with Us",
+  "100% Ad-Free Learning",
+];
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 18 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] },
+  },
+};
+
+function statusChip(note) {
+  if (note.isComingSoon) return { label: "Coming Soon", tone: "soon" };
+  if (note.isProgress) return { label: "In Progress", tone: "progress" };
+  if (note.isAlmostDone) return { label: "Almost Done", tone: "almost" };
+  return { label: "Available", tone: "ready" };
+}
+
+function toneClasses(tone) {
+  switch (tone) {
+    case "progress":
+      return "bg-amber-500/15 text-amber-800 dark:text-amber-300";
+    case "almost":
+      return "bg-emerald-500/15 text-emerald-800 dark:text-emerald-300";
+    case "soon":
+      return "bg-slate-500/15 text-slate-700 dark:text-slate-300";
+    default:
+      return "bg-[#1f2a22]/10 text-[#1f2a22] dark:bg-[#22c55e]/15 dark:text-[#22c55e]";
+  }
+}
+
+function CardBgPattern() {
   return (
-    <>
-      <CommonHeadTags/>
-      <Head>
-        <title>Digital Garden - Knowledge Hub</title>
-        <meta
-          name="description"
-          content="Curated technical notes, interview preparations, and coding wisdom"
+    <div
+      className="pointer-events-none absolute -right-4 -top-6 text-[#143825] dark:text-[#22c55e]"
+      aria-hidden="true"
+    >
+      <svg width="160" height="160" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M100 10C120 40 180 60 190 100C200 140 150 180 100 190C50 180 0 140 10 100C20 60 80 40 100 10Z"
+          fill="currentColor"
+          opacity="0.045"
         />
-      </Head>
-      <div className="min-h-screen     dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
-        <div className="container mx-auto px-4 py-12">
-          {/* Centered Header Section */}
-          <div className="flex flex-col items-center mb-12 text-center">
-             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-green-700 dark:text-green-400 flex items-center gap-3 mb-4">
-               <FaLeaf className="text-3xl md:text-4xl lg:text-5xl" />
-              Digital Notes <span className="animate-pulse hover:animate-none">💚</span>
-            </h1>
-            <p className="text-gray-600 dark:text-gray-300 text-lg max-w-2xl">
-              A curated collection of technical notes and learning resources for students and engineers. Join me in building core knowledge together!
-            </p>
-            <button
-              onClick={() => window.open(ADMIN_LINK, "_blank")}
-              className="mt-6 group flex items-center gap-2 px-4 py-2 bg-green-600/10 hover:bg-green-600/20 dark:bg-green-400/10 dark:hover:bg-green-400/20 text-green-700 dark:text-green-400 rounded-full transition-all duration-300"
-            >
-              <FaPlus className="text-sm group-hover:rotate-90 transition-transform duration-300" />
-              <span className="text-sm font-medium">New Note</span>
-            </button>
-          </div>
-
-          {/* Notes Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {NOTES_CARD_DATA?.filter((item) => !item.isComingSoon).map(
-              (note, index) => (
-                <div
-                  key={index}
-                  className="group bg-white dark:bg-gray-800 rounded-xl cursor-pointer shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 flex flex-col h-full"
-                  onClick={() => {
-                    if (note.isComingSoon) return;
-                    router.push(note.route);
-                  }}
-                >
-                  <div className="relative flex-1">
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent z-10 rounded-xl"/>
-                    <img
-                      src={note.thumbnailUrl || "/images/default-note-cover.jpg"}
-                      alt={note.title}
-                      className="w-full h-full object-cover rounded-t-xl"
-                    />
-                    <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
-                      <div className="flex items-center gap-4 mb-3">
-                        <div className="p-3 rounded-lg bg-white/15 backdrop-blur-sm text-white">
-                          {note.icon || <GiBookshelf className="text-xl" />}
-                        </div>
-                        <h3 className="text-xl font-semibold text-white">
-                          {note.title}
-                        </h3>
-                      </div>
-                      
-                      <div className="flex flex-wrap gap-2">
-                        {note.tags?.map((tag, index) => (
-                          <span
-                            key={index}
-                            className="px-3 py-1.5 text-sm text-white/95 bg-white/15 backdrop-blur-sm rounded-full"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-
-                 
-                </div>
-              )
-            )}
-          </div>
-        </div>
-      </div>
-    </>
+        <path
+          d="M100 20C110 50 150 70 160 100C170 130 130 160 100 170C70 160 30 130 40 100C50 70 90 50 100 20Z"
+          stroke="currentColor"
+          strokeWidth="1"
+          strokeDasharray="4 4"
+          opacity="0.1"
+        />
+        <circle cx="150" cy="40" r="18" stroke="currentColor" strokeWidth="1" opacity="0.08" />
+        <circle cx="170" cy="70" r="8" fill="currentColor" opacity="0.06" />
+      </svg>
+    </div>
   );
 }
 
-export default AllNotesPage;
+function NotesCollectionPage() {
+  const router = useRouter();
+  const notes = (NOTES_CONFIG || []).filter((item) => !item.isComingSoon);
+
+  return (
+    <div className="bg-[#f7f4ee] dark:bg-[#0b120e]">
+      <CommonHeadTags
+        title="Index of Notes Collection — Digital Garden | heyashu"
+        url="https://www.heyashu.in/digital-garden/notes"
+        image="https://i.ibb.co/zHFrGsK/diginotes-thumb.jpg"
+      />
+
+      <section className="mx-auto max-w-6xl px-6 pb-10 pt-14 md:pt-16">
+        <motion.header
+          variants={fadeUp}
+          initial="hidden"
+          animate="show"
+          className="mb-10 max-w-3xl"
+        >
+          <h1 className="mb-4 font-fraunces text-[clamp(2.4rem,5.5vw,4rem)] font-bold leading-[1.05] tracking-[-0.02em] text-[#171717] dark:text-[#f0f4ef]">
+            Index of Notes Collection
+          </h1>
+          <p className="text-[1.05rem] leading-relaxed text-[#6b6458] dark:text-[#92a59a]">
+            Curated from Books, Courses and Research Papers
+          </p>
+        </motion.header>
+
+        <div className="flex flex-col gap-4">
+          {notes.map((note, index) => {
+            const status = statusChip(note);
+            return (
+              <motion.article
+                key={`${note.title}-${index}`}
+                variants={fadeUp}
+                initial="hidden"
+                animate="show"
+                transition={{ delay: Math.min(index * 0.06, 0.3) }}
+                whileHover={{ y: -2 }}
+                onClick={() => {
+                  if (note.isComingSoon) return;
+                  const start = getNotesStartRoute(note);
+                  if (start) router.push(start);
+                }}
+                className="relative grid cursor-pointer grid-cols-1 overflow-hidden rounded-md border border-[#e6e0d6] bg-white hover:shadow-[0_10px_28px_rgba(0,0,0,0.05)] dark:border-[#1e3328] dark:bg-[#121e17] md:grid-cols-[200px_1fr] lg:grid-cols-[220px_1fr]"
+              >
+                <div className="h-[140px] overflow-hidden border-b border-[#ece7de] dark:border-[#1e3328] md:h-auto md:min-h-[150px] md:border-b-0 md:border-r">
+                  <img
+                    src={
+                      note.thumbnailUrl ||
+                      "https://i.ibb.co/td4c8w0/namaste-node-js.png"
+                    }
+                    alt={note.title}
+                    className="h-full w-full object-cover"
+                    loading={index === 0 ? "eager" : "lazy"}
+                  />
+                </div>
+
+                <div className="relative flex flex-col justify-between gap-3 overflow-hidden p-4 md:p-5">
+                  <CardBgPattern />
+                  <div className="relative z-[1]">
+                    <div className="mb-2 flex flex-wrap items-center gap-2">
+                      <span
+                        className={`rounded-full px-2.5 py-0.5 text-[11px] font-semibold ${toneClasses(
+                          status.tone
+                        )}`}
+                      >
+                        {status.label}
+                      </span>
+                      {note.extraChipText ? (
+                        <span className="rounded-full bg-[#ece7de] px-2.5 py-0.5 text-[11px] font-medium text-[#5f584e] dark:bg-[#172a20] dark:text-[#92a59a]">
+                          {note.extraChipText}
+                        </span>
+                      ) : null}
+                    </div>
+
+                    <h2 className="mb-1 font-fraunces text-[clamp(1.15rem,2vw,1.45rem)] font-semibold leading-snug text-[#171717] dark:text-[#f0f4ef]">
+                      {note.title}
+                    </h2>
+
+                    <p className="mb-1 text-xs text-[#6b6458] dark:text-[#92a59a]">
+                      By {note.by}
+                      {note.sourceName ? (
+                        <>
+                          <span className="mx-1">•</span>
+                          {note.sourceLink ? (
+                            <a
+                              href={note.sourceLink}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={(e) => e.stopPropagation()}
+                              className="underline decoration-[#d5cec2] underline-offset-2 hover:text-[#9a4f2e]"
+                            >
+                              {note.sourceName}
+                            </a>
+                          ) : (
+                            note.sourceName
+                          )}
+                        </>
+                      ) : null}
+                      {note.publishedOn ? (
+                        <span className="text-[#8a8276]">
+                          <span className="mx-1">•</span>
+                          Published: {note.publishedOn}
+                        </span>
+                      ) : null}
+                    </p>
+
+                    <p className="mb-2 line-clamp-2 max-w-[70ch] text-[0.86rem] leading-relaxed text-[#6b6458] dark:text-[#92a59a]">
+                      {note.shortDesc ||
+                        "Open this collection to explore chapter-wise digital notes."}
+                    </p>
+                  </div>
+
+                  <div className="relative z-[1] mt-auto flex flex-wrap items-center justify-between gap-3">
+                    <div className="flex flex-wrap gap-1.5">
+                      {(note.tags || []).map((tag) => (
+                        <span
+                          key={`${note.title}-${tag}`}
+                          className="rounded-full bg-[#f3eee5] px-2 py-0.5 text-[11px] font-medium capitalize text-[#5f584e] dark:bg-[#172a20] dark:text-[#92a59a]"
+                        >
+                          {String(tag).replace(/_/g, " ").replace(/-/g, " ")}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="ml-auto flex items-center gap-2">
+                      <motion.a
+                        href={
+                          note.githubLink && note.githubLink !== "#"
+                            ? note.githubLink
+                            : GITHUB_REPO_LINK
+                        }
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="Source code on GitHub"
+                        aria-label="Source code on GitHub"
+                        whileHover={{ scale: 1.06 }}
+                        whileTap={{ scale: 0.96 }}
+                        onClick={(e) => e.stopPropagation()}
+                        className="grid h-9 w-9 place-items-center rounded-sm border border-[#e0d9cd] bg-white text-[#171717] transition hover:border-[#1f2a22] hover:bg-[#1f2a22] hover:text-white dark:border-[#1e3328] dark:bg-[#0b120e] dark:text-[#f0f4ef] dark:hover:border-[#22c55e] dark:hover:bg-[#22c55e] dark:hover:text-[#0b120e]"
+                      >
+                        <FaGithub className="h-4 w-4" />
+                      </motion.a>
+
+                      <Link
+                        href={
+                          note.isComingSoon
+                            ? "#"
+                            : getNotesStartRoute(note)
+                        }
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          if (note.isComingSoon) e.preventDefault();
+                        }}
+                        className="rounded-sm bg-[#1f2a22] px-4 py-2 text-xs font-medium text-white no-underline transition hover:bg-[#143825] dark:bg-[#22c55e] dark:text-[#0b120e] dark:hover:bg-[#16a34a]"
+                      >
+                        Start Reading
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </motion.article>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* Khaki marquee strip */}
+      <div className="mx-auto mb-8 mt-2 max-w-6xl px-6">
+        <div
+          className="group origin-center overflow-hidden rounded-sm border-y-2 border-[#8b7355] bg-[#c2b280] py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.25),0_8px_22px_rgba(0,0,0,0.08)] [mask-image:linear-gradient(90deg,transparent,black_9%,black_91%,transparent)] [-webkit-mask-image:linear-gradient(90deg,transparent,black_9%,black_91%,transparent)]"
+          style={{ transform: "rotate(-3.5deg)" }}
+          aria-label="Notes collection highlights"
+        >
+          <div className="flex w-max animate-khaki-marquee group-hover:[animation-play-state:paused]">
+            {[0, 1].map((copy) => (
+              <div
+                className="flex items-center whitespace-nowrap"
+                key={copy}
+                aria-hidden={copy === 1}
+              >
+                {KHAKI_ITEMS.map((item) => (
+                  <React.Fragment key={`${copy}-${item}`}>
+                    <span className="inline-flex items-center gap-2.5 px-7 font-ibm-mono text-[0.82rem] font-bold uppercase tracking-[0.04em] text-[#1a1a1a]">
+                      {item}
+                    </span>
+                    <span
+                      className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#1a1a1a]/55"
+                      aria-hidden="true"
+                    />
+                  </React.Fragment>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Request / Collaborate */}
+      <div className="mx-auto max-w-6xl px-6 pb-20">
+        <GardenCollabCard />
+      </div>
+
+      <DigiGardenFooter />
+    </div>
+  );
+}
+
+export default NotesCollectionPage;
+
+NotesCollectionPage.getLayout = withDigitalGardenLayout;

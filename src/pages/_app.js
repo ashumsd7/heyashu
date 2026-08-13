@@ -13,16 +13,29 @@ import PlausibleProvider from "next-plausible";
 import Script from "next/script";
 import GoogleAnalytics from "@/components/ui/GoogleAnalytics";
 import { ThemeProvider } from "next-themes";
+import {
+  isNotesChapterPage,
+  shouldUseDigitalGardenLayout,
+  withBareLayout,
+  withDigitalGardenLayout,
+  withSiteLayout,
+} from "@/layouts";
+
 export default function App({ Component, pageProps }) {
   const router = useRouter();
   const canonicalUrl = `https://www.heyashu.in${router?.asPath}`;
 
-  const getLayout = Component.getLayout || ((page) => (
-    <>
-      <Navbar />
-      <Layout>{page}</Layout>
-    </>
-  ));
+  // 1) Page can opt in explicitly via Component.getLayout
+  // 2) Notes chapter /digital-garden/notes/:series/:slug → bare full page
+  // 3) Else /blog + /digital-garden/* → Digital Garden navbar
+  // 4) Else → main site Navbar + Layout
+  const getLayout =
+    Component.getLayout ||
+    (isNotesChapterPage(router.pathname)
+      ? withBareLayout
+      : shouldUseDigitalGardenLayout(router.pathname)
+        ? withDigitalGardenLayout
+        : withSiteLayout);
 
   return (
     <>
