@@ -122,13 +122,13 @@ const DigiGardenFooter = () => {
                 Quick Navigation
               </h4>
               <div className="grid grid-cols-2 gap-2 text-sm font-medium">
-                <a href="#collections" className="text-gray-600 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                <a href="/digital-garden/notes" className="text-gray-600 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
                   📚 Course Notes
                 </a>
-                <a href="#blogs" className="text-gray-600 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                <a href="/blog" className="text-gray-600 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
                   ✍️ Tech Blogs
                 </a>
-                <a href="#support" className="text-gray-600 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                <a href="/digital-garden#support" className="text-gray-600 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
                   💚 Support Garden
                 </a>
                 <a href="https://chat.whatsapp.com/L0YFv4DQRCpJAcmRFPWT6r" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">

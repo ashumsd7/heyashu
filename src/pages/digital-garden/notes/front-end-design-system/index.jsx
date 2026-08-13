@@ -17,7 +17,7 @@ const JsSnippetsLandingPage = () => {
 
   return (
     <>
-      <CommonHeadTags />
+      <CommonHeadTags url="https://www.heyashu.in/digital-garden/notes/front-end-design-system" />
       <ClassicPageLayout
         noGrid
         heading=" 🌿  Frontend System Design 🚀"

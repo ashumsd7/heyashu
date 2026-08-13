@@ -17,7 +17,7 @@ const JsSnippetsLandingPage = () => {
 
   return (
     <>
-      <CommonHeadTags />
+      <CommonHeadTags url="https://www.heyashu.in/digital-garden/notes/javascript-snippets" />
       <ClassicPageLayout
         noGrid
         heading=" 🌿  JavaScript Snippets"

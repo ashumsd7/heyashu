@@ -39,7 +39,7 @@ const DESCRIPTION =
 function BlogsPage({ posts }) {
   return (
     <>
-      <CommonHeadTags />
+      <CommonHeadTags url="https://www.heyashu.in/digital-garden/daily-updates" />
 
       <ClassicPageLayout
         rightCTA={

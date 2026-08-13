@@ -27,6 +27,7 @@ export async function getStaticProps({ params }) {
     props: {
       frontMatter: data,
       mdxSource,
+      slug: params.slug,
     },
   };
 }
@@ -50,7 +51,7 @@ export async function getStaticPaths() {
 }
 
 // Component to render the blog post
-export default function BlogPost({ frontMatter, mdxSource, large = false }) {
+export default function BlogPost({ frontMatter, mdxSource, slug, large = false }) {
   const formattedDate = formateDate(frontMatter?.date)
   function changeFilePath(filePath) {
     const newFilePath = filePath.replace("/public", "");
@@ -60,7 +61,7 @@ export default function BlogPost({ frontMatter, mdxSource, large = false }) {
 
   return (
     <>
-     <CommonSlugHeadTags image="https://i.ibb.co/vP1f18c/boooks-logo.jpg"  frontMatter={frontMatter}/>
+     <CommonSlugHeadTags image="https://i.ibb.co/vP1f18c/boooks-logo.jpg"  frontMatter={frontMatter} url={`https://www.heyashu.in/digital-garden/books/${slug}`}/>
 
       <div
         className={`flex flex-col gap-2  max-w-screen-[1000px] m-auto ${

@@ -137,7 +137,7 @@ export async function getStaticPaths() {
   };
 }
 
-export default function BlogPost({ frontMatter, mdxSource, related = [] }) {
+export default function BlogPost({ frontMatter, mdxSource, related = [], slug }) {
   const [quickOpen, setQuickOpen] = useState(false);
   const [qnaOpen, setQnaOpen] = useState(false);
   const [speaking, setSpeaking] = useState(false);
@@ -216,7 +216,7 @@ export default function BlogPost({ frontMatter, mdxSource, related = [] }) {
       <CommonSlugHeadTags
         image={thumb || frontMatter?.thumbnail}
         frontMatter={frontMatter}
-        url="https://www.heyashu.com/blog"
+        url={`https://www.heyashu.in/blog/${slug || ""}`}
       />
 
       {/* Floating tools + font size */}

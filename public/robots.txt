@@ -1,5 +1,8 @@
 User-agent: *
-Disallow: /private/
 Allow: /
+
+Disallow: /admin
+Disallow: /private/
+Disallow: /api/
 
 Sitemap: https://www.heyashu.in/sitemap.xml

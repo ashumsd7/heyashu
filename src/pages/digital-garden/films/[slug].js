@@ -32,6 +32,7 @@ export async function getStaticProps({ params }) {
     props: {
       frontMatter: data,
       mdxSource,
+      slug: params.slug,
     },
   };
 }
@@ -55,7 +56,7 @@ export async function getStaticPaths() {
 }
 
 // Component to render the blog post
-export default function BlogPost({ frontMatter, mdxSource, large = false }) {
+export default function BlogPost({ frontMatter, mdxSource, slug, large = false }) {
   const formattedDate = formateDate(frontMatter?.date);
   function changeFilePath(filePath) {
     const newFilePath = filePath.replace("/public", "");
@@ -65,7 +66,7 @@ export default function BlogPost({ frontMatter, mdxSource, large = false }) {
 
   return (
     <>
-      <CommonSlugHeadTags frontMatter={frontMatter}  image="https://i.ibb.co/XWDtCCc/film-logo.jpg"/>
+      <CommonSlugHeadTags frontMatter={frontMatter}  image="https://i.ibb.co/XWDtCCc/film-logo.jpg" url={`https://www.heyashu.in/digital-garden/films/${slug}`}/>
 
       <div
         className={`flex flex-col gap-2  max-w-screen-[1000px] m-auto ${

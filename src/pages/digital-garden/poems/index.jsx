@@ -41,7 +41,7 @@ function BlogsPage({ posts }) {
   const router = useRouter();
   return (
     <>
-      <CommonHeadTags image="https://i.ibb.co/TM9WLYh/stories-logo.jpg" />
+      <CommonHeadTags image="https://i.ibb.co/TM9WLYh/stories-logo.jpg" url="https://www.heyashu.in/digital-garden/poems" />
 
       <ClassicPageLayout
         rightCTA={

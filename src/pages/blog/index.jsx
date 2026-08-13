@@ -461,7 +461,7 @@ function BlogsPage({ posts }) {
       <CommonHeadTags
         image="https://i.ibb.co/Cm127c4/blogs-thumb.jpg"
         title="Index of Blogs — Digital Garden | heyashu"
-        url="https://www.heyashu.com/blog"
+        url="https://www.heyashu.in/blog"
       />
 
       <section className="mx-auto max-w-6xl px-6 pb-20 pt-14 md:pt-16">

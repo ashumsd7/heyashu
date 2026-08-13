@@ -18,7 +18,11 @@ import DigiGardenFooter from "@/components/garden/DigiGardenFooter";
 import GardenCollabCard from "@/components/garden/GardenCollabCard";
 import QuickReaderDrawer from "@/components/garden/AI/QuickReaderDrawer";
 import QuestionsListDrawer from "@/components/garden/AI/QuestionsListDrawer";
-import { DEFAULT_AVATAR, GITHUB_REPO_LINK } from "@/utils/constant";
+import {
+  DEFAULT_AVATAR,
+  GITHUB_REPO_LINK,
+} from "@/utils/constant";
+import { absoluteUrl } from "@/utils/seo";
 import {
   HiBolt,
   HiSparkles,
@@ -144,7 +148,6 @@ const NotesMainPage = ({
   const [progress, setProgress] = useState(0);
   const [completedCount, setCompletedCount] = useState(0);
   const [storedValues, setStoredValues] = useState(null);
-  const [mounted, setMounted] = useState(false);
 
   const STORAGE_KEY = storageKey;
   const allLessons = useMemo(
@@ -172,6 +175,14 @@ const NotesMainPage = ({
     .replace(/\s*by\s+Ashutosh Anand Tiwari\s*/gi, "")
     .trim();
 
+  // Per-chapter canonical for Google (prefer query.slug — reliable on SSG)
+  const slugParam = router?.query?.slug;
+  const chapterPath =
+    typeof slugParam === "string"
+      ? `/digital-garden/notes/${subDomain}/${slugParam}`
+      : router?.asPath?.split("?")[0] || `/digital-garden/notes/${subDomain}`;
+  const chapterCanonical = absoluteUrl(chapterPath);
+
   const SHELL = "mx-auto w-full max-w-[1400px] px-3 md:px-5";
 
   const currentIndex = useMemo(() => {
@@ -198,7 +209,6 @@ const NotesMainPage = ({
   const bodyFontPx = 16 + fontScale;
 
   useEffect(() => {
-    setMounted(true);
     const saved = ls.get(THEME_STORAGE);
     if (saved && THEMES[saved]) setTheme(saved);
     refreshProgress();
@@ -289,18 +299,7 @@ const NotesMainPage = ({
       ? `Lesson ${currentIndex + 1} of ${allLessons.length || totalCount}`
       : pageTitle || "Notes";
 
-  if (!mounted) {
-    return (
-      <>
-        <CommonSlugHeadTags
-          frontMatter={currentPageFrontMatter}
-          image={shareImageEmbed}
-        />
-        <div className="min-h-screen bg-[#f7f4ee]" />
-      </>
-    );
-  }
-
+  // Always SSR article body for Google. Theme/progress hydrate after mount.
   return (
     <>
       <Head>
@@ -318,6 +317,7 @@ const NotesMainPage = ({
       <CommonSlugHeadTags
         frontMatter={currentPageFrontMatter}
         image={shareImageEmbed}
+        url={chapterCanonical}
       />
 
       <div

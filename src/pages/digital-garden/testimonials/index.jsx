@@ -43,7 +43,7 @@ function BlogsPage({ posts }) {
   const router= useRouter()
   return (
     <>
-      <CommonHeadTags />
+      <CommonHeadTags url="https://www.heyashu.in/digital-garden/testimonials" />
 
       <ClassicPageLayout
         rightCTA={

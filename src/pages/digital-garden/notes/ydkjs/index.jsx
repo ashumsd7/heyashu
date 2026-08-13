@@ -16,7 +16,7 @@ const LandingPage = () => {
 
   return (
     <>
-      <CommonHeadTags title="Digital notes: Namaste Node JS" />
+      <CommonHeadTags title="Digital notes: YDKJS" url="https://www.heyashu.in/digital-garden/notes/ydkjs" />
 
       <ClassicPageLayout
         noGrid
