@@ -33,6 +33,7 @@ import {
   HiOutlineSpeakerWave,
   HiOutlineBars3,
   HiOutlineXMark,
+  HiOutlineEllipsisVertical,
   HiOutlineSun,
   HiOutlineMoon,
   HiChevronLeft,
@@ -152,6 +153,7 @@ const NotesMainPage = ({
   const router = useRouter();
   const [isSidebarVisible, setIsSidebarVisible] = useState(true);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const [toolsMenuOpen, setToolsMenuOpen] = useState(false);
   const [theme, setTheme] = useState("light");
   const [fontScale, setFontScale] = useState(0);
   const [speaking, setSpeaking] = useState(false);
@@ -341,142 +343,225 @@ const NotesMainPage = ({
         }}
       >
         <div className="bg-[var(--nr-bg)] text-[var(--nr-text)] transition-colors duration-300">
-          {/* Top bar — content width, soft top→bottom gradient */}
+          {/* Top bar — mobile: back + course; desktop: full toolbar */}
           <div className="sticky top-0 z-30">
             <div className={SHELL}>
               <div
-                className="flex flex-wrap items-center justify-between gap-2 rounded-b-2xl border border-t-0 border-[var(--nr-border)] px-3 py-2.5 shadow-[0_8px_24px_-18px_rgba(15,23,42,0.35)] md:gap-3 md:px-4"
+                className="relative rounded-b-2xl border border-t-0 border-[var(--nr-border)] px-2.5 py-2 shadow-[0_8px_24px_-18px_rgba(15,23,42,0.35)] md:px-4 md:py-2.5"
                 style={{
                   background:
                     "linear-gradient(180deg, var(--nr-nav-from) 0%, var(--nr-nav-to) 100%)",
                 }}
               >
-              <div className="flex min-w-0 flex-1 items-center gap-2 md:gap-3">
-                <Link
-                  href="/digital-garden"
-                  className="inline-flex shrink-0 items-center gap-1.5 rounded-lg bg-emerald-600 px-2.5 py-1.5 text-[11px] font-semibold text-white no-underline transition hover:bg-emerald-700"
-                >
-                  <HiArrowLeft className="h-3.5 w-3.5" />
-                  <span className="hidden sm:inline">Digital Garden</span>
-                  <span className="sm:hidden">Back</span>
-                </Link>
-                <button
-                  type="button"
-                  className="grid h-9 w-9 place-items-center rounded-lg border border-[var(--nr-border)] bg-[var(--nr-surface)]/80 text-[var(--nr-muted)] transition hover:text-[var(--nr-text)] lg:hidden"
-                  onClick={() => setMobileNavOpen(true)}
-                  title="Course content"
-                >
-                  <HiOutlineBars3 className="h-5 w-5" />
-                </button>
-                <button
-                  type="button"
-                  className="hidden h-9 w-9 place-items-center rounded-lg border border-[var(--nr-border)] bg-[var(--nr-surface)]/80 text-[var(--nr-muted)] transition hover:text-[var(--nr-text)] lg:grid"
-                  onClick={() => setIsSidebarVisible((v) => !v)}
-                  title="Toggle sidebar"
-                >
-                  <HiOutlineBars3 className="h-5 w-5" />
-                </button>
-                <div className="min-w-0">
-                  <p className="mb-1 inline-flex items-center gap-1.5 rounded-full border border-emerald-500/35 bg-emerald-50 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.06em] text-emerald-800 dark:border-emerald-400/40 dark:bg-emerald-950/50 dark:text-emerald-300">
-                    <span className="relative flex h-1.5 w-1.5">
-                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-75" />
-                      <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                    </span>
-                    You are reading
-                  </p>
-                  <div className="flex min-w-0 flex-wrap items-baseline gap-1.5">
-                    <span className="max-w-[240px] truncate font-fraunces text-[13px] font-semibold text-[var(--nr-text)] md:max-w-[300px] md:text-[14px]">
-                      {courseDisplayTitle}
-                    </span>
+                <div className="flex items-center justify-between gap-2">
+                  <div className="flex min-w-0 flex-1 items-center gap-2 md:gap-3">
+                    <Link
+                      href="/digital-garden"
+                      className="inline-flex shrink-0 items-center gap-1.5 rounded-lg bg-emerald-600 px-2.5 py-1.5 text-[11px] font-semibold text-white no-underline transition hover:bg-emerald-700"
+                    >
+                      <HiArrowLeft className="h-3.5 w-3.5" />
+                      <span className="hidden sm:inline">Digital Garden</span>
+                      <span className="sm:hidden">Back</span>
+                    </Link>
+                    <button
+                      type="button"
+                      className="grid h-9 w-9 shrink-0 place-items-center rounded-lg border border-[var(--nr-border)] bg-[var(--nr-surface)]/80 text-[var(--nr-muted)] transition hover:text-[var(--nr-text)] lg:hidden"
+                      onClick={() => setMobileNavOpen(true)}
+                      title="Course content"
+                    >
+                      <HiOutlineBars3 className="h-5 w-5" />
+                    </button>
+                    <button
+                      type="button"
+                      className="hidden h-9 w-9 place-items-center rounded-lg border border-[var(--nr-border)] bg-[var(--nr-surface)]/80 text-[var(--nr-muted)] transition hover:text-[var(--nr-text)] lg:grid"
+                      onClick={() => setIsSidebarVisible((v) => !v)}
+                      title="Toggle sidebar"
+                    >
+                      <HiOutlineBars3 className="h-5 w-5" />
+                    </button>
+                    <div className="min-w-0">
+                      <p className="mb-0.5 hidden items-center gap-1.5 rounded-full border border-emerald-500/35 bg-emerald-50 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.06em] text-emerald-800 sm:inline-flex dark:border-emerald-400/40 dark:bg-emerald-950/50 dark:text-emerald-300">
+                        <span className="relative flex h-1.5 w-1.5">
+                          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-75" />
+                          <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                        </span>
+                        You are reading
+                      </p>
+                      <div className="flex min-w-0 flex-wrap items-baseline gap-1.5">
+                        <span className="max-w-[9.5rem] truncate font-fraunces text-[13px] font-semibold text-[var(--nr-text)] xs:max-w-[12rem] sm:max-w-[240px] md:max-w-[300px] md:text-[14px]">
+                          {courseDisplayTitle}
+                        </span>
+                        <a
+                          href="https://www.heyashu.in"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="hidden text-[10px] italic text-[var(--nr-muted)] no-underline transition hover:text-[var(--nr-accent)] sm:inline md:text-[11px]"
+                        >
+                          by heyashu.in
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Desktop AI actions */}
+                  <div className="hidden items-center gap-2 md:flex">
+                    <button
+                      type="button"
+                      onClick={() => setQuickOpen(true)}
+                      className="ai-pill inline-flex items-center gap-1.5 rounded-full border border-purple-400/70 bg-[var(--nr-surface)] px-3 py-1.5 text-[11px] font-medium text-purple-700 animate-ai-border transition hover:bg-purple-50 dark:text-purple-300 dark:hover:bg-purple-950/40"
+                    >
+                      <HiBolt className="h-3.5 w-3.5 shrink-0 animate-ai-icon text-purple-500" />
+                      Quick AI Read
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setQnaOpen(true)}
+                      className="ai-pill inline-flex items-center gap-1.5 rounded-full border border-indigo-400/70 bg-[var(--nr-surface)] px-3 py-1.5 text-[11px] font-medium text-indigo-700 animate-ai-border transition hover:bg-indigo-50 dark:text-indigo-300 dark:hover:bg-indigo-950/40"
+                      style={{ animationDelay: "0.4s" }}
+                    >
+                      <HiSparkles className="h-3.5 w-3.5 shrink-0 animate-sparkle-pulse text-indigo-500" />
+                      Attempt Quiz
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setQnaOpen(true)}
+                      className="ai-pill inline-flex items-center gap-1.5 rounded-full border border-fuchsia-400/70 bg-[var(--nr-surface)] px-3 py-1.5 text-[11px] font-medium text-fuchsia-700 animate-ai-border transition hover:bg-fuchsia-50 dark:text-fuchsia-300 dark:hover:bg-fuchsia-950/40"
+                      style={{ animationDelay: "0.8s" }}
+                    >
+                      <HiChatBubbleLeftRight className="h-3.5 w-3.5 shrink-0 animate-ai-glow text-fuchsia-500" />
+                      Q&amp;A
+                    </button>
+                  </div>
+
+                  {/* Desktop tools */}
+                  <div className="hidden items-center gap-2 lg:flex">
                     <a
-                      href="https://www.heyashu.in"
+                      href={GITHUB_REPO_LINK}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[10px] italic text-[var(--nr-muted)] no-underline transition hover:text-[var(--nr-accent)] md:text-[11px]"
+                      title="Star on GitHub"
+                      className="grid h-9 w-9 place-items-center rounded-lg border border-[var(--nr-border)] bg-[var(--nr-surface)] text-[var(--nr-muted)] no-underline transition hover:text-[var(--nr-text)]"
                     >
-                      by heyashu.in
+                      <HiOutlineStar className="h-4 w-4" />
                     </a>
+                    <a
+                      href={GITHUB_REPO_LINK}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title="Edit on GitHub"
+                      className="grid h-9 w-9 place-items-center rounded-lg border border-[var(--nr-border)] bg-[var(--nr-surface)] text-[var(--nr-muted)] no-underline transition hover:text-[var(--nr-text)]"
+                    >
+                      <HiOutlinePencilSquare className="h-4 w-4" />
+                    </a>
+                    <div className="flex items-center gap-1 rounded-xl border border-[var(--nr-border)] bg-[var(--nr-surface)] p-1 shadow-sm">
+                      {Object.values(THEMES).map((t) => {
+                        const Icon = t.icon;
+                        const active = theme === t.id;
+                        return (
+                          <button
+                            key={t.id}
+                            type="button"
+                            title={t.label}
+                            onClick={() => handleThemeChange(t.id)}
+                            className={`inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-[11px] font-medium transition ${
+                              active
+                                ? "bg-[var(--nr-nav)] text-[var(--nr-text)] shadow-sm"
+                                : "text-[var(--nr-muted)] hover:bg-[var(--nr-hover)] hover:text-[var(--nr-text)]"
+                            }`}
+                          >
+                            <Icon className="h-3.5 w-3.5" />
+                            <span className="hidden xl:inline">{t.label}</span>
+                          </button>
+                        );
+                      })}
+                    </div>
                   </div>
+
+                  {/* Mobile tools burger */}
+                  <button
+                    type="button"
+                    className="grid h-9 w-9 shrink-0 place-items-center rounded-lg border border-[var(--nr-border)] bg-[var(--nr-surface)] text-[var(--nr-muted)] transition hover:text-[var(--nr-text)] lg:hidden"
+                    onClick={() => setToolsMenuOpen((v) => !v)}
+                    aria-label="Open tools"
+                    title="Tools"
+                  >
+                    {toolsMenuOpen ? (
+                      <HiOutlineXMark className="h-5 w-5" />
+                    ) : (
+                      <HiOutlineEllipsisVertical className="h-5 w-5" />
+                    )}
+                  </button>
                 </div>
-              </div>
 
-              {/* AI actions — purple animated border + icons */}
-              <div className="order-3 flex w-full flex-wrap items-center justify-center gap-1.5 sm:order-none sm:w-auto md:gap-2">
-                <button
-                  type="button"
-                  onClick={() => setQuickOpen(true)}
-                  className="ai-pill inline-flex items-center gap-1.5 rounded-full border border-purple-400/70 bg-[var(--nr-surface)] px-2.5 py-1.5 text-[10px] font-medium text-purple-700 animate-ai-border transition hover:bg-purple-50 md:px-3 md:text-[11px] dark:text-purple-300 dark:hover:bg-purple-950/40"
-                >
-                  <HiBolt className="h-3.5 w-3.5 shrink-0 animate-ai-icon text-purple-500" />
-                  Quick AI Read
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setQnaOpen(true)}
-                  className="ai-pill inline-flex items-center gap-1.5 rounded-full border border-indigo-400/70 bg-[var(--nr-surface)] px-2.5 py-1.5 text-[10px] font-medium text-indigo-700 animate-ai-border transition hover:bg-indigo-50 md:px-3 md:text-[11px] dark:text-indigo-300 dark:hover:bg-indigo-950/40"
-                  style={{ animationDelay: "0.4s" }}
-                >
-                  <HiSparkles className="h-3.5 w-3.5 shrink-0 animate-sparkle-pulse text-indigo-500" />
-                  <span className="hidden md:inline">Attempt Quiz</span>
-                  <span className="md:hidden">Quiz</span>
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setQnaOpen(true)}
-                  className="ai-pill inline-flex items-center gap-1.5 rounded-full border border-fuchsia-400/70 bg-[var(--nr-surface)] px-2.5 py-1.5 text-[10px] font-medium text-fuchsia-700 animate-ai-border transition hover:bg-fuchsia-50 md:px-3 md:text-[11px] dark:text-fuchsia-300 dark:hover:bg-fuchsia-950/40"
-                  style={{ animationDelay: "0.8s" }}
-                >
-                  <HiChatBubbleLeftRight className="h-3.5 w-3.5 shrink-0 animate-ai-glow text-fuchsia-500" />
-                  Q&amp;A
-                </button>
-              </div>
-
-              <div className="flex items-center gap-2">
-                <a
-                  href={GITHUB_REPO_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="Star on GitHub"
-                  className="grid h-9 w-9 place-items-center rounded-lg border border-[var(--nr-border)] bg-[var(--nr-surface)] text-[var(--nr-muted)] no-underline transition hover:text-[var(--nr-text)]"
-                >
-                  <HiOutlineStar className="h-4 w-4" />
-                </a>
-                <a
-                  href={GITHUB_REPO_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="Edit on GitHub"
-                  className="grid h-9 w-9 place-items-center rounded-lg border border-[var(--nr-border)] bg-[var(--nr-surface)] text-[var(--nr-muted)] no-underline transition hover:text-[var(--nr-text)]"
-                >
-                  <HiOutlinePencilSquare className="h-4 w-4" />
-                </a>
-
-                {/* Theme switcher — bordered area */}
-                <div className="flex items-center gap-1 rounded-xl border border-[var(--nr-border)] bg-[var(--nr-surface)] p-1 shadow-sm">
-                  {Object.values(THEMES).map((t) => {
-                    const Icon = t.icon;
-                    const active = theme === t.id;
-                    return (
-                      <button
-                        key={t.id}
-                        type="button"
-                        title={t.label}
-                        onClick={() => handleThemeChange(t.id)}
-                        className={`inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-[11px] font-medium transition ${
-                          active
-                            ? "bg-[var(--nr-nav)] text-[var(--nr-text)] shadow-sm"
-                            : "text-[var(--nr-muted)] hover:bg-[var(--nr-hover)] hover:text-[var(--nr-text)]"
-                        }`}
-                      >
-                        <Icon className="h-3.5 w-3.5" />
-                        <span className="hidden sm:inline">{t.label}</span>
-                      </button>
-                    );
-                  })}
-                </div>
+                <AnimatePresence>
+                  {toolsMenuOpen ? (
+                    <motion.div
+                      initial={{ opacity: 0, y: -8, scale: 0.96 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: -6, scale: 0.96 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 28 }}
+                      className="absolute right-2 top-[calc(100%+6px)] z-40 w-[min(100vw-1.5rem,260px)] overflow-hidden rounded-2xl border border-[var(--nr-border)] bg-[var(--nr-surface)] shadow-xl lg:hidden"
+                    >
+                      <div className="border-b border-[var(--nr-border)] px-3 py-2.5">
+                        <p className="text-[11px] font-semibold uppercase tracking-wide text-[var(--nr-muted)]">
+                          Reader tools
+                        </p>
+                      </div>
+                      <div className="flex flex-col gap-1 p-2">
+                        <p className="px-2 pt-1 text-[10px] font-semibold uppercase tracking-wide text-[var(--nr-muted)]">
+                          Theme
+                        </p>
+                        <div className="mb-1 flex gap-1 px-1">
+                          {Object.values(THEMES).map((t) => {
+                            const Icon = t.icon;
+                            const active = theme === t.id;
+                            return (
+                              <button
+                                key={t.id}
+                                type="button"
+                                title={t.label}
+                                onClick={() => {
+                                  handleThemeChange(t.id);
+                                  setToolsMenuOpen(false);
+                                }}
+                                className={`inline-flex flex-1 items-center justify-center gap-1 rounded-lg px-2 py-2 text-[11px] font-medium transition ${
+                                  active
+                                    ? "bg-[var(--nr-nav)] text-[var(--nr-text)] shadow-sm"
+                                    : "text-[var(--nr-muted)] hover:bg-[var(--nr-hover)]"
+                                }`}
+                              >
+                                <Icon className="h-3.5 w-3.5" />
+                                {t.label}
+                              </button>
+                            );
+                          })}
+                        </div>
+                        <a
+                          href={GITHUB_REPO_LINK}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={() => setToolsMenuOpen(false)}
+                          className="inline-flex items-center gap-2 rounded-xl px-3 py-2.5 text-[13px] font-medium text-[var(--nr-text)] no-underline hover:bg-[var(--nr-hover)]"
+                        >
+                          <HiOutlineStar className="h-4 w-4 text-[var(--nr-muted)]" />
+                          Star on GitHub
+                        </a>
+                        <a
+                          href={GITHUB_REPO_LINK}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={() => setToolsMenuOpen(false)}
+                          className="inline-flex items-center gap-2 rounded-xl px-3 py-2.5 text-[13px] font-medium text-[var(--nr-text)] no-underline hover:bg-[var(--nr-hover)]"
+                        >
+                          <HiOutlinePencilSquare className="h-4 w-4 text-[var(--nr-muted)]" />
+                          Edit
+                        </a>
+                      </div>
+                    </motion.div>
+                  ) : null}
+                </AnimatePresence>
               </div>
             </div>
-          </div>
           </div>
 
           <div className={`${SHELL} flex`}>
@@ -567,7 +652,7 @@ const NotesMainPage = ({
                 ))}
               </aside>
 
-              <article className="w-full px-4 pb-14 pt-6 md:px-8 md:pt-8">
+              <article className="w-full px-4 pb-28 pt-6 md:px-8 md:pb-14 md:pt-8">
                 {/* Lesson meta row */}
                 <div className="mb-5 flex flex-wrap items-center justify-between gap-2">
                   <span className="inline-flex rounded-full border border-[var(--nr-border)] bg-[var(--nr-surface)] px-3 py-1 text-[11px] font-medium text-[var(--nr-accent)]">
@@ -693,7 +778,85 @@ const NotesMainPage = ({
             </motion.main>
           </div>
 
-          <DigiGardenFooter />
+          <DigiGardenFooter compact />
+        </div>
+
+        {/* Mobile sticky AI + tools */}
+        <div className="fixed inset-x-0 bottom-0 z-40 border-t border-[var(--nr-border)] bg-[var(--nr-surface)]/95 px-2 pb-[max(0.4rem,env(safe-area-inset-bottom))] pt-1.5 shadow-[0_-8px_24px_-16px_rgba(15,23,42,0.35)] backdrop-blur-md md:hidden">
+          <div className="mx-auto flex max-w-[1400px] flex-col gap-1.5">
+            <div className="flex items-center justify-center gap-1.5">
+              <button
+                type="button"
+                onClick={() => setQuickOpen(true)}
+                className="ai-pill inline-flex flex-1 items-center justify-center gap-1 rounded-full border border-purple-400/70 bg-[var(--nr-bg)] px-2 py-2 text-[10px] font-semibold text-purple-700 animate-ai-border dark:text-purple-300"
+              >
+                <HiBolt className="h-3.5 w-3.5 shrink-0 text-purple-500" />
+                Quick Read
+              </button>
+              <button
+                type="button"
+                onClick={() => setQnaOpen(true)}
+                className="ai-pill inline-flex flex-1 items-center justify-center gap-1 rounded-full border border-indigo-400/70 bg-[var(--nr-bg)] px-2 py-2 text-[10px] font-semibold text-indigo-700 animate-ai-border dark:text-indigo-300"
+              >
+                <HiSparkles className="h-3.5 w-3.5 shrink-0 text-indigo-500" />
+                Quiz
+              </button>
+              <button
+                type="button"
+                onClick={() => setQnaOpen(true)}
+                className="ai-pill inline-flex flex-1 items-center justify-center gap-1 rounded-full border border-fuchsia-400/70 bg-[var(--nr-bg)] px-2 py-2 text-[10px] font-semibold text-fuchsia-700 animate-ai-border dark:text-fuchsia-300"
+              >
+                <HiChatBubbleLeftRight className="h-3.5 w-3.5 shrink-0 text-fuchsia-500" />
+                Q&amp;A
+              </button>
+            </div>
+            <div className="flex items-center justify-between gap-1 rounded-xl border border-[var(--nr-border)] bg-[var(--nr-bg)] px-1 py-0.5">
+              <button
+                type="button"
+                title="Increase font size"
+                onClick={() => bumpFont(1)}
+                className="grid h-9 flex-1 place-items-center rounded-lg font-fraunces text-[12px] font-semibold text-[var(--nr-muted)] transition hover:bg-[var(--nr-hover)] hover:text-[var(--nr-text)]"
+              >
+                +A
+              </button>
+              <button
+                type="button"
+                title="Decrease font size"
+                onClick={() => bumpFont(-1)}
+                className="grid h-9 flex-1 place-items-center rounded-lg font-fraunces text-[11px] font-semibold text-[var(--nr-muted)] transition hover:bg-[var(--nr-hover)] hover:text-[var(--nr-text)]"
+              >
+                −A
+              </button>
+              {[
+                { label: "Share", icon: HiOutlineShare, onClick: handleShare },
+                {
+                  label: "Bookmark",
+                  icon: HiOutlineBookmark,
+                  onClick: handleBookmark,
+                },
+                {
+                  label: "Download",
+                  icon: HiOutlineArrowDownTray,
+                  onClick: handleDownload,
+                },
+                {
+                  label: speaking ? "Stop" : "Speak",
+                  icon: HiOutlineSpeakerWave,
+                  onClick: handleSpeak,
+                },
+              ].map((item) => (
+                <button
+                  key={item.label}
+                  type="button"
+                  title={item.label}
+                  onClick={item.onClick}
+                  className="grid h-9 flex-1 place-items-center rounded-lg text-[var(--nr-muted)] transition hover:bg-[var(--nr-hover)] hover:text-[var(--nr-text)]"
+                >
+                  <item.icon className="h-4 w-4" />
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* Mobile sidebar drawer */}
