@@ -5,4 +5,4 @@
 [build.environment]
   NODE_VERSION = "20"
   NETLIFY = "true"
-  NETLIFY_NEXT_PLUGIN_SKIP = "true"
+NETLIFY_NEXT_PLUGIN_SKIP = "true"
