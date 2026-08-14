@@ -5,20 +5,16 @@ episode: 1
 seasonNumber: 1
 publishedOn: 08-15-2026
 updatedOn: 08-15-2026
-thumbnail: /images/namaste-ai/radio.png
+thumbnail: ""
 author: Ashutosh Anand Tiwari
-tags: ai, gen ai
+tags: AI, GenAI
 profilePic: /images/blogs/pfp2.png
 followLink: https://www.instagram.com/javascripterrr
 ---
-
-
 ![](/images/namaste-ai/f847e955-03f0-4ffe-8c03-0197dcba7beb.jpeg)
 
-Notes are currently on notebooks, will be transfered here very soon\
-\
-Im testing this app
+Notes are currently on notebooks, will be transfered here very soon
 
-![](/images/namaste-ai/namsste-books.jpg)
+![]()
 
 here we ends.....
