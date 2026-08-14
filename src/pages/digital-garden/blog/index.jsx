@@ -42,7 +42,7 @@ function BlogsPage({ posts }) {
       <CommonHeadTags
         image="https://i.ibb.co/vP1f18c/boooks-logo.jpg"
         title="Read Latest Blogs on Digital Garden of Ashutosh Anand Tiwari : heyashu.in"
-        url="https://www.heyashu.com/blog"
+        url="https://www.heyashu.in/blog"
       />
 
       <ClassicPageLayout

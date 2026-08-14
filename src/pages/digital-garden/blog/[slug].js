@@ -27,6 +27,7 @@ const filePath = path.join(
     props: {
       frontMatter: data,
       mdxSource,
+      slug: params.slug,
     },
   };
 }
@@ -50,7 +51,7 @@ export async function getStaticPaths() {
 }
 
 // Component to render the blog post
-export default function BlogPost({ frontMatter, mdxSource, large = false }) {
+export default function BlogPost({ frontMatter, mdxSource, slug, large = false }) {
   const formattedDate = dayjs(frontMatter?.date, "DD-MM-YYYY").format(
     "DD MMM, YYYY"
   );
@@ -69,7 +70,7 @@ export default function BlogPost({ frontMatter, mdxSource, large = false }) {
 
   return (
     <>
-      <CommonSlugHeadTags  image="https://i.ibb.co/vP1f18c/boooks-logo.jpg"  title="Read Latest Blogs on Digital Garden of Ashutosh Anand Tiwari : heyashu.in"   url = "https://www.heyashu.com/blog" frontMatter={frontMatter} />
+      <CommonSlugHeadTags  image="https://i.ibb.co/vP1f18c/boooks-logo.jpg"  title="Read Latest Blogs on Digital Garden of Ashutosh Anand Tiwari : heyashu.in"   url={`https://www.heyashu.in/blog/${slug}`} frontMatter={frontMatter} />
 
       <div
         className={`flex flex-col gap-2  max-w-screen-[1000px] m-auto ${

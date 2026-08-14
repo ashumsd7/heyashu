@@ -48,7 +48,7 @@ function BlogsPage({ posts }) {
   const router = useRouter();
   return (
     <>
-      <CommonHeadTags image="https://i.ibb.co/8B1Zb33/explogo.jpg" />
+      <CommonHeadTags image="https://i.ibb.co/8B1Zb33/explogo.jpg" url="https://www.heyashu.in/digital-garden/experience" />
 
       <ClassicPageLayout
         rightCTA={

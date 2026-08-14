@@ -6,6 +6,7 @@ site_url: https://heyashu.in
 logo_url: https://avatars.githubusercontent.com/u/40313523?v=4
 
 media_folder: public/images/blogs
+public_folder: /images/blogs
 collections:
   - name: "blog"
     label: "Blog"
@@ -71,6 +72,8 @@ collections:
     label: "Namaste AI Notes"
     description: Get the best-explained notes for each chapter of the Namaste AI course by Akshay Saini. These notes are contributed by the open source community.✨
     folder: "/src/content/namaste-ai-notes"
+    media_folder: public/images/blogs/namaste-ai
+    public_folder: /images/blogs/namaste-ai
     create: true
     slug: ""
     delete: false
@@ -81,17 +84,34 @@ collections:
       - { label: "Season Number", name: "seasonNumber", widget: "number", required: false, default: 1, hint: "Season Number, By Default 1" }
       - { label: "Publish Date", name: "publishedOn", widget: "datetime", time_format: false, date_format: "MM-DD-YYYY", format: "MM-DD-YYYY" }
       - { label: "Updated On", name: "updatedOn", widget: "datetime", time_format: false, date_format: "MM-DD-YYYY", format: "MM-DD-YYYY" }
-      - { label: "Episode Thumbnail Image", required: false, name: "thumbnail", widget: "image", hint: "This will appear on the top of the note after title. We will ensure proper formatting after deployment." }
+      - label: "Episode Thumbnail Image"
+        name: "thumbnail"
+        widget: "image"
+        required: false
+        choose_url: false
+        hint: "Uploads to GitHub at /images/blogs/namaste-ai/. Do not use ImgBB or external URLs."
       - { label: "Author", name: "author", widget: "string", default: "Ashutosh Anand Tiwari" }
       - { label: "Tags", name: "tags", required: false, default: "namaste-ai-notes", widget: "string", hint: "Add tags comma separated e.g.: AI, Machine Learning, that can be used for SEO or categorization." }
-      - { label: "Your profile picture", name: "profilePic", widget: "image", required: false, default: "https://i.ibb.co/v71k25N/pfpppp.png", hint: "This image will be shown in the profile picture avatar. Format will be handled after deployment." }
+      - label: "Your profile picture"
+        name: "profilePic"
+        widget: "image"
+        required: false
+        choose_url: false
+        default: "/images/blogs/pfp2.png"
+        hint: "Upload your avatar — saved to GitHub at /images/blogs/namaste-ai/."
       - { label: "Social Link (When user clicks on follow button: we will contact you once your content will be live after saving)", name: "followLink", widget: "string", default: "https://www.instagram.com/javascripterrr", required: false }
       - { label: "Resource Video Link", name: "resourceVideoLink", widget: "string", required: false, hint: "Add a YouTube or other video link associated with this note (optional)" }
-      - { label: "Describe your content here", name: "body", widget: "markdown" }
+      - label: "Describe your content here"
+        name: "body"
+        widget: "markdown"
+        editor_components: ["image", "code-block"]
+        hint: "For images: click + → Image → Choose an image. Saved to /images/blogs/namaste-ai/. Do NOT paste ImgBB/external URLs."
   - name: "ai-klopedia"
     label: "AI-klopedia"
     description: Contribute notes, tutorials, and explanations—everything related to AI! Open source, collaborative, and always growing.✨
     folder: "/src/content/ai-klopedia"
+    media_folder: public/images/blogs/ai-klopedia
+    public_folder: /images/blogs/ai-klopedia
     create: true
     slug: ""
     delete: false
@@ -101,13 +121,28 @@ collections:
       - { label: "AI Topic Category", name: "category", widget: "string", required: false, hint: "E.g.: Machine Learning, Deep Learning, NLP, Computer Vision etc." }
       - { label: "Publish Date", name: "publishedOn", widget: "datetime", time_format: false, date_format: "MM-DD-YYYY", format: "MM-DD-YYYY" }
       - { label: "Updated On", name: "updatedOn", widget: "datetime", time_format: false, date_format: "MM-DD-YYYY", format: "MM-DD-YYYY" }
-      - { label: "Thumbnail Image", required: false, name: "thumbnail", widget: "image", hint: "This will appear on the top of the note after title." }
+      - label: "Thumbnail Image"
+        name: "thumbnail"
+        widget: "image"
+        required: false
+        choose_url: false
+        hint: "Uploads to GitHub at /images/blogs/ai-klopedia/. Do not use ImgBB or external URLs."
       - { label: "Author", name: "author", widget: "string", required: false }
       - { label: "Tags", name: "tags", required: false, widget: "string", hint: "Comma separated tags: e.g. neural networks, transformers, ai, etc." }
       - { label: "Resource Video Link", name: "resourceVideoLink", widget: "string", required: false, hint: "Add a YouTube or other video link associated with this note (optional)" }
       - { label: "Social Link", name: "followLink", widget: "string", required: false }
-      - { label: "Your profile picture", name: "profilePic", widget: "image", required: false, default: "https://i.ibb.co/v71k25N/pfpppp.png", hint: "This image will be shown in the profile avatar." }
-      - { label: "Note Content", name: "body", widget: "markdown" }
+      - label: "Your profile picture"
+        name: "profilePic"
+        widget: "image"
+        required: false
+        choose_url: false
+        default: "/images/blogs/pfp2.png"
+        hint: "Upload your avatar — saved to GitHub at /images/blogs/ai-klopedia/."
+      - label: "Note Content"
+        name: "body"
+        widget: "markdown"
+        editor_components: ["image", "code-block"]
+        hint: "For images: click + → Image → Choose an image. Saved to /images/blogs/ai-klopedia/. Do NOT paste ImgBB/external URLs."
   - name: "front-end-design-system"
     label: "Frontend Design System"
     description: Get the best-explained notes for each chapter of the Namaste Front end Design System course by Akshay Saini. These notes are written by Open source community and can be edited on GitHub.✨

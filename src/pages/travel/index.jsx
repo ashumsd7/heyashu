@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaInstagram, FaYoutube, FaBlog, FaMapMarkedAlt, FaPlane } from 'react-icons/fa';
 import { traveledPlaces, pendingTravelPlaces } from '@/utils/data';
-import { redirect } from 'next/dist/server/api-utils';
+import { TRAVEL_SOCIAL_CARDS, getSocialHref } from '@/data/social';
 import { useTheme } from 'next-themes';
 
 // Splash Screen Component
@@ -77,37 +77,30 @@ const Travelling = () => {
     show: { opacity: 1, y: 0 }
   };
 
-  const socialLinks = [
-    {
-      icon: <FaInstagram className="text-3xl" />,
-      title: "Instagram",
-      description: "Travel moments captured",
-      link: "https://instagram.com/ashumsd7",
-      color: "bg-gradient-to-br from-purple-600 to-pink-500 dark:from-purple-500 dark:to-pink-400"
-    },
-    {
-      icon: <FaYoutube className="text-3xl" />,
-      title: "YouTube", 
-      description: "Travel vlogs & stories",
-      link: "www.youtube.com/@ashutoshanandtiwari6606",
-      color: "bg-gradient-to-br from-red-600 to-red-500 dark:from-red-500 dark:to-red-400",
-      redirect: true,
-    },
-    {
-      icon: <FaBlog className="text-3xl" />,
-      title: "Blog",
-      description: "Detailed travel guides",
-      link: "https://heyashu.in/blog?search=travel",
-      color: "bg-gradient-to-br from-emerald-600 to-emerald-500 dark:from-emerald-500 dark:to-emerald-400"
-    },
-    {
-      icon: <FaMapMarkedAlt className="text-3xl" />,
-      title: "Let's Plan a trip",
-      description: "Connect to explore the world together", 
-      link: "https://topmate.io/aat/1148709/pay",
-      color: "bg-gradient-to-br from-blue-600 to-blue-500 dark:from-blue-500 dark:to-blue-400"
-    }
-  ];
+  const socialLinks = TRAVEL_SOCIAL_CARDS.map((card) => ({
+    title: card.title,
+    description: card.description,
+    link: card.href || getSocialHref(card.key),
+    redirect: card.external,
+    icon:
+      card.key === "instagramTravel" ? (
+        <FaInstagram className="text-3xl" />
+      ) : card.key === "youtube" ? (
+        <FaYoutube className="text-3xl" />
+      ) : card.key === "travelBlog" ? (
+        <FaBlog className="text-3xl" />
+      ) : (
+        <FaMapMarkedAlt className="text-3xl" />
+      ),
+    color:
+      card.key === "instagramTravel"
+        ? "bg-gradient-to-br from-purple-600 to-pink-500 dark:from-purple-500 dark:to-pink-400"
+        : card.key === "youtube"
+          ? "bg-gradient-to-br from-red-600 to-red-500 dark:from-red-500 dark:to-red-400"
+          : card.key === "travelBlog"
+            ? "bg-gradient-to-br from-emerald-600 to-emerald-500 dark:from-emerald-500 dark:to-emerald-400"
+            : "bg-gradient-to-br from-blue-600 to-blue-500 dark:from-blue-500 dark:to-blue-400",
+  }));
 
   return (
     <>

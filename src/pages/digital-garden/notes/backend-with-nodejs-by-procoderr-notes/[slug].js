@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useMemo } from "react";
 import NotesMainPage from "@/components/base/NotesMainPage";
-
 import {
   CONTENT_LIST_TITLE,
   PAGE_TITLE,
@@ -9,43 +8,13 @@ import {
 import matter from "gray-matter";
 import fs from "fs";
 import path from "path";
-import { useState } from "react";
-import { useEffect } from "react";
 import { serialize } from "next-mdx-remote/serialize";
 import { metaTagsForProcoderrNodejs } from "@/data/note/procderr-nodejs/meta-tags";
 import AIQuestionWrapper from "@/components/garden/AIQuestionWrapper";
+import { buildNotesSidebarList } from "@/data/note/sidebarList";
 
 const NotesDetailPage = ({ notes, currentPageMDX, currentPageFrontMatter }) => {
-  const [contentList, setContentList] = useState([]);
-
-  // for sorting content episode wise
-  function sortByEpisode(array) {
-    return array.sort((a, b) => a.episode - b.episode);
-  }
-
-  // generate sidebar and content of list
-  function generateContentListFromData() {
-    const list = notes.map((item, index) => ({
-      id: item.frontMatter.episode || index, // Use episode number or fallback to index
-      episode: item.frontMatter.episode,
-      title: item.frontMatter.title || item.frontMatter.name, // Use title if available, otherwise use name
-      profilePic: item.frontMatter?.profilePic,
-      followLink: item.frontMatter.followLink,
-      author: item.frontMatter.author,
-      tags: item.frontMatter.tags,
-      name: item.frontMatter.name,
-      updatedOn: item.frontMatter.updatedOn,
-      thumbnail: item.frontMatter.thumbnail,
-      publishedOn: item.frontMatter.publishedOn || "Seeding Soon", // Default to 'Coming Soon' if not available
-    }));
-
-    const sortedList = sortByEpisode(list);
-    setContentList(sortedList);
-  }
-
-  useEffect(() => {
-    generateContentListFromData();
-  }, []);
+  const contentList = useMemo(() => buildNotesSidebarList(notes), [notes]);
 
   return (
     <>
@@ -68,11 +37,8 @@ const NotesDetailPage = ({ notes, currentPageMDX, currentPageFrontMatter }) => {
 };
 export default NotesDetailPage;
 
-// generating static props
 export async function getStaticProps({ params }) {
-  // Define the directory containing your markdown files
   const directory = path.join(process.cwd(), "src/content/node-js-procodrr");
-
   const filenames = fs.readdirSync(directory);
 
   const filePath = path.join(
@@ -86,19 +52,15 @@ export async function getStaticProps({ params }) {
   const { data, content } = matter(fileContents);
   const mdxSource = await serialize(content);
 
-  // Loop through each file and read its content and metadata :
   const notes = filenames.map((filename) => {
-    // Read markdown file as string
     const fileContent = fs.readFileSync(
       path.join(directory, filename),
       "utf-8"
     );
-
-    const { data: frontMatter, content } = matter(fileContent);
-
+    const { data: frontMatter, content: body } = matter(fileContent);
     return {
       frontMatter,
-      content,
+      content: body,
       slug: filename.replace(".md", ""),
     };
   });
@@ -111,7 +73,7 @@ export async function getStaticProps({ params }) {
     },
   };
 }
-// generating static paths
+
 export async function getStaticPaths() {
   const files = fs.readdirSync(
     path.join(process.cwd(), "src", "content", "node-js-procodrr")

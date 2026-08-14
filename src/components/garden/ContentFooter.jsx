@@ -1,4 +1,8 @@
-import { DEFAULT_AVATAR, DEFAULT_FOLLOW_LINK_INSTA } from "@/utils/constant";
+import {
+  CONTENT_FOOTER_SOCIAL_KEYS,
+  DEFAULT_FOLLOW_LINK_INSTA,
+  getSocialHref,
+} from "@/data/social";
 import Image from "next/image";
 import React from "react";
 import { FaGithub, FaInstagram } from "react-icons/fa";
@@ -6,8 +10,28 @@ import { FaEarthAsia, FaXTwitter } from "react-icons/fa6";
 import { MdPermPhoneMsg } from "react-icons/md";
 import { SiPeerlist, SiWakatime } from "react-icons/si";
 
+const CONTENT_ICON_BY_KEY = {
+  twitter: FaXTwitter,
+  instagram: FaInstagram,
+  website: FaEarthAsia,
+  github: FaGithub,
+  wakatime: SiWakatime,
+  peerlist: SiPeerlist,
+  topmate: MdPermPhoneMsg,
+};
+
+const CONTENT_ICON_CLASS_BY_KEY = {
+  twitter: "text-blue-500 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300",
+  instagram: "text-pink-500 hover:text-pink-700 dark:text-pink-400 dark:hover:text-pink-300",
+  website: "text-gray-800 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300",
+  github: "text-gray-800 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300",
+  wakatime: "text-gray-800 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300",
+  peerlist: "text-gray-800 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300",
+  topmate: "text-gray-800 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300",
+};
+
 const ContentFooter = ({
-  photoSrc = "https://i.ibb.co/PNKDZ5Q/mountian.png", // Default photo
+  photoSrc = "https://i.ibb.co/PNKDZ5Q/mountian.png",
   name = "Ashutosh Anand Tiwari",
   link = DEFAULT_FOLLOW_LINK_INSTA,
   description = "A front-end engineer with a passion for learning and exploring the world.",
@@ -36,67 +60,25 @@ const ContentFooter = ({
 
           <div className="flex flex-col gap-3">
             <div className="flex space-x-5 justify-center md:justify-start">
-              <a
-                href="https://twitter.com/JavaScripterrr"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-500 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"
-              >
-                <FaXTwitter className="text-xl" />
-              </a>
-              <a
-                href="https://www.instagram.com/javascripterrr"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-pink-500 hover:text-pink-700 dark:text-pink-400 dark:hover:text-pink-300 transition-colors"
-              >
-                <FaInstagram className="text-xl" />
-              </a>
-              <a
-                href="https://heyashu.in/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-800 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300 transition-colors"
-              >
-                <FaEarthAsia className="text-xl" />
-              </a>
-              <a
-                href="https://github.com/ashumsd7"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-800 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300 transition-colors"
-              >
-                <FaGithub className="text-xl" />
-              </a>
-              <a
-                href="https://wakatime.com/@aat"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-800 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300 transition-colors"
-              >
-                <SiWakatime className="text-xl" />
-              </a>
-              <a
-                href="https://peerlist.io/ashumsd7"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-800 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300 transition-colors"
-              >
-                <SiPeerlist className="text-xl" />
-              </a>
-              <a
-                href="https://topmate.io/aat/1148709/pay"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-800 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300 transition-colors"
-              >
-                <MdPermPhoneMsg className="text-xl" />
-              </a>
+              {CONTENT_FOOTER_SOCIAL_KEYS.map((key) => {
+                const Icon = CONTENT_ICON_BY_KEY[key];
+                if (!Icon) return null;
+                return (
+                  <a
+                    key={key}
+                    href={getSocialHref(key)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`transition-colors ${CONTENT_ICON_CLASS_BY_KEY[key] || ""}`}
+                  >
+                    <Icon className="text-xl" />
+                  </a>
+                );
+              })}
             </div>
           </div>
           <p className="text-[#08142c] dark:text-gray-300 font-light mb-2">{description}</p>
         </div>
-       
       </div>
 
       <div>

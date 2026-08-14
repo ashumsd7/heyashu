@@ -13,9 +13,29 @@ import PlausibleProvider from "next-plausible";
 import Script from "next/script";
 import GoogleAnalytics from "@/components/ui/GoogleAnalytics";
 import { ThemeProvider } from "next-themes";
+import {
+  isNotesChapterPage,
+  shouldUseDigitalGardenLayout,
+  withBareLayout,
+  withDigitalGardenLayout,
+  withSiteLayout,
+} from "@/layouts";
+
 export default function App({ Component, pageProps }) {
   const router = useRouter();
-  const canonicalUrl = `https://www.heyashu.in${router?.asPath}`;
+  const canonicalUrl = `https://www.heyashu.in${router?.asPath?.split("?")[0] || ""}`;
+
+  // 1) Page can opt in explicitly via Component.getLayout
+  // 2) Notes chapter /digital-garden/notes/:series/:slug → bare full page
+  // 3) Else /blog + /digital-garden/* → Digital Garden navbar
+  // 4) Else → main site Navbar + Layout
+  const getLayout =
+    Component.getLayout ||
+    (isNotesChapterPage(router.pathname)
+      ? withBareLayout
+      : shouldUseDigitalGardenLayout(router.pathname)
+        ? withDigitalGardenLayout
+        : withSiteLayout);
 
   return (
     <>
@@ -33,58 +53,21 @@ export default function App({ Component, pageProps }) {
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Blog",
-              name: "Ashutosh Anand Tiwari ",
-              url: "https://www.heyashu.com",
+              "@type": "WebSite",
+              name: "Ashutosh Anand Tiwari — Digital Garden",
+              url: "https://www.heyashu.in",
               description:
-                "A blog and notes collection about tech and JavaScript journey by Ashutosh Anand Tiwari .",
+                "Free digital notes, blogs, and engineering notes by Ashutosh Anand Tiwari.",
               author: {
                 "@type": "Person",
                 name: "Ashutosh Anand Tiwari",
+                url: "https://www.heyashu.in",
               },
-              blogPost: [
-                {
-                  "@type": "BlogPosting",
-                  headline: "Tech Journey by Ashutosh Anand Tiwari ",
-                  url: "https://www.heyashu.com/tech/",
-                  datePublished: "2024-08-21",
-                  author: {
-                    "@type": "Person",
-                    name: "Ashutosh Anand Tiwari",
-                  },
-                },
-                {
-                  "@type": "BlogPosting",
-                  headline:
-                    "What are Syntax and Expressions in JS by Ashutosh Anand Tiwari ",
-                  url: "https://www.heyashu.com/blogs/what-are-syntax-and-expressions-in-js",
-                  datePublished: "2024-08-21",
-                  author: {
-                    "@type": "Person",
-                    name: "Ashutosh Anand Tiwari",
-                  },
-                },
-                {
-                  "@type": "BlogPosting",
-                  headline: "Namaste Node JS Notes by Ashutosh Anand Tiwari ",
-                  url: "https://www.heyashu.com/tech/notes/namaste-node-js",
-                  datePublished: "2024-08-21",
-                  author: {
-                    "@type": "Person",
-                    name: "Ashutosh Anand Tiwari",
-                  },
-                },
-                {
-                  "@type": "BlogPosting",
-                  headline: "JavaScript Code Snippets by Ashutosh Anand Tiwari",
-                  url: "https://www.heyashu.com/tech/notes/javascript-code-snippets-by-ashutosh-anand-tiwari",
-                  datePublished: "2024-08-21",
-                  author: {
-                    "@type": "Person",
-                    name: "Ashutosh Anand Tiwari",
-                  },
-                },
-              ],
+              potentialAction: {
+                "@type": "SearchAction",
+                target: "https://www.heyashu.in/blog?search={search_term_string}",
+                "query-input": "required name=search_term_string",
+              },
             }),
           }}
         />
@@ -95,10 +78,7 @@ export default function App({ Component, pageProps }) {
         <TransitionPage>
           <ThemeProvider attribute="class">
             <main className="relative">
-              <Navbar />
-              <Layout>
-                <Component {...pageProps} />
-              </Layout>
+              {getLayout(<Component {...pageProps} />)}
               <div className="fixed right-3 bottom-[50px] flex flex-col gap-6  items-end">
                 {/* <StartTour
                   onClick={() => {

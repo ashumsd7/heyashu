@@ -47,7 +47,7 @@ export async function getStaticProps() {
 function BlogsPage({ posts }) {
   return (
     <>
-      <CommonHeadTags image="https://i.ibb.co/TM9WLYh/stories-logo.jpg"/>
+      <CommonHeadTags image="https://i.ibb.co/TM9WLYh/stories-logo.jpg" url="https://www.heyashu.in/digital-garden/films"/>
 
       <ClassicPageLayout
         rightCTA={

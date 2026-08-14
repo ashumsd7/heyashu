@@ -1,88 +1,116 @@
 import Head from "next/head";
 import React from "react";
+import {
+  DEFAULT_OG_IMAGE,
+  SITE_NAME,
+  SITE_ORIGIN,
+  TWITTER_HANDLE,
+  absoluteImageUrl,
+  absoluteUrl,
+} from "@/utils/seo";
 
 function CommonSlugHeadTags({
   frontMatter,
-  image = frontMatter?.thumbnail,
-  url = "https://www.heyashu.com/tech/notes",
-  title = "Digital Garden - Knowledge Hub by Ashutosh Anand Tiwari",
+  image,
+  url,
+  title,
   shortDesc = "Explore curated technical notes, tutorials, and insights on JavaScript, Node.js, React, and more.",
   mainDesc = "Comprehensive collection of programming tutorials, tech insights, and development best practices by Ashutosh Anand Tiwari.",
   tags = "JavaScript, Node.js, React, Web Development, Programming Tutorials, Tech Blog, Digital Garden",
 }) {
-  // Construct SEO-friendly title
-  const pageTitle = `${frontMatter?.name || frontMatter?.title} | ${
+  const headline =
+    frontMatter?.name ||
+    frontMatter?.title ||
+    title ||
+    "Digital Garden — Knowledge Hub by Ashutosh Anand Tiwari";
+
+  const pageTitle = `${headline} | ${
     frontMatter?.author || "Ashutosh Anand Tiwari"
-  } - Digital Garden`;
+  } — Digital Garden`;
 
-  // Construct clean description without repetition
-  const description = frontMatter?.description || 
-    `Read ${frontMatter?.name || frontMatter?.title} - ${mainDesc}`;
+  const description =
+    frontMatter?.description ||
+    frontMatter?.metaContent ||
+    shortDesc ||
+    `Read ${headline} — ${mainDesc}`;
 
-  // Ensure absolute URL for image
-  const absoluteImageUrl = image?.startsWith('http') 
-    ? image 
-    : `https://www.heyashu.com${image || '/images/default-og-image.jpg'}`;
+  const canonical = absoluteUrl(url || `${SITE_ORIGIN}/digital-garden`);
+  const absoluteImage = absoluteImageUrl(
+    image || frontMatter?.thumbnail,
+    DEFAULT_OG_IMAGE
+  );
+  const datePublished =
+    frontMatter?.publishedOn || frontMatter?.date || undefined;
+  const dateModified =
+    frontMatter?.lastModified ||
+    frontMatter?.updatedOn ||
+    datePublished ||
+    undefined;
 
   return (
     <Head>
-      {/* Basic Meta Tags */}
       <title>{pageTitle}</title>
       <meta charSet="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="icon" href="/notes.ico" />
       <meta name="description" content={description} />
       <meta name="keywords" content={tags} />
-      <meta name="author" content={frontMatter?.author || "Ashutosh Anand Tiwari"} />
+      <meta
+        name="author"
+        content={frontMatter?.author || "Ashutosh Anand Tiwari"}
+      />
 
-      {/* Open Graph Meta Tags */}
       <meta property="og:type" content="article" />
       <meta property="og:title" content={pageTitle} />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content={absoluteImageUrl} />
+      <meta property="og:image" content={absoluteImage} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-      <meta property="og:url" content={url} />
-      <meta property="og:site_name" content="Digital Garden - heyashu.com" />
+      <meta property="og:url" content={canonical} />
+      <meta property="og:site_name" content={SITE_NAME} />
 
-      {/* Twitter Meta Tags */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:site" content="@yourtwitterhandle" />
-      <meta name="twitter:creator" content="@yourtwitterhandle" />
+      <meta name="twitter:site" content={TWITTER_HANDLE} />
+      <meta name="twitter:creator" content={TWITTER_HANDLE} />
       <meta name="twitter:title" content={pageTitle} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={absoluteImageUrl} />
+      <meta name="twitter:image" content={absoluteImage} />
 
-      {/* Additional SEO Tags */}
       <meta name="robots" content="index, follow" />
       <meta name="googlebot" content="index, follow" />
-      <link rel="canonical" href={url} />
+      <link rel="canonical" href={canonical} />
 
-      {/* Schema.org markup for Google */}
-      <script type="application/ld+json">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "BlogPosting",
-          "headline": pageTitle,
-          "image": absoluteImageUrl,
-          "author": {
-            "@type": "Person",
-            "name": frontMatter?.author || "Ashutosh Anand Tiwari"
-          },
-          "publisher": {
-            "@type": "Organization",
-            "name": "Digital Garden - heyashu.com",
-            "logo": {
-              "@type": "ImageObject",
-              "url": "https://www.heyashu.com/logo.png"
-            }
-          },
-          "url": url,
-          "description": description,
-          "datePublished": frontMatter?.date,
-          "dateModified": frontMatter?.lastModified || frontMatter?.date
-        })}
-      </script>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: pageTitle,
+            image: absoluteImage,
+            author: {
+              "@type": "Person",
+              name: frontMatter?.author || "Ashutosh Anand Tiwari",
+            },
+            publisher: {
+              "@type": "Organization",
+              name: SITE_NAME,
+              logo: {
+                "@type": "ImageObject",
+                url: absoluteUrl("/images/profile.jpg"),
+              },
+            },
+            url: canonical,
+            description,
+            datePublished,
+            dateModified,
+            mainEntityOfPage: {
+              "@type": "WebPage",
+              "@id": canonical,
+            },
+          }),
+        }}
+      />
     </Head>
   );
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import NotesMainPage from "@/components/base/NotesMainPage";
 import { metaTagsForNamasteNodeJsS1 } from "@/data/note/namaste-node-js-s1/meta-tags";
 import rehypeHighlight from "rehype-highlight";
@@ -10,41 +10,11 @@ import {
 import matter from "gray-matter";
 import fs from "fs";
 import path from "path";
-import { useState } from "react";
-import { useEffect } from "react";
 import { serialize } from "next-mdx-remote/serialize";
+import { buildNotesSidebarList } from "@/data/note/sidebarList";
 
 const NotesDetailPage = ({ notes, currentPageMDX, currentPageFrontMatter }) => {
-  const [contentList, setContentList] = useState([]);
-
-  // for sorting content episode wise
-  function sortByEpisode(array) {
-    return array.sort((a, b) => a.episode - b.episode);
-  }
-
-  // generate sidebar and content of list
-  function generateContentListFromData() {
-    const list = notes.map((item, index) => ({
-      id: item.frontMatter.episode || index, // Use episode number or fallback to index
-      episode: item.frontMatter.episode,
-      title: item.frontMatter.title || item.frontMatter.name, // Use title if available, otherwise use name
-      profilePic: item.frontMatter?.profilePic,
-      followLink: item.frontMatter.followLink,
-      author: item.frontMatter.author,
-      tags: item.frontMatter.tags,
-      name: item.frontMatter.name,
-      updatedOn: item.frontMatter.updatedOn,
-      thumbnail: item.frontMatter.thumbnail,
-      publishedOn: item.frontMatter.publishedOn || "Seeding Soon", // Default to 'Coming Soon' if not available
-    }));
-
-    const sortedList = sortByEpisode(list);
-    setContentList(sortedList);
-  }
-
-  useEffect(() => {
-    generateContentListFromData();
-  }, []);
+  const contentList = useMemo(() => buildNotesSidebarList(notes), [notes]);
 
   return (
     <>

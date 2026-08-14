@@ -11,8 +11,19 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        fraunces: ['"Fraunces"', "Georgia", "serif"],
+        "ibm-sans": ['"IBM Plex Sans"', "system-ui", "sans-serif"],
+        "ibm-mono": ['"IBM Plex Mono"', "monospace"],
+      },
       animation: {
         blob: "blob 7s infinite",
+        "khaki-marquee": "khakiMarquee 38s linear infinite",
+        "garden-marquee": "gardenMarquee 55s linear infinite",
+        "sparkle-pulse": "sparklePulse 2.4s ease-in-out infinite",
+        "ai-border": "aiBorder 2.8s ease-in-out infinite",
+        "ai-glow": "aiGlow 2.2s ease-in-out infinite",
+        "ai-icon": "aiIcon 1.8s ease-in-out infinite",
       },
       keyframes: {
         blob: {
@@ -27,6 +38,48 @@ module.exports = {
           },
           "100%": {
             transform: "translate(0px, 0px) scale(1)",
+          },
+        },
+        aiBorder: {
+          "0%, 100%": {
+            borderColor: "rgba(168, 85, 247, 0.45)",
+            boxShadow: "0 0 0 0 rgba(168, 85, 247, 0)",
+          },
+          "50%": {
+            borderColor: "rgba(99, 102, 241, 0.85)",
+            boxShadow: "0 0 12px 0 rgba(168, 85, 247, 0.35)",
+          },
+        },
+        aiGlow: {
+          "0%, 100%": { opacity: "0.7" },
+          "50%": { opacity: "1" },
+        },
+        aiIcon: {
+          "0%, 100%": {
+            transform: "scale(1) rotate(0deg)",
+            filter: "drop-shadow(0 0 0 rgba(168,85,247,0))",
+          },
+          "50%": {
+            transform: "scale(1.12) rotate(6deg)",
+            filter: "drop-shadow(0 0 6px rgba(168,85,247,0.65))",
+          },
+        },
+        khakiMarquee: {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-50%)" },
+        },
+        gardenMarquee: {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-50%)" },
+        },
+        sparklePulse: {
+          "0%, 100%": {
+            transform: "scale(1) rotate(0deg)",
+            filter: "drop-shadow(0 0 0 rgba(168,85,247,0))",
+          },
+          "50%": {
+            transform: "scale(1.15) rotate(8deg)",
+            filter: "drop-shadow(0 0 8px rgba(168,85,247,0.55))",
           },
         },
       },
