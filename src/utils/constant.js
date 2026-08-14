@@ -1,29 +1,25 @@
-// ------calendely-------
+// ------calendely & social (see src/data/social/index.js)-------
+export {
+  PHONE_CALL_THIRTY_MIN,
+  INTERVIEW_CALL_SIXTY_MIN,
+  GITHUB_REPO_LINK,
+  DEFAULT_FOLLOW_LINK,
+  CONNECT_LINK_TOPMATE,
+  DEFAULT_FOLLOW_LINK_INSTA,
+  ADMIN_LINK,
+  SOCIAL_LINKS,
+  getSocialHref,
+} from "@/data/social";
 
-export const PHONE_CALL_THIRTY_MIN='https://topmate.io/aat/1148709/pay'
-export const INTERVIEW_CALL_SIXTY_MIN='https://topmate.io/aat/1150933'
-export const API_KEY_FASTSMS="KwdHTi9lhSNFtV5sUJfn4GYcqO8MD2k0buaACEm7LexQjpBrWPg21456bJzWtmQLOadRrlCPv7sfTMBK"
+export const API_KEY_FASTSMS =
+  "KwdHTi9lhSNFtV5sUJfn4GYcqO8MD2k0buaACEm7LexQjpBrWPg21456bJzWtmQLOadRrlCPv7sfTMBK";
 
+export const BEST_PHOTOS_LINK = "https://photos.app.goo.gl/gtXG2yJaGU2t32h27";
+export const HOME_PAGE_TOUR_KEY = "AAT-TOUR_DONE";
+export const DEFAULT_AVATAR = "https://i.ibb.co/Tm9qVjp/plant.png";
+export const DEFAULT_THUMBNAIL = "https://via.placeholder.com/150";
 
-// ----------------------photos
-export const BEST_PHOTOS_LINK='https://photos.app.goo.gl/gtXG2yJaGU2t32h27'
-
-
-export const HOME_PAGE_TOUR_KEY='AAT-TOUR_DONE'
-
-export const GITHUB_REPO_LINK =
-  "https://github.com/ashumsd7/heyashu/";
-
-
-  export const DEFAULT_AVATAR='https://i.ibb.co/Tm9qVjp/plant.png'
-  export const DEFAULT_THUMBNAIL='https://via.placeholder.com/150'
-  export const DEFAULT_FOLLOW_LINK='https://github.com/ashumsd7/'
-  export const CONNECT_LINK_TOPMATE='https://github.com/ashumsd7/'
-  export const ADMIN_LINK='https://heyashu.in/admin/'
-  export const DEFAULT_FOLLOW_LINK_INSTA='https://www.instagram.com/javascripterrr/'
-
-
-  export const OPENROUTER_SITE_URL='https://heyashu.in'
+export const OPENROUTER_SITE_URL = "https://heyashu.in";
   export const OPENROUTER_SITE_NAME="Ashutosh Anand's Digital Garden"
   export const OPENROUTER_MODEL='deepseek/deepseek-r1:free'
   export const OPENROUTER_API_URL='https://openrouter.ai/api/v1/chat/completions'

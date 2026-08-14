@@ -10,58 +10,34 @@ import {
 import { FaEarthAsia, FaXTwitter } from "react-icons/fa6";
 import { SiPeerlist, SiWakatime } from "react-icons/si";
 import { MdPermPhoneMsg } from "react-icons/md";
-import { DEFAULT_FOLLOW_LINK_INSTA, GITHUB_REPO_LINK } from "@/utils/constant";
+import {
+  GARDEN_FOOTER_SOCIAL_ITEMS,
+  GITHUB_REPO_LINK,
+  SOCIAL_LINKS,
+  getSocialHref,
+} from "@/data/social";
 
-const SOCIALS = [
-  {
-    href: "https://twitter.com/JavaScripterrr",
-    label: "X / Twitter",
-    icon: FaXTwitter,
-    color: "hover:text-sky-400 hover:bg-sky-500/10 hover:border-sky-500/30",
-  },
-  {
-    href: "https://www.instagram.com/javascripterrr",
-    label: "Instagram",
-    icon: FaInstagram,
-    color: "hover:text-pink-500 hover:bg-pink-500/10 hover:border-pink-500/30",
-  },
-  {
-    href: "https://heyashu.in/",
-    label: "Website",
-    icon: FaEarthAsia,
-    color: "hover:text-emerald-500 hover:bg-emerald-500/10 hover:border-emerald-500/30",
-  },
-  {
-    href: "https://github.com/ashumsd7",
-    label: "GitHub",
-    icon: FaGithub,
-    color: "hover:text-purple-400 hover:bg-purple-500/10 hover:border-purple-500/30",
-  },
-  {
-    href: "https://wakatime.com/@aat",
-    label: "WakaTime",
-    icon: SiWakatime,
-    color: "hover:text-blue-400 hover:bg-blue-500/10 hover:border-blue-500/30",
-  },
-  {
-    href: "https://peerlist.io/ashumsd7",
-    label: "Peerlist",
-    icon: SiPeerlist,
-    color: "hover:text-green-400 hover:bg-green-500/10 hover:border-green-500/30",
-  },
-  {
-    href: "https://www.youtube.com/@ashutoshanandtiwari6606",
-    label: "YouTube",
-    icon: FaYoutube,
-    color: "hover:text-red-500 hover:bg-red-500/10 hover:border-red-500/30",
-  },
-  {
-    href: "https://topmate.io/aat/1148709/pay",
-    label: "Book a call",
-    icon: MdPermPhoneMsg,
-    color: "hover:text-amber-500 hover:bg-amber-500/10 hover:border-amber-500/30",
-  },
-];
+const FOOTER_ICON_BY_KEY = {
+  twitter: FaXTwitter,
+  instagram: FaInstagram,
+  website: FaEarthAsia,
+  github: FaGithub,
+  wakatime: SiWakatime,
+  peerlist: SiPeerlist,
+  youtube: FaYoutube,
+  topmate: MdPermPhoneMsg,
+};
+
+const FOOTER_HOVER_BY_KEY = {
+  twitter: "hover:text-sky-400 hover:bg-sky-500/10 hover:border-sky-500/30",
+  instagram: "hover:text-pink-500 hover:bg-pink-500/10 hover:border-pink-500/30",
+  website: "hover:text-emerald-500 hover:bg-emerald-500/10 hover:border-emerald-500/30",
+  github: "hover:text-purple-400 hover:bg-purple-500/10 hover:border-purple-500/30",
+  wakatime: "hover:text-blue-400 hover:bg-blue-500/10 hover:border-blue-500/30",
+  peerlist: "hover:text-green-400 hover:bg-green-500/10 hover:border-green-500/30",
+  youtube: "hover:text-red-500 hover:bg-red-500/10 hover:border-red-500/30",
+  topmate: "hover:text-amber-500 hover:bg-amber-500/10 hover:border-amber-500/30",
+};
 
 const DigiGardenFooter = () => {
   return (
@@ -95,7 +71,7 @@ const DigiGardenFooter = () => {
               <motion.a
                 whileHover={{ scale: 1.03, y: -1 }}
                 whileTap={{ scale: 0.97 }}
-                href={DEFAULT_FOLLOW_LINK_INSTA}
+                href={SOCIAL_LINKS.instagramDev}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-xs font-bold shadow-md shadow-emerald-600/20 transition-all"
@@ -131,7 +107,7 @@ const DigiGardenFooter = () => {
                 <a href="/digital-garden#support" className="text-gray-600 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
                   💚 Support Garden
                 </a>
-                <a href="https://chat.whatsapp.com/L0YFv4DQRCpJAcmRFPWT6r" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                <a href={SOCIAL_LINKS.whatsappCommunity} target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
                   🚀 WhatsApp Group
                 </a>
               </div>
@@ -142,21 +118,25 @@ const DigiGardenFooter = () => {
                 Connect &amp; Socials
               </h4>
               <div className="flex flex-wrap gap-2.5">
-                {SOCIALS.map(({ href, label, icon: Icon, color }) => (
-                  <motion.a
-                    key={label}
-                    whileHover={{ scale: 1.12, y: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={label}
-                    title={label}
-                    className={`p-2.5 rounded-xl bg-gray-100/80 dark:bg-gray-800/80 text-gray-600 dark:text-gray-300 border border-gray-200/60 dark:border-gray-700/60 transition-all shadow-sm ${color}`}
-                  >
-                    <Icon className="text-base" />
-                  </motion.a>
-                ))}
+                {GARDEN_FOOTER_SOCIAL_ITEMS.map(({ key, label }) => {
+                  const Icon = FOOTER_ICON_BY_KEY[key];
+                  const color = FOOTER_HOVER_BY_KEY[key] || "";
+                  return (
+                    <motion.a
+                      key={key}
+                      whileHover={{ scale: 1.12, y: -2 }}
+                      whileTap={{ scale: 0.95 }}
+                      href={getSocialHref(key)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={label}
+                      title={label}
+                      className={`p-2.5 rounded-xl bg-gray-100/80 dark:bg-gray-800/80 text-gray-600 dark:text-gray-300 border border-gray-200/60 dark:border-gray-700/60 transition-all shadow-sm ${color}`}
+                    >
+                      <Icon className="text-base" />
+                    </motion.a>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -168,7 +148,7 @@ const DigiGardenFooter = () => {
             Made with <FaHeart className="text-red-500 text-xs inline animate-pulse" /> by Ashutosh Anand Tiwari · Digital Garden © {new Date().getFullYear()}
           </p>
           <a
-            href="https://chat.whatsapp.com/L0YFv4DQRCpJAcmRFPWT6r"
+            href={SOCIAL_LINKS.whatsappCommunity}
             target="_blank"
             rel="noopener noreferrer"
             className="px-3 py-1 rounded-lg bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 hover:bg-emerald-500/20 transition-all font-semibold flex items-center gap-1.5"

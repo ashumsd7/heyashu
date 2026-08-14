@@ -1,11 +1,10 @@
 import React from "react";
 import { useRouter } from "next/router";
 import Button from "@/components/base/Button";
-import { FaEarthAsia, FaXTwitter, FaYoutube } from "react-icons/fa6";
-import { FaInstagram } from "react-icons/fa";
 import ClassicPageLayout from "@/components/garden/ClassicNotesLayout";
 import CommonHeadTags from "@/components/seo/CommonHeadTags";
-import { ADMIN_LINK } from "@/utils/constant";
+import AuthorSocialLinks from "@/components/base/AuthorSocialLinks";
+import { ADMIN_LINK, GITHUB_REPO_LINK } from "@/utils/constant";
 const JsSnippetsLandingPage = () => {
   const router = useRouter();
 
@@ -30,32 +29,7 @@ Thank you so much!
             🚀 Happy Learning! 🌿"
       >
         <div className="flex flex-col gap-2">
-          <div className="flex  space-x-4">
-            <a
-              href="https://twitter.com/JavaScripterrr"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-500 hover:text-blue-700"
-            >
-              <FaXTwitter />
-            </a>
-            <a
-              href="https://www.instagram.com/ashumsd7"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-pink-500 hover:text-pink-700"
-            >
-              <FaInstagram />
-            </a>
-            <a
-              href="https://heyashu.in/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-800 hover:text-gray-600"
-            >
-              <FaEarthAsia />
-            </a>
-          </div>
+          <AuthorSocialLinks />
           <div className=" gap-4 flex ">
             <Button
               onClick={handleReadNotesClick}
@@ -74,7 +48,7 @@ Thank you so much!
           </div>
           <div className=" mt-4 flex flex-col gap-2">
             <a
-              href="https://github.com/ashumsd7/heyashu/"
+              href={GITHUB_REPO_LINK}
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-600 hover:text-blue-800 font-medium"

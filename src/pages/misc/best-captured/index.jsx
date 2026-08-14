@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
 import Button from "@/components/base/Button";
+import { SOCIAL_LINKS } from "@/data/social";
 import Head from "next/head";
 import { BEST_PHOTOS_LINK } from "@/utils/constant";
 
@@ -141,7 +142,7 @@ function BestCapturedPage() {
           <div className="flex justify-center">
             <Button
               className="bg-orange-500 hover:bg-orange-600 dark:bg-orange-600 dark:hover:bg-orange-700 text-white px-8 py-3 rounded-full transition-all transform hover:scale-105 shadow-lg"
-              onClick={() => window.open("https://www.instagram.com/ashumsd7", "_blank")}
+              onClick={() => window.open(SOCIAL_LINKS.instagramDev, "_blank")}
             >
               Message Now
             </Button>

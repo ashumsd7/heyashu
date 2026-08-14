@@ -3,6 +3,17 @@ import React, { useState } from "react";
 import { AiFillGithub, AiOutlineTwitter, AiFillLinkedin } from "react-icons/ai";
 import { FaQuora, FaInstagramSquare } from "react-icons/fa";
 import { SiWakatime } from "react-icons/si";
+import { HOME_SOCIAL_ITEMS, getSocialHref } from "@/data/social";
+
+const PROFILE_ICON_BY_KEY = {
+  github: AiFillGithub,
+  twitter: AiOutlineTwitter,
+  quora: FaQuora,
+  linkedin: AiFillLinkedin,
+  instagram: FaInstagramSquare,
+  wakatime: SiWakatime,
+};
+
 function ProfilePicture() {
   const imgPath1 = "/images/profile1.jpg";
   const imgPath2 = "/images/profile.jpg";
@@ -29,57 +40,25 @@ function ProfilePicture() {
         width={"400"}
         height="400"
         alt="profile-image"
-        priority={true} // Add priority to load image immediately
-        loading="eager" // Force eager loading for above-the-fold image
+        priority={true}
+        loading="eager"
       />
 
       <div id='social-links' className="text-white flex gap-4 bg-[#16a34a] md:px-2 px-1 py-2 absolute rounded-md bottom-[-15px] left-1/2 transform -translate-x-1/2 z-40">
-        <AiFillGithub
-          className="text-xl cursor-pointer"
-          onClick={() => {
-            window.open("https://github.com/ashumsd7", "_blank");
-          }}
-        />
-        <AiOutlineTwitter
-          onClick={() => {
-            window.open("https://twitter.com/JavaScripterrr", "_blank");
-          }}
-          className="text-xl cursor-pointer"
-        />
-        <FaQuora
-          onClick={() => {
-            window.open(
-              "https://www.quora.com/profile/%E0%A4%86%E0%A4%B6%E0%A5%81%E0%A4%A4%E0%A5%8B%E0%A4%B7-%E0%A4%86%E0%A4%A8%E0%A4%A8%E0%A5%8D%E0%A4%A6-%E0%A4%A4%E0%A4%BF%E0%A4%B5%E0%A4%BE%E0%A4%B0%E0%A5%80-Ashutosh-Anand-Tiwari",
-              "_blank"
-            );
-          }}
-          className="text-xl cursor-pointer"
-        />
-        <AiFillLinkedin
-          onClick={() => {
-            window.open(
-              "https://www.linkedin.com/in/ashutoshanandtiwari",
-              "_blank"
-            );
-          }}
-          className="text-xl cursor-pointer"
-        />
-        <FaInstagramSquare
-          onClick={() => {
-            window.open("https://instagram.com/ashumsd7", "_blank");
-          }}
-          className="text-xl cursor-pointer"
-        />
-        <SiWakatime
-          onClick={() => {
-            window.open("https://wakatime.com/@aat", "_blank");
-          }}
-          className="text-xl cursor-pointer"
-        />
+        {HOME_SOCIAL_ITEMS.map(({ key }) => {
+          const Icon = PROFILE_ICON_BY_KEY[key];
+          if (!Icon) return null;
+          return (
+            <Icon
+              key={key}
+              className="text-xl cursor-pointer"
+              onClick={() => window.open(getSocialHref(key), "_blank")}
+            />
+          );
+        })}
       </div>
     </div>
   );
 }
 
 export default ProfilePicture;
-// border-4 border-gray-600
