@@ -52,6 +52,218 @@ import {
 
 /** Top notes cards on garden home — all entries with featuredOnHome: true. */
 const HOME_NOTES = getHomeFeaturedNotes();
+const HOME_NOTES_TOP = HOME_NOTES.slice(0, 3);
+const HOME_NOTES_GRID = HOME_NOTES.slice(3);
+
+function HomeNoteBannerCard({ note, router }) {
+  const startHref = getNotesStartRoute(note);
+  const isNew = noteIsNew(note);
+  const isSoon = note.isComingSoon;
+  const statusChips = getNoteStatusChips(note);
+  const updatedLabel = note.lastUpdated
+    ? formatGardenDate(note.lastUpdated)
+    : note.publishedOn || null;
+
+  const cardInner = (
+    <motion.article
+      whileHover={{ scale: 1.008 }}
+      transition={{ duration: 0.2 }}
+      className={`group relative grid grid-cols-1 overflow-hidden bg-white shadow-[0_4px_20px_rgba(0,0,0,0.03)] transition dark:bg-[#121e17] md:grid-cols-[260px_1fr] ${
+        isSoon
+          ? "cursor-default opacity-95"
+          : "cursor-pointer hover:shadow-[0_16px_36px_-8px_rgba(20,56,37,0.12)]"
+      } ${
+        isNew
+          ? "rounded-[18px]"
+          : "rounded-[20px] border border-[#e8e2d7] dark:border-[#1e3328]"
+      }`}
+      onClick={() => {
+        if (!isSoon) router.push(startHref);
+      }}
+    >
+      <div
+        className="pointer-events-none absolute -right-6 -top-6 text-[#143825] opacity-100 dark:text-[#22c55e]"
+        aria-hidden="true"
+      >
+        <svg width="180" height="180" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M100 10C120 40 180 60 190 100C200 140 150 180 100 190C50 180 0 140 10 100C20 60 80 40 100 10Z" fill="currentColor" opacity="0.04" />
+          <path d="M100 20C110 50 150 70 160 100C170 130 130 160 100 170C70 160 30 130 40 100C50 70 90 50 100 20Z" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" opacity="0.08" />
+        </svg>
+      </div>
+      <div className="overflow-hidden">
+        <img
+          className="h-[200px] w-full object-cover transition duration-300 group-hover:scale-[1.03] md:h-full md:min-h-[220px]"
+          src={note.bannerUrl || note.thumbnailUrl}
+          alt={note.homeTitle || note.title}
+          loading="lazy"
+        />
+      </div>
+      <div className="relative z-[1] flex flex-col justify-center p-6 md:p-7">
+        {statusChips.length > 0 ? (
+          <div className="mb-2 flex flex-wrap gap-2">
+            {statusChips.map((chip) => (
+              <span
+                key={chip.key}
+                className={`px-2.5 py-0.5 text-[11px] font-semibold ${NOTE_STATUS_CHIP_TONES[chip.tone]}`}
+              >
+                {chip.label}
+              </span>
+            ))}
+          </div>
+        ) : null}
+        <h3 className="mb-2 flex flex-wrap items-center gap-2.5 font-fraunces text-[clamp(1.4rem,2.8vw,1.85rem)] font-extrabold tracking-[-0.01em] text-[#171717] [text-shadow:0_1px_0_rgba(0,0,0,0.04)] dark:text-[#f0f4ef]">
+          <span>{note.homeTitle || note.title}</span>
+          {isNew ? (
+            <span className="garden-new-label inline-flex shrink-0 items-center px-2.5 py-0.5 font-ibm-mono text-[10px] font-bold uppercase tracking-[0.1em]">
+              New
+            </span>
+          ) : null}
+        </h3>
+        <p className="mb-3 text-[0.95rem] leading-relaxed text-[#585858] dark:text-[#92a59a]">
+          {note.homeDesc || note.shortDesc}
+        </p>
+        <div className="mb-5 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-[#585858] dark:text-[#92a59a]">
+          <span>{note.homeMeta}</span>
+          {note.completedPercent != null ? (
+            <span>· {note.completedPercent}% done</span>
+          ) : null}
+          {updatedLabel ? (
+            <span className="text-[#143825] dark:text-[#22c55e]">
+              · Updated {updatedLabel}
+            </span>
+          ) : null}
+          {note.publishedOn && note.publishedOn !== updatedLabel ? (
+            <span>· Published {note.publishedOn}</span>
+          ) : null}
+        </div>
+        <div className="mt-auto flex flex-wrap items-center justify-between gap-3">
+          <div className="flex items-center gap-3">
+            {note.authorAvatar ? (
+              <img
+                src={note.authorAvatar}
+                alt={note.authorDisplay || note.by || "Author"}
+                className="h-10 w-10 shrink-0 rounded-full border-2 border-[#e8e2d7] object-cover dark:border-[#1e3328]"
+                loading="lazy"
+              />
+            ) : (
+              <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-[#143825] text-sm font-bold text-white dark:bg-[#22c55e] dark:text-[#0b120e]">
+                {note.authorInitials || "AT"}
+              </div>
+            )}
+            <div className="flex flex-col leading-tight">
+              <span className="text-sm font-semibold text-[#171717] dark:text-[#f0f4ef]">
+                {note.authorDisplay || note.by}
+              </span>
+              <span className="text-xs text-[#585858] dark:text-[#92a59a]">
+                {note.authorOrg || note.sourceName}
+              </span>
+            </div>
+          </div>
+          {isSoon ? (
+            <span className="inline-flex cursor-not-allowed items-center rounded-xl border border-slate-300 bg-slate-100 px-4 py-2.5 text-sm font-semibold text-slate-600 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-300">
+              Coming Soon
+            </span>
+          ) : (
+            <motion.a
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="inline-flex items-center rounded-xl bg-[#143825] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-[#0d281a] dark:bg-[#22c55e] dark:text-[#0b120e] dark:hover:bg-[#16a34a]"
+              href={startHref}
+              onClick={(e) => e.stopPropagation()}
+            >
+              Read Digital Notes →
+            </motion.a>
+          )}
+        </div>
+      </div>
+    </motion.article>
+  );
+
+  return (
+    <div
+      className={
+        isNew ? "garden-new-card-border rounded-[20px] p-[2px]" : undefined
+      }
+    >
+      {cardInner}
+    </div>
+  );
+}
+
+function HomeNoteCompactCard({ note, router }) {
+  const startHref = getNotesStartRoute(note);
+  const isNew = noteIsNew(note);
+  const isSoon = note.isComingSoon;
+  const primaryChip = getNoteStatusChips(note)[0];
+
+  const card = (
+    <motion.article
+      whileHover={isSoon ? undefined : { y: -3 }}
+      transition={{ duration: 0.2 }}
+      className={`group flex h-full flex-col overflow-hidden bg-white shadow-[0_4px_20px_rgba(0,0,0,0.03)] transition dark:bg-[#121e17] ${
+        isSoon ? "cursor-default opacity-95" : "cursor-pointer hover:shadow-[0_12px_28px_-8px_rgba(20,56,37,0.14)]"
+      } ${
+        isNew
+          ? "rounded-[14px]"
+          : "rounded-[16px] border border-[#e8e2d7] dark:border-[#1e3328]"
+      }`}
+      onClick={() => {
+        if (!isSoon) router.push(startHref);
+      }}
+    >
+      <div className="relative aspect-square overflow-hidden">
+        <img
+          className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.04]"
+          src={note.bannerUrl || note.thumbnailUrl}
+          alt={note.homeTitle || note.title}
+          loading="lazy"
+        />
+        {primaryChip ? (
+          <span
+            className={`absolute left-2.5 top-2.5 px-2 py-0.5 text-[10px] font-semibold ${NOTE_STATUS_CHIP_TONES[primaryChip.tone]}`}
+          >
+            {primaryChip.label}
+          </span>
+        ) : null}
+      </div>
+      <div className="flex flex-1 flex-col p-4">
+        <h3 className="mb-3 flex flex-wrap items-center gap-2 font-fraunces text-lg font-bold leading-snug text-[#171717] dark:text-[#f0f4ef]">
+          <span>{note.homeTitle || note.title}</span>
+          {isNew ? (
+            <span className="garden-new-label inline-flex shrink-0 items-center px-2 py-0.5 font-ibm-mono text-[9px] font-bold uppercase tracking-[0.08em]">
+              New
+            </span>
+          ) : null}
+        </h3>
+        {isSoon ? (
+          <span className="mt-auto inline-flex w-full cursor-not-allowed items-center justify-center rounded-xl border border-slate-300 bg-slate-100 px-3 py-2.5 text-sm font-semibold text-slate-600 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-300">
+            Coming Soon
+          </span>
+        ) : (
+          <motion.a
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className="mt-auto inline-flex w-full items-center justify-center rounded-xl bg-[#143825] px-3 py-2.5 text-sm font-semibold text-white no-underline transition hover:bg-[#0d281a] dark:bg-[#22c55e] dark:text-[#0b120e] dark:hover:bg-[#16a34a]"
+            href={startHref}
+            onClick={(e) => e.stopPropagation()}
+          >
+            Read Notes →
+          </motion.a>
+        )}
+      </div>
+    </motion.article>
+  );
+
+  return (
+    <div
+      className={
+        isNew ? "garden-new-card-border h-full rounded-[16px] p-[2px]" : "h-full"
+      }
+    >
+      {card}
+    </div>
+  );
+}
 
 const HERO_STAT_UI = {
   emerald: {
@@ -274,136 +486,40 @@ function DigitalGarden({ posts, blogs }) {
       {/* COLLECTIONS */}
       <section id="collections" className="py-[72px]">
         <div className="mx-auto w-full max-w-[1120px] px-6">
-          <div className="mb-9 flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <h2 className="font-fraunces text-[clamp(1.8rem,3.5vw,2.4rem)] font-bold tracking-[-0.02em] text-[#171717] dark:text-[#f0f4ef]">Notes &amp; Course Collections</h2>
-              <p className="mt-2 max-w-[54ch] text-[1.02rem] leading-relaxed text-[#585858] dark:text-[#92a59a]">
-                High-quality notes from popular instructors, formatted for fast revision and interview readiness.
-              </p>
-            </div>
-            <a href="/digital-garden/notes" className="inline-flex items-center gap-1 text-[0.92rem] font-semibold text-[#143825] transition hover:text-[#0d281a] dark:text-[#22c55e] dark:hover:text-[#16a34a]">
-              Read all notes →
-            </a>
+          <div className="mb-9 max-w-3xl">
+            <h2 className="font-fraunces text-[clamp(1.8rem,3.5vw,2.4rem)] font-bold tracking-[-0.02em] text-[#171717] dark:text-[#f0f4ef]">
+              Notes &amp; Course Collections
+            </h2>
+            <p className="mt-2 max-w-[54ch] text-[1.02rem] leading-relaxed text-[#585858] dark:text-[#92a59a]">
+              High-quality notes from popular instructors, formatted for fast revision and interview readiness.
+            </p>
           </div>
 
+          {/* Top 3 — full banner cards */}
           <div className="flex flex-col gap-5">
-            {HOME_NOTES.map((note) => {
-              const startHref = getNotesStartRoute(note);
-              const isNew = noteIsNew(note);
-              const statusChips = getNoteStatusChips(note);
-              const updatedLabel = note.lastUpdated
-                ? formatGardenDate(note.lastUpdated)
-                : note.publishedOn || null;
+            {HOME_NOTES_TOP.map((note) => (
+              <HomeNoteBannerCard key={note.id} note={note} router={router} />
+            ))}
+          </div>
 
-              const cardInner = (
-                <motion.article
-                  whileHover={{ scale: 1.008 }}
-                  transition={{ duration: 0.2 }}
-                  className={`group relative grid cursor-pointer grid-cols-1 overflow-hidden bg-white shadow-[0_4px_20px_rgba(0,0,0,0.03)] transition hover:shadow-[0_16px_36px_-8px_rgba(20,56,37,0.12)] dark:bg-[#121e17] md:grid-cols-[260px_1fr] ${
-                    isNew
-                      ? "rounded-[18px]"
-                      : "rounded-[20px] border border-[#e8e2d7] dark:border-[#1e3328]"
-                  }`}
-                  onClick={() => router.push(startHref)}
-                >
-                  <div className="pointer-events-none absolute -right-6 -top-6 text-[#143825] opacity-100 dark:text-[#22c55e]" aria-hidden="true">
-                    <svg width="180" height="180" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M100 10C120 40 180 60 190 100C200 140 150 180 100 190C50 180 0 140 10 100C20 60 80 40 100 10Z" fill="currentColor" opacity="0.04"/>
-                      <path d="M100 20C110 50 150 70 160 100C170 130 130 160 100 170C70 160 30 130 40 100C50 70 90 50 100 20Z" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" opacity="0.08"/>
-                    </svg>
-                  </div>
-                  <div className="overflow-hidden">
-                    <img
-                      className="h-[200px] w-full object-cover transition duration-300 group-hover:scale-[1.03] md:h-full md:min-h-[220px]"
-                      src={note.bannerUrl || note.thumbnailUrl}
-                      alt={note.homeTitle || note.title}
-                      loading="lazy"
-                    />
-                  </div>
-                  <div className="relative z-[1] flex flex-col justify-center p-6 md:p-7">
-                    {statusChips.length > 0 ? (
-                      <div className="mb-2 flex flex-wrap gap-2">
-                        {statusChips.map((chip) => (
-                          <span
-                            key={chip.key}
-                            className={`px-2.5 py-0.5 text-[11px] font-semibold ${NOTE_STATUS_CHIP_TONES[chip.tone]}`}
-                          >
-                            {chip.label}
-                          </span>
-                        ))}
-                      </div>
-                    ) : null}
-                    <h3 className="mb-2 flex flex-wrap items-center gap-2.5 font-fraunces text-[clamp(1.4rem,2.8vw,1.85rem)] font-extrabold tracking-[-0.01em] text-[#171717] [text-shadow:0_1px_0_rgba(0,0,0,0.04)] dark:text-[#f0f4ef]">
-                      <span>{note.homeTitle || note.title}</span>
-                      {isNew ? (
-                        <span className="garden-new-label inline-flex shrink-0 items-center px-2.5 py-0.5 font-ibm-mono text-[10px] font-bold uppercase tracking-[0.1em]">
-                          New
-                        </span>
-                      ) : null}
-                    </h3>
-                    <p className="mb-3 text-[0.95rem] leading-relaxed text-[#585858] dark:text-[#92a59a]">
-                      {note.homeDesc || note.shortDesc}
-                    </p>
-                    <div className="mb-5 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-[#585858] dark:text-[#92a59a]">
-                      <span>{note.homeMeta}</span>
-                      {note.completedPercent != null ? (
-                        <span>· {note.completedPercent}% done</span>
-                      ) : null}
-                      {updatedLabel ? (
-                        <span className="text-[#143825] dark:text-[#22c55e]">
-                          · Updated {updatedLabel}
-                        </span>
-                      ) : null}
-                      {note.publishedOn && note.publishedOn !== updatedLabel ? (
-                        <span>· Published {note.publishedOn}</span>
-                      ) : null}
-                    </div>
-                    <div className="mt-auto flex flex-wrap items-center justify-between gap-3">
-                      <div className="flex items-center gap-3">
-                        {note.authorAvatar ? (
-                          <img
-                            src={note.authorAvatar}
-                            alt={note.authorDisplay || note.by || "Author"}
-                            className="h-10 w-10 shrink-0 rounded-full border-2 border-[#e8e2d7] object-cover dark:border-[#1e3328]"
-                            loading="lazy"
-                          />
-                        ) : (
-                          <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-[#143825] text-sm font-bold text-white dark:bg-[#22c55e] dark:text-[#0b120e]">
-                            {note.authorInitials || "AT"}
-                          </div>
-                        )}
-                        <div className="flex flex-col leading-tight">
-                          <span className="text-sm font-semibold text-[#171717] dark:text-[#f0f4ef]">{note.authorDisplay || note.by}</span>
-                          <span className="text-xs text-[#585858] dark:text-[#92a59a]">{note.authorOrg || note.sourceName}</span>
-                        </div>
-                      </div>
-                      <motion.a
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        className="inline-flex items-center rounded-xl bg-[#143825] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-[#0d281a] dark:bg-[#22c55e] dark:text-[#0b120e] dark:hover:bg-[#16a34a]"
-                        href={startHref}
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        Read Digital Notes →
-                      </motion.a>
-                    </div>
-                  </div>
-                </motion.article>
-              );
+          {/* Rest — 3-column square cards */}
+          {HOME_NOTES_GRID.length > 0 ? (
+            <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {HOME_NOTES_GRID.map((note) => (
+                <HomeNoteCompactCard key={note.id} note={note} router={router} />
+              ))}
+            </div>
+          ) : null}
 
-              return (
-                <div
-                  key={note.id}
-                  className={
-                    isNew
-                      ? "garden-new-card-border rounded-[20px] p-[2px]"
-                      : undefined
-                  }
-                >
-                  {cardInner}
-                </div>
-              );
-            })}
+          <div className="mt-10 flex justify-center">
+            <motion.a
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              href="/digital-garden/notes"
+              className="inline-flex items-center gap-2 rounded-xl border-2 border-[#143825] bg-[#143825] px-8 py-3.5 text-[0.95rem] font-semibold text-white no-underline transition hover:bg-[#0d281a] dark:border-[#22c55e] dark:bg-[#22c55e] dark:text-[#0b120e] dark:hover:bg-[#16a34a]"
+            >
+              Check all Notes →
+            </motion.a>
           </div>
         </div>
       </section>

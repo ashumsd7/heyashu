@@ -8,6 +8,7 @@ import GardenCollabCard from "@/components/garden/GardenCollabCard";
 import {
   NOTES_CONFIG,
   getNoteStatusChips,
+  getNotesIndexList,
   getNotesStartRoute,
   NOTE_STATUS_CHIP_TONES,
 } from "@/data/note/allNotes";
@@ -57,7 +58,7 @@ function CardBgPattern() {
 
 function NotesCollectionPage() {
   const router = useRouter();
-  const notes = (NOTES_CONFIG || []).filter((item) => !item.isComingSoon);
+  const notes = getNotesIndexList();
 
   return (
     <div className="bg-[#f7f4ee] dark:bg-[#0b120e]">
@@ -87,18 +88,22 @@ function NotesCollectionPage() {
             const statusChips = getNoteStatusChips(note);
             return (
               <motion.article
-                key={`${note.title}-${index}`}
+                key={note.id || `${note.title}-${index}`}
                 variants={fadeUp}
                 initial="hidden"
                 animate="show"
                 transition={{ delay: Math.min(index * 0.06, 0.3) }}
-                whileHover={{ y: -2 }}
+                whileHover={note.isComingSoon ? undefined : { y: -2 }}
                 onClick={() => {
                   if (note.isComingSoon) return;
                   const start = getNotesStartRoute(note);
                   if (start) router.push(start);
                 }}
-                className="relative grid cursor-pointer grid-cols-1 overflow-hidden rounded-md border border-[#e6e0d6] bg-white hover:shadow-[0_10px_28px_rgba(0,0,0,0.05)] dark:border-[#1e3328] dark:bg-[#121e17] md:grid-cols-[200px_1fr] lg:grid-cols-[220px_1fr]"
+                className={`relative grid grid-cols-1 overflow-hidden rounded-md border border-[#e6e0d6] bg-white dark:border-[#1e3328] dark:bg-[#121e17] md:grid-cols-[200px_1fr] lg:grid-cols-[220px_1fr] ${
+                  note.isComingSoon
+                    ? "cursor-default opacity-90"
+                    : "cursor-pointer hover:shadow-[0_10px_28px_rgba(0,0,0,0.05)]"
+                }`}
               >
                 <div className="h-[140px] overflow-hidden border-b border-[#ece7de] dark:border-[#1e3328] md:h-auto md:min-h-[150px] md:border-b-0 md:border-r">
                   <img
@@ -225,9 +230,13 @@ function NotesCollectionPage() {
                           e.stopPropagation();
                           if (note.isComingSoon) e.preventDefault();
                         }}
-                        className="rounded-sm bg-[#1f2a22] px-4 py-2 text-xs font-medium text-white no-underline transition hover:bg-[#143825] dark:bg-[#22c55e] dark:text-[#0b120e] dark:hover:bg-[#16a34a]"
+                        className={`rounded-sm px-4 py-2 text-xs font-medium no-underline transition ${
+                          note.isComingSoon
+                            ? "cursor-not-allowed bg-slate-400/20 text-slate-600 dark:text-slate-400"
+                            : "bg-[#1f2a22] text-white hover:bg-[#143825] dark:bg-[#22c55e] dark:text-[#0b120e] dark:hover:bg-[#16a34a]"
+                        }`}
                       >
-                        Start Reading
+                        {note.isComingSoon ? "Coming Soon" : "Start Reading"}
                       </Link>
                     </div>
                   </div>

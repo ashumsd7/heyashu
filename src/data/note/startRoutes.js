@@ -6,4 +6,5 @@ export {
   getNotesStartRoute,
   DEFAULT_NOTES_START_ROUTE,
   getHomeFeaturedNotes,
+  getNotesIndexList,
 } from "./allNotes";

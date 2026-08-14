@@ -172,6 +172,59 @@ span[class*="PublishButton"] {
   border-color: rgba(34, 197, 94, 0.45);
 }
 
+/* Independence strip — animated tricolor gradient + marquee */
+@keyframes tricolorShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+.independence-strip {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    90deg,
+    #ff9933 0%,
+    #ffb347 12%,
+    #ffffff 28%,
+    #f8faf8 40%,
+    #138808 58%,
+    #0d6b06 72%,
+    #ff9933 88%,
+    #ffffff 100%
+  );
+  background-size: 200% 100%;
+  animation: tricolorShift 10s linear infinite;
+}
+
+.independence-strip::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    -55deg,
+    transparent,
+    transparent 10px,
+    rgba(255, 255, 255, 0.07) 10px,
+    rgba(255, 255, 255, 0.07) 20px
+  );
+  pointer-events: none;
+}
+
+.independence-strip-text {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+.independence-strip-text em {
+  font-style: normal;
+  font-weight: 800;
+  color: #000080;
+  letter-spacing: 0.04em;
+}
+
 @keyframes blob {
   0% {
     transform: translate(0px, 0px) scale(1);
