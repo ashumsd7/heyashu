@@ -3,13 +3,15 @@ import { HighLightedSpan } from "@/components/base/HighlightedSpan";
 import Image from "next/image";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import React from "react";
-import { traveledPlaces } from "@/utils/data";
 import { PHONE_CALL_THIRTY_MIN } from "@/utils/constant";
 import Head from "next/head";
+import { useRouter } from "next/router";
 
-function PlaceDetails(props) {
-  if (!props.place) return "Loading..";
-  const placeName = props.place.split("-")[props.place.split("-").length - 1];
+function PlaceDetails() {
+  const router = useRouter();
+  const place = router.query.place;
+  if (!place) return "Loading..";
+  const placeName = place.split("-")[place.split("-").length - 1];
   const path = "/images/travelpfp/" + placeName + ".jpeg";
 
   return (
@@ -127,33 +129,6 @@ function PlaceDetails(props) {
 
 export default PlaceDetails;
 
-export async function getStaticProps(context) {
-  const { params } = context;
-  const { place } = params;
-
-  return {
-    props: {
-      place: place,
-    },
-    // reValidate: 10, //10 Seconds
-    // redirect: {
-    //   destination: "/",
-    // },
-    // notFound: true, // can do if no data is there
-  };
-}
-
-export async function getStaticPaths() {
-  const allPaths = traveledPlaces?.map((place) => {
-    return {
-      params: {
-        place: `/travel/ashutosh-anand-tiwari-travels-${place?.name.toLowerCase()}`,
-      },
-    };
-  });
-
-  return {
-    paths: allPaths,
-    fallback: true,
-  };
+export async function getServerSideProps() {
+  return { props: {} };
 }

@@ -106,12 +106,12 @@ collections:
         widget: "markdown"
         editor_components: ["image", "code-block"]
         hint: "For images: click + → Image → Choose an image. Saved to /images/blogs/namaste-ai/. Do NOT paste ImgBB/external URLs."
-  - name: "ai-klopedia"
-    label: "AI-klopedia"
+  - name: "ai-clopedia"
+    label: "AI-clopedia"
     description: Contribute notes, tutorials, and explanations—everything related to AI! Open source, collaborative, and always growing.✨
-    folder: "/src/content/ai-klopedia"
-    media_folder: public/images/blogs/ai-klopedia
-    public_folder: /images/blogs/ai-klopedia
+    folder: "/src/content/ai-clopedia"
+    media_folder: public/images/blogs/ai-clopedia
+    public_folder: /images/blogs/ai-clopedia
     create: true
     slug: ""
     delete: false
@@ -126,7 +126,7 @@ collections:
         widget: "image"
         required: false
         choose_url: false
-        hint: "Uploads to GitHub at /images/blogs/ai-klopedia/. Do not use ImgBB or external URLs."
+        hint: "Uploads to GitHub at /images/blogs/ai-clopedia/. Do not use ImgBB or external URLs."
       - { label: "Author", name: "author", widget: "string", required: false }
       - { label: "Tags", name: "tags", required: false, widget: "string", hint: "Comma separated tags: e.g. neural networks, transformers, ai, etc." }
       - { label: "Resource Video Link", name: "resourceVideoLink", widget: "string", required: false, hint: "Add a YouTube or other video link associated with this note (optional)" }
@@ -137,12 +137,12 @@ collections:
         required: false
         choose_url: false
         default: "/images/blogs/pfp2.png"
-        hint: "Upload your avatar — saved to GitHub at /images/blogs/ai-klopedia/."
+        hint: "Upload your avatar — saved to GitHub at /images/blogs/ai-clopedia/."
       - label: "Note Content"
         name: "body"
         widget: "markdown"
         editor_components: ["image", "code-block"]
-        hint: "For images: click + → Image → Choose an image. Saved to /images/blogs/ai-klopedia/. Do NOT paste ImgBB/external URLs."
+        hint: "For images: click + → Image → Choose an image. Saved to /images/blogs/ai-clopedia/. Do NOT paste ImgBB/external URLs."
   - name: "front-end-design-system"
     label: "Frontend Design System"
     description: Get the best-explained notes for each chapter of the Namaste Front end Design System course by Akshay Saini. These notes are written by Open source community and can be edited on GitHub.✨
@@ -342,3 +342,4 @@ collections:
       - { label: "Your profile picture", name: "profilePic", widget: "image", required: false, hint: "This image will be shown in the profile picture  avatar." }
       - { label: "Social Link( When user clicks on follow button : we will contact you once your content will be live in next  few minutes after saving it)", name: "followLink", widget: "string", required: false }
       - { label: "Write / Update whatever you want to", name: "body", widget: "markdown", hint: "Here also you can beautify your content below H denotes Heading and click on + icon to add images and you can use any of the option in below control bar." }
+ 

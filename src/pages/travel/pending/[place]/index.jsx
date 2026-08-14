@@ -1,13 +1,15 @@
 import Button from "@/components/base/Button";
 import { HighLightedSpan } from "@/components/base/HighlightedSpan";
 import { PHONE_CALL_THIRTY_MIN } from "@/utils/constant";
-import { pendingTravelPlaces } from "@/utils/data";
 import Image from "next/image";
 import React from "react";
+import { useRouter } from "next/router";
 import { GrFormSchedule } from "react-icons/gr";
-function PlaceDetails(props) {
-  if (!props.place) return "Loading..";
-  const placeName = props.place.split("-")[props.place.split("-").length - 1];
+function PlaceDetails() {
+  const router = useRouter();
+  const place = router.query.place;
+  if (!place) return "Loading..";
+  const placeName = place.split("-")[place.split("-").length - 1];
   const path = "/images/travelpfp/" + placeName + ".jpeg";
 
   return (
@@ -74,33 +76,6 @@ function PlaceDetails(props) {
 
 export default PlaceDetails;
 
-export async function getStaticProps(context) {
-  const { params } = context;
-  const { place } = params;
-
-  return {
-    props: {
-      place: place,
-    },
-    // reValidate: 10, //10 Seconds
-    // redirect: {
-    //   destination: "/",
-    // },
-    // notFound: true, // can do if no data is there
-  };
-}
-
-export async function getStaticPaths() {
-  const allPaths = pendingTravelPlaces?.map((place) => {
-    return {
-      params: {
-        place: `/travel/pending/ashutosh-anand-tiwari-will-travel-${place?.name.toLowerCase()}`,
-      },
-    };
-  });
-
-  return {
-    paths: allPaths,
-    fallback: true,
-  };
+export async function getServerSideProps() {
+  return { props: {} };
 }

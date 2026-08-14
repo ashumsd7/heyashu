@@ -43,7 +43,7 @@ function LessonRow({
         locked ? "cursor-not-allowed opacity-45" : "cursor-pointer"
       } ${
         isSelected
-          ? "bg-[var(--nr-active)] text-[var(--nr-accent)]"
+          ? "bg-[var(--nr-active)] text-[var(--nr-accent)] shadow-sm"
           : "text-[var(--nr-text)] hover:bg-[var(--nr-hover)]"
       }`}
     >
@@ -92,13 +92,13 @@ function SectionBlock({
   icon: Icon = HiOutlineBookOpen,
 }) {
   return (
-    <div className="border-b border-[var(--nr-border)] last:border-b-0">
+    <div className="mx-2 mb-2 overflow-hidden rounded-xl border border-[var(--nr-border)]/80 bg-[var(--nr-surface)]/40">
       <button
         type="button"
         onClick={onToggle}
-        className="flex w-full items-center justify-between gap-2 px-4 py-3 text-left"
+        className="flex w-full items-center justify-between gap-2 px-3 py-2.5 text-left"
       >
-        <span className="flex min-w-0 items-center gap-2.5 font-fraunces text-[14px] font-semibold text-[var(--nr-text)]">
+        <span className="flex min-w-0 items-center gap-2.5 font-fraunces text-[13px] font-semibold text-[var(--nr-text)]">
           <span className="grid h-7 w-7 shrink-0 place-items-center rounded-md border border-[var(--nr-border)] bg-[var(--nr-surface)] text-[var(--nr-text)]">
             <Icon className="h-3.5 w-3.5" />
           </span>
@@ -109,7 +109,7 @@ function SectionBlock({
         />
       </button>
       {open ? (
-        <div className="space-y-0.5 px-2 pb-3">
+        <div className="space-y-0.5 px-1.5 pb-2.5">
           {lessons?.length ? (
             lessons.map((item, idx) => (
               <LessonRow
@@ -134,6 +134,7 @@ function SectionBlock({
 }
 
 export default function NotesReaderSidebar({
+  courseName = "",
   contentListTitle = "Course Content",
   contentListTitle2 = "Season 2",
   data = [],
@@ -152,22 +153,24 @@ export default function NotesReaderSidebar({
   const [sec1Open, setSec1Open] = useState(true);
   const [sec2Open, setSec2Open] = useState(!!show2ndSection);
   const pct = Math.min(100, Math.max(0, Number(progress) || 0));
+  const displayCourse = (courseName || contentListTitle || "Digital Notes").trim();
 
   return (
-    <aside className="flex h-full flex-col border-r border-[var(--nr-border)] bg-[var(--nr-sidebar)]">
-      <div className="border-b border-[var(--nr-border)] bg-[var(--nr-sidebar-head)] px-4 py-4">
-        <div className="mb-1 flex items-center justify-between gap-2">
-          <h2 className="flex items-center gap-2.5 font-fraunces text-[15px] font-semibold text-[var(--nr-text)]">
-            <span className="grid h-7 w-7 place-items-center rounded-md border border-[var(--nr-border)] bg-[var(--nr-surface)]">
-              <HiOutlineListBullet className="h-3.5 w-3.5" />
-            </span>
-            Course Content
-          </h2>
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-[var(--nr-border)] bg-[var(--nr-surface)] px-2 py-0.5 text-[11px] font-medium text-[var(--nr-muted)]">
-            <HiOutlineDocumentText className="h-3 w-3" />
-            {totalCount} Lessons
-          </span>
-        </div>
+    <aside
+      className="flex h-full flex-col border-r border-[var(--nr-border)]"
+      style={{
+        background:
+          "linear-gradient(180deg, var(--nr-sidebar-from) 0%, var(--nr-sidebar-to) 100%)",
+      }}
+    >
+      <div className="border-b border-[var(--nr-border)] px-4 py-4">
+        <p className="mb-2 inline-flex items-center gap-1.5 rounded-full border border-emerald-600/20 bg-emerald-600/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-emerald-800 dark:border-emerald-400/25 dark:bg-emerald-500/10 dark:text-emerald-300">
+          <HiOutlineListBullet className="h-3 w-3" />
+          Course Content
+        </p>
+        <h2 className="font-fraunces text-[16px] font-semibold leading-snug text-[var(--nr-heading)]">
+          {displayCourse}
+        </h2>
         <div className="mt-3">
           <div className="mb-1.5 flex items-center justify-between text-[11px]">
             <span className="inline-flex items-center gap-1.5 font-medium text-[var(--nr-muted)]">
@@ -176,7 +179,8 @@ export default function NotesReaderSidebar({
               </span>
               Progress
             </span>
-            <span className="font-semibold text-[var(--nr-text)]">
+            <span className="inline-flex items-center gap-1.5 font-semibold text-[var(--nr-text)]">
+              <HiOutlineDocumentText className="h-3 w-3 text-[var(--nr-muted)]" />
               {completedCount} / {totalCount} ({Math.round(pct)}%)
             </span>
           </div>
@@ -189,9 +193,9 @@ export default function NotesReaderSidebar({
         </div>
       </div>
 
-      <div className="flex-1 overflow-y-auto overscroll-contain">
+      <div className="flex-1 overflow-y-auto overscroll-contain py-2">
         <SectionBlock
-          title={contentListTitle}
+          title={show2ndSection ? contentListTitle : "Chapters"}
           icon={HiOutlineBookOpen}
           lessons={data}
           open={sec1Open}

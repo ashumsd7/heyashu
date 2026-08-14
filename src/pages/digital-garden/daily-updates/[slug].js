@@ -14,7 +14,7 @@ import MDXRenderer from "@/components/base/MDXRenderer";
 import CommonSlugHeadTags from "@/components/seo/CommonSlugHeadTags";
 
 // Function to fetch the content of the blog post
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
   const filePath = path.join(
     process.cwd(),
     "src",
@@ -36,23 +36,6 @@ export async function getStaticProps({ params }) {
   };
 }
 
-// Function to fetch all blog slugs
-export async function getStaticPaths() {
-  const files = fs.readdirSync(
-    path.join(process.cwd(), "src", "content", "daily-updates")
-  );
-
-  const paths = files.map((fileName) => ({
-    params: {
-      slug: fileName.replace(".md", ""),
-    },
-  }));
-
-  return {
-    paths,
-    fallback: false,
-  };
-}
 
 // Component to render the blog post
 export default function BlogPost({ frontMatter, mdxSource, slug, large = false }) {

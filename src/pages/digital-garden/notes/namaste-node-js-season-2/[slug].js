@@ -36,8 +36,7 @@ const NotesDetailPage = ({ notes, currentPageMDX, currentPageFrontMatter }) => {
 };
 export default NotesDetailPage;
 
-// generating static props
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
   // Define the directory containing your markdown files
   const directory = path.join(
     process.cwd(),
@@ -66,22 +65,5 @@ export async function getStaticProps({ params }) {
       currentPageFrontMatter: data,
       currentPageMDX: mdxSource,
     },
-  };
-}
-// generating static paths
-export async function getStaticPaths() {
-  const files = fs.readdirSync(
-    path.join(process.cwd(), "src", "content", "notes-namaste-node-js")
-  );
-
-  const paths = files.map((fileName) => ({
-    params: {
-      slug: fileName.replace(".md", ""),
-    },
-  }));
-
-  return {
-    paths,
-    fallback: false,
   };
 }

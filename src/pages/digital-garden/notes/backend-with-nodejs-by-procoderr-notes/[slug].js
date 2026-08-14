@@ -38,7 +38,7 @@ const NotesDetailPage = ({ notes, currentPageMDX, currentPageFrontMatter }) => {
 };
 export default NotesDetailPage;
 
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
   const directory = path.join(process.cwd(), "src/content/node-js-procodrr");
 
   const filePath = path.join(
@@ -63,19 +63,3 @@ export async function getStaticProps({ params }) {
   };
 }
 
-export async function getStaticPaths() {
-  const files = fs.readdirSync(
-    path.join(process.cwd(), "src", "content", "node-js-procodrr")
-  );
-
-  const paths = files.map((fileName) => ({
-    params: {
-      slug: fileName.replace(".md", ""),
-    },
-  }));
-
-  return {
-    paths,
-    fallback: false,
-  };
-}

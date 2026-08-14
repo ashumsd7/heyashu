@@ -43,8 +43,7 @@ const NotesDetailPageForSnippets = ({
 };
 export default NotesDetailPageForSnippets;
 
-// generating static props
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
   const directory = path.join(process.cwd(), "src/content/front-end-design-system");
   const filePath = path.join(
     process.cwd(),
@@ -64,22 +63,5 @@ export async function getStaticProps({ params }) {
       currentPageFrontMatter: data,
       currentPageMDX: mdxSource,
     },
-  };
-}
-// generating static paths
-export async function getStaticPaths() {
-  const files = fs.readdirSync(
-    path.join(process.cwd(), "src", "content", "front-end-design-system")
-  );
-
-  const paths = files.map((fileName) => ({
-    params: {
-      slug: fileName.replace(".md", ""),
-    },
-  }));
-
-  return {
-    paths,
-    fallback: false,
   };
 }

@@ -53,17 +53,21 @@ const THEMES = {
     label: "Light",
     icon: HiOutlineSun,
     vars: {
-      "--nr-bg": "#ffffff",
+      "--nr-bg": "#fafbfc",
       "--nr-surface": "#ffffff",
-      "--nr-sidebar": "#f3f4f6",
-      "--nr-sidebar-head": "#eaeaec",
-      "--nr-nav": "#f3f4f6",
+      "--nr-sidebar": "#e8edf0",
+      "--nr-sidebar-from": "#dfe6ea",
+      "--nr-sidebar-to": "#f3f5f7",
+      "--nr-sidebar-head": "#d5dde3",
+      "--nr-nav": "#e8eee9",
+      "--nr-nav-from": "#e4ece7",
+      "--nr-nav-to": "#f7faf8",
       "--nr-text": "#171717",
       "--nr-muted": "#6b7280",
-      "--nr-border": "#e5e7eb",
+      "--nr-border": "#d0d8de",
       "--nr-accent": "#143825",
-      "--nr-active": "#e8f0ea",
-      "--nr-hover": "#f3f4f6",
+      "--nr-active": "#dcebe0",
+      "--nr-hover": "#eef2f4",
       "--nr-heading": "#111111",
       "--nr-body": "#374151",
       "--nr-code-bg": "#1a1f1c",
@@ -76,15 +80,19 @@ const THEMES = {
     vars: {
       "--nr-bg": "#000000",
       "--nr-surface": "#0a0a0a",
-      "--nr-sidebar": "#111111",
-      "--nr-sidebar-head": "#171717",
-      "--nr-nav": "#0f0f0f",
+      "--nr-sidebar": "#101614",
+      "--nr-sidebar-from": "#18201c",
+      "--nr-sidebar-to": "#0a0d0c",
+      "--nr-sidebar-head": "#1a2420",
+      "--nr-nav": "#121816",
+      "--nr-nav-from": "#1a2420",
+      "--nr-nav-to": "#0b0f0d",
       "--nr-text": "#f5f5f5",
       "--nr-muted": "#a3a3a3",
-      "--nr-border": "#262626",
+      "--nr-border": "#2a3530",
       "--nr-accent": "#4ade80",
-      "--nr-active": "#1a1a1a",
-      "--nr-hover": "#1a1a1a",
+      "--nr-active": "#1a2a22",
+      "--nr-hover": "#151c18",
       "--nr-heading": "#fafafa",
       "--nr-body": "#d4d4d4",
       "--nr-code-bg": "#0a0a0a",
@@ -97,9 +105,13 @@ const THEMES = {
     vars: {
       "--nr-bg": "#f3ead8",
       "--nr-surface": "#f7efdf",
-      "--nr-sidebar": "#ebe0c8",
-      "--nr-sidebar-head": "#e0d2b0",
-      "--nr-nav": "#ddcfae",
+      "--nr-sidebar": "#e4d6b6",
+      "--nr-sidebar-from": "#ddcfb0",
+      "--nr-sidebar-to": "#f1e6d0",
+      "--nr-sidebar-head": "#d4c4a0",
+      "--nr-nav": "#eadfc8",
+      "--nr-nav-from": "#e6d9b8",
+      "--nr-nav-to": "#f3ead8",
       "--nr-text": "#3d3429",
       "--nr-muted": "#7a6b58",
       "--nr-border": "#d4c4a4",
@@ -329,11 +341,16 @@ const NotesMainPage = ({
         }}
       >
         <div className="bg-[var(--nr-bg)] text-[var(--nr-text)] transition-colors duration-300">
-          {/* Top bar — same mid shell as sidebar + content */}
-          <div className="sticky top-0 z-30 border-b border-[var(--nr-border)] bg-[var(--nr-nav)] backdrop-blur-md">
-            <div
-              className={`${SHELL} flex flex-wrap items-center justify-between gap-2 py-2.5 md:gap-3`}
-            >
+          {/* Top bar — content width, soft top→bottom gradient */}
+          <div className="sticky top-0 z-30">
+            <div className={SHELL}>
+              <div
+                className="flex flex-wrap items-center justify-between gap-2 rounded-b-2xl border border-t-0 border-[var(--nr-border)] px-3 py-2.5 shadow-[0_8px_24px_-18px_rgba(15,23,42,0.35)] md:gap-3 md:px-4"
+                style={{
+                  background:
+                    "linear-gradient(180deg, var(--nr-nav-from) 0%, var(--nr-nav-to) 100%)",
+                }}
+              >
               <div className="flex min-w-0 flex-1 items-center gap-2 md:gap-3">
                 <Link
                   href="/digital-garden"
@@ -360,7 +377,11 @@ const NotesMainPage = ({
                   <HiOutlineBars3 className="h-5 w-5" />
                 </button>
                 <div className="min-w-0">
-                  <p className="mb-0.5 text-[10px] font-medium uppercase tracking-[0.06em] text-[var(--nr-muted)]">
+                  <p className="mb-1 inline-flex items-center gap-1.5 rounded-full border border-emerald-500/35 bg-emerald-50 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.06em] text-emerald-800 dark:border-emerald-400/40 dark:bg-emerald-950/50 dark:text-emerald-300">
+                    <span className="relative flex h-1.5 w-1.5">
+                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-75" />
+                      <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                    </span>
                     You are reading
                   </p>
                   <div className="flex min-w-0 flex-wrap items-baseline gap-1.5">
@@ -391,13 +412,13 @@ const NotesMainPage = ({
                 </button>
                 <button
                   type="button"
-                  onClick={() => setQuickOpen(true)}
+                  onClick={() => setQnaOpen(true)}
                   className="ai-pill inline-flex items-center gap-1.5 rounded-full border border-indigo-400/70 bg-[var(--nr-surface)] px-2.5 py-1.5 text-[10px] font-medium text-indigo-700 animate-ai-border transition hover:bg-indigo-50 md:px-3 md:text-[11px] dark:text-indigo-300 dark:hover:bg-indigo-950/40"
                   style={{ animationDelay: "0.4s" }}
                 >
                   <HiSparkles className="h-3.5 w-3.5 shrink-0 animate-sparkle-pulse text-indigo-500" />
-                  <span className="hidden md:inline">Summarize with AI</span>
-                  <span className="md:hidden">Summarize</span>
+                  <span className="hidden md:inline">Attempt Quiz</span>
+                  <span className="md:hidden">Quiz</span>
                 </button>
                 <button
                   type="button"
@@ -456,6 +477,7 @@ const NotesMainPage = ({
               </div>
             </div>
           </div>
+          </div>
 
           <div className={`${SHELL} flex`}>
             {/* Desktop sidebar — aligned with navbar shell */}
@@ -471,6 +493,7 @@ const NotesMainPage = ({
                 >
                   <div className="h-full" style={{ width: SIDEBAR_WIDTH }}>
                     <NotesReaderSidebar
+                      courseName={courseDisplayTitle}
                       contentListTitle={contentListTitle}
           data={contentList}
                       season2Data={season2Data}
@@ -682,7 +705,13 @@ const NotesMainPage = ({
               aria-label="Close menu"
               onClick={() => setMobileNavOpen(false)}
             />
-            <div className="absolute bottom-0 left-0 top-0 flex w-[min(100%,320px)] flex-col bg-[var(--nr-sidebar)] shadow-xl">
+            <div
+              className="absolute bottom-0 left-0 top-0 flex w-[min(100%,320px)] flex-col shadow-xl"
+              style={{
+                background:
+                  "linear-gradient(180deg, var(--nr-sidebar-from) 0%, var(--nr-sidebar-to) 100%)",
+              }}
+            >
               <div className="flex items-center justify-between border-b border-[var(--nr-border)] px-3 py-3">
                 <span className="font-fraunces text-[14px] font-semibold">
                   Course Content
@@ -697,6 +726,7 @@ const NotesMainPage = ({
               </div>
               <div className="min-h-0 flex-1">
                 <NotesReaderSidebar
+                  courseName={courseDisplayTitle}
                   contentListTitle={contentListTitle}
                   data={contentList}
                   season2Data={season2Data}

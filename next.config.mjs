@@ -11,6 +11,10 @@ const nextConfig = {
   experimental: {
     outputFileTracingExcludes: {
       "*": [
+        ".git/**",
+        ".vscode/**",
+        ".cursor/**",
+        "scripts/**",
         "node_modules/@swc/core-linux-x64-gnu/**",
         "node_modules/@swc/core-linux-x64-musl/**",
         "node_modules/@esbuild/**",
@@ -34,42 +38,15 @@ const nextConfig = {
   },
   images: {
     remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "**",
-      },
-      {
-        protocol: "http",
-        hostname: "**",
-      },
-      {
-        protocol: "https",
-        hostname: "i.ibb.co",
-      },
-      {
-        protocol: "https",
-        hostname: "plus.unsplash.com",
-      },
-      {
-        protocol: "https",
-        hostname: "encrypted-tbn0.gstatic.com",
-      },
-      {
-        protocol: "https",
-        hostname: "imgs.search.brave.com",
-      },
-      {
-        protocol: "https",
-        hostname: "lh3.googleusercontent.com",
-      },
-      {
-        protocol: "https",
-        hostname: "ui.aceternity.com",
-      },
-      {
-        protocol: "https",
-        hostname: "bsmedia.business-standard",
-      },
+      { protocol: "https", hostname: "**" },
+      { protocol: "http", hostname: "**" },
+      { protocol: "https", hostname: "i.ibb.co" },
+      { protocol: "https", hostname: "plus.unsplash.com" },
+      { protocol: "https", hostname: "encrypted-tbn0.gstatic.com" },
+      { protocol: "https", hostname: "imgs.search.brave.com" },
+      { protocol: "https", hostname: "lh3.googleusercontent.com" },
+      { protocol: "https", hostname: "ui.aceternity.com" },
+      { protocol: "https", hostname: "bsmedia.business-standard" },
     ],
   },
 };
