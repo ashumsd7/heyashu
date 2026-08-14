@@ -1,3 +1,4 @@
+import React, { useEffect } from "react";
 import Layout from "@/components/base/Layout";
 import Navbar from "@/components/base/Navbar";
 import QuickMsgBtn from "@/components/ui/QuickMsgBtn";
@@ -24,6 +25,17 @@ import {
 export default function App({ Component, pageProps }) {
   const router = useRouter();
   const canonicalUrl = `https://www.heyashu.in${router?.asPath?.split("?")[0] || ""}`;
+
+  useEffect(() => {
+    if (typeof window === "undefined" || !("serviceWorker" in navigator)) return;
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
+      registrations.forEach((registration) => {
+        if (registration.active?.scriptURL?.includes("/sw.js")) {
+          registration.unregister();
+        }
+      });
+    });
+  }, []);
 
   // 1) Page can opt in explicitly via Component.getLayout
   // 2) Notes chapter /digital-garden/notes/:series/:slug → bare full page

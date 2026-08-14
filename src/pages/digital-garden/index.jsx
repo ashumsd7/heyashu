@@ -69,7 +69,6 @@ function SilentVideo({ className, src, "aria-label": ariaLabel, "aria-hidden": a
       autoPlay
       loop
       muted
-      defaultMuted
       playsInline
       controls={false}
       disablePictureInPicture

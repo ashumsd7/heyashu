@@ -27,8 +27,6 @@ const nextConfig = {
         "node_modules/next/dist/compiled/webpack/**",
         "node_modules/highlight.js/**",
         "node_modules/lowlight/**",
-        "node_modules/framer-motion/**",
-        "node_modules/react-icons/**",
         "public/**",
         "src/content/**",
       ],
