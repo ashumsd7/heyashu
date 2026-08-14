@@ -65,10 +65,27 @@ function Navbar() {
     { href: "/blog", label: "Blogs" },
     { href: "/tech", label: "Tech" },
     { href: "/tech/products", label: "Products" },
-    { href: "/digital-garden", label: "Digital Garden", isSpecial: true },
+    { href: "/digital-garden", label: "Digital Garden ft. Notes", isSpecial: true },
     { href: "/travel", label: "Travel" },
     { href: "/misc", label: "More" }
   ];
+
+  const isGardenNavActive =
+    router.pathname === "/digital-garden" ||
+    router.pathname.startsWith("/digital-garden/") ||
+    router.pathname.startsWith("/blog");
+
+  function renderNavLabel(item, mobile = false) {
+    if (!item.isSpecial) return item.label;
+    return (
+      <span className={`nav-garden-chip ${mobile ? "nav-garden-chip-mobile" : ""}`}>
+        <span className="nav-garden-chip-inner">
+          <span className="nav-garden-chip-dot" aria-hidden="true" />
+          <span className="nav-garden-chip-text">{item.label}</span>
+        </span>
+      </span>
+    );
+  }
 
   // Check if current route is shadi-invite
   const isShadiInvitePage = router.pathname?.includes('shadi-invite') || router.asPath?.includes('shadi-invite');
@@ -116,15 +133,18 @@ function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`text-base font-medium transition-colors duration-200 ${
-                  router.pathname === item.href
-                    ? 'text-indigo-600 dark:text-indigo-400'
-                    : item.isSpecial 
-                      ? 'relative text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 animate-pulse after:content-[""] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-0.5 after:bg-emerald-500 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300'
-                      : 'text-gray-700 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400'
-                }`}
+                className={
+                  item.isSpecial
+                    ? "inline-flex transition-transform duration-200 hover:scale-[1.02]"
+                    : `text-base font-medium transition-colors duration-200 ${
+                        router.pathname === item.href
+                          ? "text-indigo-600 dark:text-indigo-400"
+                          : "text-gray-700 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400"
+                      }`
+                }
+                aria-current={item.isSpecial && isGardenNavActive ? "page" : undefined}
               >
-                {item.label}
+                {renderNavLabel(item)}
               </Link>
             ))}
             
@@ -167,18 +187,18 @@ function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`text-center w-full py-4 text-2xl font-medium transition-all duration-300 transform hover:scale-105 ${
-                  router.pathname === item.href
-                    ? 'text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/30 rounded-lg'
-                    : item.isSpecial
-                      ? 'text-emerald-600 dark:text-emerald-400 animate-pulse bg-emerald-50 dark:bg-emerald-900/20 rounded-lg'
-                      : 'text-gray-800 dark:text-gray-200 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg'
-                }`}
+                className={
+                  item.isSpecial
+                    ? "inline-flex transition-transform duration-300 transform hover:scale-105"
+                    : `text-center w-full py-4 text-2xl font-medium transition-all duration-300 transform hover:scale-105 ${
+                        router.pathname === item.href
+                          ? "text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/30 rounded-lg"
+                          : "text-gray-800 dark:text-gray-200 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg"
+                      }`
+                }
                 onClick={() => setIsOpen(false)}
               >
-                <span className="relative">
-                  {item.label}
-                </span>
+                {renderNavLabel(item, true)}
               </Link>
             ))}
           </div>
