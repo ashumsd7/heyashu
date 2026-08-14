@@ -12,6 +12,7 @@ import {
   HiOutlineShare,
   HiOutlineArrowDownTray,
   HiOutlineSpeakerWave,
+  HiOutlinePencilSquare,
   HiBolt,
   HiSparkles,
   HiChatBubbleLeftRight,
@@ -203,7 +204,7 @@ export default function BlogPost({ frontMatter, mdxSource, related = [], slug })
       setSpeaking(false);
       return;
     }
-    const article = document.getElementById("garden-blog-article");
+    const article = document.getElementById("ai-markdown-content");
     const text = article?.innerText || title;
     const utter = new SpeechSynthesisUtterance(text.slice(0, 12000));
     utter.onend = () => setSpeaking(false);
@@ -259,9 +260,9 @@ export default function BlogPost({ frontMatter, mdxSource, related = [], slug })
         ))}
       </aside>
 
-      <article className="mx-auto max-w-[920px] px-5 pb-16 pt-10 md:px-8 md:pt-12">
-        {/* AI action pills — same drawers as notes */}
-        <div className="mb-8 flex flex-wrap items-center justify-center gap-2">
+      <article className="mx-auto max-w-[920px] px-5 pb-32 pt-10 md:px-8 md:pb-16 md:pt-12">
+        {/* AI action pills — desktop; mobile uses sticky bottom */}
+        <div className="mb-8 hidden flex-wrap items-center justify-center gap-2 md:flex">
           <button
             type="button"
             onClick={() => setQuickOpen(true)}
@@ -340,7 +341,7 @@ export default function BlogPost({ frontMatter, mdxSource, related = [], slug })
 
         {/* Article body — smaller markdown typography */}
         <div
-          id="garden-blog-article"
+          id="ai-markdown-content"
           style={{ fontSize: `${bodyFontPx}px` }}
           className="garden-blog-prose prose max-w-none text-left dark:prose-invert
             prose-headings:font-fraunces prose-headings:font-semibold prose-headings:tracking-[-0.01em]
@@ -401,6 +402,90 @@ export default function BlogPost({ frontMatter, mdxSource, related = [], slug })
 
         <GardenCollabCard className="mt-12" />
       </article>
+
+      {/* Mobile sticky AI + tools (same idea as notes) */}
+      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-[#e8e2d7] bg-[#faf7f2]/95 px-2 pb-[max(0.4rem,env(safe-area-inset-bottom))] pt-1.5 backdrop-blur-md dark:border-[#1e3328] dark:bg-[#0b120e]/95 md:hidden">
+        <div className="mx-auto flex max-w-[920px] flex-col gap-1.5">
+          <div className="flex items-center justify-center gap-1.5">
+            <button
+              type="button"
+              onClick={() => setQuickOpen(true)}
+              className="inline-flex flex-1 items-center justify-center gap-1 rounded-full border border-[#ddd5c8] bg-transparent px-2 py-2 text-[10px] font-medium text-[#171717] dark:border-[#1e3328] dark:text-[#f0f4ef]"
+            >
+              <HiBolt className="h-3.5 w-3.5 shrink-0 text-violet-500" />
+              Quick Read
+            </button>
+            <button
+              type="button"
+              onClick={() => setQuizOpen(true)}
+              className="inline-flex flex-1 items-center justify-center gap-1 rounded-full border border-[#ddd5c8] bg-transparent px-2 py-2 text-[10px] font-medium text-[#171717] dark:border-[#1e3328] dark:text-[#f0f4ef]"
+            >
+              <HiSparkles className="h-3.5 w-3.5 shrink-0 text-sky-500" />
+              Quiz
+            </button>
+            <button
+              type="button"
+              onClick={() => setQnaOpen(true)}
+              className="inline-flex flex-1 items-center justify-center gap-1 rounded-full border border-[#ddd5c8] bg-transparent px-2 py-2 text-[10px] font-medium text-[#171717] dark:border-[#1e3328] dark:text-[#f0f4ef]"
+            >
+              <HiChatBubbleLeftRight className="h-3.5 w-3.5 shrink-0 text-violet-500" />
+              Q&amp;A
+            </button>
+          </div>
+          <div className="flex items-center justify-between gap-1 border border-[#ddd5c8] bg-white px-1 py-0.5 dark:border-[#1e3328] dark:bg-[#121e17]">
+            <button
+              type="button"
+              title="Increase font size"
+              onClick={() => bumpFont(1)}
+              className="grid h-9 flex-1 place-items-center font-fraunces text-[12px] font-semibold text-[#5f584e] transition hover:bg-[#f3eee5] hover:text-[#1c1c1c] dark:text-[#92a59a] dark:hover:bg-[#172a20] dark:hover:text-[#f0f4ef]"
+            >
+              +A
+            </button>
+            <button
+              type="button"
+              title="Decrease font size"
+              onClick={() => bumpFont(-1)}
+              className="grid h-9 flex-1 place-items-center font-fraunces text-[11px] font-semibold text-[#5f584e] transition hover:bg-[#f3eee5] hover:text-[#1c1c1c] dark:text-[#92a59a] dark:hover:bg-[#172a20] dark:hover:text-[#f0f4ef]"
+            >
+              −A
+            </button>
+            {[
+              { label: "Share", icon: HiOutlineShare, onClick: handleShare },
+              {
+                label: "Bookmark",
+                icon: HiOutlineBookmark,
+                onClick: handleBookmark,
+              },
+              {
+                label: "Download",
+                icon: HiOutlineArrowDownTray,
+                onClick: handleDownload,
+              },
+              {
+                label: speaking ? "Stop" : "Speak",
+                icon: HiOutlineSpeakerWave,
+                onClick: handleSpeak,
+              },
+              {
+                label: "Edit",
+                icon: HiOutlinePencilSquare,
+                onClick: () =>
+                  window.open("https://www.heyashu.in/admin", "_blank"),
+              },
+            ].map((item) => (
+              <button
+                key={item.label}
+                type="button"
+                title={item.label}
+                onClick={item.onClick}
+                className="grid h-9 flex-1 place-items-center text-[#5f584e] transition hover:bg-[#f3eee5] hover:text-[#1c1c1c] dark:text-[#92a59a] dark:hover:bg-[#172a20] dark:hover:text-[#f0f4ef]"
+              >
+                <item.icon className="h-4 w-4" />
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
 
       <QuickReaderDrawer isOpen={quickOpen} setIsOpen={setQuickOpen} />
       <QuestionsListDrawer isOpen={qnaOpen} setIsOpen={setQnaOpen} />

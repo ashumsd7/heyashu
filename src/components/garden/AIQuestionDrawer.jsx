@@ -1,266 +1,139 @@
-'use client';
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { IoClose } from 'react-icons/io5';
-import { FaLightbulb, FaShare, FaCheck, FaTimes, FaRedo, FaTrophy } from 'react-icons/fa';
+"use client";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { IoClose } from "react-icons/io5";
+import {
+  FaCheck,
+  FaTimes,
+  FaRedo,
+  FaTrophy,
+  FaLightbulb,
+} from "react-icons/fa";
+import { HiSparkles } from "react-icons/hi2";
 import {
   TwitterShareButton,
   WhatsappShareButton,
-  TwitterIcon, 
-  WhatsappIcon
-} from 'react-share';
-import {  OPENROUTER_API_URL, OPENROUTER_MODEL, OPENROUTER_SITE_NAME, OPENROUTER_SITE_URL } from '@/utils/constant';
+  TwitterIcon,
+  WhatsappIcon,
+} from "react-share";
+import {
+  callOpenRouter,
+  getAiMarkdownContent,
+  parseAiJsonResponse,
+} from "@/utils/aiOpenRouter";
 
 const loadingMessages = [
-  "Analyzing the content...",
-  "Crafting thoughtful questions...", 
-  "Adding interesting options...",
-  "Polishing the final touches...",
-  "Almost ready..."
+  "Reading the article…",
+  "Building quiz questions…",
+  "Preparing options…",
+  "Almost ready…",
 ];
 
-const LoadingMessages = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % loadingMessages.length);
-    }, 2000);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  return (
-    <div className="relative h-8">
-      {loadingMessages.map((message, index) => (
-        <motion.div
-          key={index}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ 
-            opacity: currentIndex === index ? 1 : 0,
-            y: currentIndex === index ? 0 : -20 
-          }}
-          transition={{ duration: 0.5 }}
-          className="absolute w-full text-center text-gray-800 dark:text-gray-200"
-        >
-          {message}
-        </motion.div>
-      ))}
-    </div>
-  );
-};
-
 const getScoreMessage = (percentage) => {
-  if (percentage >= 90) return "Excellent! You're a master of this topic! 🏆";
-  if (percentage >= 70) return "Great job! You have a solid understanding! 👏";
-  if (percentage >= 50) return "Good effort! Keep learning to improve! 📚";
-  return "Keep practicing! You'll get better with time! 💪";
+  if (percentage >= 90) return "Excellent — you know this topic well.";
+  if (percentage >= 70) return "Solid understanding. A bit more revision helps.";
+  if (percentage >= 50) return "Decent start. Re-read the weak spots.";
+  return "Keep practicing — open the article and try again.";
 };
-
-function parseResponse(response) {
-  try {
-    // First try direct JSON parse
-    return JSON.parse(response);
-  } catch (e) {
-    // If direct parse fails, try extracting JSON from markdown
-    const jsonMatch = response.match(/```json\n([\s\S]*?)\n```/);
-    if (jsonMatch && jsonMatch[1]) {
-      try {
-        return JSON.parse(jsonMatch[1]);
-      } catch (err) {
-        console.error("Failed to parse extracted JSON:", err);
-        return null;
-      }
-    }
-    
-    // Try finding JSON without markdown tags
-    const jsonRegex = /\{[\s\S]*\}/;
-    const possibleJson = response.match(jsonRegex);
-    if (possibleJson) {
-      try {
-        return JSON.parse(possibleJson[0]);
-      } catch (err) {
-        console.error("Failed to parse possible JSON:", err);
-        return null;
-      }
-    }
-    
-    console.error("No valid JSON found in response");
-    return null;
-  }
-}
 
 async function generateQuestions(providedText) {
-  try {
- 
-    const response = await fetch(OPENROUTER_API_URL, {
-      method: "POST",
-      headers: {
-        "Authorization": `Bearer ${process.env.NEXT_PUBLIC_OPENROUTER_API_KEY}`,
-        "HTTP-Referer": OPENROUTER_SITE_URL,
-        "X-Title": OPENROUTER_SITE_NAME,
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        "model": OPENROUTER_MODEL,
-        "messages": [
-          {
-            "role": "system",
-            "content": `You are an AI that generates **interview-style multiple-choice questions (MCQs)** for web development.
-                        - The user will provide a programming-related text.
-                        - Your task is to generate **at least 1 and at most 10** questions.
-                        -Try to provide maximum questions as possible
-                        - **Questions should match the most commonly asked interview questions in India**.
-                        -Act like as an interviewer and ask questions to the user
-                        -the candidate while selecting option should think like answering a real interviewer
-                        - Each question should have:
-                          1️⃣ **A clear and concise question**
-                          2️⃣ **3 options** (ensure one is correct)
-                          3️⃣ **Correct answer as an index (0-based)**
-                          4️⃣ **A simple explanation of the correct answer**
-                          Keep explanation in a descriptive manner with 3 to 4 lines.
-                          keep option also some one liner some with multi words 1 to 2 lines 
-                        - The response must be in **strict JSON format**, with no extra text. Example:
-                          {
-                            "topic": "Topic Name",
-                            "description": "Brief description",
-                            "questions": [
-                              {
-                                "id": 1,
-                                "question": "What is the Virtual DOM in React and why is it important?",
-                                "options": [
-                                  "A visual representation of the DOM",
-                                  "An in-memory representation that improves performance",
-                                  "A DOM specifically for virtual reality apps"
-                                ],
-                                "correctAnswer": 1,
-                                "explanation": "Virtual DOM is an in-memory copy of the real DOM that React uses to optimize rendering performance by minimizing direct DOM manipulation."
-                              }
-                            ]
-                          }
-                        - Do **not** include any additional text. Only return valid JSON.`
-          },
-          {
-            "role": "user",
-            "content": providedText
-          }
-        ]
-      })
-    });
-
-    if (!response.ok) {
-      throw new Error(`API request failed: ${response.statusText}`);
+  const content = await callOpenRouter([
+    {
+      role: "system",
+      content: `You create interview-style multiple-choice questions from the given article only.
+Return ONLY valid JSON:
+{
+  "topic": "Topic Name",
+  "description": "One short line",
+  "questions": [
+    {
+      "id": 1,
+      "question": "…?",
+      "options": ["A", "B", "C"],
+      "correctAnswer": 1,
+      "explanation": "2–4 line explanation"
     }
+  ]
+}
+Rules:
+- Question count must follow content depth. Do not force a fixed number.
+- Exactly 3 options; correctAnswer is 0-based index.
+- Questions should feel like a real interviewer asking about THIS text.
+- No markdown fences, no extra text.`,
+    },
+    { role: "user", content: providedText },
+  ]);
 
-    const data = await response.json();
-    if (!data.choices?.[0]?.message?.content) {
-      throw new Error("Invalid API response format");
-    }
-
-    const parsedQuestions = parseResponse(data.choices[0].message.content);
-    if (!parsedQuestions) {
-      throw new Error("Failed to parse questions from response");
-    }
-
-    return parsedQuestions;
-  } catch (error) {
-    console.error("❌ Error generating questions:", error);
-    throw error;
+  const parsed = parseAiJsonResponse(content);
+  if (!parsed?.questions?.length) {
+    throw new Error("Could not parse quiz from the model response");
   }
+  return parsed;
 }
 
-const AIQuestionDrawer = ({ isOpen, setIsOpen, questions: initialQuestions, text }) => {
+const AIQuestionDrawer = ({ isOpen, setIsOpen }) => {
   const [currentAnswers, setCurrentAnswers] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [score, setScore] = useState(0);
   const [allAttempted, setAllAttempted] = useState(false);
-  const [questions, setQuestions] = useState(initialQuestions);
-  const [loadingProgress, setLoadingProgress] = useState(0);
-  const [loadingMessageIndex, setLoadingMessageIndex] = useState(0);
+  const [questions, setQuestions] = useState(null);
+  const [msgIdx, setMsgIdx] = useState(0);
 
   const fetchQuestions = async () => {
     try {
       setIsLoading(true);
       setError(null);
-      setLoadingProgress(0);
-      setLoadingMessageIndex(0);
+      setMsgIdx(0);
+      setQuestions(null);
+      setCurrentAnswers({});
+      setScore(0);
+      setAllAttempted(false);
 
-      // Start progress animation
-      const progressInterval = setInterval(() => {
-        setLoadingProgress(prev => {
-          if (prev >= 100) {
-            clearInterval(progressInterval);
-            return 100;
-          }
-          return prev + 1;
-        });
-      }, 100);
+      const tick = setInterval(() => {
+        setMsgIdx((i) => Math.min(i + 1, loadingMessages.length - 1));
+      }, 1800);
 
-      const text = document.body.innerText;
-      const generatedQuestions = await generateQuestions(text);
-      setQuestions(generatedQuestions);
-
-      clearInterval(progressInterval);
+      const text = getAiMarkdownContent();
+      const generated = await generateQuestions(text);
+      setQuestions(generated);
+      clearInterval(tick);
     } catch (err) {
       setError(err.message || "Failed to generate questions");
     } finally {
       setIsLoading(false);
-      setLoadingProgress(100);
     }
   };
 
   useEffect(() => {
-    if (isOpen) {
-      fetchQuestions();
-    }
+    if (!isOpen) return undefined;
+    fetchQuestions();
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [isOpen]);
 
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-      return () => {
-        document.body.style.overflow = 'unset';
-      }
-    }
-  }, [isOpen]);
-
-  useEffect(() => {
-    const attempted = questions?.questions?.every(q => currentAnswers[q.id] !== undefined);
+    const list = questions?.questions;
+    if (!list?.length) return;
+    const attempted = list.every((q) => currentAnswers[q.id] !== undefined);
     setAllAttempted(attempted);
-    
-    // If all questions are attempted, scroll to score section
     if (attempted) {
-      const scoreSection = document.getElementById('score-section');
-      if (scoreSection) {
-        setTimeout(() => {
-          scoreSection.scrollIntoView({ behavior: 'smooth', block: 'end' });
-        }, 500);
-      }
+      setTimeout(() => {
+        document
+          .getElementById("score-section")
+          ?.scrollIntoView({ behavior: "smooth", block: "end" });
+      }, 400);
     }
   }, [currentAnswers, questions]);
 
   const handleOptionSelect = (questionId, optionIndex) => {
     if (currentAnswers[questionId] !== undefined) return;
-
-    setCurrentAnswers(prev => ({
-      ...prev,
-      [questionId]: optionIndex
-    }));
-
-    if (optionIndex === questions.questions[questionId - 1].correctAnswer) {
-      setScore(prev => prev + 1);
-    }
-
-    // Check if this was the last question
-    const isLastQuestion = Object.keys(currentAnswers).length === questions.questions.length - 1;
-    if (isLastQuestion) {
-      setTimeout(() => {
-        const scoreSection = document.getElementById('score-section');
-        if (scoreSection) {
-          scoreSection.scrollIntoView({ behavior: 'smooth', block: 'end' });
-        }
-      }, 500);
+    const q = questions.questions.find((item) => item.id === questionId);
+    setCurrentAnswers((prev) => ({ ...prev, [questionId]: optionIndex }));
+    if (q && optionIndex === q.correctAnswer) {
+      setScore((prev) => prev + 1);
     }
   };
 
@@ -271,196 +144,210 @@ const AIQuestionDrawer = ({ isOpen, setIsOpen, questions: initialQuestions, text
     fetchQuestions();
   };
 
-  const scorePercentage = Math.round((score/questions?.questions?.length) * 100);
-  const shareText = `🎓 I just completed AI Assessment on ${questions?.topic || 'Web Development'} and scored ${scorePercentage}%! 🎯\n\n📚 🌟 Attempt Quiz: ${window.location.href}  Read & Explore 100+ topics and visit Open sourced Digital Garden \n\n `;
-  const shareUrl = 'https://heyashu.in/digital-garden';
+  const total = questions?.questions?.length || 0;
+  const scorePercentage = total ? Math.round((score / total) * 100) : 0;
+  const shareText = `I scored ${scorePercentage}% on an AI quiz about ${
+    questions?.topic || "this topic"
+  } on heyashu.in Digital Garden.`;
+  const shareUrl =
+    typeof window !== "undefined" ? window.location.href : "https://heyashu.in";
 
   return (
     <AnimatePresence>
-      {isOpen && (
+      {isOpen ? (
         <>
-          <div 
-            className="fixed inset-0 bg-black/80 z-[9999]"
+          <motion.button
+            type="button"
+            aria-label="Close overlay"
+            className="fixed inset-0 z-[9999] bg-black/50"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             onClick={() => setIsOpen(false)}
           />
-          <motion.div
-            initial={{ x: '100%' }}
+          <motion.aside
+            initial={{ x: "100%" }}
             animate={{ x: 0 }}
-            exit={{ x: '100%' }}
-            transition={{ type: 'spring', damping: 20 }}
-            className="fixed inset-y-0 right-0 z-[10000] h-full w-full overflow-y-auto bg-white shadow-2xl dark:bg-gray-900 md:w-[40%]"
+            exit={{ x: "100%" }}
+            transition={{ type: "spring", stiffness: 380, damping: 36 }}
+            className="fixed inset-y-0 right-0 z-[10000] flex h-full w-full flex-col border-l border-[#e8e2d7] bg-[#faf7f2] dark:border-[#1e3328] dark:bg-[#0b120e] md:w-[min(100%,420px)]"
           >
-            <div className="sticky top-0 bg-white dark:bg-gray-900 z-50">
-              <div className="flex justify-between items-center p-2 px-4">
-                <h2 className="text-2xl font-bold text-gray-800 dark:text-yellow-400">
-                AI Assessment
-                </h2>
-                <button
-                  onClick={() => setIsOpen(false)}
-                  className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
-                >
-                  <IoClose size={24} />
-                </button>
+            <header className="flex shrink-0 items-center justify-between border-b border-[#e8e2d7] px-4 py-3 dark:border-[#1e3328]">
+              <div className="flex items-center gap-2">
+                <HiSparkles className="h-4 w-4 text-sky-500" />
+                <div>
+                  <h2 className="font-fraunces text-[15px] font-semibold text-[#171717] dark:text-[#f0f4ef]">
+                    Attempt Quiz
+                  </h2>
+                  <p className="text-[11px] text-[#6b6458] dark:text-[#92a59a]">
+                    MCQs from this article
+                  </p>
+                </div>
               </div>
-              <div className="h-px bg-gray-200 dark:bg-gray-700 w-full"></div>
-            </div>
+              <button
+                type="button"
+                onClick={() => setIsOpen(false)}
+                className="grid h-9 w-9 place-items-center border border-[#e8e2d7] text-[#585858] transition hover:bg-black/[0.04] dark:border-[#1e3328] dark:text-[#92a59a] dark:hover:bg-white/[0.04]"
+                aria-label="Close"
+              >
+                <IoClose size={18} />
+              </button>
+            </header>
 
-            <div className="p-6">
+            <div className="min-h-0 flex-1 overflow-y-auto px-4 py-5">
               {isLoading ? (
-                <div className="flex flex-col items-center justify-center h-[400px]">
-                  <div className="relative w-full max-w-md">
-                    <LoadingMessages />
-                    
-                    <div className="mt-8">
-                      <div className="p-4 rounded-lg bg-gray-50 dark:bg-gray-800">
-                        <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded animate-pulse w-3/4 mb-4"></div>
-                        <div className="space-y-3">
-                          {[1, 2, 3].map((_, optionIdx) => (
-                            <div 
-                              key={optionIdx}
-                              className="h-12 bg-gray-200 dark:bg-gray-700 rounded animate-pulse w-full"
-                            ></div>
-                          ))}
-                        </div>
+                <div className="space-y-4 pt-6">
+                  <p className="text-center text-[13px] text-[#6b6458] dark:text-[#92a59a]">
+                    {loadingMessages[msgIdx]}
+                  </p>
+                  <div className="space-y-3">
+                    {[1, 2].map((i) => (
+                      <div
+                        key={i}
+                        className="space-y-2 border border-[#e8e2d7] p-3 dark:border-[#1e3328]"
+                      >
+                        <div className="h-3 w-3/4 animate-pulse bg-[#e8e2d7] dark:bg-[#1e3328]" />
+                        {[1, 2, 3].map((j) => (
+                          <div
+                            key={j}
+                            className="h-9 animate-pulse bg-[#e8e2d7]/70 dark:bg-[#1e3328]/70"
+                          />
+                        ))}
                       </div>
-                    </div>
+                    ))}
                   </div>
                 </div>
               ) : error ? (
-                <div className="flex flex-col items-center justify-center h-[400px]">
-                  <p className="text-red-500 mb-4">{error}</p>
+                <div className="flex flex-col items-center gap-3 pt-16 text-center">
+                  <p className="text-[13px] text-red-600 dark:text-red-400">{error}</p>
                   <button
+                    type="button"
                     onClick={handleRetry}
-                    className="flex items-center gap-2 px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-white rounded-lg"
+                    className="inline-flex items-center gap-2 border border-[#143825] bg-[#143825] px-4 py-2 text-[12px] font-semibold text-white dark:border-[#22c55e] dark:bg-[#22c55e] dark:text-[#0b120e]"
                   >
-                    <FaRedo />
-                    Try Again
+                    <FaRedo className="h-3 w-3" />
+                    Try again
                   </button>
                 </div>
               ) : (
                 <>
-                  <div className="mb-6">
-                    <h3 className="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-200">{questions?.topic}</h3>
-                    <p className="text-gray-600 dark:text-gray-400">{questions?.description}</p>
+                  <div className="mb-5 border border-[#e8e2d7] bg-white p-3 dark:border-[#1e3328] dark:bg-[#121e17]">
+                    <h3 className="font-fraunces text-[14px] font-semibold text-[#171717] dark:text-[#f0f4ef]">
+                      {questions?.topic}
+                    </h3>
+                    {questions?.description ? (
+                      <p className="mt-1 text-[12px] text-[#6b6458] dark:text-[#92a59a]">
+                        {questions.description}
+                      </p>
+                    ) : null}
                   </div>
 
-                  <div className="space-y-8">
-                    {questions.questions.map((q, idx) => (
-                      <div key={q.id} className="p-4 rounded-lg bg-gray-50 dark:bg-gray-800">
-                        <p className="font-medium mb-4 text-gray-800 dark:text-gray-200">{`${idx + 1}. ${q.question}`}</p>
-                        <div className="space-y-3">
-                          {q.options.map((option, optionIdx) => (
-                            <motion.button
-                              key={optionIdx}
-                              onClick={() => handleOptionSelect(q.id, optionIdx)}
-                              disabled={currentAnswers[q.id] !== undefined}
-                              animate={
-                                currentAnswers[q.id] === optionIdx && optionIdx !== q.correctAnswer
-                                  ? { x: [-10, 10, -10, 10, 0] }
-                                  : {}
+                  <div className="space-y-4">
+                    {questions?.questions?.map((q, idx) => (
+                      <div
+                        key={q.id}
+                        className="border border-[#e8e2d7] bg-white p-3.5 dark:border-[#1e3328] dark:bg-[#121e17]"
+                      >
+                        <p className="mb-3 text-[13px] font-medium leading-snug text-[#171717] dark:text-[#f0f4ef]">
+                          <span className="mr-1 text-[#8a8276] dark:text-[#92a59a]">
+                            {idx + 1}.
+                          </span>
+                          {q.question}
+                        </p>
+                        <div className="space-y-2">
+                          {q.options.map((option, optionIdx) => {
+                            const answered = currentAnswers[q.id] !== undefined;
+                            const isCorrect = optionIdx === q.correctAnswer;
+                            const isChosen = currentAnswers[q.id] === optionIdx;
+                            let cls =
+                              "w-full border border-[#e8e2d7] bg-[#faf7f2] px-3 py-2.5 text-left text-[12.5px] text-[#171717] transition dark:border-[#1e3328] dark:bg-[#0f1813] dark:text-[#f0f4ef]";
+                            if (answered) {
+                              if (isCorrect) {
+                                cls =
+                                  "w-full border border-emerald-600/40 bg-emerald-500/10 px-3 py-2.5 text-left text-[12.5px] text-[#171717] dark:text-[#f0f4ef]";
+                              } else if (isChosen) {
+                                cls =
+                                  "w-full border border-red-500/40 bg-red-500/10 px-3 py-2.5 text-left text-[12.5px] text-[#171717] dark:text-[#f0f4ef]";
+                              } else {
+                                cls += " opacity-55";
                               }
-                              transition={{ duration: 0.5 }}
-                              className={`w-full text-left p-3 rounded-lg transition-all flex justify-between items-center ${
-                                currentAnswers[q.id] !== undefined
-                                  ? optionIdx === q.correctAnswer
-                                    ? 'bg-green-50 dark:bg-green-800/50 border-green-500'
-                                    : currentAnswers[q.id] === optionIdx
-                                    ? 'bg-red-50 dark:bg-red-800/50 border-red-500'
-                                    : 'bg-gray-100 dark:bg-gray-700'
-                                  : 'bg-white dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600'
-                              } border ${currentAnswers[q.id] !== undefined ? 'cursor-not-allowed' : ''}`}
-                            >
-                              <span>{option}</span>
-                              {currentAnswers[q.id] !== undefined && (
-                                optionIdx === q.correctAnswer ? (
-                                  <motion.div
-                                    initial={{ scale: 0 }}
-                                    animate={{ scale: 1 }}
-                                    transition={{ type: "spring", duration: 0.5 }}
-                                  >
-                                    <FaCheck className="text-green-500" />
-                                  </motion.div>
-                                ) : currentAnswers[q.id] === optionIdx ? (
-                                  <motion.div
-                                    initial={{ scale: 0 }}
-                                    animate={{ scale: 1 }}
-                                    transition={{ type: "spring", duration: 0.5 }}
-                                  >
-                                    <FaTimes className="text-red-500" />
-                                  </motion.div>
-                                ) : null
-                              )}
-                            </motion.button>
-                          ))}
-                        </div>
-                        {currentAnswers[q.id] !== undefined && (
-                          <motion.div
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            className="mt-4 p-4 bg-yellow-100 dark:bg-blue-900/50 rounded-lg border-l-4 border-yellow-500"
-                          >
-                            <div className="flex items-center gap-2">
-                              <motion.div
-                                animate={{
-                                  scale: [1, 1.2, 1],
-                                }}
-                                transition={{
-                                  duration: 1.5,
-                                  repeat: Infinity,
-                                }}
+                            } else {
+                              cls +=
+                                " hover:border-[#143825] dark:hover:border-[#22c55e]";
+                            }
+                            return (
+                              <button
+                                key={optionIdx}
+                                type="button"
+                                disabled={answered}
+                                onClick={() => handleOptionSelect(q.id, optionIdx)}
+                                className={`${cls} flex items-center justify-between gap-2`}
                               >
-                                <FaLightbulb className="text-yellow-500 text-xl" />
-                              </motion.div>
-                              <p className="text-sm text-blue-800 dark:text-blue-200">{q.explanation}</p>
-                            </div>
-                          </motion.div>
-                        )}
+                                <span>{option}</span>
+                                {answered && isCorrect ? (
+                                  <FaCheck className="h-3.5 w-3.5 shrink-0 text-emerald-600" />
+                                ) : null}
+                                {answered && isChosen && !isCorrect ? (
+                                  <FaTimes className="h-3.5 w-3.5 shrink-0 text-red-500" />
+                                ) : null}
+                              </button>
+                            );
+                          })}
+                        </div>
+                        {currentAnswers[q.id] !== undefined && q.explanation ? (
+                          <div className="mt-3 flex gap-2 border border-[#e8e2d7] bg-[#faf7f2] p-3 dark:border-[#1e3328] dark:bg-[#0f1813]">
+                            <FaLightbulb className="mt-0.5 h-3.5 w-3.5 shrink-0 text-amber-500" />
+                            <p className="text-[12px] leading-relaxed text-[#3f3a34] dark:text-[#d5ddd7]">
+                              {q.explanation}
+                            </p>
+                          </div>
+                        ) : null}
                       </div>
                     ))}
                   </div>
 
-                  {allAttempted && (
-                    <motion.div 
+                  {allAttempted ? (
+                    <div
                       id="score-section"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      className="mt-8 p-6 bg-gray-50 dark:bg-gray-800 rounded-lg text-center"
+                      className="mt-6 border border-[#e8e2d7] bg-white p-5 text-center dark:border-[#1e3328] dark:bg-[#121e17]"
                     >
-                      <motion.div
-                        initial={{ scale: 0 }}
-                        animate={{ scale: 1 }}
-                        transition={{ type: "spring", duration: 0.8 }}
-                        className="mb-4"
-                      >
-                        <FaTrophy className="text-6xl text-yellow-500 mx-auto" />
-                      </motion.div>
-                      <h3 className="text-6xl font-bold text-yellow-500 mb-4">
+                      <FaTrophy className="mx-auto mb-3 h-8 w-8 text-amber-500" />
+                      <p className="font-fraunces text-4xl font-semibold text-[#171717] dark:text-[#f0f4ef]">
                         {scorePercentage}%
-                      </h3>
-                      <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
+                      </p>
+                      <p className="mt-2 text-[13px] text-[#6b6458] dark:text-[#92a59a]">
                         {getScoreMessage(scorePercentage)}
                       </p>
-                      
-                      <div className="mt-6">
-                        <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">Share your achievement</p>
-                        <div className="flex justify-center gap-4">
+                      <p className="mt-1 text-[11px] text-[#8a8276]">
+                        {score} / {total} correct
+                      </p>
+                      <button
+                        type="button"
+                        onClick={handleRetry}
+                        className="mt-4 inline-flex items-center gap-2 border border-[#143825] px-3 py-2 text-[12px] font-semibold text-[#143825] dark:border-[#22c55e] dark:text-[#22c55e]"
+                      >
+                        <FaRedo className="h-3 w-3" />
+                        New quiz
+                      </button>
+                      <div className="mt-5 border-t border-[#e8e2d7] pt-4 dark:border-[#1e3328]">
+                        <p className="mb-2 text-[11px] text-[#8a8276]">Share</p>
+                        <div className="flex justify-center gap-3">
                           <TwitterShareButton url={shareUrl} title={shareText}>
-                            <TwitterIcon size={40} round />
+                            <TwitterIcon size={32} />
                           </TwitterShareButton>
-                          
                           <WhatsappShareButton url={shareUrl} title={shareText}>
-                            <WhatsappIcon size={40} round />
+                            <WhatsappIcon size={32} />
                           </WhatsappShareButton>
                         </div>
                       </div>
-                    </motion.div>
-                  )}
+                    </div>
+                  ) : null}
                 </>
               )}
             </div>
-          </motion.div>
+          </motion.aside>
         </>
-      )}
+      ) : null}
     </AnimatePresence>
   );
 };

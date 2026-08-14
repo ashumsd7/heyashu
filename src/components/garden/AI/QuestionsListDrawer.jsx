@@ -1,140 +1,86 @@
-'use client';
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { IoClose } from 'react-icons/io5';
-import { FaBookReader, FaChevronDown, FaChevronUp } from 'react-icons/fa';
-import { OPENROUTER_API_URL, OPENROUTER_MODEL, OPENROUTER_SITE_NAME, OPENROUTER_SITE_URL } from '@/utils/constant';
+"use client";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { IoClose } from "react-icons/io5";
+import { HiChatBubbleLeftRight, HiChevronDown } from "react-icons/hi2";
+import {
+  callOpenRouter,
+  getAiMarkdownContent,
+  parseAiJsonResponse,
+} from "@/utils/aiOpenRouter";
 
 const loadingMessages = [
-  "Analyzing content...",
-  "Preparing interview questions...",
-  "Crafting detailed answers...",
-  "Almost ready...",
-  "Finalizing the list..."
+  "Reading the article…",
+  "Drafting interview questions…",
+  "Writing clear answers…",
+  "Almost ready…",
 ];
 
-function parseResponse(response) {
-  try {
-    // First try direct JSON parse
-    return JSON.parse(response);
-  } catch (e) {
-    // If direct parse fails, try extracting JSON from markdown
-    const jsonMatch = response.match(/```json\n([\s\S]*?)\n```/);
-    if (jsonMatch && jsonMatch[1]) {
-      try {
-        return JSON.parse(jsonMatch[1]);
-      } catch (err) {
-        console.error("Failed to parse extracted JSON:", err);
-        return null;
-      }
-    }
-    
-    // Try finding JSON without markdown tags
-    const jsonRegex = /\{[\s\S]*\}/;
-    const possibleJson = response.match(jsonRegex);
-    if (possibleJson) {
-      try {
-        return JSON.parse(possibleJson[0]);
-      } catch (err) {
-        console.error("Failed to parse possible JSON:", err);
-        return null;
-      }
-    }
-    
-    console.error("No valid JSON found in response");
-    return null;
-  }
-}
-
 async function generateQuestionsList(providedText) {
-  try {
-    const response = await fetch(OPENROUTER_API_URL, {
-      method: "POST", 
-      headers: {
-        "Authorization": `Bearer ${process.env.NEXT_PUBLIC_OPENROUTER_API_KEY}`,
-        "HTTP-Referer": OPENROUTER_SITE_URL,
-        "X-Title": OPENROUTER_SITE_NAME,
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        "model": OPENROUTER_MODEL,
-        "messages": [
-          {
-            "role": "system",
-            "content": `You are an experienced technical interviewer creating a list of frontend developer interview questions.
-                       Generate questions and detailed answers based on the provided text.
-                       The response must be in this exact format:
-                       {
-                         "topic": "Topic Name",
-                         "questions": [
-                           {
-                             "id": 1,
-                             "question": "Interview question here?",
-                             "answer": "Detailed answer here"
-                           }
-                         ]
-                       }
-                       Guidelines:
-                       1. Generate between 5-20 questions depending on content length
-                       2. Questions should be what a real interviewer would ask
-                       3. Provide detailed, multi-paragraph answers when needed
-                       4. Focus on practical implementation and best practices
-                       5. Technical accuracy
-                       Return ONLY valid JSON, no additional text or markdown.`
-          },
-          {
-            "role": "user", 
-            "content": providedText
-          }
-        ]
-      })
-    });
-
-    if (!response.ok) {
-      throw new Error(`API request failed: ${response.statusText}`);
-    }
-
-    const data = await response.json();
-
-    return parseResponse(data.choices[0].message.content);
-
-  } catch (error) {
-    console.error("Error generating questions:", error);
-    throw error;
+  const content = await callOpenRouter([
+    {
+      role: "system",
+      content: `You are a technical interviewer creating Q&A from the given article only.
+Return ONLY valid JSON:
+{
+  "topic": "Topic Name",
+  "questions": [
+    { "id": 1, "question": "…?", "answer": "…" }
+  ]
+}
+Rules:
+- Question count must match content depth (short article → fewer; long → more). Do not force a fixed count.
+- Ask what a real interviewer would ask about THIS text.
+- Answers should be clear and practical.
+- No markdown fences, no extra text.`,
+    },
+    { role: "user", content: providedText },
+  ]);
+  const parsed = parseAiJsonResponse(content);
+  if (!parsed?.questions?.length) {
+    throw new Error("Could not parse Q&A from the model response");
   }
+  return parsed;
 }
 
-const QuestionItem = ({ question, answer }) => {
-  const [isOpen, setIsOpen] = useState(false);
+const QuestionItem = ({ question, answer, index }) => {
+  const [open, setOpen] = useState(false);
 
   return (
-    <div className="border-b border-gray-200 dark:border-gray-700 last:border-0">
+    <div className="border border-[#e8e2d7] bg-white dark:border-[#1e3328] dark:bg-[#121e17]">
       <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="w-full py-4 px-4 flex justify-between items-center hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        className="flex w-full items-start justify-between gap-3 px-3.5 py-3.5 text-left transition hover:bg-black/[0.02] dark:hover:bg-white/[0.03]"
       >
-        <h3 className="text-left font-medium text-gray-800 dark:text-gray-200">
+        <span className="text-[13px] font-medium leading-snug text-[#171717] dark:text-[#f0f4ef]">
+          <span className="mr-1.5 text-[#8a8276] dark:text-[#92a59a]">
+            Q{index + 1}.
+          </span>
           {question}
-        </h3>
-        {isOpen ? <FaChevronUp /> : <FaChevronDown />}
+        </span>
+        <HiChevronDown
+          className={`mt-0.5 h-4 w-4 shrink-0 text-[#8a8276] transition dark:text-[#92a59a] ${
+            open ? "rotate-180" : ""
+          }`}
+        />
       </button>
-      
-      <AnimatePresence>
-        {isOpen && (
+      <AnimatePresence initial={false}>
+        {open ? (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.2 }}
             className="overflow-hidden"
           >
-            <div className="p-4 bg-gray-50 dark:bg-gray-800">
-              <p className="text-gray-600 dark:text-gray-400 whitespace-pre-line">
+            <div className="border-t border-[#e8e2d7] bg-[#faf7f2] px-3.5 py-3 dark:border-[#1e3328] dark:bg-[#0f1813]">
+              <p className="text-[12.5px] leading-relaxed text-[#3f3a34] whitespace-pre-line dark:text-[#d5ddd7]">
                 {answer}
               </p>
             </div>
           </motion.div>
-        )}
+        ) : null}
       </AnimatePresence>
     </div>
   );
@@ -144,124 +90,128 @@ const QuestionsListDrawer = ({ isOpen, setIsOpen }) => {
   const [questions, setQuestions] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [loadingMessageIndex, setLoadingMessageIndex] = useState(0);
+  const [msgIdx, setMsgIdx] = useState(0);
+
+  const fetchQuestions = async () => {
+    try {
+      setIsLoading(true);
+      setError(null);
+      setMsgIdx(0);
+      setQuestions(null);
+
+      const tick = setInterval(() => {
+        setMsgIdx((i) => Math.min(i + 1, loadingMessages.length - 1));
+      }, 1800);
+
+      const text = getAiMarkdownContent();
+      const generated = await generateQuestionsList(text);
+      setQuestions(generated);
+      clearInterval(tick);
+    } catch (err) {
+      setError(err.message || "Failed to generate questions");
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   useEffect(() => {
-    if (isOpen) {
-      const fetchQuestions = async () => {
-        try {
-          setIsLoading(true);
-          setError(null);
-          
-          const messageInterval = setInterval(() => {
-            setLoadingMessageIndex(prev => 
-              prev < loadingMessages.length - 1 ? prev + 1 : prev
-            );
-          }, 2000);
-
-          const text = document.body.innerText;
-          const generatedQuestions = await generateQuestionsList(text);
-          setQuestions(generatedQuestions);
-
-          clearInterval(messageInterval);
-        } catch (err) {
-          setError(err.message || "Failed to generate questions");
-        } finally {
-          setIsLoading(false);
-        }
-      };
-
-      fetchQuestions();
-      document.body.style.overflow = 'hidden';
-      return () => {
-        document.body.style.overflow = 'unset';
-      }
-    }
+    if (!isOpen) return undefined;
+    fetchQuestions();
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [isOpen]);
 
   return (
     <AnimatePresence>
-      {isOpen && (
+      {isOpen ? (
         <>
-          <div 
-            className="fixed inset-0 bg-black/80 z-[9999]"
+          <motion.button
+            type="button"
+            aria-label="Close overlay"
+            className="fixed inset-0 z-[9999] bg-black/50"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             onClick={() => setIsOpen(false)}
           />
-          <motion.div
-            initial={{ x: '100%' }}
+          <motion.aside
+            initial={{ x: "100%" }}
             animate={{ x: 0 }}
-            exit={{ x: '100%' }}
-            transition={{ type: 'spring', damping: 20 }}
-            className="fixed inset-y-0 right-0 z-[10000] h-full w-full overflow-y-auto bg-white shadow-2xl dark:bg-gray-900 md:w-[40%]"
+            exit={{ x: "100%" }}
+            transition={{ type: "spring", stiffness: 380, damping: 36 }}
+            className="fixed inset-y-0 right-0 z-[10000] flex h-full w-full flex-col border-l border-[#e8e2d7] bg-[#faf7f2] dark:border-[#1e3328] dark:bg-[#0b120e] md:w-[min(100%,420px)]"
           >
-            <div className="sticky top-0 bg-white dark:bg-gray-900 z-50">
-              <div className="flex justify-between items-center p-4">
-                <h2 className="text-2xl font-bold text-yellow-600 dark:text-yellow-400 flex items-center gap-2">
-                  <FaBookReader />
-                 AI Q&A List
-                </h2>
-                <button
-                  onClick={() => setIsOpen(false)}
-                  className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
-                >
-                  <IoClose size={24} className="text-gray-800 dark:text-gray-200" />
-                </button>
-              </div>
-              <div className="h-px bg-gray-200 dark:bg-gray-700 w-full" />
-            </div>
-
-            <div className="p-4">
-              {isLoading ? (
-                <div className="flex flex-col items-center justify-center min-h-[400px]">
-                  <motion.p
-                    key={loadingMessageIndex}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
-                    className="text-gray-600 dark:text-gray-400 text-center mb-8"
-                  >
-                    {loadingMessages[loadingMessageIndex]}
-                  </motion.p>
-                  
-                  <div className="w-full space-y-4">
-                    {[1, 2, 3].map((_, i) => (
-                      <div key={i} className="animate-pulse">
-                        <div className="h-8 bg-gray-200 dark:bg-gray-700 rounded w-full mb-2" />
-                        <div className="h-24 bg-gray-100 dark:bg-gray-800 rounded w-full" />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ) : error ? (
-                <div className="flex flex-col items-center justify-center min-h-[400px]">
-                  <p className="text-red-500 mb-4">{error}</p>
-                  <button
-                    onClick={() => setIsOpen(true)}
-                    className="px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-white rounded-lg"
-                  >
-                    Try Again
-                  </button>
-                </div>
-              ) : (
+            <header className="flex shrink-0 items-center justify-between border-b border-[#e8e2d7] px-4 py-3 dark:border-[#1e3328]">
+              <div className="flex items-center gap-2">
+                <HiChatBubbleLeftRight className="h-4 w-4 text-violet-500" />
                 <div>
-                  <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">
-                    {questions?.topic}
-                  </h3>
+                  <h2 className="font-fraunces text-[15px] font-semibold text-[#171717] dark:text-[#f0f4ef]">
+                    Q&amp;A
+                  </h2>
+                  <p className="text-[11px] text-[#6b6458] dark:text-[#92a59a]">
+                    Interview questions from this article
+                  </p>
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={() => setIsOpen(false)}
+                className="grid h-9 w-9 place-items-center border border-[#e8e2d7] text-[#585858] transition hover:bg-black/[0.04] dark:border-[#1e3328] dark:text-[#92a59a] dark:hover:bg-white/[0.04]"
+                aria-label="Close"
+              >
+                <IoClose size={18} />
+              </button>
+            </header>
+
+            <div className="min-h-0 flex-1 overflow-y-auto px-4 py-5">
+              {isLoading ? (
+                <div className="space-y-4 pt-6">
+                  <p className="text-center text-[13px] text-[#6b6458] dark:text-[#92a59a]">
+                    {loadingMessages[msgIdx]}
+                  </p>
                   <div className="space-y-2">
-                    {questions?.questions.map((item) => (
-                      <QuestionItem
-                        key={item.id}
-                        question={item.question}
-                        answer={item.answer}
+                    {[1, 2, 3, 4].map((i) => (
+                      <div
+                        key={i}
+                        className="h-12 animate-pulse border border-[#e8e2d7] bg-white dark:border-[#1e3328] dark:bg-[#121e17]"
                       />
                     ))}
                   </div>
                 </div>
+              ) : error ? (
+                <div className="flex flex-col items-center gap-3 pt-16 text-center">
+                  <p className="text-[13px] text-red-600 dark:text-red-400">{error}</p>
+                  <button
+                    type="button"
+                    onClick={fetchQuestions}
+                    className="border border-[#143825] bg-[#143825] px-4 py-2 text-[12px] font-semibold text-white dark:border-[#22c55e] dark:bg-[#22c55e] dark:text-[#0b120e]"
+                  >
+                    Try again
+                  </button>
+                </div>
+              ) : (
+                <div className="space-y-3">
+                  {questions?.topic ? (
+                    <p className="mb-1 font-fraunces text-[14px] font-semibold text-[#171717] dark:text-[#f0f4ef]">
+                      {questions.topic}
+                    </p>
+                  ) : null}
+                  {questions?.questions?.map((item, idx) => (
+                    <QuestionItem
+                      key={item.id ?? idx}
+                      index={idx}
+                      question={item.question}
+                      answer={item.answer}
+                    />
+                  ))}
+                </div>
               )}
             </div>
-          </motion.div>
+          </motion.aside>
         </>
-      )}
+      ) : null}
     </AnimatePresence>
   );
 };

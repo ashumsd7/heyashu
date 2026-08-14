@@ -1,263 +1,193 @@
-'use client';
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { IoClose } from 'react-icons/io5';
-import { FaBookReader } from 'react-icons/fa';
-import { OPENROUTER_API_URL, OPENROUTER_MODEL, OPENROUTER_SITE_NAME, OPENROUTER_SITE_URL } from '@/utils/constant';
+"use client";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { IoClose } from "react-icons/io5";
+import { HiBolt } from "react-icons/hi2";
+import {
+  callOpenRouter,
+  getAiMarkdownContent,
+  parseAiJsonResponse,
+} from "@/utils/aiOpenRouter";
 
 const loadingMessages = [
-  "Scraping content...",
-  "Going deep into analysis...",
-  "Generating point-wise summary...", 
-  "Almost there...",
-  "Finalizing the content..."
+  "Reading the article…",
+  "Finding key ideas…",
+  "Building a clean summary…",
+  "Almost ready…",
 ];
 
-function parseResponse(response) {
-  try {
-    // First try direct JSON parse
-    return JSON.parse(response);
-  } catch (e) {
-    // If direct parse fails, try extracting JSON from markdown
-    const jsonMatch = response.match(/```json\n([\s\S]*?)\n```/);
-    if (jsonMatch && jsonMatch[1]) {
-      try {
-        return JSON.parse(jsonMatch[1]);
-      } catch (err) {
-        console.error("Failed to parse extracted JSON:", err);
-        return null;
-      }
-    }
-    
-    // Try finding JSON without markdown tags
-    const jsonRegex = /\{[\s\S]*\}/;
-    const possibleJson = response.match(jsonRegex);
-    if (possibleJson) {
-      try {
-        return JSON.parse(possibleJson[0]);
-      } catch (err) {
-        console.error("Failed to parse possible JSON:", err);
-        return null;
-      }
-    }
-    
-    console.error("No valid JSON found in response");
-    return null;
-  }
-}
-
 async function generateSummary(providedText) {
-  try {
-    const response = await fetch(OPENROUTER_API_URL, {
-      method: "POST",
-      headers: {
-        "Authorization": `Bearer ${process.env.NEXT_PUBLIC_OPENROUTER_API_KEY}`,
-        "HTTP-Referer": OPENROUTER_SITE_URL,
-        "X-Title": OPENROUTER_SITE_NAME,
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        "model": OPENROUTER_MODEL,
-        "messages": [
-          {
-            "role": "system",
-            "content": `You are an AI that generates concise, easy-to-read summaries of technical content. 
-                       Generate a summary with sections in strict JSON format.
-                       The response must be in this exact format:
-                       {
-                         "sections": [
-                           {
-                             "heading": "Section Title",
-                             "definition": "Clear, concise definition",
-                             "points": ["Key point 1", "Key point 2", "Key point 3"]
-                           }
-                         ]
-                       }
-                       Guidelines:
-                       1. Clear headings
-                       2. Concise definitions
-                       3. Key bullet points
-                       4. Simple language
-                       5. Technical accuracy
-                       Return ONLY valid JSON, no additional text or markdown.`
-          },
-          {
-            "role": "user",
-            "content": providedText
-          }
-        ]
-      })
-    });
-
-    if (!response.ok) {
-      throw new Error(`API request failed: ${response.statusText}`);
+  const content = await callOpenRouter([
+    {
+      role: "system",
+      content: `You summarize technical article content for quick revision.
+Return ONLY valid JSON in this shape:
+{
+  "sections": [
+    {
+      "heading": "Section Title",
+      "definition": "One short paragraph",
+      "points": ["Key point", "Key point"]
     }
-
-    const data = await response.json();
- 
-    const content = data.choices[0].message.content;
- 
-    return parseResponse(content);
-
-  } catch (error) {
-    console.error("❌ Error generating summary:", error);
-    throw error;
+  ]
+}
+Rules:
+- Derive section count from the content itself (short notes → fewer sections, long notes → more).
+- Do not invent topics not present in the text.
+- Clear headings, concise definitions, practical bullet points.
+- No markdown fences, no extra commentary.`,
+    },
+    { role: "user", content: providedText },
+  ]);
+  const parsed = parseAiJsonResponse(content);
+  if (!parsed?.sections?.length) {
+    throw new Error("Could not parse summary from the model response");
   }
+  return parsed;
 }
 
 const QuickReaderDrawer = ({ isOpen, setIsOpen }) => {
   const [summary, setSummary] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [loadingProgress, setLoadingProgress] = useState(0);
-  const [loadingMessageIndex, setLoadingMessageIndex] = useState(0);
+  const [msgIdx, setMsgIdx] = useState(0);
 
   const fetchSummary = async () => {
     try {
       setIsLoading(true);
       setError(null);
-      setLoadingProgress(0);
-      setLoadingMessageIndex(0);
+      setMsgIdx(0);
+      setSummary(null);
 
-      const progressInterval = setInterval(() => {
-        setLoadingProgress(prev => {
-          if (prev >= 100) {
-            clearInterval(progressInterval);
-            return 100;
-          }
-          return prev + 1;
-        });
-      }, 100);
+      const tick = setInterval(() => {
+        setMsgIdx((i) => Math.min(i + 1, loadingMessages.length - 1));
+      }, 1800);
 
-      const messageInterval = setInterval(() => {
-        setLoadingMessageIndex(prev => 
-          prev < loadingMessages.length - 1 ? prev + 1 : prev
-        );
-      }, 2000);
-
-      const text = document.body.innerText;
-      const generatedSummary = await generateSummary(text);
-      setSummary(generatedSummary);
-
-      clearInterval(progressInterval);
-      clearInterval(messageInterval);
+      const text = getAiMarkdownContent();
+      const generated = await generateSummary(text);
+      setSummary(generated);
+      clearInterval(tick);
     } catch (err) {
       setError(err.message || "Failed to generate summary");
     } finally {
       setIsLoading(false);
-      setLoadingProgress(100);
     }
   };
 
   useEffect(() => {
-    if (isOpen) {
-      fetchSummary();
-      document.body.style.overflow = 'hidden';
-      return () => {
-        document.body.style.overflow = 'unset';
-      }
-    }
+    if (!isOpen) return undefined;
+    fetchSummary();
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [isOpen]);
 
   return (
     <AnimatePresence>
-      {isOpen && (
+      {isOpen ? (
         <>
-          <div 
-            className="fixed inset-0 bg-black/80 z-[9999]"
+          <motion.button
+            type="button"
+            aria-label="Close overlay"
+            className="fixed inset-0 z-[9999] bg-black/50"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             onClick={() => setIsOpen(false)}
           />
-          <motion.div
-            initial={{ x: '100%' }}
+          <motion.aside
+            initial={{ x: "100%" }}
             animate={{ x: 0 }}
-            exit={{ x: '100%' }}
-            transition={{ type: 'spring', damping: 20 }}
-            className="fixed inset-y-0 right-0 z-[10000] h-full w-full overflow-y-auto bg-white shadow-2xl dark:bg-gray-900 md:w-[40%]"
+            exit={{ x: "100%" }}
+            transition={{ type: "spring", stiffness: 380, damping: 36 }}
+            className="fixed inset-y-0 right-0 z-[10000] flex h-full w-full flex-col border-l border-[#e8e2d7] bg-[#faf7f2] dark:border-[#1e3328] dark:bg-[#0b120e] md:w-[min(100%,420px)]"
           >
-            <div className="sticky top-0 bg-white dark:bg-gray-900 z-50">
-              <div className="flex justify-between items-center p-2 px-4">
-                <h2 className="text-2xl font-bold text-yellow-600 dark:text-yellow-400 flex items-center gap-2">
-                  <FaBookReader />
-                  Quick Read
-                </h2>
-                <button
-                  onClick={() => setIsOpen(false)}
-                  className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800"
-                >
-                  <IoClose size={24} className="text-gray-800 dark:text-gray-200" />
-                </button>
+            <header className="flex shrink-0 items-center justify-between border-b border-[#e8e2d7] px-4 py-3 dark:border-[#1e3328]">
+              <div className="flex items-center gap-2">
+                <HiBolt className="h-4 w-4 text-violet-500" />
+                <div>
+                  <h2 className="font-fraunces text-[15px] font-semibold text-[#171717] dark:text-[#f0f4ef]">
+                    Quick Read
+                  </h2>
+                  <p className="text-[11px] text-[#6b6458] dark:text-[#92a59a]">
+                    Summary of this article
+                  </p>
+                </div>
               </div>
-              <div className="h-px bg-gray-300 dark:bg-gray-700 w-full"></div>
-            </div>
+              <button
+                type="button"
+                onClick={() => setIsOpen(false)}
+                className="grid h-9 w-9 place-items-center border border-[#e8e2d7] text-[#585858] transition hover:bg-black/[0.04] dark:border-[#1e3328] dark:text-[#92a59a] dark:hover:bg-white/[0.04]"
+                aria-label="Close"
+              >
+                <IoClose size={18} />
+              </button>
+            </header>
 
-            <div className="p-6">
+            <div className="min-h-0 flex-1 overflow-y-auto px-4 py-5">
               {isLoading ? (
-                <div className="flex flex-col items-center justify-center h-[400px]">
-                  <div className="relative w-full max-w-md">
-                    {/* Loading message */}
-                    <motion.div 
-                      className="h-16 flex items-center justify-center"
-                      key={loadingMessageIndex}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -20 }}
-                      transition={{ duration: 0.5 }}
-                    >
-                      <p className="text-gray-600 dark:text-gray-400 text-center">
-                        {loadingMessages[loadingMessageIndex]}
-                      </p>
-                    </motion.div>
-                    
-                    {/* Skeleton loader */}
-                    <div className="mt-20 space-y-4">
-                      <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded animate-pulse w-3/4"></div>
-                      <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded animate-pulse w-full"></div>
-                      <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded animate-pulse w-5/6"></div>
-                      <div className="space-y-2 mt-6">
-                        <div className="h-3 bg-gray-200 dark:bg-gray-700 rounded animate-pulse w-full"></div>
-                        <div className="h-3 bg-gray-200 dark:bg-gray-700 rounded animate-pulse w-11/12"></div>
-                        <div className="h-3 bg-gray-200 dark:bg-gray-700 rounded animate-pulse w-4/5"></div>
+                <div className="space-y-4 pt-6">
+                  <p className="text-center text-[13px] text-[#6b6458] dark:text-[#92a59a]">
+                    {loadingMessages[msgIdx]}
+                  </p>
+                  <div className="space-y-3">
+                    {[1, 2, 3].map((i) => (
+                      <div key={i} className="border border-[#e8e2d7] p-3 dark:border-[#1e3328]">
+                        <div className="mb-2 h-3 w-1/3 animate-pulse bg-[#e8e2d7] dark:bg-[#1e3328]" />
+                        <div className="mb-1 h-2.5 w-full animate-pulse bg-[#e8e2d7]/70 dark:bg-[#1e3328]/70" />
+                        <div className="h-2.5 w-4/5 animate-pulse bg-[#e8e2d7]/70 dark:bg-[#1e3328]/70" />
                       </div>
-                    </div>
+                    ))}
                   </div>
                 </div>
               ) : error ? (
-                <div className="flex flex-col items-center justify-center h-[400px]">
-                  <p className="text-red-500 mb-4">{error}</p>
+                <div className="flex flex-col items-center gap-3 pt-16 text-center">
+                  <p className="text-[13px] text-red-600 dark:text-red-400">{error}</p>
                   <button
+                    type="button"
                     onClick={fetchSummary}
-                    className="flex items-center gap-2 px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-white rounded-lg"
+                    className="border border-[#143825] bg-[#143825] px-4 py-2 text-[12px] font-semibold text-white dark:border-[#22c55e] dark:bg-[#22c55e] dark:text-[#0b120e]"
                   >
-                    Try Again
+                    Try again
                   </button>
                 </div>
               ) : (
-                <div className="space-y-8">
-                  {summary?.sections.map((section, index) => (
-                    <div key={index} className="border-b border-gray-200 dark:border-gray-700 pb-6 last:border-0">
-                      <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-3">
+                <div className="space-y-5">
+                  {summary?.sections?.map((section, index) => (
+                    <section
+                      key={`${section.heading}-${index}`}
+                      className="border border-[#e8e2d7] bg-white p-4 dark:border-[#1e3328] dark:bg-[#121e17]"
+                    >
+                      <h3 className="mb-2 font-fraunces text-[15px] font-semibold text-[#171717] dark:text-[#f0f4ef]">
                         {section.heading}
                       </h3>
-                      <p className="text-gray-600 dark:text-gray-400 mb-4">
-                        {section.definition}
-                      </p>
-                      {section.points && section.points.length > 0 && (
-                        <ul className="list-disc pl-5 space-y-2">
+                      {section.definition ? (
+                        <p className="mb-3 text-[13px] leading-relaxed text-[#3f3a34] dark:text-[#d5ddd7]">
+                          {section.definition}
+                        </p>
+                      ) : null}
+                      {section.points?.length ? (
+                        <ul className="space-y-1.5 border-t border-[#e8e2d7] pt-3 dark:border-[#1e3328]">
                           {section.points.map((point, i) => (
-                            <li key={i} className="text-gray-700 dark:text-gray-300">
-                              {point}
+                            <li
+                              key={i}
+                              className="flex gap-2 text-[12.5px] leading-relaxed text-[#4a453d] dark:text-[#c5d0c8]"
+                            >
+                              <span className="mt-1.5 h-1 w-1 shrink-0 bg-violet-500" />
+                              <span>{point}</span>
                             </li>
                           ))}
                         </ul>
-                      )}
-                    </div>
+                      ) : null}
+                    </section>
                   ))}
                 </div>
               )}
             </div>
-          </motion.div>
+          </motion.aside>
         </>
-      )}
+      ) : null}
     </AnimatePresence>
   );
 };

@@ -300,7 +300,7 @@ const NotesMainPage = ({
       setSpeaking(false);
       return;
     }
-    const article = document.getElementById("garden-notes-article");
+    const article = document.getElementById("ai-markdown-content");
     const text = article?.innerText || title;
     const utter = new SpeechSynthesisUtterance(text.slice(0, 12000));
     utter.onend = () => setSpeaking(false);
@@ -727,7 +727,7 @@ const NotesMainPage = ({
                   </figure>
                 ) : null}
 
-                <div id="garden-notes-article" className="notes-reader-prose">
+                <div id="ai-markdown-content" className="notes-reader-prose">
                   <NotesContent markdownContent={msxSource} large garden />
                 </div>
 

@@ -20,10 +20,12 @@ export const DEFAULT_AVATAR = "https://i.ibb.co/Tm9qVjp/plant.png";
 export const DEFAULT_THUMBNAIL = "https://via.placeholder.com/150";
 
 export const OPENROUTER_SITE_URL = "https://heyashu.in";
-  export const OPENROUTER_SITE_NAME="Ashutosh Anand's Digital Garden"
-  export const OPENROUTER_MODEL='deepseek/deepseek-r1:free'
-  export const OPENROUTER_API_URL='https://openrouter.ai/api/v1/chat/completions'
-  // sk-116f6f687cfa4efb8f461a3687b90b46
+export const OPENROUTER_SITE_NAME = "Ashutosh Anand's Digital Garden";
+/** Prefer NEXT_PUBLIC_OPENROUTER_MODEL from env; fallback only for older deploys */
+export const OPENROUTER_MODEL =
+  process.env.NEXT_PUBLIC_OPENROUTER_MODEL || "liquid/lfm-2.5-2.6b:free";
+export const OPENROUTER_API_URL =
+  "https://openrouter.ai/api/v1/chat/completions";
 
 
 
