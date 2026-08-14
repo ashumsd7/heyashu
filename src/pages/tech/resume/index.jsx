@@ -95,6 +95,9 @@ function Resume() {
                 <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                   With a strong foundation in software development, I focus on building front-end web applications that deliver exceptional user experiences. My journey encompasses diverse projects, team collaborations, and contributions to innovative startups.
                 </p>
+                <p className="text-sm text-gray-500 dark:text-gray-400 italic mt-4">
+                  Note: This resume was last updated about 1 year ago. A refreshed version is coming soon.
+                </p>
               </div>
               <div className="flex flex-wrap gap-4 justify-center">
                 <motion.div

@@ -472,15 +472,15 @@ const NotesMainPage = ({
                   <div className="h-full" style={{ width: SIDEBAR_WIDTH }}>
                     <NotesReaderSidebar
                       contentListTitle={contentListTitle}
-                      data={contentList}
+          data={contentList}
                       season2Data={season2Data}
                       show2ndSection={show2ndSection}
-                      progress={progress}
+          progress={progress}
                       completedCount={completedCount}
                       totalCount={totalCount}
-                      selectedSection={currentPageFrontMatter}
+          selectedSection={currentPageFrontMatter}
                       storedValues={storedValues}
-                      eachCardPrefix={eachCardPrefix}
+          eachCardPrefix={eachCardPrefix}
                       onSectionClick={handleSectionClick}
                       onMarkComplete={handleMarkComplete}
                       isCurrentComplete={isCurrentComplete}
@@ -715,7 +715,7 @@ const NotesMainPage = ({
             </div>
           </div>
         ) : null}
-
+      
         <QuickReaderDrawer isOpen={quickOpen} setIsOpen={setQuickOpen} />
         <QuestionsListDrawer isOpen={qnaOpen} setIsOpen={setQnaOpen} />
       </div>

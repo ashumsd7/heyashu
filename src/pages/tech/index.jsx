@@ -2,11 +2,19 @@ import Image from "next/image";
 import React from "react";
 import Link from "next/link";
 import Head from "next/head";
-import { FaSass, FaUmbrellaBeach } from "react-icons/fa";
+import { FaSass, FaUmbrellaBeach, FaPython, FaRobot } from "react-icons/fa";
 import { IoMdDownload } from "react-icons/io";
 import { FaHtml5, FaCss3Alt, FaReact, FaVuejs } from "react-icons/fa";
 import { IoLogoJavascript } from "react-icons/io";
-import { SiTypescript, SiRedux } from "react-icons/si";
+import {
+  SiTypescript,
+  SiRedux,
+  SiGooglecloud,
+  SiFastapi,
+  SiFirebase,
+  SiKubernetes,
+  SiGooglegemini,
+} from "react-icons/si";
 import Button from "@/components/base/Button";
 
 function TechPage() {
@@ -15,10 +23,22 @@ function TechPage() {
     { name: "CSS", icon: <FaCss3Alt /> },
     { name: "Javascript", icon: <IoLogoJavascript /> },
     { name: "ReactJs", icon: <FaReact /> },
-    { name: "TailwindCSS", icon: <FaSass/> },
+    { name: "TailwindCSS", icon: <FaSass /> },
     { name: "TypeScript", icon: <SiTypescript /> },
     { name: "Redux Toolkit", icon: <SiRedux /> },
     { name: "VueJS", icon: <FaVuejs /> },
+    { name: "Python", icon: <FaPython /> },
+    { name: "FastAPI", icon: <SiFastapi /> },
+    { name: "GCP", icon: <SiGooglecloud /> },
+    { name: "Vertex AI", icon: <SiGooglecloud /> },
+    { name: "Gemini", icon: <SiGooglegemini /> },
+    { name: "ADK Agents", icon: <FaRobot /> },
+    { name: "Agent Development", icon: <FaRobot /> },
+    { name: "Conversational Agents", icon: <FaRobot /> },
+    { name: "AI Chatbots for Websites", icon: <FaRobot /> },
+    { name: "Better Customer Experience", icon: <FaRobot /> },
+    { name: "GKE", icon: <SiKubernetes /> },
+    { name: "Firestore", icon: <SiFirebase /> },
   ];
 
   const services = [
@@ -108,8 +128,8 @@ function TechPage() {
           <section className="mb-24">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-8 text-center">Technical Expertise</h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {technologies.map((tech, index) => (
-                <TechChip key={index} icon={tech.icon} text={tech.name} />
+              {technologies.map((tech) => (
+                <TechChip key={tech.name} icon={tech.icon} text={tech.name} />
               ))}
             </div>
           </section>

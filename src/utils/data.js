@@ -214,28 +214,32 @@ export const  traveledPlaces = [
   },
 ];
 export const pendingTravelPlaces = [
- 
-  // {
-  //   name: "LEH",
-  //   img: "/images/travelpfp/leh.jpeg",
-  //   isTraveled:false
-  // },
-
-  
   {
-    name: "SIKKIM",
-    img: "/images/travelpfp/sikkim.jpeg",
-    isTraveled:false
+    name: "SHIMLA",
+    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/The_Ridge%2C_Shimla.jpg/1280px-The_Ridge%2C_Shimla.jpg",
+    isTraveled: false,
+  },
+  {
+    name: "KULLU",
+    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Kullu_Valley%2C_Himachal_Pradesh.jpg/1280px-Kullu_Valley%2C_Himachal_Pradesh.jpg",
+    isTraveled: false,
+  },
+  {
+    name: "ROHTANG PASS",
+    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Rohtang_Pass%2C_Manali%2C_Himachal_Pradesh.jpg/1280px-Rohtang_Pass%2C_Manali%2C_Himachal_Pradesh.jpg",
+    isTraveled: false,
+  },
+  {
+    name: "NORTH EAST",
+    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Tawang_Monastery%2C_Arunachal_Pradesh.jpg/1280px-Tawang_Monastery%2C_Arunachal_Pradesh.jpg",
+    isTraveled: false,
   },
   {
     name: "Suggest a place !",
     img: "https://img.freepik.com/free-vector/speech-bubble-with-interrogation-sign-cloud-isolated-icon_18591-83281.jpg?semt=ais_hybrid",
-    isTraveled:false,
-    link:PHONE_CALL_THIRTY_MIN
-  }
- 
-
-  
+    isTraveled: false,
+    link: PHONE_CALL_THIRTY_MIN,
+  },
 ];
 // --------------TRAVEL END------------------
 

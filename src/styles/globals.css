@@ -239,3 +239,8 @@ span[class*="PublishButton"] {
     transform: translate(0px, 0px) scale(1);
   }
 }
+
+button.css-lkvauk-DeleteButton-button-button-default-default-disabled-disabled-button-button-lightRed-lightRed {
+  display: none !important;
+  pointer-events: none !important;
+}

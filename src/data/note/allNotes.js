@@ -27,7 +27,7 @@ export const NOTES_CONFIG = [
   {
     id: "namaste-ai",
     title: "Namaste AI",
-    homeTitle: "Namaste AI",
+    homeTitle: "Namaste AI Notes",
     by: "Akshay Saini",
     authorDisplay: "Akshay Saini Sir",
     authorInitials: "AS",
@@ -110,7 +110,7 @@ export const NOTES_CONFIG = [
   {
     id: "front-end-design-system",
     title: "Frontend System Design",
-    homeTitle: "Frontend System Design",
+    homeTitle: "Frontend System Design Notes",
     by: "Akshay Saini, Chirag Goel",
     authorDisplay: "Akshay Saini Sir",
     authorInitials: "AS",
@@ -146,7 +146,7 @@ export const NOTES_CONFIG = [
   {
     id: "namaste-node-js",
     title: "Namaste Node JS",
-    homeTitle: "Namaste Node.js",
+    homeTitle: "Namaste Node.js Notes",
     by: "Akshay Saini",
     authorDisplay: "Akshay Saini Sir",
     authorInitials: "AS",

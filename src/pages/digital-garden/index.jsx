@@ -55,6 +55,33 @@ const HOME_NOTES = getHomeFeaturedNotes();
 const HOME_NOTES_TOP = HOME_NOTES.slice(0, 3);
 const HOME_NOTES_GRID = HOME_NOTES.slice(3);
 
+function enforceVideoMute(event) {
+  const video = event.currentTarget;
+  video.muted = true;
+  video.volume = 0;
+}
+
+function SilentVideo({ className, src, "aria-label": ariaLabel, "aria-hidden": ariaHidden }) {
+  return (
+    <video
+      className={className}
+      src={src}
+      autoPlay
+      loop
+      muted
+      defaultMuted
+      playsInline
+      controls={false}
+      disablePictureInPicture
+      aria-hidden={ariaHidden}
+      aria-label={ariaLabel}
+      onLoadedMetadata={enforceVideoMute}
+      onPlay={enforceVideoMute}
+      onVolumeChange={enforceVideoMute}
+    />
+  );
+}
+
 function HomeNoteBannerCard({ note, router }) {
   const startHref = getNotesStartRoute(note);
   const isNew = noteIsNew(note);
@@ -358,13 +385,9 @@ function DigitalGarden({ posts, blogs }) {
         <div className="mx-auto w-full max-w-[1120px] px-6">
           {/* Intro logo — cropped tight under nav (less empty frame above art) */}
           <div className="pointer-events-none relative mx-auto mb-0 flex h-[170px] w-[240px] items-end justify-center overflow-hidden sm:h-[200px] sm:w-[300px] md:h-[230px] md:w-[340px]">
-            <video
+            <SilentVideo
               className="h-[240px] w-full origin-bottom scale-125 object-contain object-bottom opacity-100 mix-blend-multiply sm:h-[300px] md:h-[340px] dark:mix-blend-screen"
               src="/intrologo.mp4"
-              autoPlay
-              loop
-              muted
-              playsInline
               aria-hidden="true"
             />
           </div>
@@ -424,13 +447,9 @@ function DigitalGarden({ posts, blogs }) {
               </div>
             </div>
             <div className="overflow-hidden rounded-2xl border border-[#e8e2d7] dark:border-[#1e3328]">
-              <video
+              <SilentVideo
                 className="aspect-video h-full w-full object-cover"
                 src="/notes_video.mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
                 aria-label="Open-sourced Digital Garden Notes Preview Video"
               />
             </div>
@@ -544,13 +563,9 @@ function DigitalGarden({ posts, blogs }) {
 
           <div className="grid grid-cols-1 items-center gap-8 rounded-[20px] border border-[#e8e2d7] bg-[#faf7f2] p-6 dark:border-[#1e3328] dark:bg-[#0b120e] md:grid-cols-2 md:p-8">
             <div className="overflow-hidden rounded-2xl border border-[#e8e2d7] dark:border-[#1e3328]">
-              <video
+              <SilentVideo
                 className="aspect-video h-full w-full object-cover"
                 src="/notes_ai_feature.mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
                 aria-label="AI Powered Study Tools Video Preview"
               />
             </div>
