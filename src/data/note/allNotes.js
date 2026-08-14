@@ -49,8 +49,8 @@ export const NOTES_CONFIG = [
     extraChipText: "Daily Updated, New",
     tags: [FRONTEND, JAVASCRIPT, NEWBIE],
     githubLink: "#",
-    route: "/digital-garden/notes/namaste-ai/introduction",
-    startRoute: "/digital-garden/notes/namaste-ai/introduction",
+    route: "/digital-garden/notes/namaste-ai-notes/welcome-to-namaste-ai-notes",
+    startRoute: "/digital-garden/notes/namaste-ai-notes/welcome-to-namaste-ai-notes",
     shortDesc:
       "Kickstart your journey into AI with Namaste AI – the latest, daily-updated course blending hands-on notes and crystal-clear learning, directly from Akshay Saini’s ecosystem.",
     homeDesc:

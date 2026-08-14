@@ -72,13 +72,14 @@ collections:
     label: "Namaste AI Notes"
     description: Get the best-explained notes for each chapter of the Namaste AI course by Akshay Saini. These notes are contributed by the open source community.✨
     folder: "/src/content/namaste-ai-notes"
-    media_folder: public/images/blogs/namaste-ai
-    public_folder: /images/blogs/namaste-ai
+    # Collection media_folder is relative to `folder` — climb to repo root public/
+    media_folder: "../../../public/images/namaste-ai"
+    public_folder: /images/namaste-ai
     create: true
     slug: ""
     delete: false
     fields:
-      - { label: "Slug of the page", name: "title", widget: "string", hint: "This will be used as slug, Instructions: After filling out this form and adding your markdown, click the 'Save' button at the top. This action will create a Pull Request (PR) on GitHub. Within a few minutes, your PR will be merged, and your content will go live. To track the PR status, visit https://github.com/ashumsd7/heyashu/pulls. Thank you!" }
+      - { label: "Slug of the page", name: "title", widget: "string", hint: "This will be used as slug, Instructions: After filling out this form and adding your markdown, click the 'Save' button at the top. This action will create a Pull Request (PR) on GitHub. Within a few minutes, your PR will be merged, and your content will go live at https://heyashu.in/digital-garden/notes/namaste-ai-notes/your-slug. To track the PR status, visit https://github.com/ashumsd7/heyashu/pulls. Thank you!" }
       - { label: "Note Title", name: "name", widget: "string", hint: "This is the heading for your note, shown at the top of the page." }
       - { label: "Episode Number", name: "episode", widget: "number", hint: "Episode number" }
       - { label: "Season Number", name: "seasonNumber", widget: "number", required: false, default: 1, hint: "Season Number, By Default 1" }
@@ -89,7 +90,7 @@ collections:
         widget: "image"
         required: false
         choose_url: false
-        hint: "Uploads to GitHub at /images/blogs/namaste-ai/. Do not use ImgBB or external URLs."
+        hint: "Uploads to public/images/namaste-ai/ (served as /images/namaste-ai/). Do not use ImgBB or external URLs."
       - { label: "Author", name: "author", widget: "string", default: "Ashutosh Anand Tiwari" }
       - { label: "Tags", name: "tags", required: false, default: "namaste-ai-notes", widget: "string", hint: "Add tags comma separated e.g.: AI, Machine Learning, that can be used for SEO or categorization." }
       - label: "Your profile picture"
@@ -98,20 +99,20 @@ collections:
         required: false
         choose_url: false
         default: "/images/blogs/pfp2.png"
-        hint: "Upload your avatar — saved to GitHub at /images/blogs/namaste-ai/."
+        hint: "Upload your avatar — saved to public/images/namaste-ai/."
       - { label: "Social Link (When user clicks on follow button: we will contact you once your content will be live after saving)", name: "followLink", widget: "string", default: "https://www.instagram.com/javascripterrr", required: false }
       - { label: "Resource Video Link", name: "resourceVideoLink", widget: "string", required: false, hint: "Add a YouTube or other video link associated with this note (optional)" }
       - label: "Describe your content here"
         name: "body"
         widget: "markdown"
         editor_components: ["image", "code-block"]
-        hint: "For images: click + → Image → Choose an image. Saved to /images/blogs/namaste-ai/. Do NOT paste ImgBB/external URLs."
+        hint: "For images: click + → Image → Choose an image. Saved to /images/namaste-ai/. Do NOT paste ImgBB/external URLs."
   - name: "ai-clopedia"
     label: "AI-clopedia"
     description: Contribute notes, tutorials, and explanations—everything related to AI! Open source, collaborative, and always growing.✨
     folder: "/src/content/ai-clopedia"
-    media_folder: public/images/blogs/ai-clopedia
-    public_folder: /images/blogs/ai-clopedia
+    media_folder: "../../../public/images/ai-clopedia"
+    public_folder: /images/ai-clopedia
     create: true
     slug: ""
     delete: false
@@ -126,7 +127,7 @@ collections:
         widget: "image"
         required: false
         choose_url: false
-        hint: "Uploads to GitHub at /images/blogs/ai-clopedia/. Do not use ImgBB or external URLs."
+        hint: "Uploads to public/images/ai-clopedia/ (served as /images/ai-clopedia/). Do not use ImgBB or external URLs."
       - { label: "Author", name: "author", widget: "string", required: false }
       - { label: "Tags", name: "tags", required: false, widget: "string", hint: "Comma separated tags: e.g. neural networks, transformers, ai, etc." }
       - { label: "Resource Video Link", name: "resourceVideoLink", widget: "string", required: false, hint: "Add a YouTube or other video link associated with this note (optional)" }
@@ -137,7 +138,7 @@ collections:
         required: false
         choose_url: false
         default: "/images/blogs/pfp2.png"
-        hint: "Upload your avatar — saved to GitHub at /images/blogs/ai-clopedia/."
+        hint: "Upload your avatar — saved to public/images/ai-clopedia/."
       - label: "Note Content"
         name: "body"
         widget: "markdown"

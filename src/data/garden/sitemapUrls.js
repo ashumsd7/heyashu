@@ -51,6 +51,10 @@ const CONTENT_ROUTE_MAP = [
     dir: "src/content/ydkjs",
     prefix: "/digital-garden/notes/ydkjs",
   },
+  {
+    dir: "src/content/namaste-ai-notes",
+    prefix: "/digital-garden/notes/namaste-ai-notes",
+  },
   { dir: "src/content/books", prefix: "/digital-garden/books" },
   { dir: "src/content/stories", prefix: "/digital-garden/stories" },
   { dir: "src/content/poems", prefix: "/digital-garden/poems" },
