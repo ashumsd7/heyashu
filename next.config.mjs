@@ -8,7 +8,10 @@ const isPwaEnabled =
 
 const nextConfig = {
   reactStrictMode: true,
+  // Static HTML on Netlify — no serverless function to upload (avoids 400 body-too-large).
+  ...(isNetlify ? { output: "export" } : {}),
   experimental: {
+    optimizePackageImports: ["react-icons"],
     outputFileTracingExcludes: {
       "*": [
         ".git/**",
@@ -37,6 +40,7 @@ const nextConfig = {
     },
   },
   images: {
+    unoptimized: isNetlify,
     remotePatterns: [
       { protocol: "https", hostname: "**" },
       { protocol: "http", hostname: "**" },

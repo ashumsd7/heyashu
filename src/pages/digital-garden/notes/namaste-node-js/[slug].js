@@ -13,7 +13,7 @@ import path from "path";
 import { serialize } from "next-mdx-remote/serialize";
 import AIQuestionWrapper from "@/components/garden/AIQuestionWrapper";
 import { buildNotesSidebarList } from "@/data/note/sidebarList";
-import { loadNotesMetaFromDir } from "@/data/note/loadNotesMeta";
+import { loadNotesMetaFromDir, loadNotesStaticPaths } from "@/data/note/loadNotesMeta";
 
 const NotesDetailPage = ({ notes, currentPageMDX, currentPageFrontMatter }) => {
   const contentList = useMemo(
@@ -54,7 +54,11 @@ const NotesDetailPage = ({ notes, currentPageMDX, currentPageFrontMatter }) => {
 };
 export default NotesDetailPage;
 
-export async function getServerSideProps({ params }) {
+export async function getStaticPaths() {
+  return loadNotesStaticPaths("notes-namaste-node-js");
+}
+
+export async function getStaticProps({ params }) {
   // Define the directory containing your markdown files
   const directory = path.join(
     process.cwd(),

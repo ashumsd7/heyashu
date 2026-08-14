@@ -241,6 +241,29 @@ export const pendingTravelPlaces = [
     link: PHONE_CALL_THIRTY_MIN,
   },
 ];
+
+export function travelPlaceSlug(name, pending = false) {
+  const n = String(name)
+    .toLowerCase()
+    .replace(/\//g, "-")
+    .replace(/[!?]/g, "")
+    .trim();
+  return pending
+    ? `ashutosh-anand-tiwari-will-travel-${n}`
+    : `ashutosh-anand-tiwari-travels-${n}`;
+}
+
+export function getTraveledPlaceParams() {
+  return traveledPlaces.map((p) => ({
+    params: { place: travelPlaceSlug(p.name, false) },
+  }));
+}
+
+export function getPendingPlaceParams() {
+  return pendingTravelPlaces.map((p) => ({
+    params: { place: travelPlaceSlug(p.name, true) },
+  }));
+}
 // --------------TRAVEL END------------------
 
 export const MORE_VERSIONS = [

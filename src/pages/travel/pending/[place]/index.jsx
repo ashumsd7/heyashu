@@ -5,9 +5,11 @@ import Image from "next/image";
 import React from "react";
 import { useRouter } from "next/router";
 import { GrFormSchedule } from "react-icons/gr";
-function PlaceDetails() {
+import { getPendingPlaceParams } from "@/utils/data";
+
+function PlaceDetails({ place: placeFromProps }) {
   const router = useRouter();
-  const place = router.query.place;
+  const place = placeFromProps || router.query.place;
   if (!place) return "Loading..";
   const placeName = place.split("-")[place.split("-").length - 1];
   const path = "/images/travelpfp/" + placeName + ".jpeg";
@@ -76,6 +78,10 @@ function PlaceDetails() {
 
 export default PlaceDetails;
 
-export async function getServerSideProps() {
-  return { props: {} };
+export async function getStaticPaths() {
+  return { paths: getPendingPlaceParams(), fallback: false };
+}
+
+export async function getStaticProps({ params }) {
+  return { props: { place: params.place } };
 }

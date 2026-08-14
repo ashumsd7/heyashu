@@ -12,7 +12,7 @@ import { serialize } from "next-mdx-remote/serialize";
 import { metaTagsForProcoderrNodejs } from "@/data/note/procderr-nodejs/meta-tags";
 import AIQuestionWrapper from "@/components/garden/AIQuestionWrapper";
 import { buildNotesSidebarList } from "@/data/note/sidebarList";
-import { loadNotesMetaFromDir } from "@/data/note/loadNotesMeta";
+import { loadNotesMetaFromDir, loadNotesStaticPaths } from "@/data/note/loadNotesMeta";
 
 const NotesDetailPage = ({ notes, currentPageMDX, currentPageFrontMatter }) => {
   const contentList = useMemo(() => buildNotesSidebarList(notes), [notes]);
@@ -38,7 +38,11 @@ const NotesDetailPage = ({ notes, currentPageMDX, currentPageFrontMatter }) => {
 };
 export default NotesDetailPage;
 
-export async function getServerSideProps({ params }) {
+export async function getStaticPaths() {
+  return loadNotesStaticPaths("node-js-procodrr");
+}
+
+export async function getStaticProps({ params }) {
   const directory = path.join(process.cwd(), "src/content/node-js-procodrr");
 
   const filePath = path.join(

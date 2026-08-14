@@ -12,9 +12,13 @@ import { DEFAULT_AVATAR, DEFAULT_FOLLOW_LINK } from "@/utils/constant";
 import Image from "next/image";
 import MDXRenderer from "@/components/base/MDXRenderer";
 import CommonSlugHeadTags from "@/components/seo/CommonSlugHeadTags";
+import { loadNotesStaticPaths } from "@/data/note/loadNotesMeta";
 
-// Function to fetch the content of the blog post
-export async function getServerSideProps({ params }) {
+export async function getStaticPaths() {
+  return loadNotesStaticPaths("daily-updates");
+}
+
+export async function getStaticProps({ params }) {
   const filePath = path.join(
     process.cwd(),
     "src",

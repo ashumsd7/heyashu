@@ -1,15 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { travelPlaceSlug } from "@/utils/data";
 
 function TripCard({ idx, name, img, data }) {
   function getRoute() {
-    if (!data.isTraveled)
-      return (
-        "/travel/pending/ashutosh-anand-tiwari-will-travel-" +
-        name.toLowerCase()
-      );
-    return "/travel/ashutosh-anand-tiwari-travels-" + name.toLowerCase();
+    return data.isTraveled
+      ? `/travel/${travelPlaceSlug(name, false)}`
+      : `/travel/pending/${travelPlaceSlug(name, true)}`;
   }
   return (
     <>

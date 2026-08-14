@@ -6,10 +6,11 @@ import React from "react";
 import { PHONE_CALL_THIRTY_MIN } from "@/utils/constant";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import { getTraveledPlaceParams } from "@/utils/data";
 
-function PlaceDetails() {
+function PlaceDetails({ place: placeFromProps }) {
   const router = useRouter();
-  const place = router.query.place;
+  const place = placeFromProps || router.query.place;
   if (!place) return "Loading..";
   const placeName = place.split("-")[place.split("-").length - 1];
   const path = "/images/travelpfp/" + placeName + ".jpeg";
@@ -129,6 +130,10 @@ function PlaceDetails() {
 
 export default PlaceDetails;
 
-export async function getServerSideProps() {
-  return { props: {} };
+export async function getStaticPaths() {
+  return { paths: getTraveledPlaceParams(), fallback: false };
+}
+
+export async function getStaticProps({ params }) {
+  return { props: { place: params.place } };
 }

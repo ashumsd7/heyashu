@@ -12,7 +12,7 @@ import path from "path";
 import { serialize } from "next-mdx-remote/serialize";
 import AIQuestionWrapper from "@/components/garden/AIQuestionWrapper";
 import { buildNotesSidebarList } from "@/data/note/sidebarList";
-import { loadNotesMetaFromDir } from "@/data/note/loadNotesMeta";
+import { loadNotesMetaFromDir, loadNotesStaticPaths } from "@/data/note/loadNotesMeta";
 
 const NotesDetailPageForSnippets = ({
   notes,
@@ -42,7 +42,11 @@ const NotesDetailPageForSnippets = ({
 };
 export default NotesDetailPageForSnippets;
 
-export async function getServerSideProps({ params }) {
+export async function getStaticPaths() {
+  return loadNotesStaticPaths("js-snippets");
+}
+
+export async function getStaticProps({ params }) {
   const directory = path.join(process.cwd(), "src/content/js-snippets");
   const filePath = path.join(
     process.cwd(),
