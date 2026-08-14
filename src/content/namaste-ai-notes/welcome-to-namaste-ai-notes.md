@@ -10,5 +10,8 @@ tags: ai, gen ai
 profilePic: /images/blogs/pfp2.png
 followLink: https://www.instagram.com/javascripterrr
 ---
-**Namaste, Welcome to the course,** 
+
+
+![](/images/blogs/namaste-ai/f847e955-03f0-4ffe-8c03-0197dcba7beb.jpeg)
+
 Notes are currently on notebooks, will be transfered here very soon
