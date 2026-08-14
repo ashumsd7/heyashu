@@ -4,7 +4,7 @@
  */
 import fs from "fs";
 import path from "path";
-import { SITE_ORIGIN } from "../../utils/seo.js";
+import { SITE_ORIGIN } from "@/utils/seo";
 
 const STATIC_PATHS = [
   "/",
