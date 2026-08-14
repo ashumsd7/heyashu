@@ -172,6 +172,91 @@ span[class*="PublishButton"] {
   border-color: rgba(34, 197, 94, 0.45);
 }
 
+@keyframes nav-garden-text-shift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.nav-garden-chip {
+  position: relative;
+  display: inline-flex;
+  padding: 2px;
+  border-radius: 9999px;
+  background: linear-gradient(
+    90deg,
+    #143825,
+    #22c55e,
+    #a855f7,
+    #ec4899,
+    #143825
+  );
+  background-size: 300% 300%;
+  animation: garden-new-border 4s ease infinite;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.nav-garden-chip:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(34, 197, 94, 0.28);
+}
+
+.nav-garden-chip-inner {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border-radius: 9999px;
+  padding: 0.35rem 0.9rem;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+}
+
+.dark .nav-garden-chip-inner {
+  background: rgba(15, 42, 28, 0.92);
+}
+
+.nav-garden-chip-dot {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 9999px;
+  background: #22c55e;
+  box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.45);
+  animation: garden-new-label-pulse 2.2s ease-in-out infinite;
+}
+
+.nav-garden-chip-text {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  background: linear-gradient(
+    90deg,
+    #143825,
+    #16a34a,
+    #7c3aed,
+    #db2777,
+    #143825
+  );
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: nav-garden-text-shift 4s ease infinite;
+}
+
+.nav-garden-chip-mobile {
+  padding: 0.5rem 1.25rem;
+}
+
+.nav-garden-chip-mobile .nav-garden-chip-text {
+  font-size: 1.05rem;
+}
+
 /* Independence strip — animated tricolor gradient + marquee */
 @keyframes tricolorShift {
   0% {
