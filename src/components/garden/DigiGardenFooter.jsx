@@ -66,8 +66,13 @@ const DigiGardenFooter = ({ compact = false }) => {
               </span>
             </div>
 
-            <h3 className="text-xl font-extrabold tracking-tight text-gray-900 dark:text-gray-100 sm:text-2xl md:text-3xl">
-              Curated by Ashutosh Anand Tiwari
+            <h3 className="tracking-tight text-gray-900 dark:text-gray-100">
+              <span className="mb-1 block text-sm font-medium text-gray-500 dark:text-gray-400 sm:text-base">
+                Curated by
+              </span>
+              <span className="block text-xl font-extrabold sm:text-2xl md:text-3xl">
+                Ashutosh Anand Tiwari
+              </span>
             </h3>
 
             <p className="max-w-xl text-sm leading-relaxed text-gray-600 dark:text-gray-300">

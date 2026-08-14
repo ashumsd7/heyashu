@@ -288,7 +288,7 @@ const AIQuestionDrawer = ({ isOpen, setIsOpen, questions: initialQuestions, text
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', damping: 20 }}
-            className="fixed top-[65px] right-0 h-[calc(100vh-80px)] bg-white dark:bg-gray-900 shadow-2xl overflow-y-auto z-[10000] w-[100%] md:w-[40%]"
+            className="fixed inset-y-0 right-0 z-[10000] h-full w-full overflow-y-auto bg-white shadow-2xl dark:bg-gray-900 md:w-[40%]"
           >
             <div className="sticky top-0 bg-white dark:bg-gray-900 z-50">
               <div className="flex justify-between items-center p-2 px-4">

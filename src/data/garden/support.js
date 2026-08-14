@@ -8,8 +8,8 @@ export const GARDEN_SUPPORT_POINTS = [
     tone: "emerald",
   },
   {
-    title: "Donations to Old Boys & Students",
-    body: "Empowering old batchmates, students, and junior developers from underrepresented backgrounds with learning resources, books, and course access.",
+    title: "Donations to homeless",
+    body: "Part of every contribution also supports local homeless relief and care efforts in the community.",
     tone: "orange",
   },
 ];

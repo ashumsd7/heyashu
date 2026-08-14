@@ -13,11 +13,11 @@ import { AnimatePresence, motion } from "framer-motion";
 import NotesContent from "@/components/tech/notes-layout/NotesContent";
 import NotesReaderSidebar from "@/components/tech/notes-layout/NotesReaderSidebar";
 import CommonSlugHeadTags from "@/components/seo/CommonSlugHeadTags";
-import ContentFooter from "@/components/garden/ContentFooter";
 import DigiGardenFooter from "@/components/garden/DigiGardenFooter";
 import GardenCollabCard from "@/components/garden/GardenCollabCard";
 import QuickReaderDrawer from "@/components/garden/AI/QuickReaderDrawer";
 import QuestionsListDrawer from "@/components/garden/AI/QuestionsListDrawer";
+import AIQuestionDrawer from "@/components/garden/AIQuestionDrawer";
 import {
   DEFAULT_AVATAR,
   GITHUB_REPO_LINK,
@@ -31,7 +31,6 @@ import {
   HiOutlineBookmark,
   HiOutlineArrowDownTray,
   HiOutlineSpeakerWave,
-  HiOutlineBars3,
   HiOutlineXMark,
   HiOutlineEllipsisVertical,
   HiOutlineSun,
@@ -63,14 +62,14 @@ const THEMES = {
       "--nr-nav": "#e8eee9",
       "--nr-nav-from": "#e4ece7",
       "--nr-nav-to": "#f7faf8",
-      "--nr-text": "#171717",
-      "--nr-muted": "#6b7280",
-      "--nr-border": "#d0d8de",
-      "--nr-accent": "#143825",
+      "--nr-text": "#111827",
+      "--nr-muted": "#4b5563",
+      "--nr-border": "#c5ced6",
+      "--nr-accent": "#0f2d1c",
       "--nr-active": "#dcebe0",
       "--nr-hover": "#eef2f4",
-      "--nr-heading": "#111111",
-      "--nr-body": "#374151",
+      "--nr-heading": "#0a0a0a",
+      "--nr-body": "#1f2937",
       "--nr-code-bg": "#1a1f1c",
     },
   },
@@ -159,6 +158,7 @@ const NotesMainPage = ({
   const [speaking, setSpeaking] = useState(false);
   const [quickOpen, setQuickOpen] = useState(false);
   const [qnaOpen, setQnaOpen] = useState(false);
+  const [quizOpen, setQuizOpen] = useState(false);
   const [progress, setProgress] = useState(0);
   const [completedCount, setCompletedCount] = useState(0);
   const [storedValues, setStoredValues] = useState(null);
@@ -347,7 +347,7 @@ const NotesMainPage = ({
           <div className="sticky top-0 z-30">
             <div className={SHELL}>
               <div
-                className="relative rounded-b-2xl border border-t-0 border-[var(--nr-border)] px-2.5 py-2 shadow-[0_8px_24px_-18px_rgba(15,23,42,0.35)] md:px-4 md:py-2.5"
+                className="relative rounded-b-2xl px-2.5 py-2 md:px-4 md:py-2.5"
                 style={{
                   background:
                     "linear-gradient(180deg, var(--nr-nav-from) 0%, var(--nr-nav-to) 100%)",
@@ -365,26 +365,26 @@ const NotesMainPage = ({
                     </Link>
                     <button
                       type="button"
-                      className="grid h-9 w-9 shrink-0 place-items-center rounded-lg border border-[var(--nr-border)] bg-[var(--nr-surface)]/80 text-[var(--nr-muted)] transition hover:text-[var(--nr-text)] lg:hidden"
+                      className="grid h-9 w-9 shrink-0 place-items-center rounded-lg border border-[var(--nr-border)] bg-transparent text-[var(--nr-muted)] transition hover:text-[var(--nr-text)] lg:hidden"
                       onClick={() => setMobileNavOpen(true)}
-                      title="Course content"
+                      title="Show course content"
                     >
-                      <HiOutlineBars3 className="h-5 w-5" />
+                      <HiChevronRight className="h-5 w-5" />
                     </button>
                     <button
                       type="button"
-                      className="hidden h-9 w-9 place-items-center rounded-lg border border-[var(--nr-border)] bg-[var(--nr-surface)]/80 text-[var(--nr-muted)] transition hover:text-[var(--nr-text)] lg:grid"
+                      className="hidden h-9 w-9 place-items-center rounded-lg border border-[var(--nr-border)] bg-transparent text-[var(--nr-muted)] transition hover:text-[var(--nr-text)] lg:grid"
                       onClick={() => setIsSidebarVisible((v) => !v)}
-                      title="Toggle sidebar"
+                      title={isSidebarVisible ? "Hide course content" : "Show course content"}
                     >
-                      <HiOutlineBars3 className="h-5 w-5" />
+                      {isSidebarVisible ? (
+                        <HiChevronLeft className="h-5 w-5" />
+                      ) : (
+                        <HiChevronRight className="h-5 w-5" />
+                      )}
                     </button>
                     <div className="min-w-0">
-                      <p className="mb-0.5 hidden items-center gap-1.5 rounded-full border border-emerald-500/35 bg-emerald-50 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.06em] text-emerald-800 sm:inline-flex dark:border-emerald-400/40 dark:bg-emerald-950/50 dark:text-emerald-300">
-                        <span className="relative flex h-1.5 w-1.5">
-                          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-75" />
-                          <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                        </span>
+                      <p className="mb-0.5 hidden font-fraunces text-[11px] italic tracking-wide text-[var(--nr-muted)] sm:block">
                         You are reading
                       </p>
                       <div className="flex min-w-0 flex-wrap items-baseline gap-1.5">
@@ -408,27 +408,25 @@ const NotesMainPage = ({
                     <button
                       type="button"
                       onClick={() => setQuickOpen(true)}
-                      className="ai-pill inline-flex items-center gap-1.5 rounded-full border border-purple-400/70 bg-[var(--nr-surface)] px-3 py-1.5 text-[11px] font-medium text-purple-700 animate-ai-border transition hover:bg-purple-50 dark:text-purple-300 dark:hover:bg-purple-950/40"
+                      className="inline-flex items-center gap-1.5 rounded-full border border-[var(--nr-border)] bg-transparent px-3 py-1.5 text-[11px] font-medium text-[var(--nr-text)] transition hover:bg-[var(--nr-hover)]"
                     >
-                      <HiBolt className="h-3.5 w-3.5 shrink-0 animate-ai-icon text-purple-500" />
+                      <HiBolt className="h-3.5 w-3.5 shrink-0 text-violet-500" />
                       Quick AI Read
                     </button>
                     <button
                       type="button"
-                      onClick={() => setQnaOpen(true)}
-                      className="ai-pill inline-flex items-center gap-1.5 rounded-full border border-indigo-400/70 bg-[var(--nr-surface)] px-3 py-1.5 text-[11px] font-medium text-indigo-700 animate-ai-border transition hover:bg-indigo-50 dark:text-indigo-300 dark:hover:bg-indigo-950/40"
-                      style={{ animationDelay: "0.4s" }}
+                      onClick={() => setQuizOpen(true)}
+                      className="inline-flex items-center gap-1.5 rounded-full border border-[var(--nr-border)] bg-transparent px-3 py-1.5 text-[11px] font-medium text-[var(--nr-text)] transition hover:bg-[var(--nr-hover)]"
                     >
-                      <HiSparkles className="h-3.5 w-3.5 shrink-0 animate-sparkle-pulse text-indigo-500" />
+                      <HiSparkles className="h-3.5 w-3.5 shrink-0 text-sky-500" />
                       Attempt Quiz
                     </button>
                     <button
                       type="button"
                       onClick={() => setQnaOpen(true)}
-                      className="ai-pill inline-flex items-center gap-1.5 rounded-full border border-fuchsia-400/70 bg-[var(--nr-surface)] px-3 py-1.5 text-[11px] font-medium text-fuchsia-700 animate-ai-border transition hover:bg-fuchsia-50 dark:text-fuchsia-300 dark:hover:bg-fuchsia-950/40"
-                      style={{ animationDelay: "0.8s" }}
+                      className="inline-flex items-center gap-1.5 rounded-full border border-[var(--nr-border)] bg-transparent px-3 py-1.5 text-[11px] font-medium text-[var(--nr-text)] transition hover:bg-[var(--nr-hover)]"
                     >
-                      <HiChatBubbleLeftRight className="h-3.5 w-3.5 shrink-0 animate-ai-glow text-fuchsia-500" />
+                      <HiChatBubbleLeftRight className="h-3.5 w-3.5 shrink-0 text-violet-500" />
                       Q&amp;A
                     </button>
                   </div>
@@ -445,15 +443,15 @@ const NotesMainPage = ({
                       <HiOutlineStar className="h-4 w-4" />
                     </a>
                     <a
-                      href={GITHUB_REPO_LINK}
+                      href="https://www.heyashu.in/admin"
                       target="_blank"
                       rel="noopener noreferrer"
-                      title="Edit on GitHub"
+                      title="Edit in admin"
                       className="grid h-9 w-9 place-items-center rounded-lg border border-[var(--nr-border)] bg-[var(--nr-surface)] text-[var(--nr-muted)] no-underline transition hover:text-[var(--nr-text)]"
                     >
                       <HiOutlinePencilSquare className="h-4 w-4" />
                     </a>
-                    <div className="flex items-center gap-1 rounded-xl border border-[var(--nr-border)] bg-[var(--nr-surface)] p-1 shadow-sm">
+                    <div className="flex items-center gap-1 rounded-xl border border-[var(--nr-border)] bg-transparent p-1">
                       {Object.values(THEMES).map((t) => {
                         const Icon = t.icon;
                         const active = theme === t.id;
@@ -465,7 +463,7 @@ const NotesMainPage = ({
                             onClick={() => handleThemeChange(t.id)}
                             className={`inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-[11px] font-medium transition ${
                               active
-                                ? "bg-[var(--nr-nav)] text-[var(--nr-text)] shadow-sm"
+                                ? "bg-[var(--nr-hover)] text-[var(--nr-text)]"
                                 : "text-[var(--nr-muted)] hover:bg-[var(--nr-hover)] hover:text-[var(--nr-text)]"
                             }`}
                           >
@@ -547,7 +545,7 @@ const NotesMainPage = ({
                           Star on GitHub
                         </a>
                         <a
-                          href={GITHUB_REPO_LINK}
+                          href="https://www.heyashu.in/admin"
                           target="_blank"
                           rel="noopener noreferrer"
                           onClick={() => setToolsMenuOpen(false)}
@@ -769,10 +767,6 @@ const NotesMainPage = ({
                   ) : null}
                 </nav>
 
-                <div className="mt-10">
-                  <ContentFooter />
-                </div>
-
                 <GardenCollabCard className="mt-12" />
               </article>
             </motion.main>
@@ -788,25 +782,25 @@ const NotesMainPage = ({
               <button
                 type="button"
                 onClick={() => setQuickOpen(true)}
-                className="ai-pill inline-flex flex-1 items-center justify-center gap-1 rounded-full border border-purple-400/70 bg-[var(--nr-bg)] px-2 py-2 text-[10px] font-semibold text-purple-700 animate-ai-border dark:text-purple-300"
+                className="inline-flex flex-1 items-center justify-center gap-1 rounded-full border border-[var(--nr-border)] bg-transparent px-2 py-2 text-[10px] font-medium text-[var(--nr-text)]"
               >
-                <HiBolt className="h-3.5 w-3.5 shrink-0 text-purple-500" />
+                <HiBolt className="h-3.5 w-3.5 shrink-0 text-violet-500" />
                 Quick Read
               </button>
               <button
                 type="button"
-                onClick={() => setQnaOpen(true)}
-                className="ai-pill inline-flex flex-1 items-center justify-center gap-1 rounded-full border border-indigo-400/70 bg-[var(--nr-bg)] px-2 py-2 text-[10px] font-semibold text-indigo-700 animate-ai-border dark:text-indigo-300"
+                onClick={() => setQuizOpen(true)}
+                className="inline-flex flex-1 items-center justify-center gap-1 rounded-full border border-[var(--nr-border)] bg-transparent px-2 py-2 text-[10px] font-medium text-[var(--nr-text)]"
               >
-                <HiSparkles className="h-3.5 w-3.5 shrink-0 text-indigo-500" />
+                <HiSparkles className="h-3.5 w-3.5 shrink-0 text-sky-500" />
                 Quiz
               </button>
               <button
                 type="button"
                 onClick={() => setQnaOpen(true)}
-                className="ai-pill inline-flex flex-1 items-center justify-center gap-1 rounded-full border border-fuchsia-400/70 bg-[var(--nr-bg)] px-2 py-2 text-[10px] font-semibold text-fuchsia-700 animate-ai-border dark:text-fuchsia-300"
+                className="inline-flex flex-1 items-center justify-center gap-1 rounded-full border border-[var(--nr-border)] bg-transparent px-2 py-2 text-[10px] font-medium text-[var(--nr-text)]"
               >
-                <HiChatBubbleLeftRight className="h-3.5 w-3.5 shrink-0 text-fuchsia-500" />
+                <HiChatBubbleLeftRight className="h-3.5 w-3.5 shrink-0 text-violet-500" />
                 Q&amp;A
               </button>
             </div>
@@ -911,6 +905,9 @@ const NotesMainPage = ({
       
         <QuickReaderDrawer isOpen={quickOpen} setIsOpen={setQuickOpen} />
         <QuestionsListDrawer isOpen={qnaOpen} setIsOpen={setQnaOpen} />
+        {quizOpen ? (
+          <AIQuestionDrawer isOpen={quizOpen} setIsOpen={setQuizOpen} />
+        ) : null}
       </div>
 
       <style jsx global>{`

@@ -137,22 +137,27 @@ export default function DigitalGardenLayout({ children }) {
 
         <div className="border-b border-[#e8e2d7] bg-[#faf7f2]/90 py-3 backdrop-blur-md dark:border-[#1e3328] dark:bg-[#0b120e]/90 sm:py-4">
           <div className="mx-auto flex w-full max-w-[1120px] items-center justify-between gap-3 px-4 sm:px-6">
-            <Link
-              href="/digital-garden"
-              className="inline-flex min-w-0 shrink items-baseline gap-1.5 whitespace-nowrap no-underline"
-            >
-              <span className="font-fraunces text-[1.05rem] font-bold tracking-[-0.01em] text-[#171717] dark:text-[#f0f4ef] sm:text-[1.3rem]">
+            <div className="inline-flex min-w-0 shrink items-baseline gap-1.5 whitespace-nowrap">
+              <Link
+                href="/digital-garden"
+                className="font-fraunces text-[1.05rem] font-bold tracking-[-0.01em] text-[#171717] no-underline dark:text-[#f0f4ef] sm:text-[1.3rem]"
+              >
                 Digital Garden
-              </span>
+              </Link>
               <span className="inline-flex items-baseline gap-1 font-ibm-mono text-[0.52rem] font-medium italic tracking-[0.03em] sm:text-[0.58rem]">
                 <span className="text-[#585858]/75 dark:text-[#92a59a]/75">
                   by
                 </span>
-                <span className="text-teal-600 dark:text-teal-400">
+                <a
+                  href="https://www.heyashu.in"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-teal-600 no-underline hover:underline dark:text-teal-400"
+                >
                   heyashu.in
-                </span>
+                </a>
               </span>
-            </Link>
+            </div>
 
             {/* Desktop actions */}
             <div className="hidden items-center justify-end gap-2 sm:flex md:gap-3">
@@ -212,15 +217,25 @@ export default function DigitalGardenLayout({ children }) {
               </button>
             </div>
 
-            {/* Mobile hamburger */}
-            <button
-              type="button"
-              className="grid h-10 w-10 place-items-center rounded-[10px] border border-[#e8e2d7] bg-white text-[#171717] transition hover:border-[#143825] dark:border-[#1e3328] dark:bg-[#121e17] dark:text-[#f0f4ef] sm:hidden"
-              onClick={() => setMenuOpen(true)}
-              aria-label="Open menu"
-            >
-              <HiOutlineBars3 className="h-5 w-5" />
-            </button>
+            {/* Mobile: theme always visible + hamburger */}
+            <div className="flex items-center gap-2 sm:hidden">
+              <button
+                className="grid h-10 w-10 place-items-center rounded-[10px] border border-[#e8e2d7] bg-white text-[#171717] transition hover:border-[#143825] dark:border-[#1e3328] dark:bg-[#121e17] dark:text-[#f0f4ef] dark:hover:border-[#22c55e]"
+                onClick={toggleTheme}
+                aria-label="Toggle Theme"
+                type="button"
+              >
+                {isDark ? <HiSun size={18} /> : <HiMoon size={18} />}
+              </button>
+              <button
+                type="button"
+                className="grid h-10 w-10 place-items-center rounded-[10px] border border-[#e8e2d7] bg-white text-[#171717] transition hover:border-[#143825] dark:border-[#1e3328] dark:bg-[#121e17] dark:text-[#f0f4ef]"
+                onClick={() => setMenuOpen(true)}
+                aria-label="Open menu"
+              >
+                <HiOutlineBars3 className="h-5 w-5" />
+              </button>
+            </div>
           </div>
         </div>
       </header>
@@ -308,17 +323,6 @@ export default function DigitalGardenLayout({ children }) {
                   <HiMagnifyingGlass className="h-4 w-4" />
                   Who built this
                 </a>
-                <button
-                  type="button"
-                  onClick={() => {
-                    toggleTheme();
-                    setMenuOpen(false);
-                  }}
-                  className="inline-flex items-center gap-2 rounded-xl px-3 py-3 text-left text-[0.92rem] font-semibold text-[#585858] hover:bg-black/5 dark:text-[#92a59a] dark:hover:bg-white/5"
-                >
-                  {isDark ? <HiSun className="h-4 w-4" /> : <HiMoon className="h-4 w-4" />}
-                  {isDark ? "Light mode" : "Dark mode"}
-                </button>
               </div>
             </motion.div>
           </div>

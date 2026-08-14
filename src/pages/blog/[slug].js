@@ -18,10 +18,9 @@ import {
 } from "react-icons/hi2";
 import MDXRenderer from "@/components/base/MDXRenderer";
 import CommonSlugHeadTags from "@/components/seo/CommonSlugHeadTags";
-import ContentFooter from "@/components/garden/ContentFooter";
 import DigiGardenFooter from "@/components/garden/DigiGardenFooter";
 import GardenCollabCard from "@/components/garden/GardenCollabCard";
-import AIQuestionWrapper from "@/components/garden/AIQuestionWrapper";
+import AIQuestionDrawer from "@/components/garden/AIQuestionDrawer";
 import QuickReaderDrawer from "@/components/garden/AI/QuickReaderDrawer";
 import QuestionsListDrawer from "@/components/garden/AI/QuestionsListDrawer";
 import { withDigitalGardenLayout } from "@/layouts";
@@ -140,6 +139,7 @@ export async function getStaticPaths() {
 export default function BlogPost({ frontMatter, mdxSource, related = [], slug }) {
   const [quickOpen, setQuickOpen] = useState(false);
   const [qnaOpen, setQnaOpen] = useState(false);
+  const [quizOpen, setQuizOpen] = useState(false);
   const [speaking, setSpeaking] = useState(false);
   const [fontScale, setFontScale] = useState(0); // -2..3 steps
 
@@ -260,31 +260,31 @@ export default function BlogPost({ frontMatter, mdxSource, related = [], slug })
       </aside>
 
       <article className="mx-auto max-w-[920px] px-5 pb-16 pt-10 md:px-8 md:pt-12">
-        {/* AI action pills — centered */}
+        {/* AI action pills — same drawers as notes */}
         <div className="mb-8 flex flex-wrap items-center justify-center gap-2">
           <button
             type="button"
             onClick={() => setQuickOpen(true)}
-            className="inline-flex items-center gap-1.5 rounded-full border border-[#ddd5c8] bg-white px-3.5 py-1.5 text-[11px] font-medium text-[#3f3a34] transition hover:border-[#1f2a22] hover:bg-[#1f2a22] hover:text-white dark:border-[#1e3328] dark:bg-[#121e17] dark:text-[#f0f4ef]"
+            className="inline-flex items-center gap-1.5 rounded-full border border-[#ddd5c8] bg-transparent px-3.5 py-1.5 text-[11px] font-medium text-[#171717] transition hover:bg-black/[0.03] dark:border-[#1e3328] dark:text-[#f0f4ef] dark:hover:bg-white/[0.04]"
           >
-            <HiBolt className="h-3.5 w-3.5" />
+            <HiBolt className="h-3.5 w-3.5 text-violet-500" />
             Quick AI Read
           </button>
           <button
             type="button"
-            onClick={() => setQuickOpen(true)}
-            className="inline-flex items-center gap-1.5 rounded-full border border-[#ddd5c8] bg-white px-3.5 py-1.5 text-[11px] font-medium text-[#3f3a34] transition hover:border-[#1f2a22] hover:bg-[#1f2a22] hover:text-white dark:border-[#1e3328] dark:bg-[#121e17] dark:text-[#f0f4ef]"
+            onClick={() => setQuizOpen(true)}
+            className="inline-flex items-center gap-1.5 rounded-full border border-[#ddd5c8] bg-transparent px-3.5 py-1.5 text-[11px] font-medium text-[#171717] transition hover:bg-black/[0.03] dark:border-[#1e3328] dark:text-[#f0f4ef] dark:hover:bg-white/[0.04]"
           >
-            <HiSparkles className="h-3.5 w-3.5" />
-            Summarize with AI
+            <HiSparkles className="h-3.5 w-3.5 text-sky-500" />
+            Attempt Quiz
           </button>
           <button
             type="button"
             onClick={() => setQnaOpen(true)}
-            className="inline-flex items-center gap-1.5 rounded-full border border-[#ddd5c8] bg-white px-3.5 py-1.5 text-[11px] font-medium text-[#3f3a34] transition hover:border-[#1f2a22] hover:bg-[#1f2a22] hover:text-white dark:border-[#1e3328] dark:bg-[#121e17] dark:text-[#f0f4ef]"
+            className="inline-flex items-center gap-1.5 rounded-full border border-[#ddd5c8] bg-transparent px-3.5 py-1.5 text-[11px] font-medium text-[#171717] transition hover:bg-black/[0.03] dark:border-[#1e3328] dark:text-[#f0f4ef] dark:hover:bg-white/[0.04]"
           >
-            <HiChatBubbleLeftRight className="h-3.5 w-3.5" />
-            Q&amp;A Mode
+            <HiChatBubbleLeftRight className="h-3.5 w-3.5 text-violet-500" />
+            Q&amp;A
           </button>
         </div>
 
@@ -371,13 +371,6 @@ export default function BlogPost({ frontMatter, mdxSource, related = [], slug })
           <MDXRenderer markdownContent={mdxSource} variant="garden" />
         </div>
 
-        {/* AI Quiz */}
-        <div className="mt-10 border border-[#ddd5c8] bg-[#f1ece3] dark:border-[#1e3328] dark:bg-[#121e17]">
-          <div className="flex items-center justify-center px-4 py-3 [&_button]:w-full [&_button]:justify-center [&_button]:rounded-none [&_button]:bg-transparent [&_button]:px-0 [&_button]:py-1 [&_button]:font-fraunces [&_button]:text-[0.9rem] [&_button]:font-semibold [&_button]:text-[#1c1c1c] dark:[&_button]:text-[#f0f4ef]">
-            <AIQuestionWrapper />
-          </div>
-        </div>
-
         {/* Continue Exploring */}
         {related?.length > 0 ? (
           <section className="mt-14 text-left">
@@ -406,19 +399,14 @@ export default function BlogPost({ frontMatter, mdxSource, related = [], slug })
           </section>
         ) : null}
 
-        <div className="mt-12 text-left">
-          <ContentFooter
-            name={author}
-            photoSrc={avatar}
-            description="Writer & curator of this digital garden — open notes for learners worldwide."
-          />
-        </div>
-
         <GardenCollabCard className="mt-12" />
       </article>
 
       <QuickReaderDrawer isOpen={quickOpen} setIsOpen={setQuickOpen} />
       <QuestionsListDrawer isOpen={qnaOpen} setIsOpen={setQnaOpen} />
+      {quizOpen ? (
+        <AIQuestionDrawer isOpen={quizOpen} setIsOpen={setQuizOpen} />
+      ) : null}
 
       <DigiGardenFooter />
     </div>

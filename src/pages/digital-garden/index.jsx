@@ -855,9 +855,9 @@ function DigitalGarden({ posts, blogs }) {
               <div className="flex gap-4">
                 <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-orange-500/15 text-xl text-orange-700 dark:text-orange-400"><HiUserGroup /></div>
                 <div>
-                  <h3 className="mb-1 text-lg font-bold">Donations to Old Boys &amp; Students</h3>
+                  <h3 className="mb-1 text-lg font-bold">Donations to homeless</h3>
                   <p className="text-[0.95rem] leading-relaxed text-[#585858] dark:text-[#92a59a]">
-                    Empowering old batchmates, students, and junior developers from underrepresented backgrounds with learning resources, books, and course access.
+                    Part of every contribution also supports local homeless relief and care efforts in the community.
                   </p>
                 </div>
               </div>
