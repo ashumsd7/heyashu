@@ -1,8 +1,6 @@
-# Netlify Next.js — do NOT set publish directory (plugin manages output).
-# In Netlify UI: Site settings → Build & deploy → clear "Publish directory" if set to .next
-
 [build]
   command = "npm run build"
+  publish = ".next"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"

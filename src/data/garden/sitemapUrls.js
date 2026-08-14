@@ -1,10 +1,10 @@
 /**
  * Build absolute sitemap URL list from known static pages + content markdown.
- * Used by /sitemap.xml (server-only).
+ * Used by scripts/generate-sitemap.mjs at build time → public/sitemap.xml.
  */
 import fs from "fs";
 import path from "path";
-import { SITE_ORIGIN } from "@/utils/seo";
+import { SITE_ORIGIN } from "../../utils/seo.js";
 
 const STATIC_PATHS = [
   "/",

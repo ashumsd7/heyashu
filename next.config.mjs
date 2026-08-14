@@ -1,6 +1,10 @@
 /** @type {import('next').NextConfig} */
-import createMDX from '@next/mdx';
-import withPWA from 'next-pwa';
+import createMDX from "@next/mdx";
+import withPWA from "next-pwa";
+
+const isNetlify = process.env.NETLIFY === "true";
+const isPwaEnabled =
+  process.env.NODE_ENV === "production" && !isNetlify;
 
 const nextConfig = {
   reactStrictMode: true,
@@ -17,6 +21,15 @@ const nextConfig = {
         "node_modules/react-pdf/**",
         "node_modules/pdfjs-dist/**",
         "node_modules/react-syntax-highlighter/**",
+        "node_modules/typescript/**",
+        "node_modules/@babel/**",
+        "node_modules/sharp/**",
+        "node_modules/next/dist/compiled/webpack/**",
+        "public/images/**",
+        "public/pdfs/**",
+        "public/**/*.mp4",
+        "public/**/*.webm",
+        "src/content/**",
       ],
     },
   },
@@ -24,11 +37,11 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "**", // Allows images from any HTTPS hostname
+        hostname: "**",
       },
       {
         protocol: "http",
-        hostname: "**", // Allows images from any HTTP hostname (if needed)
+        hostname: "**",
       },
       {
         protocol: "https",
@@ -56,29 +69,28 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "encrypted-tbn0.gstatic.com",
-      },
-      {
-        protocol: "https",
         hostname: "bsmedia.business-standard",
       },
     ],
   },
 };
 
-const withMDX = createMDX({
-  // Add markdown plugins here, as desired
-});
+const withMDX = createMDX({});
 
 const pwaConfig = withPWA({
   dest: "public",
   register: true,
   skipWaiting: true,
-  disable: process.env.NODE_ENV === "development",
-  // Keep precache manifest small — large public assets are served normally via CDN
-  publicExcludes: ["!images/**/*", "!pdfs/**/*"],
+  disable: !isPwaEnabled,
+  publicExcludes: [
+    "!images/**/*",
+    "!pdfs/**/*",
+    "!**/*.mp4",
+    "!**/*.webm",
+  ],
   maximumFileSizeToCacheInBytes: 3 * 1024 * 1024,
 });
 
-// Combine PWA and MDX configuration
-export default pwaConfig(withMDX(nextConfig));
+export default isPwaEnabled
+  ? pwaConfig(withMDX(nextConfig))
+  : withMDX(nextConfig);

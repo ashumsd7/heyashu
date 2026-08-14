@@ -128,6 +128,17 @@ function parseTags(tags) {
     .filter(Boolean);
 }
 
+function getSearchText(content = "") {
+  return String(content)
+    .replace(/```[\s\S]*?```/g, " ")
+    .replace(/!\[[^\]]*\]\([^)]+\)/g, " ")
+    .replace(/\[[^\]]*\]\([^)]+\)/g, " ")
+    .replace(/[#>*_`~]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .slice(0, 2000);
+}
+
 function getExcerpt(content = "", description = "") {
   if (description) return description;
   const clean = String(content)
@@ -256,7 +267,11 @@ export async function getStaticProps() {
 
           posts.push({
             frontMatter,
-            content,
+            excerpt: getExcerpt(
+              content,
+              frontMatter?.description || frontMatter?.metaContent
+            ),
+            searchText: getSearchText(content),
             slug: filename.replace(".md", ""),
             folder: folderKey,
           });
@@ -276,7 +291,9 @@ export async function getStaticProps() {
 
 function NoteCard({ post, variant = "text", onOpen, index = 0 }) {
   const title = post.frontMatter?.name || post.frontMatter?.title || "Untitled";
-  const excerpt = getExcerpt(post.content, post.frontMatter?.description || post.frontMatter?.metaContent);
+  const excerpt =
+    post.excerpt ||
+    getExcerpt(post.content, post.frontMatter?.description || post.frontMatter?.metaContent);
   const dateLabel = formatBlogDate(post.frontMatter?.publishedOn || post.frontMatter?.date);
   const cat = categoryLabel(post);
   const thumb = normalizeThumb(post.frontMatter?.thumbnail);
@@ -412,7 +429,7 @@ function BlogsPage({ posts }) {
         title.includes(q) ||
         desc.includes(q) ||
         tags.includes(q) ||
-        (post.content || "").toLowerCase().includes(q);
+        (post.searchText || post.content || "").toLowerCase().includes(q);
 
       return matchesSearch && matchesCategory(post, selectedCategory);
     });
@@ -512,11 +529,12 @@ function BlogsPage({ posts }) {
                 </h2>
 
                 <p className="mb-8 max-w-[52ch] text-[0.98rem] leading-relaxed text-[#6b6458] dark:text-[#92a59a]">
-                  {getExcerpt(
-                    featuredPost.content,
-                    featuredPost.frontMatter?.description ||
-                      featuredPost.frontMatter?.metaContent
-                  )}
+                  {featuredPost.excerpt ||
+                    getExcerpt(
+                      featuredPost.content,
+                      featuredPost.frontMatter?.description ||
+                        featuredPost.frontMatter?.metaContent
+                    )}
                 </p>
               </div>
 
