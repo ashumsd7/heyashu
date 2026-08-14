@@ -44,7 +44,10 @@ import {
 } from "react-icons/hi2";
 import { MdOutlineVisibility } from "react-icons/md";
 
-const SIDEBAR_WIDTH = 340;
+const SIDEBAR_WIDTH = 320;
+/** Notes column width — cluster (sidebar + notes) stays screen-centered */
+const CONTENT_WIDTH_WITH_SIDEBAR = 760;
+const CONTENT_WIDTH_EXPANDED = 880;
 
 const THEME_STORAGE = "notes-reader-theme";
 
@@ -154,6 +157,7 @@ const NotesMainPage = ({
   const [isSidebarVisible, setIsSidebarVisible] = useState(true);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [toolsMenuOpen, setToolsMenuOpen] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
   const [theme, setTheme] = useState("light");
   const [fontScale, setFontScale] = useState(0);
   const [speaking, setSpeaking] = useState(false);
@@ -227,6 +231,15 @@ const NotesMainPage = ({
     const saved = ls.get(THEME_STORAGE);
     if (saved && THEMES[saved]) setTheme(saved);
     refreshProgress();
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return undefined;
+    const mq = window.matchMedia("(min-width: 1024px)");
+    const apply = () => setIsDesktop(mq.matches);
+    apply();
+    mq.addEventListener("change", apply);
+    return () => mq.removeEventListener("change", apply);
   }, []);
 
   useEffect(() => {
@@ -565,46 +578,59 @@ const NotesMainPage = ({
             </div>
           </div>
 
-          <div className={`${SHELL} flex`}>
-            {/* Desktop sidebar — aligned with navbar shell */}
-            <AnimatePresence initial={false}>
-              {isSidebarVisible ? (
-                <motion.div
-                  key="notes-sidebar"
-                  initial={{ width: 0, opacity: 0 }}
-                  animate={{ width: SIDEBAR_WIDTH, opacity: 1 }}
-                  exit={{ width: 0, opacity: 0 }}
-                  transition={{ type: "spring", stiffness: 320, damping: 34 }}
-                  className="sticky top-[57px] hidden h-[calc(100vh-57px)] shrink-0 overflow-hidden lg:block"
-                >
-                  <div className="h-full" style={{ width: SIDEBAR_WIDTH }}>
-                    <NotesReaderSidebar
-                      courseName={courseDisplayTitle}
-                      contentListTitle={contentListTitle}
-          data={contentList}
-                      season2Data={season2Data}
-                      show2ndSection={show2ndSection}
-          progress={progress}
-                      completedCount={completedCount}
-                      totalCount={totalCount}
-          selectedSection={currentPageFrontMatter}
-                      storedValues={storedValues}
-          eachCardPrefix={eachCardPrefix}
-                      onSectionClick={handleSectionClick}
-                      onMarkComplete={handleMarkComplete}
-                      isCurrentComplete={isCurrentComplete}
-                    />
-                  </div>
-                </motion.div>
-              ) : null}
-            </AnimatePresence>
-
-            {/* Main reading column */}
-            <motion.main
+          {/* Centered cluster: sidebar + notes mid-screen; notes grow & shift left when sidebar closes */}
+          <div className={`${SHELL} flex justify-center`}>
+            <motion.div
               layout
-              transition={{ type: "spring", stiffness: 320, damping: 34 }}
-              className="relative min-w-0 flex-1 bg-[var(--nr-bg)]"
+              transition={{ type: "spring", stiffness: 280, damping: 32 }}
+              className="flex w-full max-w-[900px] lg:w-auto lg:max-w-none"
             >
+              <AnimatePresence initial={false}>
+                {isSidebarVisible ? (
+                  <motion.div
+                    key="notes-sidebar"
+                    initial={{ width: 0, opacity: 0 }}
+                    animate={{ width: SIDEBAR_WIDTH, opacity: 1 }}
+                    exit={{ width: 0, opacity: 0 }}
+                    transition={{ type: "spring", stiffness: 280, damping: 32 }}
+                    className="sticky top-[57px] hidden h-[calc(100vh-57px)] shrink-0 overflow-hidden lg:block"
+                  >
+                    <div className="h-full" style={{ width: SIDEBAR_WIDTH }}>
+                      <NotesReaderSidebar
+                        courseName={courseDisplayTitle}
+                        contentListTitle={contentListTitle}
+                        data={contentList}
+                        season2Data={season2Data}
+                        show2ndSection={show2ndSection}
+                        progress={progress}
+                        completedCount={completedCount}
+                        totalCount={totalCount}
+                        selectedSection={currentPageFrontMatter}
+                        storedValues={storedValues}
+                        eachCardPrefix={eachCardPrefix}
+                        onSectionClick={handleSectionClick}
+                        onMarkComplete={handleMarkComplete}
+                        isCurrentComplete={isCurrentComplete}
+                      />
+                    </div>
+                  </motion.div>
+                ) : null}
+              </AnimatePresence>
+
+              <motion.main
+                initial={false}
+                animate={
+                  isDesktop
+                    ? {
+                        width: isSidebarVisible
+                          ? CONTENT_WIDTH_WITH_SIDEBAR
+                          : CONTENT_WIDTH_EXPANDED,
+                      }
+                    : { width: "100%" }
+                }
+                transition={{ type: "spring", stiffness: 280, damping: 32 }}
+                className="relative min-w-0 shrink-0 bg-[var(--nr-bg)]"
+              >
               {/* Floating tools — far right of viewport */}
               <aside className="fixed right-3 top-1/2 z-40 hidden -translate-y-1/2 flex-col overflow-hidden rounded-full border border-[var(--nr-border)] bg-[var(--nr-surface)]/95 shadow-sm lg:flex">
                 <button
@@ -653,9 +679,9 @@ const NotesMainPage = ({
                 ))}
               </aside>
 
-              <article className="w-full px-4 pb-28 pt-6 md:px-8 md:pb-14 md:pt-8">
+              <article className="w-full px-4 pb-28 pt-3 md:px-6 md:pb-14 md:pt-3">
                 {/* Lesson meta row */}
-                <div className="mb-5 flex flex-wrap items-center justify-between gap-2">
+                <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
                   <span className="inline-flex rounded-full border border-[var(--nr-border)] bg-[var(--nr-surface)] px-3 py-1 text-[11px] font-medium text-[var(--nr-accent)]">
                     {lessonBadge}
                   </span>
@@ -772,14 +798,15 @@ const NotesMainPage = ({
 
                 <GardenCollabCard className="mt-12" />
               </article>
-            </motion.main>
+              </motion.main>
+            </motion.div>
           </div>
 
           <DigiGardenFooter compact />
         </div>
 
         {/* Mobile sticky AI + tools */}
-        <div className="fixed inset-x-0 bottom-0 z-40 border-t border-[var(--nr-border)] bg-[var(--nr-surface)]/95 px-2 pb-[max(0.4rem,env(safe-area-inset-bottom))] pt-1.5 shadow-[0_-8px_24px_-16px_rgba(15,23,42,0.35)] backdrop-blur-md md:hidden">
+        <div className="fixed inset-x-0 bottom-0 z-40 border-t border-[var(--nr-border)] bg-[var(--nr-surface)] px-2 pb-[max(0.4rem,env(safe-area-inset-bottom))] pt-1.5 shadow-[0_-8px_24px_-16px_rgba(15,23,42,0.35)] md:hidden">
           <div className="mx-auto flex max-w-[1400px] flex-col gap-1.5">
             <div className="flex items-center justify-center gap-1.5">
               <button
@@ -856,55 +883,65 @@ const NotesMainPage = ({
           </div>
         </div>
 
-        {/* Mobile sidebar drawer */}
-        {mobileNavOpen ? (
-          <div className="fixed inset-0 z-50 lg:hidden">
-            <button
-              type="button"
-              className="absolute inset-0 bg-black/40"
-              aria-label="Close menu"
-              onClick={() => setMobileNavOpen(false)}
-            />
-            <div
-              className="absolute bottom-0 left-0 top-0 flex w-[min(100%,320px)] flex-col shadow-xl"
-              style={{
-                background:
-                  "linear-gradient(180deg, var(--nr-sidebar-from) 0%, var(--nr-sidebar-to) 100%)",
-              }}
-            >
-              <div className="flex items-center justify-between border-b border-[var(--nr-border)] px-3 py-3">
-                <span className="font-fraunces text-[14px] font-semibold">
-                  Course Content
-                </span>
-                <button
-                  type="button"
-                  onClick={() => setMobileNavOpen(false)}
-                  className="grid h-8 w-8 place-items-center rounded-lg text-[var(--nr-muted)]"
-                >
-                  <HiOutlineXMark className="h-5 w-5" />
-                </button>
-              </div>
-              <div className="min-h-0 flex-1">
-                <NotesReaderSidebar
-                  courseName={courseDisplayTitle}
-                  contentListTitle={contentListTitle}
-                  data={contentList}
-                  season2Data={season2Data}
-                  show2ndSection={show2ndSection}
-                  progress={progress}
-                  completedCount={completedCount}
-                  totalCount={totalCount}
-                  selectedSection={currentPageFrontMatter}
-                  storedValues={storedValues}
-                  eachCardPrefix={eachCardPrefix}
-                  onSectionClick={handleSectionClick}
-                  onMarkComplete={handleMarkComplete}
-                  isCurrentComplete={isCurrentComplete}
-                />
-              </div>
+        {/* Mobile sidebar drawer — smooth slide */}
+        <AnimatePresence>
+          {mobileNavOpen ? (
+            <div className="fixed inset-0 z-50 lg:hidden">
+              <motion.button
+                type="button"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                className="absolute inset-0 bg-black/45"
+                aria-label="Close menu"
+                onClick={() => setMobileNavOpen(false)}
+              />
+              <motion.div
+                initial={{ x: "-100%" }}
+                animate={{ x: 0 }}
+                exit={{ x: "-100%" }}
+                transition={{ type: "spring", stiffness: 380, damping: 34 }}
+                className="absolute bottom-0 left-0 top-0 flex w-[min(100%,320px)] flex-col shadow-xl"
+                style={{
+                  background:
+                    "linear-gradient(180deg, var(--nr-sidebar-from) 0%, var(--nr-sidebar-to) 100%)",
+                }}
+              >
+                <div className="flex items-center justify-between border-b border-[var(--nr-border)] px-3 py-3">
+                  <span className="font-fraunces text-[14px] font-semibold">
+                    Course Content
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => setMobileNavOpen(false)}
+                    className="grid h-8 w-8 place-items-center rounded-lg text-[var(--nr-muted)]"
+                  >
+                    <HiOutlineXMark className="h-5 w-5" />
+                  </button>
+                </div>
+                <div className="min-h-0 flex-1 overflow-y-auto">
+                  <NotesReaderSidebar
+                    courseName={courseDisplayTitle}
+                    contentListTitle={contentListTitle}
+                    data={contentList}
+                    season2Data={season2Data}
+                    show2ndSection={show2ndSection}
+                    progress={progress}
+                    completedCount={completedCount}
+                    totalCount={totalCount}
+                    selectedSection={currentPageFrontMatter}
+                    storedValues={storedValues}
+                    eachCardPrefix={eachCardPrefix}
+                    onSectionClick={handleSectionClick}
+                    onMarkComplete={handleMarkComplete}
+                    isCurrentComplete={isCurrentComplete}
+                  />
+                </div>
+              </motion.div>
             </div>
-          </div>
-        ) : null}
+          ) : null}
+        </AnimatePresence>
       
         <QuickReaderDrawer isOpen={quickOpen} setIsOpen={setQuickOpen} />
         <QuestionsListDrawer isOpen={qnaOpen} setIsOpen={setQnaOpen} />

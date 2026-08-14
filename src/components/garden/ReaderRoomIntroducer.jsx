@@ -11,13 +11,13 @@ import {
   HiOutlinePencilSquare,
   HiOutlineStar,
   HiOutlineCodeBracket,
+  HiChevronLeft,
+  HiChevronRight,
 } from "react-icons/hi2";
 import { MdOutlineVisibility } from "react-icons/md";
 import { GITHUB_REPO_LINK } from "@/utils/constant";
 
 export const READER_ROOM_INTRO_KEY = "notes-reader-room-intro-skip";
-const STEP_MS = 2000;
-const COUNTDOWN_TICK_MS = 1000;
 
 const THEME_PREVIEWS = [
   {
@@ -100,9 +100,7 @@ function ThemeControlsDemo({ activeId }) {
           <div
             key={t.id}
             className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-[12px] font-medium transition ${
-              active
-                ? "bg-white text-[#2f281f] shadow-sm"
-                : "text-[#7a6b58]"
+              active ? "bg-white text-[#2f281f] shadow-sm" : "text-[#7a6b58]"
             }`}
             style={
               active
@@ -285,8 +283,8 @@ const STEPS = [
     render: () => (
       <StepShell
         eyebrow="AI enabled notes"
-        title="Ask anything — Q&A"
-        hint="Stuck on a paragraph? Open Q&A and clear it up in conversation."
+        title="AI Q&A for better revision"
+        hint="Use Q&A to revise faster — clear doubts and lock in what you learned."
       >
         <AiPillRow active="qna" />
       </StepShell>
@@ -332,37 +330,26 @@ const STEPS = [
     ),
   },
   {
-    id: "countdown",
-    duration: COUNTDOWN_TICK_MS * 3,
-    render: ({ tick }) => {
-      const n = Math.max(1, 3 - Math.min(tick, 2));
-      return (
-        <StepShell
-          eyebrow="Almost there"
-          title="Entering in…"
-          hint="Your Reader Room is ready."
-        >
-          <motion.div
-            key={n}
-            initial={{ scale: 0.6, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ type: "spring", stiffness: 380, damping: 18 }}
-            className="mx-auto grid h-28 w-28 place-items-center rounded-full border border-[#c9b896] bg-white/70 font-fraunces text-5xl font-semibold text-[#2f281f] shadow-[0_16px_48px_-28px_rgba(47,40,31,0.55)]"
-          >
-            {n}
-          </motion.div>
-        </StepShell>
-      );
-    },
+    id: "enter",
+    render: () => (
+      <StepShell
+        eyebrow="Ready"
+        title="Enter your Reader Room"
+        hint="You’re all set — open the notes and start reading."
+      >
+        <div className="mx-auto grid h-20 w-20 place-items-center rounded-full border border-[#c9b896] bg-white/70 font-fraunces text-2xl font-semibold text-[#2f281f] shadow-[0_16px_48px_-28px_rgba(47,40,31,0.55)]">
+          →
+        </div>
+      </StepShell>
+    ),
   },
 ];
 
 /**
  * Full-screen introducer before notes reading.
- * Persists dismissal via localStorage (`READER_ROOM_INTRO_KEY`).
+ * Manual Next/Prev; Skip + Don’t show again. Persists via localStorage.
  */
 export default function ReaderRoomIntroducer({ onComplete }) {
-  // null = checking storage; true = show intro; false = dismissed
   const [visible, setVisible] = useState(null);
   const [stepIndex, setStepIndex] = useState(0);
   const [tick, setTick] = useState(0);
@@ -386,7 +373,17 @@ export default function ReaderRoomIntroducer({ onComplete }) {
   }, [visible]);
 
   const step = STEPS[stepIndex];
-  const stepDuration = step?.duration ?? STEP_MS;
+  const isFirst = stepIndex === 0;
+  const isLast = stepIndex === STEPS.length - 1;
+
+  // Demo pulse only (themes / font) — does not auto-advance
+  useEffect(() => {
+    if (visible !== true || !step) return undefined;
+    if (step.id !== "themes" && step.id !== "font") return undefined;
+    setTick(0);
+    const tickTimer = setInterval(() => setTick((t) => t + 1), 700);
+    return () => clearInterval(tickTimer);
+  }, [visible, stepIndex, step?.id]);
 
   const finish = (persist) => {
     if (persist) {
@@ -400,37 +397,20 @@ export default function ReaderRoomIntroducer({ onComplete }) {
     onComplete?.();
   };
 
-  useEffect(() => {
-    if (visible !== true || !step) return undefined;
-
-    const tickMs =
-      step.id === "themes" || step.id === "font" || step.id === "countdown"
-        ? step.id === "countdown"
-          ? COUNTDOWN_TICK_MS
-          : 500
-        : null;
-
-    let tickTimer;
-    if (tickMs) {
-      setTick(0);
-      tickTimer = setInterval(() => setTick((t) => t + 1), tickMs);
+  const goNext = () => {
+    if (isLast) {
+      finish(false);
+      return;
     }
+    setStepIndex((i) => i + 1);
+    setTick(0);
+  };
 
-    const advance = setTimeout(() => {
-      if (stepIndex >= STEPS.length - 1) {
-        finish(false);
-      } else {
-        setStepIndex((i) => i + 1);
-        setTick(0);
-      }
-    }, stepDuration);
-
-    return () => {
-      clearTimeout(advance);
-      if (tickTimer) clearInterval(tickTimer);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [visible, stepIndex, step?.id]);
+  const goPrev = () => {
+    if (isFirst) return;
+    setStepIndex((i) => i - 1);
+    setTick(0);
+  };
 
   const progress = useMemo(
     () => ((stepIndex + 1) / STEPS.length) * 100,
@@ -465,7 +445,6 @@ export default function ReaderRoomIntroducer({ onComplete }) {
           aria-modal="true"
           aria-label="Reader Room introduction"
         >
-          {/* Soft atmosphere */}
           <div
             aria-hidden
             className="pointer-events-none absolute inset-0 opacity-40"
@@ -487,17 +466,16 @@ export default function ReaderRoomIntroducer({ onComplete }) {
             transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
           />
 
-          {/* Progress */}
           <div className="absolute left-0 right-0 top-0 z-10 h-1 bg-[#c9b896]/40">
             <motion.div
               className="h-full bg-[#5c4a32]"
               initial={false}
               animate={{ width: `${progress}%` }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
+              transition={{ duration: 0.35, ease: "easeOut" }}
             />
           </div>
 
-          {/* Skip — desktop top-right */}
+          {/* Skip + don’t show again — desktop top-right */}
           <div className="absolute right-5 top-5 z-20 hidden items-center gap-3 md:flex">
             <button
               type="button"
@@ -515,15 +493,15 @@ export default function ReaderRoomIntroducer({ onComplete }) {
             </button>
           </div>
 
-          {/* Main stage — true viewport center */}
-          <div className="absolute inset-0 z-10 flex items-center justify-center px-4">
+          {/* Main stage */}
+          <div className="absolute inset-0 z-10 flex items-center justify-center px-4 pb-28 pt-16">
             <AnimatePresence mode="wait">
               <motion.div
                 key={step.id}
                 initial={{ opacity: 0, y: 22, filter: "blur(6px)" }}
                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                 exit={{ opacity: 0, y: -16, filter: "blur(4px)" }}
-                transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                 className="flex w-full max-w-md items-center justify-center"
               >
                 {step.render({ tick })}
@@ -531,27 +509,46 @@ export default function ReaderRoomIntroducer({ onComplete }) {
             </AnimatePresence>
           </div>
 
-          {/* Mobile controls — bottom right */}
-          <div className="absolute bottom-[max(1rem,env(safe-area-inset-bottom))] right-4 z-20 flex flex-col items-end gap-2 md:hidden">
-            <button
-              type="button"
-              onClick={() => finish(true)}
-              className="rounded-full border border-[#c9b896] bg-white/70 px-3 py-1.5 text-[11px] font-medium text-[#5c4a32] backdrop-blur-sm"
-            >
-              Don&apos;t show again
-            </button>
-            <button
-              type="button"
-              onClick={() => finish(false)}
-              className="rounded-full bg-[#2f281f] px-4 py-2 text-[12px] font-semibold text-[#f6ecd8] shadow-lg"
-            >
-              Skip
-            </button>
-          </div>
+          {/* Prev / Next — bottom center */}
+          <div className="absolute bottom-[max(1.25rem,env(safe-area-inset-bottom))] left-0 right-0 z-20 flex flex-col items-center gap-3 px-4">
+            <div className="flex items-center gap-3">
+              <button
+                type="button"
+                onClick={goPrev}
+                disabled={isFirst}
+                className="inline-flex h-11 items-center gap-1.5 rounded-full border border-[#c9b896] bg-white/80 px-4 text-[13px] font-semibold text-[#5c4a32] transition enabled:hover:bg-white disabled:cursor-not-allowed disabled:opacity-35"
+              >
+                <HiChevronLeft className="h-4 w-4" />
+                Prev
+              </button>
+              <button
+                type="button"
+                onClick={goNext}
+                className="inline-flex h-11 items-center gap-1.5 rounded-full bg-[#2f281f] px-5 text-[13px] font-semibold text-[#f6ecd8] transition hover:bg-[#1f1a14]"
+              >
+                {isLast ? "Enter" : "Next"}
+                {!isLast ? <HiChevronRight className="h-4 w-4" /> : null}
+              </button>
+            </div>
 
-          <p className="pointer-events-none absolute bottom-4 left-1/2 z-10 hidden -translate-x-1/2 text-[10px] tracking-[0.18em] text-[#9a8b76] md:block">
-            READER ROOM · HEYASHU
-          </p>
+            {/* Mobile skip row */}
+            <div className="flex items-center gap-3 md:hidden">
+              <button
+                type="button"
+                onClick={() => finish(true)}
+                className="rounded-full border border-[#c9b896] bg-white/70 px-3 py-1.5 text-[11px] font-medium text-[#5c4a32]"
+              >
+                Don&apos;t show again
+              </button>
+              <button
+                type="button"
+                onClick={() => finish(false)}
+                className="rounded-full bg-[#2f281f] px-4 py-1.5 text-[11px] font-semibold text-[#f6ecd8]"
+              >
+                Skip
+              </button>
+            </div>
+          </div>
         </motion.div>
       ) : null}
     </AnimatePresence>
