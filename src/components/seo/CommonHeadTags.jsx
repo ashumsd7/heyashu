@@ -49,8 +49,8 @@ function CommonHeadTags({
       <meta name="twitter:image" content={image} />
       <meta name="twitter:image:alt" content={title} />
 
-      <link rel="icon" href="/digigarden.ico" />
-      <link rel="apple-touch-icon" href="/digigarden.ico" />
+      <link rel="icon" href="/fav_main.ico" />
+      <link rel="apple-touch-icon" href="/fav_main.ico" />
       <link rel="canonical" href={canonical} />
     </Head>
   );

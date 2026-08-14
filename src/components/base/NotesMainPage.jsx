@@ -41,6 +41,7 @@ import {
   HiArrowLeft,
   HiOutlinePencilSquare,
   HiOutlineStar,
+  HiOutlineRadio,
 } from "react-icons/hi2";
 import { MdOutlineVisibility } from "react-icons/md";
 
@@ -48,6 +49,41 @@ const SIDEBAR_WIDTH = 320;
 /** Notes column width — cluster (sidebar + notes) stays screen-centered */
 const CONTENT_WIDTH_WITH_SIDEBAR = 760;
 const CONTENT_WIDTH_EXPANDED = 880;
+const CORPORATE_RADIO_URL = "https://corporate-baaja.netlify.app/";
+
+function openCorporateRadio() {
+  if (typeof window === "undefined") return;
+  window.open(
+    CORPORATE_RADIO_URL,
+    "_blank",
+    "width=500,height=700,noopener,noreferrer"
+  );
+}
+
+function CorporateRadioButton({ compact = false }) {
+  return (
+    <button
+      type="button"
+      onClick={openCorporateRadio}
+      title="Corporate Radio"
+      aria-label="Open Corporate Radio"
+      className={`relative inline-flex shrink-0 items-center gap-1.5 rounded-lg border border-[var(--nr-border)] bg-[var(--nr-surface)] text-[var(--nr-muted)] transition hover:border-emerald-500/40 hover:text-[var(--nr-text)] ${
+        compact ? "grid h-9 w-9 place-items-center" : "px-2.5 py-1.5"
+      }`}
+    >
+      <span className="relative grid place-items-center">
+        <span className="absolute inset-0 animate-ping rounded-full bg-emerald-500/35" />
+        <span className="absolute -inset-1 animate-pulse rounded-full bg-emerald-400/20" />
+        <HiOutlineRadio className="relative h-4 w-4 text-emerald-600 dark:text-emerald-400" />
+      </span>
+      {!compact ? (
+        <span className="text-[11px] font-semibold text-[var(--nr-text)]">
+          Corporate Radio
+        </span>
+      ) : null}
+    </button>
+  );
+}
 
 const THEME_STORAGE = "notes-reader-theme";
 
@@ -373,11 +409,11 @@ const NotesMainPage = ({
                   <div className="flex min-w-0 flex-1 items-center gap-2 md:gap-3">
                     <Link
                       href="/digital-garden"
-                      className="inline-flex shrink-0 items-center gap-1.5 rounded-lg bg-emerald-600 px-2.5 py-1.5 text-[11px] font-semibold text-white no-underline transition hover:bg-emerald-700"
+                      aria-label="Back to Digital Garden"
+                      className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-emerald-600 text-white no-underline transition hover:bg-emerald-700 sm:h-auto sm:w-auto sm:gap-1.5 sm:px-2.5 sm:py-1.5 sm:text-[11px] sm:font-semibold"
                     >
-                      <HiArrowLeft className="h-3.5 w-3.5" />
+                      <HiArrowLeft className="h-4 w-4 sm:h-3.5 sm:w-3.5" />
                       <span className="hidden sm:inline">Digital Garden</span>
-                      <span className="sm:hidden">Back</span>
                     </Link>
                     <button
                       type="button"
@@ -399,6 +435,7 @@ const NotesMainPage = ({
                         <HiChevronRight className="h-5 w-5" />
                       )}
                     </button>
+                    {/* Course name */}
                     <div className="min-w-0">
                       <p className="mb-0.5 hidden font-fraunces text-[11px] italic tracking-wide text-[var(--nr-muted)] sm:block">
                         You are reading
@@ -491,20 +528,23 @@ const NotesMainPage = ({
                     </div>
                   </div>
 
-                  {/* Mobile tools burger */}
-                  <button
-                    type="button"
-                    className="grid h-9 w-9 shrink-0 place-items-center rounded-lg border border-[var(--nr-border)] bg-[var(--nr-surface)] text-[var(--nr-muted)] transition hover:text-[var(--nr-text)] lg:hidden"
-                    onClick={() => setToolsMenuOpen((v) => !v)}
-                    aria-label="Open tools"
-                    title="Tools"
-                  >
-                    {toolsMenuOpen ? (
-                      <HiOutlineXMark className="h-5 w-5" />
-                    ) : (
-                      <HiOutlineEllipsisVertical className="h-5 w-5" />
-                    )}
-                  </button>
+                  {/* Mobile — Corporate Radio (right of name) + tools */}
+                  <div className="flex shrink-0 items-center gap-1.5 lg:hidden">
+                    <CorporateRadioButton compact />
+                    <button
+                      type="button"
+                      className="grid h-9 w-9 place-items-center rounded-lg border border-[var(--nr-border)] bg-[var(--nr-surface)] text-[var(--nr-muted)] transition hover:text-[var(--nr-text)]"
+                      onClick={() => setToolsMenuOpen((v) => !v)}
+                      aria-label="Open tools"
+                      title="Tools"
+                    >
+                      {toolsMenuOpen ? (
+                        <HiOutlineXMark className="h-5 w-5" />
+                      ) : (
+                        <HiOutlineEllipsisVertical className="h-5 w-5" />
+                      )}
+                    </button>
+                  </div>
                 </div>
 
                 <AnimatePresence>
@@ -723,7 +763,7 @@ const NotesMainPage = ({
                     {title}
                   </h1>
 
-                  {/* Author · date · min read — bordered bar */}
+                  {/* Author · date · min read — Corporate Radio on the right (desktop) */}
                   <div className="flex w-full flex-wrap items-center gap-3 rounded-xl border border-[var(--nr-border)] bg-[var(--nr-surface)] px-4 py-3.5">
                     <img
                       src={avatar}
@@ -738,6 +778,9 @@ const NotesMainPage = ({
                         {formattedDate || "Recently"}
                         {readMins ? ` · ${readMins} min read` : ""}
                       </span>
+                    </div>
+                    <div className="hidden shrink-0 lg:block">
+                      <CorporateRadioButton />
                     </div>
                   </div>
                 </header>
