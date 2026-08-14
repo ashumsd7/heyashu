@@ -343,7 +343,7 @@ function DigitalGarden({ posts, blogs }) {
   const userTestimonials = posts.map((post) => ({
     name: post.frontMatter?.name || post?.frontMatter?.title || "Anonymous Developer",
     role: post.role || post.frontMatter?.role || "Software Engineer",
-    comment: formatComment(post.content),
+    comment: formatComment(post.excerpt ?? post.content),
     avatar:
       removePublicFromPath(post.frontMatter?.profilePic) ||
       removePublicFromPath(post?.profilePic) ||
@@ -952,7 +952,7 @@ export async function getStaticProps() {
       const { data: frontMatter, content } = matter(fileContent);
       return {
         frontMatter,
-        content,
+        excerpt: formatComment(content),
         slug: filename.replace(".md", ""),
       };
     });

@@ -12,6 +12,7 @@ import path from "path";
 import { serialize } from "next-mdx-remote/serialize";
 import AIQuestionWrapper from "@/components/garden/AIQuestionWrapper";
 import { buildNotesSidebarList } from "@/data/note/sidebarList";
+import { loadNotesMetaFromDir } from "@/data/note/loadNotesMeta";
 
 const NotesDetailPageForSnippets = ({
   notes,
@@ -45,7 +46,6 @@ export default NotesDetailPageForSnippets;
 // generating static props
 export async function getStaticProps({ params }) {
   const directory = path.join(process.cwd(), "src/content/front-end-design-system");
-  const filenames = fs.readdirSync(directory);
   const filePath = path.join(
     process.cwd(),
     "src",
@@ -56,21 +56,7 @@ export async function getStaticProps({ params }) {
   const fileContents = fs.readFileSync(filePath, "utf-8");
   const { data, content } = matter(fileContents);
   const mdxSource = await serialize(content);
-  const notes = filenames.map((filename) => {
-    // Read markdown file as string
-    const fileContent = fs.readFileSync(
-      path.join(directory, filename),
-      "utf-8"
-    );
-
-    const { data: frontMatter, content } = matter(fileContent);
-
-    return {
-      frontMatter,
-      content,
-      slug: filename.replace(".md", ""),
-    };
-  });
+  const notes = loadNotesMetaFromDir(directory);
 
   return {
     props: {

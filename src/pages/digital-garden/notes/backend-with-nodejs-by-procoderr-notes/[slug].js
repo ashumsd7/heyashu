@@ -12,6 +12,7 @@ import { serialize } from "next-mdx-remote/serialize";
 import { metaTagsForProcoderrNodejs } from "@/data/note/procderr-nodejs/meta-tags";
 import AIQuestionWrapper from "@/components/garden/AIQuestionWrapper";
 import { buildNotesSidebarList } from "@/data/note/sidebarList";
+import { loadNotesMetaFromDir } from "@/data/note/loadNotesMeta";
 
 const NotesDetailPage = ({ notes, currentPageMDX, currentPageFrontMatter }) => {
   const contentList = useMemo(() => buildNotesSidebarList(notes), [notes]);
@@ -39,7 +40,6 @@ export default NotesDetailPage;
 
 export async function getStaticProps({ params }) {
   const directory = path.join(process.cwd(), "src/content/node-js-procodrr");
-  const filenames = fs.readdirSync(directory);
 
   const filePath = path.join(
     process.cwd(),
@@ -52,18 +52,7 @@ export async function getStaticProps({ params }) {
   const { data, content } = matter(fileContents);
   const mdxSource = await serialize(content);
 
-  const notes = filenames.map((filename) => {
-    const fileContent = fs.readFileSync(
-      path.join(directory, filename),
-      "utf-8"
-    );
-    const { data: frontMatter, content: body } = matter(fileContent);
-    return {
-      frontMatter,
-      content: body,
-      slug: filename.replace(".md", ""),
-    };
-  });
+  const notes = loadNotesMetaFromDir(directory);
 
   return {
     props: {

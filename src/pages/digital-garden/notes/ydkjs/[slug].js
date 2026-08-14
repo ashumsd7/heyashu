@@ -13,6 +13,7 @@ import path from "path";
 import { serialize } from "next-mdx-remote/serialize";
 import AIQuestionWrapper from "@/components/garden/AIQuestionWrapper";
 import { buildNotesSidebarList } from "@/data/note/sidebarList";
+import { loadNotesMetaFromDir } from "@/data/note/loadNotesMeta";
 
 const NotesDetailPage = ({ notes, currentPageMDX, currentPageFrontMatter }) => {
   const contentList = useMemo(
@@ -52,8 +53,6 @@ export async function getStaticProps({ params }) {
     "src/content/ydkjs"
   );
 
-  const filenames = fs.readdirSync(directory);
-
   const filePath = path.join(
     process.cwd(),
     "src",
@@ -68,22 +67,7 @@ export async function getStaticProps({ params }) {
     mdxOptions: { rehypePlugins: [rehypeHighlight] },
   });
 
-  // Loop through each file and read its content and metadata :
-  const notes = filenames.map((filename) => {
-    // Read markdown file as string
-    const fileContent = fs.readFileSync(
-      path.join(directory, filename),
-      "utf-8"
-    );
-
-    const { data: frontMatter, content } = matter(fileContent);
-
-    return {
-      frontMatter,
-      content,
-      slug: filename.replace(".md", ""),
-    };
-  });
+  const notes = loadNotesMetaFromDir(directory);
 
   return {
     props: {

@@ -4,6 +4,22 @@ import withPWA from 'next-pwa';
 
 const nextConfig = {
   reactStrictMode: true,
+  experimental: {
+    outputFileTracingExcludes: {
+      "*": [
+        "node_modules/@swc/core-linux-x64-gnu/**",
+        "node_modules/@swc/core-linux-x64-musl/**",
+        "node_modules/@esbuild/**",
+        "node_modules/webpack/**",
+        "node_modules/terser/**",
+        "node_modules/canvas/**",
+        "node_modules/jspdf/**",
+        "node_modules/react-pdf/**",
+        "node_modules/pdfjs-dist/**",
+        "node_modules/react-syntax-highlighter/**",
+      ],
+    },
+  },
   images: {
     remotePatterns: [
       {
@@ -55,10 +71,13 @@ const withMDX = createMDX({
 });
 
 const pwaConfig = withPWA({
-  dest: 'public',
+  dest: "public",
   register: true,
   skipWaiting: true,
-  disable: process.env.NODE_ENV === 'development'
+  disable: process.env.NODE_ENV === "development",
+  // Keep precache manifest small — large public assets are served normally via CDN
+  publicExcludes: ["!images/**/*", "!pdfs/**/*"],
+  maximumFileSizeToCacheInBytes: 3 * 1024 * 1024,
 });
 
 // Combine PWA and MDX configuration
