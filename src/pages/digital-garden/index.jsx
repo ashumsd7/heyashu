@@ -30,7 +30,10 @@ import { removePublicFromPath } from "@/utils/functions";
 import { withDigitalGardenLayout } from "@/layouts";
 import {
   getHomeFeaturedNotes,
+  getNoteStatusChips,
   getNotesStartRoute,
+  NOTE_STATUS_CHIP_TONES,
+  noteIsNew,
 } from "@/data/note/allNotes";
 import {
   GARDEN_ADMIN_URL,
@@ -47,8 +50,8 @@ import {
   pickFreshGardenBlogs,
 } from "@/data/garden";
 
-/** Top N notes cards on the garden home (from NOTES_CONFIG). */
-const HOME_NOTES = getHomeFeaturedNotes(4);
+/** Top notes cards on garden home — all entries with featuredOnHome: true. */
+const HOME_NOTES = getHomeFeaturedNotes();
 
 const HERO_STAT_UI = {
   emerald: {
@@ -286,12 +289,21 @@ function DigitalGarden({ posts, blogs }) {
           <div className="flex flex-col gap-5">
             {HOME_NOTES.map((note) => {
               const startHref = getNotesStartRoute(note);
-              return (
+              const isNew = noteIsNew(note);
+              const statusChips = getNoteStatusChips(note);
+              const updatedLabel = note.lastUpdated
+                ? formatGardenDate(note.lastUpdated)
+                : note.publishedOn || null;
+
+              const cardInner = (
                 <motion.article
-                  key={note.id}
                   whileHover={{ scale: 1.008 }}
                   transition={{ duration: 0.2 }}
-                  className="group relative grid cursor-pointer grid-cols-1 overflow-hidden rounded-[20px] border border-[#e8e2d7] bg-white shadow-[0_4px_20px_rgba(0,0,0,0.03)] transition hover:shadow-[0_16px_36px_-8px_rgba(20,56,37,0.12)] dark:border-[#1e3328] dark:bg-[#121e17] md:grid-cols-[260px_1fr]"
+                  className={`group relative grid cursor-pointer grid-cols-1 overflow-hidden bg-white shadow-[0_4px_20px_rgba(0,0,0,0.03)] transition hover:shadow-[0_16px_36px_-8px_rgba(20,56,37,0.12)] dark:bg-[#121e17] md:grid-cols-[260px_1fr] ${
+                    isNew
+                      ? "rounded-[18px]"
+                      : "rounded-[20px] border border-[#e8e2d7] dark:border-[#1e3328]"
+                  }`}
                   onClick={() => router.push(startHref)}
                 >
                   <div className="pointer-events-none absolute -right-6 -top-6 text-[#143825] opacity-100 dark:text-[#22c55e]" aria-hidden="true">
@@ -309,21 +321,57 @@ function DigitalGarden({ posts, blogs }) {
                     />
                   </div>
                   <div className="relative z-[1] flex flex-col justify-center p-6 md:p-7">
-                    <h3 className="mb-2 font-fraunces text-[clamp(1.4rem,2.8vw,1.85rem)] font-extrabold tracking-[-0.01em] text-[#171717] [text-shadow:0_1px_0_rgba(0,0,0,0.04)] dark:text-[#f0f4ef]">
-                      {note.homeTitle || note.title}
+                    {statusChips.length > 0 ? (
+                      <div className="mb-2 flex flex-wrap gap-2">
+                        {statusChips.map((chip) => (
+                          <span
+                            key={chip.key}
+                            className={`px-2.5 py-0.5 text-[11px] font-semibold ${NOTE_STATUS_CHIP_TONES[chip.tone]}`}
+                          >
+                            {chip.label}
+                          </span>
+                        ))}
+                      </div>
+                    ) : null}
+                    <h3 className="mb-2 flex flex-wrap items-center gap-2.5 font-fraunces text-[clamp(1.4rem,2.8vw,1.85rem)] font-extrabold tracking-[-0.01em] text-[#171717] [text-shadow:0_1px_0_rgba(0,0,0,0.04)] dark:text-[#f0f4ef]">
+                      <span>{note.homeTitle || note.title}</span>
+                      {isNew ? (
+                        <span className="garden-new-label inline-flex shrink-0 items-center px-2.5 py-0.5 font-ibm-mono text-[10px] font-bold uppercase tracking-[0.1em]">
+                          New
+                        </span>
+                      ) : null}
                     </h3>
                     <p className="mb-3 text-[0.95rem] leading-relaxed text-[#585858] dark:text-[#92a59a]">
                       {note.homeDesc || note.shortDesc}
                     </p>
-                    <div className="mb-5 text-xs text-[#585858] dark:text-[#92a59a]">
-                      {note.homeMeta}
-                      {note.completedPercent != null ? ` · ${note.completedPercent}% done` : ""}
+                    <div className="mb-5 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-[#585858] dark:text-[#92a59a]">
+                      <span>{note.homeMeta}</span>
+                      {note.completedPercent != null ? (
+                        <span>· {note.completedPercent}% done</span>
+                      ) : null}
+                      {updatedLabel ? (
+                        <span className="text-[#143825] dark:text-[#22c55e]">
+                          · Updated {updatedLabel}
+                        </span>
+                      ) : null}
+                      {note.publishedOn && note.publishedOn !== updatedLabel ? (
+                        <span>· Published {note.publishedOn}</span>
+                      ) : null}
                     </div>
                     <div className="mt-auto flex flex-wrap items-center justify-between gap-3">
                       <div className="flex items-center gap-3">
-                        <div className="grid h-10 w-10 place-items-center rounded-full bg-[#143825] text-sm font-bold text-white dark:bg-[#22c55e] dark:text-[#0b120e]">
-                          {note.authorInitials || "AT"}
-                        </div>
+                        {note.authorAvatar ? (
+                          <img
+                            src={note.authorAvatar}
+                            alt={note.authorDisplay || note.by || "Author"}
+                            className="h-10 w-10 shrink-0 rounded-full border-2 border-[#e8e2d7] object-cover dark:border-[#1e3328]"
+                            loading="lazy"
+                          />
+                        ) : (
+                          <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-[#143825] text-sm font-bold text-white dark:bg-[#22c55e] dark:text-[#0b120e]">
+                            {note.authorInitials || "AT"}
+                          </div>
+                        )}
                         <div className="flex flex-col leading-tight">
                           <span className="text-sm font-semibold text-[#171717] dark:text-[#f0f4ef]">{note.authorDisplay || note.by}</span>
                           <span className="text-xs text-[#585858] dark:text-[#92a59a]">{note.authorOrg || note.sourceName}</span>
@@ -341,6 +389,19 @@ function DigitalGarden({ posts, blogs }) {
                     </div>
                   </div>
                 </motion.article>
+              );
+
+              return (
+                <div
+                  key={note.id}
+                  className={
+                    isNew
+                      ? "garden-new-card-border rounded-[20px] p-[2px]"
+                      : undefined
+                  }
+                >
+                  {cardInner}
+                </div>
               );
             })}
           </div>

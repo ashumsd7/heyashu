@@ -5,7 +5,12 @@ import { FaGithub } from "react-icons/fa";
 import CommonHeadTags from "@/components/seo/CommonHeadTags";
 import DigiGardenFooter from "@/components/garden/DigiGardenFooter";
 import GardenCollabCard from "@/components/garden/GardenCollabCard";
-import { NOTES_CONFIG, getNotesStartRoute } from "@/data/note/allNotes";
+import {
+  NOTES_CONFIG,
+  getNoteStatusChips,
+  getNotesStartRoute,
+  NOTE_STATUS_CHIP_TONES,
+} from "@/data/note/allNotes";
 import { GARDEN_KHAKI_ITEMS } from "@/data/garden";
 import { withDigitalGardenLayout } from "@/layouts";
 import { GITHUB_REPO_LINK } from "@/utils/constant";
@@ -20,24 +25,8 @@ const fadeUp = {
   },
 };
 
-function statusChip(note) {
-  if (note.isComingSoon) return { label: "Coming Soon", tone: "soon" };
-  if (note.isProgress) return { label: "In Progress", tone: "progress" };
-  if (note.isAlmostDone) return { label: "Almost Done", tone: "almost" };
-  return { label: "Available", tone: "ready" };
-}
-
 function toneClasses(tone) {
-  switch (tone) {
-    case "progress":
-      return "bg-amber-500/15 text-amber-800 dark:text-amber-300";
-    case "almost":
-      return "bg-emerald-500/15 text-emerald-800 dark:text-emerald-300";
-    case "soon":
-      return "bg-slate-500/15 text-slate-700 dark:text-slate-300";
-    default:
-      return "bg-[#1f2a22]/10 text-[#1f2a22] dark:bg-[#22c55e]/15 dark:text-[#22c55e]";
-  }
+  return NOTE_STATUS_CHIP_TONES[tone] || NOTE_STATUS_CHIP_TONES.neutral;
 }
 
 function CardBgPattern() {
@@ -95,7 +84,7 @@ function NotesCollectionPage() {
 
         <div className="flex flex-col gap-4">
           {notes.map((note, index) => {
-            const status = statusChip(note);
+            const statusChips = getNoteStatusChips(note);
             return (
               <motion.article
                 key={`${note.title}-${index}`}
@@ -127,18 +116,26 @@ function NotesCollectionPage() {
                   <CardBgPattern />
                   <div className="relative z-[1]">
                     <div className="mb-2 flex flex-wrap items-center gap-2">
-                      <span
-                        className={`rounded-full px-2.5 py-0.5 text-[11px] font-semibold ${toneClasses(
-                          status.tone
-                        )}`}
-                      >
-                        {status.label}
-                      </span>
-                      {note.extraChipText ? (
-                        <span className="rounded-full bg-[#ece7de] px-2.5 py-0.5 text-[11px] font-medium text-[#5f584e] dark:bg-[#172a20] dark:text-[#92a59a]">
-                          {note.extraChipText}
+                      {statusChips.length > 0 ? (
+                        statusChips.map((chip) => (
+                          <span
+                            key={chip.key}
+                            className={`rounded-sm px-2.5 py-0.5 text-[11px] font-semibold ${toneClasses(
+                              chip.tone
+                            )}`}
+                          >
+                            {chip.label}
+                          </span>
+                        ))
+                      ) : (
+                        <span
+                          className={`rounded-sm px-2.5 py-0.5 text-[11px] font-semibold ${toneClasses(
+                            "neutral"
+                          )}`}
+                        >
+                          Available
                         </span>
-                      ) : null}
+                      )}
                     </div>
 
                     <h2 className="mb-1 font-fraunces text-[clamp(1.15rem,2vw,1.45rem)] font-semibold leading-snug text-[#171717] dark:text-[#f0f4ef]">

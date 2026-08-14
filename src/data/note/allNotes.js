@@ -19,15 +19,57 @@ export { BACKEND, NODEJS, AKSHAY_SAINI, FRONTEND, NEWBIE, JAVASCRIPT };
  *
  * Dynamic chapter markdown still lives under src/content/*.
  */
+
+export const AKSHAY_SAINI_AVATAR="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLsta1rjvtSLTy5cqxWHC0b05h8ZoHejpHwWmZ-yPxV7jkotf0G9PVMIWl&s=10"
+export const ANURAG_SINGH_AVATAR="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhdpdiLTqbrt6YF5rbegaFIIkd0r6C7QXutI9hi1KEJw&s=10"
+export const ASHUTOSH_ANAND_TIWARI_AVATAR="https://heyashu.in/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Fu%2F40313523%3Fv%3D4&w=48&q=75"
 export const NOTES_CONFIG = [
+  {
+    id: "namaste-ai",
+    title: "Namaste AI",
+    homeTitle: "Namaste AI",
+    by: "Akshay Saini",
+    authorDisplay: "Akshay Saini Sir",
+    authorInitials: "AS",
+    authorOrg: "NamasteDev",
+    authorAvatar:AKSHAY_SAINI_AVATAR,
+    sourceName: "Namaste Dev",
+    sourceLink: "https://namastedev.com/",
+    publishedOn: "Start Today",
+    startedOn: new Date().toISOString().slice(0, 10),
+    endedOn: null,
+    lastUpdated: new Date().toISOString().slice(0, 10),
+    completedPercent: 0,
+    chapterCount: 0,
+    thumbnailUrl: "https://i.ibb.co/td4c8w0/namaste-node-js.png", // Re-use or update if a unique AI thumb is needed
+    bannerUrl: "https://i.ibb.co/tPxsbB30/namaste-ai-43-abnner.png",
+    isProgress: true,
+    isComingSoon: false,
+    isAlmostDone: false,
+    extraChipText: "Daily Updated, New",
+    tags: [FRONTEND, JAVASCRIPT, NEWBIE],
+    githubLink: "#",
+    /** First chapter — opens course sidebar + reader */
+    route: "/digital-garden/notes/namaste-ai/introduction",
+    startRoute: "/digital-garden/notes/namaste-ai/introduction",
+    shortDesc:
+      "Kickstart your journey into AI with Namaste AI – the latest, daily-updated course blending hands-on notes and crystal-clear learning, directly from Akshay Saini’s ecosystem.",
+    homeDesc:
+      "Daily updated, in-progress AI course covering fundamentals, modern techniques, and real-world applications — designed for all, from complete beginners to advanced learners.",
+    homeMeta: "NamasteDev · Namaste AI · Akshay Saini",
+    featuredOnHome: true,
+    homeOrder: 1,
+    isNew: true,
+  },
   {
     id: "namaste-node-js",
     title: "Namaste Node JS",
     homeTitle: "Namaste Node.js",
     by: "Akshay Saini",
-    authorDisplay: "Akshay Saini",
+    authorDisplay: "Akshay Saini Sir",
     authorInitials: "AS",
     authorOrg: "NamasteDev",
+    authorAvatar:AKSHAY_SAINI_AVATAR,
     sourceName: "Namaste Dev",
     sourceLink: "https://namastedev.com/",
     publishedOn: "17 Aug 2024",
@@ -37,7 +79,7 @@ export const NOTES_CONFIG = [
     completedPercent: 70,
     chapterCount: 17,
     thumbnailUrl: "https://i.ibb.co/td4c8w0/namaste-node-js.png",
-    bannerUrl: "https://i.ibb.co/2hq8tjW/akshays-banner.jpg",
+    bannerUrl: "https://i.ibb.co/Vcd6T4LL/node-js-4-3.png",
     isProgress: true,
     isComingSoon: false,
     isAlmostDone: false,
@@ -53,16 +95,18 @@ export const NOTES_CONFIG = [
       "Execution context, V8 Engine, libuv, Event Loop, Async I/O, Thread Pool & HTTP Server creation explained with clean diagrams.",
     homeMeta: "NamasteDev · Season 01 & 02 · Akshay Saini",
     featuredOnHome: true,
-    homeOrder: 1,
+    homeOrder: 2,
+    isNew: false,
   },
   {
     id: "front-end-design-system",
     title: "Frontend System Design",
     homeTitle: "Frontend System Design",
     by: "Akshay Saini, Chirag Goel",
-    authorDisplay: "Akshay Saini",
+    authorDisplay: "Akshay Saini Sir",
     authorInitials: "AS",
     authorOrg: "NamasteDev",
+    authorAvatar:AKSHAY_SAINI_AVATAR,
     sourceName: "NamasteDev",
     sourceLink: "https://namastedev.com/learn/namaste-frontend-system-design",
     publishedOn: "22 Dec 2024",
@@ -72,7 +116,7 @@ export const NOTES_CONFIG = [
     completedPercent: 90,
     chapterCount: 12,
     thumbnailUrl: "https://i.ibb.co/td4c8w0/namaste-node-js.png",
-    bannerUrl: "https://i.ibb.co/2hq8tjW/akshays-banner.jpg",
+    bannerUrl: "https://i.ibb.co/1Jj4n9gQ/fsd-4-4-banner.png",
     isProgress: false,
     isComingSoon: false,
     isAlmostDone: true,
@@ -87,16 +131,19 @@ export const NOTES_CONFIG = [
       "WebSockets, Long Polling, GraphQL vs REST, HTTP headers & Config-Driven UI architectures for staff-level interviews.",
     homeMeta: "Masterclass · System Design · 12 Chapters",
     featuredOnHome: true,
-    homeOrder: 2,
+    homeOrder: 3,
+    isNew: false,
   },
   {
     id: "procodrr-nodejs",
     title: "ProCodrr | NodeJs",
     homeTitle: "Backend with Node.js",
     by: "ProCodrr | Anurag Singh",
-    authorDisplay: "Anurag Singh",
+    authorDisplay: "Anurag Singh Sir",
     authorInitials: "PC",
     authorOrg: "ProCodrr",
+    authorAvatar:ANURAG_SINGH_AVATAR,
+      
     sourceName: "ProCodrr",
     sourceLink:
       "https://app.procodrr.com/web/checkout/66c86939c0a286ccc32c0d8b",
@@ -108,7 +155,7 @@ export const NOTES_CONFIG = [
     chapterCount: 22,
     thumbnailUrl: "https://i.ibb.co/td4c8w0/namaste-node-js.png",
     bannerUrl:
-      "https://tagmango.com/publicassets/-backend-with-nodejs-1-f59defad2193f9e9223bfa2a3ad3ac47.png",
+      "https://i.ibb.co/21hbR3Xp/procdrr-4-3.jpg",
     isProgress: true,
     isComingSoon: false,
     isAlmostDone: false,
@@ -125,7 +172,8 @@ export const NOTES_CONFIG = [
       "OS Processes, Threads, Concurrency, Parallelism, Environment Variables, CLI vs GUI & File permissions in simple Hinglish.",
     homeMeta: "ProCodrr · Backend Node.js · Hinglish Notes",
     featuredOnHome: true,
-    homeOrder: 3,
+    homeOrder: 4,
+    isNew: false,
   },
   {
     id: "javascript-snippets",
@@ -135,6 +183,7 @@ export const NOTES_CONFIG = [
     authorDisplay: "Ashutosh Anand Tiwari",
     authorInitials: "AT",
     authorOrg: "heyashu.in",
+    authorAvatar:ASHUTOSH_ANAND_TIWARI_AVATAR,
     sourceName: "Google..etc.. ",
     sourceLink: "https://google.com/",
     publishedOn: "21 Aug 2024",
@@ -144,10 +193,10 @@ export const NOTES_CONFIG = [
     completedPercent: 85,
     chapterCount: 10,
     thumbnailUrl: "https://i.ibb.co/td4c8w0/namaste-node-js.png",
-    bannerUrl: "https://i.ibb.co/x7kYDW1/snippets.jpg",
-    isProgress: false,
+    bannerUrl: "https://i.ibb.co/ds408dm1/js-quik-snippets-4-3.png",
+    isProgress: true,
     isComingSoon: false,
-    isAlmostDone: true,
+    isAlmostDone: false,
     extraChipText: "10+ Snippets Added",
     tags: [FRONTEND, NEWBIE, JAVASCRIPT],
     githubLink: "#",
@@ -160,7 +209,8 @@ export const NOTES_CONFIG = [
       "100+ tricky JS interview snippets and simplified book notes on Kyle Simpson's You Don't Know JS series.",
     homeMeta: "Curated Notes · 100+ Snippets · YDKJS",
     featuredOnHome: true,
-    homeOrder: 4,
+    homeOrder: 5,
+    isNew: false,
   },
   {
     id: "ydkjs",
@@ -170,6 +220,7 @@ export const NOTES_CONFIG = [
     authorDisplay: "Ashutosh Anand Tiwari",
     authorInitials: "AT",
     authorOrg: "heyashu.in",
+    authorAvatar:ASHUTOSH_ANAND_TIWARI_AVATAR,
     sourceName: "Book ",
     sourceLink: "https://me.getify.com/",
     publishedOn: "29 Dec 2024",
@@ -178,8 +229,8 @@ export const NOTES_CONFIG = [
     lastUpdated: "2025-04-01",
     completedPercent: 40,
     chapterCount: 17,
-    thumbnailUrl: "https://i.ibb.co/td4c8w0/namaste-node-js.png",
-    bannerUrl: "https://i.ibb.co/x7kYDW1/snippets.jpg",
+    thumbnailUrl: "https://i.ibb.co/8gktfjjD/ydkjs-4-3.png",
+    bannerUrl: "https://i.ibb.co/8gktfjjD/ydkjs-4-3.png",
     isProgress: true,
     isComingSoon: false,
     isAlmostDone: false,
@@ -193,8 +244,9 @@ export const NOTES_CONFIG = [
     homeDesc:
       "Scope, closures, this, objects, prototypes, types & coercion — distilled from Kyle Simpson's YDKJS.",
     homeMeta: "Book Notes · YDKJS · In Progress",
-    featuredOnHome: false,
-    homeOrder: 5,
+    featuredOnHome: true,
+    homeOrder: 6,
+    isNew: false,
   },
 ];
 
@@ -211,13 +263,54 @@ export function getNotesStartRoute(noteOrRoute) {
   );
 }
 
-/** Featured collections for /digital-garden (top cards, less info). */
-export function getHomeFeaturedNotes(limit = 4) {
+/** Featured collections for /digital-garden — only `featuredOnHome: true`. */
+export function getHomeFeaturedNotes() {
   return [...NOTES_CONFIG]
-    .filter((n) => n.featuredOnHome && !n.isComingSoon)
-    .sort((a, b) => (a.homeOrder || 99) - (b.homeOrder || 99))
-    .slice(0, limit);
+    .filter((n) => n.featuredOnHome === true && !n.isComingSoon)
+    .sort((a, b) => (a.homeOrder || 99) - (b.homeOrder || 99));
 }
+
+/** Status chips from NOTES_CONFIG flags (home + notes index). */
+export function getNoteStatusChips(note = {}) {
+  const chips = [];
+  const labels = new Set();
+
+  const add = (key, label, tone) => {
+    const normalized = label.trim().toLowerCase();
+    if (labels.has(normalized)) return;
+    labels.add(normalized);
+    chips.push({ key, label, tone });
+  };
+
+  if (note.isComingSoon) add("soon", "Coming Soon", "soon");
+  if (note.isProgress) add("progress", "In Progress", "progress");
+  if (note.isAlmostDone) add("almost", "Almost Done", "almost");
+
+  if (note.extraChipText) {
+    const extra = String(note.extraChipText).trim();
+    // Skip if extraChipText repeats a status label (e.g. "In Progress" + isProgress)
+    if (!labels.has(extra.toLowerCase())) {
+      add("extra", extra, "neutral");
+    }
+  }
+
+  return chips;
+}
+
+export function noteIsNew(note = {}) {
+  return !!(note.isNew ?? note.inNew);
+}
+
+export const NOTE_STATUS_CHIP_TONES = {
+  soon:
+    "rounded-full border border-slate-400/35 bg-slate-500/15 text-slate-700 dark:text-slate-300",
+  progress:
+    "rounded-full border border-amber-500/35 bg-amber-500/15 text-amber-800 dark:text-amber-300",
+  almost:
+    "rounded-full border border-emerald-700/50 bg-emerald-600 text-white shadow-sm dark:border-emerald-400/60 dark:bg-emerald-500 dark:text-[#0b120e]",
+  neutral:
+    "rounded-full border border-[#e8e2d7] bg-[#f2eee5] text-[#585858] dark:border-[#1e3328] dark:bg-[#172a20] dark:text-[#92a59a]",
+};
 
 /** Default marketing entry into the notes reader. */
 export const DEFAULT_NOTES_START_ROUTE =
