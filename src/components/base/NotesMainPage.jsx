@@ -240,7 +240,7 @@ const NotesMainPage = ({
       : router?.asPath?.split("?")[0] || `/digital-garden/notes/${subDomain}`;
   const chapterCanonical = absoluteUrl(chapterPath);
 
-  const SHELL = "mx-auto w-full max-w-[1400px] px-1.5 md:px-5";
+  const SHELL = "mx-auto w-full max-w-[1400px] px-3 md:px-5";
 
   const currentIndex = useMemo(() => {
     return allLessons.findIndex(
@@ -717,7 +717,7 @@ const NotesMainPage = ({
                 ))}
               </aside>
 
-              <article className="w-full px-1.5 pb-24 pt-1 md:px-6 md:pb-14 md:pt-3">
+              <article className="w-full   pb-24 pt-2 md:px-6 md:pb-14 md:pt-3">
                 {/* Lesson meta row */}
                 <div className="mb-2 flex flex-wrap items-center justify-between gap-2 md:mb-3">
                   <span className="inline-flex rounded-full border border-[var(--nr-border)] bg-[var(--nr-surface)] px-3 py-1 text-[11px] font-medium text-[var(--nr-accent)]">
@@ -931,7 +931,7 @@ const NotesMainPage = ({
             onClick={() => setMobileNavOpen(true)}
             title="Course content"
             aria-label="Open course content"
-            className="fixed left-0 top-1/2 z-[45] flex h-16 w-7 -translate-y-1/2 items-center justify-center rounded-r-lg border border-l-0 border-[var(--nr-border)] bg-[var(--nr-surface)] shadow-[4px_0_16px_-8px_rgba(15,23,42,0.35)] lg:hidden"
+            className="fixed left-0 top-1/2 z-[45] flex h-16 w-7 -translate-y-1/2 items-center justify-center rounded-r-lg border border-l-0 border-[var(--nr-border)]/40 bg-transparent opacity-45 transition hover:opacity-90 lg:hidden"
           >
             <HiOutlineViewColumns className="h-4 w-4 text-[var(--nr-accent)]" />
           </button>
