@@ -178,7 +178,7 @@ const AIQuestionDrawer = ({ isOpen, setIsOpen }) => {
                 <HiSparkles className="h-4 w-4 text-sky-500" />
                 <div>
                   <h2 className="font-fraunces text-[15px] font-semibold text-[#171717] dark:text-[#f0f4ef]">
-                    Attempt Quiz
+                     Quiz
                   </h2>
                   <p className="text-[11px] text-[#6b6458] dark:text-[#92a59a]">
                     MCQs from this article

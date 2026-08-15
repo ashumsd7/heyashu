@@ -62,6 +62,16 @@ export const CATALOG = [
     link: "https://topmate.io/aat/1148727",
   },
   {
+    type: "tool",
+    title: "Corporate Radio",
+    description:
+      "Listen to songs when you're bored at your workplace or while reading notes.",
+    icon: "radio",
+    squareImage: "",
+    buttonText: "Use tool",
+    link: "https://corporate-baaja.netlify.app/",
+  },
+  {
     type: "product",
     name: "Conversational Agent (AI Chatbot) Building",
     slug: "gecx-conversational-agent-studio",

@@ -11,11 +11,7 @@ tags: AI, GenAI
 profilePic: /images/blogs/pfp2.png
 followLink: https://www.instagram.com/javascripterrr
 ---
-![]()
 
-Notes are currently on notebooks, will be transfered here very soon
-
-![]()
 
 ## Welcome to the Course
 

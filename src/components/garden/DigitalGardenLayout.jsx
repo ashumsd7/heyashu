@@ -16,13 +16,6 @@ import {
 import { GITHUB_REPO_LINK } from "@/utils/constant";
 import { GARDEN_HERO_STATS } from "@/data/garden/stats";
 
-const INDEPENDENCE_MARQUEE = [
-  "Celebrating 80th Independence Day of India",
-  "Bharat Mata Ki Jai",
-  "Long Live India",
-  "Jai Hind",
-];
-
 /**
  * Digital Garden shell — sticky navbar for /digital-garden/*, /blog/*, /product/*
  *
@@ -105,36 +98,9 @@ export default function DigitalGardenLayout({ children }) {
 
       <header className="sticky top-0 z-50">
         <div
-          className="independence-strip py-2"
-          aria-label="Independence Day celebration"
-        >
-          <div className="relative z-[1] flex w-max animate-khaki-marquee">
-            {[0, 1].map((copy) => (
-              <div
-                key={copy}
-                className="flex items-center whitespace-nowrap"
-                aria-hidden={copy === 1}
-              >
-                {INDEPENDENCE_MARQUEE.map((item, i) => (
-                  <React.Fragment key={`${copy}-${item}-${i}`}>
-                    <span className="independence-strip-text inline-flex items-center gap-2.5 px-8 font-fraunces text-[0.75rem] font-semibold tracking-[0.1em] text-white sm:text-[0.82rem]">
-                      <span className="text-base not-italic" aria-hidden="true">
-                        🇮🇳
-                      </span>
-                      <span className="italic">{item}</span>
-                      <span className="font-ibm-mono text-[0.65rem] font-bold not-italic uppercase tracking-[0.18em] text-[#000080] drop-shadow-none">
-                        • Jai Hind •
-                      </span>
-                    </span>
-                    <span className="text-xs text-white/80" aria-hidden="true">
-                      ✦
-                    </span>
-                  </React.Fragment>
-                ))}
-              </div>
-            ))}
-          </div>
-        </div>
+          className="independence-strip h-1.5 sm:h-2"
+          aria-label="Independence Day"
+        />
 
         <div className="border-b border-[#e8e2d7] bg-[#faf7f2]/90 py-3 backdrop-blur-md dark:border-[#1e3328] dark:bg-[#0b120e]/90 sm:py-4">
           <div className="mx-auto flex w-full max-w-[1120px] items-center justify-between gap-3 px-4 sm:px-6">

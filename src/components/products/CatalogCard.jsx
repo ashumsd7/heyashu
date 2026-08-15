@@ -10,6 +10,7 @@ import {
   HiOutlineFlag,
   HiOutlineMicrophone,
   HiOutlineQuestionMarkCircle,
+  HiOutlineRadio,
   HiOutlineRocketLaunch,
 } from "react-icons/hi2";
 import SquareMedia from "@/components/products/SquareMedia";
@@ -19,6 +20,7 @@ import {
   catalogTitle,
   getProductStatus,
   isProduct,
+  isTool,
   opensExternally,
   typeLabel,
 } from "@/data/products/catalog";
@@ -36,6 +38,7 @@ const SERVICE_ICONS = {
   target: HiOutlineFlag,
   code: HiOutlineCommandLine,
   rocket: HiOutlineRocketLaunch,
+  radio: HiOutlineRadio,
   chat: HiOutlineChatBubbleLeftRight,
 };
 
@@ -148,6 +151,7 @@ export function FeaturedProductBanner({ item }) {
 
 export default function CatalogCard({ item, index = 0 }) {
   const product = isProduct(item);
+  const tool = isTool(item);
   const title = catalogTitle(item);
   const href = catalogHref(item);
   const tags = product ? item.hashtags || [] : [];
@@ -157,14 +161,26 @@ export default function CatalogCard({ item, index = 0 }) {
 
   const inner = (
     <>
+      {tool ? (
+        <span
+          className="pointer-events-none absolute -right-4 -top-6 h-28 w-28 text-violet-400/35 dark:text-violet-300/20"
+          aria-hidden="true"
+        >
+          <svg viewBox="0 0 120 120" fill="none" className="h-full w-full">
+            <circle cx="80" cy="32" r="28" stroke="currentColor" strokeWidth="1.2" />
+            <circle cx="80" cy="32" r="14" stroke="currentColor" />
+            <path d="M8 88h96M8 100h72" stroke="currentColor" strokeDasharray="3 5" />
+          </svg>
+        </span>
+      ) : null}
       <SquareMedia
-        src={product ? item.squareImage : ""}
+        src={product || tool ? item.squareImage : ""}
         alt={title}
         fallback={!product ? <ServiceIcon name={item.icon} /> : null}
-        sizeClass="h-[96px] w-[96px] sm:h-[108px] sm:w-[108px]"
+        sizeClass="relative z-[1] h-[96px] w-[96px] sm:h-[108px] sm:w-[108px]"
       />
 
-      <div className="flex min-w-0 flex-1 flex-col justify-between gap-2.5">
+      <div className="relative z-[1] flex min-w-0 flex-1 flex-col justify-between gap-2.5">
         <div>
           <div className="mb-1.5 flex flex-wrap items-center gap-2">
             <span
@@ -208,8 +224,9 @@ export default function CatalogCard({ item, index = 0 }) {
     </>
   );
 
-  const shellClass =
-    "group flex h-full w-full items-stretch gap-3.5 rounded-2xl border border-[#e8e2d7] bg-white p-4 no-underline shadow-[0_8px_28px_rgba(20,56,37,0.06)] transition duration-300 hover:bg-emerald-50/70 hover:shadow-[0_14px_36px_rgba(20,56,37,0.1)] dark:border-[#1e3328] dark:bg-[#121e17] dark:hover:bg-[#173024]";
+  const shellClass = tool
+    ? "group relative flex h-full w-full items-stretch gap-3.5 overflow-hidden rounded-2xl border border-violet-200/80 bg-gradient-to-br from-violet-50 via-fuchsia-50/50 to-amber-50 p-4 no-underline shadow-[0_8px_28px_rgba(109,40,217,0.08)] transition duration-300 hover:bg-violet-100/70 hover:shadow-[0_14px_36px_rgba(109,40,217,0.14)] dark:border-violet-500/25 dark:from-[#1a1524] dark:via-[#16121f] dark:to-[#121e17] dark:hover:bg-[#241a33]"
+    : "group flex h-full w-full items-stretch gap-3.5 rounded-2xl border border-[#e8e2d7] bg-white p-4 no-underline shadow-[0_8px_28px_rgba(20,56,37,0.06)] transition duration-300 hover:bg-emerald-50/70 hover:shadow-[0_14px_36px_rgba(20,56,37,0.1)] dark:border-[#1e3328] dark:bg-[#121e17] dark:hover:bg-[#173024]";
 
   const motionProps = {
     initial: { opacity: 0, y: 16 },

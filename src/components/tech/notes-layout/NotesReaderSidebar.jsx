@@ -164,7 +164,7 @@ export default function NotesReaderSidebar({
       }}
     >
       <div className="border-b border-[var(--nr-border)] px-4 py-4">
-        <p className="mb-2 inline-flex items-center gap-1.5 rounded-full bg-black px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-white dark:bg-white dark:text-black">
+        <p className="mb-2 hidden items-center gap-1.5 rounded-full border border-[var(--nr-border)] bg-[var(--nr-surface)] px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--nr-text)] lg:inline-flex">
           <HiOutlineListBullet className="h-3 w-3" />
           Course Content
         </p>

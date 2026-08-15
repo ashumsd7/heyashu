@@ -295,16 +295,13 @@ span[class*="PublishButton"] {
   background: linear-gradient(
     90deg,
     #ff9933 0%,
-    #ffb347 12%,
-    #ffffff 28%,
-    #f8faf8 40%,
-    #138808 58%,
-    #0d6b06 72%,
-    #ff9933 88%,
-    #ffffff 100%
+    #ffffff 25%,
+    #138808 50%,
+    #ffffff 75%,
+    #ff9933 100%
   );
   background-size: 200% 100%;
-  animation: tricolorShift 10s linear infinite;
+  animation: tricolorShift 8s linear infinite;
 }
 
 .independence-strip::before {

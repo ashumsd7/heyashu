@@ -13,7 +13,7 @@ const AIQuestionWrapper = () => {
       <button
         onClick={() => setIsOpen(true)}
         className={`
-          flex items-center gap-2 px-4 py-2
+          flex items-center gap-2 px-4 py-2 hidden
           ${theme === 'dark' 
             ? 'bg-yellow-400 text-gray-800' 
             : 'bg-black text-white'
@@ -23,9 +23,7 @@ const AIQuestionWrapper = () => {
           hover:opacity-90
         `}
       >
-        <FaQuestionCircle className="text-xl" />
-        <span className="hidden md:inline font-medium"> AI Quiz</span>
-        <span className="md:hidden text-xs font-medium">AI Quiz</span>
+        
       </button>
 
       {isOpen && <AIQuestionDrawer isOpen={isOpen} setIsOpen={setIsOpen} />}

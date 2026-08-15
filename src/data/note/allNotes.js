@@ -393,7 +393,7 @@ export const NOTE_STATUS_CHIP_TONES = {
   soon:
     "rounded-full border border-slate-400/35 bg-slate-500/15 text-slate-700 dark:text-slate-300",
   progress:
-    "rounded-full border border-amber-500/35 bg-amber-500/15 text-amber-800 dark:text-amber-300",
+    "rounded-full border border-amber-600 bg-amber-500 text-white shadow-sm dark:border-amber-400 dark:bg-amber-500 dark:text-[#0b120e]",
   almost:
     "rounded-full border border-emerald-700/50 bg-emerald-600 text-white shadow-sm dark:border-emerald-400/60 dark:bg-emerald-500 dark:text-[#0b120e]",
   neutral:

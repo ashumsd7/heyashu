@@ -38,12 +38,12 @@ import {
   HiOutlineMoon,
   HiChevronLeft,
   HiChevronRight,
+  HiChevronDown,
   HiArrowLeft,
   HiArrowUturnLeft,
   HiOutlinePencilSquare,
   HiOutlineStar,
   HiOutlineRadio,
-  HiOutlineViewColumns,
 } from "react-icons/hi2";
 import { MdOutlineVisibility } from "react-icons/md";
 
@@ -142,7 +142,7 @@ const THEMES = {
   },
   eye: {
     id: "eye",
-    label: "Focus",
+    label: "Cool",
     icon: MdOutlineVisibility,
     vars: {
       "--nr-bg": "#f3ead8",
@@ -240,7 +240,7 @@ const NotesMainPage = ({
       : router?.asPath?.split("?")[0] || `/digital-garden/notes/${subDomain}`;
   const chapterCanonical = absoluteUrl(chapterPath);
 
-  const SHELL = "mx-auto w-full max-w-[1400px] px-3 md:px-5";
+  const SHELL = "mx-auto w-full max-w-[1080px] px-3 md:px-5";
 
   const currentIndex = useMemo(() => {
     return allLessons.findIndex(
@@ -397,48 +397,39 @@ const NotesMainPage = ({
       >
         <div className="bg-[var(--nr-bg)] text-[var(--nr-text)] transition-colors duration-300">
           {/* Top bar — mobile: full-width + gray bottom line; desktop: rounded shell */}
-          <div
-            className="sticky top-0 z-30 border-b border-[#c5ced6] dark:border-[#2a3530] lg:border-b-0"
-            style={{
-              background:
-                "linear-gradient(180deg, var(--nr-nav-from) 0%, var(--nr-nav-to) 100%)",
-            }}
-          >
+          <div className="sticky top-0 z-30">
             <div className={SHELL}>
-              <div className="relative px-0 py-2 md:px-4 md:py-2.5 lg:rounded-b-2xl">
+              <div
+                className="relative border-b border-[#c5ced6] px-0 py-2 dark:border-[#2a3530] md:px-4 md:py-2.5"
+                style={{
+                  background:
+                    "linear-gradient(180deg, var(--nr-nav-from) 0%, var(--nr-nav-to) 100%)",
+                }}
+              >
                 <div className="flex items-center justify-between gap-2">
                   <div className="flex min-w-0 flex-1 items-center gap-2 md:gap-3">
                     <Link
-                      href="/digital-garden"
-                      aria-label="Back to Digital Garden"
+                      href="/digital-garden/notes"
+                      aria-label="Back to Notes"
                       className="grid h-9 w-9 shrink-0 place-items-center bg-transparent text-[var(--nr-text)] no-underline lg:hidden"
                     >
                       <HiArrowUturnLeft className="h-5 w-5" />
                     </Link>
                     <Link
-                      href="/digital-garden"
-                      aria-label="Back to Digital Garden"
-                      className="hidden shrink-0 items-center gap-1.5 rounded-lg bg-emerald-600 px-2.5 py-1.5 text-[11px] font-semibold text-white no-underline transition hover:bg-emerald-700 lg:inline-flex"
+                      href="/digital-garden/notes"
+                      aria-label="Back to Notes"
+                      className="hidden shrink-0 items-center gap-1.5 rounded-lg bg-black px-2.5 py-1.5 text-[11px] font-semibold text-white no-underline transition hover:bg-neutral-800 lg:inline-flex dark:bg-white dark:text-black dark:hover:bg-neutral-200"
                     >
                       <HiArrowLeft className="h-3.5 w-3.5" />
-                      <span>Digital Garden</span>
+                      <span>Notes</span>
                     </Link>
-                    <button
-                      type="button"
-                      className="hidden h-9 w-9 place-items-center rounded-lg border border-[var(--nr-border)] bg-transparent text-[var(--nr-muted)] transition hover:text-[var(--nr-text)] lg:grid"
-                      onClick={() => setIsSidebarVisible((v) => !v)}
-                      title={isSidebarVisible ? "Hide course content" : "Show course content"}
-                      aria-label={isSidebarVisible ? "Hide course content" : "Show course content"}
-                    >
-                      <HiOutlineViewColumns className="h-4 w-4" />
-                    </button>
                     {/* Course name */}
                     <div className="min-w-0">
                       <p className="mb-0.5 hidden font-fraunces text-[11px] italic tracking-wide text-[var(--nr-muted)] sm:block">
                         You are reading
                       </p>
                       <div className="flex min-w-0 flex-wrap items-baseline gap-1.5">
-                        <span className="max-w-[9.5rem] truncate font-fraunces text-[13px] font-semibold text-[var(--nr-text)] xs:max-w-[12rem] sm:max-w-[240px] md:max-w-[300px] md:text-[14px]">
+                        <span className="max-w-[12rem] truncate font-fraunces text-[16px] font-semibold leading-tight text-[var(--nr-text)] xs:max-w-[14rem] sm:max-w-[240px] sm:text-[15px] md:max-w-[300px] md:text-[14px]">
                           {courseDisplayTitle}
                         </span>
                         <a
@@ -469,7 +460,7 @@ const NotesMainPage = ({
                       className="inline-flex items-center gap-1.5 rounded-full border border-[var(--nr-border)] bg-transparent px-3 py-1.5 text-[11px] font-medium text-[var(--nr-text)] transition hover:bg-[var(--nr-hover)]"
                     >
                       <HiSparkles className="h-3.5 w-3.5 shrink-0 text-sky-500" />
-                      Attempt Quiz
+                       Quiz
                     </button>
                     <button
                       type="button"
@@ -483,24 +474,6 @@ const NotesMainPage = ({
 
                   {/* Desktop tools */}
                   <div className="hidden items-center gap-2 lg:flex">
-                    <a
-                      href={GITHUB_REPO_LINK}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      title="Star on GitHub"
-                      className="grid h-9 w-9 place-items-center rounded-lg border border-[var(--nr-border)] bg-[var(--nr-surface)] text-[var(--nr-muted)] no-underline transition hover:text-[var(--nr-text)]"
-                    >
-                      <HiOutlineStar className="h-4 w-4" />
-                    </a>
-                    <a
-                      href="https://www.heyashu.in/admin"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      title="Edit in admin"
-                      className="grid h-9 w-9 place-items-center rounded-lg border border-[var(--nr-border)] bg-[var(--nr-surface)] text-[var(--nr-muted)] no-underline transition hover:text-[var(--nr-text)]"
-                    >
-                      <HiOutlinePencilSquare className="h-4 w-4" />
-                    </a>
                     <div className="flex items-center gap-1 rounded-xl border border-[var(--nr-border)] bg-transparent p-1">
                       {Object.values(THEMES).map((t) => {
                         const Icon = t.icon;
@@ -587,26 +560,6 @@ const NotesMainPage = ({
                             );
                           })}
                         </div>
-                        <a
-                          href={GITHUB_REPO_LINK}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          onClick={() => setToolsMenuOpen(false)}
-                          className="inline-flex items-center gap-2 rounded-xl px-3 py-2.5 text-[13px] font-medium text-[var(--nr-text)] no-underline hover:bg-[var(--nr-hover)]"
-                        >
-                          <HiOutlineStar className="h-4 w-4 text-[var(--nr-muted)]" />
-                          Star on GitHub
-                        </a>
-                        <a
-                          href="https://www.heyashu.in/admin"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          onClick={() => setToolsMenuOpen(false)}
-                          className="inline-flex items-center gap-2 rounded-xl px-3 py-2.5 text-[13px] font-medium text-[var(--nr-text)] no-underline hover:bg-[var(--nr-hover)]"
-                        >
-                          <HiOutlinePencilSquare className="h-4 w-4 text-[var(--nr-muted)]" />
-                          Edit
-                        </a>
                       </div>
                     </motion.div>
                   ) : null}
@@ -617,10 +570,10 @@ const NotesMainPage = ({
 
           {/* Centered cluster: sidebar + notes mid-screen; notes grow & shift left when sidebar closes */}
           <div className={`${SHELL} flex justify-center`}>
-            <motion.div
+              <motion.div
               layout
               transition={{ type: "spring", stiffness: 280, damping: 32 }}
-              className="flex w-full max-w-[900px] lg:w-auto lg:max-w-none"
+              className="flex w-full"
             >
               <AnimatePresence initial={false}>
                 {isSidebarVisible ? (
@@ -648,6 +601,7 @@ const NotesMainPage = ({
                         onSectionClick={handleSectionClick}
                         onMarkComplete={handleMarkComplete}
                         isCurrentComplete={isCurrentComplete}
+                        onCollapse={() => setIsSidebarVisible(false)}
                       />
                     </div>
                   </motion.div>
@@ -719,9 +673,29 @@ const NotesMainPage = ({
               <article className="w-full   pb-24 pt-2 md:px-6 md:pb-14 md:pt-3">
                 {/* Lesson meta row */}
                 <div className="mb-2 flex flex-wrap items-center justify-between gap-2 md:mb-3">
-                  <span className="inline-flex rounded-full border border-[var(--nr-border)] bg-[var(--nr-surface)] px-3 py-1 text-[11px] font-medium text-[var(--nr-accent)]">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      if (isDesktop) setIsSidebarVisible((v) => !v);
+                      else setMobileNavOpen(true);
+                    }}
+                    title="Course content"
+                    aria-label="Open course content"
+                    className="inline-flex items-center gap-1.5 rounded-full border border-[var(--nr-border)] bg-[var(--nr-surface)] px-3 py-1 text-[11px] font-medium text-[var(--nr-accent)] transition hover:border-emerald-500/40 hover:bg-[var(--nr-hover)]"
+                  >
                     {lessonBadge}
-                  </span>
+                    <HiChevronDown
+                      className={`h-3.5 w-3.5 transition ${
+                        isDesktop
+                          ? isSidebarVisible
+                            ? "rotate-180"
+                            : ""
+                          : mobileNavOpen
+                            ? "rotate-180"
+                            : ""
+                      }`}
+                    />
+                  </button>
                   <div className="flex items-center gap-2">
                     <button
                       type="button"
@@ -776,8 +750,28 @@ const NotesMainPage = ({
                         {readMins ? ` · ${readMins} min read` : ""}
                       </span>
                     </div>
-                    <div className="hidden shrink-0 lg:block">
-                      <CorporateRadioButton />
+                    <div className="flex shrink-0 items-center gap-2">
+                      <a
+                        href={GITHUB_REPO_LINK}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="Star on GitHub"
+                        className="grid h-9 w-9 place-items-center rounded-lg border border-[var(--nr-border)] bg-[var(--nr-bg)] text-[var(--nr-muted)] no-underline transition hover:text-[var(--nr-text)]"
+                      >
+                        <HiOutlineStar className="h-4 w-4" />
+                      </a>
+                      <a
+                        href="https://www.heyashu.in/admin"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="Edit in admin"
+                        className="grid h-9 w-9 place-items-center rounded-lg border border-[var(--nr-border)] bg-[var(--nr-bg)] text-[var(--nr-muted)] no-underline transition hover:text-[var(--nr-text)]"
+                      >
+                        <HiOutlinePencilSquare className="h-4 w-4" />
+                      </a>
+                      <div className="hidden lg:block">
+                        <CorporateRadioButton />
+                      </div>
                     </div>
                   </div>
                 </header>
@@ -923,19 +917,6 @@ const NotesMainPage = ({
           </div>
         </div>
 
-        {/* Mobile — left-mid peek to open course content */}
-        {!mobileNavOpen ? (
-          <button
-            type="button"
-            onClick={() => setMobileNavOpen(true)}
-            title="Course content"
-            aria-label="Open course content"
-            className="fixed left-0 top-1/2 z-[45] flex h-16 w-7 -translate-y-1/2 items-center justify-center rounded-r-lg border border-l-0 border-[var(--nr-border)]/40 bg-transparent opacity-45 transition hover:opacity-90 lg:hidden"
-          >
-            <HiOutlineViewColumns className="h-4 w-4 text-[var(--nr-accent)]" />
-          </button>
-        ) : null}
-
         {/* Mobile sidebar drawer — smooth slide */}
         <AnimatePresence>
           {mobileNavOpen ? (
@@ -955,14 +936,14 @@ const NotesMainPage = ({
                 animate={{ x: 0 }}
                 exit={{ x: "-100%" }}
                 transition={{ type: "spring", stiffness: 380, damping: 34 }}
-                className="absolute bottom-0 left-0 top-0 flex w-[min(100%,320px)] flex-col shadow-xl"
+                className="absolute bottom-0 left-0 top-0 flex w-[min(100%,320px)] flex-col text-[var(--nr-text)] shadow-xl"
                 style={{
                   background:
                     "linear-gradient(180deg, var(--nr-sidebar-from) 0%, var(--nr-sidebar-to) 100%)",
                 }}
               >
                 <div className="flex items-center justify-between border-b border-[var(--nr-border)] px-3 py-3">
-                  <span className="font-fraunces text-[14px] font-semibold">
+                  <span className="font-fraunces text-[14px] font-semibold text-[var(--nr-text)]">
                     Course Content
                   </span>
                   <button

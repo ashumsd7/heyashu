@@ -291,7 +291,7 @@ export default function BlogPost({ frontMatter, mdxSource, related = [], slug })
             className="inline-flex items-center gap-1.5 rounded-full border border-[#ddd5c8] bg-transparent px-3.5 py-1.5 text-[11px] font-medium text-[#171717] transition hover:bg-black/[0.03] dark:border-[#1e3328] dark:text-[#f0f4ef] dark:hover:bg-white/[0.04]"
           >
             <HiSparkles className="h-3.5 w-3.5 text-sky-500" />
-            Attempt Quiz
+             Quiz
           </button>
           <button
             type="button"
