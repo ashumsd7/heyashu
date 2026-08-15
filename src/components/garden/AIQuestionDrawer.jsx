@@ -21,6 +21,7 @@ import {
   getAiMarkdownContent,
   parseAiJsonResponse,
 } from "@/utils/aiOpenRouter";
+import AiErrorMarquee from "@/components/garden/AI/AiErrorMarquee";
 
 const loadingMessages = [
   "Reading the article…",
@@ -193,6 +194,8 @@ const AIQuestionDrawer = ({ isOpen, setIsOpen }) => {
                 <IoClose size={18} />
               </button>
             </header>
+
+            {error ? <AiErrorMarquee /> : null}
 
             <div className="min-h-0 flex-1 overflow-y-auto px-4 py-5">
               {isLoading ? (

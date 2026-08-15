@@ -36,6 +36,8 @@ const contentFolders = [
   "src/content/js-snippets",
   "src/content/node-js-procodrr",
   "src/content/notes-namaste-node-js",
+  "src/content/namaste-ai-notes",
+  "src/content/ydkjs",
   "src/content/stories",
   "src/content/front-end-design-system",
 ];

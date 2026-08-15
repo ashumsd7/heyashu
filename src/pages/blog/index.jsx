@@ -9,6 +9,7 @@ import CommonHeadTags from "@/components/seo/CommonHeadTags";
 import DigiGardenFooter from "@/components/garden/DigiGardenFooter";
 import { withDigitalGardenLayout } from "@/layouts";
 import { generateSlug } from "@/utils/functions";
+import { firstMarkdownImage } from "@/data/garden/utils";
 
 const FILTERS = [
   { id: "all", label: "All" },
@@ -73,6 +74,8 @@ const FOLDER_CATEGORY = {
   nodejsProcodrr: "nodejs",
   fsd: "frontend",
   nodejsS1AkshaySaini: "nodejs",
+  namasteAiNotes: "ai",
+  ydkjs: "javascript",
   stories: null,
 };
 
@@ -249,6 +252,8 @@ export async function getStaticProps() {
       process.cwd(),
       "src/content/notes-namaste-node-js"
     ),
+    namasteAiNotes: path.join(process.cwd(), "src/content/namaste-ai-notes"),
+    ydkjs: path.join(process.cwd(), "src/content/ydkjs"),
     stories: path.join(process.cwd(), "src/content/stories"),
   };
 
@@ -264,9 +269,13 @@ export async function getStaticProps() {
         if (filename.endsWith(".md")) {
           const fileContent = fs.readFileSync(filePath, "utf-8");
           const { data: frontMatter, content } = matter(fileContent);
+          const thumbFromBody = firstMarkdownImage(content);
 
           posts.push({
-            frontMatter,
+            frontMatter: {
+              ...frontMatter,
+              thumbnail: String(frontMatter?.thumbnail || "").trim() || thumbFromBody,
+            },
             excerpt: getExcerpt(
               content,
               frontMatter?.description || frontMatter?.metaContent

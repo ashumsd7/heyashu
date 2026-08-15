@@ -633,27 +633,27 @@ function DigitalGarden({ posts, blogs }) {
           <div className="flex flex-col gap-5">
             {freshBlogs && freshBlogs.length > 0 && (() => {
               const feat = freshBlogs[0];
-              const title = feat.frontMatter?.title || feat.frontMatter?.name || "Untitled Post";
+              const title = feat.frontMatter?.name || feat.frontMatter?.title || "Untitled Post";
               const desc = feat.frontMatter?.description || feat.frontMatter?.metaContent || "Read full engineering blog post...";
               const rawTag = feat.frontMatter?.tags || feat.frontMatter?.tag || "javascript";
               const tagList = Array.isArray(rawTag) ? rawTag : rawTag.split(",").map((t) => t.trim());
               const thumb = feat.frontMatter?.thumbnail || feat.frontMatter?.profilePic || "https://i.ibb.co/8rFR7vK/ex3.jpg";
               const author = feat.frontMatter?.author || "Ashutosh Anand Tiwari";
-              const dateRaw = feat.frontMatter?.date || feat.frontMatter?.publishedOn || "Recently";
+              const dateRaw = feat.frontMatter?.publishedOn || feat.frontMatter?.date || "Recently";
               const formattedDate = formatGardenDate(dateRaw);
 
               return (
                 <motion.article
                   whileHover={{ scale: 1.005 }}
                   transition={{ duration: 0.2 }}
-                  className="grid cursor-pointer grid-cols-1 overflow-hidden rounded-[20px] border border-[#e8e2d7] bg-white shadow-[0_4px_20px_rgba(0,0,0,0.03)] dark:border-[#1e3328] dark:bg-[#121e17] md:grid-cols-[1.1fr_1.2fr]"
+                  className="grid w-full cursor-pointer grid-cols-1 overflow-hidden rounded-[20px] border border-[#e8e2d7] bg-white shadow-[0_4px_20px_rgba(0,0,0,0.03)] dark:border-[#1e3328] dark:bg-[#121e17] md:h-[240px] md:grid-cols-[260px_1fr]"
                   onClick={() => router.push(`/blog/${feat.slug}`)}
                 >
-                  <div className="overflow-hidden">
-                    <img className="h-56 w-full object-cover md:h-full" src={thumb} alt={title} loading="lazy" />
+                  <div className="h-36 shrink-0 overflow-hidden md:h-full">
+                    <img className="h-full w-full object-cover" src={thumb} alt={title} loading="lazy" />
                   </div>
-                  <div className="flex flex-col p-6 md:p-7">
-                    <div className="mb-3 flex items-start justify-between gap-3">
+                  <div className="flex flex-col p-4 md:p-5">
+                    <div className="mb-2 flex items-start justify-between gap-3">
                       <div className="flex flex-wrap gap-2">
                         {tagList.slice(0, 3).map((t, i) => (
                           <span key={i} className={i % 2 === 1 ? "rounded-full bg-[#143825]/10 px-2.5 py-1 text-xs font-medium text-[#143825] dark:bg-[#22c55e]/15 dark:text-[#22c55e]" : "rounded-full bg-[#f2eee5] px-2.5 py-1 text-xs font-medium text-[#585858] dark:bg-[#172a20] dark:text-[#92a59a]"}>
@@ -662,7 +662,7 @@ function DigitalGarden({ posts, blogs }) {
                         ))}
                       </div>
                       <button
-                        className="grid h-9 w-9 place-items-center rounded-lg border border-[#e8e2d7] text-[#585858] dark:border-[#1e3328]"
+                        className="grid h-8 w-8 place-items-center rounded-lg border border-[#e8e2d7] text-[#585858] dark:border-[#1e3328]"
                         title="Bookmark"
                         type="button"
                         onClick={(e) => e.stopPropagation()}
@@ -670,8 +670,8 @@ function DigitalGarden({ posts, blogs }) {
                         <HiOutlineBookmark />
                       </button>
                     </div>
-                    <h3 className="mb-2 font-fraunces text-[clamp(1.35rem,2.5vw,1.85rem)] font-bold text-[#171717] dark:text-[#f0f4ef]">{title}</h3>
-                    <p className="mb-6 line-clamp-3 text-[0.95rem] leading-relaxed text-[#585858] dark:text-[#92a59a]">{desc}</p>
+                    <h3 className="mb-1.5 font-fraunces text-[clamp(1.15rem,2vw,1.45rem)] font-bold leading-snug text-[#171717] dark:text-[#f0f4ef]">{title}</h3>
+                    <p className="mb-3 line-clamp-2 text-[0.88rem] leading-relaxed text-[#585858] dark:text-[#92a59a]">{desc}</p>
                     <div className="mt-auto flex flex-wrap items-center justify-between gap-3 text-sm text-[#585858] dark:text-[#92a59a]">
                       <div className="flex items-center gap-2.5">
                         <div className="grid h-8 w-8 place-items-center rounded-full bg-[#143825] text-xs font-bold text-white dark:bg-[#22c55e] dark:text-[#0b120e]">
@@ -689,11 +689,15 @@ function DigitalGarden({ posts, blogs }) {
             <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
               {freshBlogs && freshBlogs.length > 1 ? (
                 freshBlogs.slice(1, 4).map((blog, idx) => {
-                  const title = blog.frontMatter?.title || blog.frontMatter?.name || "Untitled Post";
+                  const title = blog.frontMatter?.name || blog.frontMatter?.title || "Untitled Post";
                   const desc = blog.frontMatter?.description || blog.frontMatter?.metaContent || "Read full engineering blog post...";
                   const rawTag = blog.frontMatter?.tags || blog.frontMatter?.tag || "tech";
                   const tagList = Array.isArray(rawTag) ? rawTag : rawTag.split(",").map((t) => t.trim());
-                  const dateRaw = blog.frontMatter?.date || blog.frontMatter?.publishedOn || "Recently";
+                  const thumb =
+                    blog.frontMatter?.thumbnail ||
+                    blog.frontMatter?.profilePic ||
+                    "";
+                  const dateRaw = blog.frontMatter?.publishedOn || blog.frontMatter?.date || "Recently";
                   const formattedDate = formatGardenDate(dateRaw);
 
                   return (
@@ -701,9 +705,20 @@ function DigitalGarden({ posts, blogs }) {
                       key={blog.slug || idx}
                       whileHover={{ scale: 1.01 }}
                       transition={{ duration: 0.2 }}
-                      className="flex min-h-[220px] cursor-pointer flex-col justify-between rounded-[20px] border border-[#e8e2d7] bg-white p-5 shadow-[0_4px_20px_rgba(0,0,0,0.03)] transition hover:shadow-[0_16px_36px_-8px_rgba(20,56,37,0.12)] dark:border-[#1e3328] dark:bg-[#121e17]"
+                      className="flex min-h-[220px] cursor-pointer flex-col overflow-hidden rounded-[20px] border border-[#e8e2d7] bg-white shadow-[0_4px_20px_rgba(0,0,0,0.03)] transition hover:shadow-[0_16px_36px_-8px_rgba(20,56,37,0.12)] dark:border-[#1e3328] dark:bg-[#121e17]"
                       onClick={() => router.push(`/blog/${blog.slug}`)}
                     >
+                      {thumb ? (
+                        <div className="h-32 w-full shrink-0 overflow-hidden">
+                          <img
+                            className="h-full w-full object-cover"
+                            src={thumb}
+                            alt={title}
+                            loading="lazy"
+                          />
+                        </div>
+                      ) : null}
+                      <div className="flex flex-1 flex-col justify-between p-5">
                       <div>
                         <div className="mb-3 flex items-start justify-between gap-2">
                           <div className="flex flex-wrap gap-2">
@@ -728,6 +743,7 @@ function DigitalGarden({ posts, blogs }) {
                       <div className="mt-5 flex items-center justify-between text-sm text-[#585858] dark:text-[#92a59a]">
                         <span>{formattedDate}</span>
                         <span className="font-semibold text-[#143825] dark:text-[#22c55e]">Read Story →</span>
+                      </div>
                       </div>
                     </motion.article>
                   );

@@ -61,6 +61,20 @@ export function formatGardenDate(dateStr) {
   return String(dateStr);
 }
 
+/** First usable image from markdown body (`![](url)` or <img src>). */
+export function firstMarkdownImage(content = "") {
+  if (!content) return "";
+  const mdMatch = String(content).match(/!\[[^\]]*\]\(\s*([^)\s]+)\s*(?:["'][^"']*["'])?\s*\)/);
+  const mdSrc = mdMatch?.[1]?.trim();
+  if (mdSrc && mdSrc !== "#" && !mdSrc.startsWith("data:")) {
+    return mdSrc.replace("/public", "");
+  }
+  const htmlMatch = String(content).match(/<img[^>]+src=["']([^"']+)["']/i);
+  const htmlSrc = htmlMatch?.[1]?.trim();
+  if (htmlSrc) return htmlSrc.replace("/public", "");
+  return "";
+}
+
 /** Timestamp for sorting (newer = larger). Invalid dates → 0. */
 export function gardenDateValue(dateStr) {
   if (!dateStr) return 0;
