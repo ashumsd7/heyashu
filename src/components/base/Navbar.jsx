@@ -64,7 +64,7 @@ function Navbar() {
   const navItems = [
     { href: "/blog", label: "Blogs" },
     { href: "/tech", label: "Tech" },
-    { href: "/tech/products", label: "Products" },
+    { href: "/product", label: "Products" },
     { href: "/digital-garden", label: "Digital Garden ft. Notes", isSpecial: true },
     { href: "/travel", label: "Travel" },
     { href: "/misc", label: "More" }
@@ -111,7 +111,11 @@ function Navbar() {
                 />
               </div>
               <div 
-                onClick={() => window.open('/tech/products', '_blank')}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  router.push("/product");
+                }}
                 className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 w-[160px] border-indigo-500 bg-transparent backdrop-blur-md transition-colors duration-150 hover:bg-accent-foreground hover:text-white cursor-pointer`}>
                 <div className="mr-1 flex aspect-square h-[14px] w-[14px] animate-pulse rounded-full bg-green-500/50 dark:bg-green-400/50 sm:m-0 md:mr-1" aria-hidden="true">
                   <div className="m-auto h-2 w-2 rounded-full bg-green-500 dark:bg-green-400"></div>
@@ -137,7 +141,8 @@ function Navbar() {
                   item.isSpecial
                     ? "inline-flex transition-transform duration-200 hover:scale-[1.02]"
                     : `text-base font-medium transition-colors duration-200 ${
-                        router.pathname === item.href
+                        router.pathname === item.href ||
+                        (item.href !== "/" && router.pathname.startsWith(item.href))
                           ? "text-indigo-600 dark:text-indigo-400"
                           : "text-gray-700 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400"
                       }`

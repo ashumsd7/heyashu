@@ -20,6 +20,8 @@ const STATIC_PATHS = [
   "/digital-garden/daily-updates",
   "/digital-garden/testimonials",
   "/tech",
+  "/product",
+  "/product/gecx-conversational-agent-studio",
   "/travel",
 ];
 

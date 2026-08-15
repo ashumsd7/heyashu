@@ -12,6 +12,8 @@ import {
 } from "react-icons/fa";
 import { SiQuora, SiWakatime } from "react-icons/si";
 import { BsPencilSquare, BsBook } from "react-icons/bs";
+import { HiOutlineCube } from "react-icons/hi2";
+import { getHomeProducts } from "@/data/products/catalog";
 import { AiOutlineTwitter } from "react-icons/ai";
 import { PHONE_CALL_THIRTY_MIN } from "@/utils/constant";
 import { HOME_SOCIAL_ITEMS, getSocialHref } from "@/data/social";
@@ -78,7 +80,15 @@ function MainPage() {
       description: "Articles on technology, life experiences and learnings",
       href: "/blog",
     },
+    {
+      icon: <HiOutlineCube className="w-8 h-8" />,
+      title: "Products",
+      description: "1:1 sessions and structured playbooks for early-career engineers",
+      href: "/product",
+    },
   ];
+
+  const homeProducts = getHomeProducts();
 
   return (
     <motion.div
@@ -183,7 +193,7 @@ function MainPage() {
             </span>
           </h2>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {sections.map((section) => (
               <Link key={section.href} href={section.href}>
                 <motion.div
@@ -205,6 +215,57 @@ function MainPage() {
               </Link>
             ))}
           </div>
+
+          {homeProducts.length > 0 ? (
+            <div className="pt-4 space-y-6">
+              <div className="flex items-end justify-between gap-4">
+                <h3 className="text-2xl font-bold text-slate-900 dark:text-white">
+                  Featured products
+                </h3>
+                <Link
+                  href="/product"
+                  className="text-sm font-semibold text-emerald-600 hover:text-emerald-700 dark:text-emerald-400"
+                >
+                  View all →
+                </Link>
+              </div>
+              <div className="grid gap-5">
+                {homeProducts.map((item) => (
+                  <Link
+                    key={item.slug}
+                    href={`/product/${item.slug}`}
+                    className="flex items-center gap-4 rounded-2xl border border-slate-100 bg-white p-4 shadow-lg no-underline transition hover:-translate-y-0.5 hover:shadow-xl dark:border-slate-700 dark:bg-slate-800"
+                  >
+                    <div className="h-20 w-20 shrink-0 overflow-hidden rounded-xl border border-slate-200 bg-slate-100 dark:border-slate-600 dark:bg-slate-700">
+                      {item.squareImage ? (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img
+                          src={item.squareImage}
+                          alt=""
+                          className="h-full w-full object-cover"
+                        />
+                      ) : (
+                        <div className="flex h-full w-full items-center justify-center text-emerald-600 dark:text-emerald-400">
+                          <HiOutlineCube className="h-8 w-8" />
+                        </div>
+                      )}
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <p className="text-lg font-semibold text-slate-900 dark:text-white">
+                        {item.name}
+                      </p>
+                      <p className="mt-1 line-clamp-2 text-sm text-slate-600 dark:text-slate-300">
+                        {item.description}
+                      </p>
+                    </div>
+                    <span className="hidden shrink-0 rounded-xl bg-emerald-600 px-4 py-2 text-sm font-semibold text-white sm:inline-flex">
+                      View Details
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          ) : null}
         </motion.div>
       </div>
     </motion.div>

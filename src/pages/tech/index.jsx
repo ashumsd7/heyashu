@@ -51,7 +51,7 @@ function TechPage() {
     {
       title: "Developer Products", 
       description: "Practical resources and starter kits for early-career developers",
-      link: "/tech/products",
+      link: "/product",
       icon: "⚡"
     },
     {

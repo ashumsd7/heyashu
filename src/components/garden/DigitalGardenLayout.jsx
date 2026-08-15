@@ -24,9 +24,9 @@ const INDEPENDENCE_MARQUEE = [
 ];
 
 /**
- * Digital Garden shell — sticky navbar for /digital-garden/* and /blog/*
+ * Digital Garden shell — sticky navbar for /digital-garden/*, /blog/*, /product/*
  *
- * Order: Blogs → Notes → Star on GitHub → Support → Who built this → Theme
+ * Order: Blogs → Notes → Products → Star on GitHub → Support → Who built this → Theme
  */
 export default function DigitalGardenLayout({ children }) {
   const router = useRouter();
@@ -62,6 +62,7 @@ export default function DigitalGardenLayout({ children }) {
   const isNotes =
     router.pathname.startsWith("/digital-garden/notes") ||
     router.asPath.startsWith("/digital-garden/notes");
+  const isProduct = router.pathname.startsWith("/product");
 
   const githubStars = GARDEN_HERO_STATS[2]?.value || "30+";
 
@@ -170,6 +171,9 @@ export default function DigitalGardenLayout({ children }) {
                   className={navLinkClass(isNotes)}
                 >
                   Notes
+                </Link>
+                <Link href="/product" className={navLinkClass(isProduct)}>
+                  Products
                 </Link>
               </nav>
 
@@ -291,6 +295,15 @@ export default function DigitalGardenLayout({ children }) {
                   }`}
                 >
                   Notes
+                </Link>
+                <Link
+                  href="/product"
+                  onClick={() => setMenuOpen(false)}
+                  className={`rounded-xl px-3 py-3 no-underline ${navLinkClass(isProduct)} ${
+                    isProduct ? "bg-emerald-500/10" : "hover:bg-black/5 dark:hover:bg-white/5"
+                  }`}
+                >
+                  Products
                 </Link>
                 <a
                   href={GITHUB_REPO_LINK}

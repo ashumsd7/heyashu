@@ -19,6 +19,7 @@ import {
   HiServer,
   HiUserGroup,
   HiHeart,
+  HiOutlineCube,
 } from "react-icons/hi2";
 import DigiGardenFooter from "@/components/garden/DigiGardenFooter";
 import CommonHeadTags from "@/components/seo/CommonHeadTags";
@@ -28,6 +29,7 @@ import {
 } from "@/utils/constant";
 import { removePublicFromPath } from "@/utils/functions";
 import { withDigitalGardenLayout } from "@/layouts";
+import { getHomeProducts } from "@/data/products/catalog";
 import {
   getHomeFeaturedNotes,
   getNoteStatusChips,
@@ -54,6 +56,7 @@ import {
 const HOME_NOTES = getHomeFeaturedNotes();
 const HOME_NOTES_TOP = HOME_NOTES.slice(0, 3);
 const HOME_NOTES_GRID = HOME_NOTES.slice(3);
+const HOME_PRODUCTS = getHomeProducts();
 
 function enforceVideoMute(event) {
   const video = event.currentTarget;
@@ -541,6 +544,63 @@ function DigitalGarden({ posts, blogs }) {
           </div>
         </div>
       </section>
+
+      {HOME_PRODUCTS.length > 0 ? (
+        <section id="products" className="pb-[72px]">
+          <div className="mx-auto w-full max-w-[1120px] px-6">
+            <div className="mb-7 flex flex-wrap items-end justify-between gap-4">
+              <div>
+                <div className="mb-0 flex items-center gap-2.5">
+                  <HiOutlineCube className="h-6 w-6 shrink-0 text-[#143825] dark:text-[#22c55e]" />
+                  <h2 className="m-0 font-fraunces text-[clamp(1.8rem,3.5vw,2.4rem)] font-bold tracking-[-0.02em] text-[#171717] dark:text-[#f0f4ef]">
+                    Products
+                  </h2>
+                </div>
+                <p className="mt-2 max-w-[54ch] text-[1.02rem] leading-relaxed text-[#585858] dark:text-[#92a59a]">
+                  Structured sessions and kits — open a product for who it is for, prerequisites, and what you will learn.
+                </p>
+              </div>
+              <a
+                href="/product"
+                className="inline-flex items-center gap-1 text-[0.92rem] font-semibold text-[#143825] no-underline transition hover:text-[#0d281a] dark:text-[#22c55e] dark:hover:text-[#16a34a]"
+              >
+                View catalog →
+              </a>
+            </div>
+            <div className="flex flex-col gap-4">
+              {HOME_PRODUCTS.map((item) => (
+                <a
+                  key={item.slug}
+                  href={`/product/${item.slug}`}
+                  className="flex items-center gap-4 rounded-2xl border border-[#e8e2d7] bg-white p-4 no-underline shadow-[0_8px_28px_rgba(20,56,37,0.06)] transition hover:-translate-y-0.5 hover:shadow-[0_16px_40px_rgba(20,56,37,0.12)] dark:border-[#1e3328] dark:bg-[#121e17] sm:p-5"
+                >
+                  <div className="h-[88px] w-[88px] shrink-0 overflow-hidden rounded-xl border border-[#e8e2d7] bg-[#f3eee5] dark:border-[#1e3328] dark:bg-[#172a20]">
+                    {item.squareImage ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img src={item.squareImage} alt="" className="h-full w-full object-cover" />
+                    ) : (
+                      <div className="flex h-full w-full items-center justify-center text-[#8a8276] dark:text-[#6d7f74]">
+                        <HiOutlineCube className="h-8 w-8" />
+                      </div>
+                    )}
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <h3 className="font-fraunces text-[1.15rem] font-semibold text-[#171717] dark:text-[#f0f4ef]">
+                      {item.name}
+                    </h3>
+                    <p className="mt-1 line-clamp-2 text-[0.9rem] leading-relaxed text-[#6b6458] dark:text-[#92a59a]">
+                      {item.description}
+                    </p>
+                  </div>
+                  <span className="hidden shrink-0 rounded-xl bg-[#1f2a22] px-4 py-2 text-xs font-semibold text-white sm:inline-flex dark:bg-[#22c55e] dark:text-[#0b120e]">
+                    View Details
+                  </span>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
 
 {/* AI TOOLS */}
       <section className="bg-white py-[72px] dark:bg-[#121e17]">

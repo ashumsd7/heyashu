@@ -9,7 +9,7 @@ import DigitalGardenLayout from "@/components/garden/DigitalGardenLayout";
  *   import { withDigitalGardenLayout } from "@/layouts";
  *   MyPage.getLayout = withDigitalGardenLayout;
  *
- * Or rely on path-based auto-pick in `_app.js` for /blog and /digital-garden.
+ * Or rely on path-based auto-pick in `_app.js` for /blog, /product, and /digital-garden.
  */
 
 export function withSiteLayout(page) {
@@ -44,6 +44,8 @@ export function isNotesChapterPage(pathname = "") {
 export function shouldUseDigitalGardenLayout(pathname = "") {
   if (isNotesChapterPage(pathname)) return false;
   return (
-    pathname.startsWith("/digital-garden") || pathname.startsWith("/blog")
+    pathname.startsWith("/digital-garden") ||
+    pathname.startsWith("/blog") ||
+    pathname.startsWith("/product")
   );
 }

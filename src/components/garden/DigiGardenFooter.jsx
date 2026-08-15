@@ -123,6 +123,12 @@ const DigiGardenFooter = ({ compact = false }) => {
                   Tech Blogs
                 </a>
                 <a
+                  href="/product"
+                  className="text-gray-600 transition-colors hover:text-emerald-600 dark:text-gray-300 dark:hover:text-emerald-400"
+                >
+                  Products
+                </a>
+                <a
                   href="/digital-garden#support"
                   className="text-gray-600 transition-colors hover:text-emerald-600 dark:text-gray-300 dark:hover:text-emerald-400"
                 >
