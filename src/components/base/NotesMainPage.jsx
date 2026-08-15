@@ -39,9 +39,11 @@ import {
   HiChevronLeft,
   HiChevronRight,
   HiArrowLeft,
+  HiArrowUturnLeft,
   HiOutlinePencilSquare,
   HiOutlineStar,
   HiOutlineRadio,
+  HiOutlineViewColumns,
 } from "react-icons/hi2";
 import { MdOutlineVisibility } from "react-icons/md";
 
@@ -238,7 +240,7 @@ const NotesMainPage = ({
       : router?.asPath?.split("?")[0] || `/digital-garden/notes/${subDomain}`;
   const chapterCanonical = absoluteUrl(chapterPath);
 
-  const SHELL = "mx-auto w-full max-w-[1400px] px-3 md:px-5";
+  const SHELL = "mx-auto w-full max-w-[1400px] px-1.5 md:px-5";
 
   const currentIndex = useMemo(() => {
     return allLessons.findIndex(
@@ -410,30 +412,26 @@ const NotesMainPage = ({
                     <Link
                       href="/digital-garden"
                       aria-label="Back to Digital Garden"
-                      className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-emerald-600 text-white no-underline transition hover:bg-emerald-700 sm:h-auto sm:w-auto sm:gap-1.5 sm:px-2.5 sm:py-1.5 sm:text-[11px] sm:font-semibold"
+                      className="grid h-9 w-9 shrink-0 place-items-center bg-transparent text-[var(--nr-text)] no-underline lg:hidden"
                     >
-                      <HiArrowLeft className="h-4 w-4 sm:h-3.5 sm:w-3.5" />
-                      <span className="hidden sm:inline">Digital Garden</span>
+                      <HiArrowUturnLeft className="h-5 w-5" />
                     </Link>
-                    <button
-                      type="button"
-                      className="grid h-9 w-9 shrink-0 place-items-center rounded-lg border border-[var(--nr-border)] bg-transparent text-[var(--nr-muted)] transition hover:text-[var(--nr-text)] lg:hidden"
-                      onClick={() => setMobileNavOpen(true)}
-                      title="Show course content"
+                    <Link
+                      href="/digital-garden"
+                      aria-label="Back to Digital Garden"
+                      className="hidden shrink-0 items-center gap-1.5 rounded-lg bg-emerald-600 px-2.5 py-1.5 text-[11px] font-semibold text-white no-underline transition hover:bg-emerald-700 lg:inline-flex"
                     >
-                      <HiChevronRight className="h-5 w-5" />
-                    </button>
+                      <HiArrowLeft className="h-3.5 w-3.5" />
+                      <span>Digital Garden</span>
+                    </Link>
                     <button
                       type="button"
                       className="hidden h-9 w-9 place-items-center rounded-lg border border-[var(--nr-border)] bg-transparent text-[var(--nr-muted)] transition hover:text-[var(--nr-text)] lg:grid"
                       onClick={() => setIsSidebarVisible((v) => !v)}
                       title={isSidebarVisible ? "Hide course content" : "Show course content"}
+                      aria-label={isSidebarVisible ? "Hide course content" : "Show course content"}
                     >
-                      {isSidebarVisible ? (
-                        <HiChevronLeft className="h-5 w-5" />
-                      ) : (
-                        <HiChevronRight className="h-5 w-5" />
-                      )}
+                      <HiOutlineViewColumns className="h-4 w-4" />
                     </button>
                     {/* Course name */}
                     <div className="min-w-0">
@@ -719,9 +717,9 @@ const NotesMainPage = ({
                 ))}
               </aside>
 
-              <article className="w-full px-4 pb-28 pt-3 md:px-6 md:pb-14 md:pt-3">
+              <article className="w-full px-1.5 pb-24 pt-1 md:px-6 md:pb-14 md:pt-3">
                 {/* Lesson meta row */}
-                <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
+                <div className="mb-2 flex flex-wrap items-center justify-between gap-2 md:mb-3">
                   <span className="inline-flex rounded-full border border-[var(--nr-border)] bg-[var(--nr-surface)] px-3 py-1 text-[11px] font-medium text-[var(--nr-accent)]">
                     {lessonBadge}
                   </span>
@@ -758,17 +756,17 @@ const NotesMainPage = ({
                   </div>
                 </div>
 
-                <header className="mb-6">
-                  <h1 className="mb-4 font-fraunces text-[clamp(1.75rem,4vw,2.55rem)] font-semibold leading-[1.2] tracking-[-0.02em] text-[var(--nr-heading)]">
+                <header className="mb-3 md:mb-6">
+                  <h1 className="mb-2.5 font-fraunces text-[clamp(1.45rem,4vw,2.55rem)] font-semibold leading-[1.2] tracking-[-0.02em] text-[var(--nr-heading)] md:mb-4">
                     {title}
                   </h1>
 
                   {/* Author · date · min read — Corporate Radio on the right (desktop) */}
-                  <div className="flex w-full flex-wrap items-center gap-3 rounded-xl border border-[var(--nr-border)] bg-[var(--nr-surface)] px-4 py-3.5">
+                  <div className="flex w-full flex-wrap items-center gap-2.5 rounded-xl border border-[var(--nr-border)] bg-[var(--nr-surface)] px-3 py-2.5 md:gap-3 md:px-4 md:py-3.5">
                     <img
                       src={avatar}
                       alt={author}
-                      className="h-11 w-11 shrink-0 rounded-lg object-cover grayscale"
+                      className="h-9 w-9 shrink-0 rounded-lg object-cover grayscale md:h-11 md:w-11"
                     />
                     <div className="min-w-0 flex-1 leading-tight">
                       <span className="block truncate text-[14px] font-semibold text-[var(--nr-text)]">
@@ -925,6 +923,19 @@ const NotesMainPage = ({
             </div>
           </div>
         </div>
+
+        {/* Mobile — left-mid peek to open course content */}
+        {!mobileNavOpen ? (
+          <button
+            type="button"
+            onClick={() => setMobileNavOpen(true)}
+            title="Course content"
+            aria-label="Open course content"
+            className="fixed left-0 top-1/2 z-[45] flex h-16 w-7 -translate-y-1/2 items-center justify-center rounded-r-lg border border-l-0 border-[var(--nr-border)] bg-[var(--nr-surface)] shadow-[4px_0_16px_-8px_rgba(15,23,42,0.35)] lg:hidden"
+          >
+            <HiOutlineViewColumns className="h-4 w-4 text-[var(--nr-accent)]" />
+          </button>
+        ) : null}
 
         {/* Mobile sidebar drawer — smooth slide */}
         <AnimatePresence>
