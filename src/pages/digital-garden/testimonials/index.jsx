@@ -7,7 +7,6 @@ import matter from "gray-matter";
 import ClassicPageLayout from "@/components/garden/ClassicNotesLayout";
 import { FaPlus } from "react-icons/fa";
 import CommonHeadTags from "@/components/seo/CommonHeadTags";
-import { ADMIN_LINK } from "@/utils/constant";
 import { GiLoveLetter } from "react-icons/gi";
 import { BsFillBalloonHeartFill } from "react-icons/bs";
 import { generateSlug } from "@/utils/functions";
@@ -49,7 +48,7 @@ function BlogsPage({ posts }) {
         rightCTA={
           <Button
             onClick={() => {
-              window.open(ADMIN_LINK, "_blank");
+              router.push("/contributing-guide?type=testimonial");
             }}
             className="mt-4 px-6 py-3 bg-transparent   text-gray-900  md:text-xl text-base border-black  font-medium rounded-md   transition duration-200"
           >

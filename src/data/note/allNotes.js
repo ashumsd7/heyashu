@@ -46,7 +46,7 @@ export const NOTES_CONFIG = [
     isProgress: true,
     isComingSoon: false,
     isAlmostDone: false,
-    extraChipText: "Daily Updated, New",
+    extraChipText: "Daily Updated",
     tags: [FRONTEND, JAVASCRIPT, NEWBIE],
     githubLink: "#",
     route: "/digital-garden/notes/namaste-ai-notes/welcome-to-namaste-ai-notes",
@@ -393,7 +393,7 @@ export const NOTE_STATUS_CHIP_TONES = {
   soon:
     "rounded-full border border-slate-400/35 bg-slate-500/15 text-slate-700 dark:text-slate-300",
   progress:
-    "rounded-full border border-amber-600 bg-amber-500 text-white shadow-sm dark:border-amber-400 dark:bg-amber-500 dark:text-[#0b120e]",
+    "rounded-full border border-amber-600 bg-amber-400 text-black shadow-sm dark:border-amber-300 dark:bg-amber-600 dark:text-white",
   almost:
     "rounded-full border border-emerald-700/50 bg-emerald-600 text-white shadow-sm dark:border-emerald-400/60 dark:bg-emerald-500 dark:text-[#0b120e]",
   neutral:

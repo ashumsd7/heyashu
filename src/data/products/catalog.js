@@ -73,7 +73,7 @@ export const CATALOG = [
   },
   {
     type: "product",
-    name: "Conversational Agent (AI Chatbot) Building",
+    name: "Conversational Agent (AI Chatbot) ",
     slug: "gecx-conversational-agent-studio",
     description:
       "Learn how to build customized, multilingual conversational AI agents using GECX, CX Agent Studio, and modern LLM capabilities. Go from basic concepts to building, testing, deploying, and monitoring real-world AI agents.",
@@ -107,7 +107,7 @@ export const CATALOG = [
 
     comingSoon: {
       isComingSoon: true,
-      launchingOn: "NA",
+      launchingOn: "-",
     },
 
     showOnHome: true,

@@ -657,6 +657,12 @@ const NotesMainPage = ({
                     icon: HiOutlineSpeakerWave,
                     onClick: handleSpeak,
                   },
+                  {
+                    label: "Edit",
+                    icon: HiOutlinePencilSquare,
+                    onClick: () =>
+                      router.push("/contributing-guide?type=edit"),
+                  },
                 ].map((item) => (
                   <button
                     key={item.label}
@@ -761,10 +767,8 @@ const NotesMainPage = ({
                         <HiOutlineStar className="h-4 w-4" />
                       </a>
                       <a
-                        href="https://www.heyashu.in/admin"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        title="Edit in admin"
+                        href="/contributing-guide?type=edit"
+                        title="Edit this note"
                         className="grid h-9 w-9 place-items-center rounded-lg border border-[var(--nr-border)] bg-[var(--nr-bg)] text-[var(--nr-muted)] no-underline transition hover:text-[var(--nr-text)]"
                       >
                         <HiOutlinePencilSquare className="h-4 w-4" />
@@ -901,6 +905,12 @@ const NotesMainPage = ({
                   label: speaking ? "Stop" : "Speak",
                   icon: HiOutlineSpeakerWave,
                   onClick: handleSpeak,
+                },
+                {
+                  label: "Edit",
+                  icon: HiOutlinePencilSquare,
+                  onClick: () =>
+                    router.push("/contributing-guide?type=edit"),
                 },
               ].map((item) => (
                 <button

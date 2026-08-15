@@ -39,6 +39,7 @@ import {
 } from "@/data/note/allNotes";
 import {
   GARDEN_ADMIN_URL,
+  GARDEN_CONTRIBUTING_PATH,
   GARDEN_FALLBACK_TESTIMONIALS,
   GARDEN_HELP_CHAI,
   GARDEN_HELP_CHAI_IMG,
@@ -375,10 +376,10 @@ function DigitalGarden({ posts, blogs }) {
   return (
     <>
       <CommonHeadTags
-        title="The Garden — Free Digital Notes of Your Favourite Teachers | heyashu"
+        title="The Digital Garden — Free Digital Notes of Your Favourite Teachers | heyashu"
         url="https://www.heyashu.in/digital-garden"
         shortDec="Free, open-source digital garden of coding notes from Akshay Saini, ProCodrr, and top teachers. Summarize, quiz, and revise Node.js and system design."
-        mainDesc="Digital Garden by Ashutosh Anand Tiwari. Clean, searchable, open-source notes from popular engineering courses."
+        mainDesc="Digital  Garden by Ashutosh Anand Tiwari. Clean, searchable , open-source notes from popular engineering courses."
       />
 
       {/* HERO */}
@@ -892,9 +893,7 @@ function DigitalGarden({ posts, blogs }) {
             <motion.a
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.96 }}
-              href={GARDEN_ADMIN_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={`${GARDEN_CONTRIBUTING_PATH}?type=testimonial`}
               className="inline-flex items-center gap-2 rounded-xl border border-[#e8e2d7] bg-white px-5 py-3 text-sm font-semibold text-[#171717] no-underline shadow-sm transition hover:border-[#143825] dark:border-[#1e3328] dark:bg-[#121e17] dark:text-[#f0f4ef]"
             >
               <HiChatBubbleLeftRight /> Provide a feedback

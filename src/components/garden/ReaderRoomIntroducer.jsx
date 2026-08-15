@@ -180,7 +180,7 @@ const STEPS = [
     render: () => (
       <StepShell
         eyebrow="Digital Garden"
-        title="You are about to enter your Reader Room"
+        title="You are about to enter in your Reader Room"
         hint="A calm space made for deep reading — settle in."
       >
         <div className="relative mx-auto h-24 w-24">

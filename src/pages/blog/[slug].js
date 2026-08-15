@@ -7,6 +7,7 @@ import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import {
   HiOutlineBookmark,
   HiOutlineShare,
@@ -153,6 +154,7 @@ export async function getStaticPaths() {
 }
 
 export default function BlogPost({ frontMatter, mdxSource, related = [], slug }) {
+  const router = useRouter();
   const [quickOpen, setQuickOpen] = useState(false);
   const [qnaOpen, setQnaOpen] = useState(false);
   const [quizOpen, setQuizOpen] = useState(false);
@@ -260,6 +262,11 @@ export default function BlogPost({ frontMatter, mdxSource, related = [], slug })
             label: speaking ? "Stop" : "Speak it",
             icon: HiOutlineSpeakerWave,
             onClick: handleSpeak,
+          },
+          {
+            label: "Edit",
+            icon: HiOutlinePencilSquare,
+            onClick: () => router.push("/contributing-guide?type=edit"),
           },
         ].map((item) => (
           <button
@@ -484,7 +491,7 @@ export default function BlogPost({ frontMatter, mdxSource, related = [], slug })
                 label: "Edit",
                 icon: HiOutlinePencilSquare,
                 onClick: () =>
-                  window.open("https://www.heyashu.in/admin", "_blank"),
+                  router.push("/contributing-guide?type=edit"),
               },
             ].map((item) => (
               <button

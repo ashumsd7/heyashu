@@ -16,6 +16,7 @@ import { GARDEN_KHAKI_ITEMS } from "@/data/garden";
 import { withDigitalGardenLayout } from "@/layouts";
 import { GITHUB_REPO_LINK } from "@/utils/constant";
 import Link from "next/link";
+import BackToGarden from "@/components/garden/BackToGarden";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 18 },
@@ -67,17 +68,26 @@ function NotesCollectionPage() {
         url="https://www.heyashu.in/digital-garden/notes"
       />
 
-      <section className="mx-auto max-w-6xl px-6 pb-10 pt-14 md:pt-16">
+      <section className="mx-auto max-w-6xl px-6 pb-10 pt-10 md:pt-14">
+        <BackToGarden />
         <motion.header
           variants={fadeUp}
           initial="hidden"
           animate="show"
-          className="mb-10 max-w-3xl"
+          className="mb-10"
         >
-          <h1 className="mb-4 font-fraunces text-[clamp(2.4rem,5.5vw,4rem)] font-bold leading-[1.05] tracking-[-0.02em] text-[#171717] dark:text-[#f0f4ef]">
-            Index of Notes Collection
-          </h1>
-          <p className="text-[1.05rem] leading-relaxed text-[#6b6458] dark:text-[#92a59a]">
+          <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+            <h1 className="mb-0 font-fraunces text-[clamp(2.4rem,5.5vw,4rem)] font-bold leading-[1.05] tracking-[-0.02em] text-[#171717] dark:text-[#f0f4ef]">
+              Index of Notes Collection
+            </h1>
+            <Link
+              href="/contributing-guide?type=new-note"
+              className="inline-flex shrink-0 items-center self-start rounded-sm bg-[#1f2a22] px-5 py-2.5 text-sm font-medium text-white no-underline transition hover:bg-[#143825] dark:bg-[#22c55e] dark:text-[#0b120e] dark:hover:bg-[#16a34a]"
+            >
+              Add new collection
+            </Link>
+          </div>
+          <p className="max-w-3xl text-[1.05rem] leading-relaxed text-[#6b6458] dark:text-[#92a59a]">
             Curated from Books, Courses and Research Papers
           </p>
         </motion.header>

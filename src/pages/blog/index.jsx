@@ -5,8 +5,10 @@ import path from "path";
 import matter from "gray-matter";
 import { AnimatePresence, motion } from "framer-motion";
 import { HiChevronDown, HiMagnifyingGlass, HiOutlineLightBulb, HiOutlineSparkles } from "react-icons/hi2";
+import Link from "next/link";
 import CommonHeadTags from "@/components/seo/CommonHeadTags";
 import DigiGardenFooter from "@/components/garden/DigiGardenFooter";
+import BackToGarden from "@/components/garden/BackToGarden";
 import { withDigitalGardenLayout } from "@/layouts";
 import { generateSlug } from "@/utils/functions";
 import { firstMarkdownImage } from "@/data/garden/utils";
@@ -495,17 +497,26 @@ function BlogsPage({ posts }) {
         url="https://www.heyashu.in/blog"
       />
 
-      <section className="mx-auto max-w-6xl px-6 pb-20 pt-14 md:pt-16">
+      <section className="mx-auto max-w-6xl px-6 pb-20 pt-10 md:pt-14">
+        <BackToGarden />
         <motion.header
           variants={fadeUp}
           initial="hidden"
           animate="show"
-          className="mb-10 max-w-2xl"
+          className="mb-10"
         >
-          <h1 className="mb-4 font-fraunces text-[clamp(2.6rem,6vw,4.4rem)] font-bold leading-[1.05] tracking-[-0.02em] text-[#171717] dark:text-[#f0f4ef]">
-            Index of Blogs
-          </h1>
-          <p className="text-[1.05rem] leading-relaxed text-[#6b6458] dark:text-[#92a59a]">
+          <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+            <h1 className="mb-0 font-fraunces text-[clamp(2.6rem,6vw,4.4rem)] font-bold leading-[1.05] tracking-[-0.02em] text-[#171717] dark:text-[#f0f4ef]">
+              Index of Blogs
+            </h1>
+            <Link
+              href="/contributing-guide?type=new"
+              className="inline-flex shrink-0 items-center self-start rounded-sm bg-[#1f2a22] px-5 py-2.5 text-sm font-medium text-white no-underline transition hover:bg-[#143825] dark:bg-[#22c55e] dark:text-[#0b120e] dark:hover:bg-[#16a34a]"
+            >
+              Write Your blog
+            </Link>
+          </div>
+          <p className="max-w-2xl text-[1.05rem] leading-relaxed text-[#6b6458] dark:text-[#92a59a]">
             A curated collection of thoughts, observations, and engineering notes —
             sifted from daily reading, courses, and ongoing research.
           </p>
@@ -622,8 +633,8 @@ function BlogsPage({ posts }) {
             />
           </div>
 
-          <div ref={sortRef} className="relative ml-auto w-full sm:w-auto">
-            <div className="flex items-center justify-end gap-2.5">
+          <div ref={sortRef} className="relative w-full sm:ml-auto sm:w-auto">
+            <div className="flex w-full items-center justify-start gap-2.5 sm:justify-end">
               <span className="whitespace-nowrap text-sm font-medium text-[#6b6458] dark:text-[#92a59a]">
                 Sort by
               </span>
@@ -632,7 +643,7 @@ function BlogsPage({ posts }) {
                 aria-haspopup="listbox"
                 aria-expanded={sortOpen}
                 onClick={() => setSortOpen((v) => !v)}
-                className="inline-flex w-[200px] items-center justify-between gap-3 rounded-full border border-[#e0d9cd] bg-white px-4 py-3 text-left text-sm text-[#171717] transition hover:border-[#cfc6b8] focus:outline-none focus:ring-2 focus:ring-[#9a4f2e]/15 dark:border-[#1e3328] dark:bg-[#121e17] dark:text-[#f0f4ef]"
+                className="inline-flex min-w-0 flex-1 items-center justify-between gap-3 rounded-full border border-[#e0d9cd] bg-white px-4 py-3 text-left text-sm text-[#171717] transition hover:border-[#cfc6b8] focus:outline-none focus:ring-2 focus:ring-[#9a4f2e]/15 dark:border-[#1e3328] dark:bg-[#121e17] dark:text-[#f0f4ef] sm:w-[200px] sm:flex-none"
               >
                 <span className="truncate">{activeSortLabel}</span>
                 <HiChevronDown
@@ -651,7 +662,7 @@ function BlogsPage({ posts }) {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: -4, scale: 0.98 }}
                   transition={{ duration: 0.16 }}
-                  className="absolute right-0 z-30 mt-2 w-[200px] overflow-hidden rounded-2xl border border-[#e0d9cd] bg-white py-1.5 shadow-[0_12px_30px_rgba(0,0,0,0.08)] dark:border-[#1e3328] dark:bg-[#121e17]"
+                  className="absolute left-0 z-30 mt-2 w-full overflow-hidden rounded-2xl border border-[#e0d9cd] bg-white py-1.5 shadow-[0_12px_30px_rgba(0,0,0,0.08)] dark:border-[#1e3328] dark:bg-[#121e17] sm:left-auto sm:right-0 sm:w-[200px]"
                 >
                   {SORT_OPTIONS.map((opt) => {
                     const active = sortBy === opt.id;

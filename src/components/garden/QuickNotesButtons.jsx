@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 import { motion } from "framer-motion";
 import { MdEdit } from "react-icons/md";
 import { FaGithub, FaHeart, FaBookmark } from "react-icons/fa";
 import Share from "@/components/ui/Share";
-import { ADMIN_LINK, GITHUB_REPO_LINK } from "@/utils/constant";
+import { GITHUB_REPO_LINK } from "@/utils/constant";
 
 const QuickNotesButtons = () => {
+  const router = useRouter();
   const [isLiked, setIsLiked] = useState(false);
   const [blogTitle, setBlogTitle] = useState("");
 
@@ -53,7 +55,7 @@ const QuickNotesButtons = () => {
         <motion.button
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
-          onClick={() => window.open(ADMIN_LINK, "_blank")}
+          onClick={() => router.push("/contributing-guide?type=edit")}
           className="text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white"
           title="Edit this article"
         >
@@ -108,7 +110,7 @@ const QuickNotesButtons = () => {
       <div className="lg:hidden flex items-center justify-around bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 px-4 py-4 shadow-lg h-[52px]">
         <motion.button
           whileTap={{ scale: 0.95 }}
-          onClick={() => window.open(ADMIN_LINK, "_blank")}
+          onClick={() => router.push("/contributing-guide?type=edit")}
           className="flex flex-col items-center text-gray-600 dark:text-gray-300"
           title="Edit this article"
         >

@@ -22,6 +22,7 @@ const STATIC_PATHS = [
   "/tech",
   "/product",
   "/product/gecx-conversational-agent-studio",
+  "/contributing-guide",
   "/travel",
 ];
 

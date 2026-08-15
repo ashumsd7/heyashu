@@ -39,7 +39,7 @@ export default function App({ Component, pageProps }) {
 
   // 1) Page can opt in explicitly via Component.getLayout
   // 2) Notes chapter /digital-garden/notes/:series/:slug → bare full page
-  // 3) Else /blog + /product + /digital-garden/* → Digital Garden navbar
+  // 3) Else /blog + /product + /contributing-guide + /digital-garden/* → Digital Garden navbar
   // 4) Else → main site Navbar + Layout
   const getLayout =
     Component.getLayout ||

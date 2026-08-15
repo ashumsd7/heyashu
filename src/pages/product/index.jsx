@@ -2,6 +2,7 @@ import React, { useMemo, useState } from "react";
 import CommonHeadTags from "@/components/seo/CommonHeadTags";
 import DigiGardenFooter from "@/components/garden/DigiGardenFooter";
 import CatalogCard, { FeaturedProductBanner } from "@/components/products/CatalogCard";
+import BackToGarden from "@/components/garden/BackToGarden";
 import { withDigitalGardenLayout } from "@/layouts";
 import {
   getCatalog,
@@ -51,6 +52,7 @@ function ProductIndexPage() {
       />
 
       <div className="mx-auto w-full max-w-[1200px] px-4 pb-10 pt-10 sm:px-6 md:pt-14">
+        <BackToGarden />
         <header className="mb-8 max-w-3xl">
           <p className="mb-3 font-ibm-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-[#8a8276] dark:text-[#6d7f74]">
             Digital Garden · Catalog
@@ -59,9 +61,12 @@ function ProductIndexPage() {
             Products &amp; Services
           </h1>
           <p className="text-[1.05rem] leading-relaxed text-[#6b6458] dark:text-[#92a59a]">
-            Get in touch, learn, or connect 1:1. Products open a full page.
-            Services book a live call with me.
+            Discover my full catalog of <b>products</b>, <b>services</b>, and <b>tools</b> — everything you need to learn, grow, and advance your tech career. 
+            <br />
+            <br />
+            Book a <b>mock interview</b>, connect with me 1:1 for guidance, or explore helpful tech tools and resources. Services allow you to directly schedule a call with me. 
           </p>
+     
         </header>
 
         <section className="mb-10">

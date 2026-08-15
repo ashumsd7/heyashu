@@ -10,6 +10,7 @@ import {
   HiMoon,
   HiMagnifyingGlass,
   HiHeart,
+  HiSparkles,
   HiOutlineBars3,
   HiOutlineXMark,
 } from "react-icons/hi2";
@@ -104,26 +105,33 @@ export default function DigitalGardenLayout({ children }) {
 
         <div className="border-b border-[#e8e2d7] bg-[#faf7f2]/90 py-3 backdrop-blur-md dark:border-[#1e3328] dark:bg-[#0b120e]/90 sm:py-4">
           <div className="mx-auto flex w-full max-w-[1120px] items-center justify-between gap-3 px-4 sm:px-6">
-            <div className="inline-flex min-w-0 shrink items-baseline gap-1.5 whitespace-nowrap">
-              <Link
-                href="/digital-garden"
-                className="font-fraunces text-[1.05rem] font-bold tracking-[-0.01em] text-[#171717] no-underline dark:text-[#f0f4ef] sm:text-[1.3rem]"
-              >
-                Digital Garden
-              </Link>
-              <span className="inline-flex items-baseline gap-1 font-ibm-mono text-[0.52rem] font-medium italic tracking-[0.03em] sm:text-[0.58rem]">
-                <span className="text-[#585858]/75 dark:text-[#92a59a]/75">
-                  by
-                </span>
-                <a
-                  href="https://www.heyashu.in"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-teal-600 no-underline hover:underline dark:text-teal-400"
-                >
-                  heyashu.in
-                </a>
+            <div className="flex min-w-0 shrink flex-col">
+              <span className="mb-0.5 inline-flex items-center gap-1 font-ibm-mono text-[9px] font-semibold uppercase tracking-[0.18em] text-[#8a8276] dark:text-[#6d7f74] sm:text-[10px]">
+                <HiSparkles className="h-2.5 w-2.5 shrink-0 text-[#c4552d]" aria-hidden="true" />
+                OPENSOURCED
+                <HiSparkles className="h-2.5 w-2.5 shrink-0 text-[#c4552d]" aria-hidden="true" />
               </span>
+              <div className="inline-flex min-w-0 items-baseline gap-1.5 whitespace-nowrap">
+                <Link
+                  href="/digital-garden"
+                  className="font-fraunces text-[1.05rem] font-bold tracking-[-0.01em] text-[#171717] no-underline dark:text-[#f0f4ef] sm:text-[1.3rem]"
+                >
+                  Digital Garden
+                </Link>
+                <span className="inline-flex items-baseline gap-1 font-ibm-mono text-[0.52rem] font-medium italic tracking-[0.03em] sm:text-[0.58rem]">
+                  <span className="text-[#585858]/75 dark:text-[#92a59a]/75">
+                    by
+                  </span>
+                  <a
+                    href="https://www.heyashu.in"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-teal-600 no-underline hover:underline dark:text-teal-400"
+                  >
+                    heyashu.in
+                  </a>
+                </span>
+              </div>
             </div>
 
             {/* Desktop actions */}
