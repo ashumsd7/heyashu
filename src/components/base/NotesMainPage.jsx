@@ -382,7 +382,6 @@ const NotesMainPage = ({
       </Head>
       <CommonSlugHeadTags
         frontMatter={currentPageFrontMatter}
-        image={shareImageEmbed}
         url={chapterCanonical}
       />
 

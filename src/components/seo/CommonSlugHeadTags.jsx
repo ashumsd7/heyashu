@@ -1,12 +1,12 @@
 import Head from "next/head";
 import React from "react";
 import {
-  DEFAULT_OG_IMAGE,
+  LINK_PREVIEW_FALLBACK,
   SITE_NAME,
   SITE_ORIGIN,
   TWITTER_HANDLE,
-  absoluteImageUrl,
   absoluteUrl,
+  pickLinkPreviewImage,
 } from "@/utils/seo";
 
 function CommonSlugHeadTags({
@@ -35,10 +35,7 @@ function CommonSlugHeadTags({
     `Read ${headline} — ${mainDesc}`;
 
   const canonical = absoluteUrl(url || `${SITE_ORIGIN}/digital-garden`);
-  const absoluteImage = absoluteImageUrl(
-    image || frontMatter?.thumbnail,
-    DEFAULT_OG_IMAGE
-  );
+  const absoluteImage = pickLinkPreviewImage(frontMatter?.thumbnail, image);
   const datePublished =
     frontMatter?.publishedOn || frontMatter?.date || undefined;
   const dateModified =
@@ -65,10 +62,13 @@ function CommonSlugHeadTags({
       <meta property="og:title" content={pageTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={absoluteImage} />
+      <meta property="og:image:secure_url" content={absoluteImage} />
+      <meta property="og:image:alt" content={headline} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta property="og:url" content={canonical} />
       <meta property="og:site_name" content={SITE_NAME} />
+      <meta itemProp="image" content={absoluteImage} />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content={TWITTER_HANDLE} />
@@ -76,6 +76,7 @@ function CommonSlugHeadTags({
       <meta name="twitter:title" content={pageTitle} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={absoluteImage} />
+      <meta name="twitter:image:alt" content={headline} />
 
       <meta name="robots" content="index, follow" />
       <meta name="googlebot" content="index, follow" />
@@ -98,7 +99,7 @@ function CommonSlugHeadTags({
               name: SITE_NAME,
               logo: {
                 "@type": "ImageObject",
-                url: absoluteUrl("/images/profile.jpg"),
+                url: LINK_PREVIEW_FALLBACK,
               },
             },
             url: canonical,

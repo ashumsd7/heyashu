@@ -1,15 +1,16 @@
 import Head from "next/head";
 import React from "react";
 import {
-  DEFAULT_OG_IMAGE,
+  LINK_PREVIEW_FALLBACK,
   SITE_NAME,
   SITE_ORIGIN,
   TWITTER_HANDLE,
   absoluteUrl,
+  pickLinkPreviewImage,
 } from "@/utils/seo";
 
 function CommonHeadTags({
-  image = DEFAULT_OG_IMAGE,
+  image,
   url = `${SITE_ORIGIN}/digital-garden`,
   title = "Digital Notes by Ashutosh Anand Tiwari",
   shortDec = "Explore a rich collection of blogs, digital notes, reviews experiences and stories covering JavaScript, Node.js, React, and more.",
@@ -20,6 +21,7 @@ function CommonHeadTags({
   twitterHandle = TWITTER_HANDLE,
 }) {
   const canonical = absoluteUrl(url);
+  const previewImage = pickLinkPreviewImage(image) || LINK_PREVIEW_FALLBACK;
 
   return (
     <Head>
@@ -34,19 +36,23 @@ function CommonHeadTags({
 
       <meta property="og:title" content={title} />
       <meta property="og:description" content={shortDec} />
-      <meta property="og:image" content={image} />
+      <meta property="og:image" content={previewImage} />
+      <meta property="og:image:secure_url" content={previewImage} />
       <meta property="og:image:alt" content={title} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
       <meta property="og:url" content={canonical} />
       <meta property="og:type" content={type} />
       <meta property="og:site_name" content={siteName} />
       <meta property="og:locale" content="en_US" />
+      <meta itemProp="image" content={previewImage} />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content={twitterHandle} />
       <meta name="twitter:creator" content={twitterHandle} />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={shortDec} />
-      <meta name="twitter:image" content={image} />
+      <meta name="twitter:image" content={previewImage} />
       <meta name="twitter:image:alt" content={title} />
 
       <link rel="icon" href="/fav_main.ico" />

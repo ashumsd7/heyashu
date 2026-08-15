@@ -26,7 +26,7 @@ export const ASHUTOSH_ANAND_TIWARI_AVATAR="https://heyashu.in/_next/image?url=ht
 export const NOTES_CONFIG = [
   {
     id: "namaste-ai",
-    title: "Namaste AI",
+    title: "Namaste AI Notes",
     homeTitle: "Namaste AI Notes",
     by: "Akshay Saini",
     authorDisplay: "Akshay Saini Sir",
@@ -145,7 +145,7 @@ export const NOTES_CONFIG = [
   },
   {
     id: "namaste-node-js",
-    title: "Namaste Node JS",
+    title: "Namaste Node JS Notes",
     homeTitle: "Namaste Node.js Notes",
     by: "Akshay Saini",
     authorDisplay: "Akshay Saini Sir",
@@ -258,7 +258,7 @@ export const NOTES_CONFIG = [
   // ---- ADD: Namaste DSA Notes after procodrr-nodejs ----
   {
     id: "namaste-dsa",
-    title: "Namaste DSA",
+    title: "Namaste DSA Notes",
     homeTitle: "Namaste DSA Notes",
     by: "Akshay Saini",
     authorDisplay: "Akshay Saini Sir",

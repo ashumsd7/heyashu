@@ -379,7 +379,6 @@ function DigitalGarden({ posts, blogs }) {
         url="https://www.heyashu.in/digital-garden"
         shortDec="Free, open-source digital garden of coding notes from Akshay Saini, ProCodrr, and top teachers. Summarize, quiz, and revise Node.js and system design."
         mainDesc="Digital Garden by Ashutosh Anand Tiwari. Clean, searchable, open-source notes from popular engineering courses."
-        image="https://i.ibb.co/zHFrGsK/diginotes-thumb.jpg"
       />
 
       {/* HERO */}

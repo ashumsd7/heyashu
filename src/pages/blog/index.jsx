@@ -491,7 +491,6 @@ function BlogsPage({ posts }) {
   return (
     <div className="bg-[#f7f4ee] dark:bg-[#0b120e]">
       <CommonHeadTags
-        image="https://i.ibb.co/Cm127c4/blogs-thumb.jpg"
         title="Index of Blogs — Digital Garden | heyashu"
         url="https://www.heyashu.in/blog"
       />

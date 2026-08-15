@@ -3,7 +3,7 @@ backend:
   branch: main # Branch to update (optional; defaults to master)
 publish_mode: editorial_workflow
 site_url: https://heyashu.in
-logo_url: https://avatars.githubusercontent.com/u/40313523?v=4
+logo_url: /images/fav_main.ico
 
 media_folder: public/images/blogs
 public_folder: /images/blogs

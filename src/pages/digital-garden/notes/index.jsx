@@ -65,7 +65,6 @@ function NotesCollectionPage() {
       <CommonHeadTags
         title="Index of Notes Collection — Digital Garden | heyashu"
         url="https://www.heyashu.in/digital-garden/notes"
-        image="https://i.ibb.co/zHFrGsK/diginotes-thumb.jpg"
       />
 
       <section className="mx-auto max-w-6xl px-6 pb-10 pt-14 md:pt-16">

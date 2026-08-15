@@ -230,7 +230,6 @@ export default function BlogPost({ frontMatter, mdxSource, related = [], slug })
   return (
     <div className="bg-[#f7f4ee] text-[#1c1c1c] dark:bg-[#0b120e] dark:text-[#f0f4ef]">
       <CommonSlugHeadTags
-        image={thumb || frontMatter?.thumbnail}
         frontMatter={frontMatter}
         url={`https://www.heyashu.in/blog/${slug || ""}`}
       />
