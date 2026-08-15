@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { IoIosCheckmarkCircle, IoIosCheckmarkCircleOutline } from "react-icons/io";
 import {
   HiOutlineChevronDown,
+  HiChevronLeft,
   HiOutlineBookOpen,
   HiOutlineRectangleStack,
-  HiOutlineListBullet,
   HiOutlineArrowTrendingUp,
   HiOutlineDocumentText,
 } from "react-icons/hi2";
@@ -149,6 +149,7 @@ export default function NotesReaderSidebar({
   onSectionClick,
   onMarkComplete,
   isCurrentComplete,
+  onCollapse,
 }) {
   const [sec1Open, setSec1Open] = useState(true);
   const [sec2Open, setSec2Open] = useState(!!show2ndSection);
@@ -164,13 +165,22 @@ export default function NotesReaderSidebar({
       }}
     >
       <div className="border-b border-[var(--nr-border)] px-4 py-4">
-        <p className="mb-2 hidden items-center gap-1.5 rounded-full border border-[var(--nr-border)] bg-[var(--nr-surface)] px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--nr-text)] lg:inline-flex">
-          <HiOutlineListBullet className="h-3 w-3" />
-          Course Content
-        </p>
-        <h2 className="font-fraunces text-[16px] font-semibold leading-snug text-[var(--nr-heading)]">
-          {displayCourse}
-        </h2>
+        <div className="mb-3 flex items-start justify-between gap-2">
+          <h2 className="min-w-0 flex-1 font-fraunces text-[19px] font-bold leading-snug text-[var(--nr-heading)]">
+            {displayCourse}
+          </h2>
+          {onCollapse ? (
+            <button
+              type="button"
+              onClick={onCollapse}
+              title="Hide course content"
+              aria-label="Hide course content"
+              className="grid h-8 w-8 shrink-0 place-items-center rounded-lg border border-[var(--nr-border)] bg-[var(--nr-surface)] text-[var(--nr-muted)] transition hover:text-[var(--nr-text)]"
+            >
+              <HiChevronLeft className="h-4 w-4" />
+            </button>
+          ) : null}
+        </div>
         <div className="mt-3">
           <div className="mb-1.5 flex items-center justify-between text-[11px]">
             <span className="inline-flex items-center gap-1.5 font-medium text-[var(--nr-muted)]">
