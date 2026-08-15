@@ -212,23 +212,23 @@ export const  traveledPlaces = [
     img: "/images/travelpfp/gokarna.jpeg",
     isTraveled:true
   },
-];
-export const pendingTravelPlaces = [
   {
     name: "SHIMLA",
     img: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/The_Ridge%2C_Shimla.jpg/1280px-The_Ridge%2C_Shimla.jpg",
-    isTraveled: false,
+    isTraveled: true,
   },
   {
     name: "KULLU",
     img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Kullu_Valley%2C_Himachal_Pradesh.jpg/1280px-Kullu_Valley%2C_Himachal_Pradesh.jpg",
-    isTraveled: false,
+    isTraveled: true,
   },
   {
     name: "ROHTANG PASS",
     img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Rohtang_Pass%2C_Manali%2C_Himachal_Pradesh.jpg/1280px-Rohtang_Pass%2C_Manali%2C_Himachal_Pradesh.jpg",
-    isTraveled: false,
+    isTraveled: true,
   },
+];
+export const pendingTravelPlaces = [
   {
     name: "NORTH EAST",
     img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Tawang_Monastery%2C_Arunachal_Pradesh.jpg/1280px-Tawang_Monastery%2C_Arunachal_Pradesh.jpg",

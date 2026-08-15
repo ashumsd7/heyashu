@@ -27,6 +27,10 @@ import QuestionsListDrawer from "@/components/garden/AI/QuestionsListDrawer";
 import { withDigitalGardenLayout } from "@/layouts";
 import { estimateReadingTime } from "@/utils/functions";
 import { DEFAULT_AVATAR } from "@/utils/constant";
+import {
+  isNamasteAiContentPath,
+  resolveLocalImageSrc,
+} from "@/utils/publicImage";
 
 dayjs.extend(customParseFormat);
 
@@ -73,6 +77,15 @@ export async function getStaticProps({ params }) {
 
   const fileContents = fs.readFileSync(filePath, "utf-8");
   const { data, content } = matter(fileContents);
+  const collection = isNamasteAiContentPath(filePath)
+    ? "namaste-ai-notes"
+    : undefined;
+  if (data.thumbnail) {
+    data.thumbnail = resolveLocalImageSrc(data.thumbnail, { collection });
+  }
+  if (data.profilePic) {
+    data.profilePic = resolveLocalImageSrc(data.profilePic, { collection });
+  }
   const mdxSource = await serialize(content);
 
   // Related posts for "Continue Exploring"

@@ -17,6 +17,7 @@ import {
   loadNotesMetaFromDir,
   loadNotesStaticPaths,
 } from "@/data/note/loadNotesMeta";
+import { resolveLocalImageSrc } from "@/utils/publicImage";
 
 const NotesDetailPage = ({ notes, currentPageMDX, currentPageFrontMatter }) => {
   const contentList = useMemo(() => buildNotesSidebarList(notes), [notes]);
@@ -58,6 +59,16 @@ export async function getStaticProps({ params }) {
   );
   const fileContents = fs.readFileSync(filePath, "utf-8");
   const { data, content } = matter(fileContents);
+  if (data.thumbnail) {
+    data.thumbnail = resolveLocalImageSrc(data.thumbnail, {
+      collection: "namaste-ai-notes",
+    });
+  }
+  if (data.profilePic) {
+    data.profilePic = resolveLocalImageSrc(data.profilePic, {
+      collection: "namaste-ai-notes",
+    });
+  }
   const mdxSource = await serialize(content, {
     mdxOptions: { rehypePlugins: [rehypeHighlight] },
   });

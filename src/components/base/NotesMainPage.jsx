@@ -397,16 +397,16 @@ const NotesMainPage = ({
         }}
       >
         <div className="bg-[var(--nr-bg)] text-[var(--nr-text)] transition-colors duration-300">
-          {/* Top bar — mobile: back + course; desktop: full toolbar */}
-          <div className="sticky top-0 z-30">
+          {/* Top bar — mobile: full-width + gray bottom line; desktop: rounded shell */}
+          <div
+            className="sticky top-0 z-30 border-b border-[#c5ced6] dark:border-[#2a3530] lg:border-b-0"
+            style={{
+              background:
+                "linear-gradient(180deg, var(--nr-nav-from) 0%, var(--nr-nav-to) 100%)",
+            }}
+          >
             <div className={SHELL}>
-              <div
-                className="relative rounded-b-2xl px-2.5 py-2 md:px-4 md:py-2.5"
-                style={{
-                  background:
-                    "linear-gradient(180deg, var(--nr-nav-from) 0%, var(--nr-nav-to) 100%)",
-                }}
-              >
+              <div className="relative px-0 py-2 md:px-4 md:py-2.5 lg:rounded-b-2xl">
                 <div className="flex items-center justify-between gap-2">
                   <div className="flex min-w-0 flex-1 items-center gap-2 md:gap-3">
                     <Link

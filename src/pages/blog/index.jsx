@@ -10,6 +10,7 @@ import DigiGardenFooter from "@/components/garden/DigiGardenFooter";
 import { withDigitalGardenLayout } from "@/layouts";
 import { generateSlug } from "@/utils/functions";
 import { firstMarkdownImage } from "@/data/garden/utils";
+import { resolveLocalImageSrc } from "@/utils/publicImage";
 
 const FILTERS = [
   { id: "all", label: "All" },
@@ -269,12 +270,17 @@ export async function getStaticProps() {
         if (filename.endsWith(".md")) {
           const fileContent = fs.readFileSync(filePath, "utf-8");
           const { data: frontMatter, content } = matter(fileContent);
+          const collection =
+            folderKey === "namasteAiNotes" ? "namaste-ai-notes" : undefined;
           const thumbFromBody = firstMarkdownImage(content);
 
           posts.push({
             frontMatter: {
               ...frontMatter,
-              thumbnail: String(frontMatter?.thumbnail || "").trim() || thumbFromBody,
+              thumbnail: resolveLocalImageSrc(
+                String(frontMatter?.thumbnail || "").trim() || thumbFromBody,
+                { collection }
+              ),
             },
             excerpt: getExcerpt(
               content,

@@ -6,6 +6,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import { firstMarkdownImage, gardenDateValue } from "./utils";
+import { resolveLocalImageSrc } from "@/utils/publicImage";
 
 /** Mirrors contentFolders in src/pages/blog/index.jsx */
 const BLOG_CONTENT_FOLDERS = {
@@ -29,9 +30,16 @@ const FOLDER_FALLBACK_THUMB = {
 };
 
 function resolveThumb(frontMatter, content, folder) {
-  const fromMeta = String(frontMatter?.thumbnail || "").trim();
-  if (fromMeta) return fromMeta.replace("/public", "");
-  const fromBody = firstMarkdownImage(content);
+  const collection =
+    folder === "namasteAiNotes" ? "namaste-ai-notes" : undefined;
+  const fromMeta = resolveLocalImageSrc(
+    String(frontMatter?.thumbnail || "").trim(),
+    { collection }
+  );
+  if (fromMeta) return fromMeta;
+  const fromBody = resolveLocalImageSrc(firstMarkdownImage(content), {
+    collection,
+  });
   if (fromBody) return fromBody;
   return FOLDER_FALLBACK_THUMB[folder] || "";
 }
