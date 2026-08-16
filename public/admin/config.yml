@@ -27,7 +27,7 @@ collections:
       - { label: "Tags", name: "tags", widget: "string", required: false, default: "blog", hint: "Add tags comma separated example : JavaScript, Web, Web Development, that can be used seo purpose also in the ui for category." }
       - { label: "Your profile picture", name: "profilePic", widget: "image", required: false, default: "https://i.ibb.co/v71k25N/pfpppp.png", hint: "This image will be shown in the profile picture  avatar." }
       - { label: "Social Link( When user clicks on follow button : we will contact you once your content will be live in next  few minutes after saving it)", name: "followLink", widget: "string", required: false, default: "https://www.instagram.com/javascripterrr" }
-      - { label: "Describe your content here", name: "body", hint: "Here also you can beautify your content below H denotes Heading and click on + icon to add images and you can use any of the option in below control bar.", widget: "markdown" }
+      - { label: "Describe your content here", name: "body", hint: "Use H for headings and + to add images. For links write [text](https://example.com). Do not wrap URLs in <https://...> — that breaks the site.", widget: "markdown" }
   - name: "daily-updates"
     label: "Daily Update: Stand Up"
     description: 🌱 Consistency is key to success. Stay committed, update your progress, and make a meaningful impact. Together, we'll achieve success! 🌿✨
@@ -106,7 +106,7 @@ collections:
         name: "body"
         widget: "markdown"
         editor_components: ["image", "code-block"]
-        hint: "For images: click + → Image → Choose an image. Saved to /images/namaste-ai/. Do NOT paste ImgBB/external URLs."
+        hint: "Images: click + → Image → choose a file (saved to /images/namaste-ai/). Do NOT paste ImgBB URLs. Links: write [text](https://example.com) — never wrap a URL in angle brackets like <https://...>, that breaks the site build."
   - name: "ai-clopedia"
     label: "AI-clopedia"
     description: Contribute notes, tutorials, and explanations—everything related to AI! Open source, collaborative, and always growing.✨
@@ -228,6 +228,7 @@ collections:
       - { label: "Describe your content here", name: "body", widget: "markdown" }
   - name: "poems"
     label: "Poems"
+    hide: true
     description: 🌱 Express your thoughts, feelings, and creativity through poetry in this collection.
     folder: "/src/content/poems"
     create: true
@@ -248,6 +249,7 @@ collections:
       - { label: "Write / Update whatever you want to", name: "body", hint: "Here also you can beautify your content below H denotes Heading and click on + icon to add images and you can use any of the option in below control bar.", widget: "markdown" }
   - name: "experience"
     label: "Experience"
+    hide: true
     description: Share your valuable experiences that shaped your personal and professional growth.
     folder: "/src/content/experience"
     create: true
@@ -268,6 +270,7 @@ collections:
       - { label: "Write / Update whatever you want to", name: "body", widget: "markdown", hint: "Here also you can beautify your content below H denotes Heading and click on + icon to add images and you can use any of the option in below control bar." }
   - name: "films"
     label: "Films / Series"
+    hide: true
     description: Discuss your favorite films, TV series, or web series, and share reviews that resonate with you..
     folder: "/src/content/films"
     create: true
@@ -288,6 +291,7 @@ collections:
       - { label: "Write / Update whatever you want to", name: "body", widget: "markdown", hint: "Here also you can beautify your content below H denotes Heading and click on + icon to add images and you can use any of the option in below control bar." }
   - name: "stories"
     label: "Stories"
+    hide: true
     description: Share captivating stories that inspire, entertain, or teach valuable lessons...
     folder: "/src/content/stories"
     create: true
@@ -323,8 +327,68 @@ collections:
       - { label: "Your profile picture", name: "profilePic", widget: "image", required: false, hint: "This image will be shown in the profile picture  avatar." }
       - { label: "Social Link( When user clicks on follow button : we will contact you once your content will be live in next  few minutes after saving it)", name: "followLink", widget: "string", required: false }
       - { label: "Write / Update whatever you want to", name: "body", widget: "markdown", hint: "Here also you can beautify your content below H denotes Heading and click on + icon to add images and you can use any of the option in below control bar." }
+  - name: "my-life-archive"
+    label: "My Life Archive"
+    description: Personal life journey — books, films, travel, people, links, and anything worth remembering. One collection. Pick a type, write, save.
+    folder: "/src/content/my-life-archive"
+    media_folder: "../../../public/images/my-life-archive"
+    public_folder: /images/my-life-archive
+    create: true
+    slug: ""
+    delete: false
+    editor:
+      preview: false
+    fields:
+      - { label: "Slug", name: "title", widget: "string", hint: "URL slug with dashes, e.g. shimla-trip-2026. Live later at heyashu.in/journey/your-slug. Save creates a GitHub PR." }
+      - { label: "Title", name: "name", widget: "string", hint: "Heading shown on the entry." }
+      - { label: "Entry number", name: "entryNumber", widget: "number", required: false, hint: "Optional id to keep order. Leave blank if you do not care." }
+      - label: "Type"
+        name: "category"
+        widget: "select"
+        default: "general"
+        hint: "What kind of memory is this? Same form for every type — extra category fields are not needed."
+        options:
+          - { label: "General", value: "general" }
+          - { label: "Books", value: "books" }
+          - { label: "Films", value: "films" }
+          - { label: "Webseries", value: "webseries" }
+          - { label: "Poems", value: "poems" }
+          - { label: "People", value: "people" }
+          - { label: "Family Time", value: "family-time" }
+          - { label: "Stories", value: "stories" }
+          - { label: "Travel", value: "travel" }
+          - { label: "Dish", value: "dish" }
+          - { label: "Donations", value: "donations" }
+          - { label: "Articles / Links", value: "links" }
+          - { label: "Courses", value: "courses" }
+          - { label: "Projects", value: "projects" }
+          - { label: "Places", value: "places" }
+          - { label: "Ideas", value: "ideas" }
+          - { label: "Other", value: "other" }
+      - { label: "Date", name: "date", widget: "datetime", time_format: false, date_format: "MM-DD-YYYY", format: "MM-DD-YYYY" }
+      - { label: "Short summary", name: "summary", widget: "string", required: false, hint: "One line for cards and timeline." }
+      - { label: "Description", name: "description", widget: "text", required: false, hint: "A short paragraph. Full story goes in Content below." }
+      - { label: "Hashtags", name: "hashtags", widget: "string", required: false, hint: "Comma separated, e.g. himalaya, books, 2026" }
+      - label: "Image 1"
+        name: "img1"
+        widget: "image"
+        required: false
+        choose_url: false
+        hint: "Saved to public/images/my-life-archive/ (served as /images/my-life-archive/)."
+      - label: "Image 2"
+        name: "img2"
+        widget: "image"
+        required: false
+        choose_url: false
+        hint: "Optional second image. Same folder as Image 1."
+      - label: "Content"
+        name: "body"
+        widget: "markdown"
+        editor_components: ["image", "code-block"]
+        hint: "Write the full entry here. Images: + → Image. Links: [text](https://example.com). Never wrap URLs in <https://...>."
   - name: "books"
     label: "Books"
+    hide: true
     description: Discuss and share insights on the books that have inspired or educated you.
     folder: "/src/content/books"
     create: true
