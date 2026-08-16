@@ -18,7 +18,6 @@ import GardenCollabCard from "@/components/garden/GardenCollabCard";
 import QuickReaderDrawer from "@/components/garden/AI/QuickReaderDrawer";
 import QuestionsListDrawer from "@/components/garden/AI/QuestionsListDrawer";
 import AIQuestionDrawer from "@/components/garden/AIQuestionDrawer";
-import ReaderRoomIntroducer from "@/components/garden/ReaderRoomIntroducer";
 import {
   DEFAULT_AVATAR,
   GITHUB_REPO_LINK,
@@ -384,8 +383,6 @@ const NotesMainPage = ({
         frontMatter={currentPageFrontMatter}
         url={chapterCanonical}
       />
-
-      <ReaderRoomIntroducer />
 
       <div
         data-notes-theme={theme}
