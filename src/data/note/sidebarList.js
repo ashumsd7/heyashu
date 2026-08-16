@@ -16,6 +16,7 @@ export function buildNotesSidebarList(notes = []) {
     updatedOn: item.frontMatter?.updatedOn,
     thumbnail: item.frontMatter?.thumbnail,
     publishedOn: item.frontMatter?.publishedOn || "Seeding Soon",
+    slug: item.slug,
   }));
 
   return list.sort((a, b) => (Number(a.episode) || 0) - (Number(b.episode) || 0));

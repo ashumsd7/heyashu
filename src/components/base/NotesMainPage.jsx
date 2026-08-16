@@ -306,7 +306,8 @@ const NotesMainPage = ({
   };
 
   const handleSectionClick = (section) => {
-    const slug = generateSlug(section?.title || section?.name);
+    const slug =
+      section?.slug || generateSlug(section?.title || section?.name);
     router.push(`/digital-garden/notes/${subDomain}/` + slug);
     setMobileNavOpen(false);
     scrollToTop();

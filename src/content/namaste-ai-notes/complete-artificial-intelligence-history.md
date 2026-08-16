@@ -1,11 +1,11 @@
 ---
 title: complete-artificial-intelligence-history
-name: "The AI Revolution: From Turing to Agentic AI"
+name: " AI Evolution: From Turing to Agentic AI"
 episode: 2
 seasonNumber: 1
 publishedOn: 08-16-2026
 updatedOn: 08-16-2026
-thumbnail: /images/namaste-ai/f847e955-03f0-4ffe-8c03-0197dcba7beb.jpeg
+thumbnail: /images/namaste-ai/0-image.jpeg
 author: Ashutosh Anand Tiwari
 tags: AI, GenAI, History of AI, Revolution Of AI
 profilePic: /images/blogs/pfp2.png
@@ -39,7 +39,7 @@ Suppose there are two rooms, Room 1 and Room 2, and one more room, a Judge room.
 
 ![](/images/namaste-ai/1-turing.png)
 
-Ref: <https://www.youtube.com/watch?v=sXx-PpEBR7k>
+Ref: [Turing Test video](https://www.youtube.com/watch?v=sXx-PpEBR7k)
 
 But in 1950, there was no AI word. By 1956, John McCarthy, a computer scientist, named the word Artificial Intelligence. Then some researchers came together to see the possibilities and with an ambition believed:
 
@@ -47,9 +47,9 @@ But in 1950, there was no AI word. By 1956, John McCarthy, a computer scientist,
 
 There was so much roller coaster in the history. There was an AI winter also, where no one was talking about this from 1987-1993. 1986 synthetic learning, 1997 — this question raised again. Synthetic intelligence research was about machines learning from itself, and different things were going on.
 
-Read more here: <https://en.wikipedia.org/wiki/Synthetic_intelligence>
+Read more here: [Synthetic intelligence (Wikipedia)](https://en.wikipedia.org/wiki/Synthetic_intelligence)
 
-Read this blog as well: <https://www.softude.com/blog/synthetic-intelligence-an-alternative-or-future-of-artificial-intelligence/>
+Read this blog as well: [Synthetic intelligence — alternative or future of AI](https://www.softude.com/blog/synthetic-intelligence-an-alternative-or-future-of-artificial-intelligence/)
 
  
 
@@ -127,7 +127,7 @@ Context and Gen AI is all possible because of this architecture only, so 2017 re
 
 When we provide example: Lion did not cross the river because `it` cannot swim, and 2027 was the year when model started reference and context of the sentence. In this case, it is referring to the lion, dots started connection. LLMs were only possible because of this.
 
-Read Research paper here: <https://papers.neurips.cc/paper/7181-attention-is-all-you-need.pdf>
+Read research paper here: [Attention Is All You Need (PDF)](https://papers.neurips.cc/paper/7181-attention-is-all-you-need.pdf)
 
 ### Large Language Model (LLM)
 
@@ -195,7 +195,7 @@ Let's recap the things:
 
 There is also one document by DeepMind by Google, AlphaGo, you can watch:
 
-<https://www.youtube.com/watch?v=WXuK6gekU1Y>
+[AlphaGo documentary](https://www.youtube.com/watch?v=WXuK6gekU1Y)
 
 ### Industry Next Actions
 
