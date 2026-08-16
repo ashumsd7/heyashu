@@ -103,7 +103,7 @@ function Step({ n, children }) {
 function HelpFooter() {
   return (
     <p className="mt-8 rounded-md border border-[#e6e0d6] bg-[#f3eee5] px-4 py-3 text-sm leading-relaxed text-[#5f584e] dark:border-[#1e3328] dark:bg-[#121e17] dark:text-[#92a59a]">
-      Stuck? Ask here:{" "}
+      Stuck? Let's:{" "}
       <ExtLink href={GARDEN_CONNECT_URL}>{GARDEN_CONNECT_LABEL}</ExtLink>
       . I will help, then send you the live URL after the pull request is merged.
     </p>
@@ -177,7 +177,7 @@ function EditTab() {
   return (
     <div>
       <p className="mb-5 text-[1.05rem] leading-relaxed text-[#3f3a34] dark:text-[#c5d4cb]">
-        Editing is almost the same as adding. Read the Write tab first if this is
+        Editing is almost the same as adding. Read the New blog /note tab (first tab) first if this is
         your first time — then follow this shorter path.
       </p>
       <ol className="m-0 flex list-none flex-col gap-3.5 p-0">
@@ -317,11 +317,12 @@ function ContributingGuidePage() {
           className="mb-10 max-w-3xl"
         >
           <h1 className="mb-4 flex flex-wrap items-center gap-2.5 font-fraunces text-[clamp(2.4rem,5.5vw,4rem)] font-bold leading-[1.05] tracking-[-0.02em] text-[#171717] dark:text-[#f0f4ef]">
-            How to add / edit
+            How to add new / edit blog, notes
             <HiHeart className="h-8 w-8 shrink-0 text-[#c4552d] sm:h-10 sm:w-10" aria-hidden="true" />
           </h1>
           <p className="flex flex-wrap items-center gap-2 text-[1.05rem] leading-relaxed text-[#6b6458] dark:text-[#92a59a]">
-            Your open edit and addition makes you an open source contributor
+            Your single contribution or addition to this platform makes you an open source contributor
+       
             <HiHeart className="h-4 w-4 shrink-0 text-[#c4552d]" aria-hidden="true" />
           </p>
         </motion.header>

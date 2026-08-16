@@ -103,10 +103,10 @@ export default function DigitalGardenLayout({ children }) {
           aria-label="Independence Day"
         />
 
-        <div className="border-b border-[#e8e2d7] bg-[#faf7f2]/90 py-3 backdrop-blur-md dark:border-[#1e3328] dark:bg-[#0b120e]/90 sm:py-4">
+        <div className="border-b border-[#e8e2d7] bg-[#faf7f2]/90 py-1.5 backdrop-blur-md dark:border-[#1e3328] dark:bg-[#0b120e]/90 sm:py-2">
           <div className="mx-auto flex w-full max-w-[1120px] items-center justify-between gap-3 px-4 sm:px-6">
-            <div className="flex min-w-0 shrink flex-col">
-              <span className="mb-0.5 inline-flex items-center gap-1 font-ibm-mono text-[9px] font-semibold uppercase tracking-[0.18em] text-[#8a8276] dark:text-[#6d7f74] sm:text-[10px]">
+            <div className="flex min-w-0 shrink flex-col leading-tight">
+              <span className="mb-px inline-flex items-center gap-1 font-ibm-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-[#8a8276] dark:text-[#6d7f74] sm:text-[9px]">
                 <HiSparkles className="h-2.5 w-2.5 shrink-0 text-[#c4552d]" aria-hidden="true" />
                 OPENSOURCED
                 <HiSparkles className="h-2.5 w-2.5 shrink-0 text-[#c4552d]" aria-hidden="true" />
@@ -114,7 +114,7 @@ export default function DigitalGardenLayout({ children }) {
               <div className="inline-flex min-w-0 items-baseline gap-1.5 whitespace-nowrap">
                 <Link
                   href="/digital-garden"
-                  className="font-fraunces text-[1.05rem] font-bold tracking-[-0.01em] text-[#171717] no-underline dark:text-[#f0f4ef] sm:text-[1.3rem]"
+                  className="font-fraunces text-[1rem] font-bold tracking-[-0.01em] text-[#171717] no-underline dark:text-[#f0f4ef] sm:text-[1.15rem]"
                 >
                   Digital Garden
                 </Link>
@@ -152,14 +152,13 @@ export default function DigitalGardenLayout({ children }) {
               </nav>
 
               <a
-                className="inline-flex items-center gap-1.5 rounded-full border border-[#e8e2d7] bg-white px-3 py-1.5 text-[0.82rem] font-semibold text-[#171717] shadow-sm transition hover:border-amber-500 hover:text-amber-700 dark:border-[#1e3328] dark:bg-[#121e17] dark:text-[#f0f4ef]"
+                className="inline-flex items-center gap-1 rounded-full border border-[#e8e2d7] bg-white px-2 py-1 text-[0.82rem] font-semibold text-[#171717] shadow-sm transition hover:border-amber-500 hover:text-amber-700 dark:border-[#1e3328] dark:bg-[#121e17] dark:text-[#f0f4ef]"
                 href={GITHUB_REPO_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
                 title="Star on GitHub"
               >
                 <FaGithub className="h-3.5 w-3.5" />
-                <span className="hidden md:inline">Star</span>
                 <span className="rounded-full bg-amber-500/15 px-1.5 py-0.5 text-[11px] font-bold text-amber-700 dark:text-amber-400">
                   {githubStars}
                 </span>
@@ -168,7 +167,7 @@ export default function DigitalGardenLayout({ children }) {
               <a
                 href="/digital-garden#support"
                 onClick={scrollToSupport}
-                className="inline-flex items-center gap-1.5 rounded-full border border-[#e8e2d7] bg-white px-3 py-1.5 text-[0.82rem] font-semibold text-[#171717] no-underline shadow-sm transition hover:border-[#c4552d] hover:text-[#c4552d] dark:border-[#1e3328] dark:bg-[#121e17] dark:text-[#f0f4ef]"
+                className="inline-flex items-center gap-1.5 rounded-full border border-[#e8e2d7] bg-white px-2.5 py-1 text-[0.82rem] font-semibold text-[#171717] no-underline shadow-sm transition hover:border-[#c4552d] hover:text-[#c4552d] dark:border-[#1e3328] dark:bg-[#121e17] dark:text-[#f0f4ef]"
               >
                 <HiHeart className="h-3.5 w-3.5 text-[#c4552d]" />
                 <span className="hidden md:inline">Support</span>
@@ -178,7 +177,7 @@ export default function DigitalGardenLayout({ children }) {
                 href="https://www.heyashu.in"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 rounded-[10px] border border-[#e8e2d7] bg-white px-3 py-2 text-sm font-medium text-[#171717] no-underline transition hover:border-[#143825] dark:border-[#1e3328] dark:bg-[#121e17] dark:text-[#f0f4ef]"
+                className="inline-flex items-center gap-1.5 rounded-[10px] border border-[#e8e2d7] bg-white px-2.5 py-1 text-sm font-medium text-[#171717] no-underline transition hover:border-[#143825] dark:border-[#1e3328] dark:bg-[#121e17] dark:text-[#f0f4ef]"
                 title="Who built this"
               >
                 <HiMagnifyingGlass className="h-4 w-4 shrink-0" />
@@ -186,7 +185,7 @@ export default function DigitalGardenLayout({ children }) {
               </a>
 
               <button
-                className="grid h-[38px] w-[38px] place-items-center rounded-[10px] border border-[#e8e2d7] bg-white text-[#171717] transition hover:border-[#143825] dark:border-[#1e3328] dark:bg-[#121e17] dark:text-[#f0f4ef] dark:hover:border-[#22c55e]"
+                className="grid h-8 w-8 place-items-center rounded-[10px] border border-[#e8e2d7] bg-white text-[#171717] transition hover:border-[#143825] dark:border-[#1e3328] dark:bg-[#121e17] dark:text-[#f0f4ef] dark:hover:border-[#22c55e]"
                 onClick={toggleTheme}
                 aria-label="Toggle Theme"
                 type="button"
@@ -198,7 +197,7 @@ export default function DigitalGardenLayout({ children }) {
             {/* Mobile: theme always visible + hamburger */}
             <div className="flex items-center gap-2 sm:hidden">
               <button
-                className="grid h-10 w-10 place-items-center rounded-[10px] border border-[#e8e2d7] bg-white text-[#171717] transition hover:border-[#143825] dark:border-[#1e3328] dark:bg-[#121e17] dark:text-[#f0f4ef] dark:hover:border-[#22c55e]"
+                className="grid h-8 w-8 place-items-center rounded-[10px] border border-[#e8e2d7] bg-white text-[#171717] transition hover:border-[#143825] dark:border-[#1e3328] dark:bg-[#121e17] dark:text-[#f0f4ef] dark:hover:border-[#22c55e]"
                 onClick={toggleTheme}
                 aria-label="Toggle Theme"
                 type="button"
@@ -207,7 +206,7 @@ export default function DigitalGardenLayout({ children }) {
               </button>
               <button
                 type="button"
-                className="grid h-10 w-10 place-items-center rounded-[10px] border border-[#e8e2d7] bg-white text-[#171717] transition hover:border-[#143825] dark:border-[#1e3328] dark:bg-[#121e17] dark:text-[#f0f4ef]"
+                className="grid h-8 w-8 place-items-center rounded-[10px] border border-[#e8e2d7] bg-white text-[#171717] transition hover:border-[#143825] dark:border-[#1e3328] dark:bg-[#121e17] dark:text-[#f0f4ef]"
                 onClick={() => setMenuOpen(true)}
                 aria-label="Open menu"
               >

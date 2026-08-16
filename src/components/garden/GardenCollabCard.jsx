@@ -1,8 +1,11 @@
 import React from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { HiChatBubbleLeftRight, HiPencilSquare, HiSparkles } from "react-icons/hi2";
-
-const TOPMATE_COLLAB_URL = "https://topmate.io/aat";
+import {
+  GARDEN_CONNECT_URL,
+  GARDEN_CONTRIBUTING_PATH,
+} from "@/data/garden/constants";
 
 /**
  * Request a Topic / Collaborate CTA — shared by notes index, notes chapter, blog detail.
@@ -67,28 +70,26 @@ export default function GardenCollabCard({ className = "" }) {
 
         <div className="relative z-[1] flex flex-col items-start justify-between gap-4 border-t border-[#ece7de] px-6 py-5 dark:border-[#1e3328] md:flex-row md:items-center md:px-9">
           <p className="text-sm text-[#6b6458] dark:text-[#92a59a]">
-            Reach out on Topmate:{" "}
+            Having a doubt?{" "}
             <a
-              href={TOPMATE_COLLAB_URL}
+              href={GARDEN_CONNECT_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="font-medium text-[#143825] underline decoration-[#cfc6b8] underline-offset-2 hover:text-[#9a4f2e] dark:text-[#22c55e]"
             >
-              topmate.io/aat
+              Ask a query?
             </a>
           </p>
 
-          <motion.a
-            href={TOPMATE_COLLAB_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-            className="inline-flex items-center gap-2 rounded-sm bg-[#1f2a22] px-5 py-2.5 text-sm font-medium text-white no-underline transition hover:bg-[#143825] dark:bg-[#22c55e] dark:text-[#0b120e] dark:hover:bg-[#16a34a]"
-          >
-            <HiChatBubbleLeftRight className="h-4 w-4" />
-            Contact to Collaborate
-          </motion.a>
+          <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
+            <Link
+              href={GARDEN_CONTRIBUTING_PATH}
+              className="inline-flex items-center gap-2 rounded-sm bg-[#1f2a22] px-5 py-2.5 text-sm font-medium text-white no-underline transition hover:bg-[#143825] dark:bg-[#22c55e] dark:text-[#0b120e] dark:hover:bg-[#16a34a]"
+            >
+              <HiChatBubbleLeftRight className="h-4 w-4" />
+              How to contribute
+            </Link>
+          </motion.div>
         </div>
       </motion.div>
     </section>
