@@ -103,6 +103,8 @@ const THEMES = {
       "--nr-nav": "#e8eee9",
       "--nr-nav-from": "#e4ece7",
       "--nr-nav-to": "#f7faf8",
+      "--nr-nav-from-m": "#c5d0ca",
+      "--nr-nav-to-m": "#d8e0db",
       "--nr-text": "#111827",
       "--nr-muted": "#4b5563",
       "--nr-border": "#c5ced6",
@@ -128,6 +130,8 @@ const THEMES = {
       "--nr-nav": "#121816",
       "--nr-nav-from": "#1a2420",
       "--nr-nav-to": "#0b0f0d",
+      "--nr-nav-from-m": "#0e1412",
+      "--nr-nav-to-m": "#070a09",
       "--nr-text": "#f5f5f5",
       "--nr-muted": "#a3a3a3",
       "--nr-border": "#2a3530",
@@ -153,6 +157,8 @@ const THEMES = {
       "--nr-nav": "#eadfc8",
       "--nr-nav-from": "#e6d9b8",
       "--nr-nav-to": "#f3ead8",
+      "--nr-nav-from-m": "#d0c29e",
+      "--nr-nav-to-m": "#e0d4b6",
       "--nr-text": "#3d3429",
       "--nr-muted": "#7a6b58",
       "--nr-border": "#d4c4a4",
@@ -361,7 +367,7 @@ const NotesMainPage = ({
 
   const lessonBadge =
     currentIndex >= 0
-      ? `Lesson ${currentIndex + 1} of ${allLessons.length || totalCount}`
+      ? `Chapter ${currentIndex + 1} of ${allLessons.length || totalCount}`
       : pageTitle || "Notes";
 
   // Always SSR article body for Google. Theme/progress hydrate after mount.
@@ -397,20 +403,19 @@ const NotesMainPage = ({
           <div className="sticky top-0 z-30">
             <div className={SHELL}>
               <div
-                className="relative border-b border-[#c5ced6] px-0 py-2 dark:border-[#2a3530] md:px-4 md:py-2.5"
-                style={{
-                  background:
-                    "linear-gradient(180deg, var(--nr-nav-from) 0%, var(--nr-nav-to) 100%)",
-                }}
+                className="relative border-b border-[#c5ced6] px-0 py-2 dark:border-[#2a3530] max-md:[background:linear-gradient(180deg,var(--nr-nav-from-m),var(--nr-nav-to-m))] md:px-4 md:py-2.5 md:[background:linear-gradient(180deg,var(--nr-nav-from),var(--nr-nav-to))]"
               >
                 <div className="flex items-center justify-between gap-2">
                   <div className="flex min-w-0 flex-1 items-center gap-2 md:gap-3">
                     <Link
                       href="/digital-garden/notes"
-                      aria-label="Back to Notes"
-                      className="grid h-9 w-9 shrink-0 place-items-center bg-transparent text-[var(--nr-text)] no-underline lg:hidden"
+                      aria-label="See all notes"
+                      className="flex w-[3.6rem] shrink-0 flex-col items-center justify-center gap-0.5 bg-transparent py-0.5 text-[var(--nr-text)] no-underline lg:hidden"
                     >
                       <HiArrowUturnLeft className="h-5 w-5" />
+                      <span className="text-center text-[8px] font-medium leading-[1.1] text-[var(--nr-muted)]">
+                        See all notes
+                      </span>
                     </Link>
                     <Link
                       href="/digital-garden/notes"
