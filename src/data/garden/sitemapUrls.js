@@ -23,6 +23,7 @@ const STATIC_PATHS = [
   "/product/gecx-conversational-agent-studio",
   "/contributing-guide",
   "/travel",
+  "/journey",
 ];
 
 /** Content folders → public URL prefix */

@@ -24,6 +24,7 @@ const STATIC_PATHS = [
   "/product/gecx-conversational-agent-studio",
   "/contributing-guide",
   "/travel",
+  "/journey",
 ];
 
 const CONTENT_ROUTE_MAP = [

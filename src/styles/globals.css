@@ -279,6 +279,73 @@ span[class*="PublishButton"] {
   font-size: 1.05rem;
 }
 
+.nav-journey-chip {
+  position: relative;
+  display: inline-flex;
+  padding: 2px;
+  border-radius: 9999px;
+  background: linear-gradient(
+    90deg,
+    #7c3aed,
+    #db2777,
+    #f59e0b,
+    #7c3aed
+  );
+  background-size: 300% 300%;
+  animation: garden-new-border 4s ease infinite;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.nav-journey-chip:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.28);
+}
+
+.nav-journey-chip-inner {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border-radius: 9999px;
+  padding: 0.35rem 0.9rem;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+}
+
+.dark .nav-journey-chip-inner {
+  background: rgba(28, 16, 36, 0.92);
+}
+
+.nav-journey-chip-dot {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 9999px;
+  background: #db2777;
+  box-shadow: 0 0 0 0 rgba(219, 39, 119, 0.45);
+  animation: garden-new-label-pulse 2.2s ease-in-out infinite;
+}
+
+.nav-journey-chip-text {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  background: linear-gradient(90deg, #7c3aed, #db2777, #d97706, #7c3aed);
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: nav-garden-text-shift 4s ease infinite;
+}
+
+.nav-journey-chip-mobile {
+  padding: 0.5rem 1.25rem;
+}
+
+.nav-journey-chip-mobile .nav-journey-chip-text {
+  font-size: 1.05rem;
+}
+
 /* Independence strip — animated tricolor gradient + marquee */
 @keyframes tricolorShift {
   0% {

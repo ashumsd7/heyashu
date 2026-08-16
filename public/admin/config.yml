@@ -339,7 +339,7 @@ collections:
     editor:
       preview: false
     fields:
-      - { label: "Slug", name: "title", widget: "string", hint: "URL slug with dashes, e.g. shimla-trip-2026. Live later at heyashu.in/journey/your-slug. Save creates a GitHub PR." }
+      - { label: "Slug", name: "title", widget: "string", hint: "URL slug with dashes, e.g. shimla-trip-2026. Shows on heyashu.in/journey. Save creates a GitHub PR." }
       - { label: "Title", name: "name", widget: "string", hint: "Heading shown on the entry." }
       - { label: "Entry number", name: "entryNumber", widget: "number", required: false, hint: "Optional id to keep order. Leave blank if you do not care." }
       - label: "Type"
@@ -365,7 +365,7 @@ collections:
           - { label: "Places", value: "places" }
           - { label: "Ideas", value: "ideas" }
           - { label: "Other", value: "other" }
-      - { label: "Date", name: "date", widget: "datetime", time_format: false, date_format: "MM-DD-YYYY", format: "MM-DD-YYYY" }
+      - { label: "Date", name: "date", widget: "datetime", date_format: "MM-DD-YYYY", time_format: "hh:mm A", format: "MM-DD-YYYY hh:mm A", hint: "Date and time this happened." }
       - { label: "Short summary", name: "summary", widget: "string", required: false, hint: "One line for cards and timeline." }
       - { label: "Description", name: "description", widget: "text", required: false, hint: "A short paragraph. Full story goes in Content below." }
       - { label: "Hashtags", name: "hashtags", widget: "string", required: false, hint: "Comma separated, e.g. himalaya, books, 2026" }

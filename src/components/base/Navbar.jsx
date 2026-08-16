@@ -1,12 +1,30 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { IoMdClose } from "react-icons/io";
-import { RiMoonFill, RiSunFill } from "react-icons/ri";
 import { HiMenuAlt3 } from "react-icons/hi";
+import { HiOutlineSparkles } from "react-icons/hi2";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import ThemeToggle from "./ToogleDarkModeButton";
 
+function JourneyNavIcon() {
+  const router = useRouter();
+  const active = router.pathname.startsWith("/journey");
+  return (
+    <Link
+      href="/journey"
+      aria-label="Ashu's Journey"
+      aria-current={active ? "page" : undefined}
+      className={`relative grid h-10 w-10 place-items-center ${
+        active ? "text-violet-600 dark:text-pink-400" : "text-violet-500 dark:text-pink-300"
+      }`}
+    >
+      <span className="absolute inset-0 animate-ping rounded-full bg-violet-400/35 dark:bg-pink-400/25" />
+      <span className="absolute inset-1 rounded-full bg-violet-500/10 dark:bg-pink-500/10" />
+      <HiOutlineSparkles className="relative h-5 w-5 animate-pulse" />
+    </Link>
+  );
+}
 
 function Navbar() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -132,7 +150,7 @@ function Navbar() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-5 lg:space-x-7">
             {navItems.map((item) => (
               <Link
                 key={item.href}
@@ -153,12 +171,13 @@ function Navbar() {
               </Link>
             ))}
             
-            {/* Theme Toggle */}
+            <JourneyNavIcon />
             <ThemeToggle/>
           </div>
 
           {/* Mobile menu button */}
-          <div className="flex md:hidden items-center space-x-4">
+          <div className="flex md:hidden items-center space-x-3">
+            <JourneyNavIcon />
             <ThemeToggle/>
             
             <button

@@ -12,7 +12,7 @@ import {
 } from "react-icons/fa";
 import { SiQuora, SiWakatime } from "react-icons/si";
 import { BsPencilSquare, BsBook } from "react-icons/bs";
-import { HiOutlineCube } from "react-icons/hi2";
+import { HiOutlineCube, HiOutlineSparkles } from "react-icons/hi2";
 import { getHomeProducts } from "@/data/products/catalog";
 import { AiOutlineTwitter } from "react-icons/ai";
 import { PHONE_CALL_THIRTY_MIN } from "@/utils/constant";
@@ -67,6 +67,12 @@ function MainPage() {
       description:
         "My personal knowledge base and blog posts on various topics",
       href: "/digital-garden",
+    },
+    {
+      icon: <HiOutlineSparkles className="w-8 h-8" />,
+      title: "Life Archive",
+      description: "A living feed of books, films, travel, people, and moments",
+      href: "/journey",
     },
     {
       icon: <FaUmbrellaBeach className="w-8 h-8" />,
