@@ -1,16 +1,18 @@
 ---
-title: complete-artificial-intelligence-history-and-revolution-from-turing-to-agentic-ai
+title: complete-artificial-intelligence-history
 name: "The AI Revolution: From Turing to Agentic AI"
 episode: 2
 seasonNumber: 1
 publishedOn: 08-16-2026
 updatedOn: 08-16-2026
-thumbnail: /images/namaste-ai/0-image.jpeg
+thumbnail: /images/namaste-ai/f847e955-03f0-4ffe-8c03-0197dcba7beb.jpeg
 author: Ashutosh Anand Tiwari
 tags: AI, GenAI, History of AI, Revolution Of AI
 profilePic: /images/blogs/pfp2.png
 followLink: https://www.instagram.com/javascripterrr
 ---
+
+
 Now let's discuss from where it began — the seed before turning into the vast forest.
 
 If you look at the top 10 companies having the largest market cap in the world, 99% of them are just investing lots of money in AI. Who will go first to win? Who will release a new model in an efficient way, and much more. So much research is going on, Coding Gen, Video Gen, Image Gen, so in all areas they are trying to be the hero. So why are we lagging? As students or as working in an organization, let's learn and be the hero.
