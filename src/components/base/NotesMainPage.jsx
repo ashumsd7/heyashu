@@ -400,8 +400,8 @@ const NotesMainPage = ({
       >
         <div className="bg-[var(--nr-bg)] text-[var(--nr-text)] transition-colors duration-300">
           {/* Top bar — mobile: full-width + gray bottom line; desktop: rounded shell */}
-          <div className="sticky top-0 z-30">
-            <div className={SHELL}>
+          <div className="sticky top-0 z-30 w-full">
+            <div className="w-full md:mx-auto md:max-w-[1080px] md:px-5">
               <div
                 className="relative border-b border-[#c5ced6] px-0 py-2 dark:border-[#2a3530] max-md:[background:linear-gradient(180deg,var(--nr-nav-from-m),var(--nr-nav-to-m))] md:px-4 md:py-2.5 md:[background:linear-gradient(180deg,var(--nr-nav-from),var(--nr-nav-to))]"
               >
