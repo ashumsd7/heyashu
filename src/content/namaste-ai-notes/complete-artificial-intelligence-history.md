@@ -11,8 +11,6 @@ tags: AI, GenAI, History of AI, Revolution Of AI
 profilePic: /images/blogs/pfp2.png
 followLink: https://www.instagram.com/javascripterrr
 ---
-
-
 Now let's discuss from where it began — the seed before turning into the vast forest.
 
 If you look at the top 10 companies having the largest market cap in the world, 99% of them are just investing lots of money in AI. Who will go first to win? Who will release a new model in an efficient way, and much more. So much research is going on, Coding Gen, Video Gen, Image Gen, so in all areas they are trying to be the hero. So why are we lagging? As students or as working in an organization, let's learn and be the hero.
@@ -35,8 +33,6 @@ It all started in 1950. That time many scientists were doing research: can a mac
 
 Suppose there are two rooms, Room 1 and Room 2, and one more room, a Judge room. Where humans exist and those two rooms have one machine and one human. So the judge, who is human, asks the same questions to those two rooms, from the machine and human, and gets one answer from those two rooms. The judge needs to decide who is human and who is machine based on the answers. If the judge is not able to do this, then that means the Turing Test is passed.
 
- 
-
 ![](/images/namaste-ai/1-turing.png)
 
 Ref: [Turing Test video](https://www.youtube.com/watch?v=sXx-PpEBR7k)
@@ -50,8 +46,6 @@ There was so much roller coaster in the history. There was an AI winter also, wh
 Read more here: [Synthetic intelligence (Wikipedia)](https://en.wikipedia.org/wiki/Synthetic_intelligence)
 
 Read this blog as well: [Synthetic intelligence — alternative or future of AI](https://www.softude.com/blog/synthetic-intelligence-an-alternative-or-future-of-artificial-intelligence/)
-
- 
 
 ![](/images/namaste-ai/img2.webp)
 
@@ -85,8 +79,6 @@ Deep learning leads to GPU revolution, Internet became vast, and it helps to col
 
 `So Deep learning is a subset of ML focused on teaching computers to learn and make decisions by processing data through neural network inspired by human brain.`
 
- 
-
 ![](/images/namaste-ai/img3.png)
 
 ### Computer Vision Revolution
@@ -117,15 +109,13 @@ In NLP, Bag of Words, n-gram, RNN (Recurrent Neural Network), LSTM (Long Short-T
 
 Transformers are the most remarkable creation of history of mankind.
 
- 
-
 ![](/images/namaste-ai/4-transformers.jpg)
 
 ChatGPT, DeepSeek and whatever new AI things you see, it's all possible because of Transformers only, and this is one kind of architecture we will discuss properly. The Google engineers researched hard and released a research paper named `Attention Is All You Need`, and whatever model, GPT model you see, all based on this concept.
 
 Context and Gen AI is all possible because of this architecture only, so 2017 research changed everything.
 
-When we provide example: Lion did not cross the river because `it` cannot swim, and 2027 was the year when model started reference and context of the sentence. In this case, it is referring to the lion, dots started connection. LLMs were only possible because of this.
+When we provide example: Lion did not cross the river because `it` cannot swim, and 2017 was the year when model started reference and context of the sentence. In this case, it is referring to the lion, dots started connection. LLMs were only possible because of this.
 
 Read research paper here: [Attention Is All You Need (PDF)](https://papers.neurips.cc/paper/7181-attention-is-all-you-need.pdf)
 
@@ -142,8 +132,6 @@ In earlier days AI had different sections, like this AI can do Classification, t
 So Gen AI is nothing but a model that generates the thing. And a multimodal model generates multiple things, Documents, videos, audio, text and images, and this is what the concept of Generative AI is. Before, we had to just relate things and give to us. Nowadays we can write a full code of a project using our idea. So it's not limited to helping only, doing generating also.
 
 ### The ChatGPT Moment Nov 2022
-
- 
 
 ![](/images/namaste-ai/5-chatgpt.jpeg)
 
