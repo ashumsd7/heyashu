@@ -1,5 +1,5 @@
 ---
-title: chatgpt-vs-google-search-engine-how-llms-work
+title: chatgpt-vs-google-how-llms-work
 name: "ChatGPT vs Google: How LLMs Actually Work — Training, Inference,
   Hallucinations & RAG"
 episode: 3
