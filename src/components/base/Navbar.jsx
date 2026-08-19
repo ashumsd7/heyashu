@@ -2,26 +2,20 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { IoMdClose } from "react-icons/io";
 import { HiMenuAlt3 } from "react-icons/hi";
-import { HiOutlineSparkles } from "react-icons/hi2";
+import { HiOutlineClock } from "react-icons/hi2";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import ThemeToggle from "./ToogleDarkModeButton";
 
 function JourneyNavIcon() {
-  const router = useRouter();
-  const active = router.pathname.startsWith("/journey");
   return (
     <Link
       href="/journey"
-      aria-label="Ashu's Journey"
-      aria-current={active ? "page" : undefined}
-      className={`relative grid h-10 w-10 place-items-center ${
-        active ? "text-violet-600 dark:text-pink-400" : "text-violet-500 dark:text-pink-300"
-      }`}
+      aria-label="Archives"
+      className="relative grid h-10 w-10 place-items-center text-violet-500 dark:text-violet-300"
     >
-      <span className="absolute inset-0 animate-ping rounded-full bg-violet-400/35 dark:bg-pink-400/25" />
-      <span className="absolute inset-1 rounded-full bg-violet-500/10 dark:bg-pink-500/10" />
-      <HiOutlineSparkles className="relative h-5 w-5 animate-pulse" />
+      <span className="absolute h-8 w-8 rounded-full bg-violet-500/10 dark:bg-violet-400/10" />
+      <HiOutlineClock className="relative h-5 w-5 opacity-90 [animation:pulse_3.5s_ease-in-out_infinite]" />
     </Link>
   );
 }

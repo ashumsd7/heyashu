@@ -20,6 +20,8 @@ import {
 import CommonHeadTags from "@/components/seo/CommonHeadTags";
 import { JOURNEY_CATEGORIES, getJourneyCategory } from "@/data/journey/categories";
 import { SOCIAL_PROFILE } from "@/data/social";
+import { withBareLayout } from "@/layouts";
+import Link from "next/link";
 
 dayjs.extend(customParseFormat);
 dayjs.extend(relativeTime);
@@ -281,7 +283,7 @@ function JourneyPage({ entries = [] }) {
   const ogImage = entries[0]?.img1 || undefined;
 
   return (
-    <div className="mx-auto min-h-screen max-w-[540px] pb-16 pt-8 sm:pt-4">
+    <div className="min-h-screen bg-[#faf8f4] dark:bg-[#0c0e12]">
       <CommonHeadTags
         title="Life Archive — Ashutosh Anand Tiwari"
         url="https://www.heyashu.in/journey"
@@ -291,13 +293,24 @@ function JourneyPage({ entries = [] }) {
         image={ogImage}
       />
 
-      <div className="mb-5 flex items-center justify-center gap-2">
-        <HiOutlineArchiveBox className="h-7 w-7 text-violet-500" />
-        <p className="bg-gradient-to-r from-violet-600 via-fuchsia-500 to-amber-500 bg-clip-text font-serif text-3xl font-bold tracking-tight text-transparent">
-          Archives
-        </p>
-      </div>
+      <header className="sticky top-0 z-40 border-b border-black/5 bg-[#faf8f4]/90 backdrop-blur-md dark:border-white/10 dark:bg-[#0c0e12]/90">
+        <div className="mx-auto max-w-[540px] px-4 py-3">
+          <div className="flex items-center gap-2">
+            <HiOutlineArchiveBox className="h-6 w-6 text-violet-500" />
+            <p className="bg-gradient-to-r from-violet-600 via-fuchsia-500 to-amber-500 bg-clip-text font-serif text-2xl font-bold tracking-tight text-transparent">
+              Archives
+            </p>
+          </div>
+          <Link
+            href="/"
+            className="mt-0.5 inline-block text-[10px] leading-none text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200"
+          >
+            ← Back to home
+          </Link>
+        </div>
+      </header>
 
+      <div className="mx-auto max-w-[540px] px-4 pb-16 pt-5">
       <div className="relative mb-3">
         <HiOutlineMagnifyingGlass className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
         <input
@@ -325,7 +338,9 @@ function JourneyPage({ entries = [] }) {
       </div>
 
       <div className="mb-4 flex items-end justify-between gap-3">
-        
+        <h1 className="font-serif text-[1.65rem] font-semibold italic tracking-tight text-slate-900 dark:text-white">
+          Ashu&apos;s Achievements
+        </h1>
         <span className="shrink-0 pb-1 text-[12px] font-medium text-slate-500">
           {entries.length} {entries.length === 1 ? "post" : "posts"}
         </span>
@@ -347,8 +362,10 @@ function JourneyPage({ entries = [] }) {
           <p className="py-10 text-center text-sm text-slate-500">No posts match this yet.</p>
         )}
       </div>
+      </div>
     </div>
   );
 }
 
 export default JourneyPage;
+JourneyPage.getLayout = withBareLayout;

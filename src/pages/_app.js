@@ -91,6 +91,7 @@ export default function App({ Component, pageProps }) {
           <ThemeProvider attribute="class">
             <main className="relative">
               {getLayout(<Component {...pageProps} />)}
+              {router.pathname !== "/journey" ? (
               <div className="fixed right-3 bottom-[50px] flex flex-col gap-6  items-end">
                 {/* <StartTour
                   onClick={() => {
@@ -115,6 +116,7 @@ export default function App({ Component, pageProps }) {
             <img src="https://img.buymeacoffee.com/button-api/?text=Buy me a laptop&emoji=💻️&slug=ashumsd7&button_colour=FF5F5F&font_colour=ffffff&font_family=Poppins&outline_colour=000000&coffee_colour=FFDD00" />
           </a> */}
               </div>
+              ) : null}
             </main>
           </ThemeProvider>
         </TransitionPage>
