@@ -91,7 +91,7 @@ But remember, training with data is a complex thing and is price-heavy, so thatâ
 
 When a new model is trained to predict, a base model is created by a company. A base model is the model that predicts the next token or word.
 
-A **base model** of an LLM is **the raw, core artificial intelligence**. It has read massive amounts of text from the internet, books, and articles. Its only actual job is to guess the next word in a sentence. Think of it as a giant, highly advanced autocomplete tool, but it is not yet trained to act like a helpful chat assistant. Read this: <https://toloka.ai/blog/base-llm-vs-instruction-tuned-llm/>
+A **base model** of an LLM is **the raw, core artificial intelligence**. It has read massive amounts of text from the internet, books, and articles. Its only actual job is to guess the next word in a sentence. Think of it as a giant, highly advanced autocomplete tool, but it is not yet trained to act like a helpful chat assistant. Read this: [https://toloka.ai/blog/base-llm-vs-instruction-tuned-llm/](https://toloka.ai/blog/base-llm-vs-instruction-tuned-llm/)
 
 So when we see modern ChatGPT, it is built on top of a base model, which has so much more access and is super-powered. So, on top of the base model, things like tool access, human feedback, security/auth, web search, guardrails, content filters, conversation management, system instructions, etc. are added, and it becomes an AI assistant like ChatGPT, Grok, Claude, and Gemini.
 
