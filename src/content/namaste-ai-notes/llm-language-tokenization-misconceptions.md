@@ -52,7 +52,7 @@ https://tiktokenizer.vercel.app/
 
 Now here I have put our statement. Here is how the output comes:
 
-`[img1]`
+![](/images/namaste-ai/token-1-e4.png)
 
 On the website, you can see you can use different tokenizers, and that generates different token IDs and breaks the text in different ways. But the question comes: what are these numbers, and why are these random numbers?
 
@@ -98,7 +98,7 @@ I am learning Artificial Intelligence , मैं Artificial Intelligence सी
 
 Or if we write in Hinglish: **Mai Artificial Intelligence seekh raha hu** or mix of that, so don’t think it is all tokenized the same way because the meaning is the same. No, there is no meaning of words that LLM understands, and tokenization happens based on the text. There is no emotion, so different languages can have different token IDs. Remember it.
 
-`[img2]`
+![](/images/namaste-ai/token-e4-ss2.png)
 
 Now you can see in the image, with the older version, it was broken into the same line into so many tokens, but in the modern tokenizer version, it uses fewer tokens. So vocabulary size increases, and new languages are more efficiently supported by OpenAI. So vocabulary is the main factor in understanding how a model handles different languages.
 
@@ -110,7 +110,7 @@ But it’s crazy that it understands Hinglish so well, because in Hindi we write
 
 Tokenization fertility is **the average number of tiny text pieces (tokens) an AI creates for every single word**, meaning how many tokens are produced from a word.
 
-**Lower fertility** means the AI uses fewer pieces to represent a word. This makes the AI faster, cheaper to run, and able to process more text at once. [1, 2]
+**Lower fertility** means the AI uses fewer pieces to represent a word. This makes the AI faster, cheaper to run, and able to process more text at once. \[1, 2]
 
 **Higher fertility** means the AI chops words into lots of tiny fragments. This uses more tokens, increases the cost, and fills up the context window faster, especially in some non-English languages.
 
@@ -134,7 +134,7 @@ So, the way these system and user prompts are passed to an LLM is different for 
 
 ### Context window
 
-[img3]
+![](/images/namaste-ai/e4-conetxtwidnow-img3.jpg)
 
 You remember when you chat with an AI assistant and you come back after 7 days, it also remembers what you chatted about before 7 days, and you keep the project and all the chats under that. This is all possible because it keeps the context, or we can say memory, of the chat.
 
@@ -160,12 +160,12 @@ There are also tools available where you can input your big prompt, and they wil
 
 So, just list some misconceptions people have:
 
-- **One token is equal to one word:** This is wrong.
-- **Everyone uses the same tokenizer:** This is also wrong.
-- **Token ID represents meaning:** Answer is no.
-- **One visible emoji is one token:** Answer is no.
-- **A larger vocabulary is always better:** No. (If I say yes, I need to search why.)
-- **Larger context means perfect memory:** Not necessarily.
-- **More tokens always lead to better results:** No.
+* **One token is equal to one word:** This is wrong.
+* **Everyone uses the same tokenizer:** This is also wrong.
+* **Token ID represents meaning:** Answer is no.
+* **One visible emoji is one token:** Answer is no.
+* **A larger vocabulary is always better:** No. (If I say yes, I need to search why.)
+* **Larger context means perfect memory:** Not necessarily.
+* **More tokens always lead to better results:** No.
 
 Ok so thats all for this one, will see you in next one, Bye Bye !
