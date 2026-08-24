@@ -24,6 +24,7 @@ So token ID doesn’t contain meaning. Remember this, and no two IDs are related
 It’s the process of converting information into numerical vectors. It’s like an array of numbers.
 
 > Vectorization in large language models is **the process of turning words, sentences, or images into long lists of numbers so that a computer can understand their meanings and relationships.**
+> 
 
 So any information, text, document, words, images, anything can be converted into an array of numbers. But this is happening because computers can perform mathematical operations on top of it.
 
@@ -65,12 +66,12 @@ Let’s try to visualize it in a 2D plot with only 2 dimensions, with this examp
 
 These coordinates illustrate semantic clustering and geometric vector relationships in a 2D embedding space:
 
-* **Fruits:** **Apple** (1, 2) and **Banana** (1.5, 2.3) cluster in the lower-left quadrant.
-* **Programming Languages:** **JavaScript** (4, 8) and **Python** (4.5, 7.8) group near the upper-center.
-* **Human Roles:** **Man** (7, 4) and **Woman** (6.5, 4.2) sit centrally on the right.
-* **Royalty:** **King** (8, 7) and **Queen** (7.5, 7.2) sit in the upper-right.
+- **Fruits:** **Apple** (1, 2) and **Banana** (1.5, 2.3) cluster in the lower-left quadrant.
+- **Programming Languages:** **JavaScript** (4, 8) and **Python** (4.5, 7.8) group near the upper-center.
+- **Human Roles:** **Man** (7, 4) and **Woman** (6.5, 4.2) sit centrally on the right.
+- **Royalty:** **King** (8, 7) and **Queen** (7.5, 7.2) sit in the upper-right.
 
-![](/images/namaste-ai/img2-cos-e5.jpg)
+[img1]
 
 **Notes:** More dimensions do not mean more intelligence. Higher dimensions can capture complex patterns, but they also require more storage and computation. And with each training, these numbers are adjusted.
 
@@ -94,7 +95,7 @@ Cosine similarity **measures how close the meanings of two pieces of text are by
 
 Learn here: https://www.ibm.com/think/topics/cosine-similarity
 
-![](/images/namaste-ai/img2-cos-e5.jpg)
+[img2]
 
 If two vectors point in a similar direction, the represented concepts can be similar. If they point in unrelated directions, the concepts may be less similar.
 
@@ -111,14 +112,15 @@ Two harmful instructions can be semantically similar.
 Two texts can be close in topic but disagree completely.
 
 > Embeddings capture relationships. They do not independently verify facts, intent, quality, or safety. Remember it.
+> 
 
 If you want to visualize the embedding, go to this website: https://projector.tensorflow.org/
 
 Here I’m pasting two screenshots. See the relation in the embedding projector of **sun** and **JavaScript**, and its nearby embedded words.
 
-![](/images/namaste-ai/e5img3.png)
+[img3]
 
-![](/images/namaste-ai/e5img3.png)
+[img4]
 
 ## Token Enmbedding
 
@@ -129,6 +131,7 @@ So token IDs are meaningless, and embeddings are meaningful vectors.
 So token embedding relates a meaningless token ID with a dense numerical vector. That vector becomes the model’s initial representation of the token, because the representation may later change as the model processes the context.
 
 > Token embedding **turns a piece of text into a list of numbers that a computer can use to understand meaning.**
+> 
 
 So a sentence like `I love JavaScript` is converted into tokens and token IDs. The token IDs are converted into embeddings like an array, and they relate to some other embeddings, and this forms a relationship.
 
@@ -139,6 +142,7 @@ But remember, it can change as the model processes the context. I mean, the way 
 So let’s take an example where we say **Dog bites Man**, **Man bites Dog**. So the embedding for **bites** would also be the same for these two, but the context output will be different. How? And this all happens based on positional embeddings. So the order of the embedding, or you can say that the token or word position, also matters.
 
 > Positional embedding is **a technique used by large language models (LLMs) to give words a sense of order and sequence in a sentence**.
+> 
 
 The model also needs information about the order or position before answering the query. Models therefore incorporate positional information using architecture-specific techniques.
 
@@ -148,9 +152,10 @@ The embedding tells the model which token is present. Positional information hel
 
 Token embedding helps a language model to process a sequence internally. Text embeddings are often produced specifically for tasks such as search, retrieval, clustering, recommendation, classification, duplicate detection, etc. So when the task is about the order and all of the tokens, then token embedding matters, and when we search, the complete text embedding comes.
 
-![](/images/namaste-ai/img5-e5.png)
+[img5]
 
 > The main difference is scope: **Token Embeddings turn individual pieces of words into numbers to help a model read text, while Text Embeddings (often called sentence or document embeddings) turn an entire sentence, paragraph, or document into a single mathematical summary to capture its overall meaning.**
+> 
 
 Think of it like looking at a book: a **Token Embedding** is a definition for a single syllable or word, while a **Text Embedding** is the summary printed on the back cover of the book.
 
@@ -175,6 +180,7 @@ So suppose for our previous example, **Java** in both statements can have the sa
 This initial word **Java** can become different in the second statement: **Java is an island in Indonesia.** The initial token may be the same, but when the model processes the complete sentence, its internal representation changes according to the context.
 
 > Contextualization in a Large Language Model (LLM) means **giving the AI background information or clues so it understands what you mean, rather than just guessing based on a few isolated words**
+> 
 
 There is biasness also that can happen. Suppose the model was trained with one-sided data, so that can also happen because the data itself was biased.
 
