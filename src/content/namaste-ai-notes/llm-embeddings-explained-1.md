@@ -70,7 +70,7 @@ These coordinates illustrate semantic clustering and geometric vector relationsh
 * **Human Roles:** **Man** (7, 4) and **Woman** (6.5, 4.2) sit centrally on the right.
 * **Royalty:** **King** (8, 7) and **Queen** (7.5, 7.2) sit in the upper-right.
 
-![](/images/namaste-ai/e-5-imag-1-embeddign-sd.png)
+![](/images/namaste-ai/e-5-imag-1-embeddign-sd.png "img-1")
 
 **Notes:** More dimensions do not mean more intelligence. Higher dimensions can capture complex patterns, but they also require more storage and computation. And with each training, these numbers are adjusted.
 
