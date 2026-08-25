@@ -56,7 +56,7 @@ The heart of the neural network is the **Transformer**, and the heart of the Tra
 
 Attention Is All You Need PDF link:
 
-[https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf](https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf)
+[Paper.pdf](https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf)
 
 
 By the end of all our learning, I hope we will be able to understand whatever is written in the Transformer architecture research paper, so fingers crossed. :)
