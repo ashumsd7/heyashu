@@ -19,18 +19,13 @@ Now let’s understand with an example: **The Pizza is \_\_\_\__**. So the next 
 
 So when a sentence comes as input, that is broken into tokens, and those tokens are converted into embeddings. That array of embeddings is input into the neural network to get the next word.
 
- 
-
 ![](/images/namaste-ai/img-1-ep-6.png)
 
 As you can see in the above, all embeddings go as input into the neural network, and the next word is decided by the brain-like neural network. But how is the word decided? It’s all the work of the neural network. Let’s dig deep now into how words are decided.
 
- 
-
 ![](/images/namaste-ai/imag-2-ep-6.png)
 
 Image ref: [Orange Cyberdefense — Forging Forward with GenAI](https://www.orangecyberdefense.com/global/blog/innovation/3-of-5-forging-forward-with-genai)
-
 
 So, the next generated word, including the sentence, is input into the neural network again as embeddings, so it guesses the next word. And it keeps going until it finishes. But when it ends, it all depends on the termination logic written in the LLM. A special end-of-sequence token can be used to stop generation; there can also be other stopping conditions. This is how, on top of the definition and explanation, the neural network is like a brain that decides the next word.
 
@@ -58,45 +53,43 @@ Attention Is All You Need PDF link:
 
 [Paper.pdf](https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf)
 
-
 By the end of all our learning, I hope we will be able to understand whatever is written in the Transformer architecture research paper, so fingers crossed. :)
 
 Down, I have listed the author names of this paper.
 
 **Ashish Vaswani**
-[https://www.linkedin.com/in/ashish-vaswani-99892181](https://www.linkedin.com/in/ashish-vaswani-99892181)
+<https://www.linkedin.com/in/ashish-vaswani-99892181>
 [avaswani@google.com](mailto:avaswani@google.com)
 
 **Noam Shazeer**
-[https://www.linkedin.com/in/noam-shazeer-73238914](https://www.linkedin.com/in/noam-shazeer-73238914)
+<https://www.linkedin.com/in/noam-shazeer-73238914>
 [noam@google.com](mailto:noam@google.com)
 
 **Niki Parmar**
-[https://www.linkedin.com/in/nikiparmar](https://www.linkedin.com/in/nikiparmar)
+<https://www.linkedin.com/in/nikiparmar>
 [nikip@google.com](mailto:nikip@google.com)
 
 **Jakob Uszkoreit**
-[https://www.linkedin.com/in/jakob-uszkoreit-6b586071](https://www.linkedin.com/in/jakob-uszkoreit-6b586071)
+<https://www.linkedin.com/in/jakob-uszkoreit-6b586071>
 [usz@google.com](mailto:usz@google.com)
 
 **Llion Jones**
-[https://www.linkedin.com/in/llion-jones-06752011](https://www.linkedin.com/in/llion-jones-06752011)
+<https://www.linkedin.com/in/llion-jones-06752011>
 [llion@google.com](mailto:llion@google.com)
 
 **Aidan N. Gomez**
-[https://www.linkedin.com/in/aidangomez](https://www.linkedin.com/in/aidangomez)
+<https://www.linkedin.com/in/aidangomez>
 [aidan@cs.toronto.edu](mailto:aidan@cs.toronto.edu)
 
 **Łukasz Kaiser**
-[https://www.linkedin.com/in/%C5%82ukasz-kaiser-6091391](https://www.linkedin.com/in/%C5%82ukasz-kaiser-6091391)
+<https://www.linkedin.com/in/%C5%82ukasz-kaiser-6091391>
 [lukaszkaiser@google.com](mailto:lukaszkaiser@google.com)
 
 **Illia Polosukhin**
-[https://www.linkedin.com/in/illia-polosukhin-77b6538](https://www.linkedin.com/in/illia-polosukhin-77b6538)
+<https://www.linkedin.com/in/illia-polosukhin-77b6538>
 [illia.polosukhin@gmail.com](mailto:illia.polosukhin@gmail.com)
 
-
-Note: GPT is nto relate dot the chatgpt all mdoel are gpot mdpel (and hasngenertive pre tarioned trsnaformer in it, oepnAI was the firts movers sp to hat name dthoirer assiatnt as chatgpt , thats it,.
+Note: GPT is not related to LLM assistant ChatGPT. Basically, all models are GPT models (has a generative pre-trained transformer in it, OpenAI was the first movers to that named their assistant as ChatGPT, that's it.
 
 ## Attention is all you need!
 
@@ -116,11 +109,9 @@ And what is magic in this? The magic is that before this Transformer in 2017, th
 
 I hope I’m making you understand now!
 
- 
-
 ![](/images/namaste-ai/img-3-e6.png)
 
-o see the above image, you can see the LLM's neural network structure. And when a token is embedded into the Transformer, before that all words are converted into tokens, and then embedding happens. After token embedding, positional embedding happens, and token embedding + positional embedding get passed to the Transformer as input to predict the next word.
+In the above image, you can see the LLM's neural network structure. Before a token is embedded into the Transformer, all words are converted into tokens, and then those tokens are converted into embeddings. After token embedding, positional embedding happens, and token embedding + positional embedding get passed to the Transformer as input to predict the next word.
 
 **Token Embedding + Positional Embedding ⇒ goes to Transformer as input**, and all mathematics happens. So, in the Transformer, the next thing that happens is **Layer Norm**, aka **Layer Normalization**.
 
@@ -138,7 +129,7 @@ Layer normalization is a tool in **Transformer AI** that **keeps numbers stable 
 
 **The Goal:** It stops the network from breaking or learning too slowly.
 
-So the question is: **When normalization happens, does the model lose the memory?** This is an open question. Go and do the research. \[Answer you write here]
+So, the question is: **When normalization happens, does the model lose the memory?** This is an open question. Go and do the research. \[Answer you write here]
 
 **Next step is Attention**
 
@@ -154,7 +145,7 @@ If you see the above image, below the Layer Norm, **Multi-Head Attention** and *
 
 ### Masked / Causal Selft Attention
 
-So AI checks the previous words. So, in easy words, I summarize:
+So, AI checks the previous words. So, in easy words, I summarize:
 
 **Masked** means hiding parts of the sentence.
 
@@ -192,15 +183,13 @@ A Transformer layer does not throw away what it already knows. It learns an upda
 
 And then **Layer Norm** happens, and then **FFN (Feed-Forward Network)** happens.
 
-### Feed Forward Netword (FFN)
+### Feed Forward Network (FFN)
 
 As we know, during self-attention, tokens interact with each other, right? Like if I’m sitting on the bank of a river, **bank** finds its meaning after looking at the other words. But during FFN, each token is processed independently.
 
 **Attention lets tokens communicate, FFN lets each token think/process what it learned.**
 
 A Feed-Forward Network (FFN) is **a key building block inside a Transformer AI model that processes information and helps the AI think more deeply about the meaning of words after the attention step**.
-
- 
 
 ![](/images/namaste-ai/img-4-ffn-e6.jpg)
 
@@ -214,27 +203,15 @@ Okay, so after FFN, **normalization** happens, and then the final steps, **Linea
 
 So what the words are likely to be as the result and prediction, those words with their embedding values get a percentage kind of probability. So suppose the new words **cat, dog, car, and pizza** are finalized, so these will get a percentage of probability. The highest one gets the entry as the result, the predicted word.
 
-> A 
->
-> **linear layer**
->
->  in a Transformer AI acts like a math machine that changes the size and shape of information, while a 
->
-> **softmax layer**
->
->  acts like a referee that turns raw numbers into percentages that add up to 100%.
+> A **linear layer** in a Transformer AI acts like a math machine that changes the size and shape of information, while a **SoftMax layer** acts like a referee that turns raw numbers into percentages that add up to 100%.
 
 As a user of AI, I know this becomes complicated for you, but if you love maths and research and all, you can go and research and learn how the formulas are used to make this possible.
 
-Now it’s time to learn and visualize these mathematics. Let’s visit this website: [https://bbycroft.net/llm](https://bbycroft.net/llm)
-
-
- 
+Now it’s time to learn and visualize these mathematics. Let’s visit this website: <https://bbycroft.net/llm>
 
 ![](/images/namaste-ai/img-5-e6.png)
 
 If you open the website, you will see the same image, and you can use it to visualize each step we discussed till now. I know it’s tough, and it was tough for me too. Still, I’m not able to understand so many things, so we need to slowly adapt to these things and all.\
-Read this also : [https://github.com/karpathy/nanoGPT](https://github.com/karpathy/nanoGPT)
-
+Read this also: <https://github.com/karpathy/nanoGPT>
 
 That’s all for today. Next, we will try to understand how models get trained. Happy learning! Bye-bye! 👋
