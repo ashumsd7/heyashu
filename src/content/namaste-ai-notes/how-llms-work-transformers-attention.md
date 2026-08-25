@@ -29,7 +29,8 @@ As you can see in the above, all embeddings go as input into the neural network,
 
 ![](/images/namaste-ai/imag-2-ep-6.png)
 
-Image ref: <https://www.orangecyberdefense.com/global/blog/innovation/3-of-5-forging-forward-with-genai>
+Image ref: [Orange Cyberdefense — Forging Forward with GenAI](https://www.orangecyberdefense.com/global/blog/innovation/3-of-5-forging-forward-with-genai)
+
 
 So, the next generated word, including the sentence, is input into the neural network again as embeddings, so it guesses the next word. And it keeps going until it finishes. But when it ends, it all depends on the termination logic written in the LLM. A special end-of-sequence token can be used to stop generation; there can also be other stopping conditions. This is how, on top of the definition and explanation, the neural network is like a brain that decides the next word.
 
@@ -55,35 +56,45 @@ The heart of the neural network is the **Transformer**, and the heart of the Tra
 
 Attention Is All You Need PDF link:
 
-<https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf>
+[https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf](https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf)
+
 
 By the end of all our learning, I hope we will be able to understand whatever is written in the Transformer architecture research paper, so fingers crossed. :)
 
 Down, I have listed the author names of this paper.
 
-**Ashish Vaswani**<https://www.linkedin.com/in/ashish-vaswani-99892181>
+**Ashish Vaswani**
+[https://www.linkedin.com/in/ashish-vaswani-99892181](https://www.linkedin.com/in/ashish-vaswani-99892181)
 [avaswani@google.com](mailto:avaswani@google.com)
 
-**Noam Shazeer**<https://www.linkedin.com/in/noam-shazeer-73238914>
+**Noam Shazeer**
+[https://www.linkedin.com/in/noam-shazeer-73238914](https://www.linkedin.com/in/noam-shazeer-73238914)
 [noam@google.com](mailto:noam@google.com)
 
-**Niki Parmar**<https://www.linkedin.com/in/nikiparmar>
+**Niki Parmar**
+[https://www.linkedin.com/in/nikiparmar](https://www.linkedin.com/in/nikiparmar)
 [nikip@google.com](mailto:nikip@google.com)
 
-**Jakob Uszkoreit**<https://www.linkedin.com/in/jakob-uszkoreit-6b586071>
+**Jakob Uszkoreit**
+[https://www.linkedin.com/in/jakob-uszkoreit-6b586071](https://www.linkedin.com/in/jakob-uszkoreit-6b586071)
 [usz@google.com](mailto:usz@google.com)
 
-**Llion Jones**<https://www.linkedin.com/in/llion-jones-06752011>
+**Llion Jones**
+[https://www.linkedin.com/in/llion-jones-06752011](https://www.linkedin.com/in/llion-jones-06752011)
 [llion@google.com](mailto:llion@google.com)
 
-**Aidan N. Gomez**<https://www.linkedin.com/in/aidangomez>
+**Aidan N. Gomez**
+[https://www.linkedin.com/in/aidangomez](https://www.linkedin.com/in/aidangomez)
 [aidan@cs.toronto.edu](mailto:aidan@cs.toronto.edu)
 
-**Łukasz Kaiser**[https://www.linkedin.com/in/łukasz-kaiser-6091391](https://www.linkedin.com/in/%C5%82ukasz-kaiser-6091391)
+**Łukasz Kaiser**
+[https://www.linkedin.com/in/%C5%82ukasz-kaiser-6091391](https://www.linkedin.com/in/%C5%82ukasz-kaiser-6091391)
 [lukaszkaiser@google.com](mailto:lukaszkaiser@google.com)
 
-**Illia Polosukhin**<https://www.linkedin.com/in/illia-polosukhin-77b6538>
+**Illia Polosukhin**
+[https://www.linkedin.com/in/illia-polosukhin-77b6538](https://www.linkedin.com/in/illia-polosukhin-77b6538)
 [illia.polosukhin@gmail.com](mailto:illia.polosukhin@gmail.com)
+
 
 Note: GPT is nto relate dot the chatgpt all mdoel are gpot mdpel (and hasngenertive pre tarioned trsnaformer in it, oepnAI was the firts movers sp to hat name dthoirer assiatnt as chatgpt , thats it,.
 
@@ -215,13 +226,15 @@ So what the words are likely to be as the result and prediction, those words wit
 
 As a user of AI, I know this becomes complicated for you, but if you love maths and research and all, you can go and research and learn how the formulas are used to make this possible.
 
-Now it’s time to learn and visualize these mathematics. Let’s visit this website: <https://bbycroft.net/llm>
+Now it’s time to learn and visualize these mathematics. Let’s visit this website: [https://bbycroft.net/llm](https://bbycroft.net/llm)
+
 
  
 
 ![](/images/namaste-ai/img-5-e6.png)
 
 If you open the website, you will see the same image, and you can use it to visualize each step we discussed till now. I know it’s tough, and it was tough for me too. Still, I’m not able to understand so many things, so we need to slowly adapt to these things and all.\
-Read this also : https://github.com/karpathy/nanogpt
+Read this also : [https://github.com/karpathy/nanoGPT](https://github.com/karpathy/nanoGPT)
+
 
 That’s all for today. Next, we will try to understand how models get trained. Happy learning! Bye-bye! 👋
