@@ -211,6 +211,6 @@ Now it’s time to learn and visualize these mathematics. Let’s visit this web
 ![](/images/namaste-ai/img-5-e6.png)
 
 If you open the website, you will see the same image, and you can use it to visualize each step we discussed till now. I know it’s tough, and it was tough for me too. Still, I’m not able to understand so many things, so we need to slowly adapt to these things and all.\
-Read this also: <https://github.com/karpathy/nanoGPT>
+Read this also : [https://github.com/karpathy/nanoGPT](https://github.com/karpathy/nanoGPT)
 
 That’s all for today. Next, we will try to understand how models get trained. Happy learning! Bye-bye! 👋
