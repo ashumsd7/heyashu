@@ -56,37 +56,36 @@ Attention Is All You Need PDF link:
 By the end of all our learning, I hope we will be able to understand whatever is written in the Transformer architecture research paper, so fingers crossed. :)
 
 Down, I have listed the author names of this paper.
-
 **Ashish Vaswani**
-<https://www.linkedin.com/in/ashish-vaswani-99892181>
+[https://www.linkedin.com/in/ashish-vaswani-99892181](https://www.linkedin.com/in/ashish-vaswani-99892181)
 [avaswani@google.com](mailto:avaswani@google.com)
 
 **Noam Shazeer**
-<https://www.linkedin.com/in/noam-shazeer-73238914>
+[https://www.linkedin.com/in/noam-shazeer-73238914](https://www.linkedin.com/in/noam-shazeer-73238914)
 [noam@google.com](mailto:noam@google.com)
 
 **Niki Parmar**
-<https://www.linkedin.com/in/nikiparmar>
+[https://www.linkedin.com/in/nikiparmar](https://www.linkedin.com/in/nikiparmar)
 [nikip@google.com](mailto:nikip@google.com)
 
 **Jakob Uszkoreit**
-<https://www.linkedin.com/in/jakob-uszkoreit-6b586071>
+[https://www.linkedin.com/in/jakob-uszkoreit-6b586071](https://www.linkedin.com/in/jakob-uszkoreit-6b586071)
 [usz@google.com](mailto:usz@google.com)
 
 **Llion Jones**
-<https://www.linkedin.com/in/llion-jones-06752011>
+[https://www.linkedin.com/in/llion-jones-06752011](https://www.linkedin.com/in/llion-jones-06752011)
 [llion@google.com](mailto:llion@google.com)
 
 **Aidan N. Gomez**
-<https://www.linkedin.com/in/aidangomez>
+[https://www.linkedin.com/in/aidangomez](https://www.linkedin.com/in/aidangomez)
 [aidan@cs.toronto.edu](mailto:aidan@cs.toronto.edu)
 
 **Łukasz Kaiser**
-<https://www.linkedin.com/in/%C5%82ukasz-kaiser-6091391>
+[https://www.linkedin.com/in/%C5%82ukasz-kaiser-6091391](https://www.linkedin.com/in/%C5%82ukasz-kaiser-6091391)
 [lukaszkaiser@google.com](mailto:lukaszkaiser@google.com)
 
 **Illia Polosukhin**
-<https://www.linkedin.com/in/illia-polosukhin-77b6538>
+[https://www.linkedin.com/in/illia-polosukhin-77b6538](https://www.linkedin.com/in/illia-polosukhin-77b6538)
 [illia.polosukhin@gmail.com](mailto:illia.polosukhin@gmail.com)
 
 Note: GPT is not related to LLM assistant ChatGPT. Basically, all models are GPT models (has a generative pre-trained transformer in it, OpenAI was the first movers to that named their assistant as ChatGPT, that's it.
