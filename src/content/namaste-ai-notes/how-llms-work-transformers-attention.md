@@ -206,7 +206,8 @@ So what the words are likely to be as the result and prediction, those words wit
 
 As a user of AI, I know this becomes complicated for you, but if you love maths and research and all, you can go and research and learn how the formulas are used to make this possible.
 
-Now it’s time to learn and visualize these mathematics. Let’s visit this website: <https://bbycroft.net/llm>
+Now it’s time to learn and visualize these mathematics. Let’s visit this website:  [https://bbycroft.net/llm](https://bbycroft.net/llm)
+
 
 ![](/images/namaste-ai/img-5-e6.png)
 
