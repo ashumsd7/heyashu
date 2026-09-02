@@ -8,7 +8,8 @@ publishedOn: 08-21-2026
 updatedOn: 08-21-2026
 thumbnail: /images/namaste-ai/banner-e4-ai.jpg
 author: Ashutosh Anand Tiwari
-tags: "#LLM #Tokenization #GenerativeAI #ArtificialIntelligence"
+tags: "#LLM #Tokenization #GenerativeAI #ArtificialIntelligence #Namaste AI Notes"
+description: "Namaste AI Notes Episode 4 — LLM tokenization explained: tokens, IDs, context window & common misconceptions. Free digital notes on heyashu."
 profilePic: /images/blogs/pfp2.png
 followLink: https://www.instagram.com/javascripterrr
 ---

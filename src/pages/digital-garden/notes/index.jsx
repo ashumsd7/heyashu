@@ -22,6 +22,15 @@ import {
   isNamasteAiDevReaderNote,
 } from "@/data/note/namaste-ai-notes/dev-notes";
 import { HiOutlineBookOpen } from "react-icons/hi2";
+import {
+  breadcrumbList,
+  collectionPageSchema,
+  GARDEN_KEYWORDS,
+  itemListSchema,
+  NAMASTE_AI_KEYWORDS,
+} from "@/utils/seoJsonLd";
+import { SITE_ORIGIN } from "@/utils/seo";
+import { metaTagsForNamasteAI } from "@/data/note/namaste-ai-notes/meta-tags";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 18 },
@@ -69,8 +78,34 @@ function NotesCollectionPage() {
   return (
     <div className="bg-[#f7f4ee] dark:bg-[#0b120e]">
       <CommonHeadTags
-        title="Digital Notes Collection — Digital Garden | heyashu"
-        url="https://www.heyashu.in/digital-garden/notes"
+        title="Digital Notes Collection — Namaste AI Notes & Free Course Notes | heyashu"
+        url={`${SITE_ORIGIN}/digital-garden/notes`}
+        image={metaTagsForNamasteAI.ogImage}
+        shortDec="Browse free digital notes: Namaste AI Notes, Namaste Node.js, Frontend System Design, JS snippets & more — open-source Digital Garden by heyashu."
+        mainDesc="Digital Notes Collection on heyashu — start with Namaste AI Notes (free Akshay Saini AI course notes), plus Namaste Node.js, Frontend System Design, YDKJS, and more. Searchable, AI tools, PDF downloads."
+        tags={`${NAMASTE_AI_KEYWORDS}, ${GARDEN_KEYWORDS}`}
+        jsonLd={[
+          collectionPageSchema({
+            name: "Digital Notes Collection",
+            description:
+              "Free open-source course notes including Namaste AI Notes and more.",
+            url: "/digital-garden/notes",
+            image: metaTagsForNamasteAI.ogImage,
+            about: ["Namaste AI Notes", "Digital Notes", "Course notes"],
+          }),
+          itemListSchema({
+            name: "Notes collections",
+            url: "/digital-garden/notes",
+            items: notes.map((n) => ({
+              name: n.title,
+              url: n.startRoute || n.route,
+            })),
+          }),
+          breadcrumbList([
+            { name: "Digital Garden", url: "/digital-garden" },
+            { name: "Digital Notes", url: "/digital-garden/notes" },
+          ]),
+        ]}
       />
 
       <section className="mx-auto max-w-6xl px-6 pb-10 pt-10 md:pt-14">
@@ -95,7 +130,12 @@ function NotesCollectionPage() {
             </div>
           </div>
           <p className="max-w-3xl text-[1.05rem] leading-relaxed text-[#6b6458] dark:text-[#92a59a]">
-            Curated from Books, Courses and Research Papers
+            Free open-source notes — including{" "}
+            <strong className="font-semibold text-[#171717] dark:text-[#f0f4ef]">
+              Namaste AI Notes
+            </strong>
+            , Namaste Node.js, Frontend System Design, and more. Curated from
+            books, courses, and research papers.
           </p>
         </motion.header>
 

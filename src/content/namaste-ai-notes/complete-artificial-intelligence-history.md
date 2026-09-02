@@ -8,7 +8,8 @@ publishedOn: 08-16-2026
 updatedOn: 08-16-2026
 thumbnail: /images/namaste-ai/0-image.jpeg
 author: Ashutosh Anand Tiwari
-tags: AI, GenAI, History of AI, Revolution Of AI
+tags: Namaste AI Notes, AI history, Turing, transformers, ChatGPT, agentic AI, GenAI
+description: "Namaste AI Notes Episode 2 — complete artificial intelligence history from Turing to transformers, ChatGPT, and agentic AI. Free digital notes on heyashu."
 profilePic: /images/blogs/pfp2.png
 followLink: https://www.instagram.com/javascripterrr
 ---

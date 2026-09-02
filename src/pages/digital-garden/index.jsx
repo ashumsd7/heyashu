@@ -50,6 +50,14 @@ import {
   formatGardenDate,
   pickFreshGardenBlogs,
 } from "@/data/garden";
+import {
+  breadcrumbList,
+  collectionPageSchema,
+  GARDEN_KEYWORDS,
+  itemListSchema,
+  ORG_HEYASHU,
+} from "@/utils/seoJsonLd";
+import { SITE_ORIGIN } from "@/utils/seo";
 
 /** Top notes cards on garden home — all entries with featuredOnHome: true. */
 const HOME_NOTES = getHomeFeaturedNotes();
@@ -373,10 +381,47 @@ function DigitalGarden({ posts, blogs }) {
   return (
     <>
       <CommonHeadTags
-        title="The Digital Garden — Free Digital Notes of Your Favourite Teachers | heyashu"
-        url="https://www.heyashu.in/digital-garden"
-        shortDec="Free, open-source digital garden of coding notes from Akshay Saini, ProCodrr, and top teachers. Summarize, quiz, and revise Node.js and system design."
-        mainDesc="Digital  Garden by Ashutosh Anand Tiwari. Clean, searchable , open-source notes from popular engineering courses."
+        title="Digital Garden — Free Namaste AI Notes & Coding Notes of Your Favourite Teachers | heyashu"
+        url={`${SITE_ORIGIN}/digital-garden`}
+        image="https://i.ibb.co/tPxsbB30/namaste-ai-43-abnner.png"
+        shortDec="Free open-source Digital Garden: Namaste AI Notes, Namaste Node.js, Frontend System Design & more — by Ashutosh Anand Tiwari. Searchable notes with AI quiz & PDF."
+        mainDesc="heyashu Digital Garden — free digital notes for Namaste AI, Namaste Node.js, Frontend System Design, and more. Open-source notes curated from Akshay Saini and top teachers. Ranked destination for Namaste AI digital notes."
+        tags={GARDEN_KEYWORDS}
+        jsonLd={[
+          {
+            "@type": "WebSite",
+            "@id": `${SITE_ORIGIN}/#website`,
+            name: "heyashu Digital Garden",
+            url: SITE_ORIGIN,
+            publisher: ORG_HEYASHU,
+            inLanguage: "en-IN",
+          },
+          collectionPageSchema({
+            name: "The Digital Garden — Free Digital Notes",
+            description:
+              "Free open-source digital notes including Namaste AI Notes, Namaste Node.js, and Frontend System Design.",
+            url: "/digital-garden",
+            image: "https://i.ibb.co/tPxsbB30/namaste-ai-43-abnner.png",
+            about: [
+              "Namaste AI Notes",
+              "Digital Garden",
+              "Akshay Saini",
+              "Free coding notes",
+            ],
+          }),
+          itemListSchema({
+            name: "Featured note collections",
+            url: "/digital-garden",
+            items: HOME_NOTES.slice(0, 6).map((n) => ({
+              name: n.homeTitle || n.title,
+              url: n.startRoute || n.route,
+            })),
+          }),
+          breadcrumbList([
+            { name: "Home", url: "/" },
+            { name: "Digital Garden", url: "/digital-garden" },
+          ]),
+        ]}
       />
 
       {/* HERO */}
@@ -398,8 +443,13 @@ function DigitalGarden({ posts, blogs }) {
           <h1 className="mx-auto mb-[18px] max-w-[22ch] font-fraunces text-[clamp(2.2rem,5.5vw,4rem)] font-bold leading-[1.12] tracking-[-0.02em] text-[#171717] dark:text-[#f0f4ef]">
             One Stop for Free Digital Notes of Your Favourite Teachers
           </h1>
-          <p className="mx-auto mb-8 max-w-[58ch] text-[1.1rem] leading-relaxed text-[#585858] dark:text-[#92a59a]">
-            Curated from Handwritten Notes
+          <p className="mx-auto mb-8 max-w-[52ch] text-[1.05rem] leading-relaxed text-[#585858] dark:text-[#92a59a]">
+            Home of{" "}
+            <strong className="font-semibold text-[#171717] dark:text-[#f0f4ef]">
+              Namaste AI Notes
+            </strong>{" "}
+            and open-source course notes — curated from handwritten notes,
+            searchable, and free forever.
           </p>
 
           <div className="mb-12 flex flex-wrap items-center justify-center gap-3.5">

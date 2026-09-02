@@ -8,7 +8,8 @@ publishedOn: 08-24-2026
 updatedOn: 08-24-2026
 thumbnail: /images/namaste-ai/thumbnail-ai-5.jpg
 author: Ashutosh Anand Tiwari
-tags: "#LLM #Embeddings #GenerativeAI #ArtificialIntelligence"
+tags: "#LLM #Embeddings #GenerativeAI #ArtificialIntelligence #Namaste AI Notes"
+description: "Namaste AI Notes Episode 5 — LLM embeddings explained: how AI represents meaning, similarity & context. Free digital notes on heyashu."
 profilePic: /images/blogs/pfp2.png
 followLink: https://www.instagram.com/javascripterrr
 ---

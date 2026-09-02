@@ -116,6 +116,7 @@ const NotesMainPage = ({
   season2Data = [],
   shareImageEmbed,
   pageTitle,
+  metaInfo,
 }) => {
   const router = useRouter();
   const [isSidebarVisible, setIsSidebarVisible] = useState(true);
@@ -314,6 +315,30 @@ const NotesMainPage = ({
       <CommonSlugHeadTags
         frontMatter={currentPageFrontMatter}
         url={chapterCanonical}
+        image={shareImageEmbed}
+        title={pageTitle}
+        shortDesc={
+          metaInfo?.ogDescription ||
+          metaInfo?.description ||
+          currentPageFrontMatter?.description
+        }
+        mainDesc={metaInfo?.description}
+        tags={
+          metaInfo?.keywords ||
+          (subDomain === "namaste-ai-notes"
+            ? "Namaste AI Notes, Namaste AI digital notes, Akshay Saini AI notes, LLM notes, GenAI, digital garden"
+            : undefined)
+        }
+        collectionName={
+          subDomain === "namaste-ai-notes"
+            ? "Namaste AI Notes"
+            : courseDisplayTitle
+        }
+        collectionPath={
+          subDomain === "namaste-ai-notes"
+            ? "/digital-garden/notes/namaste-ai-notes"
+            : `/digital-garden/notes/${subDomain}`
+        }
       />
 
       <div

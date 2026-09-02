@@ -7,7 +7,8 @@ publishedOn: 08-15-2026
 updatedOn: 08-15-2026
 thumbnail: /images/namaste-ai/f847e955-03f0-4ffe-8c03-0197dcba7beb.jpeg
 author: Ashutosh Anand Tiwari
-tags: AI, GenAI
+tags: Namaste AI Notes, AI, GenAI, Akshay Saini, digital notes, course roadmap
+description: "Welcome to Namaste AI Notes — free digital notes for Akshay Saini’s Namaste AI course. Mission, roadmap, study habits, and how to get the most from these open-source notes on heyashu."
 profilePic: /images/blogs/pfp2.png
 followLink: https://www.instagram.com/javascripterrr
 ---

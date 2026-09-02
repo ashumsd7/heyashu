@@ -10,7 +10,8 @@ updatedOn: 08-19-2026
 thumbnail: /images/namaste-ai/banner-0-e3.jpg
 author: Ashutosh Anand Tiwari
 tags: "#ChatGPT #LLM #GenerativeAI #AI #GoogleSearch #MachineLearning
-  #ArtificialIntelligence #RAG #AIExplained #LLMs"
+  #ArtificialIntelligence #RAG #AIExplained #LLMs #Namaste AI Notes"
+description: "Namaste AI Notes Episode 3 — ChatGPT vs Google Search explained: LLM training, inference, hallucinations & RAG. Free digital notes by heyashu."
 profilePic: /images/blogs/pfp2.png
 followLink: https://www.instagram.com/javascripterrr
 ---

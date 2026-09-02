@@ -8,7 +8,8 @@ publishedOn: 08-25-2026
 updatedOn: 08-25-2026
 thumbnail: /images/namaste-ai/banner-e-6.jpg
 author: Ashutosh Anand Tiwari
-tags: "#LLM #Transformers #Attention #GenerativeAI #AI"
+tags: "#LLM #Transformers #Attention #GenerativeAI #AI #Namaste AI Notes"
+description: "Namaste AI Notes Episode 6 — How LLMs work: neural networks, transformers & attention explained simply. Free digital notes on heyashu."
 profilePic: /images/blogs/pfp2.png
 followLink: https://www.instagram.com/javascripterrr
 ---

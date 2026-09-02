@@ -11,6 +11,7 @@ const STATIC_PATHS = [
   "/",
   "/digital-garden",
   "/digital-garden/notes",
+  "/digital-garden/notes/namaste-ai-notes",
   "/blog",
   "/digital-garden/books",
   "/digital-garden/stories",
@@ -55,6 +56,14 @@ const CONTENT_ROUTE_MAP = [
     dir: "src/content/ydkjs",
     prefix: "/digital-garden/notes/ydkjs",
   },
+  {
+    dir: "src/content/namaste-ai-notes",
+    prefix: "/digital-garden/notes/namaste-ai-notes",
+  },
+  {
+    dir: "src/content/namaste-ai-notes",
+    prefix: "/digital-garden/namaste-dev-notes/namaste-ai-notes",
+  },
   { dir: "src/content/books", prefix: "/digital-garden/books" },
   { dir: "src/content/stories", prefix: "/digital-garden/stories" },
   { dir: "src/content/poems", prefix: "/digital-garden/poems" },
@@ -96,6 +105,22 @@ function collectSitemapUrls(cwd) {
   return [...new Set(normalized)].sort();
 }
 
+function priorityFor(loc) {
+  if (loc === SITE_ORIGIN) return "1.0";
+  if (loc.endsWith("/digital-garden")) return "1.0";
+  if (loc.endsWith("/digital-garden/notes")) return "0.95";
+  if (loc.includes("/namaste-ai-notes")) return "0.95";
+  if (loc.includes("/digital-garden/notes/")) return "0.8";
+  return "0.7";
+}
+
+function changefreqFor(loc) {
+  if (loc.includes("/namaste-ai-notes")) return "daily";
+  if (loc.endsWith("/digital-garden") || loc.endsWith("/digital-garden/notes"))
+    return "daily";
+  return "weekly";
+}
+
 function buildSitemapXml(urls = []) {
   const today = new Date().toISOString().slice(0, 10);
   const body = urls
@@ -103,8 +128,8 @@ function buildSitemapXml(urls = []) {
       (loc) => `  <url>
     <loc>${loc}</loc>
     <lastmod>${today}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>${loc === SITE_ORIGIN || loc.endsWith("/digital-garden") ? "1.0" : "0.7"}</priority>
+    <changefreq>${changefreqFor(loc)}</changefreq>
+    <priority>${priorityFor(loc)}</priority>
   </url>`
     )
     .join("\n");

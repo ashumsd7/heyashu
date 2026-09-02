@@ -67,18 +67,30 @@ export default function App({ Component, pageProps }) {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebSite",
-              name: "Ashutosh Anand Tiwari — Digital Garden",
+              "@id": "https://www.heyashu.in/#website",
+              name: "heyashu Digital Garden — Namaste AI Notes & Free Coding Notes",
+              alternateName: [
+                "heyashu",
+                "Namaste AI Notes",
+                "Digital Garden by Ashutosh Anand Tiwari",
+              ],
               url: "https://www.heyashu.in",
               description:
-                "Free digital notes, blogs, and engineering notes by Ashutosh Anand Tiwari.",
+                "Free digital notes and blogs including Namaste AI Notes, Namaste Node.js, Frontend System Design — curated by Ashutosh Anand Tiwari.",
               author: {
                 "@type": "Person",
                 name: "Ashutosh Anand Tiwari",
                 url: "https://www.heyashu.in",
               },
+              publisher: {
+                "@type": "Organization",
+                name: "Digital Garden — heyashu.in",
+                url: "https://www.heyashu.in",
+              },
               potentialAction: {
                 "@type": "SearchAction",
-                target: "https://www.heyashu.in/blog?search={search_term_string}",
+                target:
+                  "https://www.heyashu.in/blog?search={search_term_string}",
                 "query-input": "required name=search_term_string",
               },
             }),

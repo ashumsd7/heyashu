@@ -257,6 +257,9 @@ export default function NamasteDevNoteReader({
       <CommonSlugHeadTags
         frontMatter={currentPageFrontMatter}
         url={`https://www.heyashu.in${namasteAiDevNotesHref(currentSlug)}`}
+        tags="Namaste AI Notes, Namaste AI digital notes, Akshay Saini AI notes, LLM notes, GenAI, digital garden, heyashu"
+        collectionName="Namaste AI Notes"
+        collectionPath="/digital-garden/notes/namaste-ai-notes"
       />
 
       <EpisodeHeroBanner

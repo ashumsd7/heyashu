@@ -8,6 +8,7 @@ import {
   absoluteUrl,
   pickLinkPreviewImage,
 } from "@/utils/seo";
+import { jsonLdScript } from "@/utils/seoJsonLd";
 
 function CommonHeadTags({
   image,
@@ -19,9 +20,11 @@ function CommonHeadTags({
   type = "website",
   siteName = SITE_NAME,
   twitterHandle = TWITTER_HANDLE,
+  jsonLd,
 }) {
   const canonical = absoluteUrl(url);
   const previewImage = pickLinkPreviewImage(image) || LINK_PREVIEW_FALLBACK;
+  const ld = jsonLdScript(jsonLd);
 
   return (
     <Head>
@@ -29,10 +32,13 @@ function CommonHeadTags({
       <meta name="description" content={mainDesc} />
       <meta name="keywords" content={tags} />
       <meta name="author" content="Ashutosh Anand Tiwari" />
-      <meta name="robots" content="index, follow" />
+      <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
       <meta name="googlebot" content="index, follow" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta charSet="UTF-8" />
+      <meta name="language" content="English" />
+      <meta name="geo.region" content="IN" />
+      <meta name="geo.placename" content="India" />
 
       <meta property="og:title" content={title} />
       <meta property="og:description" content={shortDec} />
@@ -44,7 +50,7 @@ function CommonHeadTags({
       <meta property="og:url" content={canonical} />
       <meta property="og:type" content={type} />
       <meta property="og:site_name" content={siteName} />
-      <meta property="og:locale" content="en_US" />
+      <meta property="og:locale" content="en_IN" />
       <meta itemProp="image" content={previewImage} />
 
       <meta name="twitter:card" content="summary_large_image" />
@@ -58,6 +64,16 @@ function CommonHeadTags({
       <link rel="icon" href="/fav_main.ico" />
       <link rel="apple-touch-icon" href="/fav_main.ico" />
       <link rel="canonical" href={canonical} />
+      <link
+        rel="alternate"
+        type="text/plain"
+        href={`${SITE_ORIGIN}/llms.txt`}
+        title="llms.txt"
+      />
+
+      {ld ? (
+        <script type="application/ld+json" dangerouslySetInnerHTML={ld} />
+      ) : null}
     </Head>
   );
 }
