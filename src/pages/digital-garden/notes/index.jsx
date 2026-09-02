@@ -144,7 +144,7 @@ function NotesCollectionPage() {
                       className="absolute right-3 top-3 z-[2] inline-flex items-center gap-1 rounded-full border border-[#e0d9cd] bg-white/95 px-2.5 py-1 text-[10px] font-semibold text-[#585858] no-underline shadow-sm backdrop-blur-sm transition hover:border-violet-300 hover:text-violet-800 dark:border-[#1e3328] dark:bg-[#0b120e]/90 dark:text-[#92a59a] dark:hover:border-violet-500/50 dark:hover:text-violet-300"
                     >
                       <HiOutlineBookOpen className="h-3.5 w-3.5" />
-                      Blog reader
+                      Namaste Mode
                     </Link>
                   ) : null}
                   <div className="relative z-[1]">

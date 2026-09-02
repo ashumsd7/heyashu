@@ -73,6 +73,12 @@ function MDXRenderer({ markdownContent, variant = "default" }) {
         {...props}
       />
     ),
+    code: (props) => (
+      <code
+        className="rounded border border-[var(--nr-border)] bg-[var(--nr-hover)] px-1.5 py-0.5 font-ibm-mono text-[0.88em] font-medium text-[var(--nr-heading)]"
+        {...props}
+      />
+    ),
   };
 
   const components = isGardenReader

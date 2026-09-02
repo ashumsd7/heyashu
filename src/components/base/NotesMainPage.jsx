@@ -942,6 +942,28 @@ const NotesMainPage = ({
         .notes-reader-prose .prose code {
           font-family: "IBM Plex Mono", monospace;
         }
+        .notes-reader-prose .prose :not(pre) > code {
+          color: var(--nr-heading) !important;
+          background-color: var(--nr-hover) !important;
+          border: 1px solid var(--nr-border);
+          border-radius: 0.25rem;
+          padding: 0.15em 0.4em;
+          font-size: 0.88em;
+          font-weight: 500;
+        }
+        .notes-reader-prose .prose pre,
+        .notes-reader-prose .prose .markdown-pre {
+          background-color: var(--nr-code-bg) !important;
+          color: var(--nr-body) !important;
+          border: 1px solid var(--nr-border);
+          font-weight: normal;
+        }
+        .notes-reader-prose .prose pre code {
+          color: inherit !important;
+          background: transparent !important;
+          border: none;
+          padding: 0;
+        }
         [data-notes-theme="eye"] .notes-reader-prose .prose {
           letter-spacing: 0.015em;
           line-height: 1.85 !important;

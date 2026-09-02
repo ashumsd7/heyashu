@@ -48,6 +48,39 @@ h3 {
   font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
+.garden-blog-prose.prose :where(code):not(:where(pre *)),
+.notes-reader-prose .prose :where(code):not(:where(pre *)) {
+  color: var(--nr-heading) !important;
+  background-color: var(--nr-hover) !important;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.88em;
+  font-weight: 500;
+  padding: 0.15em 0.4em;
+  border-radius: 0.25rem;
+  border: 1px solid var(--nr-border);
+}
+
+.garden-blog-prose.prose pre,
+.garden-blog-prose.prose .markdown-pre,
+.notes-reader-prose .prose pre,
+.notes-reader-prose .prose .markdown-pre {
+  background-color: var(--nr-code-bg) !important;
+  color: var(--nr-body) !important;
+  border: 1px solid var(--nr-border);
+  padding: 1rem 1.25rem;
+  font-weight: normal;
+}
+
+.garden-blog-prose.prose pre code,
+.notes-reader-prose .prose pre code {
+  color: inherit !important;
+  background: transparent !important;
+  border: none;
+  padding: 0;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
 .prose {
   font-family: source-serif-pro, Georgia, Cambria, "Times New Roman", Times, serif !important;
 }

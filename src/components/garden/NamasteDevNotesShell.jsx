@@ -65,7 +65,7 @@ export default function NamasteDevNotesShell({
               />
             </a>
             {headerEnd ? (
-              <div className="flex w-full justify-center sm:w-auto sm:justify-end">
+              <div className="flex w-full flex-wrap items-center justify-center gap-2 sm:w-auto sm:justify-end">
                 {headerEnd}
               </div>
             ) : null}

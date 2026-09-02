@@ -21,7 +21,10 @@ import {
   useNotesReaderAi,
 } from "@/components/garden/NotesReaderAiToolkit";
 import { buildNotesSidebarList } from "@/data/note/sidebarList";
-import { namasteAiDevNotesHref, getEpisodeDisplayTitle } from "@/data/note/namaste-ai-notes/dev-notes";
+import {
+  namasteAiDevNotesHref,
+  getEpisodeDisplayTitle,
+} from "@/data/note/namaste-ai-notes/dev-notes";
 import {
   READER_THEME_STORAGE,
   READER_THEMES,
@@ -43,19 +46,31 @@ function formatDate(raw) {
   return d.isValid() ? d.format("MMM D, YYYY") : String(raw);
 }
 
-function ReaderToolbarControls({ theme, onThemeChange, onFontBump }) {
+function ReaderToolbarControls({
+  theme,
+  onThemeChange,
+  onFontBump,
+  variant = "default",
+}) {
+  const onHeader = variant === "header";
+  const groupClass = onHeader
+    ? "rounded-lg border border-white/20 bg-white/10 p-0.5 backdrop-blur-sm"
+    : "rounded-lg border border-[var(--nr-border)] bg-[var(--nr-surface)] p-0.5";
+  const btnClass = onHeader
+    ? "text-white/85 hover:bg-white/15 hover:text-white"
+    : "text-[var(--nr-muted)] hover:bg-[var(--nr-hover)] hover:text-[var(--nr-text)]";
+  const activeClass = onHeader
+    ? "bg-white/20 text-white"
+    : "bg-[var(--nr-hover)] text-[var(--nr-text)]";
+
   return (
     <div className="flex shrink-0 flex-wrap items-center justify-end gap-2">
-      <div
-        className="flex items-center rounded-lg border border-[var(--nr-border)] bg-[var(--nr-surface)] p-0.5"
-        role="group"
-        aria-label="Font size"
-      >
+      <div className={`flex items-center ${groupClass}`} role="group" aria-label="Font size">
         <button
           type="button"
           title="Decrease font size"
           onClick={() => onFontBump(-1)}
-          className="grid h-8 w-8 place-items-center rounded-md font-fraunces text-[12px] font-semibold text-[var(--nr-muted)] transition hover:bg-[var(--nr-hover)] hover:text-[var(--nr-text)]"
+          className={`grid h-8 w-8 place-items-center rounded-md font-fraunces text-[12px] font-semibold transition ${btnClass}`}
         >
           −A
         </button>
@@ -63,14 +78,14 @@ function ReaderToolbarControls({ theme, onThemeChange, onFontBump }) {
           type="button"
           title="Increase font size"
           onClick={() => onFontBump(1)}
-          className="grid h-8 w-8 place-items-center rounded-md font-fraunces text-[13px] font-semibold text-[var(--nr-muted)] transition hover:bg-[var(--nr-hover)] hover:text-[var(--nr-text)]"
+          className={`grid h-8 w-8 place-items-center rounded-md font-fraunces text-[13px] font-semibold transition ${btnClass}`}
         >
           +A
         </button>
       </div>
 
       <div
-        className="flex items-center gap-0.5 rounded-lg border border-[var(--nr-border)] bg-[var(--nr-surface)] p-0.5"
+        className={`flex items-center gap-0.5 ${groupClass}`}
         role="group"
         aria-label="Reader theme"
       >
@@ -86,9 +101,7 @@ function ReaderToolbarControls({ theme, onThemeChange, onFontBump }) {
               aria-pressed={active}
               onClick={() => onThemeChange(t.id)}
               className={`inline-flex items-center gap-1 rounded-md px-2 py-1.5 text-[11px] font-medium transition ${
-                active
-                  ? "bg-[var(--nr-hover)] text-[var(--nr-text)]"
-                  : "text-[var(--nr-muted)] hover:bg-[var(--nr-hover)] hover:text-[var(--nr-text)]"
+                active ? activeClass : btnClass
               }`}
             >
               <Icon className="h-3.5 w-3.5" />
@@ -97,6 +110,52 @@ function ReaderToolbarControls({ theme, onThemeChange, onFontBump }) {
           );
         })}
       </div>
+    </div>
+  );
+}
+
+function EpisodeHeroBanner({
+  collectionLabel,
+  episode,
+  title,
+  publishedOn,
+  chapters,
+  currentSlug,
+  onChapterSelect,
+}) {
+  return (
+    <div className="mx-auto max-w-[920px] px-5 pt-4 md:px-8 md:pt-6">
+      <Link
+        href="/digital-garden/notes"
+        className="mb-5 inline-flex items-center gap-0.5 text-[12px] font-medium text-[var(--nr-muted)] no-underline transition hover:text-[var(--nr-accent)]"
+      >
+        <HiOutlineChevronLeft className="h-3.5 w-3.5" />
+        All notes
+      </Link>
+
+      <header className="flex flex-col items-center text-center">
+        <div className="mb-5 w-full max-w-md px-1">
+          <ChapterSelectDropdown
+            chapters={chapters}
+            currentSlug={currentSlug}
+            onSelect={onChapterSelect}
+          />
+        </div>
+
+        {episode != null ? (
+          <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-violet-700">
+            {collectionLabel} · Episode {episode}
+          </p>
+        ) : null}
+
+        <h1 className="mx-auto mb-4 max-w-[24ch] font-fraunces text-[clamp(1.9rem,4.5vw,2.75rem)] font-semibold leading-[1.12] tracking-[-0.025em] text-[var(--nr-heading)]">
+          {title}
+        </h1>
+
+        {publishedOn ? (
+          <p className="text-[13px] text-[var(--nr-muted)]">{publishedOn}</p>
+        ) : null}
+      </header>
     </div>
   );
 }
@@ -170,15 +229,29 @@ export default function NamasteDevNoteReader({
     <NamasteDevNotesShell
       themeStyle={shellStyle}
       headerEnd={
-        <NotesReaderAiButtons
-          variant="header"
-          activeMode={
-            ai.quickOpen ? "quick" : ai.quizOpen ? "quiz" : ai.qnaOpen ? "qna" : null
-          }
-          onQuickOpen={ai.openQuickRead}
-          onQuizOpen={ai.openQuiz}
-          onQnaOpen={ai.openQna}
-        />
+        <div className="flex flex-wrap items-center justify-end gap-2">
+          <ReaderToolbarControls
+            variant="header"
+            theme={theme}
+            onThemeChange={handleThemeChange}
+            onFontBump={bumpFont}
+          />
+          <NotesReaderAiButtons
+            variant="header"
+            activeMode={
+              ai.quickOpen
+                ? "quick"
+                : ai.quizOpen
+                  ? "quiz"
+                  : ai.qnaOpen
+                    ? "qna"
+                    : null
+            }
+            onQuickOpen={ai.openQuickRead}
+            onQuizOpen={ai.openQuiz}
+            onQnaOpen={ai.openQna}
+          />
+        </div>
       }
     >
       <CommonSlugHeadTags
@@ -186,47 +259,17 @@ export default function NamasteDevNoteReader({
         url={`https://www.heyashu.in${namasteAiDevNotesHref(currentSlug)}`}
       />
 
-      <div className="mx-auto max-w-[920px] border-b border-[var(--nr-border)] bg-[var(--nr-surface)]/80 px-4 py-2.5 backdrop-blur-sm">
-        <div className="flex flex-wrap items-center justify-between gap-3">
-          <Link
-            href="/digital-garden/notes"
-            className="inline-flex items-center gap-1 text-[13px] font-medium text-[var(--nr-muted)] no-underline transition hover:text-[var(--nr-accent)]"
-          >
-            <HiOutlineChevronLeft className="h-4 w-4" />
-            All notes
-          </Link>
+      <EpisodeHeroBanner
+        collectionLabel={collectionLabel}
+        episode={episode}
+        title={title}
+        publishedOn={publishedOn}
+        chapters={chapters}
+        currentSlug={currentSlug}
+        onChapterSelect={onChapterSelect}
+      />
 
-          <ReaderToolbarControls
-            theme={theme}
-            onThemeChange={handleThemeChange}
-            onFontBump={bumpFont}
-          />
-        </div>
-      </div>
-
-      <article className="mx-auto max-w-[920px] px-5 pb-20 pt-10 md:px-8 md:pt-12">
-        <header className="mb-8 flex flex-col items-center text-center">
-          <div className="mb-5 w-full max-w-md px-1">
-            <ChapterSelectDropdown
-              chapters={chapters}
-              currentSlug={currentSlug}
-              onSelect={onChapterSelect}
-            />
-          </div>
-
-          {episode != null ? (
-            <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-violet-700">
-              {collectionLabel} · Episode {episode}
-            </p>
-          ) : null}
-          <h1 className="mb-4 max-w-[24ch] font-fraunces text-[clamp(1.9rem,4.5vw,2.75rem)] font-semibold leading-[1.12] tracking-[-0.025em] text-[var(--nr-heading)]">
-            {title}
-          </h1>
-          {publishedOn ? (
-            <p className="text-[13px] text-[var(--nr-muted)]">{publishedOn}</p>
-          ) : null}
-        </header>
-
+      <article className="mx-auto max-w-[920px] px-5 pb-20 pt-2 md:px-8 md:pt-3">
         {thumb ? (
           <figure className="mb-8">
             <div className="overflow-hidden border border-[var(--nr-border)]">
@@ -252,7 +295,8 @@ export default function NamasteDevNoteReader({
             prose-li:!text-[var(--nr-body)]
             prose-a:!text-[var(--nr-accent)]
             prose-img:!rounded-none prose-img:border prose-img:border-[var(--nr-border)]
-            prose-pre:!rounded-none prose-pre:!text-[var(--nr-body)]"
+            prose-pre:!rounded-none prose-pre:!text-[var(--nr-body)] prose-pre:!bg-[var(--nr-code-bg)]
+            prose-code:!text-[var(--nr-heading)] prose-code:!bg-[var(--nr-hover)] prose-code:!font-medium"
           style={{ fontSize: "var(--nr-font-size, 16px)" }}
         >
           <MDXRenderer markdownContent={currentPageMDX} variant="garden-reader" />

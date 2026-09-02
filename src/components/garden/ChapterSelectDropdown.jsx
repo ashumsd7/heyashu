@@ -11,6 +11,7 @@ export default function ChapterSelectDropdown({
   currentSlug,
   onSelect,
   className = "",
+  tone = "default",
 }) {
   const [open, setOpen] = useState(false);
   const rootRef = useRef(null);
@@ -33,6 +34,8 @@ export default function ChapterSelectDropdown({
     };
   }, [open]);
 
+  const inverted = tone === "inverted";
+
   return (
     <div ref={rootRef} className={`relative w-full ${className}`}>
       <button
@@ -40,13 +43,19 @@ export default function ChapterSelectDropdown({
         aria-haspopup="listbox"
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
-        className="flex w-full items-center gap-2 rounded-full border border-[var(--nr-border)] bg-[var(--nr-surface)] py-2.5 pl-4 pr-10 text-left text-[13px] font-medium text-[var(--nr-text)] shadow-sm outline-none transition hover:border-[var(--nr-accent)]/30 focus:ring-2 focus:ring-violet-400/40"
+        className={`flex w-full items-center gap-2 rounded-full border py-2.5 pl-4 pr-10 text-left text-[13px] font-medium shadow-sm outline-none transition focus:ring-2 ${
+          inverted
+            ? "border-white/35 bg-white/95 text-violet-950 hover:border-white/50 focus:ring-white/40"
+            : "border-[var(--nr-border)] bg-[var(--nr-surface)] text-[var(--nr-text)] hover:border-[var(--nr-accent)]/30 focus:ring-violet-400/40"
+        }`}
       >
         <span className="min-w-0 flex-1 truncate text-left">
           {current ? chapterLabel(current) : "Select chapter"}
         </span>
         <HiChevronDown
-          className={`pointer-events-none absolute right-4 top-1/2 h-4 w-4 -translate-y-1/2 text-[var(--nr-muted)] transition ${open ? "rotate-180" : ""}`}
+          className={`pointer-events-none absolute right-4 top-1/2 h-4 w-4 -translate-y-1/2 transition ${
+            inverted ? "text-violet-700/70" : "text-[var(--nr-muted)]"
+          } ${open ? "rotate-180" : ""}`}
         />
       </button>
 
