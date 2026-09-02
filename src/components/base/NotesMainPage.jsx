@@ -21,6 +21,12 @@ import {
   useNotesReaderAi,
 } from "@/components/garden/NotesReaderAiToolkit";
 import DownloadNotePdfButton from "@/components/garden/DownloadNotePdfButton";
+import BookModeButton from "@/components/garden/BookModeButton";
+import dynamic from "next/dynamic";
+
+const BookModeModal = dynamic(() => import("@/components/garden/BookModeModal"), {
+  ssr: false,
+});
 import {
   DEFAULT_AVATAR,
   GITHUB_REPO_LINK,
@@ -67,7 +73,7 @@ function CorporateRadioButton({ compact = false }) {
     <button
       type="button"
       onClick={openCorporateRadio}
-      title="Corporate Radio"
+      title="  Radio"
       aria-label="Open Corporate Radio"
       className={`relative inline-flex shrink-0 items-center gap-1.5 rounded-lg border border-[var(--nr-border)] bg-[var(--nr-surface)] text-[var(--nr-muted)] transition hover:border-emerald-500/40 hover:text-[var(--nr-text)] ${
         compact ? "grid h-9 w-9 place-items-center" : "px-2.5 py-1.5"
@@ -80,7 +86,7 @@ function CorporateRadioButton({ compact = false }) {
       </span>
       {!compact ? (
         <span className="text-[11px] font-semibold text-[var(--nr-text)]">
-          Corporate Radio
+            Radio
         </span>
       ) : null}
     </button>
@@ -119,6 +125,7 @@ const NotesMainPage = ({
   const [theme, setTheme] = useState("light");
   const [fontScale, setFontScale] = useState(0);
   const [speaking, setSpeaking] = useState(false);
+  const [bookModeOpen, setBookModeOpen] = useState(false);
   const ai = useNotesReaderAi();
   const [progress, setProgress] = useState(0);
   const [completedCount, setCompletedCount] = useState(0);
@@ -156,6 +163,7 @@ const NotesMainPage = ({
     subDomain === "namaste-ai-notes" && typeof slugParam === "string"
       ? slugParam
       : null;
+  const showBookMode = subDomain === "namaste-ai-notes" && Boolean(notePdfSlug);
   const chapterPath =
     typeof slugParam === "string"
       ? `/digital-garden/notes/${subDomain}/${slugParam}`
@@ -409,6 +417,12 @@ const NotesMainPage = ({
 
                   {/* Mobile — Corporate Radio + PDF + tools */}
                   <div className="flex shrink-0 items-center gap-1.5 lg:hidden">
+                    {showBookMode ? (
+                      <BookModeButton
+                        compact
+                        onClick={() => setBookModeOpen(true)}
+                      />
+                    ) : null}
                     <DownloadNotePdfButton slug={notePdfSlug} compact />
                     <CorporateRadioButton compact />
                     <button
@@ -684,6 +698,9 @@ const NotesMainPage = ({
                         <HiOutlinePencilSquare className="h-4 w-4" />
                       </a>
                       <div className="hidden lg:flex lg:items-center lg:gap-2">
+                        {showBookMode ? (
+                          <BookModeButton onClick={() => setBookModeOpen(true)} />
+                        ) : null}
                         <DownloadNotePdfButton slug={notePdfSlug} />
                         <CorporateRadioButton />
                       </div>
@@ -896,6 +913,14 @@ const NotesMainPage = ({
               : undefined
           }
         />
+
+        {showBookMode ? (
+          <BookModeModal
+            isOpen={bookModeOpen}
+            onClose={() => setBookModeOpen(false)}
+            episodeSlug={notePdfSlug}
+          />
+        ) : null}
       </div>
 
       <style jsx global>{`

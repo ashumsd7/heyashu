@@ -38,7 +38,7 @@ export default function DownloadNotePdfButton({
       <HiOutlineArrowDownTray className="h-4 w-4 text-violet-600 dark:text-violet-400" />
       {!compact ? (
         <span className="text-[11px] font-semibold text-[var(--nr-text)]">
-          Download PDF
+            PDF
         </span>
       ) : null}
     </button>
