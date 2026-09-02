@@ -22,19 +22,19 @@ function MDXRenderer({ markdownContent, variant = "default" }) {
     },
     h1: (props) => (
       <h1
-        className="mb-3 mt-7 font-fraunces text-[1.35em] font-semibold leading-snug text-[var(--nr-heading)]"
+        className="mb-3 mt-7 font-source-serif text-[1.35em] font-semibold leading-snug text-[var(--nr-heading)]"
         {...props}
       />
     ),
     h2: (props) => (
       <h2
-        className="mb-2.5 mt-6 font-fraunces text-[1.2em] font-semibold leading-snug text-[var(--nr-heading)]"
+        className="mb-2.5 mt-6 font-source-serif text-[1.2em] font-semibold leading-snug text-[var(--nr-heading)]"
         {...props}
       />
     ),
     h3: (props) => (
       <h3
-        className="mb-2 mt-5 font-fraunces text-[1.08em] font-semibold leading-snug text-[var(--nr-heading)]"
+        className="mb-2 mt-5 font-source-serif text-[1.08em] font-semibold leading-snug text-[var(--nr-heading)]"
         {...props}
       />
     ),
@@ -46,7 +46,7 @@ function MDXRenderer({ markdownContent, variant = "default" }) {
     ),
     p: (props) => (
       <p
-        className="mb-3.5 font-ibm-sans text-[1em] leading-[1.7] text-[var(--nr-body)]"
+        className="mb-3.5 font-source-serif text-[1em] leading-[1.75] text-[var(--nr-body)]"
         {...props}
       />
     ),
@@ -55,7 +55,7 @@ function MDXRenderer({ markdownContent, variant = "default" }) {
     ),
     li: (props) => (
       <li
-        className="mb-1.5 font-ibm-sans text-[1em] leading-[1.65] text-[var(--nr-body)]"
+        className="mb-1.5 font-source-serif text-[1em] leading-[1.7] text-[var(--nr-body)]"
         {...props}
       />
     ),
@@ -69,7 +69,7 @@ function MDXRenderer({ markdownContent, variant = "default" }) {
     ),
     blockquote: (props) => (
       <blockquote
-        className="my-5 border-l-2 border-[var(--nr-border)] pl-3 font-fraunces text-[1.05em] italic text-[var(--nr-muted)]"
+        className="my-5 border-l-2 border-[var(--nr-border)] pl-3 font-source-serif text-[1.05em] italic text-[var(--nr-muted)]"
         {...props}
       />
     ),

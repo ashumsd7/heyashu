@@ -1,7 +1,17 @@
 import React, { useEffect, useRef, useState } from "react";
 import { HiChevronDown } from "react-icons/hi2";
 
-function chapterLabel(ch) {
+function chapterLabel(ch, mode = "full") {
+  if (mode === "episode") {
+    if (ch.episode != null) {
+      const n = Number(ch.episode);
+      const num = Number.isFinite(n)
+        ? String(n).padStart(2, "0")
+        : String(ch.episode);
+      return `Episode ${num}`;
+    }
+    return "Episode";
+  }
   const name = ch.episodeTitle || ch.name || ch.title || ch.slug;
   return ch.episode != null ? `Episode ${ch.episode} — ${name}` : name;
 }
@@ -12,6 +22,7 @@ export default function ChapterSelectDropdown({
   onSelect,
   className = "",
   tone = "default",
+  labelMode = "full",
 }) {
   const [open, setOpen] = useState(false);
   const rootRef = useRef(null);
@@ -35,9 +46,11 @@ export default function ChapterSelectDropdown({
   }, [open]);
 
   const inverted = tone === "inverted";
+  const selectedLabelMode = labelMode === "episode" ? "episode" : "full";
+  const optionLabelMode = "full";
 
   return (
-    <div ref={rootRef} className={`relative w-full ${className}`}>
+    <div ref={rootRef} className={`relative w-full print:hidden ${className}`}>
       <button
         type="button"
         aria-haspopup="listbox"
@@ -50,7 +63,7 @@ export default function ChapterSelectDropdown({
         }`}
       >
         <span className="min-w-0 flex-1 truncate text-left">
-          {current ? chapterLabel(current) : "Select chapter"}
+          {current ? chapterLabel(current, selectedLabelMode) : "Select chapter"}
         </span>
         <HiChevronDown
           className={`pointer-events-none absolute right-4 top-1/2 h-4 w-4 -translate-y-1/2 transition ${
@@ -63,7 +76,7 @@ export default function ChapterSelectDropdown({
         <ul
           role="listbox"
           aria-label="Chapters"
-          className="absolute left-0 right-0 top-[calc(100%+6px)] z-30 max-h-64 overflow-y-auto rounded-xl border border-[var(--nr-border)] bg-[var(--nr-surface)] py-1 shadow-lg"
+          className="absolute left-0 right-0 top-[calc(100%+6px)] z-30 max-h-64 overflow-y-auto rounded-xl border border-[var(--nr-border)] bg-[var(--nr-surface)] py-1 shadow-lg print:hidden"
         >
           {chapters.map((ch) => {
             const active = ch.slug === currentSlug;
@@ -81,7 +94,7 @@ export default function ChapterSelectDropdown({
                       : "font-medium text-[var(--nr-text)] hover:bg-[var(--nr-hover)]"
                   }`}
                 >
-                  {chapterLabel(ch)}
+                  {chapterLabel(ch, optionLabelMode)}
                 </button>
               </li>
             );

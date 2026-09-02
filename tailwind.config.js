@@ -15,6 +15,14 @@ module.exports = {
         fraunces: ['"Fraunces"', "Georgia", "serif"],
         "ibm-sans": ['"IBM Plex Sans"', "system-ui", "sans-serif"],
         "ibm-mono": ['"IBM Plex Mono"', "monospace"],
+        "source-serif": [
+          "source-serif-pro",
+          "Source Serif Pro",
+          "Georgia",
+          "Cambria",
+          "Times New Roman",
+          "serif",
+        ],
       },
       animation: {
         blob: "blob 7s infinite",
