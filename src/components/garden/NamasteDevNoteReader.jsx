@@ -14,53 +14,39 @@ import {
 import { READER_THEMES } from "@/data/note/readerThemes";
 import { AI_MARKDOWN_CONTENT_ID } from "@/utils/aiOpenRouter";
 
-function formatEpisodeLabel(episode) {
-  if (episode == null || episode === "") return null;
-  const n = Number(episode);
-  if (!Number.isFinite(n)) return `Episode ${episode}`;
-  return `Episode ${String(n).padStart(2, "0")}`;
-}
-
 function EpisodeHeroBanner({
-  episode,
   seasonNumber = 1,
   title,
   chapters,
   currentSlug,
   onChapterSelect,
 }) {
-  const episodeLabel = formatEpisodeLabel(episode);
-
   return (
     <div className="mx-auto max-w-[920px] px-5 pt-4 md:px-8 md:pt-5">
-      <div className="mb-5 w-full max-w-xs print:hidden">
-        <ChapterSelectDropdown
-          chapters={chapters}
-          currentSlug={currentSlug}
-          onSelect={onChapterSelect}
-          labelMode="episode"
-        />
-      </div>
-
-      <header className="text-left">
-        <div className="mb-3 flex items-center gap-2.5">
+      <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
+        <div className="flex min-w-0 items-center gap-2.5">
           <span
             className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[#f97316] text-[12px] font-bold tracking-wide text-white"
             aria-hidden="true"
           >
             AI
           </span>
-          <p className="text-[14px] font-bold uppercase tracking-[0.08em] text-[#f97316] sm:text-[15px]">
-            Namaste AI — Season {seasonNumber}
+          <p className="text-[14px] font-bold uppercase tracking-[0.06em] text-[#f97316] sm:text-[15px]">
+            Namaste AI Notes : Season {seasonNumber}
           </p>
         </div>
 
-        {episodeLabel ? (
-          <p className="mb-2 text-[18px] font-semibold text-[#f97316] sm:text-[20px]">
-            {episodeLabel}
-          </p>
-        ) : null}
+        <div className="w-full max-w-[11rem] shrink-0 print:hidden sm:w-auto sm:min-w-[10rem]">
+          <ChapterSelectDropdown
+            chapters={chapters}
+            currentSlug={currentSlug}
+            onSelect={onChapterSelect}
+            labelMode="episode"
+          />
+        </div>
+      </div>
 
+      <header className="text-left">
         <h1 className="max-w-[28ch] font-ibm-sans text-[clamp(1.85rem,4.5vw,2.65rem)] font-bold leading-[1.15] tracking-[-0.02em] text-[#111827]">
           {title}
         </h1>
@@ -80,7 +66,6 @@ export default function NamasteDevNoteReader({
 
   const title = getEpisodeDisplayTitle(currentPageFrontMatter);
   const thumb = currentPageFrontMatter?.thumbnail;
-  const episode = currentPageFrontMatter?.episode;
   const seasonNumber = currentPageFrontMatter?.seasonNumber || 1;
 
   const themeConfig = READER_THEMES.light;
@@ -107,7 +92,6 @@ export default function NamasteDevNoteReader({
       />
 
       <EpisodeHeroBanner
-        episode={episode}
         seasonNumber={seasonNumber}
         title={title}
         chapters={chapters}
