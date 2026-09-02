@@ -3,6 +3,7 @@ title: llm-embeddings-explained
 name: "LLM Embeddings Explained: How AI Understands Meaning & Context"
 episode: 5
 seasonNumber: 1
+episodeTitle: "How Machines Represent Meaning"
 publishedOn: 08-24-2026
 updatedOn: 08-24-2026
 thumbnail: /images/namaste-ai/thumbnail-ai-5.jpg

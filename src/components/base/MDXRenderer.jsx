@@ -5,9 +5,79 @@ import React from "react";
 function MDXRenderer({ markdownContent, variant = "default" }) {
   if (!markdownContent) return null;
 
-  const isGarden = variant === "garden";
+  const isGardenReader = variant === "garden-reader";
+  const isGarden = variant === "garden" || isGardenReader;
 
-  const components = isGarden
+  const gardenReaderComponents = {
+    img: ({ src, alt, ...rest }) => {
+      const adjustedSrc = removePublicFromPath(src);
+      return (
+        <img
+          className="my-5 h-auto w-full rounded-none border border-[var(--nr-border)]"
+          src={adjustedSrc}
+          alt={alt}
+          {...rest}
+        />
+      );
+    },
+    h1: (props) => (
+      <h1
+        className="mb-3 mt-7 font-fraunces text-[1.35em] font-semibold leading-snug text-[var(--nr-heading)]"
+        {...props}
+      />
+    ),
+    h2: (props) => (
+      <h2
+        className="mb-2.5 mt-6 font-fraunces text-[1.2em] font-semibold leading-snug text-[var(--nr-heading)]"
+        {...props}
+      />
+    ),
+    h3: (props) => (
+      <h3
+        className="mb-2 mt-5 font-fraunces text-[1.08em] font-semibold leading-snug text-[var(--nr-heading)]"
+        {...props}
+      />
+    ),
+    pre: (props) => (
+      <pre
+        className="markdown-pre my-4 rounded-none text-[0.85em] leading-relaxed text-[var(--nr-body)]"
+        {...props}
+      />
+    ),
+    p: (props) => (
+      <p
+        className="mb-3.5 font-ibm-sans text-[1em] leading-[1.7] text-[var(--nr-body)]"
+        {...props}
+      />
+    ),
+    strong: (props) => (
+      <strong className="font-semibold text-[var(--nr-heading)]" {...props} />
+    ),
+    li: (props) => (
+      <li
+        className="mb-1.5 font-ibm-sans text-[1em] leading-[1.65] text-[var(--nr-body)]"
+        {...props}
+      />
+    ),
+    a: (props) => (
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-[var(--nr-accent)] underline decoration-[var(--nr-border)] underline-offset-2 transition hover:opacity-70"
+        {...props}
+      />
+    ),
+    blockquote: (props) => (
+      <blockquote
+        className="my-5 border-l-2 border-[var(--nr-border)] pl-3 font-fraunces text-[1.05em] italic text-[var(--nr-muted)]"
+        {...props}
+      />
+    ),
+  };
+
+  const components = isGardenReader
+    ? gardenReaderComponents
+    : isGarden
     ? {
         img: ({ src, alt, ...rest }) => {
           const adjustedSrc = removePublicFromPath(src);

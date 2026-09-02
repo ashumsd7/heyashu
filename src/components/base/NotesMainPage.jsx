@@ -15,26 +15,23 @@ import NotesReaderSidebar from "@/components/tech/notes-layout/NotesReaderSideba
 import CommonSlugHeadTags from "@/components/seo/CommonSlugHeadTags";
 import DigiGardenFooter from "@/components/garden/DigiGardenFooter";
 import GardenCollabCard from "@/components/garden/GardenCollabCard";
-import QuickReaderDrawer from "@/components/garden/AI/QuickReaderDrawer";
-import QuestionsListDrawer from "@/components/garden/AI/QuestionsListDrawer";
-import AIQuestionDrawer from "@/components/garden/AIQuestionDrawer";
+import {
+  NotesReaderAiButtons,
+  NotesReaderAiDrawers,
+  useNotesReaderAi,
+} from "@/components/garden/NotesReaderAiToolkit";
 import {
   DEFAULT_AVATAR,
   GITHUB_REPO_LINK,
 } from "@/utils/constant";
 import { absoluteUrl } from "@/utils/seo";
 import {
-  HiBolt,
-  HiSparkles,
-  HiChatBubbleLeftRight,
   HiOutlineShare,
   HiOutlineBookmark,
   HiOutlineArrowDownTray,
   HiOutlineSpeakerWave,
   HiOutlineXMark,
   HiOutlineEllipsisVertical,
-  HiOutlineSun,
-  HiOutlineMoon,
   HiChevronLeft,
   HiChevronRight,
   HiChevronDown,
@@ -44,7 +41,10 @@ import {
   HiOutlineStar,
   HiOutlineRadio,
 } from "react-icons/hi2";
-import { MdOutlineVisibility } from "react-icons/md";
+import {
+  READER_THEME_STORAGE as THEME_STORAGE,
+  READER_THEMES as THEMES,
+} from "@/data/note/readerThemes";
 
 const SIDEBAR_WIDTH = 320;
 /** Notes column width — cluster (sidebar + notes) stays screen-centered */
@@ -86,92 +86,6 @@ function CorporateRadioButton({ compact = false }) {
   );
 }
 
-const THEME_STORAGE = "notes-reader-theme";
-
-const THEMES = {
-  light: {
-    id: "light",
-    label: "Light",
-    icon: HiOutlineSun,
-    vars: {
-      "--nr-bg": "#fafbfc",
-      "--nr-surface": "#ffffff",
-      "--nr-sidebar": "#e8edf0",
-      "--nr-sidebar-from": "#dfe6ea",
-      "--nr-sidebar-to": "#f3f5f7",
-      "--nr-sidebar-head": "#d5dde3",
-      "--nr-nav": "#e8eee9",
-      "--nr-nav-from": "#e4ece7",
-      "--nr-nav-to": "#f7faf8",
-      "--nr-nav-from-m": "#c5d0ca",
-      "--nr-nav-to-m": "#d8e0db",
-      "--nr-text": "#111827",
-      "--nr-muted": "#4b5563",
-      "--nr-border": "#c5ced6",
-      "--nr-accent": "#0f2d1c",
-      "--nr-active": "#dcebe0",
-      "--nr-hover": "#eef2f4",
-      "--nr-heading": "#0a0a0a",
-      "--nr-body": "#1f2937",
-      "--nr-code-bg": "#1a1f1c",
-    },
-  },
-  dark: {
-    id: "dark",
-    label: "Dark",
-    icon: HiOutlineMoon,
-    vars: {
-      "--nr-bg": "#000000",
-      "--nr-surface": "#0a0a0a",
-      "--nr-sidebar": "#101614",
-      "--nr-sidebar-from": "#18201c",
-      "--nr-sidebar-to": "#0a0d0c",
-      "--nr-sidebar-head": "#1a2420",
-      "--nr-nav": "#121816",
-      "--nr-nav-from": "#1a2420",
-      "--nr-nav-to": "#0b0f0d",
-      "--nr-nav-from-m": "#0e1412",
-      "--nr-nav-to-m": "#070a09",
-      "--nr-text": "#f5f5f5",
-      "--nr-muted": "#a3a3a3",
-      "--nr-border": "#2a3530",
-      "--nr-accent": "#4ade80",
-      "--nr-active": "#1a2a22",
-      "--nr-hover": "#151c18",
-      "--nr-heading": "#fafafa",
-      "--nr-body": "#d4d4d4",
-      "--nr-code-bg": "#0a0a0a",
-    },
-  },
-  eye: {
-    id: "eye",
-    label: "Cool",
-    icon: MdOutlineVisibility,
-    vars: {
-      "--nr-bg": "#f3ead8",
-      "--nr-surface": "#f7efdf",
-      "--nr-sidebar": "#e4d6b6",
-      "--nr-sidebar-from": "#ddcfb0",
-      "--nr-sidebar-to": "#f1e6d0",
-      "--nr-sidebar-head": "#d4c4a0",
-      "--nr-nav": "#eadfc8",
-      "--nr-nav-from": "#e6d9b8",
-      "--nr-nav-to": "#f3ead8",
-      "--nr-nav-from-m": "#d0c29e",
-      "--nr-nav-to-m": "#e0d4b6",
-      "--nr-text": "#3d3429",
-      "--nr-muted": "#7a6b58",
-      "--nr-border": "#d4c4a4",
-      "--nr-accent": "#5c4a32",
-      "--nr-active": "#e4d5b5",
-      "--nr-hover": "#e8dcc6",
-      "--nr-heading": "#2f281f",
-      "--nr-body": "#4a4034",
-      "--nr-code-bg": "#2a241c",
-    },
-  },
-};
-
 function changeFilePath(filePath = "") {
   return String(filePath).replace("/public", "");
 }
@@ -204,9 +118,7 @@ const NotesMainPage = ({
   const [theme, setTheme] = useState("light");
   const [fontScale, setFontScale] = useState(0);
   const [speaking, setSpeaking] = useState(false);
-  const [quickOpen, setQuickOpen] = useState(false);
-  const [qnaOpen, setQnaOpen] = useState(false);
-  const [quizOpen, setQuizOpen] = useState(false);
+  const ai = useNotesReaderAi();
   const [progress, setProgress] = useState(0);
   const [completedCount, setCompletedCount] = useState(0);
   const [storedValues, setStoredValues] = useState(null);
@@ -448,32 +360,12 @@ const NotesMainPage = ({
                   </div>
 
                   {/* Desktop AI actions */}
-                  <div className="hidden items-center gap-2 md:flex">
-                    <button
-                      type="button"
-                      onClick={() => setQuickOpen(true)}
-                      className="inline-flex items-center gap-1.5 rounded-full border border-[var(--nr-border)] bg-transparent px-3 py-1.5 text-[11px] font-medium text-[var(--nr-text)] transition hover:bg-[var(--nr-hover)]"
-                    >
-                      <HiBolt className="h-3.5 w-3.5 shrink-0 text-violet-500" />
-                      Quick AI Read
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setQuizOpen(true)}
-                      className="inline-flex items-center gap-1.5 rounded-full border border-[var(--nr-border)] bg-transparent px-3 py-1.5 text-[11px] font-medium text-[var(--nr-text)] transition hover:bg-[var(--nr-hover)]"
-                    >
-                      <HiSparkles className="h-3.5 w-3.5 shrink-0 text-sky-500" />
-                       Quiz
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setQnaOpen(true)}
-                      className="inline-flex items-center gap-1.5 rounded-full border border-[var(--nr-border)] bg-transparent px-3 py-1.5 text-[11px] font-medium text-[var(--nr-text)] transition hover:bg-[var(--nr-hover)]"
-                    >
-                      <HiChatBubbleLeftRight className="h-3.5 w-3.5 shrink-0 text-violet-500" />
-                      Q&amp;A
-                    </button>
-              </div>
+                  <NotesReaderAiButtons
+                    className="hidden md:flex"
+                    onQuickOpen={() => ai.setQuickOpen(true)}
+                    onQuizOpen={() => ai.setQuizOpen(true)}
+                    onQnaOpen={() => ai.setQnaOpen(true)}
+                  />
 
                   {/* Desktop tools */}
                   <div className="hidden items-center gap-2 lg:flex">
@@ -849,32 +741,13 @@ const NotesMainPage = ({
         {/* Mobile sticky AI + tools */}
         <div className="fixed inset-x-0 bottom-0 z-40 border-t border-[var(--nr-border)] bg-[var(--nr-surface)] px-2 pb-[max(0.4rem,env(safe-area-inset-bottom))] pt-1.5 shadow-[0_-8px_24px_-16px_rgba(15,23,42,0.35)] md:hidden">
           <div className="mx-auto flex max-w-[1400px] flex-col gap-1.5">
-            <div className="flex items-center justify-center gap-1.5">
-              <button
-                type="button"
-                onClick={() => setQuickOpen(true)}
-                className="inline-flex flex-1 items-center justify-center gap-1 rounded-full border border-[var(--nr-border)] bg-transparent px-2 py-2 text-[10px] font-medium text-[var(--nr-text)]"
-              >
-                <HiBolt className="h-3.5 w-3.5 shrink-0 text-violet-500" />
-                Quick Read
-              </button>
-              <button
-                type="button"
-                onClick={() => setQuizOpen(true)}
-                className="inline-flex flex-1 items-center justify-center gap-1 rounded-full border border-[var(--nr-border)] bg-transparent px-2 py-2 text-[10px] font-medium text-[var(--nr-text)]"
-              >
-                <HiSparkles className="h-3.5 w-3.5 shrink-0 text-sky-500" />
-                Quiz
-              </button>
-              <button
-                type="button"
-                onClick={() => setQnaOpen(true)}
-                className="inline-flex flex-1 items-center justify-center gap-1 rounded-full border border-[var(--nr-border)] bg-transparent px-2 py-2 text-[10px] font-medium text-[var(--nr-text)]"
-              >
-                <HiChatBubbleLeftRight className="h-3.5 w-3.5 shrink-0 text-violet-500" />
-                Q&amp;A
-              </button>
-            </div>
+            <NotesReaderAiButtons
+              variant="compact"
+              className="flex w-full items-center justify-center gap-1.5"
+              onQuickOpen={() => ai.setQuickOpen(true)}
+              onQuizOpen={() => ai.setQuizOpen(true)}
+              onQnaOpen={() => ai.setQnaOpen(true)}
+            />
             <div className="flex items-center justify-between gap-1 rounded-xl border border-[var(--nr-border)] bg-[var(--nr-bg)] px-1 py-0.5">
               <button
                 type="button"
@@ -990,11 +863,7 @@ const NotesMainPage = ({
           ) : null}
         </AnimatePresence>
       
-        <QuickReaderDrawer isOpen={quickOpen} setIsOpen={setQuickOpen} />
-        <QuestionsListDrawer isOpen={qnaOpen} setIsOpen={setQnaOpen} />
-        {quizOpen ? (
-          <AIQuestionDrawer isOpen={quizOpen} setIsOpen={setQuizOpen} />
-        ) : null}
+        <NotesReaderAiDrawers {...ai} />
       </div>
 
       <style jsx global>{`

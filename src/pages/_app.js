@@ -15,6 +15,7 @@ import Script from "next/script";
 import GoogleAnalytics from "@/components/ui/GoogleAnalytics";
 import { ThemeProvider } from "next-themes";
 import {
+  isNamasteDevNotesPage,
   isNotesChapterPage,
   shouldUseDigitalGardenLayout,
   withBareLayout,
@@ -38,12 +39,12 @@ export default function App({ Component, pageProps }) {
   }, []);
 
   // 1) Page can opt in explicitly via Component.getLayout
-  // 2) Notes chapter /digital-garden/notes/:series/:slug → bare full page
+  // 2) Notes chapter /digital-garden/notes/:series/:slug or Namaste Dev reader → bare
   // 3) Else /blog + /product + /contributing-guide + /digital-garden/* → Digital Garden navbar
   // 4) Else → main site Navbar + Layout
   const getLayout =
     Component.getLayout ||
-    (isNotesChapterPage(router.pathname)
+    (isNotesChapterPage(router.pathname) || isNamasteDevNotesPage(router.pathname)
       ? withBareLayout
       : shouldUseDigitalGardenLayout(router.pathname)
         ? withDigitalGardenLayout
@@ -91,7 +92,8 @@ export default function App({ Component, pageProps }) {
           <ThemeProvider attribute="class">
             <main className="relative">
               {getLayout(<Component {...pageProps} />)}
-              {router.pathname !== "/journey" ? (
+              {router.pathname !== "/journey" &&
+              !router.pathname.startsWith("/digital-garden/namaste-dev-notes") ? (
               <div className="fixed right-3 bottom-[50px] flex flex-col gap-6  items-end">
                 {/* <StartTour
                   onClick={() => {

@@ -13,6 +13,7 @@ export function buildNotesSidebarList(notes = []) {
     author: item.frontMatter?.author,
     tags: item.frontMatter?.tags,
     name: item.frontMatter?.name,
+    episodeTitle: item.frontMatter?.episodeTitle,
     updatedOn: item.frontMatter?.updatedOn,
     thumbnail: item.frontMatter?.thumbnail,
     publishedOn: item.frontMatter?.publishedOn || "Seeding Soon",

@@ -17,6 +17,11 @@ import { withDigitalGardenLayout } from "@/layouts";
 import { GITHUB_REPO_LINK } from "@/utils/constant";
 import Link from "next/link";
 import BackToGarden from "@/components/garden/BackToGarden";
+import {
+  NAMASTE_AI_DEV_NOTES_START,
+  isNamasteAiDevReaderNote,
+} from "@/data/note/namaste-ai-notes/dev-notes";
+import { HiOutlineBookOpen } from "react-icons/hi2";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 18 },
@@ -80,12 +85,14 @@ function NotesCollectionPage() {
             <h1 className="mb-0 font-fraunces text-[clamp(2.4rem,5.5vw,4rem)] font-bold leading-[1.05] tracking-[-0.02em] text-[#171717] dark:text-[#f0f4ef]">
               Digital Notes Collection
             </h1>
-            <Link
-              href="/contributing-guide?type=new-note"
-              className="inline-flex shrink-0 items-center self-start rounded-sm bg-[#1f2a22] px-5 py-2.5 text-sm font-medium text-white no-underline transition hover:bg-[#143825] dark:bg-[#22c55e] dark:text-[#0b120e] dark:hover:bg-[#16a34a]"
-            >
-              Add new collection
-            </Link>
+            <div className="flex shrink-0 flex-col items-end gap-2 self-start">
+              <Link
+                href="/contributing-guide?type=new-note"
+                className="inline-flex shrink-0 items-center self-start rounded-sm bg-[#1f2a22] px-5 py-2.5 text-sm font-medium text-white no-underline transition hover:bg-[#143825] dark:bg-[#22c55e] dark:text-[#0b120e] dark:hover:bg-[#16a34a]"
+              >
+                Add new collection
+              </Link>
+            </div>
           </div>
           <p className="max-w-3xl text-[1.05rem] leading-relaxed text-[#6b6458] dark:text-[#92a59a]">
             Curated from Books, Courses and Research Papers
@@ -128,6 +135,18 @@ function NotesCollectionPage() {
 
                 <div className="relative flex flex-col justify-between gap-3 overflow-hidden p-4 md:p-5">
                   <CardBgPattern />
+                  {isNamasteAiDevReaderNote(note) ? (
+                    <Link
+                      href={NAMASTE_AI_DEV_NOTES_START}
+                      onClick={(e) => e.stopPropagation()}
+                      title="Open blog-style reader"
+                      aria-label="Open blog-style reader"
+                      className="absolute right-3 top-3 z-[2] inline-flex items-center gap-1 rounded-full border border-[#e0d9cd] bg-white/95 px-2.5 py-1 text-[10px] font-semibold text-[#585858] no-underline shadow-sm backdrop-blur-sm transition hover:border-violet-300 hover:text-violet-800 dark:border-[#1e3328] dark:bg-[#0b120e]/90 dark:text-[#92a59a] dark:hover:border-violet-500/50 dark:hover:text-violet-300"
+                    >
+                      <HiOutlineBookOpen className="h-3.5 w-3.5" />
+                      Blog reader
+                    </Link>
+                  ) : null}
                   <div className="relative z-[1]">
                     <div className="mb-2 flex flex-wrap items-center gap-2">
                       {statusChips.length > 0 ? (

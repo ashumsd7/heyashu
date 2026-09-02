@@ -1,6 +1,7 @@
 ---
 title: how-llms-work-transformers-attention
 name: "How LLMs Work: Neural Networks, Transformers & Attention Explained"
+episodeTitle: "The Computational Brain of Machines"
 episode: 6
 seasonNumber: 1
 publishedOn: 08-25-2026

@@ -37,7 +37,7 @@ dayjs.extend(customParseFormat);
 
 const contentFolders = [
   "src/content/blog",
-  "src/content/experience",
+  "src/content/experience", 
   "src/content/js-snippets",
   "src/content/node-js-procodrr",
   "src/content/notes-namaste-node-js",
@@ -343,7 +343,7 @@ export default function BlogPost({ frontMatter, mdxSource, related = [], slug })
         {thumb ? (
           <figure className="mb-8 text-left">
             <div className="overflow-hidden rounded-none border border-[#e6e0d6] dark:border-[#1e3328]">
-              <Image
+          <Image
                 alt={title}
                 src={thumb}
                 width={1024}

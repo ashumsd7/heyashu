@@ -30,6 +30,11 @@ export function withBareLayout(page) {
   return page;
 }
 
+/** /digital-garden/namaste-dev-notes/* — simplified Namaste Dev reader */
+export function isNamasteDevNotesPage(pathname = "") {
+  return pathname.startsWith("/digital-garden/namaste-dev-notes");
+}
+
 /** /digital-garden/notes/:series/:slug — immersive notes reader */
 export function isNotesChapterPage(pathname = "") {
   const parts = pathname.split("/").filter(Boolean);
@@ -43,6 +48,7 @@ export function isNotesChapterPage(pathname = "") {
 /** Routes that should use the Digital Garden navbar by default */
 export function shouldUseDigitalGardenLayout(pathname = "") {
   if (isNotesChapterPage(pathname)) return false;
+  if (isNamasteDevNotesPage(pathname)) return false;
   return (
     pathname.startsWith("/digital-garden") ||
     pathname.startsWith("/blog") ||

@@ -3,6 +3,7 @@ title: llm-language-tokenization-misconceptions
 name: "LLM Tokenization: Tokens, IDs & Common Misconceptions"
 episode: 4
 seasonNumber: 1
+episodeTitle: "The Secret Language of LLMs"
 publishedOn: 08-21-2026
 updatedOn: 08-21-2026
 thumbnail: /images/namaste-ai/banner-e4-ai.jpg

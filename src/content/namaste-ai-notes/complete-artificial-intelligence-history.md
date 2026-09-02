@@ -1,6 +1,7 @@
 ---
 title: complete-artificial-intelligence-history
 name: " AI Evolution: From Turing to Agentic AI"
+episodeTitle: " The Evolution of AI"
 episode: 2
 seasonNumber: 1
 publishedOn: 08-16-2026

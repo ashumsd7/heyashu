@@ -3,6 +3,7 @@ title: chatgpt-vs-google-search-engine-how-llms-work
 name: "ChatGPT vs Google: How LLMs Actually Work — Training, Inference,
   Hallucinations & RAG"
 episode: 3
+episodeTitle: " Does ChatGPT Know or Does It Guess?"
 seasonNumber: 1
 publishedOn: 08-19-2026
 updatedOn: 08-19-2026
