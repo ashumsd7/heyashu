@@ -14,13 +14,23 @@ import {
 import { READER_THEMES } from "@/data/note/readerThemes";
 import { AI_MARKDOWN_CONTENT_ID } from "@/utils/aiOpenRouter";
 
+function formatEpisodeNum(episode) {
+  if (episode == null || episode === "") return null;
+  const n = Number(episode);
+  if (!Number.isFinite(n)) return String(episode);
+  return String(n).padStart(2, "0");
+}
+
 function EpisodeHeroBanner({
+  episode,
   seasonNumber = 1,
   title,
   chapters,
   currentSlug,
   onChapterSelect,
 }) {
+  const episodeNum = formatEpisodeNum(episode);
+
   return (
     <div className="mx-auto max-w-[920px] px-5 pt-4 md:px-8 md:pt-5">
       <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
@@ -33,6 +43,14 @@ function EpisodeHeroBanner({
           </span>
           <p className="text-[14px] font-bold uppercase tracking-[0.06em] text-[#f97316] sm:text-[15px]">
             Namaste AI Notes : Season {seasonNumber}
+            {episodeNum ? (
+              <>
+                {" — "}
+                <span className="font-bold underline underline-offset-4 decoration-[#f97316]">
+                  Episode {episodeNum}
+                </span>
+              </>
+            ) : null}
           </p>
         </div>
 
@@ -66,6 +84,7 @@ export default function NamasteDevNoteReader({
 
   const title = getEpisodeDisplayTitle(currentPageFrontMatter);
   const thumb = currentPageFrontMatter?.thumbnail;
+  const episode = currentPageFrontMatter?.episode;
   const seasonNumber = currentPageFrontMatter?.seasonNumber || 1;
 
   const themeConfig = READER_THEMES.light;
@@ -92,6 +111,7 @@ export default function NamasteDevNoteReader({
       />
 
       <EpisodeHeroBanner
+        episode={episode}
         seasonNumber={seasonNumber}
         title={title}
         chapters={chapters}
