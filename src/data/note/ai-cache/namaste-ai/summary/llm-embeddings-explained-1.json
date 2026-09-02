@@ -1,0 +1,77 @@
+{
+  "intro": "Token IDs are just random numbers — they don't carry meaning. Embeddings are where meaning lives. This episode explains how AI turns words into vectors so it can understand that 'apple' (fruit) and 'Apple' (company) are completely different things.",
+  "sections": [
+    {
+      "heading": "Token IDs vs Embeddings",
+      "definition": "Token IDs like 8123 for 'Dog' and 8521 for 'Grapes' are meaningless lookup numbers. Embeddings are dense numerical vectors that capture relationships — King and Queen are close in embedding space, but neither is close to Banana.",
+      "points": [
+        "Token ID = random number in vocabulary — no semantic relationship",
+        "Embedding = learned vector that captures meaning and relationships",
+        "Similar concepts cluster together in embedding space",
+        "Embeddings are learned during training, not assigned by humans"
+      ]
+    },
+    {
+      "heading": "Vectorization & how embeddings work",
+      "definition": "Vectorization converts text into arrays of numbers (vectors). Embedding models create these vectors with thousands of dimensions learned from vast training data — so 'Apple Store' and 'apple fruit' get different representations.",
+      "points": [
+        "Any text, image, or document can become a numerical vector",
+        "Dimensions are learned from data — not manually defined by humans",
+        "Example: rank fruits on sweetness, size, crunchiness → vector per fruit",
+        "Modern embedding models use thousands of dimensions",
+        "More dimensions ≠ more intelligence — trade-offs in storage and compute"
+      ]
+    },
+    {
+      "heading": "Embeddings as coordinates",
+      "definition": "Think of embeddings as coordinates on a map. Apple and Banana cluster in the 'fruits' region. JavaScript and Python cluster in 'programming'. King and Queen cluster in 'royalty'. Distance between points = semantic similarity.",
+      "points": [
+        "Similar words/tokens sit close together in embedding space",
+        "King–Queen relationship is mathematically close; King–Banana is far",
+        "Meaning is distributed across many dimensions — no single dimension = one concept",
+        "2D visualizations lose information — real space has thousands of dimensions"
+      ]
+    },
+    {
+      "heading": "Semantic similarity & cosine similarity",
+      "definition": "Semantic similarity checks if two sentences mean the same thing even with different words. Cosine similarity measures this by comparing the angle between two embedding vectors.",
+      "points": [
+        "'How do I center a div?' ≈ 'How to align HTML element in middle of parent?'",
+        "Cosine similarity: similar direction = similar meaning",
+        "Embeddings enable search, retrieval, clustering, and recommendations",
+        "Similar embeddings ≠ identical meaning — could be topic, opposition, or category"
+      ]
+    },
+    {
+      "heading": "Token vs text embeddings",
+      "definition": "Token embeddings help the model process sequences internally — one vector per token. Text embeddings summarize entire sentences or documents — one vector for the whole text. Different tools for different jobs.",
+      "points": [
+        "Token embedding: per-piece representation for reading/generating text",
+        "Text embedding: whole-sentence summary for search, RAG, classification",
+        "Token embedding = dictionary definition; text embedding = book back-cover summary",
+        "Context and position can change a token's effective meaning mid-sentence"
+      ]
+    },
+    {
+      "heading": "Positional & contextual embeddings",
+      "definition": "Word order matters — 'Dog bites Man' vs 'Man bites Dog' have same words but different meanings. Positional embeddings tell the model where each token sits. Contextualization updates meaning based on surrounding words.",
+      "points": [
+        "Positional embedding: gives tokens a sense of order in the sentence",
+        "Same token 'Java' → programming language OR Indonesian island based on context",
+        "Transformers contextualize tokens through multiple layers of processing",
+        "Static embeddings alone can't handle polysemy (one word, many meanings)"
+      ]
+    },
+    {
+      "heading": "Key misconceptions",
+      "definition": "Embeddings are powerful but often misunderstood. They capture relationships — they don't verify facts or guarantee truth.",
+      "points": [
+        "❌ Embedding = dictionary → ✅ Learned numerical representation",
+        "❌ Each dimension has clear human meaning → ✅ Meaning is distributed",
+        "❌ Similar embeddings = same meaning → ✅ Could be topic, association, or opposition",
+        "❌ Similarity proves truth → ✅ Two false statements can be semantically similar",
+        "❌ One embedding model fits all tasks → ✅ Depends on language, domain, data type"
+      ]
+    }
+  ]
+}

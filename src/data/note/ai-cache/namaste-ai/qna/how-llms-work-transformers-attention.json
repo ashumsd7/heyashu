@@ -1,0 +1,41 @@
+{
+  "topic": "Transformers & Attention Explained",
+  "description": "Practical answers about the Transformer architecture, attention mechanisms, and how LLMs generate text word by word.",
+  "questions": [
+    {
+      "id": 1,
+      "question": "What does GPT stand for and is it the same as ChatGPT?",
+      "answer": "GPT = Generative Pre-trained Transformer. Generative means it creates new text. Pre-trained means it already learned from massive data. Transformer is the architecture. ChatGPT is OpenAI's product built on GPT architecture — but all modern LLMs (Claude, Gemini, Llama) use the same GPT-style Transformer pattern."
+    },
+    {
+      "id": 2,
+      "question": "How does an LLM generate text word by word?",
+      "answer": "Input sentence → broken into tokens → converted to embeddings → fed into neural network → model predicts most likely next word → that word is added back as input → loop repeats until a stop token or termination condition. Each step, the entire sequence so far goes through the network again."
+    },
+    {
+      "id": 3,
+      "question": "What is self-attention and why is it important?",
+      "answer": "Self-attention lets each token in a sentence look at all other tokens to understand relationships. In 'The cat sat on the mat because it was tired', attention helps the model figure out 'it' refers to 'cat'. Before Transformers (2017), RNNs processed sequentially and missed these long-range connections."
+    },
+    {
+      "id": 4,
+      "question": "What is causal (masked) attention?",
+      "answer": "Causal attention prevents the model from seeing future tokens when predicting the next word. A token can see itself and all tokens before it, but never after. This ensures information flows one direction: past → present. 'Masked' means future words are hidden; 'causal' means cause comes before effect."
+    },
+    {
+      "id": 5,
+      "question": "What happens inside one Transformer layer?",
+      "answer": "Token + positional embeddings → Layer Norm → Multi-Head Attention (tokens communicate) → Residual connection (add original input back) → Layer Norm → Feed-Forward Network (each token processes independently) → Residual connection → output to next layer. Multiple layers stack, each refining understanding."
+    },
+    {
+      "id": 6,
+      "question": "What's the difference between Attention and Feed-Forward Network?",
+      "answer": "Attention lets tokens talk to each other — 'bank' finds river meaning by looking at surrounding words. FFN lets each token think independently about what it learned from attention. Attention = communication; FFN = individual processing. Together they form the repeating block that powers text generation."
+    },
+    {
+      "id": 7,
+      "question": "How does the model pick the final next word?",
+      "answer": "After all Transformer layers process the input, a Linear layer reshapes the output and Softmax converts raw scores into probabilities (percentages summing to 100%). The token/word with the highest probability becomes the predicted next word. This process repeats for every word in the generated response."
+    }
+  ]
+}

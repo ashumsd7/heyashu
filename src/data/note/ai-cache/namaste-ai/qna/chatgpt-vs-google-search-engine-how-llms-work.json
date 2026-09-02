@@ -1,0 +1,41 @@
+{
+  "topic": "ChatGPT vs Google: How LLMs Work",
+  "description": "Practical answers about retrieval vs generation, hallucinations, training vs inference, and when to trust AI outputs.",
+  "questions": [
+    {
+      "id": 1,
+      "question": "What's the main difference between Google Search and ChatGPT?",
+      "answer": "Google searches its index of web pages and returns ranked links — that's retrieval. ChatGPT generates answers from patterns learned during training — that's generation. Google can say 'no results found'; ChatGPT will often generate something even when it doesn't know the answer."
+    },
+    {
+      "id": 2,
+      "question": "How does Google build and use its search index?",
+      "answer": "Google's crawlers (spiders) constantly visit websites and store content in a massive index — like a table of contents for the web. When you search, Google looks up this pre-built index instead of scanning the live internet. Ranking depends on domain authority, backlinks, page speed, keywords, and SEO factors."
+    },
+    {
+      "id": 3,
+      "question": "What is a base model and how is it different from ChatGPT?",
+      "answer": "A base model is the raw AI that only predicts the next token — like a giant autocomplete. ChatGPT is built on top with instruction tuning, safety filters, tool access, web search, and conversation management. Think: base model = engine, ChatGPT = car with all the features."
+    },
+    {
+      "id": 4,
+      "question": "What is an AI hallucination and how do I avoid trusting false answers?",
+      "answer": "Hallucination is when AI makes up information and presents it confidently as fact. It's not lying — it's predicting the next best word. To reduce risk: ask for sources, say 'only answer if you're sure', ask about uncertainties, use web search/RAG for grounding, and never trust AI alone for medical or legal advice."
+    },
+    {
+      "id": 5,
+      "question": "What is the difference between training and inference?",
+      "answer": "Training is the school phase — the AI studies massive datasets to learn patterns (expensive, done once or periodically). Inference is the working phase — every time you send a prompt, the trained model generates a response in real time. Training builds the brain; inference uses it."
+    },
+    {
+      "id": 6,
+      "question": "What is RAG and why is it important for real-world AI?",
+      "answer": "RAG (Retrieval-Augmented Generation) combines external evidence retrieval with LLM text generation. Web search + LLM = retrieval provides facts, generation gives readable answers. This is crucial for personal assistants, document Q&A, and any app where the LLM needs access to your private data or current information."
+    },
+    {
+      "id": 7,
+      "question": "Why do LLMs have a knowledge cutoff date?",
+      "answer": "Retraining on new data is complex and extremely expensive — models aren't updated daily. Each LLM is trained on data available up to a certain date (check model docs). For current events, models rely on tools like web search rather than retraining. This is why knowledge cutoff matters for factual questions about recent events."
+    }
+  ]
+}

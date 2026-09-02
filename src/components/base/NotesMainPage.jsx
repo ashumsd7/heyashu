@@ -20,6 +20,7 @@ import {
   NotesReaderAiDrawers,
   useNotesReaderAi,
 } from "@/components/garden/NotesReaderAiToolkit";
+import DownloadNotePdfButton from "@/components/garden/DownloadNotePdfButton";
 import {
   DEFAULT_AVATAR,
   GITHUB_REPO_LINK,
@@ -151,6 +152,10 @@ const NotesMainPage = ({
 
   // Per-chapter canonical for Google (prefer query.slug — reliable on SSG)
   const slugParam = router?.query?.slug;
+  const notePdfSlug =
+    subDomain === "namaste-ai-notes" && typeof slugParam === "string"
+      ? slugParam
+      : null;
   const chapterPath =
     typeof slugParam === "string"
       ? `/digital-garden/notes/${subDomain}/${slugParam}`
@@ -362,9 +367,18 @@ const NotesMainPage = ({
                   {/* Desktop AI actions */}
                   <NotesReaderAiButtons
                     className="hidden md:flex"
-                    onQuickOpen={() => ai.setQuickOpen(true)}
-                    onQuizOpen={() => ai.setQuizOpen(true)}
-                    onQnaOpen={() => ai.setQnaOpen(true)}
+                    activeMode={
+                      ai.quickOpen
+                        ? "quick"
+                        : ai.quizOpen
+                          ? "quiz"
+                          : ai.qnaOpen
+                            ? "qna"
+                            : null
+                    }
+                    onQuickOpen={ai.openQuickRead}
+                    onQuizOpen={ai.openQuiz}
+                    onQnaOpen={ai.openQna}
                   />
 
                   {/* Desktop tools */}
@@ -393,8 +407,9 @@ const NotesMainPage = ({
                     </div>
                   </div>
 
-                  {/* Mobile — Corporate Radio (right of name) + tools */}
+                  {/* Mobile — Corporate Radio + PDF + tools */}
                   <div className="flex shrink-0 items-center gap-1.5 lg:hidden">
+                    <DownloadNotePdfButton slug={notePdfSlug} compact />
                     <CorporateRadioButton compact />
                     <button
                       type="button"
@@ -668,7 +683,8 @@ const NotesMainPage = ({
                       >
                         <HiOutlinePencilSquare className="h-4 w-4" />
                       </a>
-                      <div className="hidden lg:block">
+                      <div className="hidden lg:flex lg:items-center lg:gap-2">
+                        <DownloadNotePdfButton slug={notePdfSlug} />
                         <CorporateRadioButton />
                       </div>
                     </div>
@@ -744,9 +760,18 @@ const NotesMainPage = ({
             <NotesReaderAiButtons
               variant="compact"
               className="flex w-full items-center justify-center gap-1.5"
-              onQuickOpen={() => ai.setQuickOpen(true)}
-              onQuizOpen={() => ai.setQuizOpen(true)}
-              onQnaOpen={() => ai.setQnaOpen(true)}
+              activeMode={
+                ai.quickOpen
+                  ? "quick"
+                  : ai.quizOpen
+                    ? "quiz"
+                    : ai.qnaOpen
+                      ? "qna"
+                      : null
+              }
+              onQuickOpen={ai.openQuickRead}
+              onQuizOpen={ai.openQuiz}
+              onQnaOpen={ai.openQna}
             />
             <div className="flex items-center justify-between gap-1 rounded-xl border border-[var(--nr-border)] bg-[var(--nr-bg)] px-1 py-0.5">
               <button
@@ -863,7 +888,14 @@ const NotesMainPage = ({
           ) : null}
         </AnimatePresence>
       
-        <NotesReaderAiDrawers {...ai} />
+        <NotesReaderAiDrawers
+          {...ai}
+          cacheSlug={
+            subDomain === "namaste-ai-notes" && typeof slugParam === "string"
+              ? slugParam
+              : undefined
+          }
+        />
       </div>
 
       <style jsx global>{`

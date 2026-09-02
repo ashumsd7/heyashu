@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import {
   HiBolt,
   HiSparkles,
@@ -9,17 +9,25 @@ import QuestionsListDrawer from "@/components/garden/AI/QuestionsListDrawer";
 import AIQuestionDrawer from "@/components/garden/AIQuestionDrawer";
 
 export function useNotesReaderAi() {
-  const [quickOpen, setQuickOpen] = useState(false);
-  const [qnaOpen, setQnaOpen] = useState(false);
-  const [quizOpen, setQuizOpen] = useState(false);
+  const [activeDrawer, setActiveDrawer] = useState(null);
+
+  const closeAll = useCallback(() => setActiveDrawer(null), []);
+
+  const openQuickRead = useCallback(() => setActiveDrawer("quick"), []);
+  const openQuiz = useCallback(() => setActiveDrawer("quiz"), []);
+  const openQna = useCallback(() => setActiveDrawer("qna"), []);
 
   return {
-    quickOpen,
-    setQuickOpen,
-    qnaOpen,
-    setQnaOpen,
-    quizOpen,
-    setQuizOpen,
+    quickOpen: activeDrawer === "quick",
+    qnaOpen: activeDrawer === "qna",
+    quizOpen: activeDrawer === "quiz",
+    setQuickOpen: (open) => setActiveDrawer(open ? "quick" : null),
+    setQnaOpen: (open) => setActiveDrawer(open ? "qna" : null),
+    setQuizOpen: (open) => setActiveDrawer(open ? "quiz" : null),
+    openQuickRead,
+    openQuiz,
+    openQna,
+    closeAll,
   };
 }
 
@@ -39,12 +47,23 @@ export function NotesReaderAiButtons({
   variant = "default",
   className = "",
   showLabels = true,
+  activeMode,
 }) {
   const btn = BUTTON_STYLES[variant] || BUTTON_STYLES.default;
 
+  const activeRing =
+    variant === "header"
+      ? "ring-2 ring-white/40 bg-white/20"
+      : "ring-2 ring-violet-400/50 bg-[var(--nr-hover)]";
+
   return (
     <div className={`flex items-center gap-1.5 sm:gap-2 ${className}`}>
-      <button type="button" onClick={onQuickOpen} className={btn}>
+      <button
+        type="button"
+        onClick={onQuickOpen}
+        className={`${btn} ${activeMode === "quick" ? activeRing : ""}`}
+        aria-pressed={activeMode === "quick"}
+      >
         <HiBolt className="h-3.5 w-3.5 shrink-0 text-violet-500" />
         {showLabels ? (
           <span className={variant === "header" ? "hidden sm:inline" : ""}>
@@ -52,13 +71,25 @@ export function NotesReaderAiButtons({
           </span>
         ) : null}
       </button>
-      <button type="button" onClick={onQuizOpen} className={btn}>
+      <button
+        type="button"
+        onClick={onQuizOpen}
+        className={`${btn} ${activeMode === "quiz" ? activeRing : ""}`}
+        aria-pressed={activeMode === "quiz"}
+      >
         <HiSparkles className="h-3.5 w-3.5 shrink-0 text-sky-500" />
         {showLabels ? (
-          <span className={variant === "header" ? "hidden sm:inline" : ""}>Quiz</span>
+          <span className={variant === "header" ? "hidden sm:inline" : ""}>
+            Quiz
+          </span>
         ) : null}
       </button>
-      <button type="button" onClick={onQnaOpen} className={btn}>
+      <button
+        type="button"
+        onClick={onQnaOpen}
+        className={`${btn} ${activeMode === "qna" ? activeRing : ""}`}
+        aria-pressed={activeMode === "qna"}
+      >
         <HiChatBubbleLeftRight className="h-3.5 w-3.5 shrink-0 text-violet-500" />
         {showLabels ? (
           <span className={variant === "header" ? "hidden sm:inline" : ""}>
@@ -77,14 +108,25 @@ export function NotesReaderAiDrawers({
   setQnaOpen,
   quizOpen,
   setQuizOpen,
+  cacheSlug,
 }) {
   return (
     <>
-      <QuickReaderDrawer isOpen={quickOpen} setIsOpen={setQuickOpen} />
-      <QuestionsListDrawer isOpen={qnaOpen} setIsOpen={setQnaOpen} />
-      {quizOpen ? (
-        <AIQuestionDrawer isOpen={quizOpen} setIsOpen={setQuizOpen} />
-      ) : null}
+      <QuickReaderDrawer
+        isOpen={quickOpen}
+        setIsOpen={setQuickOpen}
+        cacheSlug={cacheSlug}
+      />
+      <QuestionsListDrawer
+        isOpen={qnaOpen}
+        setIsOpen={setQnaOpen}
+        cacheSlug={cacheSlug}
+      />
+      <AIQuestionDrawer
+        isOpen={quizOpen}
+        setIsOpen={setQuizOpen}
+        cacheSlug={cacheSlug}
+      />
     </>
   );
 }

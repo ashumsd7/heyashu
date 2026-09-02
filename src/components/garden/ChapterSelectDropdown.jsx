@@ -3,7 +3,7 @@ import { HiChevronDown } from "react-icons/hi2";
 
 function chapterLabel(ch) {
   const name = ch.episodeTitle || ch.name || ch.title || ch.slug;
-  return ch.episode != null ? `Ep ${ch.episode} — ${name}` : name;
+  return ch.episode != null ? `Episode ${ch.episode} — ${name}` : name;
 }
 
 export default function ChapterSelectDropdown({

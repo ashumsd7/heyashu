@@ -1,0 +1,48 @@
+{
+  "intro": "Welcome to Namaste AI Notes — your starting point for learning AI the right way. This episode sets the tone for the whole series: go deep, build real things, and enjoy the journey. Use this summary before exams or when you need a quick refresh on how to get the most out of the course.",
+  "sections": [
+    {
+      "heading": "Why this series exists",
+      "definition": "AI is everywhere in our daily work — from writing code to searching for answers. But using ChatGPT on the surface won't make you stand out. This series helps engineers and tech people understand AI properly so you can build products and solve real problems.",
+      "points": [
+        "Surface-level tool use is not enough — learn how AI actually works",
+        "Cover Gen AI, ML, neural networks, and the topics that matter for builders",
+        "Focus on building products and solving real-world problems with AI",
+        "Stand out by going deeper than people who only copy-paste from AI tools"
+      ]
+    },
+    {
+      "heading": "Course roadmap",
+      "definition": "The series moves step by step from foundations to real AI engineering. Each topic builds on the previous one, so follow the order and don't skip ahead unless you've understood the basics.",
+      "points": [
+        "Start: Intro → LLM → Prompting → AI for SDEs → AI Tools",
+        "Then: RAG → AI Agents → MCP → AI Engineering → Projects",
+        "JavaScript and Python friendly — basic coding knowledge is enough",
+        "Backend topics like Express and MongoDB will also appear along the way",
+        "No hard language lock — use AI to translate code between languages if needed"
+      ]
+    },
+    {
+      "heading": "How to learn well",
+      "definition": "Slow and steady wins. Binge-watching 5 hours won't help you retain things. Short focused sessions with breaks, active note-taking, and community involvement will make you actually remember what you learn.",
+      "points": [
+        "Use Pomodoro — max ~50 minutes of focus, then a 5–10 minute break",
+        "Make your own notes instead of just reading — writing helps retention",
+        "Help others in the community — teaching reinforces your own learning",
+        "Break things while experimenting — curiosity beats passive watching",
+        "Rewatch tough parts 2–3 times — patience matters more than speed",
+        "Stay active on social media and share your journey — it helps you and others"
+      ]
+    },
+    {
+      "heading": "Mindset for the journey",
+      "definition": "Learning AI is a long game. You don't need to know everything on day one. Keep taking action, stay curious, and trust that consistency will pay off over time.",
+      "points": [
+        "Don't jump randomly between topics — follow the roadmap order",
+        "Explore on your own — don't wait for a teacher for every small doubt",
+        "Create a community, take challenges, and learn from friends",
+        "Do Karm — keep showing up, results will follow naturally"
+      ]
+    }
+  ]
+}

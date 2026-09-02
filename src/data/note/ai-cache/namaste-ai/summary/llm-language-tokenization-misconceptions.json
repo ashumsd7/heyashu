@@ -1,0 +1,70 @@
+{
+  "intro": "LLMs don't read English — they read numbers. This episode reveals the secret language of tokens, token IDs, and tokenizers. Understanding tokenization helps you write better prompts, manage costs, and avoid common misconceptions.",
+  "sections": [
+    {
+      "heading": "Tokens & Token IDs",
+      "definition": "When you type 'These notes are awesome', the LLM doesn't see words — it sees numbers. Text is broken into tokens, and each token gets a token ID. The model predicts the next token ID, which maps back to text.",
+      "points": [
+        "Sentence → broken into tokens → converted to token IDs → fed to LLM",
+        "LLM predicts next token ID, not next word directly",
+        "Tokenizer does the breaking — different models use different tokenizers",
+        "One word ≠ one token always — 'awesome' might become 'awe' + 'some'"
+      ]
+    },
+    {
+      "heading": "Subword tokenization & BPE",
+      "definition": "Subword tokenization splits words into reusable pieces. Byte Pair Encoding (BPE) merges common character pairs into tokens — so 'un', 'trust', 'able' can combine into 'untrustable' as 3 tokens.",
+      "points": [
+        "Common pieces become single tokens — reused across many words",
+        "BPE used by OpenAI; SentencePiece-BPE used by Meta Llama",
+        "Tokenizer vocabulary = fixed list of all tokens the model recognizes",
+        "Tokenization depends on vocabulary, not grammar or word meaning",
+        "'undone' can be 1 token if it's common in vocabulary — not always split"
+      ]
+    },
+    {
+      "heading": "English vs other languages",
+      "definition": "Same meaning in different languages produces different token IDs. English is more token-efficient; Hinglish and Hindi often use more tokens for the same content — which means higher cost.",
+      "points": [
+        "No meaning in token IDs — just mapping based on text patterns",
+        "'I am learning AI' vs 'Mai AI seekh raha hu' — different token counts",
+        "Modern tokenizers handle Hinglish well despite spelling variations",
+        "English takes fewer tokens → cheaper and faster for same content",
+        "Vocabulary size affects how efficiently a model handles each language"
+      ]
+    },
+    {
+      "heading": "Special characters, emojis & code",
+      "definition": "Emojis, code, spaces, and capitalization all affect tokenization. Adding or removing a space can change the token count. Everything is mapped in the vocabulary.",
+      "points": [
+        "Emojis and special characters have their own token mappings",
+        "Spaces, dashes, curly braces — all change how text is tokenized",
+        "Tokenization fertility = average tokens per word (lower = cheaper/faster)",
+        "Try OpenAI tokenizer or tiktokenizer.vercel.app to see live tokenization"
+      ]
+    },
+    {
+      "heading": "Context window",
+      "definition": "The context window is the model's short-term working memory — the max amount of tokenized text it can process at once. It includes system instructions, your messages, documents, and tool outputs.",
+      "points": [
+        "Context window = max tokens model can 'see' in one request",
+        "Includes everything: system prompt, chat history, files, tool results",
+        "Shared between your input and the model's generated output",
+        "Overflow? Truncate input, summarize old messages, split into separate chats",
+        "Longer prompt ≠ better result — tokens directly affect API cost"
+      ]
+    },
+    {
+      "heading": "Common misconceptions",
+      "definition": "Many students get tokenization wrong. Clearing these up saves you from bad assumptions about how LLMs work.",
+      "points": [
+        "❌ One token = one word → ✅ Words can split into multiple tokens",
+        "❌ All models use same tokenizer → ✅ Each model has its own",
+        "❌ Token ID represents meaning → ✅ IDs are just lookup numbers",
+        "❌ One emoji = one token → ✅ Can be multiple tokens",
+        "❌ Larger context = perfect memory → ✅ Context has limits and costs",
+        "❌ More tokens = better answers → ✅ Quality depends on prompt, not length"
+      ]
+    }
+  ]
+}

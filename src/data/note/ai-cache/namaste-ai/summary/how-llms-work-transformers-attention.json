@@ -1,0 +1,77 @@
+{
+  "intro": "GPT stands for Generative Pre-trained Transformer — and the Transformer is the real hero behind ChatGPT. This episode walks through the neural network pipeline: tokens → embeddings → attention → next word prediction. Use this for revision before diving deeper.",
+  "sections": [
+    {
+      "heading": "Neural networks & next-word prediction",
+      "definition": "Just like our brain decides the next word in a sentence, a neural network does the same for LLMs. Input tokens become embeddings, pass through the network, and the model predicts the most likely next word — then repeats until done.",
+      "points": [
+        "Input sentence → tokens → embeddings → neural network → next word",
+        "Generated word gets added back as input — loop continues until stop token",
+        "Stopping: end-of-sequence token or other termination logic",
+        "Neural network = computational brain that powers word-by-word generation"
+      ]
+    },
+    {
+      "heading": "GPT: Generative Pre-trained Transformer",
+      "definition": "GPT is not ChatGPT — all modern LLMs use GPT-style architecture. Generative = creates new text. Pre-trained = already learned from massive data. Transformer = the architecture that makes it all work.",
+      "points": [
+        "Generative: produces text, doesn't retrieve from a database",
+        "Pre-trained: model already studied huge datasets before you use it",
+        "Transformer: reads entire sequences at once using attention (since 2017)",
+        "OpenAI named their assistant ChatGPT — but GPT architecture is industry standard"
+      ]
+    },
+    {
+      "heading": "Transformer architecture",
+      "definition": "Before 2017, RNNs and LSTMs processed text word-by-word and missed long-range relationships. Google's 'Attention Is All You Need' paper introduced Transformers — the foundation of ChatGPT, Claude, Gemini, and all modern LLMs.",
+      "points": [
+        "Transformer reads entire sentence/block at once — not sequentially",
+        "Introduced in 2017 by Google researchers (Vaswani et al.)",
+        "Replaced RNN/LSTM for most NLP tasks",
+        "Heart of neural network = Transformer; heart of Transformer = Attention"
+      ]
+    },
+    {
+      "heading": "Attention & self-attention",
+      "definition": "Attention helps the model focus on the most relevant words in a sentence. Self-attention lets each token look at all other tokens to understand relationships — like figuring out 'it' refers to 'cat' in 'The cat sat on the mat because it was tired.'",
+      "points": [
+        "Attention: focus on important parts, ignore the rest",
+        "Self-attention: each word checks all other words in the same sentence",
+        "Solves long-range dependency problems that RNNs couldn't handle",
+        "Also called: Multi-Head Attention, Causal Self-Attention, Masked Attention"
+      ]
+    },
+    {
+      "heading": "Causal & multi-head attention",
+      "definition": "Causal (masked) attention prevents the model from seeing future words — only past and present tokens. Multi-head attention runs several attention processes in parallel, each focusing on different relationships.",
+      "points": [
+        "Masked = hide future words; Causal = past causes present",
+        "Token can see itself + all tokens before it, never after",
+        "Multi-head: parallel attention processes capture different patterns",
+        "Information flows one direction: past → present"
+      ]
+    },
+    {
+      "heading": "Inside a Transformer layer",
+      "definition": "Each Transformer layer follows a pipeline: token + positional embeddings → Layer Norm → Attention → Residual connection → Layer Norm → Feed-Forward Network → output. Residual connections preserve original info while adding updates.",
+      "points": [
+        "Token Embedding + Positional Embedding → input to Transformer",
+        "Layer Norm: keeps numbers stable (mean 0, variance 1) for smooth learning",
+        "Attention: tokens communicate with each other",
+        "Residual/Skip connection: output = original input + layer update",
+        "FFN: each token processes independently what it learned from attention",
+        "Linear + Softmax: convert to probability scores → pick highest as next word"
+      ]
+    },
+    {
+      "heading": "Attention vs FFN — the division of labor",
+      "definition": "Attention lets tokens talk to each other (context). Feed-Forward Network lets each token think independently about what it learned. Together they form the repeating block that powers generation.",
+      "points": [
+        "Attention: 'bank' finds river meaning by looking at surrounding words",
+        "FFN: each token deepens its own representation after communication",
+        "Multiple Transformer layers stack — each refines understanding further",
+        "Final step: Linear layer reshapes → Softmax gives word probabilities → pick winner"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "topic": "AI Evolution: From Turing to Agentic AI",
+  "description": "Check how well you know the timeline of AI — from Turing Test to Transformers, ChatGPT, and the Agentic AI era.",
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the Turing Test designed to evaluate?",
+      "options": [
+        "How fast a computer can calculate math",
+        "Whether a machine can mimic human conversation well enough to fool a judge",
+        "How many rules a program can execute per second"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Alan Turing's test (1950) puts a judge in a room asking questions to both a human and a machine. If the judge can't tell who is human, the machine passes — showing it can 'think' convincingly."
+    },
+    {
+      "id": 2,
+      "question": "Who coined the term 'Artificial Intelligence' in 1956?",
+      "options": ["Alan Turing", "John McCarthy", "Sam Altman"],
+      "correctAnswer": 1,
+      "explanation": "John McCarthy, a computer scientist, named the field 'Artificial Intelligence' in 1956. Researchers gathered with the belief that every aspect of learning could be simulated by machines."
+    },
+    {
+      "id": 3,
+      "question": "Why did rule-based AI (Expert Systems) fail for complex tasks?",
+      "options": [
+        "Computers were too slow in the 1980s",
+        "You can't write every possible if-else condition for every scenario",
+        "Rules were too accurate and boring"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Rule-based systems used hundreds of if-else conditions (e.g., if email has 'FREE' → spam). But spammers change tactics, and it's impossible to cover every edge case manually."
+    },
+    {
+      "id": 4,
+      "question": "What breakthrough did AlexNet (2012) achieve?",
+      "options": [
+        "First chatbot that could hold conversations",
+        "Deep neural network that revolutionized image recognition on ImageNet",
+        "First machine to beat a human at chess"
+      ],
+      "correctAnswer": 1,
+      "explanation": "AlexNet, trained on ImageNet's 14M+ images, showed deep neural networks could recognize images accurately — enabling face unlock, self-driving cars, and medical imaging."
+    },
+    {
+      "id": 5,
+      "question": "What did the 2017 paper 'Attention Is All You Need' introduce?",
+      "options": [
+        "The first search engine algorithm",
+        "The Transformer architecture that powers modern LLMs",
+        "A new type of rule-based expert system"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Google researchers introduced Transformers in 2017. This architecture understands context across entire sentences — making ChatGPT, Claude, Gemini, and all modern LLMs possible."
+    },
+    {
+      "id": 6,
+      "question": "What two main factors are needed to build a Large Language Model?",
+      "options": [
+        "A fast internet connection and a good keyboard",
+        "Massive training data and heavy GPU/compute power",
+        "A large team of writers and a printing press"
+      ],
+      "correctAnswer": 1,
+      "explanation": "LLMs need enormous datasets (internet text, books) and expensive GPU infrastructure for training. This is why only a few countries/companies lead in LLM development — it's cost-intensive."
+    },
+    {
+      "id": 7,
+      "question": "What happened in November 2022 that changed public AI usage?",
+      "options": [
+        "Google released its first search engine",
+        "Sam Altman released ChatGPT — public could chat with AI",
+        "Alan Turing published his first paper"
+      ],
+      "correctAnswer": 1,
+      "explanation": "ChatGPT's launch in Nov 2022 let the public interact with a powerful LLM through conversation. It became the most downloaded app in history and sparked the current AI race."
+    }
+  ]
+}

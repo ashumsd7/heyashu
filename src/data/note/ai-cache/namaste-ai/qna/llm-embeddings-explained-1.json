@@ -1,0 +1,41 @@
+{
+  "topic": "LLM Embeddings: How AI Understands Meaning",
+  "description": "Practical answers about embeddings, vectorization, semantic similarity, and how AI handles words with multiple meanings.",
+  "questions": [
+    {
+      "id": 1,
+      "question": "What's the difference between token IDs and embeddings?",
+      "answer": "Token IDs are meaningless lookup numbers — 8123 for 'Dog' and 8521 for 'Grapes' have no relationship. Embeddings are dense numerical vectors learned during training that capture meaning. King and Queen sit close in embedding space; neither is close to Banana. Token IDs = dictionary page numbers; embeddings = actual meaning coordinates."
+    },
+    {
+      "id": 2,
+      "question": "How does AI know 'apple' (fruit) vs 'Apple' (company)?",
+      "answer": "Initial token embeddings may look similar, but Transformers process the full sentence through multiple layers. In 'I ate apple at Apple Store', surrounding words ('ate' vs 'Store') change each token's internal representation. This contextualization happens naturally — the model wasn't given a dictionary; it learned from billions of examples."
+    },
+    {
+      "id": 3,
+      "question": "What is vectorization and why do we need it?",
+      "answer": "Vectorization converts text, images, or documents into arrays of numbers (vectors) so computers can do math on them. You can't compute 'similarity' between two English sentences directly — but you can compare their numerical vectors. Embedding models create these vectors with thousands of dimensions learned from training data."
+    },
+    {
+      "id": 4,
+      "question": "What is cosine similarity and where is it used?",
+      "answer": "Cosine similarity measures how close two embedding vectors are by comparing the angle between them. Similar direction = similar meaning. Used in semantic search ('center a div' ≈ 'align element in middle'), RAG retrieval, recommendation systems, clustering, and duplicate detection."
+    },
+    {
+      "id": 5,
+      "question": "What's the difference between token embedding and text embedding?",
+      "answer": "Token embedding: one vector per token, used internally by the model for reading/generating text. Text embedding: one vector summarizing an entire sentence or document, used for search, classification, and retrieval. Think: token embedding = dictionary definition of a word; text embedding = back-cover summary of a book."
+    },
+    {
+      "id": 6,
+      "question": "Why do positional embeddings matter?",
+      "answer": "Word order changes meaning completely. 'Dog bites Man' vs 'Man bites Dog' — same words, different outcomes. Positional embeddings tell the model where each token sits in the sequence. Combined with token embeddings, the model knows both what the word is and where it appears."
+    },
+    {
+      "id": 7,
+      "question": "Can embedding similarity prove a statement is true?",
+      "answer": "No. Embeddings capture semantic relatedness, not factual accuracy. Two false statements on the same topic can have very high similarity. Two texts can be close in topic but completely disagree. Always verify facts separately — embeddings are for finding related content, not for truth-checking."
+    }
+  ]
+}

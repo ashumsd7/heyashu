@@ -1,0 +1,83 @@
+{
+  "topic": "LLM Embeddings: How AI Understands Meaning",
+  "description": "Check your understanding of embeddings, vectorization, semantic similarity, and how AI distinguishes words with multiple meanings.",
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the key difference between token IDs and embeddings?",
+      "options": [
+        "They are the same thing with different names",
+        "Token IDs are meaningless lookup numbers; embeddings are vectors that capture meaning",
+        "Token IDs are for English; embeddings are for other languages"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Token ID 8123 for 'Dog' is just a vocabulary lookup — no relationship to 8521 for 'Grapes'. Embeddings are dense numerical vectors where similar concepts (King–Queen) sit close together."
+    },
+    {
+      "id": 2,
+      "question": "How does an LLM know 'apple' (fruit) vs 'Apple' (company)?",
+      "options": [
+        "It reads a dictionary definition for each word",
+        "Contextual embeddings update based on surrounding words during processing",
+        "It asks the user to clarify every ambiguous word"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Initial token embeddings may be similar, but Transformers process surrounding tokens through multiple layers. 'I ate apple at Apple Store' — context changes each 'apple'/'Apple' representation differently."
+    },
+    {
+      "id": 3,
+      "question": "What is vectorization in the context of LLMs?",
+      "options": [
+        "Converting images to text descriptions",
+        "Turning words, sentences, or documents into arrays of numbers (vectors)",
+        "Splitting text into individual characters"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Vectorization converts any information (text, images, documents) into numerical vectors so computers can do math on them. Embedding models create these vectors with thousands of learned dimensions."
+    },
+    {
+      "id": 4,
+      "question": "What does cosine similarity measure?",
+      "options": [
+        "The physical distance between two servers",
+        "How close two embedding vectors are in direction — indicating semantic similarity",
+        "The cost of running an embedding model"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Cosine similarity compares the angle between two vectors. Similar direction = similar meaning. Used in search, RAG, clustering, and recommendation systems."
+    },
+    {
+      "id": 5,
+      "question": "What is the difference between token embedding and text embedding?",
+      "options": [
+        "Token embedding is for images; text embedding is for words",
+        "Token embedding is per-piece for model processing; text embedding summarizes whole sentences/documents",
+        "They are identical — just different terminology"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Token embedding = one vector per token for reading/generating. Text embedding = one vector for an entire sentence/document for search, classification, or retrieval tasks."
+    },
+    {
+      "id": 6,
+      "question": "What role do positional embeddings play?",
+      "options": [
+        "They determine the API pricing tier",
+        "They tell the model the order/position of each token in the sentence",
+        "They translate text between languages"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Positional embeddings give tokens a sense of order. 'Dog bites Man' vs 'Man bites Dog' — same words, different positions, completely different meanings."
+    },
+    {
+      "id": 7,
+      "question": "Can two false statements have high embedding similarity?",
+      "options": [
+        "No — embeddings only match true statements",
+        "Yes — embeddings capture relatedness, not truth",
+        "Only if they use the exact same words"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Embeddings measure semantic relatedness, not factual accuracy. Two false statements on the same topic can be very similar in embedding space. Always verify facts separately from similarity scores."
+    }
+  ]
+}

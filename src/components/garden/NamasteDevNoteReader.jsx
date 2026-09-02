@@ -172,9 +172,12 @@ export default function NamasteDevNoteReader({
       headerEnd={
         <NotesReaderAiButtons
           variant="header"
-          onQuickOpen={() => ai.setQuickOpen(true)}
-          onQuizOpen={() => ai.setQuizOpen(true)}
-          onQnaOpen={() => ai.setQnaOpen(true)}
+          activeMode={
+            ai.quickOpen ? "quick" : ai.quizOpen ? "quiz" : ai.qnaOpen ? "qna" : null
+          }
+          onQuickOpen={ai.openQuickRead}
+          onQuizOpen={ai.openQuiz}
+          onQnaOpen={ai.openQna}
         />
       }
     >
@@ -270,7 +273,7 @@ export default function NamasteDevNoteReader({
                 <span className="mb-1 flex items-center gap-1 text-[11px] font-medium text-[var(--nr-muted)]">
                   <HiChevronLeft className="h-3.5 w-3.5" />
                   Previous
-                  {prev.episode != null ? ` · Ep ${prev.episode}` : ""}
+                  {prev.episode != null ? ` · Episode ${prev.episode}` : ""}
                 </span>
                 <span className="font-fraunces text-[15px] font-semibold leading-snug text-[var(--nr-text)]">
                   {getEpisodeDisplayTitle(prev)}
@@ -286,7 +289,7 @@ export default function NamasteDevNoteReader({
               >
                 <span className="mb-1 flex items-center justify-end gap-1 text-[11px] font-medium text-[var(--nr-muted)]">
                   Next
-                  {next.episode != null ? ` · Ep ${next.episode}` : ""}
+                  {next.episode != null ? ` · Episode ${next.episode}` : ""}
                   <HiChevronRight className="h-3.5 w-3.5" />
                 </span>
                 <span className="font-fraunces text-[15px] font-semibold leading-snug text-[var(--nr-text)]">
@@ -298,7 +301,7 @@ export default function NamasteDevNoteReader({
         )}
       </article>
 
-      <NotesReaderAiDrawers {...ai} />
+      <NotesReaderAiDrawers {...ai} cacheSlug={currentSlug} />
     </NamasteDevNotesShell>
   );
 }

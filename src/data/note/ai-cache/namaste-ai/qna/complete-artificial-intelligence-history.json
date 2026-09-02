@@ -1,0 +1,41 @@
+{
+  "topic": "AI Evolution: From Turing to Agentic AI",
+  "description": "Clear answers about AI history, key milestones, and how we reached modern LLMs and Agentic AI.",
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is Artificial Intelligence in simple terms?",
+      "answer": "AI is the science of making machines perform tasks that normally require human intelligence — like recommending movies, driving cars, writing poems, or generating images. When a computer does these things without manual human effort each time, that's AI."
+    },
+    {
+      "id": 2,
+      "question": "What is the Turing Test and why does it matter?",
+      "answer": "Alan Turing (1950) proposed a test: a judge asks questions to both a human and a machine in separate rooms. If the judge can't tell who is human, the machine passes. It was the first serious attempt to measure whether machines can 'think' convincingly."
+    },
+    {
+      "id": 3,
+      "question": "Why did rule-based AI fail and machine learning take over?",
+      "answer": "Rule-based systems used hundreds of if-else conditions (e.g., if email has 'FREE lottery' → spam). But anyone can rephrase spam to bypass rules, and you can't write every possible condition. Machine learning lets the machine learn patterns from data instead of relying on hand-written rules."
+    },
+    {
+      "id": 4,
+      "question": "What was the significance of AlexNet in 2012?",
+      "answer": "AlexNet was a deep neural network trained on ImageNet (14M+ images). It dramatically improved image recognition accuracy and proved deep learning works at scale. This enabled face unlock, self-driving cars, medical imaging, and product search in shopping apps."
+    },
+    {
+      "id": 5,
+      "question": "Why are Transformers (2017) considered a breakthrough?",
+      "answer": "Before Transformers, RNNs/LSTMs processed text sequentially and missed long-range relationships. Transformers read entire sequences at once using attention — understanding that 'it' refers to 'lion' in 'Lion did not cross because it cannot swim.' Every modern LLM (GPT, Claude, Gemini) is built on this architecture."
+    },
+    {
+      "id": 6,
+      "question": "What is the difference between an LLM and Generative AI?",
+      "answer": "An LLM is a Transformer trained on massive text data — it understands and generates language. Generative AI is the broader concept: AI that creates new content (text, images, videos, code). LLMs are one type of Gen AI. Multimodal models generate across text, images, audio, and video."
+    },
+    {
+      "id": 7,
+      "question": "What is Agentic AI and why is it the current focus?",
+      "answer": "Agentic AI refers to AI systems that can plan, use tools, call APIs, and work autonomously to complete tasks — not just answer questions. Modern AI can think, search the web, write code, debug, and deploy. The 2025+ era is about AI agents that act on your behalf, which we'll cover in detail later in the series."
+    }
+  ]
+}

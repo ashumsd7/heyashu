@@ -1,0 +1,83 @@
+{
+  "topic": "LLM Tokenization: Tokens, IDs & Misconceptions",
+  "description": "Test your knowledge of how LLMs process text as tokens, what token IDs are, and common tokenization myths.",
+  "questions": [
+    {
+      "id": 1,
+      "question": "What does an LLM actually receive when you type a sentence?",
+      "options": [
+        "The raw English words directly",
+        "An array of token IDs (numbers)",
+        "A JSON object with grammar rules"
+      ],
+      "correctAnswer": 1,
+      "explanation": "LLMs don't understand English words. Your text is broken into tokens by a tokenizer, each token gets a numeric ID, and that array of numbers is what the model processes."
+    },
+    {
+      "id": 2,
+      "question": "Is one word always equal to one token?",
+      "options": [
+        "Yes, always — one word = one token",
+        "No — a word can split into multiple subword tokens",
+        "Only for English words, not for other languages"
+      ],
+      "correctAnswer": 1,
+      "explanation": "'Awesome' might become 'awe' + 'some' (2 tokens). 'Untrustable' might become 'un' + 'trust' + 'able' (3 tokens). It depends on the tokenizer's vocabulary, not grammar."
+    },
+    {
+      "id": 3,
+      "question": "What is Byte Pair Encoding (BPE)?",
+      "options": [
+        "A way to encrypt LLM responses",
+        "A tokenization method that merges common character pairs into reusable tokens",
+        "A compression algorithm for images"
+      ],
+      "correctAnswer": 1,
+      "explanation": "BPE starts from byte-level units and merges frequently occurring pairs into tokens. Common pieces like 'un', 'trust', 'able' become reusable across many words. OpenAI uses BPE tokenizers."
+    },
+    {
+      "id": 4,
+      "question": "Do token IDs carry semantic meaning?",
+      "options": [
+        "Yes — similar meanings have similar token ID numbers",
+        "No — token IDs are just lookup numbers with no inherent meaning",
+        "Only for English tokens, not for code or emojis"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Token IDs are arbitrary numbers mapped through a vocabulary. ID 8123 for 'Dog' and 8521 for 'Grapes' aren't related numerically. Meaning comes from embeddings, not token IDs."
+    },
+    {
+      "id": 5,
+      "question": "Why does the same sentence in Hinglish often cost more tokens than in English?",
+      "options": [
+        "Hinglish is banned by LLM providers",
+        "Hinglish text often tokenizes into more pieces — English is more token-efficient",
+        "Hinglish prompts are automatically charged double"
+      ],
+      "correctAnswer": 1,
+      "explanation": "English is more efficiently represented in most tokenizers. The same meaning in Hinglish or Hindi may require more tokens, which means higher API cost and faster context window fill-up."
+    },
+    {
+      "id": 6,
+      "question": "What is a context window in an LLM?",
+      "options": [
+        "The browser window where you chat with AI",
+        "The maximum amount of tokenized text the model can process at once",
+        "The time limit before your chat session expires"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Context window = short-term working memory. It includes system instructions, your messages, uploaded documents, and tool outputs — all counted in tokens. Exceeding it causes truncation or errors."
+    },
+    {
+      "id": 7,
+      "question": "Which of these is a common tokenization misconception?",
+      "options": [
+        "Different models use different tokenizers",
+        "One visible emoji is always exactly one token",
+        "Tokens directly affect API cost"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Emojis can be multiple tokens. Other myths: one word = one token, token IDs represent meaning, larger context = perfect memory, more tokens = better results. Always verify with a tokenizer playground."
+    }
+  ]
+}

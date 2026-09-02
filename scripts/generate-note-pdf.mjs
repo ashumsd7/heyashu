@@ -16,8 +16,13 @@ const ROOT = path.join(__dirname, "..");
 
 const SLUG = process.argv[2] || "complete-artificial-intelligence-history";
 const MD_PATH = path.join(ROOT, "src/content/namaste-ai-notes", `${SLUG}.md`);
-const OUT_DIR = path.join(ROOT, "public/pdfs");
+const OUT_DIR = path.join(ROOT, "public/pdfs/namaste-ai");
+const CACHE_PDF_DIR = path.join(
+  ROOT,
+  "src/data/note/ai-cache/namaste-ai/pdf"
+);
 const OUT_PDF = path.join(OUT_DIR, `${SLUG}.pdf`);
+const CACHE_PDF = path.join(CACHE_PDF_DIR, `${SLUG}.pdf`);
 const TMP_HTML = path.join(OUT_DIR, `${SLUG}.html`);
 
 function pathToFileUrl(absPath) {
@@ -193,7 +198,10 @@ async function main() {
 
   try {
     execSync(cmd, { stdio: "inherit", timeout: 60000 });
+    fs.mkdirSync(CACHE_PDF_DIR, { recursive: true });
+    fs.copyFileSync(OUT_PDF, CACHE_PDF);
     console.log("PDF saved:", OUT_PDF);
+    console.log("AI cache copy:", CACHE_PDF);
   } catch (err) {
     console.error("PDF generation failed:", err.message);
     console.error("Fallback: open", TMP_HTML, "and use Print → Save as PDF");

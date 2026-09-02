@@ -1,0 +1,79 @@
+{
+  "intro": "AI didn't appear overnight — it took decades of research, failures, and breakthroughs to reach ChatGPT. This episode walks you through the full timeline from Alan Turing to Agentic AI. Use this summary to understand how each era of AI built on the last one.",
+  "sections": [
+    {
+      "heading": "What is Artificial Intelligence?",
+      "definition": "AI is the science of making machines perform tasks that normally need human intelligence — like recommending movies, driving cars, writing poems, or generating images. It's not magic; it's algorithms and data working together.",
+      "points": [
+        "Machines doing human-like tasks = Artificial Intelligence",
+        "Examples: spam detection, face unlock, chatbots, image generation",
+        "AI won't replace your learning — you still need to understand and build",
+        "Modern AI is often called synthetic intelligence — machines going beyond simple rules"
+      ]
+    },
+    {
+      "heading": "Early history (1950s–1980s)",
+      "definition": "It all started with Alan Turing asking 'Can a machine think?' in 1950. John McCarthy coined 'Artificial Intelligence' in 1956. Early AI relied on hand-written rules — hundreds of if-else conditions.",
+      "points": [
+        "Turing Test: judge chats with human and machine — if judge can't tell, machine passes",
+        "1956: McCarthy names the field; researchers believe all intelligence can be simulated",
+        "Rule-based AI (Expert Systems): if email has 'FREE lottery' → mark as spam",
+        "Deep Blue (1997) beat chess champion Kasparov — but it used permutations, not true AI",
+        "AI Winter (1987–1993): funding dried up, hype faded, progress slowed"
+      ]
+    },
+    {
+      "heading": "Machine Learning era",
+      "definition": "Rule-based systems failed because you can't write every possible condition. Machine Learning let computers learn patterns from data instead — show 10 lakh dog and cat images, and the machine learns to tell them apart.",
+      "points": [
+        "Humans provide training data; machine finds patterns on its own",
+        "Works for classification: given an image, predict dog or cat",
+        "Still limited — couldn't handle every edge case or complex task",
+        "Needed human observation to prepare good training data"
+      ]
+    },
+    {
+      "heading": "Deep Learning & Computer Vision",
+      "definition": "Inspired by human brain neurons, deep learning uses layered neural networks to learn complex patterns. GPU revolution and internet data made training on millions of images possible.",
+      "points": [
+        "Neural networks mimic brain connections — layers of neurons processing data",
+        "2012 AlexNet on ImageNet (14M+ images) — breakthrough in image recognition",
+        "Enabled: face unlock, self-driving cars, X-ray analysis, product search in apps",
+        "Deep learning is a subset of ML focused on neural network-based learning"
+      ]
+    },
+    {
+      "heading": "NLP & Transformers (2017)",
+      "definition": "Text seemed easy but was actually hard — same word, different meanings ('bank' of river vs 'Bank of India'). RNN and LSTM helped but struggled with long documents. Then came Transformers.",
+      "points": [
+        "NLP challenges: ambiguous sentences like 'I saw a man with a telescope'",
+        "RNN/LSTM: processed text sequentially, limited context window",
+        "2017: Google paper 'Attention Is All You Need' — Transformers changed everything",
+        "Transformers understand context: 'it' in 'Lion did not cross because it cannot swim' → lion",
+        "All modern LLMs (GPT, Claude, Gemini) are built on Transformer architecture"
+      ]
+    },
+    {
+      "heading": "LLMs, Gen AI & ChatGPT moment",
+      "definition": "LLMs are Transformers trained on massive internet data with huge compute power. Generative AI can create new content — text, images, videos — not just classify or recommend.",
+      "points": [
+        "LLM needs: massive data + GPU/compute power (cost-intensive, few countries lead)",
+        "Gen AI generates new content — poems, code, images, videos",
+        "Nov 2022: ChatGPT launch — public could chat with AI for the first time",
+        "After ChatGPT: Gemini, Grok, DeepSeek, Claude — race continues",
+        "Modern AI: thinks, calls APIs, plans, writes code, searches web, works autonomously"
+      ]
+    },
+    {
+      "heading": "Timeline recap",
+      "definition": "Keep these dates in mind — they show how fast AI evolved once Transformers arrived.",
+      "points": [
+        "1950 – Alan Turing | 1956 – John McCarthy names AI",
+        "50s–80s – Rule-Based AI | 1997 – Deep Blue beats Kasparov",
+        "90s – Machine Learning | 2000s – Deep Learning | 2012 – AlexNet",
+        "2016 – AlphaGo beats Lee Sedol | 2017 – Transformers",
+        "2022 – ChatGPT | 2025+ – Agentic AI era"
+      ]
+    }
+  ]
+}

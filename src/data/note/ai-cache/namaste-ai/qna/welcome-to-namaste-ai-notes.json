@@ -1,0 +1,41 @@
+{
+  "topic": "Welcome to Namaste AI Notes",
+  "description": "Practical answers about the course mission, roadmap, study habits, and how to get the most from Namaste AI Notes.",
+  "questions": [
+    {
+      "id": 1,
+      "question": "Why should tech people learn AI deeply instead of just using tools?",
+      "answer": "AI is in almost every workflow now — from writing code to searching for answers. Surface-level tool use won't make you stand out. Learning how AI works helps you build products, solve real problems, and grow faster in your career. Hundreds of people use ChatGPT; fewer understand what's happening under the hood."
+    },
+    {
+      "id": 2,
+      "question": "What is the full learning roadmap of this series?",
+      "answer": "Intro → LLM → Prompting → AI for SDEs → AI Tools → RAG → AI Agents → MCP → AI Engineering → Projects. We go deep step by step — don't skip ahead unless you've understood the basics. Backend topics like Express and MongoDB will also appear along the way."
+    },
+    {
+      "id": 3,
+      "question": "How should I study these notes effectively?",
+      "answer": "Don't binge-watch. Use Pomodoro (~50 minutes max, then a 5–10 minute break). Make your own notes, help others in the community, break things while experimenting, and rewatch tough parts 2–3 times. Stay curious, explore on your own, and don't wait for a teacher for every small doubt."
+    },
+    {
+      "id": 4,
+      "question": "Do I need to be an expert in one programming language?",
+      "answer": "Basic coding in JavaScript or Python is enough. There is no hard language lock — use AI to translate ideas between languages if needed. The series uses JS/Python but the concepts apply regardless of your stack."
+    },
+    {
+      "id": 5,
+      "question": "Should I share my learning journey on social media?",
+      "answer": "Yes — posting your progress helps you stay accountable, builds community, and can reach recruiters. Create friends, take challenges, learn from others, and let your posts show you're actively growing. Be genuine, not just showing off."
+    },
+    {
+      "id": 6,
+      "question": "What if I don't understand a topic on the first watch?",
+      "answer": "That's normal. Rewatch 2–3 times, make notes in your own words, ask in the community, and experiment with the concepts yourself. Patience matters more than speed. All comes on time if you keep taking action — do Karm, results follow."
+    },
+    {
+      "id": 7,
+      "question": "Can I jump between topics randomly?",
+      "answer": "Not recommended. The roadmap is designed so each topic builds on the previous one. Skipping from Intro to RAG without understanding LLMs and prompting will leave gaps. Follow the order, and revisit earlier topics if something feels unclear later."
+    }
+  ]
+}

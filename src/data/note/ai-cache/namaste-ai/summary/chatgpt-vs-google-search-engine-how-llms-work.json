@@ -1,0 +1,78 @@
+{
+  "intro": "Ever wondered why ChatGPT gives you a direct answer while Google shows a list of links? This episode breaks down the core difference: retrieval vs generation. Understanding this helps you know when to trust AI and when to verify facts yourself.",
+  "sections": [
+    {
+      "heading": "Google Search vs ChatGPT",
+      "definition": "Google searches its index of web pages and ranks results — it's retrieval. ChatGPT generates answers from learned patterns — it's generation. Google can say 'I don't know'; ChatGPT will often make something up instead.",
+      "points": [
+        "Google: crawls web → builds index → ranks pages → returns links",
+        "ChatGPT: reads prompt → predicts next words from training → generates answer",
+        "Google shows sources — you can check where info came from",
+        "ChatGPT gives fluent answers without always showing sources",
+        "Core difference: Retrieval (Google) vs Generation (ChatGPT)"
+      ]
+    },
+    {
+      "heading": "How Google indexing works",
+      "definition": "Google's index is like a book's table of contents for the entire web. Crawlers (spiders) constantly scan websites and update the index so recent pages appear in search results.",
+      "points": [
+        "Index = organized database of web page content, not live internet",
+        "Crawlers visit pages and store content for fast lookup",
+        "Ranking factors: domain authority, page speed, keywords, backlinks, SEO",
+        "Google's ranking algorithm is private — not open source",
+        "Search results can be outdated, imperfect, or biased — not guaranteed truth"
+      ]
+    },
+    {
+      "heading": "How LLMs generate responses",
+      "definition": "LLMs predict the next word (token) based on probability learned from training data. It's like smart autocomplete — 'The sun rises in...' → 'the east'. The model doesn't look things up; it generates what fits the pattern.",
+      "points": [
+        "Next-word prediction based on patterns in training data",
+        "Trained on internet text, books, articles — stored as parameters/weights",
+        "Example: 'Roses are ___' → beautiful, red (based on common associations)",
+        "Knowledge cutoff: models aren't retrained daily — data has an end date",
+        "Current info often comes from tools (web search), not training alone"
+      ]
+    },
+    {
+      "heading": "Base model vs AI assistant",
+      "definition": "A base model only predicts next text — raw autocomplete on steroids. ChatGPT, Claude, Gemini are built on top with instruction tuning, safety filters, tools, and web search.",
+      "points": [
+        "Base model = engine; ChatGPT = car with features on top",
+        "Companies never expose raw base models — too unrestricted",
+        "Added layers: human feedback, guardrails, tool access, web search, memory",
+        "OpenAI: GPT-5/4o | Anthropic: Claude | Google: Gemini | Meta: Llama (open weights)"
+      ]
+    },
+    {
+      "heading": "Training vs Inference",
+      "definition": "Training is the school phase — AI studies massive data to learn patterns. Inference is the working phase — the trained model answers your questions in real time.",
+      "points": [
+        "Training: expensive, happens once (or periodically), builds the model",
+        "Inference: happens every time you send a prompt, uses the trained model",
+        "Training = learning rules | Inference = applying those rules to answer you"
+      ]
+    },
+    {
+      "heading": "Hallucinations & fake fluency",
+      "definition": "When LLMs respond confidently, it doesn't mean they're correct. Hallucination is when AI makes up information and presents it as fact — it's guessing the next best word, not verifying truth.",
+      "points": [
+        "'Tez bolne se koi baat sahi nahi ho jati' — fluent ≠ truthful",
+        "Causes: insufficient knowledge, ambiguous prompts, optimized to always answer",
+        "Language quality and factual accuracy are separate dimensions",
+        "Don't trust AI for medical/legal advice without verification",
+        "Reduce overconfidence: ask for sources, say 'only answer if sure', allow 'I don't know'"
+      ]
+    },
+    {
+      "heading": "Tools, RAG & extending LLMs",
+      "definition": "Tools give LLMs superpowers — access to your files, APIs, databases, web search. RAG (Retrieval-Augmented Generation) combines external evidence with natural language generation.",
+      "points": [
+        "Without tools: LLM can't access your emails, location, or private files",
+        "Web search + LLM = retrieval provides evidence, generation gives readable answer",
+        "RAG is key for real-world AI apps and personal assistants",
+        "Model sources: training data, conversation context, system prompt, tools"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "topic": "Welcome to Namaste AI Notes",
+  "description": "Test your understanding of the course mission, learning roadmap, and study habits recommended in the opening episode.",
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the main goal of this Namaste AI series?",
+      "options": [
+        "Only watch videos without any practice",
+        "Learn AI deeply and build real products",
+        "Memorize every AI research paper by heart"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The series focuses on understanding AI properly and using it to solve real problems — not shallow tool usage. You should be able to build products, not just copy-paste from ChatGPT."
+    },
+    {
+      "id": 2,
+      "question": "Which study habit does Ashu recommend for learning?",
+      "options": [
+        "Binge-watch 5 hours straight without breaks",
+        "Pomodoro with breaks (~50 min max, then 5–10 min rest)",
+        "Skip notes and only read headlines"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Short focused sessions with breaks help you retain more than marathon binge sessions. Use Pomodoro extensions and take at least a 5–10 minute break after ~50 minutes of learning."
+    },
+    {
+      "id": 3,
+      "question": "What comes right after Intro in the course roadmap?",
+      "options": ["RAG", "LLM", "MCP"],
+      "correctAnswer": 1,
+      "explanation": "The path starts Intro → LLM → Prompting → AI for SDEs → AI Tools → RAG → AI Agents → MCP → AI Engineering → Projects. Follow this order for best results."
+    },
+    {
+      "id": 4,
+      "question": "Do you need expert-level coding skills to follow this series?",
+      "options": [
+        "Yes, you must be an expert in Python only",
+        "Basic coding in JavaScript or Python is enough",
+        "No coding knowledge is needed at all"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Basic coding knowledge in JavaScript or Python is sufficient. There's no hard language lock — you can use AI to translate code between languages if needed."
+    },
+    {
+      "id": 5,
+      "question": "What should you do when you don't understand a topic?",
+      "options": [
+        "Skip it and move to the next topic immediately",
+        "Rewatch the video 2–3 times and stay patient",
+        "Wait for someone else to explain it to you"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Patience matters. Rewatch tough parts 2–3 times, make notes, help others in the community, and experiment on your own. Slow and steady beats rushing."
+    },
+    {
+      "id": 6,
+      "question": "Why should you stay active on social media while learning?",
+      "options": [
+        "To show off without actually learning",
+        "To share your journey, build community, and reach recruiters",
+        "Social media has nothing to do with learning AI"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Posting your learning journey helps you stay accountable, builds community, and can reach recruiters. Create friends, take challenges, and learn from others who are on the same path."
+    },
+    {
+      "id": 7,
+      "question": "What mindset does the series encourage for long-term learning?",
+      "options": [
+        "Learn everything in one week or give up",
+        "Keep taking action consistently — results follow over time",
+        "Only learn when someone forces you to"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Learning AI is a long game. Do Karm — keep showing up, stay curious, explore on your own, and trust that consistency will pay off. All comes on time if you keep taking action."
+    }
+  ]
+}

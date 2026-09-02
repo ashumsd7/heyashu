@@ -1,0 +1,41 @@
+{
+  "topic": "LLM Tokenization: Tokens, IDs & Misconceptions",
+  "description": "Practical answers about how LLMs read text as numbers, tokenization methods, context windows, and common myths.",
+  "questions": [
+    {
+      "id": 1,
+      "question": "How does an LLM actually 'read' my sentence?",
+      "answer": "It doesn't read English words. Your text goes through a tokenizer that breaks it into tokens (pieces of text). Each token gets a numeric token ID. The LLM receives an array of numbers like [78, 12, 23, 433] and predicts the next token ID — which maps back to text when you see the response."
+    },
+    {
+      "id": 2,
+      "question": "Is one word always one token?",
+      "answer": "No. 'Awesome' might split into 'awe' + 'some' (2 tokens). 'Untrustable' might become 'un' + 'trust' + 'able' (3 tokens). But 'undone' could be just 1 token if it's common in the vocabulary. Tokenization depends on the tokenizer's vocabulary, not grammar or word meaning."
+    },
+    {
+      "id": 3,
+      "question": "What is Byte Pair Encoding (BPE) and who uses it?",
+      "answer": "BPE is a tokenization method that starts from byte-level units and merges frequently occurring pairs into tokens. Common pieces like 'un', 'trust', 'able' become reusable across many words. OpenAI uses BPE tokenizers. Meta Llama uses SentencePiece-BPE. Different models = different tokenizers."
+    },
+    {
+      "id": 4,
+      "question": "Why does Hinglish cost more tokens than English for the same meaning?",
+      "answer": "English is more efficiently represented in most tokenizers — fewer tokens for the same content. Hinglish, Hindi, and many non-English languages often require more tokens. More tokens = higher API cost and faster context window fill-up. Modern tokenizers are improving, but English remains the most token-efficient."
+    },
+    {
+      "id": 5,
+      "question": "What is a context window and what happens when it overflows?",
+      "answer": "Context window is the max amount of tokenized text the model can process at once — including system instructions, your messages, documents, and tool outputs. If it overflows: truncate your input, summarize old messages, split work into separate chats (Work A in Chat A, Work B in Chat B). Don't assume AI remembers everything forever."
+    },
+    {
+      "id": 6,
+      "question": "Do token IDs carry meaning?",
+      "answer": "No. Token IDs are arbitrary lookup numbers in a vocabulary. ID 8123 for 'Dog' and 8521 for 'Grapes' have no numerical relationship. Meaning comes from embeddings (learned vectors), not from token IDs. This is one of the most common misconceptions."
+    },
+    {
+      "id": 7,
+      "question": "How can I see tokenization live for my own text?",
+      "answer": "Use online tokenizer playgrounds: platform.openai.com/tokenizer or tiktokenizer.vercel.app. Paste your text, select a model's tokenizer, and see exactly how it splits into tokens and token IDs. Try adding/removing spaces, emojis, or code — you'll see how each change affects token count."
+    }
+  ]
+}

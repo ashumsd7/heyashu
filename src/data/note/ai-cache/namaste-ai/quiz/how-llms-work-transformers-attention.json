@@ -1,0 +1,83 @@
+{
+  "topic": "Transformers & Attention Explained",
+  "description": "Test your knowledge of the Transformer architecture, attention mechanisms, and how LLMs predict the next word.",
+  "questions": [
+    {
+      "id": 1,
+      "question": "What does GPT stand for?",
+      "options": [
+        "General Purpose Technology",
+        "Generative Pre-trained Transformer",
+        "Google's Primary Tool"
+      ],
+      "correctAnswer": 1,
+      "explanation": "GPT = Generative (creates text) + Pre-trained (already learned from data) + Transformer (the architecture). All modern LLMs use this pattern — OpenAI just named their assistant ChatGPT."
+    },
+    {
+      "id": 2,
+      "question": "What problem did Transformers solve that RNNs/LSTMs couldn't?",
+      "options": [
+        "Making AI models cheaper to run",
+        "Understanding long-range relationships in text by processing entire sequences at once",
+        "Translating between programming languages"
+      ],
+      "correctAnswer": 1,
+      "explanation": "RNNs processed text word-by-word and lost context over long distances. Transformers (2017) read entire sequences at once using attention — capturing relationships like 'it' referring to 'cat' across the sentence."
+    },
+    {
+      "id": 3,
+      "question": "In 'The cat sat on the mat because it was tired', what does self-attention help with?",
+      "options": [
+        "Counting the number of words in the sentence",
+        "Figuring out that 'it' refers to 'cat', not 'mat'",
+        "Translating the sentence to another language"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Self-attention lets each token look at all other tokens in the sentence. The model learns 'it' is more related to 'cat' than 'mat' — solving ambiguous pronoun references."
+    },
+    {
+      "id": 4,
+      "question": "What is causal (masked) self-attention?",
+      "options": [
+        "Attention that only looks at future words",
+        "Attention that blocks the model from seeing future tokens — only past and present",
+        "Attention that ignores all previous words"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Causal attention ensures information flows one direction: past → present. When predicting the next word, the model can only see tokens before the current position, never future ones."
+    },
+    {
+      "id": 5,
+      "question": "What is the role of a Feed-Forward Network (FFN) in a Transformer layer?",
+      "options": [
+        "It lets tokens communicate with each other",
+        "It processes each token independently after attention — deepening its representation",
+        "It converts text to token IDs"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Attention = tokens talk to each other (context). FFN = each token thinks independently about what it learned. 'Bank' finds river meaning during attention; FFN deepens that understanding per token."
+    },
+    {
+      "id": 6,
+      "question": "What do residual (skip) connections do in a Transformer?",
+      "options": [
+        "Skip the entire Transformer and use RNN instead",
+        "Add the original input back to the layer's output — preserving info while adding updates",
+        "Remove unnecessary tokens from the input"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Instead of replacing old info, residual connections do: output = original input + layer update. This lets each layer refine understanding without losing what previous layers learned."
+    },
+    {
+      "id": 7,
+      "question": "How does the model pick the final next word?",
+      "options": [
+        "It randomly selects from the vocabulary",
+        "Linear layer reshapes output → Softmax converts to probabilities → highest probability wins",
+        "It always picks the first word in the vocabulary"
+      ],
+      "correctAnswer": 1,
+      "explanation": "After all Transformer layers, a Linear layer reshapes the output and Softmax converts scores into percentages (summing to 100%). The word with the highest probability becomes the predicted next token."
+    }
+  ]
+}

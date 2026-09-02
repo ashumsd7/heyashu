@@ -1,0 +1,83 @@
+{
+  "topic": "ChatGPT vs Google: How LLMs Work",
+  "description": "Test your understanding of retrieval vs generation, hallucinations, base models, and how tools extend LLM capabilities.",
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the core difference between Google Search and ChatGPT?",
+      "options": [
+        "Google is free, ChatGPT is paid",
+        "Google retrieves from an index; ChatGPT generates from learned patterns",
+        "Google uses AI, ChatGPT does not"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Google searches its pre-built index of web pages and returns ranked links (retrieval). ChatGPT predicts and generates answers from training patterns (generation). This is the fundamental difference."
+    },
+    {
+      "id": 2,
+      "question": "How does an LLM generate its response to your prompt?",
+      "options": [
+        "It searches the live internet in real time",
+        "It predicts the next word/token based on probability from training data",
+        "It looks up answers in a pre-written FAQ database"
+      ],
+      "correctAnswer": 1,
+      "explanation": "LLMs work like smart autocomplete — they predict the most likely next token based on patterns learned during training. 'The sun rises in...' → 'the east' because that's the highest probability."
+    },
+    {
+      "id": 3,
+      "question": "What is a 'base model' in the context of LLMs?",
+      "options": [
+        "The final chatbot product users interact with",
+        "The raw core AI that only predicts next text — before instruction tuning and tools",
+        "A model trained only on books, not internet data"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Base model = engine (predicts next token). ChatGPT/Claude/Gemini = car with features added on top (instruction tuning, safety, tools, web search). Companies never expose raw base models directly."
+    },
+    {
+      "id": 4,
+      "question": "What is an AI hallucination?",
+      "options": [
+        "When the AI refuses to answer a question",
+        "When the AI makes up information and presents it confidently as fact",
+        "When the AI gives a correct but short answer"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Hallucination happens when AI generates plausible-sounding but false information. It's not lying — it's guessing the next best word. Fluent language ≠ factual accuracy. 'Tez bolne se koi baat sahi nahi ho jati.'"
+    },
+    {
+      "id": 5,
+      "question": "What is the difference between training and inference?",
+      "options": [
+        "Training is for Google; inference is for ChatGPT",
+        "Training is the learning phase; inference is when the model answers your questions",
+        "They are the same process with different names"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Training = school phase where AI studies massive data (expensive, done once). Inference = working phase where the trained model generates answers to your prompts in real time."
+    },
+    {
+      "id": 6,
+      "question": "What is RAG (Retrieval-Augmented Generation)?",
+      "options": [
+        "A type of neural network layer",
+        "Combining external evidence retrieval with LLM text generation",
+        "A method to train LLMs faster"
+      ],
+      "correctAnswer": 1,
+      "explanation": "RAG = web search + LLM. Retrieval provides external evidence (facts from documents/web), and generation gives you a natural-language answer. Key concept for real-world AI applications."
+    },
+    {
+      "id": 7,
+      "question": "Why do LLMs have a 'knowledge cutoff' date?",
+      "options": [
+        "Models are deleted after that date",
+        "Retraining on new data is complex and expensive — models aren't updated daily",
+        "The internet stops producing new content after that date"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Training is price-heavy and time-consuming. Models are trained on data available up to a certain date. Current info often comes from tools like web search, not from retraining."
+    }
+  ]
+}
