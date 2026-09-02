@@ -473,7 +473,7 @@ const NotesMainPage = ({
                       <HiChatBubbleLeftRight className="h-3.5 w-3.5 shrink-0 text-violet-500" />
                       Q&amp;A
                     </button>
-                  </div>
+              </div>
 
                   {/* Desktop tools */}
                   <div className="hidden items-center gap-2 lg:flex">
@@ -929,7 +929,7 @@ const NotesMainPage = ({
             </div>
           </div>
         </div>
-
+      
         {/* Mobile sidebar drawer — smooth slide */}
         <AnimatePresence>
           {mobileNavOpen ? (

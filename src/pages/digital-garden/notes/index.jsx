@@ -64,7 +64,7 @@ function NotesCollectionPage() {
   return (
     <div className="bg-[#f7f4ee] dark:bg-[#0b120e]">
       <CommonHeadTags
-        title="Index of Notes Collection — Digital Garden | heyashu"
+        title="Digital Notes Collection — Digital Garden | heyashu"
         url="https://www.heyashu.in/digital-garden/notes"
       />
 
@@ -78,7 +78,7 @@ function NotesCollectionPage() {
         >
           <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
             <h1 className="mb-0 font-fraunces text-[clamp(2.4rem,5.5vw,4rem)] font-bold leading-[1.05] tracking-[-0.02em] text-[#171717] dark:text-[#f0f4ef]">
-              Index of Notes Collection
+              Digital Notes Collection
             </h1>
             <Link
               href="/contributing-guide?type=new-note"

@@ -6,6 +6,7 @@ import { HiOutlineClock } from "react-icons/hi2";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import ThemeToggle from "./ToogleDarkModeButton";
+import { getNavbarItems, NAV_SHOW_JOURNEY_ICON } from "@/data/navbar";
 
 function JourneyNavIcon() {
   return (
@@ -73,14 +74,7 @@ function Navbar() {
     document.documentElement.classList.toggle('dark');
   };
 
-  const navItems = [
-    { href: "/blog", label: "Blogs" },
-    { href: "/tech", label: "Tech" },
-    { href: "/product", label: "Products" },
-    { href: "/digital-garden", label: "Digital Garden ft. Notes", isSpecial: true },
-    { href: "/travel", label: "Travel" },
-    { href: "/misc", label: "More" }
-  ];
+  const navItems = getNavbarItems();
 
   const isGardenNavActive =
     router.pathname === "/digital-garden" ||
@@ -165,13 +159,13 @@ function Navbar() {
               </Link>
             ))}
             
-            <JourneyNavIcon />
+            {NAV_SHOW_JOURNEY_ICON ? <JourneyNavIcon /> : null}
             <ThemeToggle/>
           </div>
 
           {/* Mobile menu button */}
           <div className="flex md:hidden items-center space-x-3">
-            <JourneyNavIcon />
+            {NAV_SHOW_JOURNEY_ICON ? <JourneyNavIcon /> : null}
             <ThemeToggle/>
             
             <button

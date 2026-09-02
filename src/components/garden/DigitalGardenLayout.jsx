@@ -16,11 +16,16 @@ import {
 } from "react-icons/hi2";
 import { GITHUB_REPO_LINK } from "@/utils/constant";
 import { GARDEN_HERO_STATS } from "@/data/garden/stats";
+import {
+  getGardenNavItems,
+  isGardenNavItemActive,
+} from "@/data/garden/navbar";
 
 /**
  * Digital Garden shell — sticky navbar for /digital-garden/*, /blog/*, /product/*
  *
- * Order: Blogs → Notes → Products → Star on GitHub → Support → Who built this → Theme
+ * Nav links: JSON-driven via @/data/garden/navbar
+ * Fixed actions: GitHub · Support · Who built this · Theme
  */
 export default function DigitalGardenLayout({ children }) {
   const router = useRouter();
@@ -52,11 +57,7 @@ export default function DigitalGardenLayout({ children }) {
   }, [menuOpen]);
 
   const isDark = mounted && resolvedTheme === "dark";
-  const isBlog = router.pathname.startsWith("/blog");
-  const isNotes =
-    router.pathname.startsWith("/digital-garden/notes") ||
-    router.asPath.startsWith("/digital-garden/notes");
-  const isProduct = router.pathname.startsWith("/product");
+  const navItems = getGardenNavItems();
 
   const githubStars = GARDEN_HERO_STATS[2]?.value || "30+";
 
@@ -137,18 +138,22 @@ export default function DigitalGardenLayout({ children }) {
             {/* Desktop actions */}
             <div className="hidden items-center justify-end gap-2 sm:flex md:gap-3">
               <nav className="flex items-center gap-4 md:gap-5">
-                <Link href="/blog" className={navLinkClass(isBlog)}>
-                  Blogs
-                </Link>
-                <Link
-                  href="/digital-garden/notes"
-                  className={navLinkClass(isNotes)}
-                >
-                  Notes
-                </Link>
-                <Link href="/product" className={navLinkClass(isProduct)}>
-                  Products
-                </Link>
+                {navItems.map((item) => {
+                  const active = isGardenNavItemActive(
+                    item.href,
+                    router.pathname,
+                    router.asPath
+                  );
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className={navLinkClass(active)}
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                })}
               </nav>
 
               <a
@@ -251,33 +256,27 @@ export default function DigitalGardenLayout({ children }) {
               </div>
 
               <div className="flex flex-col gap-1 p-3">
-                <Link
-                  href="/blog"
-                  onClick={() => setMenuOpen(false)}
-                  className={`rounded-xl px-3 py-3 no-underline ${navLinkClass(isBlog)} ${
-                    isBlog ? "bg-emerald-500/10" : "hover:bg-black/5 dark:hover:bg-white/5"
-                  }`}
-                >
-                  Blogs
-                </Link>
-                <Link
-                  href="/digital-garden/notes"
-                  onClick={() => setMenuOpen(false)}
-                  className={`rounded-xl px-3 py-3 no-underline ${navLinkClass(isNotes)} ${
-                    isNotes ? "bg-emerald-500/10" : "hover:bg-black/5 dark:hover:bg-white/5"
-                  }`}
-                >
-                  Notes
-                </Link>
-                <Link
-                  href="/product"
-                  onClick={() => setMenuOpen(false)}
-                  className={`rounded-xl px-3 py-3 no-underline ${navLinkClass(isProduct)} ${
-                    isProduct ? "bg-emerald-500/10" : "hover:bg-black/5 dark:hover:bg-white/5"
-                  }`}
-                >
-                  Products
-                </Link>
+                {navItems.map((item) => {
+                  const active = isGardenNavItemActive(
+                    item.href,
+                    router.pathname,
+                    router.asPath
+                  );
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => setMenuOpen(false)}
+                      className={`rounded-xl px-3 py-3 no-underline ${navLinkClass(active)} ${
+                        active
+                          ? "bg-emerald-500/10"
+                          : "hover:bg-black/5 dark:hover:bg-white/5"
+                      }`}
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                })}
                 <a
                   href={GITHUB_REPO_LINK}
                   target="_blank"

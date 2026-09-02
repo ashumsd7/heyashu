@@ -135,12 +135,12 @@ const DigiGardenFooter = ({ compact = false }) => {
                   Support Garden
                 </a>
                 <a
-                  href={SOCIAL_LINKS.whatsappCommunity}
+                  href={SOCIAL_LINKS.discordCommunity}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-600 transition-colors hover:text-emerald-600 dark:text-gray-300 dark:hover:text-emerald-400"
                 >
-                  WhatsApp Group
+                  Join Namaste Dev Club
                 </a>
               </div>
             </div>
@@ -181,12 +181,12 @@ const DigiGardenFooter = ({ compact = false }) => {
             Ashutosh Anand Tiwari · Digital Garden © {new Date().getFullYear()}
           </p>
           <a
-            href={SOCIAL_LINKS.whatsappCommunity}
+            href={SOCIAL_LINKS.discordCommunity}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-1.5 rounded-lg bg-emerald-500/10 px-3 py-1 font-semibold text-emerald-700 transition-all hover:bg-emerald-500/20 dark:text-emerald-400"
           >
-            Join JavaScripterr Community
+            Join Namaste Dev Club
           </a>
         </div>
       </div>

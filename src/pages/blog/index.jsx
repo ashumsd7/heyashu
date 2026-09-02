@@ -493,7 +493,7 @@ function BlogsPage({ posts }) {
   return (
     <div className="bg-[#f7f4ee] dark:bg-[#0b120e]">
       <CommonHeadTags
-        title="Index of Blogs — Digital Garden | heyashu"
+        title="Blogs — Digital Garden | heyashu"
         url="https://www.heyashu.in/blog"
       />
 
@@ -507,7 +507,7 @@ function BlogsPage({ posts }) {
         >
           <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
             <h1 className="mb-0 font-fraunces text-[clamp(2.6rem,6vw,4.4rem)] font-bold leading-[1.05] tracking-[-0.02em] text-[#171717] dark:text-[#f0f4ef]">
-              Index of Blogs
+              Blogs
             </h1>
             <Link
               href="/contributing-guide?type=new"
