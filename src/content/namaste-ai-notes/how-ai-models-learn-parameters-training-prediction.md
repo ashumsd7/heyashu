@@ -1,7 +1,6 @@
 ---
 title: how-ai-models-learn-parameters-training-prediction
 name: "How AI Models Learn: Parameters, Training & Prediction"
-episodeTitle: "Sharpening the Brain"
 episode: 7
 seasonNumber: 1
 publishedOn: 09-03-2026
@@ -9,17 +8,16 @@ updatedOn: 09-03-2026
 thumbnail: /images/namaste-ai/thumb-e-7.jpg
 author: Ashutosh Anand Tiwari
 tags: "#AI #MachineLearning #LLM #GenerativeAI #DeepLearning #Namaste AI Notes"
-description: "Namaste AI Notes Episode 7 — How AI models learn: parameters, training, forward/backward pass, loss, gradient descent & overfitting. Free digital notes on heyashu."
 profilePic: /images/blogs/pfp2.png
 followLink: https://www.instagram.com/javascripterrr
+description: "Namaste AI Notes Episode 7 — How AI models learn: parameters,
+  training, forward/backward pass, loss, gradient descent & overfitting. Free
+  digital notes on heyashu."
+episodeTitle: Sharpening the Brain
 ---
 Here we will talk about **training**. Till now, we have discussed what happens **after training**, which is called **inferencing**. Now we will discuss the training of the model—how that happens and what existed before Transformer architecture came into the picture.
 
-But Transformer architecture works with a trained neural network, so let’s discuss what happens before that.
-
-How do LLMs learn? How does training happen? What are the steps to train a neural network? What is the difference between a trained and an untrained neural network?
-
-In easy words, an **untrained** neural network is like a newborn baby's brain, while a **trained** neural network is like an adult who has practiced a skill for years.
+But Transformer architecture works with a trained neural network, so let’s discuss what happens before that. How do LLMs learn? How does training happen? What are the steps to train a neural network? What is the difference between a trained and an untrained neural network? In easy words, an **untrained** neural network is like a newborn baby's brain, while a **trained** neural network is like an adult who has practiced a skill for years.
 
 But does that mean when we say a **trained neural network**, what happens if we have a poorly trained neural network or an untrained network? It might give me random generations.
 
@@ -95,9 +93,13 @@ The ultimate goal of the AI is to get this score as close to zero as possible. S
 
 Coming to the **forward pass**, which is the upper layer of the loss function kind of concept.
 
-A **forward pass** is the journey data takes through an AI model to produce a prediction. Think of it as a one-way assembly line where the input enters at the beginning, travels through various processing stations (layers), and emerges as a finished product at the end.
-**How It Works: "The sky is ___"Input:** You give the AI the phrase "The sky is".
-**Processing:** The AI converts these words into numbers. It passes these numbers through its network, where it multiplies them by its learned knowledge (weights) to analyze the context.**Output:** The network calculates the probabilities for the next possible word and outputs its best guess: "**blue**".
+A **forward pass** is the journey data takes through an AI model to produce a prediction. Think of it as a one-way assembly line where the input enters at the beginning, travels through various processing stations (layers), and emerges as a finished product at the end.\
+
+**How It Works:** \
+**"The sky is ___"**\
+**Input:** You give the AI the phrase "The sky is".
+**Processing:** The AI converts these words into numbers. It passes these numbers through its network, where it multiplies them by its learned knowledge (weights) to analyze the context.\
+**Output:** The network calculates the probabilities for the next possible word and outputs its best guess: "**blue**".
 
 ## Back Propagation ( Backward Pass)
 
@@ -105,11 +107,22 @@ So, when we get the parameters causing the wrong prediction, we check and go bac
 
 In deep learning, a **backward pass** (or backpropagation) is how an AI learns from its mistakes. Imagine the AI is playing a guessing game.
 
-**Forward Pass:** The AI takes the prompt *"The sky is ___"* and guesses *"Banana"*.**Calculate Loss:** You tell the AI, *"Wrong. The correct answer is Blue. Your guess was very far off."* This error is called the **loss**.**Backward Pass:** The AI travels **backward** through its internal network. It adjusts its internal settings (called weights) so that the next time it sees *"The sky is..."*, it is much more likely to guess *"Blue"* instead of *"Banana"*.
+**Forward Pass:** The AI takes the prompt *"The sky is ___"* and guesses *"Banana"*.
+
+\
+**Calculate Loss:** You tell the AI, *"Wrong. The correct answer is Blue. Your guess was very far off."* This error is called the **loss**.
+
+\
+**Backward Pass:** The AI travels **backward** through its internal network. It adjusts its internal settings (called weights) so that the next time it sees *"The sky is..."*, it is much more likely to guess *"Blue"* instead of *"Banana"*.
+
+
 
 ![](/images/namaste-ai/img1-ssc-ep7.jpeg)
 
-## Gradient ( Sensitivity )
+## \
+\
+\
+Gradient ( Sensitivity )
 
 **Gradients** are simply a measure of how much a change in a specific AI parameter (like a knob or dial) will increase or decrease the AI's mistakes (the loss). Think of the AI as playing a game where it tries to guess the next word in a sentence, and every wrong guess costs points. By looking at the gradients, the AI learns exactly which "knobs" to turn, and in which direction, to make fewer mistakes next time.
 
@@ -117,11 +130,14 @@ The question comes: **Does backpropagation fix the weights or parameters?**
 
 And the answer is **no**. Backpropagation calculates the **gradients**, then an optimization algorithm uses those gradients to update the parameters.
 
-So, there are multiple algorithms that exist. **Gradient Descent** is one of them: Link
+So, there are multiple algorithms that exist. **Gradient Descent** is one of them: 
 
 ![](/images/namaste-ai/img2-descent-7.jpg)
 
-## Graient Descent Algo
+## \
+\
+\
+Graient Descent Algo
 
 It is an iterative optimization algorithm used to minimize a function (like error or loss) by adjusting in the opposite direction of the gradient.
 
@@ -163,7 +179,11 @@ And this process takes a lot of computational power and GPUs because it is a rep
 
 And whatever we learned above is called **self-supervised learning**.
 
-## Self-Supervised Learning
+## \
+\
+\
+\
+Self-Supervised Learning
 
 ![](/images/namaste-ai/img-3-self-super.png)
 
@@ -178,7 +198,11 @@ Okay, now let’s learn about some terminologies. When we hear these, we will no
 
 An **epoch** in AI is one complete round of training where the machine learning model gets to look at the entire training dataset exactly once. Think of it like reading a textbook to prepare for an exam; reading the whole book from cover to cover represents one epoch. Because AI models cannot learn everything from just one look, they usually need to go through the same dataset for dozens or hundreds of epochs. During each epoch, the model analyzes the data, makes mistakes, and adjusts its internal settings to become smarter and more accurate for the next round.
 
-## Difference Between Training and Inference
+## \
+\
+\
+\
+Difference Between Training and Inference
 
 **Training** is the process of teaching an AI model how to learn, while **inference** is the process of using that trained model to make real-world predictions. During training, you feed the AI huge amounts of data and correct its mistakes (**remember forward and backward pass**) so it can figure out the patterns and rules.
 
@@ -186,7 +210,10 @@ Once the AI finishes learning and graduates, it enters the **inference phase**. 
 
 Remember, **training consumes more power and has a higher financial cost**.
 
-## Generalization
+## \
+\
+\
+Generalization
 
 The ability to perform well on examples it did not directly memorize is called **generalization**.
 
@@ -194,7 +221,12 @@ The ability to perform well on examples it did not directly memorize is called *
 
 **Good learning means discovering patterns that remain useful beyond the exact training examples.**
 
-## Overfitting
+## \
+\
+\
+\
+\
+Overfitting
 
 A model is **overfitting** when it becomes extremely good at training examples but performs poorly on new examples. In other words,
 
@@ -202,7 +234,11 @@ A model is **overfitting** when it becomes extremely good at training examples b
 
 Imagine you teach an AI the phrase **"the sky is blue"** using 100 pictures of sunny days. If the AI overfits, it decides that the sky can *only* be blue. When you show it a picture of a stormy night and ask, **"the sky is \_\_\_\_,"** the overfitted AI will still confidently answer **"blue"** because it memorized a rigid rule instead of learning that the weather changes.
 
-## Distributed Training
+## \
+\
+\
+\
+Distributed Training
 
 Training a frontier-scale model is a large distributed system problem as much as it is a machine learning problem, in other words.
 
@@ -221,20 +257,20 @@ Now we also know models learn. The model understands, as humans understand and l
 Stopping here and leaving so many searchable questions. Be in front of the mirror and answer these, or explain them to your mate.\
 What are parameters?
 
-* How do embeddings learn?
+How do embeddings learn?
 
-* How do parameters change?
+How do parameters change?
 
-* What happens during a forward pass?
+What happens during a forward pass?
 
-* What exactly does backpropagation do?
+What exactly does backpropagation do?
 
-* How does gradient descent work?
+How does gradient descent work?
 
-* How does an LLM learn from data?
+How does an LLM learn from data?
 
-* How does a model generalize?
+How does a model generalize?
 
-* Why does overfitting happen?
+Why does overfitting happen?
 
-* Does a machine really understand, or just predict?
+Does a machine really understand, or just predict?
