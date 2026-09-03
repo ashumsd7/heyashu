@@ -105,7 +105,9 @@ In deep learning, a **backward pass** (or backpropagation) is how an AI learns f
 
 **Forward Pass:** The AI takes the prompt *"The sky is ___"* and guesses *"Banana"*.**Calculate Loss:** You tell the AI, *"Wrong. The correct answer is Blue. Your guess was very far off."* This error is called the **loss**.**Backward Pass:** The AI travels **backward** through its internal network. It adjusts its internal settings (called weights) so that the next time it sees *"The sky is..."*, it is much more likely to guess *"Blue"* instead of *"Banana"*.
 
-\[img1]
+ 
+
+![](/images/namaste-ai/img1-ssc-ep7.jpeg)
 
 ### Gradient ( Sensitivity )
 
@@ -117,7 +119,9 @@ And the answer is **no**. Backpropagation calculates the **gradients**, then an 
 
 So, there are multiple algorithms that exist. **Gradient Descent** is one of them: Link
 
-\[img2]
+ 
+
+![](/images/namaste-ai/img2-descent-7.jpg)
 
 ### Graient Descent Algo
 
@@ -163,13 +167,18 @@ And whatever we learned above is called **self-supervised learning**.
 
 ### Self-Supervised Learning
 
-\[img3]
+ 
+
+![](/images/namaste-ai/img-3-self-super.png)
 
 **Self-supervised learning** is a type of machine learning where a computer teaches itself without needing humans to label the data. Instead of a person marking images as "cat" or "dog," the system looks at raw, unlabeled data—like millions of internet sentences or photos—and hides parts of it from itself. It then tries to guess the missing pieces, such as predicting the next word in a sentence or filling in a blurry part of a picture. By practicing this guessing game billions of times, the AI naturally figures out the underlying patterns, structures, and meanings of the data all on its own.
 
 Okay, now let’s learn about some terminologies. When we hear these, we will not get confused.
 
-**Dataset:** All the training data.**Batch:** A group of examples processed together. Because GPUs can do parallel processing, we process data in batches. If we do it sequentially, it will take so much time.**Training Step:** One optimization update. You remember the forward and backward pass—refer above.**Epoch:** One complete pass through the training dataset, and it is different from a batch.
+**Dataset:** All the training data.\
+**Batch:** A group of examples processed together. Because GPUs can do parallel processing, we process data in batches. If we do it sequentially, it will take so much time.\
+**Training Step:** One optimization update. You remember the forward and backward pass—refer above.\
+**Epoch:** One complete pass through the training dataset, and it is different from a batch.
 
 An **epoch** in AI is one complete round of training where the machine learning model gets to look at the entire training dataset exactly once. Think of it like reading a textbook to prepare for an exam; reading the whole book from cover to cover represents one epoch. Because AI models cannot learn everything from just one look, they usually need to go through the same dataset for dozens or hundreds of epochs. During each epoch, the model analyzes the data, makes mistakes, and adjusts its internal settings to become smarter and more accurate for the next round.
 
