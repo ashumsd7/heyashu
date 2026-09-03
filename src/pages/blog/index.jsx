@@ -285,7 +285,7 @@ export async function getStaticProps() {
               ),
             },
             excerpt: getExcerpt(
-              content,
+            content,
               frontMatter?.description || frontMatter?.metaContent
             ),
             searchText: getSearchText(content),
@@ -538,20 +538,20 @@ function BlogsPage({ posts }) {
                 <div className="mb-5 flex flex-wrap items-center gap-3">
                   <span className="rounded-full bg-[#ece7de] px-3 py-1 text-xs font-medium capitalize text-[#5f584e] dark:bg-[#172a20] dark:text-[#92a59a]">
                     {categoryLabel(featuredPost)}
-                  </span>
+                    </span>
                   <span className="text-sm text-[#8a8276]">
                     {formatBlogDate(
                       featuredPost.frontMatter?.publishedOn ||
                         featuredPost.frontMatter?.date
                     )}
-                  </span>
-                </div>
+                        </span>
+          </div>
 
                 <h2 className="mb-4 max-w-[18ch] font-fraunces text-[clamp(1.7rem,3.2vw,2.35rem)] font-semibold leading-[1.15] text-[#171717] dark:text-[#f0f4ef]">
                   {featuredPost.frontMatter?.name ||
                     featuredPost.frontMatter?.title ||
                     "Untitled"}
-                </h2>
+              </h2>
 
                 <p className="mb-8 max-w-[52ch] text-[0.98rem] leading-relaxed text-[#6b6458] dark:text-[#92a59a]">
                   {featuredPost.excerpt ||
@@ -561,7 +561,7 @@ function BlogsPage({ posts }) {
                         featuredPost.frontMatter?.metaContent
                     )}
                 </p>
-              </div>
+            </div>
 
               <div className="flex flex-wrap items-center justify-between gap-4">
                 <div className="flex items-center gap-3">
@@ -607,7 +607,7 @@ function BlogsPage({ posts }) {
                 className="h-full w-full object-cover grayscale"
                 loading="eager"
               />
-            </div>
+                        </div>
           </motion.article>
         ) : null}
 
@@ -631,14 +631,14 @@ function BlogsPage({ posts }) {
               placeholder="Search blogs, tags, or topics…"
               className="w-full rounded-full border border-[#e0d9cd] bg-white py-3 pl-11 pr-4 text-sm text-[#171717] outline-none transition placeholder:text-[#9a9286] focus:border-[#9a4f2e]/50 focus:ring-2 focus:ring-[#9a4f2e]/15 dark:border-[#1e3328] dark:bg-[#121e17] dark:text-[#f0f4ef]"
             />
-          </div>
+              </div>
 
           <div ref={sortRef} className="relative w-full sm:ml-auto sm:w-auto">
             <div className="flex w-full items-center justify-start gap-2.5 sm:justify-end">
               <span className="whitespace-nowrap text-sm font-medium text-[#6b6458] dark:text-[#92a59a]">
                 Sort by
               </span>
-              <button
+                  <button
                 type="button"
                 aria-haspopup="listbox"
                 aria-expanded={sortOpen}
@@ -651,8 +651,8 @@ function BlogsPage({ posts }) {
                     sortOpen ? "rotate-180" : ""
                   }`}
                 />
-              </button>
-            </div>
+                  </button>
+                </div>
 
             <AnimatePresence>
               {sortOpen ? (
@@ -668,7 +668,7 @@ function BlogsPage({ posts }) {
                     const active = sortBy === opt.id;
                     return (
                       <li key={opt.id}>
-                        <button
+                  <button
                           type="button"
                           role="option"
                           aria-selected={active}
@@ -680,14 +680,14 @@ function BlogsPage({ posts }) {
                           }`}
                         >
                           {opt.label}
-                        </button>
+                  </button>
                       </li>
                     );
                   })}
                 </motion.ul>
               ) : null}
             </AnimatePresence>
-          </div>
+                </div>
         </motion.div>
 
         {/* Filter chips */}
