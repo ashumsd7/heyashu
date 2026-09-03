@@ -130,7 +130,6 @@ So, there are multiple algorithms that exist. **Gradient Descent** is one of the
 ![](/images/namaste-ai/img2-descent-7.jpg)
 
 ### \
-\
 Graient Descent Algo
 
 It is an iterative optimization algorithm used to minimize a function (like error or loss) by adjusting in the opposite direction of the gradient.
@@ -175,7 +174,6 @@ And whatever we learned above is called **self-supervised learning**.
 
 ### \
 \
-\
 Self-Supervised Learning
 
 ![](/images/namaste-ai/img-3-self-super.png)
@@ -193,7 +191,6 @@ An **epoch** in AI is one complete round of training where the machine learning 
 
 ### \
 \
-\
 Difference Between Training and Inference
 
 **Training** is the process of teaching an AI model how to learn, while **inference** is the process of using that trained model to make real-world predictions. During training, you feed the AI huge amounts of data and correct its mistakes (**remember forward and backward pass**) so it can figure out the patterns and rules.
@@ -203,7 +200,6 @@ Once the AI finishes learning and graduates, it enters the **inference phase**. 
 Remember, **training consumes more power and has a higher financial cost**.
 
 ### \
-\
 Generalization
 
 The ability to perform well on examples it did not directly memorize is called **generalization**.
@@ -215,7 +211,6 @@ The ability to perform well on examples it did not directly memorize is called *
 ### \
 \
 \
-\
 Overfitting
 
 A model is **overfitting** when it becomes extremely good at training examples but performs poorly on new examples. In other words,
@@ -225,7 +220,6 @@ A model is **overfitting** when it becomes extremely good at training examples b
 Imagine you teach an AI the phrase **"the sky is blue"** using 100 pictures of sunny days. If the AI overfits, it decides that the sky can *only* be blue. When you show it a picture of a stormy night and ask, **"the sky is \_\_\_\_,"** the overfitted AI will still confidently answer **"blue"** because it memorized a rigid rule instead of learning that the weather changes.
 
 ### \
-\
 \
 Distributed Training
 
