@@ -23,13 +23,13 @@ But does that mean when we say a **trained neural network**, what happens if we 
 
 But what does **learning** mean in a machine?
 
-## Learning
+### Learning
 
 A neural network contains a huge collection of adjustable numbers called **parameters**. During training, we repeatedly modify those parameters so that the model becomes better at a particular objective. For a neural network, learning means adjusting parameters so that future predictions become better.
 
 Learning in a neural network is **how an AI trains itself to make accurate predictions**. The network starts by guessing answers to a problem, but it initially makes many mistakes. Every time it guesses wrong, a mathematical formula calculates how far off the guess was from the correct answer. The network then works backward to adjust the internal weights or connections between its artificial neurons.
 
-## Parameters
+### Parameters
 
 We know that, by mathematics, the next word is guessed or predicted. So, the mathematics happens because of the **parameters** as well. What are those parameters? **Parameters are a huge collection of numbers.**
 
@@ -49,7 +49,7 @@ Remember, the embedding of a token—the array of numbers—can also contain **p
 
 In a **[neural network](https://www.ibm.com/think/topics/neural-networks)**, parameters are **the adjustable numbers—specifically weights and biases—that the AI fine-tunes while learning from data**. **Weights** act like volume dials that decide how important a specific input is, while **biases** act like shifting offsets that help the model make accurate decisions even when the inputs are low. Together, they function like interconnected knobs that change shape during training until the AI gets the right answers.
 
-## Do parameters store the knowledge?
+### Do parameters store the knowledge?
 
 The answer is **no, not exactly**. They store patterns and relationships within themselves, but not knowledge or memory in the way humans store facts. The algorithms use these learned parameters and patterns to process input and give us meaningful output.
 
@@ -61,7 +61,7 @@ Remember, **parameters are inside the neural network**, and **training data is k
 
 Now let’s discuss how training takes place.
 
-## Forward Pass
+### Forward Pass
 
 So suppose you put an input:
 
@@ -75,7 +75,7 @@ So the parameters need to be adjusted so that the correct output will be predict
 
 And this is done using a **loss function**.
 
-## Loss Fucntion
+### Loss Fucntion
 
 A **loss function** is a numerical way to measure how bad the prediction is. A loss function converts the quality of a prediction into a number.
 
@@ -101,7 +101,7 @@ A **forward pass** is the journey data takes through an AI model to produce a pr
 **Processing:** The AI converts these words into numbers. It passes these numbers through its network, where it multiplies them by its learned knowledge (weights) to analyze the context.\
 **Output:** The network calculates the probabilities for the next possible word and outputs its best guess: "**blue**".
 
-## Back Propagation ( Backward Pass)
+### Back Propagation ( Backward Pass)
 
 So, when we get the parameters causing the wrong prediction, we check and go back layer by layer and make adjustments. **Backpropagation calculates how changing each parameter would affect the loss.**
 
@@ -115,14 +115,9 @@ In deep learning, a **backward pass** (or backpropagation) is how an AI learns f
 \
 **Backward Pass:** The AI travels **backward** through its internal network. It adjusts its internal settings (called weights) so that the next time it sees *"The sky is..."*, it is much more likely to guess *"Blue"* instead of *"Banana"*.
 
-
-
 ![](/images/namaste-ai/img1-ssc-ep7.jpeg)
 
-## \
-\
-\
-Gradient ( Sensitivity )
+### Gradient ( Sensitivity )
 
 **Gradients** are simply a measure of how much a change in a specific AI parameter (like a knob or dial) will increase or decrease the AI's mistakes (the loss). Think of the AI as playing a game where it tries to guess the next word in a sentence, and every wrong guess costs points. By looking at the gradients, the AI learns exactly which "knobs" to turn, and in which direction, to make fewer mistakes next time.
 
@@ -134,8 +129,7 @@ So, there are multiple algorithms that exist. **Gradient Descent** is one of the
 
 ![](/images/namaste-ai/img2-descent-7.jpg)
 
-## \
-\
+### \
 \
 Graient Descent Algo
 
@@ -179,8 +173,7 @@ And this process takes a lot of computational power and GPUs because it is a rep
 
 And whatever we learned above is called **self-supervised learning**.
 
-## \
-\
+### \
 \
 \
 Self-Supervised Learning
@@ -198,8 +191,7 @@ Okay, now let’s learn about some terminologies. When we hear these, we will no
 
 An **epoch** in AI is one complete round of training where the machine learning model gets to look at the entire training dataset exactly once. Think of it like reading a textbook to prepare for an exam; reading the whole book from cover to cover represents one epoch. Because AI models cannot learn everything from just one look, they usually need to go through the same dataset for dozens or hundreds of epochs. During each epoch, the model analyzes the data, makes mistakes, and adjusts its internal settings to become smarter and more accurate for the next round.
 
-## \
-\
+### \
 \
 \
 Difference Between Training and Inference
@@ -210,8 +202,7 @@ Once the AI finishes learning and graduates, it enters the **inference phase**. 
 
 Remember, **training consumes more power and has a higher financial cost**.
 
-## \
-\
+### \
 \
 Generalization
 
@@ -221,8 +212,7 @@ The ability to perform well on examples it did not directly memorize is called *
 
 **Good learning means discovering patterns that remain useful beyond the exact training examples.**
 
-## \
-\
+### \
 \
 \
 \
@@ -234,8 +224,7 @@ A model is **overfitting** when it becomes extremely good at training examples b
 
 Imagine you teach an AI the phrase **"the sky is blue"** using 100 pictures of sunny days. If the AI overfits, it decides that the sky can *only* be blue. When you show it a picture of a stormy night and ask, **"the sky is \_\_\_\_,"** the overfitted AI will still confidently answer **"blue"** because it memorized a rigid rule instead of learning that the weather changes.
 
-## \
-\
+### \
 \
 \
 Distributed Training
@@ -254,7 +243,9 @@ Close your eyes and from starting to end, imagine the picture of how things are 
 
 Now we also know models learn. The model understands, as humans understand and learn. Does a machine do the same? Till now, we have seen machines predict! Think Think Think……..
 
-Stopping here and leaving so many searchable questions. Be in front of the mirror and answer these, or explain them to your mate.\
+Stopping here and leaving so many searchable questions. Be in front of the mirror and answer these, or explain them to your mate.
+
+\
 What are parameters?
 
 How do embeddings learn?
