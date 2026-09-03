@@ -1,0 +1,51 @@
+{
+  "topic": "How AI Models Learn: Parameters, Training & Prediction",
+  "description": "Practical answers about parameters, training loops, loss, backpropagation, gradient descent, and generalization.",
+  "questions": [
+    {
+      "id": 1,
+      "question": "What are parameters?",
+      "answer": "Parameters are the adjustable numbers inside a neural network — mainly weights and biases. Think of millions of knobs. They start random and get tuned during training so the model makes better predictions. GPT-3 has about 175 billion parameters."
+    },
+    {
+      "id": 2,
+      "question": "How do embeddings learn / how do parameters change?",
+      "answer": "Embeddings are also parameters. During training, a forward pass produces a prediction, loss measures the error, backpropagation computes gradients, and an optimizer (like gradient descent) updates those numbers — including embedding values — so next-word predictions improve."
+    },
+    {
+      "id": 3,
+      "question": "What happens during a forward pass?",
+      "answer": "Input enters the network, travels through layers (multiplied by weights / biases), and exits as a prediction — e.g. probabilities for the next word after 'The sky is ___'. It's a one-way trip from input to output."
+    },
+    {
+      "id": 4,
+      "question": "What exactly does backpropagation do?",
+      "answer": "After loss is calculated, the model travels backward through layers and computes gradients: how much each parameter contributed to the error. Backprop itself does not update weights — the optimizer uses those gradients to update parameters."
+    },
+    {
+      "id": 5,
+      "question": "How does gradient descent work?",
+      "answer": "It iteratively moves parameters opposite to the gradient to minimize loss — like stepping downhill on a foggy mountain. Core pieces: loss, gradient, learning rate. Variants: Batch (whole dataset), SGD (one example), Mini-batch (small groups — industry standard)."
+    },
+    {
+      "id": 6,
+      "question": "How does an LLM learn from data?",
+      "answer": "Mostly via self-supervised learning: feed huge unlabeled text, hide or predict the next piece, measure loss, backprop + optimize, repeat for many batches and epochs until patterns emerge. That process needs massive GPU compute."
+    },
+    {
+      "id": 7,
+      "question": "Training vs inference — what's the difference?",
+      "answer": "Training = teaching with forward + backward passes and parameter updates (expensive). Inference = using the finished model on new inputs to predict answers (cheaper). Chatbots answering you are doing inference."
+    },
+    {
+      "id": 8,
+      "question": "How does a model generalize, and why does overfitting happen?",
+      "answer": "Generalization = applying learned patterns to unseen examples (e.g. predicting 'sky is gray' after mostly seeing sunny 'blue' skies). Overfitting = memorizing training examples so rigidly that new cases fail. Useful models must generalize, not just memorize."
+    },
+    {
+      "id": 9,
+      "question": "Does a machine really understand, or just predict?",
+      "answer": "This episode leaves that open on purpose. So far we've seen machines adjust parameters to predict well. Whether that equals human-like understanding is a deeper question — for now, focus on the training mechanics that make prediction work."
+    }
+  ]
+}

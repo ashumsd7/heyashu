@@ -1,0 +1,67 @@
+{
+  "intro": "Training is how a neural network goes from random guesses to useful predictions. This episode covers parameters, forward pass, loss, backpropagation, gradient descent, self-supervised learning, and why overfitting is the opposite of good generalization.",
+  "sections": [
+    {
+      "heading": "Trained vs untrained networks",
+      "definition": "An untrained neural network is like a newborn baby's brain — random parameters, random outputs. A trained network is like an adult who practiced a skill for years. Poor training still produces bad, near-random generations.",
+      "points": [
+        "Inferencing = using a trained model; training = teaching it first",
+        "Transformers sit on top of a trained neural network",
+        "Learning = adjusting parameters so future predictions improve",
+        "The model starts by guessing, measures mistakes, then adjusts"
+      ]
+    },
+    {
+      "heading": "Parameters = learned knobs",
+      "definition": "Parameters are a huge collection of adjustable numbers (weights and biases) inside the network. At creation they are random; during training they are tuned so the model recognizes patterns and predicts better.",
+      "points": [
+        "Think DJ knobs: model = sound box, parameters = dials you tune",
+        "Weights = how important an input is; biases = offsets for decisions",
+        "GPT-3 has ~175 billion parameters; newer models have trillions",
+        "Knowledge is encoded as patterns across parameters — not stored like human memory",
+        "Token embeddings are also parameters that get adjusted during training"
+      ]
+    },
+    {
+      "heading": "Forward pass → Loss → Backpropagation",
+      "definition": "Forward pass: input flows through layers to produce a prediction. Loss: a number measuring how wrong the prediction is. Backpropagation: travel backward to compute how each parameter affected that loss.",
+      "points": [
+        "Example: 'The sky is ___' predicting 'banana' = high loss; 'blue' = low loss",
+        "Correct prediction ⇒ small loss; very wrong ⇒ large loss",
+        "Backpropagation calculates gradients — it does not itself update weights",
+        "An optimizer then uses gradients to adjust parameters"
+      ]
+    },
+    {
+      "heading": "Gradient descent & optimizers",
+      "definition": "Gradient descent iteratively walks downhill on the loss surface — opposite to the gradient — to reduce error. Core pieces: loss function, gradient, and learning rate.",
+      "points": [
+        "Batch GD: use entire dataset before one update — accurate but slow",
+        "SGD: update after one example — fast but noisy path",
+        "Mini-batch GD: small groups (e.g. 32) — industry standard balance",
+        "Training loop: sample → forward → loss → backprop → optimize → repeat"
+      ]
+    },
+    {
+      "heading": "Self-supervised learning & training terms",
+      "definition": "LLMs mostly learn by self-supervised learning: hide parts of raw data and predict them — no human labels needed. Dataset, batch, training step, and epoch describe how that work is organized.",
+      "points": [
+        "Self-supervised: predict next word / fill missing pieces from unlabeled text",
+        "Dataset = all training data; Batch = group processed together on GPU",
+        "Training step = one optimization update",
+        "Epoch = one full pass through the entire dataset",
+        "Training needs huge compute/GPUs because the loop runs many times"
+      ]
+    },
+    {
+      "heading": "Training vs inference, generalization, overfitting",
+      "definition": "Training teaches the model; inference uses it for new answers. Good learning generalizes to unseen examples. Overfitting memorizes training data and fails on new cases.",
+      "points": [
+        "Training = expensive forward+backward learning; inference = cheaper prediction",
+        "Generalization = apply learned patterns beyond exact training examples",
+        "Overfitting = great on training data, weak on new data",
+        "Distributed training splits work across many GPUs/nodes for scale"
+      ]
+    }
+  ]
+}

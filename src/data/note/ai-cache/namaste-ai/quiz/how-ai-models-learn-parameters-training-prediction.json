@@ -1,0 +1,94 @@
+{
+  "topic": "How AI Models Learn: Parameters, Training & Prediction",
+  "description": "Check your understanding of parameters, forward/backward pass, loss, gradient descent, self-supervised learning, and overfitting.",
+  "questions": [
+    {
+      "id": 1,
+      "question": "What does 'learning' mean for a neural network?",
+      "options": [
+        "Downloading a dictionary of facts into memory",
+        "Adjusting parameters so future predictions improve",
+        "Copying human brain cells into silicon"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Learning means repeatedly modifying adjustable numbers (parameters) so the model gets better at its objective — not storing facts like human memory."
+    },
+    {
+      "id": 2,
+      "question": "What are parameters in a neural network?",
+      "options": [
+        "The raw training documents stored on disk",
+        "Adjustable internal numbers — mainly weights and biases — tuned during training",
+        "The user's API key and rate limits"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Parameters are weights and biases (the 'knobs'). Training data feeds the network; parameters live inside it and get updated during training."
+    },
+    {
+      "id": 3,
+      "question": "Do parameters store knowledge the same way humans store facts?",
+      "options": [
+        "Yes — each fact is saved in one dedicated parameter",
+        "No — they encode patterns and relationships used to process inputs",
+        "Only GPT-4 stores facts; smaller models do not"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Parameters encode patterns and relationships. Algorithms use them to process input and produce output — not a human-like fact database."
+    },
+    {
+      "id": 4,
+      "question": "What does a loss function measure?",
+      "options": [
+        "How expensive the GPU rental is",
+        "How wrong a prediction is compared to the true answer",
+        "How many parameters the model has"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Loss converts prediction quality into a number. Correct → small loss; very wrong → large loss. Training tries to drive loss toward zero."
+    },
+    {
+      "id": 5,
+      "question": "What does backpropagation actually do?",
+      "options": [
+        "It directly rewrites all weights to the correct answer",
+        "It calculates gradients — how changing each parameter would affect the loss",
+        "It deletes bad training examples from the dataset"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Backprop computes gradients. An optimization algorithm (e.g. gradient descent) then uses those gradients to update parameters."
+    },
+    {
+      "id": 6,
+      "question": "Which gradient descent style is the industry standard?",
+      "options": [
+        "Batch Gradient Descent only",
+        "Stochastic Gradient Descent on one example only",
+        "Mini-Batch Gradient Descent on small groups of examples"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Mini-batch balances Batch GD's stability with SGD's speed — e.g. groups of 32 examples — and is the usual approach for modern training."
+    },
+    {
+      "id": 7,
+      "question": "What is an epoch?",
+      "options": [
+        "One optimization update on a single batch",
+        "One complete pass through the entire training dataset",
+        "The moment inference starts after training"
+      ],
+      "correctAnswer": 1,
+      "explanation": "An epoch = one full pass over the whole dataset. Models usually need many epochs. A training step is one optimization update."
+    },
+    {
+      "id": 8,
+      "question": "What is overfitting?",
+      "options": [
+        "The model performs well on new data but poorly on training data",
+        "The model memorizes training examples and fails on new examples",
+        "The model has too few parameters to learn anything"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Overfitting = excellent on training data, weak on unseen data. Good learning generalizes patterns beyond exact training examples."
+    }
+  ]
+}

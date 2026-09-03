@@ -1,13 +1,15 @@
 ---
 title: how-ai-models-learn-parameters-training-prediction
 name: "How AI Models Learn: Parameters, Training & Prediction"
+episodeTitle: "Sharpening the Brain"
 episode: 7
 seasonNumber: 1
 publishedOn: 09-03-2026
 updatedOn: 09-03-2026
 thumbnail: /images/namaste-ai/thumb-e-7.jpg
 author: Ashutosh Anand Tiwari
-tags: "#AI #MachineLearning #LLM #GenerativeAI #DeepLearning"
+tags: "#AI #MachineLearning #LLM #GenerativeAI #DeepLearning #Namaste AI Notes"
+description: "Namaste AI Notes Episode 7 — How AI models learn: parameters, training, forward/backward pass, loss, gradient descent & overfitting. Free digital notes on heyashu."
 profilePic: /images/blogs/pfp2.png
 followLink: https://www.instagram.com/javascripterrr
 ---

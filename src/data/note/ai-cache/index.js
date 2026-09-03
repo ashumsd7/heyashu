@@ -4,6 +4,7 @@ import chatgptSummary from "./namaste-ai/summary/chatgpt-vs-google-search-engine
 import tokenSummary from "./namaste-ai/summary/llm-language-tokenization-misconceptions.json";
 import embedSummary from "./namaste-ai/summary/llm-embeddings-explained-1.json";
 import transformerSummary from "./namaste-ai/summary/how-llms-work-transformers-attention.json";
+import learnSummary from "./namaste-ai/summary/how-ai-models-learn-parameters-training-prediction.json";
 
 import welcomeQuiz from "./namaste-ai/quiz/welcome-to-namaste-ai-notes.json";
 import historyQuiz from "./namaste-ai/quiz/complete-artificial-intelligence-history.json";
@@ -11,6 +12,7 @@ import chatgptQuiz from "./namaste-ai/quiz/chatgpt-vs-google-search-engine-how-l
 import tokenQuiz from "./namaste-ai/quiz/llm-language-tokenization-misconceptions.json";
 import embedQuiz from "./namaste-ai/quiz/llm-embeddings-explained-1.json";
 import transformerQuiz from "./namaste-ai/quiz/how-llms-work-transformers-attention.json";
+import learnQuiz from "./namaste-ai/quiz/how-ai-models-learn-parameters-training-prediction.json";
 
 import welcomeQna from "./namaste-ai/qna/welcome-to-namaste-ai-notes.json";
 import historyQna from "./namaste-ai/qna/complete-artificial-intelligence-history.json";
@@ -18,6 +20,7 @@ import chatgptQna from "./namaste-ai/qna/chatgpt-vs-google-search-engine-how-llm
 import tokenQna from "./namaste-ai/qna/llm-language-tokenization-misconceptions.json";
 import embedQna from "./namaste-ai/qna/llm-embeddings-explained-1.json";
 import transformerQna from "./namaste-ai/qna/how-llms-work-transformers-attention.json";
+import learnQna from "./namaste-ai/qna/how-ai-models-learn-parameters-training-prediction.json";
 
 const NAMASTE_AI_CACHE = {
   summary: {
@@ -27,6 +30,7 @@ const NAMASTE_AI_CACHE = {
     "llm-language-tokenization-misconceptions": tokenSummary,
     "llm-embeddings-explained-1": embedSummary,
     "how-llms-work-transformers-attention": transformerSummary,
+    "how-ai-models-learn-parameters-training-prediction": learnSummary,
   },
   quiz: {
     "welcome-to-namaste-ai-notes": welcomeQuiz,
@@ -35,6 +39,7 @@ const NAMASTE_AI_CACHE = {
     "llm-language-tokenization-misconceptions": tokenQuiz,
     "llm-embeddings-explained-1": embedQuiz,
     "how-llms-work-transformers-attention": transformerQuiz,
+    "how-ai-models-learn-parameters-training-prediction": learnQuiz,
   },
   qna: {
     "welcome-to-namaste-ai-notes": welcomeQna,
@@ -43,6 +48,7 @@ const NAMASTE_AI_CACHE = {
     "llm-language-tokenization-misconceptions": tokenQna,
     "llm-embeddings-explained-1": embedQna,
     "how-llms-work-transformers-attention": transformerQna,
+    "how-ai-models-learn-parameters-training-prediction": learnQna,
   },
 };
 
