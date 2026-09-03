@@ -171,8 +171,7 @@ And this process takes a lot of computational power and GPUs because it is a rep
 
 And whatever we learned above is called **self-supervised learning**.
 
-### \
-Self-Supervised Learning
+### Self-Supervised Learning
 
 ![](/images/namaste-ai/img-3-self-super.png)
 
@@ -187,8 +186,7 @@ Okay, now let’s learn about some terminologies. When we hear these, we will no
 
 An **epoch** in AI is one complete round of training where the machine learning model gets to look at the entire training dataset exactly once. Think of it like reading a textbook to prepare for an exam; reading the whole book from cover to cover represents one epoch. Because AI models cannot learn everything from just one look, they usually need to go through the same dataset for dozens or hundreds of epochs. During each epoch, the model analyzes the data, makes mistakes, and adjusts its internal settings to become smarter and more accurate for the next round.
 
-### \
-Difference Between Training and Inference
+### Difference Between Training and Inference
 
 **Training** is the process of teaching an AI model how to learn, while **inference** is the process of using that trained model to make real-world predictions. During training, you feed the AI huge amounts of data and correct its mistakes (**remember forward and backward pass**) so it can figure out the patterns and rules.
 
@@ -204,9 +202,7 @@ The ability to perform well on examples it did not directly memorize is called *
 
 **Good learning means discovering patterns that remain useful beyond the exact training examples.**
 
-### \
-\
-Overfitting
+### Overfitting
 
 A model is **overfitting** when it becomes extremely good at training examples but performs poorly on new examples. In other words,
 
@@ -214,8 +210,7 @@ A model is **overfitting** when it becomes extremely good at training examples b
 
 Imagine you teach an AI the phrase **"the sky is blue"** using 100 pictures of sunny days. If the AI overfits, it decides that the sky can *only* be blue. When you show it a picture of a stormy night and ask, **"the sky is \_\_\_\_,"** the overfitted AI will still confidently answer **"blue"** because it memorized a rigid rule instead of learning that the weather changes.
 
-### \
-Distributed Training
+### Distributed Training
 
 Training a frontier-scale model is a large distributed system problem as much as it is a machine learning problem, in other words.
 
@@ -233,7 +228,7 @@ Now we also know models learn. The model understands, as humans understand and l
 
 Stopping here and leaving so many searchable questions. Be in front of the mirror and answer these, or explain them to your mate.
 
-\
+
 What are parameters?
 
 How do embeddings learn?
