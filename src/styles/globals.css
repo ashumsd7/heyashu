@@ -48,16 +48,143 @@ h3 {
   font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
+/* Notes + blog article: standard reading hierarchy (bold ≠ heading) */
+.notes-reader-prose .prose,
+.garden-blog-prose.prose {
+  line-height: 1.75;
+}
+
+.notes-reader-prose .prose p,
+.garden-blog-prose.prose p {
+  font-size: 1em !important;
+  line-height: 1.75 !important;
+  margin-top: 0.9em !important;
+  margin-bottom: 0.9em !important;
+}
+
+.notes-reader-prose .prose strong,
+.notes-reader-prose .prose b,
+.garden-blog-prose.prose strong,
+.garden-blog-prose.prose b {
+  font-size: inherit !important;
+  font-weight: 600 !important;
+  letter-spacing: 0 !important;
+  line-height: inherit !important;
+}
+
+.notes-reader-prose .prose h1,
+.garden-blog-prose.prose h1 {
+  font-size: 1.85em !important;
+  font-weight: 650 !important;
+  line-height: 1.25 !important;
+  letter-spacing: -0.02em;
+  margin-top: 1.45em !important;
+  margin-bottom: 0.5em !important;
+}
+
+.notes-reader-prose .prose h2,
+.garden-blog-prose.prose h2 {
+  font-size: 1.5em !important;
+  font-weight: 650 !important;
+  line-height: 1.28 !important;
+  letter-spacing: -0.015em;
+  margin-top: 1.55em !important;
+  margin-bottom: 0.45em !important;
+}
+
+.notes-reader-prose .prose h3,
+.garden-blog-prose.prose h3 {
+  font-size: 1.32em !important;
+  font-weight: 650 !important;
+  line-height: 1.35 !important;
+  letter-spacing: -0.01em;
+  margin-top: 1.45em !important;
+  margin-bottom: 0.4em !important;
+}
+
+.notes-reader-prose .prose h4,
+.garden-blog-prose.prose h4 {
+  font-size: 1.15em !important;
+  font-weight: 650 !important;
+  line-height: 1.4 !important;
+  margin-top: 1.25em !important;
+  margin-bottom: 0.35em !important;
+}
+
+.notes-reader-prose .prose ul,
+.garden-blog-prose.prose ul {
+  list-style-type: disc !important;
+  padding-left: 1.55em !important;
+  margin: 0.85em 0 !important;
+}
+
+.notes-reader-prose .prose ol,
+.garden-blog-prose.prose ol {
+  list-style-type: decimal !important;
+  padding-left: 1.55em !important;
+  margin: 0.85em 0 !important;
+}
+
+.notes-reader-prose .prose ul ul,
+.garden-blog-prose.prose ul ul {
+  list-style-type: circle !important;
+  margin: 0.35em 0 !important;
+}
+
+.notes-reader-prose .prose ul ul ul,
+.garden-blog-prose.prose ul ul ul {
+  list-style-type: square !important;
+}
+
+.notes-reader-prose .prose li,
+.garden-blog-prose.prose li {
+  font-size: 1em !important;
+  line-height: 1.7 !important;
+  margin: 0.4em 0 !important;
+  padding-left: 0.2em;
+}
+
+.notes-reader-prose .prose li > p,
+.garden-blog-prose.prose li > p {
+  margin-top: 0.25em !important;
+  margin-bottom: 0.25em !important;
+}
+
+.notes-reader-prose .prose li::marker,
+.garden-blog-prose.prose li::marker {
+  color: inherit;
+  font-weight: 500;
+}
+
+.notes-reader-prose .prose blockquote,
+.garden-blog-prose.prose blockquote {
+  font-size: 1.02em !important;
+  margin: 1.25em 0 !important;
+  padding-left: 1em !important;
+}
+
+.notes-reader-prose .prose hr,
+.garden-blog-prose.prose hr {
+  margin: 2em 0 !important;
+}
+
+.notes-reader-prose .prose table,
+.garden-blog-prose.prose table {
+  font-size: 0.95em;
+  margin: 1.25em 0;
+  width: 100%;
+}
+
 .garden-blog-prose.prose :where(code):not(:where(pre *)),
 .notes-reader-prose .prose :where(code):not(:where(pre *)) {
-  color: var(--nr-heading) !important;
-  background-color: var(--nr-hover) !important;
+  color: var(--nr-heading, #171717) !important;
+  background-color: var(--nr-hover, #f3eee5) !important;
   font-family: "IBM Plex Mono", ui-monospace, monospace;
   font-size: 0.88em;
   font-weight: 500;
   padding: 0.15em 0.4em;
   border-radius: 0.25rem;
-  border: 1px solid var(--nr-border);
+  border: 1px solid var(--nr-border, #e6e0d6);
 }
 
 .garden-blog-prose.prose pre,

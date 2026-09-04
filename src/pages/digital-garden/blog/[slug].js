@@ -114,11 +114,12 @@ export default function BlogPost({ frontMatter, mdxSource, slug, large = false }
         )}
         {/* Main Blog Content */}
         <div
-          className={`prose container mx-auto p-0  mb-28 ${
+          className={`garden-blog-prose prose container mx-auto mb-28 p-0 ${
             large ? "max-w-screen-lg" : "max-w-screen-md"
           }`}
+          style={{ fontSize: "17px" }}
         >
-          <MDXRenderer markdownContent={mdxSource} />
+          <MDXRenderer markdownContent={mdxSource} variant="garden" />
         </div>
       </div>
     </>

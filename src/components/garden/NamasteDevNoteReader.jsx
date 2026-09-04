@@ -139,9 +139,8 @@ export default function NamasteDevNoteReader({
           id={AI_MARKDOWN_CONTENT_ID}
           className="garden-blog-prose prose max-w-none text-left font-source-serif
             prose-headings:font-source-serif prose-headings:font-semibold prose-headings:!text-[var(--nr-heading)]
-            prose-h2:!text-[1.28em] prose-h3:!text-[1.12em]
             prose-p:!leading-[1.75] prose-p:!text-[var(--nr-body)]
-            prose-strong:!font-semibold prose-strong:!text-[var(--nr-heading)]
+            prose-strong:!text-[1em] prose-strong:!font-semibold prose-strong:!text-[var(--nr-text)]
             prose-li:!text-[var(--nr-body)] prose-li:!leading-[1.7]
             prose-a:!text-[var(--nr-accent)]
             prose-img:!rounded-none prose-img:border prose-img:border-[var(--nr-border)]

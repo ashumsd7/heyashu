@@ -194,7 +194,7 @@ const NotesMainPage = ({
   );
 
   const themeConfig = THEMES[theme] || THEMES.light;
-  const bodyFontPx = 16 + fontScale;
+  const bodyFontPx = 17 + fontScale;
 
   useEffect(() => {
     const saved = ls.get(THEME_STORAGE);
@@ -951,20 +951,21 @@ const NotesMainPage = ({
       <style jsx global>{`
         .notes-reader-prose .prose {
           max-width: none !important;
-          font-size: var(--nr-font-size, 16px) !important;
-          line-height: 1.8 !important;
+          font-size: var(--nr-font-size, 17px) !important;
+          line-height: 1.75 !important;
           color: var(--nr-body);
-          font-family: "IBM Plex Sans", system-ui, sans-serif;
+          font-family: "IBM Plex Sans", system-ui, sans-serif !important;
         }
         .notes-reader-prose .prose p,
         .notes-reader-prose .prose li {
           font-size: 1em !important;
-          line-height: 1.8 !important;
+          line-height: 1.75 !important;
           color: var(--nr-body);
+          font-family: "IBM Plex Sans", system-ui, sans-serif;
         }
         .notes-reader-prose .prose p {
-          margin-top: 0.95em !important;
-          margin-bottom: 0.95em !important;
+          margin-top: 0.9em !important;
+          margin-bottom: 0.9em !important;
         }
         .notes-reader-prose .prose h1,
         .notes-reader-prose .prose h2,
@@ -973,13 +974,27 @@ const NotesMainPage = ({
           color: var(--nr-heading);
           font-family: "Fraunces", Georgia, serif;
           letter-spacing: -0.015em;
-          line-height: 1.3 !important;
         }
+        .notes-reader-prose .prose h1 { font-size: 1.85em !important; }
+        .notes-reader-prose .prose h2 { font-size: 1.5em !important; }
+        .notes-reader-prose .prose h3 { font-size: 1.32em !important; }
+        .notes-reader-prose .prose h4 { font-size: 1.15em !important; }
         .notes-reader-prose .prose a {
           color: var(--nr-accent);
         }
-        .notes-reader-prose .prose strong {
+        .notes-reader-prose .prose strong,
+        .notes-reader-prose .prose b {
+          font-size: inherit !important;
+          font-weight: 600 !important;
           color: var(--nr-text);
+        }
+        .notes-reader-prose .prose ul {
+          list-style-type: disc !important;
+          padding-left: 1.55em !important;
+        }
+        .notes-reader-prose .prose ol {
+          list-style-type: decimal !important;
+          padding-left: 1.55em !important;
         }
         .notes-reader-prose .prose blockquote {
           border-left-color: var(--nr-border);

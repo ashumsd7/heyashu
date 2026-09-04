@@ -162,11 +162,6 @@ export default function BlogPost({ frontMatter, mdxSource, related = [], slug })
   const [fontScale, setFontScale] = useState(0); // -2..3 steps
 
   const title = frontMatter?.name || frontMatter?.title || "Untitled";
-  const subtitle =
-    frontMatter?.description ||
-    frontMatter?.metaContent ||
-    frontMatter?.metaName ||
-    "";
   const publishedOn = formatPublishedDate(
     frontMatter?.publishedOn || frontMatter?.date
   );
@@ -184,7 +179,7 @@ export default function BlogPost({ frontMatter, mdxSource, related = [], slug })
       : changeFilePath(frontMatter.thumbnail)
     : null;
 
-  const bodyFontPx = 14 + fontScale; // base 14px, adjustable
+  const bodyFontPx = 17 + fontScale;
 
   const bumpFont = (dir) => {
     setFontScale((s) => Math.max(-2, Math.min(4, s + dir)));
@@ -315,11 +310,6 @@ export default function BlogPost({ frontMatter, mdxSource, related = [], slug })
           <h1 className="mb-6 max-w-[22ch] font-fraunces text-[clamp(2.1rem,5vw,3.15rem)] font-semibold leading-[1.12] tracking-[-0.025em] text-[#171717] dark:text-[#f0f4ef]">
             {title}
           </h1>
-          {subtitle ? (
-            <p className="mb-6 max-w-[40ch] font-fraunces text-[1rem] italic leading-relaxed text-[#6b6458] dark:text-[#92a59a]">
-              {subtitle}
-            </p>
-          ) : null}
 
           {/* Author meta — avatar left, 2-line text right (screenshot match) */}
           <div className="flex items-center gap-3 text-left">
@@ -365,20 +355,19 @@ export default function BlogPost({ frontMatter, mdxSource, related = [], slug })
           id="ai-markdown-content"
           style={{ fontSize: `${bodyFontPx}px` }}
           className="garden-blog-prose prose max-w-none text-left dark:prose-invert
-            prose-headings:font-fraunces prose-headings:font-semibold prose-headings:tracking-[-0.01em]
+            prose-headings:font-fraunces prose-headings:font-semibold prose-headings:tracking-[-0.015em]
             prose-headings:text-[#171717] dark:prose-headings:text-[#f0f4ef]
-            prose-h1:!text-[1.35em] prose-h2:!text-[1.22em] prose-h3:!text-[1.1em]
-            prose-p:!text-[1em] prose-p:!leading-[1.7] prose-p:!my-3
+            prose-p:!text-[1em] prose-p:!leading-[1.75]
             prose-p:!text-[#3f3a34] dark:prose-p:!text-[#d5ddd7]
-            prose-li:!text-[1em] prose-li:!leading-[1.65] prose-li:!my-1
+            prose-li:!text-[1em] prose-li:!leading-[1.7]
             prose-a:!text-[#143825] prose-a:underline prose-a:decoration-[#cfc6b8] prose-a:underline-offset-2
             dark:prose-a:!text-[#22c55e]
-            prose-blockquote:border-l-[#cfc6b8] prose-blockquote:pl-3 prose-blockquote:font-fraunces
-            prose-blockquote:!text-[1.05em] prose-blockquote:italic prose-blockquote:!text-[#4a453d]
+            prose-blockquote:border-l-[#cfc6b8] prose-blockquote:pl-4 prose-blockquote:font-fraunces
+            prose-blockquote:italic prose-blockquote:!text-[#4a453d]
             prose-img:!rounded-none prose-img:border prose-img:border-[#e6e0d6]
             prose-pre:!rounded-none prose-pre:!text-[0.85em]
             prose-code:!text-[0.88em]
-            prose-strong:!text-[#1c1c1c] dark:prose-strong:!text-[#f0f4ef]
+            prose-strong:!text-[1em] prose-strong:!font-semibold prose-strong:!text-[#1c1c1c] dark:prose-strong:!text-[#f0f4ef]
             [&_p:first-of-type]:first-letter:float-left
             [&_p:first-of-type]:first-letter:mr-2
             [&_p:first-of-type]:first-letter:mt-0.5
