@@ -1,0 +1,193 @@
+{
+  "topic": "How AI Models Become Assistants: Pre-Training to Post-Training",
+  "description": "Check your understanding of Common Crawl, FineWeb, base models, SFT, instruction tuning, RLHF, reward hacking, and why post-training shapes behaviour.",
+  "questions": [
+    {
+      "id": 1,
+      "question": "What are the three main steps to turn a base predictor into a public chat assistant?",
+      "options": [
+        "Tokenization, embeddings, and attention",
+        "Pre-training, training, and post-training",
+        "Crawling, advertising, and API billing"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The notes frame ChatGPT-style assistants as: (1) pre-training data, (2) training the base model, (3) post-training so it behaves like a public assistant."
+    },
+    {
+      "id": 2,
+      "question": "What is Common Crawl?",
+      "options": [
+        "OpenAI's private chat logs used only for GPT-4",
+        "A non-profit open archive of web crawl data used as a major LLM data source",
+        "A Hugging Face tool that writes system prompts"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Common Crawl maintains a free public snapshot of the internet (hundreds of billions of pages) that researchers and companies can use for training."
+    },
+    {
+      "id": 3,
+      "question": "Why can't companies just feed raw HTML into an LLM for training?",
+      "options": [
+        "HTML is already the perfect training format",
+        "Models need refined useful text, not menus, junk, private or adult content",
+        "HTML files are too small to matter"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Raw pages include navigation and unwanted content. Data must be refined/filtered into clean text before training."
+    },
+    {
+      "id": 4,
+      "question": "What is FineWeb?",
+      "options": [
+        "A video dataset of Fine-tuned Webcams",
+        "Hugging Face's cleaned Common Crawl collection (~15 trillion tokens) for pre-training",
+        "The name of ChatGPT's reward model"
+      ],
+      "correctAnswer": 1,
+      "explanation": "FineWeb is processed Common Crawl: spam/repetition/low quality removed. FineWeb-Edu is a smaller educational-only slice."
+    },
+    {
+      "id": 5,
+      "question": "What is the result of the Training step (step 2)?",
+      "options": [
+        "A public ChatGPT product with tools and memory",
+        "A Base / foundation model that predicts next tokens but is not yet a helpful assistant",
+        "Only a Reward Model"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Clean data + the training loop (Transformer, loss, backprop) produces a base model — still not ready for the public."
+    },
+    {
+      "id": 6,
+      "question": "How is a base model different from a tuned assistant?",
+      "options": [
+        "They are identical; marketing names differ",
+        "A base model is a general next-token student; a tuned model is specialized to follow instructions and behave well",
+        "A base model cannot predict tokens at all"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Analogy in the notes: base = college graduate; tuned = same person after job-specific training for tone, structure, humility."
+    },
+    {
+      "id": 7,
+      "question": "What does Supervised Fine-Tuning (SFT) do?",
+      "options": [
+        "It invents a brand-new learning algorithm unrelated to loss",
+        "It continues training on targeted Q&A/chat examples so the model follows instructions",
+        "It only crawls FineWeb"
+      ],
+      "correctAnswer": 1,
+      "explanation": "SFT uses the same loop (predict → loss → backward → update) on a smaller, targeted dataset. Result: SFT Model."
+    },
+    {
+      "id": 8,
+      "question": "What is instruction tuning mainly for?",
+      "options": [
+        "Teaching the model to complete 'The sky is...' only",
+        "Teaching the model to follow human commands (explain, JSON, poem, classify) not just next-word completion",
+        "Replacing GPUs with CPUs"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Instruction tuning turns a raw completer into an assistant that can handle direct prompts and requested formats."
+    },
+    {
+      "id": 9,
+      "question": "Why can Claude feel better at debugging than another model?",
+      "options": [
+        "All post-base models are trained on identical data",
+        "After the base model, datasets and fine/instruction-tuning give each company a different 'taste'",
+        "Debugging skill is only from the system prompt color"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Most personality/skill flavor happens after the base model via different data and tuning (e.g. lots of debugging examples)."
+    },
+    {
+      "id": 10,
+      "question": "What does the System role do in a conversation?",
+      "options": [
+        "It is the user's latest question",
+        "It is the hidden rulebook for personality, tone, and boundaries — usually highest priority",
+        "It is only used to store past assistant replies"
+      ],
+      "correctAnswer": 1,
+      "explanation": "SYSTEM vs USER vs ASSISTANT separate developer rules, human input, and model replies. System instructions should not be ignored."
+    },
+    {
+      "id": 11,
+      "question": "Why is SFT not always enough?",
+      "options": [
+        "It already solves all human preference and reasoning issues",
+        "It teaches style/format but struggles with deep reasoning, changing facts, and which answer humans prefer",
+        "It cannot run on GPUs"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Users want short vs long vs technical answers. SFT doesn't fully capture that taste — human preference / RLHF comes next."
+    },
+    {
+      "id": 12,
+      "question": "What is the Evaluation Gap?",
+      "options": [
+        "The gap between HTTP and HTTPS",
+        "It's easier to judge which answer is better than to write the ideal answer from scratch",
+        "The gap between CPU and GPU price"
+      ],
+      "correctAnswer": 1,
+      "explanation": "You can pick the funnier joke more easily than invent one. Generators create; discriminators/evaluators judge — evaluation is still hard and expensive."
+    },
+    {
+      "id": 13,
+      "question": "What is a Reward Model?",
+      "options": [
+        "The Common Crawl bot",
+        "A model trained on human preference comparisons that scores answers for helpfulness/safety/quality",
+        "The user's ChatGPT Plus invoice"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Millions of A vs B rankings train a digital judge. ChatGPT's 'which response do you prefer?' is the same idea."
+    },
+    {
+      "id": 14,
+      "question": "How does RLHF work at a high level?",
+      "options": [
+        "The model crawls FineWeb again from scratch",
+        "The AI proposes answers, humans (or a reward model) rank them, then RL makes high-preference styles more likely",
+        "RLHF only deletes adult URLs"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Three beats: generate choices → humans grade → learn from the reward. Core technique behind ChatGPT/Claude-style assistants."
+    },
+    {
+      "id": 15,
+      "question": "What is reward hacking?",
+      "options": [
+        "Getting a high measured score without doing the real intended job",
+        "Paying humans more to label faster",
+        "Using more GPUs during pre-training"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Like a student flipping 500 flashcards for an A+ without learning. The metric is gamed; the goal is missed."
+    },
+    {
+      "id": 16,
+      "question": "What does Goodhart’s Law / reward over-optimization warn?",
+      "options": [
+        "A higher reward score always means more usefulness",
+        "Once a metric becomes the target, it can stop being a good measure — usefulness can stall or drop",
+        "System prompts must be written in JSON only"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Chase the number too hard and the model finds shortcuts that please the scorer, not the user. Helpful ≠ always agreeing."
+    },
+    {
+      "id": 17,
+      "question": "Training vs post-training — which is right?",
+      "options": [
+        "Training builds capabilities; post-training mainly shapes how those capabilities are expressed",
+        "Post-training always re-teaches every fact from scratch (e.g. closures)",
+        "They are the same step with two names"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Knowing JS closures may already be in the capability base. Post-training teaches expressing it as a clear assistant answer."
+    }
+  ]
+}

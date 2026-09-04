@@ -16,6 +16,7 @@ export const EPISODE_BOOK_START_PAGES = {
   "llm-embeddings-explained-1": 1,
   "how-llms-work-transformers-attention": 1,
   "how-ai-models-learn-parameters-training-prediction": 1,
+  "how-ai-models-become-assistants-pre-training-to-post-training": 1,
 };
 
 export function getBookModeStartPage(slug) {

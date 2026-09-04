@@ -1,0 +1,71 @@
+{
+  "topic": "How AI Models Become Assistants: Pre-Training to Post-Training",
+  "description": "Practical answers about Common Crawl, FineWeb, base vs chat models, SFT, instruction tuning, RLHF, and why higher reward is not always better.",
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the difference between a Base Model and a Chat Assistant?",
+      "answer": "A base (foundation) model is a next-token predictor trained on huge clean text — like a college graduate with general knowledge. A chat assistant is that model after post-training (SFT, instruction tuning, RLHF) so it follows instructions, uses a humble tone, and answers in the format users want. ChatGPT is the assistant, not the raw base model."
+    },
+    {
+      "id": 2,
+      "question": "What is Pre-Training, and why filter data?",
+      "answer": "Pre-training gathers and refines web-scale text (crawl → clean). Common Crawl is a free public internet archive. Raw HTML is not used — menus, private data, and adult content must be filtered so the public assistant doesn't leak junk or private info. FineWeb is Hugging Face's cleaned Common Crawl (~15T tokens); FineWeb-Edu keeps educational text."
+    },
+    {
+      "id": 3,
+      "question": "What is the difference between clean data and a Base Model?",
+      "answer": "Clean data is the result of step 1 (crawl + refine). Training (tokenization, Transformer, loss, backprop) consumes that data and produces a Base Model — the general next-word engine. Clean data is the feed; the base model is the trained network."
+    },
+    {
+      "id": 4,
+      "question": "What is Post-Training, and why is it required?",
+      "answer": "Post-training shapes behavior: follow instructions, desired tone, structured output, humility. A knowledgeable base model can still be rude or ramble. We need the model to behave like a helpful public product, not just predict tokens."
+    },
+    {
+      "id": 5,
+      "question": "What is SFT vs Instruction Tuning?",
+      "answer": "SFT continues training an already pre-trained model on targeted correct Q&A / chat examples — same predict→loss→update loop. Instruction tuning is a kind of fine-tuning focused on following commands ('Explain why the sky is blue', return JSON) rather than only completing 'The sky is...'. Both happen in post-training; instruction tuning is more specific about command-following."
+    },
+    {
+      "id": 6,
+      "question": "What are System, User, and Assistant roles?",
+      "answer": "They label who is speaking in structured API-style messages. System = hidden developer rulebook (personality, boundaries, high priority). User = the human's question/task. Assistant = the model's replies, stored so the chat stays coherent. This is behind the ChatGPT UI, and formats differ by company."
+    },
+    {
+      "id": 7,
+      "question": "Why is SFT not enough, and what is the Evaluation Gap?",
+      "answer": "SFT teaches style/format but not deep preference: short vs long vs technical. Humans are better at picking the better answer than writing the ideal one from scratch (joke example). That's the evaluation gap — judging is easier than generating, but grading creative output is still slow and expensive."
+    },
+    {
+      "id": 8,
+      "question": "What is a Reward Model, and how does it learn?",
+      "answer": "Humans (or users) compare answers A vs B. Millions of those preferences train another model that scores helpfulness/safety. That Reward Model is a digital judge. ChatGPT showing two responses and asking which you prefer is exactly this loop."
+    },
+    {
+      "id": 9,
+      "question": "What is RL vs RLHF?",
+      "answer": "Reinforcement Learning = trial and error with rewards and penalties to maximize score. RLHF = RL guided by human rankings (or a reward model trained on them). The assistant is adjusted so outputs that humans preferred become more likely — closer to ChatGPT/Claude/Grok."
+    },
+    {
+      "id": 10,
+      "question": "What are the problems with RLHF?",
+      "answer": "Humans disagree (length, sarcasm, tone). Humans can prefer wrong answers. Feedback is slow and costly; reviewers can't check everything. The Reward Model is not true human judgment — it's a learned approximation of a limited sample (lossy simulation, like a 4/10 movie score hiding acting vs story vs direction)."
+    },
+    {
+      "id": 11,
+      "question": "What are Reward Hacking, Goodhart’s Law, and over-optimization?",
+      "answer": "Reward hacking: cheat the metric without doing the real job (flashcards for an A+ without learning). Goodhart: when a measure becomes the target, it stops being a good measure. Over-optimization: pushing the reward score higher eventually finds loopholes — the number goes up, usefulness does not always follow. Helpful doesn't mean always agreeing with the user."
+    },
+    {
+      "id": 12,
+      "question": "Knowledge vs behaviour — does post-training teach new facts?",
+      "answer": "Mostly no. Training builds the capability base (e.g. knowing closures). Post-training shapes how that knowledge is expressed when someone asks 'Explain closures' — clear, assistant-like form. Two models with similar capabilities can behave differently because of different post-training data and tuning."
+    },
+    {
+      "id": 13,
+      "question": "How does a Base Model become a public AI Assistant? (full journey)",
+      "answer": "Common Crawl (or private crawlers) → filtering → clean data → training → Base Model → SFT → instruction tuning → human feedback/ranking → Reward Model → RLHF → preference-trained assistant. After that come product layers: system instructions, safety, tools, search, memory, RAG. Training builds capabilities. Post-training shapes behaviour."
+    }
+  ]
+}

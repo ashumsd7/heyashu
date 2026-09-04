@@ -7,7 +7,8 @@ publishedOn: 09-05-2026
 updatedOn: 09-05-2026
 thumbnail: /images/namaste-ai/s1-s8-thumnail-v2.jpg
 author: Ashutosh Anand Tiwari
-tags: "#AI, #LLM, #GenerativeAI, #RLHF, #MachineLearning"
+tags: "#AI, #LLM, #GenerativeAI, #RLHF, #MachineLearning, #Namaste AI Notes"
+description: "Namaste AI Notes Episode 8 — How AI models become assistants: Common Crawl, FineWeb, SFT, instruction tuning, RLHF, reward models & Goodhart’s Law. Free digital notes on heyashu."
 profilePic: /images/blogs/pfp2.png
 followLink: https://www.instagram.com/javascripterrr
 ---

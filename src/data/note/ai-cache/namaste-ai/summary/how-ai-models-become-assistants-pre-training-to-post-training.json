@@ -1,0 +1,78 @@
+{
+  "intro": "ChatGPT-style assistants are not just next-word predictors. A public assistant is built in three stages: pre-training (crawl + clean data), training (base model), and post-training (SFT, instruction tuning, reward models, RLHF) so the model follows instructions, stays humble, and matches human preference.",
+  "sections": [
+    {
+      "heading": "Three steps to a public assistant",
+      "definition": "Any assistant like ChatGPT, Grok, Gemini, or DeepSeek starts as a base model that predicts the next word. It becomes a public chat product only after pre-training, training, and post-training.",
+      "points": [
+        "Pre-training = crawl the web + refine/filter into clean text",
+        "Training = tokenization, Transformer, loss, forward/backward pass → Base Model",
+        "Post-training = teach behavior: follow instructions, tone, structure, humility",
+        "Base model ≈ college graduate; tuned model ≈ same person after job training"
+      ]
+    },
+    {
+      "heading": "Pre-training: Common Crawl, FineWeb, filtering",
+      "definition": "Pre-training starts with huge web data. Common Crawl is a free public archive of billions of pages. Raw HTML is not fed to LLMs — companies refine it into useful text. FineWeb is Hugging Face's cleaned Common Crawl (15T tokens).",
+      "points": [
+        "Common Crawl: non-profit, ~300B pages stored, 3–5B new pages/month, discovered via links",
+        "Cannot train on raw HTML — drop menus, junk, private data, adult content",
+        "FineWeb: URL filters + quality pipeline; FineWeb-Edu keeps educational text only",
+        "Companies often run their own crawlers and filters; dataset quality is a huge problem"
+      ]
+    },
+    {
+      "heading": "Training produces the Base Model",
+      "definition": "Step 2 is the training loop from earlier notes: tokenize, Transformer, loss, gradients, repeated parameter updates. Output is a base/foundation model — general patterns, not yet a helpful assistant.",
+      "points": [
+        "Clean data in → Base Model out",
+        "Base model predicts next tokens, often in ways users won't like",
+        "It is not ready to write proper assistant answers for the public"
+      ]
+    },
+    {
+      "heading": "SFT & Instruction Tuning",
+      "definition": "Supervised Fine-Tuning continues training on targeted Q&A / chat examples. Instruction tuning specifically teaches following commands (explain, JSON, poem) instead of only completing 'The sky is...'. Same learning loop: predict → loss → backprop → update.",
+      "points": [
+        "SFT turns a raw model into an SFT Model that chats like user/assistant",
+        "Fine-tuning does not invent a new learning algorithm — same training loop",
+        "Instruction tuning = extra training for desired input/output behavior",
+        "Different datasets/tuning explain why Claude vs GPT 'taste' differs",
+        "Some answers (e.g. who owns ChatGPT → OpenAI) can be hardcoded"
+      ]
+    },
+    {
+      "heading": "Conversation roles: System, User, Assistant",
+      "definition": "Behind the chat UI, models take structured messages with reserved roles. System = hidden rulebook (highest priority). User = human task. Assistant = model replies, kept for context.",
+      "points": [
+        "System prompt sets personality, tone, and boundaries",
+        "User prompt is the live question or command",
+        "Assistant role stores generated replies for a coherent chat",
+        "Format differs by company; this is not what you type in the ChatGPT box"
+      ]
+    },
+    {
+      "heading": "Why SFT is not enough → Reward Model & RLHF",
+      "definition": "SFT teaches style/format but struggles with deep reasoning, changing facts, and human taste (short vs long vs technical). Humans rank answers more easily than they write the perfect one (evaluation gap). Those rankings train a Reward Model; RLHF then boosts high-preference outputs.",
+      "points": [
+        "Humans are better discriminators than generators (jokes example)",
+        "Reward Model = digital judge scoring helpful/safe/correct answers",
+        "ChatGPT 'which response do you prefer?' feeds this preference data",
+        "RL: trial and error with rewards/penalties; RLHF uses human rankings",
+        "Preference-trained model ≈ ChatGPT / Claude / Grok we use today"
+      ]
+    },
+    {
+      "heading": "RLHF limits: hacking, Goodhart, knowledge vs behaviour",
+      "definition": "A reward model is a lossy approximation of limited human judgment. Humans disagree, err, and are expensive. Optimizing the score can cheat the real goal (reward hacking, Goodhart’s Law, over-optimization). Training builds capabilities; post-training shapes how they are expressed.",
+      "points": [
+        "Humans disagree (length, sarcasm); reviewers miss things; cost is high",
+        "Lossy simulation: a score like 4.2 hides why (acting vs story vs direction)",
+        "Reward hacking = high score without doing the intended job",
+        "Goodhart: when a metric becomes the target, it stops being a good metric",
+        "Helpful ≠ always agree; sometimes correcting the user is better",
+        "Post-training usually shapes behaviour, not a full re-teach of facts like closures"
+      ]
+    }
+  ]
+}
