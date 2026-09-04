@@ -31,7 +31,7 @@ It maintains a free, open repository of web crawl data that can be used by anyon
 
 **Common Crawl** is **a non-profit organization that builds and maintains a massive, free, and publicly accessible digital archive of the internet**. Think of it as a giant, open-source library that uses automated bots to constantly browse the web and take snapshots of billions of web pages. Instead of keeping this data private, Common Crawl shares its copy of the internet with everyone, making it incredibly useful for researchers, businesses, and software developers. In fact, it is one of the main data sources used to train advanced Artificial Intelligence and language models, helping them learn how humans write, communicate, and share information.
 
-Here is the website of Common Crawl.
+[Here is the website of Common Crawl.](https://commoncrawl.org/about)
 
 Question comes: how do they store the things? How do they know about the new page? The answer is through the links. Suppose a new page is added to your website, it can be crawled and added to the Common Crawl database.
 
