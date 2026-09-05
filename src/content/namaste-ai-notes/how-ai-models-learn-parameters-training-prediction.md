@@ -37,8 +37,6 @@ We know that, by mathematics, the next word is guessed or predicted. So, the mat
 
 or
 
-**Parameters** in a neural network are the internal variables that the AI model learns and adjusts during its training process. Think of them as millions of tiny, adjustable knobs and dials inside the AI's brain. When the network makes a mistake, it turns these knobs slightly to improve.
-
 Think of yourself as a DJ. To make better sound, you regulate knobs and adjust the sound to make the perfect setting for that program. The sound box is the **model**, and the knobs and controls that we adjust before getting the real output are like **parameters**. You can say that everything happens based on these parameters.
 
 But in an AI neural network, who tunes these? The **model itself during training**.
@@ -227,7 +225,6 @@ Close your eyes and from starting to end, imagine the picture of how things are 
 Now we also know models learn. The model understands, as humans understand and learn. Does a machine do the same? Till now, we have seen machines predict! Think Think Think……..
 
 Stopping here and leaving so many searchable questions. Be in front of the mirror and answer these, or explain them to your mate.
-
 
 What are parameters?
 
