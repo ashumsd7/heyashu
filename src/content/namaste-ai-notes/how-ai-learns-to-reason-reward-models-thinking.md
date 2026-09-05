@@ -10,6 +10,7 @@ author: Ashutosh Anand Tiwari
 tags: "#AI, #LLM, #ReasoningAI #RewardModel #MachineLearning"
 profilePic: /images/blogs/pfp2.png
 followLink: https://www.instagram.com/javascripterrr
+episodeTitle: "Can AI Really Think?"
 ---
 Do you love philosophy? If yes, all good. If not, **kursi ki peti baandh lijiye**, kyunki **AI sochne wala hai** haha! 😄
 
