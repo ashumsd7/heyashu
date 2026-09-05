@@ -1,0 +1,65 @@
+{
+  "intro": "Reasoning-oriented generation means the model works through a problem step-by-step before answering, instead of only guessing the next token. This episode covers reasoning models (DeepSeek R1), Chain of Thought, inference-time compute, RLVF/RLVR vs RLHF, evaluators including LLM-as-a-Judge, Tree/Graph of Thoughts, and why more thinking is not a guarantee of correctness.",
+  "sections": [
+    {
+      "heading": "Direct generation vs reasoning-oriented generation",
+      "definition": "Standard models often answer by pattern — next-token prediction. Reasoning-oriented generation pauses to break the problem down, weigh options, and check logic, like a human solving a riddle instead of shouting a guess.",
+      "points": [
+        "Direct generation is fast and enough for many simple questions",
+        "Complex tasks (coding, logic, research, decisions) need step-by-step thought",
+        "Example: apples puzzle — work the steps instead of a similar-riddle guess",
+        "Example: +20% then −20% is not 0%; it is 96% of original (4% decrease)"
+      ]
+    },
+    {
+      "heading": "Reasoning models & DeepSeek R1",
+      "definition": "Reasoning models try to bring deliberate computation into inference: understand the requirement, design an approach, consider edge cases, then answer. DeepSeek R1 is a well-known reasoning model; you can see it 'think' in the UI before the final reply.",
+      "points": [
+        "For debugging, a direct model may say 'delete this line'; a reasoning model inspects surrounding code first",
+        "Reasoning is still generation — but slower and more thorough",
+        "Reinforcement Learning is old: AlphaGo (2016) used RL and beat a Go expert 4–1",
+        "Google Brain (2011, products/data) and DeepMind (2014, AGI/games) merged in 2023 as Google DeepMind"
+      ]
+    },
+    {
+      "heading": "Chain of Thought (CoT)",
+      "definition": "Chain of Thought means producing intermediate reasoning steps before the final answer. It is a named technique for the same step-by-step idea. The bat-and-ball puzzle shows why: a fast guess (₹10) is often wrong; writing equations helps.",
+      "points": [
+        "CoT paper: arxiv 2201.11903",
+        "A model's intelligence is not only training compute — useful compute while answering matters too",
+        "Post-training + reasoning models are a new scaling dimension besides 'more tokens'",
+        "More thinking can raise the chance of a correct answer but does not guarantee it",
+        "Overthinking: extra reasoning budget can give diminishing returns or abandon a correct first solution"
+      ]
+    },
+    {
+      "heading": "RLVF / RLVR vs RLHF",
+      "definition": "RLHF uses human preference (slow, subjective). Reinforcement from Verifiable Feedback/Reward (RLVF/RLVR) rewards outcomes that a program can check as right or wrong — math, chess, unit tests — without a human in the loop.",
+      "points": [
+        "Verifiable: 5+5, chess, coding tests → computer/rules can score",
+        "Subjective: travel itinerary, gift ideas → humans (or RLHF) still needed",
+        "Subjective preference → humans evaluate → RLHF",
+        "Verifiable answer → computer/rules evaluate → RLVF/RLVR"
+      ]
+    },
+    {
+      "heading": "Three evaluators",
+      "definition": "Judges of model output: (1) Deterministic — exact answer, compiler, tests, schema. (2) Human — expertise and taste. (3) Model — another LLM as judge (LLM-as-a-Judge). LLM judges are trending but can have position bias and other reliability issues.",
+      "points": [
+        "Deterministic evaluator is best when a ground-truth check exists",
+        "Human evaluator when judgment or expertise is required",
+        "LLM-as-a-Judge is cheap and scalable but biased and not always faithful"
+      ]
+    },
+    {
+      "heading": "ToT, GoT, and limits",
+      "definition": "Tree of Thoughts explores multiple reasoning paths, checks work, and backtracks. Graph of Thoughts links ideas as a network so thoughts can mix and loop. Visible reasoning traces are not necessarily faithful to what the model 'internally' did.",
+      "points": [
+        "ToT = several paths in parallel, like a puzzle with backtracking",
+        "GoT = nodes and links, not only a straight CoT line",
+        "Reasoning models still hallucinate, misread problems, and make arithmetic errors",
+        "Knowledge + Reasoning + Tools together make capable assistants; tools come next"
+      ]
+    }
+  ]
+}

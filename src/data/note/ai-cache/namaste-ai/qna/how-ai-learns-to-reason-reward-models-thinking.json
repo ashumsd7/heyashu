@@ -1,0 +1,81 @@
+{
+  "topic": "How AI Learns to Reason: Reward Models & Thinking",
+  "description": "Answers about reasoning-oriented generation, DeepSeek R1, Chain of Thought, RLVF vs RLHF, evaluators, Tree/Graph of Thoughts, and the limits of 'thinking' models.",
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the difference between direct generation and reasoning-oriented generation?",
+      "answer": "Direct generation is fast next-token (pattern) answering — good for many simple questions. Reasoning-oriented generation means the model works step-by-step: break the problem down, weigh options, check logic, then answer. It prioritizes accuracy over speed for coding, logic, research, and hard decisions."
+    },
+    {
+      "id": 2,
+      "question": "Can a reasoning model still hallucinate?",
+      "answer": "Yes. Reasoning models can still hallucinate, make arithmetic errors, misunderstand the problem, and make false assumptions. More thinking raises the chance of a better answer; it does not guarantee correctness."
+    },
+    {
+      "id": 3,
+      "question": "Does more thinking always mean a better answer?",
+      "answer": "No. Extra inference-time compute can help, but research on reasoning models also shows overthinking: beyond a useful budget, returns diminish and the model may even abandon an initially correct solution."
+    },
+    {
+      "id": 4,
+      "question": "What is a Reasoning Model?",
+      "answer": "An AI system that pauses to work through complex problems step-by-step at inference time (understand the task, consider edge cases, then answer) instead of only emitting a fast direct guess. DeepSeek R1 is an example; the UI often shows a 'thinking' phase first."
+    },
+    {
+      "id": 5,
+      "question": "What is Chain of Thought (CoT)?",
+      "answer": "Producing intermediate reasoning steps before the final answer. Same idea as step-by-step solving; CoT is the research name (paper arxiv 2201.11903). The bat-and-ball style puzzle shows a fast instinctive number is often wrong until you write the equation."
+    },
+    {
+      "id": 6,
+      "question": "Why does a reasoning model need more computation during inference?",
+      "answer": "Deliberate reasoning (plan, check, maybe retry) happens while answering, not only during training. Intelligence is not only how much compute was used to train — useful compute at answer-time matters. Direct generation may not need long thinking; reasoning-oriented tasks do."
+    },
+    {
+      "id": 7,
+      "question": "What is a Reward Model, and why is it needed?",
+      "answer": "A Reward Model is a learned scorer (often from human A vs B preferences) that rates how good an answer is. It is needed because writing the perfect answer is harder than judging which of two answers is better (evaluation gap). It guides RL so the assistant prefers high-reward behaviour."
+    },
+    {
+      "id": 8,
+      "question": "What is the difference between RLHF and RLVR/RLVF?",
+      "answer": "RLHF = reinforcement learning from human feedback (subjective preference, slow, expensive). RLVF/RLVR = reinforcement from verifiable feedback/reward: a program or rules check a clear right/wrong outcome (math, chess, unit tests) and give a digital reward without a human in the loop."
+    },
+    {
+      "id": 9,
+      "question": "Why are some tasks easy to verify automatically while others need humans?",
+      "answer": "Verifiable tasks have an objective check: 5+5, chess outcome, tests passing. Subjective tasks (travel plan, gift idea, tone) have no single correct output — humans or preference models must judge."
+    },
+    {
+      "id": 10,
+      "question": "What is LLM-as-a-Judge, and what are its limits?",
+      "answer": "Using another LLM to score or compare outputs. It scales better than humans but can be biased (e.g. position bias — where an answer sits in a list can change the judgment) and is not fully reliable. Deterministic checks (compiler, schema, exact answer) are better when they exist."
+    },
+    {
+      "id": 11,
+      "question": "What is Tree of Thoughts vs Graph of Thoughts?",
+      "answer": "ToT: try several reasoning paths, self-check, backtrack if a path fails (like a puzzle). GoT: represent ideas as a graph of nodes and links so thoughts can mix, loop, and combine — not only a straight CoT line. Both aim to increase reasoning capability. Visible traces are not necessarily faithful."
+    },
+    {
+      "id": 12,
+      "question": "Is Reinforcement Learning new because of DeepSeek?",
+      "answer": "No. RL is old. AlphaGo used RL and in 2016 beat a Go expert 4 games to 1. Reasoning models reuse RL-style ideas (including verifiable rewards) at a new scale for language."
+    },
+    {
+      "id": 13,
+      "question": "What are Google Brain and DeepMind in this episode?",
+      "answer": "Two Google AI labs: Brain (from 2011, learning from lots of data, Translate/Photos) and DeepMind (acquired 2014, AGI, games, science). They merged in 2023 into Google DeepMind."
+    },
+    {
+      "id": 14,
+      "question": "Does reasoning mean the AI thinks like a human?",
+      "answer": "No. It is still generation — extra tokens of intermediate steps and more inference compute. It can look like thinking in the UI, but models still err, and traces may not match internal computation. Knowledge + Reasoning + Tools together are what make capable systems."
+    },
+    {
+      "id": 15,
+      "question": "Can AI make a thoughtful decision without always agreeing with the user?",
+      "answer": "The goal of thoughtful / reasoning-oriented behaviour is better decisions (e.g. a gift that actually fits), not flattery. Helpful is not the same as always agreeing — same lesson as reward hacking / Goodhart from post-training notes."
+    }
+  ]
+}

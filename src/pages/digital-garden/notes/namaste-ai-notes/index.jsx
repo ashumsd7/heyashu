@@ -13,6 +13,7 @@ import {
   NAMASTE_AI_COURSE_ABOUT,
 } from "@/data/note/namaste-ai-notes/meta-tags";
 import { getEpisodeDisplayTitle } from "@/data/note/namaste-ai-notes/dev-notes";
+import { SEASON_ACCORDIONS } from "@/data/note/namaste-ai-notes/constant";
 import {
   breadcrumbList,
   courseSchema,
@@ -109,25 +110,38 @@ function NamasteAiNotesLanding({ notes = [] }) {
         <h2 className="mb-4 font-fraunces text-lg font-semibold text-[#171717] dark:text-[#f0f4ef]">
           All episodes
         </h2>
-        <ol className="space-y-2">
-          {chapters.map((ch) => (
-            <li key={ch.slug}>
-              <Link
-                href={`/digital-garden/notes/namaste-ai-notes/${ch.slug}`}
-                className="flex items-baseline gap-2 rounded-xl border border-[#e8e2d7] bg-white px-4 py-3 no-underline transition hover:border-[#143825] dark:border-[#1e3328] dark:bg-[#121e17] dark:hover:border-[#22c55e]"
-              >
-                {ch.episode != null ? (
-                  <span className="shrink-0 text-[11px] font-semibold uppercase tracking-wide text-[#8a8276]">
-                    Ep {ch.episode}
-                  </span>
-                ) : null}
-                <span className="font-fraunces text-[15px] font-semibold text-[#171717] dark:text-[#f0f4ef]">
-                  {getEpisodeDisplayTitle(ch)}
-                </span>
-              </Link>
-            </li>
-          ))}
-        </ol>
+        {SEASON_ACCORDIONS.map((season) => {
+          const items = chapters.filter(
+            (ch) => (ch.seasonNumber || 1) === season.seasonNumber
+          );
+          if (!items.length) return null;
+          return (
+            <section key={season.seasonNumber} className="mb-8">
+              <h3 className="mb-3 font-fraunces text-[15px] font-semibold text-[#143825] dark:text-[#22c55e]">
+                {season.title}
+              </h3>
+              <ol className="space-y-2">
+                {items.map((ch) => (
+                  <li key={ch.slug}>
+                    <Link
+                      href={`/digital-garden/notes/namaste-ai-notes/${ch.slug}`}
+                      className="flex items-baseline gap-2 rounded-xl border border-[#e8e2d7] bg-white px-4 py-3 no-underline transition hover:border-[#143825] dark:border-[#1e3328] dark:bg-[#121e17] dark:hover:border-[#22c55e]"
+                    >
+                      {ch.episode != null ? (
+                        <span className="shrink-0 text-[11px] font-semibold uppercase tracking-wide text-[#8a8276]">
+                          Ep {ch.episode}
+                        </span>
+                      ) : null}
+                      <span className="font-fraunces text-[15px] font-semibold text-[#171717] dark:text-[#f0f4ef]">
+                        {getEpisodeDisplayTitle(ch)}
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ol>
+            </section>
+          );
+        })}
       </main>
 
       <DigiGardenFooter compact />

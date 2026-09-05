@@ -1,0 +1,182 @@
+{
+  "topic": "How AI Learns to Reason: Reward Models & Thinking",
+  "description": "Check your understanding of reasoning-oriented generation, DeepSeek-style models, Chain of Thought, RLVF vs RLHF, evaluators, ToT/GoT, and the limits of more thinking.",
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is reasoning-oriented generation?",
+      "options": [
+        "Only training on more Common Crawl pages",
+        "Working through a problem step-by-step before answering, not just guessing the next word",
+        "Always answering in one token"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The notes contrast fast pattern-based replies with breaking a question into pieces, weighing options, and checking logic — like solving a riddle instead of shouting a guess."
+    },
+    {
+      "id": 2,
+      "question": "A company grows revenue 20% then loses 20%. What is the net change?",
+      "options": [
+        "0% — they cancel out",
+        "4% decrease (final is 96% of original)",
+        "20% increase"
+      ],
+      "correctAnswer": 1,
+      "explanation": "120% then 80% of 120 is 96%. Direct generation might say 0%; a reasoning path computes the composition."
+    },
+    {
+      "id": 3,
+      "question": "When is long thinking most useful?",
+      "options": [
+        "Every greeting like 'hi'",
+        "Reasoning-oriented tasks (plan, edge cases, debug, tests) — not every direct-generation question",
+        "Only during pre-training, never at inference"
+      ],
+      "correctAnswer": 1,
+      "explanation": "For simple direct generation, extra thinking may add no value. For complex work, inference-time deliberation matters."
+    },
+    {
+      "id": 4,
+      "question": "What do reasoning models try to do at inference time?",
+      "options": [
+        "Skip the answer and only crawl the web",
+        "Bring deliberate computation into answering: understand, consider cases, then reply",
+        "Delete the reward model"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Easy words in the notes: they pause to think and work through complex problems step-by-step before giving an answer."
+    },
+    {
+      "id": 5,
+      "question": "Is Reinforcement Learning a brand-new idea from DeepSeek R1?",
+      "options": [
+        "Yes, it was invented in 2025 for chatbots only",
+        "No — RL is older; AlphaGo used it and beat a Go expert 4–1 in 2016",
+        "RL can only be used in military robots"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The episode stresses RL is not new. AlphaGo is the landmark example before LLM reasoning models."
+    },
+    {
+      "id": 6,
+      "question": "Google Brain and DeepMind — which is true?",
+      "options": [
+        "They were always one team called OpenAI",
+        "Separate Google AI labs that merged in 2023 into Google DeepMind",
+        "DeepMind only makes phone cameras"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Brain (2011, products/data) and DeepMind (2014, AGI/games/science) officially merged in 2023."
+    },
+    {
+      "id": 7,
+      "question": "What is Chain of Thought?",
+      "options": [
+        "A type of GPU",
+        "Writing intermediate reasoning steps before the final answer",
+        "Only crawling FineWeb"
+      ],
+      "correctAnswer": 1,
+      "explanation": "CoT is the named technique for step-by-step traces (paper 2201.11903). Same idea as the puzzles in the episode."
+    },
+    {
+      "id": 8,
+      "question": "Does more thinking guarantee a correct answer?",
+      "options": [
+        "Yes, always",
+        "No — it can raise probability but not certainty; overthinking can even hurt",
+        "Only if the model is DeepSeek"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Notes: more thinking is not infinitely useful. Overthinking can bring diminishing returns or drop a correct first solution."
+    },
+    {
+      "id": 9,
+      "question": "What is RLVF / RLVR?",
+      "options": [
+        "The same as Common Crawl",
+        "Reinforcement from verifiable feedback/reward — a program checks a clear right/wrong outcome",
+        "A type of tokenizer"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Math, chess, and unit tests can be auto-scored. No human needed for those rewards, unlike subjective RLHF."
+    },
+    {
+      "id": 10,
+      "question": "How should you map RLHF vs RLVF?",
+      "options": [
+        "Subjective preference → humans → RLHF; verifiable answer → rules/computer → RLVF/RLVR",
+        "They are identical acronyms",
+        "RLVF only works on travel itineraries"
+      ],
+      "correctAnswer": 0,
+      "explanation": "5+5 and chess are verifiable; a travel plan is not. That split is the point of the episode."
+    },
+    {
+      "id": 11,
+      "question": "Which evaluator uses an exact check like unit tests or a compiler?",
+      "options": [
+        "Human evaluator",
+        "Deterministic evaluator",
+        "Only LLM-as-a-Judge"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Three judges: deterministic (exact/tests/schema), human, and model (LLM-as-a-Judge). Deterministic is best when possible."
+    },
+    {
+      "id": 12,
+      "question": "What is a known issue with LLM-as-a-Judge?",
+      "options": [
+        "It can never run on a GPU",
+        "Biases such as position bias — where an answer sits can change the score",
+        "It always matches human experts perfectly"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The notes flag biases and reliability problems even though LLM judges are trending."
+    },
+    {
+      "id": 13,
+      "question": "Tree of Thoughts (ToT) is best described as:",
+      "options": [
+        "Trying multiple reasoning paths, checking work, and backtracking if a path fails",
+        "Training only on HTML",
+        "A replacement for tokenization"
+      ],
+      "correctAnswer": 0,
+      "explanation": "ToT is a different style of CoT that explores a tree of ideas, like a human on a hard puzzle."
+    },
+    {
+      "id": 14,
+      "question": "Graph of Thoughts (GoT) differs from a straight CoT line because it:",
+      "options": [
+        "Forbids any intermediate steps",
+        "Links ideas as nodes so thoughts can mix, loop, and combine",
+        "Only works for image models"
+      ],
+      "correctAnswer": 1,
+      "explanation": "GoT is a network of interconnected thoughts, closer to mixing ideas than a single chain."
+    },
+    {
+      "id": 15,
+      "question": "Visible reasoning traces (the 'thinking' text) are:",
+      "options": [
+        "Always a faithful log of the model's true internal computation",
+        "Not necessarily faithful",
+        "Required by law to be 100% accurate"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The notes say visible reasoning is not necessarily faithful."
+    },
+    {
+      "id": 16,
+      "question": "What three factors does the episode say make capable systems possible?",
+      "options": [
+        "CSS, HTML, and JavaScript",
+        "Knowledge + Reasoning + Tools",
+        "Only more pre-training tokens"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Closing line of the episode: knowledge, reasoning, and tools together. Tools are teased for later."
+    }
+  ]
+}

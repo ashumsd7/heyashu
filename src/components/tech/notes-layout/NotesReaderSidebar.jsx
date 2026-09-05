@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { IoIosCheckmarkCircle, IoIosCheckmarkCircleOutline } from "react-icons/io";
 import {
   HiOutlineChevronDown,
@@ -140,6 +140,7 @@ export default function NotesReaderSidebar({
   data = [],
   season2Data = [],
   show2ndSection = false,
+  seasonSections = null,
   progress = 0,
   completedCount = 0,
   totalCount = 0,
@@ -151,8 +152,64 @@ export default function NotesReaderSidebar({
   isCurrentComplete,
   onCollapse,
 }) {
-  const [sec1Open, setSec1Open] = useState(true);
-  const [sec2Open, setSec2Open] = useState(!!show2ndSection);
+  const sections = useMemo(() => {
+    if (Array.isArray(seasonSections) && seasonSections.length > 0) {
+      return seasonSections.map((s) => ({
+        title: s.title,
+        lessons: s.lessons || [],
+        icon: s.icon,
+      }));
+    }
+    if (show2ndSection) {
+      return [
+        { title: contentListTitle, lessons: data, icon: HiOutlineBookOpen },
+        {
+          title: contentListTitle2,
+          lessons: season2Data,
+          icon: HiOutlineRectangleStack,
+        },
+      ];
+    }
+    return [{ title: "Chapters", lessons: data, icon: HiOutlineBookOpen }];
+  }, [
+    seasonSections,
+    show2ndSection,
+    contentListTitle,
+    contentListTitle2,
+    data,
+    season2Data,
+  ]);
+
+  const selectedKey = (item) => item?.name || item?.title || "";
+  const currentKey = selectedKey(selectedSection);
+
+  const sectionHasCurrent = (lessons) =>
+    (lessons || []).some(
+      (item) =>
+        selectedSection?.title === item?.title ||
+        selectedSection?.name === item?.name ||
+        selectedSection?.title === item?.name ||
+        selectedKey(item) === currentKey
+    );
+
+  const [openMap, setOpenMap] = useState(() => {
+    const initial = {};
+    sections.forEach((s, i) => {
+      initial[s.title] = sectionHasCurrent(s.lessons) || i === 0;
+    });
+    return initial;
+  });
+
+  useEffect(() => {
+    setOpenMap((prev) => {
+      const next = { ...prev };
+      sections.forEach((s) => {
+        if (sectionHasCurrent(s.lessons)) next[s.title] = true;
+      });
+      return next;
+    });
+  }, [currentKey]);
+
   const pct = Math.min(100, Math.max(0, Number(progress) || 0));
   const displayCourse = (courseName || contentListTitle || "Digital Notes").trim();
 
@@ -204,31 +261,28 @@ export default function NotesReaderSidebar({
       </div>
 
       <div className="flex-1 overflow-y-auto overscroll-contain py-2">
-        <SectionBlock
-          title={show2ndSection ? contentListTitle : "Chapters"}
-          icon={HiOutlineBookOpen}
-          lessons={data}
-          open={sec1Open}
-          onToggle={() => setSec1Open((v) => !v)}
-          selectedSection={selectedSection}
-          storedValues={storedValues}
-          eachCardPrefix={eachCardPrefix}
-          onSectionClick={onSectionClick}
-        />
-        {show2ndSection ? (
+        {sections.map((section, i) => (
           <SectionBlock
-            title={contentListTitle2}
-            icon={HiOutlineRectangleStack}
-            lessons={season2Data}
-            open={sec2Open}
-            onToggle={() => setSec2Open((v) => !v)}
+            key={section.title}
+            title={section.title}
+            icon={
+              section.icon ||
+              (i === 0 ? HiOutlineBookOpen : HiOutlineRectangleStack)
+            }
+            lessons={section.lessons}
+            open={openMap[section.title] !== false}
+            onToggle={() =>
+              setOpenMap((prev) => ({
+                ...prev,
+                [section.title]: !prev[section.title],
+              }))
+            }
             selectedSection={selectedSection}
             storedValues={storedValues}
             eachCardPrefix={eachCardPrefix}
             onSectionClick={onSectionClick}
-            startIndex={data?.length || 0}
           />
-        ) : null}
+        ))}
       </div>
 
       <div className="border-t border-[var(--nr-border)] p-3">

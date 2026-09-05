@@ -6,6 +6,7 @@ import embedSummary from "./namaste-ai/summary/llm-embeddings-explained-1.json";
 import transformerSummary from "./namaste-ai/summary/how-llms-work-transformers-attention.json";
 import learnSummary from "./namaste-ai/summary/how-ai-models-learn-parameters-training-prediction.json";
 import assistantSummary from "./namaste-ai/summary/how-ai-models-become-assistants-pre-training-to-post-training.json";
+import reasonSummary from "./namaste-ai/summary/how-ai-learns-to-reason-reward-models-thinking.json";
 
 import welcomeQuiz from "./namaste-ai/quiz/welcome-to-namaste-ai-notes.json";
 import historyQuiz from "./namaste-ai/quiz/complete-artificial-intelligence-history.json";
@@ -15,6 +16,7 @@ import embedQuiz from "./namaste-ai/quiz/llm-embeddings-explained-1.json";
 import transformerQuiz from "./namaste-ai/quiz/how-llms-work-transformers-attention.json";
 import learnQuiz from "./namaste-ai/quiz/how-ai-models-learn-parameters-training-prediction.json";
 import assistantQuiz from "./namaste-ai/quiz/how-ai-models-become-assistants-pre-training-to-post-training.json";
+import reasonQuiz from "./namaste-ai/quiz/how-ai-learns-to-reason-reward-models-thinking.json";
 
 import welcomeQna from "./namaste-ai/qna/welcome-to-namaste-ai-notes.json";
 import historyQna from "./namaste-ai/qna/complete-artificial-intelligence-history.json";
@@ -24,6 +26,7 @@ import embedQna from "./namaste-ai/qna/llm-embeddings-explained-1.json";
 import transformerQna from "./namaste-ai/qna/how-llms-work-transformers-attention.json";
 import learnQna from "./namaste-ai/qna/how-ai-models-learn-parameters-training-prediction.json";
 import assistantQna from "./namaste-ai/qna/how-ai-models-become-assistants-pre-training-to-post-training.json";
+import reasonQna from "./namaste-ai/qna/how-ai-learns-to-reason-reward-models-thinking.json";
 
 const NAMASTE_AI_CACHE = {
   summary: {
@@ -35,6 +38,7 @@ const NAMASTE_AI_CACHE = {
     "how-llms-work-transformers-attention": transformerSummary,
     "how-ai-models-learn-parameters-training-prediction": learnSummary,
     "how-ai-models-become-assistants-pre-training-to-post-training": assistantSummary,
+    "how-ai-learns-to-reason-reward-models-thinking": reasonSummary,
   },
   quiz: {
     "welcome-to-namaste-ai-notes": welcomeQuiz,
@@ -45,6 +49,7 @@ const NAMASTE_AI_CACHE = {
     "how-llms-work-transformers-attention": transformerQuiz,
     "how-ai-models-learn-parameters-training-prediction": learnQuiz,
     "how-ai-models-become-assistants-pre-training-to-post-training": assistantQuiz,
+    "how-ai-learns-to-reason-reward-models-thinking": reasonQuiz,
   },
   qna: {
     "welcome-to-namaste-ai-notes": welcomeQna,
@@ -55,6 +60,7 @@ const NAMASTE_AI_CACHE = {
     "how-llms-work-transformers-attention": transformerQna,
     "how-ai-models-learn-parameters-training-prediction": learnQna,
     "how-ai-models-become-assistants-pre-training-to-post-training": assistantQna,
+    "how-ai-learns-to-reason-reward-models-thinking": reasonQna,
   },
 };
 

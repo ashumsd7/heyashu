@@ -97,7 +97,15 @@ function changeFilePath(filePath = "") {
   return String(filePath).replace("/public", "");
 }
 
-function flattenLessons(contentList = [], season2Data = [], show2ndSection) {
+function flattenLessons(
+  contentList = [],
+  season2Data = [],
+  show2ndSection,
+  seasonSections
+) {
+  if (Array.isArray(seasonSections) && seasonSections.length > 0) {
+    return seasonSections.flatMap((s) => s.lessons || []);
+  }
   return show2ndSection
     ? [...contentList, ...(season2Data || [])]
     : [...contentList];
@@ -114,6 +122,7 @@ const NotesMainPage = ({
   subDomain = "namaste-node-js",
   show2ndSection,
   season2Data = [],
+  seasonSections = null,
   shareImageEmbed,
   pageTitle,
   metaInfo,
@@ -134,8 +143,9 @@ const NotesMainPage = ({
 
   const STORAGE_KEY = storageKey;
   const allLessons = useMemo(
-    () => flattenLessons(contentList, season2Data, show2ndSection),
-    [contentList, season2Data, show2ndSection]
+    () =>
+      flattenLessons(contentList, season2Data, show2ndSection, seasonSections),
+    [contentList, season2Data, show2ndSection, seasonSections]
   );
   const totalCount = contentListLength || allLessons.length || 1;
 
@@ -541,6 +551,7 @@ const NotesMainPage = ({
                         data={contentList}
                         season2Data={season2Data}
                         show2ndSection={show2ndSection}
+                        seasonSections={seasonSections}
                         progress={progress}
                         completedCount={completedCount}
                         totalCount={totalCount}
@@ -914,6 +925,7 @@ const NotesMainPage = ({
                     data={contentList}
                     season2Data={season2Data}
                     show2ndSection={show2ndSection}
+                    seasonSections={seasonSections}
                     progress={progress}
                     completedCount={completedCount}
                     totalCount={totalCount}

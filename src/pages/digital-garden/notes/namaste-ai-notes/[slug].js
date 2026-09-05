@@ -6,13 +6,14 @@ import {
   CONTENT_LIST_TITLE,
   PAGE_TITLE,
   STORAGE_KEY,
+  SEASON_ACCORDIONS,
 } from "@/data/note/namaste-ai-notes/constant";
 import matter from "gray-matter";
 import fs from "fs";
 import path from "path";
 import { serialize } from "next-mdx-remote/serialize";
 import AIQuestionWrapper from "@/components/garden/AIQuestionWrapper";
-import { buildNotesSidebarList } from "@/data/note/sidebarList";
+import { buildSeasonSidebarSections } from "@/data/note/sidebarList";
 import {
   loadNotesMetaFromDir,
   loadNotesStaticPaths,
@@ -20,7 +21,10 @@ import {
 import { resolveLocalImageSrc } from "@/utils/publicImage";
 
 const NotesDetailPage = ({ notes, currentPageMDX, currentPageFrontMatter }) => {
-  const contentList = useMemo(() => buildNotesSidebarList(notes), [notes]);
+  const seasonSections = useMemo(
+    () => buildSeasonSidebarSections(notes, SEASON_ACCORDIONS),
+    [notes]
+  );
 
   return (
     <>
@@ -28,7 +32,8 @@ const NotesDetailPage = ({ notes, currentPageMDX, currentPageFrontMatter }) => {
         shareImageEmbed="https://i.ibb.co/tPxsbB30/namaste-ai-43-abnner.png"
         metaInfo={metaTagsForNamasteAI}
         pageTitle={PAGE_TITLE}
-        contentList={contentList}
+        contentList={[]}
+        seasonSections={seasonSections}
         contentListLength={notes?.length}
         contentListTitle={CONTENT_LIST_TITLE}
         storageKey={STORAGE_KEY}
