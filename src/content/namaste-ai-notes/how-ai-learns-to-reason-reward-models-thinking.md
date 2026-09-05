@@ -10,7 +10,7 @@ author: Ashutosh Anand Tiwari
 tags: "#AI, #LLM, #ReasoningAI #RewardModel #MachineLearning"
 profilePic: /images/blogs/pfp2.png
 followLink: https://www.instagram.com/javascripterrr
-episodeTitle: "Can AI Really Think?"
+episodeTitle: Can AI Really Think?
 ---
 Do you love philosophy? If yes, all good. If not, **kursi ki peti baandh lijiye**, kyunki **AI sochne wala hai** haha! 😄
 
@@ -146,7 +146,7 @@ with human feedback](https://arxiv.org/pdf/2203.02155)
 
 ### Google brain and Deep Mind
 
-there are two  comanie sof google mreo focus on AI reseaches,. just remebr
+there are two companies of google more focus on AI researches ,. just remember
 
 **Google Brain and Google DeepMind were originally two separate, powerhouse artificial intelligence research teams owned by Google that officially merged in 2023 to form a single entity called Google DeepMind.**
 
@@ -162,7 +162,7 @@ Read the [research paper here](https://arxiv.org/pdf/2201.11903).
 
 Let me ask you a question:
 
-**Q. A bat and ball together cost ₹100. The bat costs ₹100 more than the ball. Then how much does the ball cost?**
+**Q. A bat and ball together cost ₹110. The bat costs ₹100 more than the ball. Then how much does the ball cost?**
 
 Guess the answer?
 
@@ -172,17 +172,7 @@ Yes, you got it… hey, come on, man! 😄
 
 It’s **₹5**.
 
-Because if the ball costs ₹5, the bat costs ₹105, so together they cost **₹110**—wait, that doesn’t work.
 
-So actually, if the total is ₹100 and the bat costs ₹100 more than the ball:
-
-**Ball = ₹0**
-
-**Bat = ₹100**
-
-So the correct answer is **₹0**.
-
-Haha, this is exactly why reasoning is important. 😄
 
 ```
 Suppose the ball costs **x rupees**. 
