@@ -119,7 +119,7 @@ There was one model launched that was a reasoning model, and a Chinese company l
 
 Remember, **Reinforcement Learning is not a new concept**. It came far before and has been used in games like **AlphaGo**, and scientists were using it to explore multiple things.
 
-And we already mentioned that in **2016, AlphaGo defeated an expert in this game**, and many more things. [See, we have mentioned it here.](https://heyashu.in/digital-garden/notes/namaste-ai-notes/complete-artificial-intelligence-history)
+And we already mentioned that in **2016, AlphaGo defeated an expert in this game**, and many more things checkout episode 2 notes or  [See, we have mentioned it here.  ](https://heyashu.in/digital-garden/notes/namaste-ai-notes/complete-artificial-intelligence-history)
 
 ![](/images/namaste-ai/ss-4-alphago.png)
 
