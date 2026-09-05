@@ -251,7 +251,7 @@ There are also issues with using an LLM as a judge, like **biases**. For example
 
 So, it has some advantages and some drawbacks as well. You can learn more online about how LLM-as-a-Judge works, what it favors, and its limitations.
 
-### Tree of thoughst
+### Tree of Thoughts (ToT)
 
 Tree of Thoughts (ToT) is an AI problem-solving method where the artificial intelligence tests multiple reasoning paths at the same time, checks its own work, and backtracks if an idea fails—just like a human solving a hard puzzle. its just diff way of chain of thoughts, it just increase reasoning capabilties
 
@@ -270,8 +270,6 @@ And remember, **more thinking does not mean a guarantee of correctness.**
 So, **Knowledge + Reasoning + Tools** are the three main factors that make everything possible.
 
 We will learn about **Tools** very soon. 
-
-
 
 ### Before We Leave — Think About These Questions 🤔
 
