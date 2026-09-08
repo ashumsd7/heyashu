@@ -971,7 +971,8 @@ const NotesMainPage = ({
         .notes-reader-prose .prose p,
         .notes-reader-prose .prose li {
           font-size: 1em !important;
-          line-height: 1.75 !important;
+          font-weight: 400 !important;
+          line-height: 1.7 !important;
           color: var(--nr-body);
           font-family: "IBM Plex Sans", system-ui, sans-serif;
         }
@@ -987,10 +988,10 @@ const NotesMainPage = ({
           font-family: "Fraunces", Georgia, serif;
           letter-spacing: -0.015em;
         }
-        .notes-reader-prose .prose h1 { font-size: 1.85em !important; }
-        .notes-reader-prose .prose h2 { font-size: 1.5em !important; }
-        .notes-reader-prose .prose h3 { font-size: 1.32em !important; }
-        .notes-reader-prose .prose h4 { font-size: 1.15em !important; }
+        .notes-reader-prose .prose h1 { font-size: 1.5em !important; }
+        .notes-reader-prose .prose h2 { font-size: 1.28em !important; }
+        .notes-reader-prose .prose h3 { font-size: 1.5em !important; }
+        .notes-reader-prose .prose h4 { font-size: 1.05em !important; }
         .notes-reader-prose .prose a {
           color: var(--nr-accent);
         }
@@ -1011,6 +1012,10 @@ const NotesMainPage = ({
         .notes-reader-prose .prose blockquote {
           border-left-color: var(--nr-border);
           color: var(--nr-muted);
+          font-size: 1em !important;
+          font-family: inherit !important;
+          font-style: italic;
+          font-weight: 400 !important;
         }
         .notes-reader-prose .prose img {
           border-color: var(--nr-border);

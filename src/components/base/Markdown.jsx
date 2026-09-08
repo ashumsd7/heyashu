@@ -52,7 +52,7 @@ function Markdown({ content, large }) {
       }}
       remarkPlugins={[remarkGfm]}
       style={styles}
-      className={`prose container mx-auto p-0  ${
+      className={`garden-blog-prose prose container mx-auto p-0  ${
         large ? "max-w-screen-lg" : "max-w-screen-md"
       }`}
     >

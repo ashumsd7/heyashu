@@ -172,25 +172,20 @@ Yes, you got it… hey, come on, man! 😄
 
 It’s **₹5**.
 
-`Suppose the ball costs x rupees.`
+```
+Suppose the ball costs x rupees.
+The bat would cost ₹100 + x, correct?
+So the equation is: x + (x + 100) = 110
+Here, x is the price of the ball,
+and x + 100 is the price of the bat.
+So: x + (x + 100) = 110
+2x = 110 - 100
+2x = 10
+x = 5
+So the ball costs ₹5.
+```
 
-`The bat would cost ₹100 + x, correct?`
-
-`So the equation is: x + (x + 100) = 110`
-
-`Here, x is the price of the ball,`
-
-`and x + 100 is the price of the bat.`
-
-`So: x + (x + 100) = 110`
-
-`2x=110-100`
-
-`2x = 10`
-
-`x = 5`
-
-`So the ball costs ₹5.Maths is clear, but how is my mind still confused and giving me ₹10 only?`
+Maths is clear, but how is my mind still confused and giving me ₹10 only?
 
 > **Note:**
 >

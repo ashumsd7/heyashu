@@ -4,7 +4,7 @@ import React from "react";
 function NotesContent({ markdownContent, large, garden = false }) {
   return (
     <div
-      className={`prose mx-auto mb-28 w-full p-0 ${
+      className={`garden-blog-prose prose mx-auto mb-28 w-full p-0 ${
         garden ? "max-w-none" : large ? "max-w-screen-lg" : "max-w-screen-md"
       }`}
     >

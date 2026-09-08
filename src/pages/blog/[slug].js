@@ -353,34 +353,11 @@ export default function BlogPost({ frontMatter, mdxSource, related = [], slug })
           </figure>
         ) : null}
 
-        {/* Article body — smaller markdown typography */}
+        {/* Article body */}
         <div
           id="ai-markdown-content"
           style={{ fontSize: `${bodyFontPx}px` }}
-          className="garden-blog-prose prose max-w-none text-left dark:prose-invert
-            prose-headings:font-fraunces prose-headings:font-semibold prose-headings:tracking-[-0.015em]
-            prose-headings:text-[#171717] dark:prose-headings:text-[#f0f4ef]
-            prose-p:!text-[1em] prose-p:!leading-[1.75]
-            prose-p:!text-[#3f3a34] dark:prose-p:!text-[#d5ddd7]
-            prose-li:!text-[1em] prose-li:!leading-[1.7]
-            prose-a:!text-[#143825] prose-a:underline prose-a:decoration-[#cfc6b8] prose-a:underline-offset-2
-            dark:prose-a:!text-[#22c55e]
-            prose-blockquote:border-l-[#cfc6b8] prose-blockquote:pl-4 prose-blockquote:font-fraunces
-            prose-blockquote:italic prose-blockquote:!text-[#4a453d]
-            prose-img:!rounded-none prose-img:border prose-img:border-[#e6e0d6]
-            prose-pre:!rounded-none prose-pre:!text-[0.85em]
-            prose-code:!text-[0.88em]
-            prose-strong:!text-[1em] prose-strong:!font-semibold prose-strong:!text-[#1c1c1c] dark:prose-strong:!text-[#f0f4ef]
-            [&_p:first-of-type]:first-letter:float-left
-            [&_p:first-of-type]:first-letter:mr-2
-            [&_p:first-of-type]:first-letter:mt-0.5
-            [&_p:first-of-type]:first-letter:font-fraunces
-            [&_p:first-of-type]:first-letter:text-[2.4em]
-            [&_p:first-of-type]:first-letter:font-semibold
-            [&_p:first-of-type]:first-letter:leading-[0.85]
-            [&_p:first-of-type]:first-letter:text-[#1c1c1c]
-            dark:[&_p:first-of-type]:first-letter:text-[#f0f4ef]
-          "
+          className="garden-blog-prose prose max-w-none text-left dark:prose-invert prose-h3:!text-[1.5em] prose-h1:!text-[1.5em]"
         >
           <MDXRenderer markdownContent={mdxSource} variant="garden" />
         </div>
