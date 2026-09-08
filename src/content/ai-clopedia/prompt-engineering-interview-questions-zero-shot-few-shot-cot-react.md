@@ -2,6 +2,7 @@
 title: prompt-engineering-interview-questions-zero-shot-few-shot-cot-react
 name: "Prompt Engineering Interview Questions: Zero-Shot, Few-Shot, CoT, ReAct &
   More"
+episode: 1
 category: Prompt Engineering
 publishedOn: 09-08-2026
 updatedOn: 09-08-2026
@@ -11,6 +12,7 @@ tags: "#PromptEngineering, #GenAI , #LLM,  #ArtificialIntelligence,
   #MachineLearning, #AITips"
 followLink: http://x.com/javascripterrr
 profilePic: /images/blogs/pfp2.png
+featureAsBlog: true
 ---
 ### What is Prompt Engineering?
 
@@ -83,7 +85,7 @@ profilePic: /images/blogs/pfp2.png
 - Method where the LLM performs more complex tasks by adding explicit steps through interaction with external tools and the environment.
 - The LLM goes through a repeated cycle until the final result is reached:
     
-    Thinking⟶Action⟶Observation\text{Thinking} \longrightarrow \text{Action} \longrightarrow \text{Observation}
+    **Thinking → Action → Observation**
     
 - **Example:**
     - **Q:** What is the capital of Japan and its population?
@@ -121,7 +123,7 @@ Parameters that control which tokens are considered when the model generates out
 
 #### **Top-K:**
 
-- Limits the sampling pool to strictly the top $K$ most probable tokens.
+- Limits the sampling pool to strictly the top K most probable tokens.
 - **Example:**
     - Word probabilities for *"The color of cloud is ______"*:
         - White (0.29)
@@ -134,6 +136,6 @@ Parameters that control which tokens are considered when the model generates out
 
 #### **Top-P (Nucleus Sampling):**
 
-- Selects from the smallest group of tokens whose cumulative probability exceeds the threshold $P$.
+- Selects from the smallest group of tokens whose cumulative probability exceeds the threshold P.
 - **Example:**
     - If **Top-P = 0.90**, it adds probabilities starting from the highest until the cumulative sum hits 90% (0.90), cutting off the long tail of unlikely words.

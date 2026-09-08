@@ -42,6 +42,7 @@ const contentFolders = [
   "src/content/node-js-procodrr",
   "src/content/notes-namaste-node-js",
   "src/content/namaste-ai-notes",
+  "src/content/ai-clopedia",
   "src/content/ydkjs",
   "src/content/stories",
   "src/content/front-end-design-system",
@@ -80,7 +81,9 @@ export async function getStaticProps({ params }) {
   const { data, content } = matter(fileContents);
   const collection = isNamasteAiContentPath(filePath)
     ? "namaste-ai-notes"
-    : undefined;
+    : String(filePath).replace(/\\/g, "/").includes("ai-clopedia")
+      ? "ai-clopedia"
+      : undefined;
   if (data.thumbnail) {
     data.thumbnail = resolveLocalImageSrc(data.thumbnail, { collection });
   }

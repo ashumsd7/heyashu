@@ -7,6 +7,7 @@ import path from "path";
 import matter from "gray-matter";
 import { firstMarkdownImage, gardenDateValue } from "./utils";
 import { resolveLocalImageSrc } from "@/utils/publicImage";
+import { isFeaturedAsBlog } from "@/data/garden/featureAsBlog";
 
 /** Mirrors contentFolders in src/pages/blog/index.jsx */
 const BLOG_CONTENT_FOLDERS = {
@@ -17,12 +18,14 @@ const BLOG_CONTENT_FOLDERS = {
   fsd: "src/content/front-end-design-system",
   nodejsS1AkshaySaini: "src/content/notes-namaste-node-js",
   namasteAiNotes: "src/content/namaste-ai-notes",
+  aiCyclopedia: "src/content/ai-clopedia",
   ydkjs: "src/content/ydkjs",
   stories: "src/content/stories",
 };
 
 const FOLDER_FALLBACK_THUMB = {
   namasteAiNotes: "https://i.ibb.co/tPxsbB30/namaste-ai-43-abnner.png",
+  aiCyclopedia: "https://i.ibb.co/kg1Xt5mx/ai-ka-gyan.jpg",
   nodejsS1AkshaySaini: "https://i.ibb.co/Vcd6T4LL/node-js-4-3.png",
   fsd: "https://i.ibb.co/k2sYDMkq/fsd-4-4-banner.png",
   ydkjs: "https://i.ibb.co/8gktfjjD/ydkjs-4-3.png",
@@ -31,7 +34,11 @@ const FOLDER_FALLBACK_THUMB = {
 
 function resolveThumb(frontMatter, content, folder) {
   const collection =
-    folder === "namasteAiNotes" ? "namaste-ai-notes" : undefined;
+    folder === "namasteAiNotes"
+      ? "namaste-ai-notes"
+      : folder === "aiCyclopedia"
+        ? "ai-clopedia"
+        : undefined;
   const fromMeta = resolveLocalImageSrc(
     String(frontMatter?.thumbnail || "").trim(),
     { collection }
@@ -59,6 +66,7 @@ export function loadAllGardenBlogs(cwd = process.cwd()) {
       .forEach((filename) => {
         const fileContent = fs.readFileSync(path.join(dir, filename), "utf-8");
         const { data: frontMatter, content } = matter(fileContent);
+        if (!isFeaturedAsBlog(frontMatter)) return;
         blogs.push({
           frontMatter: {
             ...frontMatter,

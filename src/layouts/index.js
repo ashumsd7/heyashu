@@ -52,6 +52,7 @@ export function shouldUseDigitalGardenLayout(pathname = "") {
   return (
     pathname.startsWith("/digital-garden") ||
     pathname.startsWith("/blog") ||
+    pathname.startsWith("/ai-interview-handbook") ||
     pathname.startsWith("/product") ||
     pathname.startsWith("/contributing-guide")
   );

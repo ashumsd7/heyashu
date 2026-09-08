@@ -13,6 +13,7 @@ const STATIC_PATHS = [
   "/digital-garden/notes",
   "/digital-garden/notes/namaste-ai-notes",
   "/blog",
+  "/ai-interview-handbook",
   "/digital-garden/books",
   "/digital-garden/stories",
   "/digital-garden/poems",
@@ -60,6 +61,7 @@ const CONTENT_ROUTE_MAP = [
     dir: "src/content/namaste-ai-notes",
     prefix: "/digital-garden/notes/namaste-ai-notes",
   },
+  { dir: "src/content/ai-clopedia", prefix: "/blog" },
   {
     dir: "src/content/namaste-ai-notes",
     prefix: "/digital-garden/namaste-dev-notes/namaste-ai-notes",

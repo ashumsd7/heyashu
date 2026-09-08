@@ -13,6 +13,7 @@ import { withDigitalGardenLayout } from "@/layouts";
 import { generateSlug } from "@/utils/functions";
 import { firstMarkdownImage } from "@/data/garden/utils";
 import { resolveLocalImageSrc } from "@/utils/publicImage";
+import { isFeaturedAsBlog } from "@/data/garden/featureAsBlog";
 
 const FILTERS = [
   { id: "all", label: "All" },
@@ -78,6 +79,7 @@ const FOLDER_CATEGORY = {
   fsd: "frontend",
   nodejsS1AkshaySaini: "nodejs",
   namasteAiNotes: "ai",
+  aiCyclopedia: "interview",
   ydkjs: "javascript",
   stories: null,
 };
@@ -256,6 +258,7 @@ export async function getStaticProps() {
       "src/content/notes-namaste-node-js"
     ),
     namasteAiNotes: path.join(process.cwd(), "src/content/namaste-ai-notes"),
+    aiCyclopedia: path.join(process.cwd(), "src/content/ai-clopedia"),
     ydkjs: path.join(process.cwd(), "src/content/ydkjs"),
     stories: path.join(process.cwd(), "src/content/stories"),
   };
@@ -272,8 +275,13 @@ export async function getStaticProps() {
         if (filename.endsWith(".md")) {
           const fileContent = fs.readFileSync(filePath, "utf-8");
           const { data: frontMatter, content } = matter(fileContent);
+          if (!isFeaturedAsBlog(frontMatter)) return;
           const collection =
-            folderKey === "namasteAiNotes" ? "namaste-ai-notes" : undefined;
+            folderKey === "namasteAiNotes"
+              ? "namaste-ai-notes"
+              : folderKey === "aiCyclopedia"
+                ? "ai-clopedia"
+                : undefined;
           const thumbFromBody = firstMarkdownImage(content);
 
           posts.push({

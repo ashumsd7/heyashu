@@ -18,6 +18,7 @@ collections:
     editor:
       preview: false
     fields:
+      - { label: "Feature as blog", name: "featureAsBlog", widget: "boolean", default: true, hint: "When on, this entry appears on /blog." }
       - { label: "Slug", name: "title", widget: "string", hint: 'This will be used as slug Instructions: After filling out this form and adding your markdown, click the "Save" button at the top. This action will create a Pull Request (PR) on GitHub. Within a few minutes, your PR will be merged, and your blog will go live at https://heyashu.in/blog/your-blog-slug. To track the PR status, visit this repo link https://github.com/ashumsd7/heyashu/pulls. Look for a PR with your name and blog title. Then, just wait a few minutes. Thank you!' }
       - { label: "Blog Title", name: "name", widget: "string", hint: "This is the heading on your blog , will be rendered on top of the webpage and then thumbnail" }
       - { label: "Publish Date", name: "date", widget: "datetime", time_format: false, date_format: "MM-DD-YYYY", format: "MM-DD-YYYY" }
@@ -38,6 +39,7 @@ collections:
     editor:
       preview: false
     fields:
+      - { label: "Feature as blog", name: "featureAsBlog", widget: "boolean", default: true, hint: "When on, this entry appears on /blog." }
       - { label: "Slug", name: "title", widget: "string", hint: 'This will be used as slug Instructions: After filling out this form and adding your markdown, click the "Save" button at the top. This action will create a Pull Request (PR) on GitHub. Within a few minutes, your PR will be merged, and your blog will go live at https://heyashu.in/blog/your-blog-slug. To track the PR status, visit this repo link https://github.com/ashumsd7/heyashu/pulls. Look for a PR with your name and blog title. Then, just wait a few minutes. Thank you!' }
       - { label: "Your Page Title", name: "name", widget: "string", hint: "This is the heading on your page , will be shown  on top of the page and then image" }
       - { label: "Publish Date", name: "date", widget: "datetime", time_format: false, date_format: "MM-DD-YYYY", format: "MM-DD-YYYY" }
@@ -56,6 +58,7 @@ collections:
     slug: ""
     delete: false
     fields:
+      - { label: "Feature as blog", name: "featureAsBlog", widget: "boolean", default: true, hint: "When on, this entry appears on /blog." }
       - { label: "Slug of the page ", name: "title", widget: "string", hint: 'This will be used as slug, Instructions: After filling out this form and adding your markdown, click the "Save" button at the top. This action will create a Pull Request (PR) on GitHub. Within a few minutes, your PR will be merged, and your content will go live at https://heyashu.in/digital-garden/namaste-node-js. To track the PR status, visit this repo link https://github.com/ashumsd7/heyashu/pulls. Look for a PR with your name and blog title. Then, just wait a few minutes. Thank you! ' }
       - { label: "Note Title", name: "name", widget: "string", hint: "this is the name used for showing top of the page as heading different from the slug" }
       - { label: "Episode Number", name: "episode", widget: "number", hint: "Episode number" }
@@ -79,6 +82,7 @@ collections:
     slug: ""
     delete: false
     fields:
+      - { label: "Feature as blog", name: "featureAsBlog", widget: "boolean", default: true, hint: "When on, this entry appears on /blog." }
       - { label: "Slug of the page", name: "title", widget: "string", hint: "This will be used as slug, Instructions: After filling out this form and adding your markdown, click the 'Save' button at the top. This action will create a Pull Request (PR) on GitHub. Within a few minutes, your PR will be merged, and your content will go live at https://heyashu.in/digital-garden/notes/namaste-ai-notes/your-slug. To track the PR status, visit https://github.com/ashumsd7/heyashu/pulls. Thank you!" }
       - { label: "Note Title", name: "name", widget: "string", hint: "This is the heading for your note, shown at the top of the page." }
       - { label: "Episode Number", name: "episode", widget: "number", hint: "Episode number" }
@@ -108,8 +112,8 @@ collections:
         editor_components: ["image", "code-block"]
         hint: "Images: click + → Image → choose a file (saved to /images/namaste-ai/). Do NOT paste ImgBB URLs. Links: write [text](https://example.com) — never wrap a URL in angle brackets like <https://...>, that breaks the site build."
   - name: "ai-clopedia"
-    label: "AI-clopedia"
-    description: Contribute notes, tutorials, and explanations—everything related to AI! Open source, collaborative, and always growing.✨
+    label: "AI Interview QnA Handbook"
+    description: Interview-ready QnA on prompt engineering, LLMs, and GenAI. Listed at /ai-interview-handbook. Each note opens at /blog/your-slug.✨
     folder: "/src/content/ai-clopedia"
     media_folder: "../../../public/images/ai-clopedia"
     public_folder: /images/ai-clopedia
@@ -117,9 +121,11 @@ collections:
     slug: ""
     delete: false
     fields:
-      - { label: "Slug of the page", name: "title", widget: "string", hint: "This will be used as slug, and will form the URL of your note." }
-      - { label: "Note Title", name: "name", widget: "string", hint: "Used as main heading for your page." }
-      - { label: "AI Topic Category", name: "category", widget: "string", required: false, hint: "E.g.: Machine Learning, Deep Learning, NLP, Computer Vision etc." }
+      - { label: "Feature as blog", name: "featureAsBlog", widget: "boolean", default: true, hint: "When on, this entry appears on /blog." }
+      - { label: "Slug of the page", name: "title", widget: "string", hint: "URL slug. Live at https://heyashu.in/blog/your-slug and listed on https://heyashu.in/ai-interview-handbook/" }
+      - { label: "Title", name: "name", widget: "string", hint: "Card title on /ai-interview-handbook and the heading on /blog/your-slug." }
+      - { label: "Display order", name: "episode", widget: "number", required: false, default: 1, hint: "Optional sort order on the handbook grid (1, 2, 3…)." }
+      - { label: "AI Topic Category", name: "category", widget: "string", required: false, hint: "E.g.: Prompt Engineering, Machine Learning, NLP." }
       - { label: "Publish Date", name: "publishedOn", widget: "datetime", time_format: false, date_format: "MM-DD-YYYY", format: "MM-DD-YYYY" }
       - { label: "Updated On", name: "updatedOn", widget: "datetime", time_format: false, date_format: "MM-DD-YYYY", format: "MM-DD-YYYY" }
       - label: "Thumbnail Image"
@@ -152,6 +158,7 @@ collections:
     slug: ""
     delete: false
     fields:
+      - { label: "Feature as blog", name: "featureAsBlog", widget: "boolean", default: true, hint: "When on, this entry appears on /blog." }
       - { label: "Slug of the page ", name: "title", widget: "string", hint: 'This will be used as slug, Instructions: After filling out this form and adding your markdown, click the "Save" button at the top. This action will create a Pull Request (PR) on GitHub. Within a few minutes, your PR will be merged, and your content will go live at https://heyashu.in/digital-garden/namaste-node-js. To track the PR status, visit this repo link https://github.com/ashumsd7/heyashu/pulls. Look for a PR with your name and blog title. Then, just wait a few minutes. Thank you! ' }
       - { label: "Note Title", name: "name", widget: "string", hint: "this is the name used for showing top of the page as heading different from the slug" }
       - { label: "Episode Number", name: "episode", widget: "number", hint: "Episode number" }
@@ -172,6 +179,7 @@ collections:
     slug: ""
     delete: false
     fields:
+      - { label: "Feature as blog", name: "featureAsBlog", widget: "boolean", default: true, hint: "When on, this entry appears on /blog." }
       - { label: "SLug of the page ", name: "title", widget: "string", hint: 'This will be used as slug, Instructions: After filling out this form and adding your markdown, click the "Save" button at the top. This action will create a Pull Request (PR) on GitHub. Within a few minutes, your PR will be merged, and your content will go live at https://heyashu.in/digital-garden/namaste-node-js. To track the PR status, visit this repo link https://github.com/ashumsd7/heyashu/pulls. Look for a PR with your name and blog title. Then, just wait a few minutes. Thank you! ' }
       - { label: "Note Title", name: "name", widget: "string", hint: "this is the name used for showing top of the page as heading different from the slug" }
       - { label: "Episode Number", name: "episode", widget: "number", hint: "Episode number" }
@@ -191,6 +199,7 @@ collections:
     slug: ""
     delete: false
     fields:
+      - { label: "Feature as blog", name: "featureAsBlog", widget: "boolean", default: true, hint: "When on, this entry appears on /blog." }
       - { label: "Slug of the page ", name: "title", widget: "string", hint: 'This will be used as slug, Instructions: After filling out this form and adding your markdown, click the "Save" button at the top. This action will create a Pull Request (PR) on GitHub. Within a few minutes, your PR will be merged, and your content will go live at https://heyashu.in/digital-garden/ydkjs. To track the PR status, visit this repo link https://github.com/ashumsd7/heyashu/pulls. Look for a PR with your name and blog title. Then, just wait a few minutes. Thank you! ' }
       - { label: "Note Title", name: "name", widget: "string", hint: "this is the name used for showing top of the page as heading different from the slug" }
       - { label: "Episode Number", name: "episode", widget: "number", hint: "Episode number" }
@@ -213,6 +222,7 @@ collections:
     editor:
       preview: false
     fields:
+      - { label: "Feature as blog", name: "featureAsBlog", widget: "boolean", default: true, hint: "When on, this entry appears on /blog." }
       - { label: "Slug of your page", name: "title", widget: "string", hint: 'This  will be used as slug , Instructions: After filling out this form and adding your markdown, click the "Save" button at the top. This action will create a Pull Request (PR) on GitHub. Within a few minutes, your PR will be merged, and your blog will go live at https://heyashu.in/digital-garden/javascript-snippets. To track the PR status, visit this repo link https://github.com/ashumsd7/heyashu/pulls. Look for a PR with your name and blog title. Then, just wait a few minutes. Thank you!' }
       - { label: "Page Title", name: "name", widget: "string", hint: "This is the name used for showing top of the page as heading and this is different from the slug" }
       - { label: "Snippet Number", name: "episode", widget: "number", required: false, hint: "This is snippets number used to maintain the order, please do not change it just keep it same as before or for new one just add 1 " }
@@ -237,6 +247,7 @@ collections:
     editor:
       preview: false
     fields:
+      - { label: "Feature as blog", name: "featureAsBlog", widget: "boolean", default: true, hint: "When on, this entry appears on /blog." }
       - { label: "Slug of your poem", name: "title", widget: "string", hint: 'This will be used as slug Instructions: After filling out this form and adding your markdown, click the "Save" button at the top. This action will create a Pull Request (PR) on GitHub. Within a few minutes, your PR will be merged, and your blog will go live at https://heyashu.in/blog/your-blog-slug. To track the PR status, visit this repo link https://github.com/ashumsd7/heyashu/pulls. Look for a PR with your name and blog title. Then, just wait a few minutes. Thank you!' }
       - { label: "Your Poem title", name: "name", widget: "string", hint: "This is the heading on your poem , will be shown  on top of the page and then image" }
       - { label: "Publish Date", name: "date", widget: "datetime", time_format: false, date_format: "MM-DD-YYYY", format: "MM-DD-YYYY" }
@@ -258,6 +269,7 @@ collections:
     editor:
       preview: false
     fields:
+      - { label: "Feature as blog", name: "featureAsBlog", widget: "boolean", default: true, hint: "When on, this entry appears on /blog." }
       - { label: "Slug of your page", name: "title", widget: "string", hint: 'This will be used as slug Instructions: After filling out this form and adding your markdown, click the "Save" button at the top. This action will create a Pull Request (PR) on GitHub. Within a few minutes, your PR will be merged, and your blog will go live at https://heyashu.in/blog/your-blog-slug. To track the PR status, visit this repo link https://github.com/ashumsd7/heyashu/pulls. Look for a PR with your name and blog title. Then, just wait a few minutes. Thank you!' }
       - { label: "Your page title", name: "name", widget: "string", hint: "This is the heading on your page , will be shown  on top of the page and then image" }
       - { label: "Publish Date", name: "date", widget: "datetime", time_format: false, date_format: "MM-DD-YYYY", format: "MM-DD-YYYY" }
@@ -279,6 +291,7 @@ collections:
     editor:
       preview: false
     fields:
+      - { label: "Feature as blog", name: "featureAsBlog", widget: "boolean", default: true, hint: "When on, this entry appears on /blog." }
       - { label: "Slug of your page", name: "title", widget: "string", hint: 'This will be used as slug Instructions: After filling out this form and adding your markdown, click the "Save" button at the top. This action will create a Pull Request (PR) on GitHub. Within a few minutes, your PR will be merged, and your blog will go live at https://heyashu.in/blog/your-blog-slug. To track the PR status, visit this repo link https://github.com/ashumsd7/heyashu/pulls. Look for a PR with your name and blog title. Then, just wait a few minutes. Thank you!' }
       - { label: "Your page title", name: "name", widget: "string", hint: "This is the heading on your page , will be shown  on top of the page and then image" }
       - { label: "Publish Date", name: "date", widget: "datetime", time_format: false, date_format: "MM-DD-YYYY", format: "MM-DD-YYYY" }
@@ -300,6 +313,7 @@ collections:
     editor:
       preview: false
     fields:
+      - { label: "Feature as blog", name: "featureAsBlog", widget: "boolean", default: true, hint: "When on, this entry appears on /blog." }
       - { label: "Slug of your page", name: "title", widget: "string", hint: 'This will be used as slug Instructions: After filling out this form and adding your markdown, click the "Save" button at the top. This action will create a Pull Request (PR) on GitHub. Within a few minutes, your PR will be merged, and your blog will go live at https://heyashu.in/blog/your-blog-slug. To track the PR status, visit this repo link https://github.com/ashumsd7/heyashu/pulls. Look for a PR with your name and blog title. Then, just wait a few minutes. Thank you!' }
       - { label: "Your page title", name: "name", widget: "string", hint: "This is the heading on your page , will be shown  on top of the page and then image" }
       - { label: "Publish Date", name: "date", widget: "datetime", time_format: false, date_format: "MM-DD-YYYY", format: "MM-DD-YYYY" }
@@ -320,6 +334,7 @@ collections:
     editor:
       preview: false
     fields:
+      - { label: "Feature as blog", name: "featureAsBlog", widget: "boolean", default: true, hint: "When on, this entry appears on /blog." }
       - { label: "Your good name", name: "title", widget: "string", hint: ' Instructions: After filling out this form and adding your markdown, click the "Save" button at the top. This action will create a Pull Request (PR) on GitHub. Within a few minutes, your PR will be merged, and your content will go live at https://heyashu.in/testimonials/. To track the PR status, visit this repo link https://github.com/ashumsd7/heyashu/pulls. Look for a PR with your name and content title. Then, just wait a few minutes. Thank you!' }
       - { label: "Date", name: "date", widget: "datetime", time_format: false, date_format: "MM-DD-YYYY", format: "MM-DD-YYYY" }
       - { label: "Any Image you want to add", required: false, name: "thumbnail", widget: "image", hint: "This will appear on the top of the detailed  page after title." }
@@ -339,6 +354,7 @@ collections:
     editor:
       preview: false
     fields:
+      - { label: "Feature as blog", name: "featureAsBlog", widget: "boolean", default: true, hint: "When on, this entry appears on /blog." }
       - { label: "Slug", name: "title", widget: "string", hint: "URL slug with dashes, e.g. shimla-trip-2026. Shows on heyashu.in/journey. Save creates a GitHub PR." }
       - { label: "Title", name: "name", widget: "string", hint: "Heading shown on the entry." }
       - { label: "Entry number", name: "entryNumber", widget: "number", required: false, hint: "Optional id to keep order. Leave blank if you do not care." }
@@ -397,6 +413,7 @@ collections:
     editor:
       preview: false
     fields:
+      - { label: "Feature as blog", name: "featureAsBlog", widget: "boolean", default: true, hint: "When on, this entry appears on /blog." }
       - { label: "Book name", name: "title", widget: "string", hint: 'This will be used as slug Instructions: After filling out this form and adding your markdown, click the "Save" button at the top. This action will create a Pull Request (PR) on GitHub. Within a few minutes, your PR will be merged, and your content will go live at https://heyashu.in/digital-garden/books. To track the PR status, visit this repo link https://github.com/ashumsd7/heyashu/pulls. Look for a PR with your name and content title. Then, just wait a few minutes. Thank you!' }
       - { label: "Your page title", name: "name", widget: "string", hint: "This is the heading on your page , will be shown  on top of the page and then image" }
       - { label: "Publish Date", name: "date", widget: "datetime", time_format: false, date_format: "MM-DD-YYYY", format: "MM-DD-YYYY" }
