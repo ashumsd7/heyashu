@@ -1,7 +1,7 @@
 ---
 featureAsBlog: true
 title: ai-powered-software-development-sdlc-tools-ai-coding
-name: "AI-Powered Software Development: SDLC, Tools & AI Coding"
+name: "AI Powered Software Development: SDLC, Tools & AI Coding"
 episode: 1
 seasonNumber: 2
 publishedOn: 09-15-2026
@@ -9,7 +9,6 @@ updatedOn: 09-15-2026
 thumbnail: /images/namaste-ai/thumbnail-ep-1-s2.png
 author: Ashutosh Anand Tiwari
 tags: "#AI #SoftwareDevelopment #AICoding #GenerativeAI #SDLC"
-episodeTitle: "Fundamentals of Building with AI"
 profilePic: /images/blogs/pfp2.png
 followLink: https://www.instagram.com/javascripterrr
 ---
