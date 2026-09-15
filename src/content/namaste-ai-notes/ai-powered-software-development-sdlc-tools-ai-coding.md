@@ -9,6 +9,7 @@ updatedOn: 09-15-2026
 thumbnail: /images/namaste-ai/thumbnail-ep-1-s2.png
 author: Ashutosh Anand Tiwari
 tags: "#AI #SoftwareDevelopment #AICoding #GenerativeAI #SDLC"
+episodeTitle: "Fundamentals of Building with AI"
 profilePic: /images/blogs/pfp2.png
 followLink: https://www.instagram.com/javascripterrr
 ---
