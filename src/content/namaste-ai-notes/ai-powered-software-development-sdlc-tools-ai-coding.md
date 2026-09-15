@@ -15,13 +15,19 @@ followLink: https://www.instagram.com/javascripterrr
 ---
 Hellllloooo, Huh,
 
-Now you think, what type of introduction is it? This is 2026, at least have some modern way of greeting, some good behaviour. But what if I’m in the Stone Age? I still don’t use what nowadays people use, then I will be called in the Stone Age, so let’s understand, in the coding era, not everybody will make you feel welcome, or you will feel that you are in the Stone Age. So whom are you waiting for? What stones? Hahaha.
+Now you think, what type of introduction is this? This is 2026, at least have some modern way of greeting, some good behaviour. Come on, we have AI now, you can do better than “Hello.” 😂
+
+But what if I’m in the Stone Age? I still don’t use what nowadays people use, then I will be called Stone Age, right?
+
+So let’s understand — in coding, don’t be stuck in the Stone Age. Let’s be modern.
+
+So whom are you waiting for?   Lets start.
 
 I remember 2 years ago, my friend was saying, “Dekhi bhai, mai to code khud se hi likhunga, bhai tum likho.”
 
 But hum to likhwayenge.
 
-You remember the dialogue of Mirzapur, “Bahubali ma*rte nahi hai, ma*rne ka order dete hain.”
+You remember the dialogue of Mirzapur, “Bahubali ma__rte nahi hai, ma_r_ne ka order dete hain.”
 
 So let’s be Bahubali of software development, and say,
 
@@ -61,7 +67,7 @@ So this is the way how a product comes out, how it comes out, we need to break t
 
 **Ideation → Features → PRD → Architecture → DB → APIs → UI Design → Development → Debugging → Code Review → Testing → Deployment**
 
-So first, the idea comes from your own or from that requirement team, and you finalize the features, and if MVP < full form > is possible or not, there is a word we learn in engineering: **Feasibility**, that also we check.
+So first, the idea comes from your own or from that requirement team, and you finalize the features, and if MVP (Minimum Viable Product)  is possible or not, there is a word we learn in engineering: **Feasibility**, that also we check.
 
 Then comes PRD (**Product Requirement Document**). PRD is nothing but the detailed document where everything is mentioned. So, everything for a good product, one priority is to be able to solve your problem.
 
@@ -69,7 +75,7 @@ These are the core steps to turn an idea into a proper product, so keep in mind,
 
 Okay, then after the document comes Architecture. Where the Architecture diagram tells what exactly, how the flow would be, what would be backend and frontend, what tools we will use, all.
 
-This is called ERD < full form > also. **ERD = Entity Relationship Diagram**, which is mainly used to represent the database entities and their relationships.
+This is called ERD  also. **ERD = Entity Relationship Diagram**, which is mainly used to represent the database entities and their relationships.
 
 Then we finalize the DB and we design DB. Designing a database is a core thing. Properly, we need to design that, that’s why it is a base step in the product lifecycle.
 
@@ -118,3 +124,16 @@ So remember, as we said, tools we use today might not be there tomorrow. The new
 Think beyond that, so that you can replicate the things easily. Go beyond the model and IDEs, and beyond the tech stack we use.
 
 **Remember: Basic fundamentals remain the same.**
+
+So that’s all for this one.
+
+Next, we will discuss about Step 1, that is Ideation.
+
+Stay tuned, and hell, don’t watch Mirzapur Season 2, AI is here. Start this now, haha.
+
+Jokes apart, keep entertainment and infotainment both in life.
+
+Zindagi Na Milegi Dobara.
+
+Bye-bye, take care, and never trouble anyone special — you ma, papa.
+
