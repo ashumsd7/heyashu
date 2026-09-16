@@ -1,17 +1,17 @@
 ---
 featureAsBlog: true
-title: "AI-Powered Project Planning: From Ideation to PRD"
-name: ai-powered-project-planning-ideation-to-prd
+title: ai-powered-project-planning-ideation-to-prd
+name: "AI-Powered Project Planning: From Ideation to PRD"
 episode: 2
-seasonNumber: 1
+seasonNumber: 2
 publishedOn: 09-16-2026
 updatedOn: 09-16-2026
 thumbnail: /images/namaste-ai/thumbnail-s2-e2.jpg
 author: Ashutosh Anand Tiwari
-episodeTitle: "Ideation & Brainstorming Features using AI"
 tags: "#AI #SoftwareDevelopment #ProjectManagement #GenerativeAI #AICoding"
 profilePic: /images/blogs/pfp2.png
 followLink: https://www.instagram.com/javascripterrr
+episodeTitle: Ideation & Brainstorming Features using AI
 ---
 So suppose you need to create a project. To do that, you will have an idea, correct?
 
