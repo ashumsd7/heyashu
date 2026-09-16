@@ -8,6 +8,7 @@ publishedOn: 09-16-2026
 updatedOn: 09-16-2026
 thumbnail: /images/namaste-ai/thumbnail-s2-e2.jpg
 author: Ashutosh Anand Tiwari
+episodeTitle: "Ideation & Brainstorming Features using AI"
 tags: "#AI #SoftwareDevelopment #ProjectManagement #GenerativeAI #AICoding"
 profilePic: /images/blogs/pfp2.png
 followLink: https://www.instagram.com/javascripterrr
@@ -138,7 +139,7 @@ Once the PRD is downloaded, read it and ask for any modification if required, an
 
 I have my PRD here:
 
-https://heyashu.in/`pdfs/namaste-ai/Make_My_Marriage_PRD.pdf`
+[Make My Marriage PRD](https://heyashu.in/pdfs/namaste-ai/Make_My_Marriage_PRD.pdf)
 
 So whatever PRD you have created, that’s the actual project management work we were doing before starting the project.
 
