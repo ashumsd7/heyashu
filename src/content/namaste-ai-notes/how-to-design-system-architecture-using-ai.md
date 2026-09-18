@@ -101,8 +101,7 @@ You can try your way. That’s why I repeat: focus on the idea and not just copy
 
 ![](/images/namaste-ai/ss3-arch.png)
 
-Download System Design Architecture PDF and digram [here](https://heyashu.in/pdfs/namaste-ai/Make_My_Marriage_System_Design.pdf)
-
+Download System Design Architecture PDF and digram [Make My Marriage System Design](https://heyashu.in/pdfs/namaste-ai/Make_My_Marriage_System_Design.pdf)
 Okay, we’ll discuss more in the next chapter.
 
 See you, bye-bye! 👋
