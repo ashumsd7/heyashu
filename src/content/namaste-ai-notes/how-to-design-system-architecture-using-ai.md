@@ -8,6 +8,7 @@ publishedOn: 09-19-2026
 updatedOn: 09-19-2026
 thumbnail: /images/namaste-ai/e4s3thumnail.jpg
 author: Ashutosh Anand Tiwari
+episodeTitle: "System Design Architecture Documentation using AI"
 tags: "#AI #SystemDesign #SoftwareArchitecture #AIDevelopment #GenerativeAI"
 profilePic: /images/blogs/pfp2.png
 followLink: https://www.instagram.com/javascripterrr
@@ -32,7 +33,7 @@ So I have created a diagram. See, this came in one go. We can change it after an
 
 We will use MongoDB Atlas database, and use its free tier for some data.
 
-Read this blog to set up MongoDB. <https://heyashu.in/digital-garden/notes/namaste-node-js/e13-create-mongo-db-database>
+Read this blog to set up MongoDB. [Create MongoDB Database](https://heyashu.in/digital-garden/notes/namaste-node-js/e13-create-mongo-db-database)
 
 As of now, we decided to use **Mongoose** to query in DB. If anything might change, we will discuss later.
 
