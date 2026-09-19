@@ -10,6 +10,7 @@ thumbnail: /images/namaste-ai/thumnails2s3.jpg
 author: Ashutosh Anand Tiwari
 tags: "#AI #UIUX #GoogleStitch #WebDesign #AIDevelopment"
 profilePic: /images/blogs/pfp2.png
+episodeTitle: "UI & UX Design using AI"
 followLink: https://www.instagram.com/javascripterrr
 ---
 So till now, we have done 4 things: **PRD, System Design, Database Design, and API Design**. All PDFs I will keep at the end.
@@ -30,7 +31,7 @@ So to design, we will use **Google Stitch**.
 
 **Google Stitch** is **an AI-powered UI design tool from Google Labs that turns text prompts, sketches, or screenshots into responsive user interfaces and front-end code**. It helps you build multi-screen mockups and design systems quickly without requiring advanced design skills.
 
-Visit here: <https://stitch.withgoogle.com/>
+[Visit Google Stitch](https://stitch.withgoogle.com/)
 
  
 
