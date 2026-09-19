@@ -10,6 +10,7 @@ thumbnail: /images/namaste-ai/thumbnial-s5-ss2.jpg
 author: Ashutosh Anand Tiwari
 tags: "#AI #DatabaseDesign #MongoDB #SoftwareDevelopment #AIDevelopment"
 profilePic: /images/blogs/pfp2.png
+episodeTitle: "Database and API Design Documentation using AI"
 followLink: https://www.instagram.com/javascripterrr
 ---
 Till now, with the help of AI, we have collected and defined our PRD, and we have also defined our System Architecture, where we shortlisted the tech we will use.
