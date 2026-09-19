@@ -8,6 +8,7 @@ publishedOn: 09-19-2026
 updatedOn: 09-19-2026
 thumbnail: /images/namaste-ai/thumnails3e7.jpg
 author: Ashutosh Anand Tiwari
+episodeTitle: "Building the Scaffold using AI"
 tags: "#AI #AICoding #SoftwareDevelopment #Scaffolding #GenerativeAI"
 profilePic: /images/blogs/pfp2.png
 followLink: https://www.instagram.com/javascripterrr
