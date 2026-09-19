@@ -29,7 +29,7 @@ I’m giving this prompt to my ChatGPT:
 
 Below I have attached the generated Database Design document. You can see it below.
 
-[Make_My_Marriage_Database_Design](https://heyashu.in/pdfs/namaste-ai/Make_My_Marriage_PRD.pdf)
+[Make_My_Marriage_Database_Design](https://heyashu.in/pdfs/namaste-ai/Make_My_Marriage_Database_Design.pdf)
 
 ### **Database Design Document**
 
