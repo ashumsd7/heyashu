@@ -4,6 +4,8 @@ Allow: /
 Disallow: /admin
 Disallow: /private/
 Disallow: /api/
+Disallow: /pvt
+Disallow: /pvt/
 
 # AI / GEO crawlers — allow indexing of garden notes
 User-agent: GPTBot

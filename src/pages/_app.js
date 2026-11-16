@@ -105,7 +105,8 @@ export default function App({ Component, pageProps }) {
             <main className="relative">
               {getLayout(<Component {...pageProps} />)}
               {router.pathname !== "/journey" &&
-              !router.pathname.startsWith("/digital-garden/namaste-dev-notes") ? (
+              !router.pathname.startsWith("/digital-garden/namaste-dev-notes") &&
+              router.pathname !== "/pvt" ? (
               <div className="fixed right-3 bottom-[50px] flex flex-col gap-6  items-end">
                 {/* <StartTour
                   onClick={() => {
