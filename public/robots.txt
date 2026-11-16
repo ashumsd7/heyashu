@@ -7,26 +7,40 @@ Disallow: /api/
 Disallow: /pvt
 Disallow: /pvt/
 
-# AI / GEO crawlers — allow indexing of garden notes
+# AI / GEO crawlers — allow indexing of garden notes, disallow private
 User-agent: GPTBot
+Disallow: /pvt
+Disallow: /pvt/
 Allow: /
 
 User-agent: ChatGPT-User
+Disallow: /pvt
+Disallow: /pvt/
 Allow: /
 
 User-agent: Google-Extended
+Disallow: /pvt
+Disallow: /pvt/
 Allow: /
 
 User-agent: anthropic-ai
+Disallow: /pvt
+Disallow: /pvt/
 Allow: /
 
 User-agent: ClaudeBot
+Disallow: /pvt
+Disallow: /pvt/
 Allow: /
 
 User-agent: PerplexityBot
+Disallow: /pvt
+Disallow: /pvt/
 Allow: /
 
 User-agent: Bytespider
+Disallow: /pvt
+Disallow: /pvt/
 Allow: /
 
 Sitemap: https://www.heyashu.in/sitemap.xml

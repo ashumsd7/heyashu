@@ -86,7 +86,35 @@ export default function PrivateAddressPage() {
     <>
       <Head>
         <title>Private Address | heyashu</title>
-        <meta name="robots" content="noindex, nofollow" />
+        {/* Comprehensive directives to block Google and all search engines */}
+        <meta
+          name="robots"
+          content="noindex, nofollow, noarchive, nosnippet, noimageindex, nocache"
+        />
+        <meta
+          name="googlebot"
+          content="noindex, nofollow, noarchive, nosnippet, noimageindex, max-snippet:0, max-image-preview:none, max-video-preview:0"
+        />
+        <meta name="googlebot-news" content="noindex, nofollow" />
+        <meta
+          name="bingbot"
+          content="noindex, nofollow, noarchive, nosnippet, noimageindex"
+        />
+        <meta name="slurp" content="noindex, nofollow" />
+        <meta name="duckduckbot" content="noindex, nofollow" />
+        <meta name="baiduspider" content="noindex, nofollow" />
+        <meta name="yandex" content="noindex, nofollow" />
+
+        {/* Prevent search engine caching and snippet display */}
+        <meta
+          httpEquiv="cache-control"
+          content="no-cache, no-store, must-revalidate"
+        />
+        <meta httpEquiv="pragma" content="no-cache" />
+        <meta httpEquiv="expires" content="0" />
+
+        {/* Prevent URL leakage via Referer header */}
+        <meta name="referrer" content="no-referrer" />
       </Head>
 
       <main className="min-h-screen w-full flex flex-col items-center justify-center p-4 sm:p-6 md:p-10 bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 transition-colors selection:bg-zinc-200 dark:selection:bg-zinc-800">

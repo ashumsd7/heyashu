@@ -3,3 +3,16 @@
 
 /workbox-*.js
   Cache-Control: no-cache, no-store, must-revalidate
+
+/pvt
+  X-Robots-Tag: noindex, nofollow, noarchive, nosnippet, noimageindex
+  Cache-Control: no-store, no-cache, must-revalidate, proxy-revalidate
+
+/pvt/*
+  X-Robots-Tag: noindex, nofollow, noarchive, nosnippet, noimageindex
+  Cache-Control: no-store, no-cache, must-revalidate, proxy-revalidate
+
+/pvt.html
+  X-Robots-Tag: noindex, nofollow, noarchive, nosnippet, noimageindex
+  Cache-Control: no-store, no-cache, must-revalidate, proxy-revalidate
+
