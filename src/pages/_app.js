@@ -55,14 +55,12 @@ export default function App({ Component, pageProps }) {
       <Head>
      
         {/* strategy="afterInteractive" */}
-        {router.pathname !== "/pvt" && (
-          <Script
-            id="adsbygoogle-init"
-            async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6990943232540646"
-            crossorigin="anonymous"
-          />
-        )}
+        <Script
+          id="adsbygoogle-init"
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6990943232540646"
+          crossorigin="anonymous"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -98,9 +96,7 @@ export default function App({ Component, pageProps }) {
             }),
           }}
         />
-        {router.pathname !== "/pvt" && (
-          <link rel="canonical" href={canonicalUrl} />
-        )}
+        <link rel="canonical" href={canonicalUrl} />
       </Head>
       <PlausibleProvider domain="heyashu.in">
         <GoogleAnalytics/>
